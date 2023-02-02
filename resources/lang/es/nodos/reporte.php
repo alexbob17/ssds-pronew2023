@@ -1,0 +1,28 @@
+<?php
+
+return [
+		'fecha_inicial'		=> 'Fecha Inicial',
+		'fecha_final'		=> 'Fecha Final',
+		'username'			=> 'Seleccione una opción'	,
+		'consecutivo'		=> 'Consecutivo',
+		'periodo'			=> 'Período',
+		'estado'			=> 'Estado',
+		'fecha_atencion'	=> 'Fecha de atención',
+		'fecha_creacion'	=> 'Fecha de registro sistema',
+		'nombre_cliente'		=> 'Nombre del cliente',
+		'no_contrato'			=> 'No. Contrato',
+		'ubicacion_geografica'	=> 'Ubicación geográfica',
+		'barrio'				=> 'Barrio',
+		'direccion'				=> 'Dirección',
+		'fecha_registro_dano'	=> 'Fecha de registro del daño',
+		'codigo_dano'			=> 'Código de daño',
+		'nodo_saturado'			=> 'Nodo saturado',
+		'nomenclatura_nodo'		=> 'Nomenclatura nodo',
+		'fecha_fin_afectacion'	=> 'Fecha de fin de la afectación',
+		'estado_gestion'		=> 'Estado de la gestión',
+		'comentarios'			=> 'Comentarios',
+		'dias_dilacion'		=> 'Dilación (días)',
+		'login_usuario'		=> 'Login',
+		'nombre_usuario'	=> 'Nombre de Usuario',
+		'observaciones'		=> 'Observaciones',
+];

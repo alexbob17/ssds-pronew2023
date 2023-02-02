@@ -1,0 +1,27 @@
+.modal {
+	text-align: center;
+	padding: 0 !important;
+}
+
+.modal:before {
+	content: '';
+	display: inline-block;
+	height: 50%;
+	margin-right: -4px;
+}
+
+.modal-dialog {
+	display: inline-block;
+	text-aling: left;
+	vertical-align: middle;
+}
+
+.modal-title {
+	margin-left: 13px;
+}
+
+.fade {
+	opacity: 0;
+	-webkit-transition: opacity 1s linear;
+	transition: opacity 0.5s linear;
+}

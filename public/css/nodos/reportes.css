@@ -1,0 +1,41 @@
+.box.box-solid > .box-header a.btn-success:hover {
+    background: #008d4c;
+}
+
+#resultados .dataTables_wrapper div.row:nth-child(3){
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+#resultados table.dataTable {
+    margin-top: 0 !important;
+}
+
+#resultados table.dataTable .dataTables_empty {
+	font-size: 16px;
+	font-style: italic;
+}
+
+#resultados table.dataTable th,
+#resultados table.dataTable td {
+	white-space: nowrap;
+}
+
+#resultados table.dataTable td:nth-child(19) {
+	display: table;
+	table-layout: fixed;
+	width: 400px;
+	white-space: nowrap;
+}
+
+#resultados table.dataTable td:nth-child(19) > span {
+	display: table-cell;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 400px;
+}
+
+#resultados table.dataTable td:nth-child(19):hover > span {
+	overflow: visible;
+	white-space: pre-line;
+}

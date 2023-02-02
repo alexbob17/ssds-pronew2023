@@ -1,0 +1,26 @@
+<?php
+
+return [
+		'ticket'			=> 'Ticket',
+		'periodo'			=> 'Período',
+		'estado'			=> 'Estado',
+		'fecha_atencion'	=> 'Fecha de atención',
+		'fecha_creacion'	=> 'Fecha de registro',
+		'nombre_cliente'	=> 'Nombre del cliente',
+		'tipo_tecnico'		=> 'Tipo de técnico',
+		'codigo_tecnico'	=> 'Código del técnico',
+		'nombre_tecnico'	=> 'Nombre del técnico',
+		'tecnologia'		=> 'Tecnología',
+		'id_producto'		=> 'ID Producto',
+		'id_solicitud'		=> 'ID Solicitud/Daño',
+		'lider_tecnica'		=> 'Líder de área técnica',
+		'causa_reclamo'		=> 'Causal del reclamo',
+		'login_usuario'		=> 'Login',
+		'nombre_usuario'	=> 'Nombre de Usuario',
+		'observaciones'		=> 'Observaciones',
+		'resolucion_tecnica'=> 'Resolución Área Técnica',
+		'login_creacion'	=> 'Login Registro',
+		'usuario_creacion'	=> 'Usuario de Registro',
+		'login_atencion'	=> 'Login Atención',
+		'usuario_atencion'	=> 'Usuario de Atención',
+];

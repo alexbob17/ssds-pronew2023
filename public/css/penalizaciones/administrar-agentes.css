@@ -1,0 +1,28 @@
+.tooltip {
+	position: fixed;
+}
+
+.box.box-solid > .box-header a.btn-info:hover {
+    background: #00acd6;
+}
+
+#agentes .dataTables_wrapper div.row:nth-child(3){
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+#agentes table.dataTable {
+    margin-top: 0 !important;
+}
+
+#agentes table.dataTable .dataTables_empty {
+	text-align: left;
+	font-size: 16px;
+	font-style: italic;
+	padding-left: 50px;
+}
+
+#agentes table.dataTable th,
+#agentes table.dataTable td {
+	white-space: nowrap;
+}

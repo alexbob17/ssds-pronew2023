@@ -1,0 +1,27 @@
+<?php
+
+return [
+		'nombre_cliente'		=> 'Nombre del cliente',
+		'ph_nombre_cliente'		=> 'Ingrese el nombre del cliente',
+		'no_contrato'			=> 'No. Contrato',
+		'ph_no_contrato'		=> 'Ingrese el número de contrato',
+		'ubicacion_geografica'	=> 'Ubicación geográfica',
+		'ph_ubicacion_geografica'	=> 'Ingrese la ubicación geográfica',
+		'barrio'				=> 'Barrio',
+		'ph_barrio'				=> 'Ingrese la el barrio',
+		'direccion'				=> 'Dirección',
+		'ph_direccion'			=> 'Ingrese la dirección',
+		'fecha_registro_dano'	=> 'Fecha de registro del daño',
+		'ph_direccion'			=> 'Ingrese la dirección',
+		'codigo_dano'			=> 'Código de daño',
+		'ph_codigo_dano'		=> 'Ingrese el código de daño',
+		'nodo_saturado'			=> 'Nodo saturado',
+		'ph_nodo_saturado'		=> 'Ingrese el nodo saturado',
+		'nomenclatura_nodo'		=> 'Nomenclatura nodo',
+		'ph_nomenclatura_nodo'	=> 'Ingrese la nomenclatura nodo',
+		'fecha_fin_afectacion'	=> 'Fecha de fin de la afectación',
+		'estado_gestion'		=> 'Estado de la gestión',
+		'ph_estado_gestion'		=> 'Seleccione una opción',
+		'ph_comentarios'		=> 'Ingrese las comentarios del caso',
+		'historial'				=> 'Historial',
+];

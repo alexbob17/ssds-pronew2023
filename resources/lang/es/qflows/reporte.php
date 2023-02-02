@@ -1,0 +1,28 @@
+<?php
+
+return [
+		'fecha_inicial'		=> 'Fecha Inicial',
+		'fecha_final'		=> 'Fecha Final',
+		'username'			=> 'Seleccione una opción'	,
+		'consecutivo'		=> 'Consecutivo',
+		'periodo'			=> 'Período',
+		'fecha_atencion'	=> 'Fecha de Atención',
+		'fecha_registro'	=> 'Fecha de Registro Qflow',
+		'fecha_recibido'	=> 'Fecha de Recibido Bandeja',
+		'fecha_corte'		=> 'Fecha de Corte',
+		'no_caso_qflow'		=> 'No. Caso Q-Flow',
+		'tienda'			=> 'Tienda',
+		'asesor'			=> 'Asesor',
+		'tipo_servicio'		=> 'Tipo de Servicio',
+		'no_producto'		=> 'No. Producto/Contrato',
+		'no_dano_solicitud'	=> 'No. Daño/Solicitud',
+		'tipologia'			=> 'Tipología',
+		'workflow'			=> 'Workflow',
+		'medio_ingreso'		=> 'Medio de Ingreso',
+		'tipo_caso'			=> 'Tipo de caso',
+		'fecha_creacion'	=> 'Fecha de creación',
+		'dias_dilacion'		=> 'Dilación (días)',
+		'login_usuario'		=> 'Login',
+		'nombre_usuario'	=> 'Nombre de Usuario',
+		'observaciones'		=> 'Observaciones',
+];

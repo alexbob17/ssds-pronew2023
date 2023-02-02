@@ -1,0 +1,27 @@
+<?php
+
+return [
+		'no_caso_qflow'		=> 'No. Caso Q-Flow',
+		'ph_no_caso_qflow'	=> 'Ingrese el número de caso Q-Flow',
+		'fecha_registro'	=> 'Fecha de Registro Qflow',
+		'fecha_recibido'	=> 'Fecha de Recibido Bandeja',
+		'tipo_servicio'		=> 'Tipo de Servicio',
+		'ph_tipo_servicio'	=> 'Seleccione una opción',
+		'no_producto'		=> 'No. Producto/Contrato',
+		'ph_no_producto'	=> 'Ingrese el número de producto',
+		'asesor'			=> 'Asesor',
+		'ph_asesor'			=> 'Ingrese el nombre del asesor',
+		'id_tienda'			=> 'Tienda',
+		'ph_id_tienda'		=> 'Seleccione una opción',
+		'tipologia'			=> 'Tipología',
+		'ph_tipologia'		=> 'Seleccione una opción',
+		'tipo_caso'			=> 'Tipo de caso',
+		'ph_tipo_caso'		=> 'Seleccione una opción',
+		'no_dano_solicitud'	=> 'No. Daño/Solicitud',
+		'ph_no_dano_solicitud'	=> 'Ingrese el número de Daño/Solicitud',
+		'workflow'			=> 'Workflow',
+		'ph_workflow'		=> 'Seleccione una opción',
+		'medio_ingreso'		=> 'Medio de Ingreso',
+		'ph_medio_ingreso'	=> 'Seleccione una opción',
+		'ph_observaciones'	=> 'Ingrese las observaciones',
+];
