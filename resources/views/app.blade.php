@@ -11,6 +11,13 @@
     <link href="{{ asset('/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- Ionicons 2.0.1 -->
     <link href="{{ asset('/plugins/ionicons/css/ionicons.min.css') }}" rel="stylesheet" type="text/css" />
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('../public/img/img/logo.ico') }}">
+
+
+    <link rel="shortcut icon" href="{{ asset('../public/img/logo.ico') }}">
+    <link rel="icon" type="image/png" href="{{ asset('../public/img/logo.ico') }}">
+
     <!-- iCheck -->
     <!-- iCheck for checkboxes and radio inputs -->
     <link href="{{ asset('/plugins/iCheck/all.css') }}" rel="stylesheet" type="text/css" />
@@ -29,7 +36,7 @@
         <![endif]-->
 </head>
 
-<body class="skin-black">
+<body class="skin-black-light">
     <div class="wrapper">
         @include('includes.header')
         @include('includes.sidebar')
@@ -39,7 +46,7 @@
             <section class="content-header">
                 <h1>{{{ $page_title }}}</h1>
                 <ol class="breadcrumb">
-                    <li>{!! Html::decode(link_to('/','<i class="fa fa-dashboard"></i> Home')) !!}</li>
+                    <li>{!! Html::decode(link_to('/','<i class="fa fa-dashboard"></i> Inicio')) !!}</li>
                     @if (isset($breadcrumb))
                     @foreach ($breadcrumb as $url_link)
                     @if(isset($url_link['route']))

@@ -25,30 +25,11 @@
     align-items: center;">
     <div class="login-box">
         <div class="login-logo" ">
-            <!-- <p style=" color:white"><strong>S</strong>istema de <strong>S</strong>eguimiento<br> de
-            <strong>D</strong>espacho
-            </p> -->
-            <img src="https://1000marcas.net/wp-content/uploads/2021/02/Claro-Logo.png" alt=""
-                style="width: 300px;margin-bottom: 1rem;">
+            
+            <img src=" {{ asset('../public/img/Claro-logo.png') }}" alt="Logo Claro" style="width: 250px;">
+            <p class="text-stroke"> SISTEMA SEGUIMIENTO DESPACHO</p>
         </div><!-- /.login-logo -->
-        <div class=" login-box-body login-update" style="
-              height: 420px;
-              width: 360px;
-              display: flex;
-              color: white;
-              background-color: rgba(255, 255, 255, 0.13);
-              /* position: absolute;
-              transform: translate(-50%, -50%);
-              top: 50%;
-              left: 50%; */
-              border-radius: 10px;
-              border: 2px solid rgba(255, 255, 255, 0.1);
-              box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-              padding: 50px 35px;
-              flex-direction: column;
-              align-content: center;
-              justify-content: center;
-              align-items: stretch;">
+        <div class=" login-box-body login-update" style="">
             @if (count($errors) > 0)
             <div class="alert alert-danger alert-dismissable" style="padding:0px !important">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -62,30 +43,14 @@
             <p class="login-box-msg">Iniciar Sesion</p>
             {!! Form::open(['url' => 'login']) !!}
             <div class="form-group has-feedback">
-                {!! Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Usuario','style' =>
-                'display: block;
-                height: 50px;
-                width: 100%;
-                background-color: rgba(255, 255, 255, 0.07);
-                border-radius: 3px;
-                padding: 0 10px;
-                margin-top: 8px;
-                font-size: 14px;
-                font-weight: 300;'])
+                {!! Form::text('username', null, ['class' => 'form-control input-login', 'placeholder' =>
+                'Usuario'])
                 !!}
                 <span class="glyphicon glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Contraseña','style' =>
-                'display: block;
-                height: 50px;
-                width: 100%;
-                background-color: rgba(255, 255, 255, 0.07);
-                border-radius: 3px;
-                padding: 0 10px;
-                margin-top: 8px;
-                font-size: 14px;
-                font-weight: 300;'])
+                {!! Form::password('password', ['class' => 'form-control input-login', 'placeholder' =>
+                'Contraseña'])
                 !!}
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
@@ -98,17 +63,7 @@
                     </div>
                 </div><!-- /.col -->
                 <div class="">
-                    {!! Form::submit('Entrar', ['class' => 'btn btn-warning btn-block ','style' => ' margin-top:
-                    6rem;
-                    /* width: 90%; */
-                    background-color: #ffffff;
-                    color: #080710;
-                    padding: 15px 0;
-                    font-size: 18px;
-                    font-weight: 600;
-                    border:1px solid black;
-                    border-radius: 5px;
-                    cursor: pointer; ']) !!}
+                    {!! Form::submit('Ingresar', ['class' => 'btn-block btn-login']) !!}
                 </div><!-- /.col -->
             </div>
             {!! Form::close() !!}
