@@ -34,6 +34,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/login', 'Auth\AuthController@login');
 	Route::get ('/logout', 'Auth\AuthController@logout');
 	
+	
 	Route::controllers([
 			'inconsistencias'	=> 'InconsistenciasController',
 			'penalizaciones'	=> 'PenalizacionesController',
@@ -41,5 +42,6 @@ Route::group(['middleware' => ['web']], function () {
 			'usuarios'			=> 'UsuariosController',
 			'nodos'				=> 'NodosSaturadosController',
 			'reclamos'			=> 'ReclamosTecnicaController',
+			'llamadas'			=> 'LlamadasController',
 	]);
 });

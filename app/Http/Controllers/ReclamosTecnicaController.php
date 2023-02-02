@@ -66,7 +66,7 @@ class ReclamosTecnicaController extends Controller {
 		];		
 		
 		return view('reclamos/registro')
-			->with('page_title', 'Reclamos Area Tecnica - Registro de Casos')
+			->with('page_title', 'Registro Casos Qflow')
 			->with('navigation', 'reclamos')
 			->with('breadcrumb', $breadcrumb)
 			->with('tipos_tecnicos', $this->tipos_tecnicos)
