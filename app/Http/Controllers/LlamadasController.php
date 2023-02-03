@@ -41,11 +41,11 @@ class LlamadasController extends Controller
 
     public function getReporteLlamadas() {
 		$breadcrumb = [
-				['name' => 'Llamadas - Reporte ' ]
+				['name' => 'Reporte - Llamadas ' ]
 		];
 	
 		return view('llamadas/reporte_llamadas')
-			->with('page_title', 'Llamadas - Reporte')
+			->with('page_title', 'Reporte - Llamadas')
 			->with('navigation', 'llamadas')
 			->with('breadcrumb', $breadcrumb);
 	}
