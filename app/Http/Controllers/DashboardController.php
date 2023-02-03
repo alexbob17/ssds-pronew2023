@@ -2,6 +2,7 @@
 
 use Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use SSD\Repositories\UsuarioRepository;
 
 class DashboardController extends Controller {
@@ -24,6 +25,7 @@ class DashboardController extends Controller {
 	 *
 	 * @return void
 	 */
+	
 	public function __construct(UsuarioRepository $usuario_gestion)
 	{
 		$this->usuario_gestion = $usuario_gestion;
@@ -35,6 +37,18 @@ class DashboardController extends Controller {
 	 *
 	 * @return Response
 	 */
+
+	// public function getDatosDashboard(){
+	// 	$page_title = "Dashboard";
+		
+	// 	$breadcrumb = [
+	// 			['name' => 'Dashboard' ]
+	// 	];
+		
+		
+
+	// }
+
 	public function index()
 	{
 		$page_title = "Dashboard";
@@ -43,29 +57,33 @@ class DashboardController extends Controller {
 				['name' => 'Dashboard' ]
 		];
 		
-		//Just get the headers if we can or else use the SERVER global
-		if ( function_exists( 'apache_request_headers' ) ) {
-			$headers = apache_request_headers();
-		} else {
-			$headers = $_SERVER;
-		}
-	
-		//Get the forwarded IP if it exists
-		if ( array_key_exists( 'X-Forwarded-For', $headers ) 
-				&& filter_var( $headers['X-Forwarded-For'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ) {
-			$ip_direction = $headers['X-Forwarded-For'];
-		} elseif ( array_key_exists( 'HTTP_X_FORWARDED_FOR', $headers ) 
-				&& filter_var( $headers['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 )) {
-			$ip_direction = $headers['HTTP_X_FORWARDED_FOR'];
-		} else {	
-			$ip_direction = filter_var( $_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 );
-		}
+		$sql = 'SELECT COUNT(*) FROM reclamos_tecnica WHERE estado="pendiente" AND YEAR(fecha_creacion)=2023';
+        $result = DB::select($sql);
+		$Rpendientes = collect($result);
+		
+		$sqlInconsistencia = 'SELECT COUNT(*) FROM inconsistencias WHERE estado="atendido" AND YEAR(fecha_creacion)=2023';
+        $result1 = DB::select($sqlInconsistencia);
+		$RAtendido= collect($result1);
+
+		$sqlPenalizacion = 'SELECT COUNT(*) FROM penalizaciones WHERE YEAR(fecha_reporte)=2023';
+        $result2 = DB::select($sqlPenalizacion);
+		$RPenalizacion= collect($result2);
+
 		
 		
 		return view('home')
 			->with('page_title', $page_title)
 			->with('breadcrumb', $breadcrumb)
-			->with('ip_direction', $ip_direction);
+			->with('Rpendientes', $Rpendientes)
+			->with('RAtendido', $RAtendido)
+			->with('RPenalizacion', $RPenalizacion);
+
+		
+		
+		// return view('home')
+		// 	->with('page_title', $page_title)
+		// 	->with('breadcrumb', $breadcrumb)
+		// 	->with('ip_direction', $ip_direction);
 	}
 	
 	public function showChangePasswordForm() {

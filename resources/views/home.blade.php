@@ -20,12 +20,44 @@
 				line-height: 1;
 				font-weight: 500;
 				font-family: 'Poppins';">Bienvenido, {{{ Auth::user()->first_name }}} {{{ Auth::user()->last_name }}}.</h3>
-                <div class="box-tools pull-right">
+                <!-- <div class="box-tools pull-right">
                     <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                </div><!-- /.box-tools -->
+                </div> -->
             </div>
-            <div class="box-body">
-                <p>Tu IP actual es: {{{ $ip_direction }}}</p>
+
+        </div>
+
+
+        <div class="col-lg-12">
+            <div class="single_element">
+                <div class="quick_activity">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="quick_activity_wrap">
+                                <div class="single_quick_activity">
+                                    <h4>Reclamos Pendientes</h4>
+                                    <h3><span class="counter">{{ $Rpendientes[0]->{"COUNT(*)"} }}</span> </h3>
+                                    <p> Año 2023</p>
+                                </div>
+                                <div class="single_quick_activity">
+                                    <h4>Inconsistencias Atendidas</h4>
+                                    <h3><span class="counter">{{ $RAtendido[0]->{"COUNT(*)"} }}</span> </h3>
+                                    <p>Año 2023</p>
+                                </div>
+                                <div class="single_quick_activity">
+                                    <h4>Total Penalizaciónes</h4>
+                                    <h3><span class="counter">{{ $RPenalizacion[0]->{"COUNT(*)"} }}</span> </h3>
+                                    <p>Año 2023</p>
+                                </div>
+                                <div class="single_quick_activity">
+                                    <h4>Registro Llamadas</h4>
+                                    <h3><span class="counter">0</span> </h3>
+                                    <p>Año 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
