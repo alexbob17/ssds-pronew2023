@@ -50,13 +50,5 @@ class LlamadasController extends Controller
 			->with('breadcrumb', $breadcrumb);
 	}
     
-    // public function getReporteAtendidos() {
-	// 	$breadcrumb = [
-	// 			['name' => 'Llamadas - Reporte Atendidos' ]
-	// 	];
-	
-	// 	return view('llamadas/reporte_atendidos')
-	// 		->with('page_title', 'Llamadas - Reporte Atendidos');
-	// }
 
 }
