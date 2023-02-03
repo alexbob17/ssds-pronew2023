@@ -17,17 +17,17 @@
                     @else
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-mobile"></i> <span>Registro Llamadas</span> <i
+                            <i class="fa fa-mobile"></i> <span>Instalacion Servicio</span> <i
                                 class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
                             @endif
                             @role(['admin', 'operador'])
-                            <li>{!! Html::decode(link_to('/llamadas/buscar','<i class="fa fa-search"></i> Buscar')) !!}
+                            <li>{!! Html::decode(link_to('/llamadas/buscar','<i class="fa fa-search"></i> GPON')) !!}
                             </li>
                             @endrole
                             @role(['admin', 'operador'])
-                            <li>{!! Html::decode(link_to('/llamadas/registro','<i class="fa fa-book"></i> Registro'))
+                            <li>{!! Html::decode(link_to('/llamadas/registro','<i class="fa fa-book"></i> HFC'))
                                 !!}</li>
                             @endrole
                             @role(['admin'])

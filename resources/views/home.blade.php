@@ -37,12 +37,12 @@
                                 <div class="single_quick_activity">
                                     <h4>Reclamos Pendientes</h4>
                                     <h3><span class="counter">{{ $Rpendientes[0]->{"COUNT(*)"} }}</span> </h3>
-                                    <p> Año 2023</p>
+                                    <p> Enero 2023</p>
                                 </div>
                                 <div class="single_quick_activity">
                                     <h4>Inconsistencias Atendidas</h4>
                                     <h3><span class="counter">{{ $RAtendido[0]->{"COUNT(*)"} }}</span> </h3>
-                                    <p>Año 2023</p>
+                                    <p>Enero 2023</p>
                                 </div>
                                 <div class="single_quick_activity">
                                     <h4>Total Penalizaciónes</h4>

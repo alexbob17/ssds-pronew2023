@@ -145,6 +145,8 @@ class InconsistenciasController extends Controller {
 			'Otros',
 	];
 	
+
+	
 	protected $accion_incorrecta = [
 			'Incidente por Estado 14 en TV HFC NO APLICA',
 			'Incidente con Impedimento NO APLICA',
