@@ -35,6 +35,7 @@ class LlamadasController extends Controller
 			->with('navigation', 'llamadas')
 			->with('breadcrumb', $breadcrumb)
 			->with('opciones_busqueda', $opciones_busqueda);
+			
 	}
 
 
