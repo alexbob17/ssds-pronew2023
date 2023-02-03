@@ -16,7 +16,7 @@ class LlamadasController extends Controller
 		];		
 		
 		return view('llamadas/registro')
-			->with('page_title', 'Llamadas - Registro de Llamadas');
+			->with('page_title', 'Instalacion - Servicio HFC');
 	}
 
     public function  getBuscar() {
