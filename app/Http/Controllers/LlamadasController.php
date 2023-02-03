@@ -31,7 +31,7 @@ class LlamadasController extends Controller
 		];
 	
 		return view('llamadas/buscar')
-			->with('page_title', 'Búsqueda - Llamadas')
+			->with('page_title', 'Instalacion Servicio - GPON')
 			->with('navigation', 'llamadas')
 			->with('breadcrumb', $breadcrumb)
 			->with('opciones_busqueda', $opciones_busqueda);
@@ -41,11 +41,11 @@ class LlamadasController extends Controller
 
     public function getReporteLlamadas() {
 		$breadcrumb = [
-				['name' => 'Reporte - Llamadas ' ]
+				['name' => 'Instalacion Servicio - ADSL' ]
 		];
 	
 		return view('llamadas/reporte_llamadas')
-			->with('page_title', 'Reporte - Llamadas')
+			->with('page_title', 'Instalacion Servicio - ADSL')
 			->with('navigation', 'llamadas')
 			->with('breadcrumb', $breadcrumb);
 	}

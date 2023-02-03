@@ -32,7 +32,7 @@
                             @endrole
                             @role(['admin'])
                             <li>{!! Html::decode(link_to('/llamadas/reporte-llamadas','<i
-                                    class="fa fa-file-excel-o"></i> Reporte Llamadas')) !!}</li>
+                                    class="fa fa-file-excel-o"></i> ADSL')) !!}</li>
                             @endrole
                         </ul>
                     </li>
