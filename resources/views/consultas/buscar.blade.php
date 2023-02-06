@@ -4,14 +4,12 @@
 
 {!! Form::modal('Advertencia', 'Ingrese el valor a buscar.', 'Aceptar') !!}
 
-@include('reclamos.partials.modal-mostrar')
-
 <div class="row">
     <div class="col-md-12">
         <!-- general form elements -->
-        <div class="box box-primary">
+        <div class="box" style:"">
             <div class="box-header with-border">
-                <h3 class="box-title">Búsqueda de llamadas atendidas</h3>
+                <h3 class="box-title">Búsqueda de Casos Atendidos</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -38,12 +36,19 @@
                 <table class="table table-bordered table-hover table-result">
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>{!! trans('inconsistencias/buscar.consecutivo') !!}</th>
+                            <th>{!! trans('inconsistencias/buscar.fecha_atencion') !!}</th>
+                            <th>{!! trans('inconsistencias/buscar.no_incidente') !!}</th>
+                            <th>{!! trans('inconsistencias/buscar.tipo_servicio') !!}</th>
+                            <th>{!! trans('inconsistencias/buscar.tipo_inconsistencia') !!}</th>
+                            <th>{!! trans('inconsistencias/buscar.fecha_incidente') !!}</th>
+                            <th>{!! trans('inconsistencias/reporte.no_orden') !!}</th>
+                            <th>{!! trans('inconsistencias/buscar.login_usuario') !!}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="table-empty" colspan="9">Ingrese los datos de la búsqueda</td>
+                            <td class="table-empty" colspan="8">Ingrese los datos de la búsqueda</td>
                         </tr>
                     </tbody>
                 </table>
@@ -61,10 +66,7 @@
 <link rel="stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}">
 <!-- User definided -->
 <link rel="stylesheet" href="{{ asset('/css/center-modal.css') }}">
-<link rel="stylesheet" href="{{ asset('/css/reclamos/modal-mostrar.css') }}">
-<style>
-
-</style>
+<link rel="stylesheet" href="{{ asset('/css/inconsistencias/buscar.css') }}">
 @endsection
 
 @section('scripts')
@@ -72,6 +74,5 @@
 <script src="{{ asset('/plugins/select2/select2.full.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/select2/i18n/es.js') }}" type="text/javascript"></script>
 <!-- User definided -->
-<script src="{{ asset('/js/reclamos/modal-mostrar.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/js/reclamos/buscar.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/js/inconsistencias/buscar.js?2.4.0') }}" type="text/javascript"></script>
 @endsection

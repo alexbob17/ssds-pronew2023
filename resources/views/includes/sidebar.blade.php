@@ -7,195 +7,364 @@
         <ul class="sidebar-menu">
             <li class="header">MENÚ</li>
             @role(['admin','operador'])
-            @if(isset($navigation) && $navigation == 'Llamadas')
+            @if(isset($navigation) && $navigation == 'instalacionservicio')
             <li class="treeview active">
                 <a href="#">
-                    <i class="fa fa-wrench"></i> <span>Registro Llamadas</span> <i
+                    <i class="fa fa-wrench"></i> <span>Instalacion Servicio</span> <i
                         class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu menu-open" style="display: block">
                     @else
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-mobile"></i> <span>Instalacion Servicio</span> <i
+                            <i class="fa fa-cogs"></i> <span>Instalacion Servicio</span> <i
                                 class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
                             @endif
+
                             @role(['admin', 'operador'])
-                            <li>{!! Html::decode(link_to('/llamadas/buscar','<i class="fa fa-search"></i> GPON')) !!}
-                            </li>
-                            @endrole
-                            @role(['admin', 'operador'])
-                            <li>{!! Html::decode(link_to('/llamadas/registro','<i class="fa fa-book"></i> HFC'))
+                            <li>{!! Html::decode(link_to('/instalacionservicio/hfc','<i class="fa fa-book"></i>
+                                HFC'))
                                 !!}</li>
                             @endrole
-                            @role(['admin'])
-                            <li>{!! Html::decode(link_to('/llamadas/reporte-llamadas','<i
-                                    class="fa fa-file-excel-o"></i> ADSL')) !!}</li>
+                            @role(['admin', 'operador'])
+                            <li>{!! Html::decode(link_to('/instalacionservicio/gpon','<i class="fa fa-book"></i>
+                                GPON'))
+                                !!}</li>
+                            @endrole
+                            @role(['admin', 'operador'])
+                            <li>{!! Html::decode(link_to('/instalacionservicio/adsl','<i class="fa fa-book"></i>
+                                ADSL'))
+                                !!}</li>
+                            @endrole
+                            @role(['admin', 'operador'])
+                            <li>{!! Html::decode(link_to('/instalacionservicio/cobre','<i class="fa fa-book"></i>
+                                COBRE'))
+                                !!}</li>
+                            @endrole
+                            @role(['admin', 'operador'])
+                            <li>{!! Html::decode(link_to('/instalacionservicio/cobre','<i class="fa fa-book"></i>
+                                DTH'))
+                                !!}</li>
                             @endrole
                         </ul>
                     </li>
                     @endrole
-                    @role(['admin','operador', 'operador_n2'])
-                    @if(isset($navigation) && $navigation == 'inconsistencias')
+                    @role(['admin','operador'])
+                    @if(isset($navigation) && $navigation == 'postventastraslados')
                     <li class="treeview active">
                         <a href="#">
-                            <i class="fa fa-bug"></i> <span>Inconsistencias</span> <i
+                            <i class="fa fa-wrench"></i> <span>PostVentas Traslados</span> <i
                                 class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu menu-open" style="display: block">
                             @else
                             <li class="treeview">
                                 <a href="#">
-                                    <i class="fa fa-bug"></i> <span>Inconsistencias</span> <i
+                                    <i class="fa fa-tty"></i> <span>PostVentas Traslados</span> <i
                                         class="fa fa-angle-left pull-right"></i>
                                 </a>
                                 <ul class="treeview-menu">
                                     @endif
-                                    @role(['admin','operador'])
-                                    <li>{!! Html::decode(link_to('/inconsistencias/buscar','<i class="fa fa-search"></i>
-                                        Búsqueda de Casos')) !!}</li>
+
+                                    @role(['admin', 'operador'])
+                                    <li>{!! Html::decode(link_to('/postventastraslados/hfc','<i class="fa fa-book"></i>
+                                        HFC'))
+                                        !!}</li>
                                     @endrole
                                     @role(['admin', 'operador'])
-                                    <li>{!! Html::decode(link_to('/inconsistencias/registro','<i class="fa fa-book"></i>
-                                        Registro')) !!}</li>
+                                    <li>{!! Html::decode(link_to('/postventastraslados/gpon','<i class="fa fa-book"></i>
+                                        GPON'))
+                                        !!}</li>
                                     @endrole
-                                    @role(['admin'])
-                                    <li>{!! Html::decode(link_to('/inconsistencias/reporte-atendidos','<i
-                                            class="fa fa-file-excel-o"></i> Reporte Atendidos')) !!}</li>
+                                    @role(['admin', 'operador'])
+                                    <li>{!! Html::decode(link_to('/postventastraslados/adsl','<i class="fa fa-book"></i>
+                                        ADSL'))
+                                        !!}</li>
                                     @endrole
-                                    @role(['admin'])
-                                    <li>{!! Html::decode(link_to('/inconsistencias/reporte-pendientes','<i
-                                            class="fa fa-file-excel-o"></i> Reporte Pendientes')) !!}</li>
+                                    @role(['admin', 'operador'])
+                                    <li>{!! Html::decode(link_to('/postventastraslados/cobre','<i
+                                            class="fa fa-book"></i>
+                                        COBRE'))
+                                        !!}</li>
+                                    @endrole
+                                    @role(['admin', 'operador'])
+                                    <li>{!! Html::decode(link_to('/postventastraslados/dth','<i class="fa fa-book"></i>
+                                        DTH'))
+                                        !!}</li>
                                     @endrole
                                 </ul>
                             </li>
                             @endrole
+
+
                             @role(['admin','operador'])
-                            @if(isset($navigation) && $navigation == 'penalizaciones')
+                            @if(isset($navigation) && $navigation == 'desperfecto')
                             <li class="treeview active">
                                 <a href="#">
-                                    <i class="fa fa-frown-o"></i> <span>Penalización 0</span> <i
+                                    <i class="fa fa-life-ring"></i> <span>Daños</span> <i
                                         class="fa fa-angle-left pull-right"></i>
                                 </a>
                                 <ul class="treeview-menu menu-open" style="display: block">
                                     @else
                                     <li class="treeview">
                                         <a href="#">
-                                            <i class="fa fa-frown-o"></i> <span>Penalización 0</span> <i
+                                            <i class="fa fa-life-ring"></i> <span>Daños</span> <i
                                                 class="fa fa-angle-left pull-right"></i>
                                         </a>
                                         <ul class="treeview-menu">
                                             @endif
+
                                             @role(['admin', 'operador'])
-                                            <li>{!! Html::decode(link_to('/penalizaciones/registro','<i
+                                            <li>{!! Html::decode(link_to('/desperfecto/preparacionserviciosefectiva','<i
                                                     class="fa fa-book"></i>
-                                                Registro')) !!}</li>
+                                                P.Servicios Efectiva'))
+                                                !!}</li>
                                             @endrole
-                                            @role(['admin'])
-                                            <li>{!! Html::decode(link_to('/penalizaciones/reportes','<i
-                                                    class="fa fa-file-excel-o"></i> Reporte')) !!}</li>
+                                            @role(['admin', 'operador'])
+                                            <li>{!!
+                                                Html::decode(link_to('/desperfecto/preparacionserviciotransferencia','<i
+                                                    class="fa fa-book"></i>
+                                                P.Servicios Transferencia'))
+                                                !!}</li>
                                             @endrole
-                                            @role(['admin'])
-                                            <li>{!! Html::decode(link_to('/penalizaciones/administrar-agentes','<i
-                                                    class="fa fa-users"></i> Agentes')) !!}</li>
-                                            @endrole
+
                                         </ul>
                                     </li>
                                     @endrole
+
+
                                     @role(['admin','operador'])
-                                    @if(isset($navigation) && $navigation == 'reclamos')
+                                    @if(isset($navigation) && $navigation == 'consulta')
                                     <li class="treeview active">
                                         <a href="#">
-                                            <i class="fa fa-wrench"></i> <span>Reclamos Area Tecnica</span> <i
+                                            <i class="fa fa-search"></i> <span>Consultas</span> <i
                                                 class="fa fa-angle-left pull-right"></i>
                                         </a>
                                         <ul class="treeview-menu menu-open" style="display: block">
                                             @else
                                             <li class="treeview">
                                                 <a href="#">
-                                                    <i class="fa fa-wrench"></i> <span>Reclamos Area Tecnica</span> <i
+                                                    <i class="fa fa-search"></i> <span>Consultas</span> <i
                                                         class="fa fa-angle-left pull-right"></i>
                                                 </a>
                                                 <ul class="treeview-menu">
                                                     @endif
+
                                                     @role(['admin', 'operador'])
-                                                    <li>{!! Html::decode(link_to('/reclamos/buscar','<i
-                                                            class="fa fa-search"></i> Buscar')) !!}</li>
-                                                    @endrole
-                                                    @role(['admin', 'operador'])
-                                                    <li>{!! Html::decode(link_to('/reclamos/registro','<i
-                                                            class="fa fa-book"></i> Registro')) !!}</li>
-                                                    @endrole
-                                                    @role(['admin'])
-                                                    <li>{!! Html::decode(link_to('/reclamos/reporte-atendidos','<i
-                                                            class="fa fa-file-excel-o"></i> Reporte Atendidos')) !!}
-                                                    </li>
-                                                    @endrole
-                                                    @role(['admin', 'operador'])
-                                                    <li>{!! Html::decode(link_to('/reclamos/reporte-pendientes','<i
-                                                            class="fa fa-file-excel-o"></i> Reporte Pendientes')) !!}
-                                                    </li>
+                                                    <li>{!!
+                                                        Html::decode(link_to('/consulta/buscar','<i
+                                                            class="fa fa-book"></i>
+                                                        Buscar'))
+                                                        !!}</li>
                                                     @endrole
                                                 </ul>
                                             </li>
                                             @endrole
-                                            @role(['admin','operador'])
-                                            @if(isset($navigation) && $navigation == 'qflows')
+                                            @role(['admin','operador', 'operador_n2'])
+                                            @if(isset($navigation) && $navigation == 'inconsistencias')
                                             <li class="treeview active">
                                                 <a href="#">
-                                                    <i class="fa fa-tags"></i> <span>Qflow</span> <i
+                                                    <i class="fa fa-bug"></i> <span>Inconsistencias</span> <i
                                                         class="fa fa-angle-left pull-right"></i>
                                                 </a>
                                                 <ul class="treeview-menu menu-open" style="display: block">
                                                     @else
                                                     <li class="treeview">
                                                         <a href="#">
-                                                            <i class="fa fa-tags"></i> <span>Qflow</span> <i
+                                                            <i class="fa fa-bug"></i> <span>Inconsistencias</span> <i
                                                                 class="fa fa-angle-left pull-right"></i>
                                                         </a>
                                                         <ul class="treeview-menu">
                                                             @endif
+                                                            @role(['admin','operador'])
+                                                            <li>{!! Html::decode(link_to('/inconsistencias/buscar','<i
+                                                                    class="fa fa-search"></i>
+                                                                Búsqueda de Casos')) !!}</li>
+                                                            @endrole
                                                             @role(['admin', 'operador'])
-                                                            <li>{!! Html::decode(link_to('/qflows/registro','<i
-                                                                    class="fa fa-book"></i> Registro')) !!}</li>
+                                                            <li>{!! Html::decode(link_to('/inconsistencias/registro','<i
+                                                                    class="fa fa-book"></i>
+                                                                Registro')) !!}</li>
                                                             @endrole
                                                             @role(['admin'])
-                                                            <li>{!! Html::decode(link_to('/qflows/reporte-atendidos','<i
+                                                            <li>{!!
+                                                                Html::decode(link_to('/inconsistencias/reporte-atendidos','<i
                                                                     class="fa fa-file-excel-o"></i> Reporte Atendidos'))
                                                                 !!}
+                                                            </li>
+                                                            @endrole
+                                                            @role(['admin'])
+                                                            <li>{!!
+                                                                Html::decode(link_to('/inconsistencias/reporte-pendientes','<i
+                                                                    class="fa fa-file-excel-o"></i> Reporte
+                                                                Pendientes')) !!}
                                                             </li>
                                                             @endrole
                                                         </ul>
                                                     </li>
                                                     @endrole
-                                                    @role(['admin'])
-                                                    @if(isset($navigation) && $navigation == 'configuracion')
+                                                    @role(['admin','operador'])
+                                                    @if(isset($navigation) && $navigation == 'penalizaciones')
                                                     <li class="treeview active">
                                                         <a href="#">
-                                                            <i class="fa fa-wrench"></i> <span>Configuración</span> <i
+                                                            <i class="fa fa-frown-o"></i> <span>Penalización 0</span> <i
                                                                 class="fa fa-angle-left pull-right"></i>
                                                         </a>
                                                         <ul class="treeview-menu menu-open" style="display: block">
                                                             @else
                                                             <li class="treeview">
                                                                 <a href="#">
-                                                                    <i class="fa fa-wrench"></i>
-                                                                    <span>Configuración</span> <i
+                                                                    <i class="fa fa-frown-o"></i> <span>Penalización
+                                                                        0</span> <i
                                                                         class="fa fa-angle-left pull-right"></i>
                                                                 </a>
                                                                 <ul class="treeview-menu">
                                                                     @endif
+                                                                    @role(['admin', 'operador'])
+                                                                    <li>{!!
+                                                                        Html::decode(link_to('/penalizaciones/registro','<i
+                                                                            class="fa fa-book"></i>
+                                                                        Registro')) !!}</li>
+                                                                    @endrole
                                                                     @role(['admin'])
-                                                                    <li>{!! Html::decode(link_to('/usuarios','<i
-                                                                            class="fa fa-users"></i> Usuarios')) !!}
-                                                                    </li>
+                                                                    <li>{!!
+                                                                        Html::decode(link_to('/penalizaciones/reportes','<i
+                                                                            class="fa fa-file-excel-o"></i> Reporte'))
+                                                                        !!}</li>
+                                                                    @endrole
+                                                                    @role(['admin'])
+                                                                    <li>{!!
+                                                                        Html::decode(link_to('/penalizaciones/administrar-agentes','<i
+                                                                            class="fa fa-users"></i> Agentes')) !!}</li>
                                                                     @endrole
                                                                 </ul>
                                                             </li>
                                                             @endrole
-                                                        </ul>
+                                                            @role(['admin','operador'])
+                                                            @if(isset($navigation) && $navigation == 'reclamos')
+                                                            <li class="treeview active">
+                                                                <a href="#">
+                                                                    <i class="fa fa-wrench"></i> <span>Reclamos Area
+                                                                        Tecnica</span> <i
+                                                                        class="fa fa-angle-left pull-right"></i>
+                                                                </a>
+                                                                <ul class="treeview-menu menu-open"
+                                                                    style="display: block">
+                                                                    @else
+                                                                    <li class="treeview">
+                                                                        <a href="#">
+                                                                            <i class="fa fa-wrench"></i> <span>Reclamos
+                                                                                Area
+                                                                                Tecnica</span> <i
+                                                                                class="fa fa-angle-left pull-right"></i>
+                                                                        </a>
+                                                                        <ul class="treeview-menu">
+                                                                            @endif
+                                                                            @role(['admin', 'operador'])
+                                                                            <li>{!!
+                                                                                Html::decode(link_to('/reclamos/buscar','<i
+                                                                                    class="fa fa-search"></i> Buscar'))
+                                                                                !!}</li>
+                                                                            @endrole
+                                                                            @role(['admin', 'operador'])
+                                                                            <li>{!!
+                                                                                Html::decode(link_to('/reclamos/registro','<i
+                                                                                    class="fa fa-book"></i> Registro'))
+                                                                                !!}</li>
+                                                                            @endrole
+                                                                            @role(['admin'])
+                                                                            <li>{!!
+                                                                                Html::decode(link_to('/reclamos/reporte-atendidos','<i
+                                                                                    class="fa fa-file-excel-o"></i>
+                                                                                Reporte
+                                                                                Atendidos'))
+                                                                                !!}
+                                                                            </li>
+                                                                            @endrole
+                                                                            @role(['admin', 'operador'])
+                                                                            <li>{!!
+                                                                                Html::decode(link_to('/reclamos/reporte-pendientes','<i
+                                                                                    class="fa fa-file-excel-o"></i>
+                                                                                Reporte
+                                                                                Pendientes')) !!}
+                                                                            </li>
+                                                                            @endrole
+                                                                        </ul>
+                                                                    </li>
+                                                                    @endrole
+                                                                    @role(['admin','operador'])
+                                                                    @if(isset($navigation) && $navigation == 'qflows')
+                                                                    <li class="treeview active">
+                                                                        <a href="#">
+                                                                            <i class="fa fa-tags"></i>
+                                                                            <span>Qflow</span> <i
+                                                                                class="fa fa-angle-left pull-right"></i>
+                                                                        </a>
+                                                                        <ul class="treeview-menu menu-open"
+                                                                            style="display: block">
+                                                                            @else
+                                                                            <li class="treeview">
+                                                                                <a href="#">
+                                                                                    <i class="fa fa-tags"></i>
+                                                                                    <span>Qflow</span> <i
+                                                                                        class="fa fa-angle-left pull-right"></i>
+                                                                                </a>
+                                                                                <ul class="treeview-menu">
+                                                                                    @endif
+                                                                                    @role(['admin', 'operador'])
+                                                                                    <li>{!!
+                                                                                        Html::decode(link_to('/qflows/registro','<i
+                                                                                            class="fa fa-book"></i>
+                                                                                        Registro'))
+                                                                                        !!}</li>
+                                                                                    @endrole
+                                                                                    @role(['admin'])
+                                                                                    <li>{!!
+                                                                                        Html::decode(link_to('/qflows/reporte-atendidos','<i
+                                                                                            class="fa fa-file-excel-o"></i>
+                                                                                        Reporte
+                                                                                        Atendidos'))
+                                                                                        !!}
+                                                                                    </li>
+                                                                                    @endrole
+                                                                                </ul>
+                                                                            </li>
+                                                                            @endrole
+                                                                            @role(['admin'])
+                                                                            @if(isset($navigation) && $navigation ==
+                                                                            'configuracion')
+                                                                            <li class="treeview active">
+                                                                                <a href="#">
+                                                                                    <i class="fa fa-wrench"></i>
+                                                                                    <span>Configuración</span> <i
+                                                                                        class="fa fa-angle-left pull-right"></i>
+                                                                                </a>
+                                                                                <ul class="treeview-menu menu-open"
+                                                                                    style="display: block">
+                                                                                    @else
+                                                                                    <li class="treeview">
+                                                                                        <a href="#">
+                                                                                            <i class="fa fa-wrench"></i>
+                                                                                            <span>Configuración</span>
+                                                                                            <i
+                                                                                                class="fa fa-angle-left pull-right"></i>
+                                                                                        </a>
+                                                                                        <ul class="treeview-menu">
+                                                                                            @endif
+                                                                                            @role(['admin'])
+                                                                                            <li>{!!
+                                                                                                Html::decode(link_to('/usuarios','<i
+                                                                                                    class="fa fa-users"></i>
+                                                                                                Usuarios'))
+                                                                                                !!}
+                                                                                            </li>
+                                                                                            @endrole
+                                                                                        </ul>
+                                                                                    </li>
+                                                                                    @endrole
+                                                                                </ul>
     </section>
     <!-- /.sidebar -->
 </aside>

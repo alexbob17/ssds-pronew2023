@@ -33,6 +33,35 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get ('/login', 'Auth\AuthController@showLoginForm');
 	Route::post('/login', 'Auth\AuthController@login');
 	Route::get ('/logout', 'Auth\AuthController@logout');
+
+	// Nuevos Modulos
+
+	Route::get('/instalacionservicio/hfc', 'InstalacionServicioController@showHfc');
+	Route::get('/instalacionservicio/gpon', 'InstalacionServicioController@showGpon');
+	Route::get('/instalacionservicio/adsl', 'InstalacionServicioController@showAdsl');
+	Route::get('/instalacionservicio/cobre', 'InstalacionServicioController@showCobre');
+	Route::get('/instalacionservicio/Dth', 'InstalacionServicioController@showDth');
+	
+	Route::get('/postventastraslados/gpon', 'PostventasTrasladosController@showGpon');
+	Route::get('/postventastraslados/hfc', 'PostventasTrasladosController@showHfc');
+	Route::get('/postventastraslados/adsl', 'PostventasTrasladosController@showAdsl');
+	Route::get('/postventastraslados/cobre', 'PostventasTrasladosController@showCobre');
+	Route::get('/postventastraslados/dth', 'PostventasTrasladosController@showDth');
+
+	Route::get('/desperfecto/preparacionserviciosefectiva', 'DesperfectoController@showServicioEfectiva');
+	Route::get('/desperfecto/preparacionserviciotransferencia', 'DesperfectoController@showServicioTransferencia');
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 	Route::controllers([
@@ -42,6 +71,9 @@ Route::group(['middleware' => ['web']], function () {
 			'usuarios'			=> 'UsuariosController',
 			'nodos'				=> 'NodosSaturadosController',
 			'reclamos'			=> 'ReclamosTecnicaController',
-			'llamadas'			=> 'LlamadasController',
+			'instalacionservicio' => 'InstalacionServicioController',
+			'postventastraslados' => 'PostventasTrasladosController',
+			'desperfecto'		=>  'DesperfectoController',
+
 	]);
 });
