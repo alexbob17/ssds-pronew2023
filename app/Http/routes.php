@@ -35,12 +35,8 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get ('/logout', 'Auth\AuthController@logout');
 
 	// Nuevos Modulos
-
-	Route::get('/instalacionservicio/hfc', 'InstalacionServicioController@showHfc');
-	Route::get('/instalacionservicio/gpon', 'InstalacionServicioController@showGpon');
-	Route::get('/instalacionservicio/adsl', 'InstalacionServicioController@showAdsl');
-	Route::get('/instalacionservicio/cobre', 'InstalacionServicioController@showCobre');
-	Route::get('/instalacionservicio/Dth', 'InstalacionServicioController@showDth');
+	Route::get('/instalacionservicio/registro', 'InstalacionServicioController@showRegistro');
+	
 	
 	Route::get('/postventastraslados/gpon', 'PostventasTrasladosController@showGpon');
 	Route::get('/postventastraslados/hfc', 'PostventasTrasladosController@showHfc');

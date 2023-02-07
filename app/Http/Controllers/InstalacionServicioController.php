@@ -9,16 +9,6 @@ use SSD\Http\Requests;
 class InstalacionServicioController extends Controller
 {
     
-    public function showHfc()
-	{		
-		$breadcrumb = [
-			['name' => 'Instalacion Servicio HFC - Saturado' ]
-	];	
-	
-			return view('instalacionservicio/hfc')
-			->with('page_title', 'Instalacion Servicio - HFC')
-			->with('navigation', 'instalacion');
-	}
 
 		
     public function getRegistro(Request $request)
@@ -51,49 +41,18 @@ class InstalacionServicioController extends Controller
         $insta->username_atencion = $request->input('username_atencion');
 	}
 
-	public function showGpon()
+	public function showRegistro()
 	{		
 		$breadcrumb = [
-				['name' => 'Instalacion Servicio GPON - Saturado' ]
+				['name' => 'Instalacion Servicio - Saturado' ]
 		];		
 		
-		return view('instalacionservicio/gpon')
-			->with('page_title', 'Instalacion - Servicio GPON')
+		return view('instalacionservicio/registro')
+			->with('page_title', 'Instalacion - Servicio')
 			->with('navigation', 'instalacion');
 	}
 
-	public function showAdsl()
-	{		
-		$breadcrumb = [
-				['name' => 'Instalacion Servicio ADSL - Saturado' ]
-		];		
-		
-		return view('instalacionservicio/adsl')
-			->with('page_title', 'Instalacion - Servicio ADSL')
-			->with('navigation', 'instalacion');
-	}
-
-	public function showCobre()
-	{		
-		$breadcrumb = [
-				['name' => 'Instalacion Servicio COBRE - Saturado' ]
-		];		
-		
-		return view('instalacionservicio/cobre')
-			->with('page_title', 'Instalacion - Servicio Cobre')
-			->with('navigation', 'instalacion');
-	}
-
-	public function showDth()
-	{		
-		$breadcrumb = [
-				['name' => 'Instalacion Servicio DTH - Saturado' ]
-		];		
-		
-		return view('instalacionservicio/dth')
-			->with('page_title', 'Instalacion - Servicios DTH')
-			->with('navigation', 'instalacion');
-	}
+	
 
    
 

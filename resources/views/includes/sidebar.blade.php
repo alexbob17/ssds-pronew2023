@@ -22,32 +22,12 @@
                         </a>
                         <ul class="treeview-menu">
                             @endif
+                            @role(['admin', 'operador'])
+                            <li>{!! Html::decode(link_to('/instalacionservicio/registro','<i class="fa fa-book"></i>
+                                Registro'))
+                                !!}</li>
+                            @endrole
 
-                            @role(['admin', 'operador'])
-                            <li>{!! Html::decode(link_to('/instalacionservicio/hfc','<i class="fa fa-book"></i>
-                                HFC'))
-                                !!}</li>
-                            @endrole
-                            @role(['admin', 'operador'])
-                            <li>{!! Html::decode(link_to('/instalacionservicio/gpon','<i class="fa fa-book"></i>
-                                GPON'))
-                                !!}</li>
-                            @endrole
-                            @role(['admin', 'operador'])
-                            <li>{!! Html::decode(link_to('/instalacionservicio/adsl','<i class="fa fa-book"></i>
-                                ADSL'))
-                                !!}</li>
-                            @endrole
-                            @role(['admin', 'operador'])
-                            <li>{!! Html::decode(link_to('/instalacionservicio/cobre','<i class="fa fa-book"></i>
-                                COBRE'))
-                                !!}</li>
-                            @endrole
-                            @role(['admin', 'operador'])
-                            <li>{!! Html::decode(link_to('/instalacionservicio/cobre','<i class="fa fa-book"></i>
-                                DTH'))
-                                !!}</li>
-                            @endrole
                         </ul>
                     </li>
                     @endrole
@@ -70,28 +50,33 @@
 
                                     @role(['admin', 'operador'])
                                     <li>{!! Html::decode(link_to('/postventastraslados/hfc','<i class="fa fa-book"></i>
-                                        HFC'))
+                                        Registro P.Venta'))
                                         !!}</li>
                                     @endrole
                                     @role(['admin', 'operador'])
                                     <li>{!! Html::decode(link_to('/postventastraslados/gpon','<i class="fa fa-book"></i>
-                                        GPON'))
+                                        Registro P.Adicion'))
                                         !!}</li>
                                     @endrole
                                     @role(['admin', 'operador'])
                                     <li>{!! Html::decode(link_to('/postventastraslados/adsl','<i class="fa fa-book"></i>
-                                        ADSL'))
+                                        Registro C.Equipos'))
                                         !!}</li>
                                     @endrole
                                     @role(['admin', 'operador'])
                                     <li>{!! Html::decode(link_to('/postventastraslados/cobre','<i
                                             class="fa fa-book"></i>
-                                        COBRE'))
+                                        Registro P.Migracion'))
                                         !!}</li>
                                     @endrole
                                     @role(['admin', 'operador'])
                                     <li>{!! Html::decode(link_to('/postventastraslados/dth','<i class="fa fa-book"></i>
-                                        DTH'))
+                                        Retiro/Reconexion'))
+                                        !!}</li>
+                                    @endrole
+                                    @role(['admin', 'operador'])
+                                    <li>{!! Html::decode(link_to('/postventastraslados/dth','<i class="fa fa-book"></i>
+                                        Registro Cambio Numero'))
                                         !!}</li>
                                     @endrole
                                 </ul>
