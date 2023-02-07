@@ -15,10 +15,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Poppins', sans-serif !important;
   font-weight: 400;
-  overflow-x: hidden;
-  overflow-y: auto;
+  /* overflow-x: hidden; */
+  overflow-y:thin;;
+  
 }
 
+.box_equipostv{
+  display: flex;
+  /* flex-wrap:wrap !important; */
+}
+
+body::-webkit-scrollbar {
+  width: 0.8em !important;
+  background-color: #F5F5F5 !important;
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #3E69D6 !important;
+}
+ 
+body::-webkit-scrollbar-track {
+  background-color: #F5F5F5 !important;
+}
 /* Box Dashboard */
 .single_element .single_quick_activity{
   background-color: #fff;
