@@ -28,8 +28,8 @@ class Instalaciondth extends Migration
             $table->string('georeferencia');
             $table->string('smarcard');
             $table->string('stb');
-            $table->string('observaciones');
-            $table->string('recibe');
+            $table->string('observaciones')->nullable();;
+            $table->string('recibe')->nullable();;
             $table->string('materiales')->nullable();
             $table->boolean('trabajado');
             $table->date('fecha_creacion');

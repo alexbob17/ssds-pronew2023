@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Instalacionhfc extends Migration
+class InstalacionCobre extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class Instalacionhfc extends Migration
      */
     public function up()
     {
-        Schema::create('instalacionhfc', function (Blueprint $table) {
+        Schema::create('instalacion_cobre', function (Blueprint $table) {
             $table->increments('id');
             $table->string('codigo_tecnico');
             $table->integer('telefono');
@@ -20,27 +20,15 @@ class Instalacionhfc extends Migration
             $table->string('tecnico');
             $table->string('tecnologia');
             $table->string('tipo_orden');
-            $table->string('orden_tv');
-            $table->string('orden_internet');
             $table->string('orden_linea');
-            $table->string('motivo_actividad');
-            $table->integer('syreng');
+            $table->string('tipo_actividad');
+            $table->string('numero');
             $table->string('sap');
-            $table->string('equipos_tv1')->nullable();
-            $table->string('equipos_tv2')->nullable();
-            $table->string('equipos_tv3')->nullable();
-            $table->string('equipos_tv4')->nullable();
-            $table->string('equipos_tv5')->nullable();
-            $table->string('equipo_modem');
-            $table->string('numero_voip');
             $table->string('georeferencia');
-            $table->string('nodo');
-            $table->string('tap');
-            $table->string('posicion');
-            $table->boolean('trabajado');
-            $table->string('observaciones')->nullable();
-            $table->string('recibe')->nullable();
+            $table->string('observaciones')->nullable();;
+            $table->string('recibe')->nullable();;
             $table->string('materiales')->nullable();
+            $table->boolean('trabajado');
             $table->date('fecha_creacion');
             $table->date('fecha_atencion')->nullable();
             $table->integer('periodo_creacion', false, true);
@@ -58,6 +46,7 @@ class Instalacionhfc extends Migration
      */
     public function down()
     {
-        Schema::drop('instalacionhfc');
+        Schema::drop('instalacion_cobre');
+
     }
 }

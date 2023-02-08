@@ -4,10 +4,8 @@ namespace SSD;
 
 use Illuminate\Database\Eloquent\Model;
 
-class InstalacionAdsl extends Model
+class InstalacionCobre extends Model
 {
-    protected $table = 'instalacion_adsl';
-    
     protected $fillable = [
         'codigo_tecnico',
         'telefono',
@@ -15,10 +13,13 @@ class InstalacionAdsl extends Model
         'tecnico',
         'tecnologia',
         'tipo_orden',
-        'orden_internet',
+        'orden_linea',
         'tipo_actividad',
+        'numero',
         'sap',
+        'georeferencia',
         'observaciones',
+        'recibe',
         'materiales',
         'trabajado',
         'fecha_creacion',
@@ -28,6 +29,7 @@ class InstalacionAdsl extends Model
         'username_creacion',
         'username_atencion',
     ];
+
     public function userCreacion()
     {
         return $this->belongsTo(User::class, 'username_creacion', 'username');

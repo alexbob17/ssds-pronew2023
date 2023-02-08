@@ -35,4 +35,13 @@ class Instalacionhfc extends Model
         'username_creacion',
         'username_atencion',
     ];
+    public function userCreacion()
+    {
+        return $this->belongsTo(User::class, 'username_creacion', 'username');
+    }
+
+    public function userAtencion()
+    {
+        return $this->belongsTo(User::class, 'username_atencion', 'username');
+    }
 }

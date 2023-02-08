@@ -23,8 +23,8 @@ class Instalacionadsl extends Migration
             $table->string('orden_internet');
             $table->string('tipo_actividad');
             $table->string('sap');
-            $table->string('observaciones');
-            $table->string('recibe');
+            $table->string('observaciones')->nullable();;
+            $table->string('recibe')->nullable();;
             $table->string('materiales')->nullable();
             $table->boolean('trabajado');
             $table->date('fecha_creacion');
