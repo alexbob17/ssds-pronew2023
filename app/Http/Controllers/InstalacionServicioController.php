@@ -8,38 +8,54 @@ use SSD\Http\Requests;
 
 class InstalacionServicioController extends Controller
 {
-    
-
 		
-    public function getRegistro(Request $request)
-    {
-        $insta = new Instalacionhfc();
-        $insta->codigo_tecnico = $request->input('codigo_tecnico');
-        $insta->telefono = $request->input('telefono');
-        $insta->motivo_llamada = $request->input('motivo_llamada');
-        $insta->tecnico = $request->input('tecnico');
-        $insta->tecnologia = $request->input('tecnologia');
-        $insta->tipo_orden = $request->input('tipo_orden');
-        $insta->orden_tv = $request->input('orden_tv');
-        $insta->orden_internet = $request->input('orden_internet');
-        $insta->orden_linea = $request->input('orden_linea');
-        $insta->motivo_actividad = $request->input('motivo_actividad');
-        $insta->syreng = $request->input('syreng');
-        $insta->sap = $request->input('sap');
-        $insta->equipos_tv = $request->input('equipos_tv');
-        $insta->equipo_modem = $request->input('equipo_modem');
-        $insta->numero_voip = $request->input('numero_voip');
-        $insta->georeferencia = $request->input('georeferencia');
-        $insta->observaciones = $request->input('observaciones');
-        $insta->recibe = $request->input('recibe');
-        $insta->trabajado = $request->input('trabajado');
-        $insta->fecha_creacion = $request->input('fecha_creacion');
-        $insta->fecha_atencion = $request->input('fecha_atencion');
-        $insta->periodo_creacion = $request->input('periodo_creacion');
-        $insta->periodo_atencion = $request->input('periodo_atencion');
-        $insta->username_creacion = $request->input('username_creacion');
-        $insta->username_atencion = $request->input('username_atencion');
-	}
+    public function store(Request $request)
+{
+    $tecnologia = $request->input('tecnologia');
+
+    switch ($tecnologia) {
+        case "ADSL":
+            $codigo_tecnico = $request->input('codigo_tecnico');
+            $telefono = $request->input('telefono');
+            $tecnico = $request->input('tecnico');
+            $motivo_llamada = $request->input('motivo_llamada');
+            $tecnologia = $request->input('tecnologia');
+            $tipo_orden = $request->input('tipo_orden');
+            $orden_internetadsl = $request->input('orden_internetadsl');
+            $sap_adsl = $request->input('sap_adsl');
+            $trabajado_adsl = $request->input('trabajado_adsl');
+            $materiales_adsl = $request->input('materiales_adsl');
+            $obv_adsl = $request->input('obv_adsl');
+            $tipoactividad_adsl = $request->input('tipoactividad_adsl');
+
+            // Guarda en la tabla instalacion_adsl
+            $instalacion_adsl = new InstalacionAdsl;
+            $instalacion_adsl->codigo_tecnico = $codigo_tecnico;
+            $instalacion_adsl->telefono = $telefono;
+            $instalacion_adsl->tecnico = $tecnico;
+            $instalacion_adsl->motivo_llamada = $motivo_llamada;
+            $instalacion_adsl->tecnologia = $tecnologia;
+            $instalacion_adsl->tipo_orden = $tipo_orden;
+            $instalacion_adsl->orden_internetadsl = $orden_internetadsl;
+            $instalacion_adsl->sap_adsl = $sap_adsl;
+            $instalacion_adsl->trabajado_adsl = $trabajado_adsl;
+            $instalacion_adsl->materiales_adsl = $materiales_adsl;
+            $instalacion_adsl->obv_adsl=$obv_adsl;
+                break;
+            case "DTH":
+                // $sap = $request->input('sap');
+                break;
+            case "COBRE":
+                // $syreng = $request->input('syreng');
+                break;
+            case "GPON":
+                // $georeferencia = $request->input('georeferencia');
+                break;
+            default:
+                break;
+        }
+    }
+    
 
 	public function showRegistro()
 	{		

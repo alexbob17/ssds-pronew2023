@@ -13,32 +13,32 @@
                 <h3 class="box-title">Datos del Caso</h3>
             </div>
             <!-- FORMULARIO #1 -->
-            <form action="POST" id="form1" method="post" class="box-body">
+            <form action="{{route('registro.store')}}" id="form1" method="post" class="box-body">
                 <div class="form-group-container">
                     <div class="form-group col-md-3">
                         <label for="codigo_tecnico">Código Técnico</label>
-                        <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico" required />
+                        <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico" />
                     </div>
                     <div class="form-group col-md-3">
                         <label for="telefono">Teléfono</label>
-                        <input type="number" class="form-control" id="telefono" name="telefono" required />
+                        <input type="number" class="form-control" id="telefono" name="telefono" />
                     </div>
                     <div class="form-group col-md-6">
                         <label for="tecnico">Técnico</label>
-                        <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                        <input type="text" class="form-control" id="tecnico" name="tecnico" />
                     </div>
                 </div>
                 <div class="form-group-container">
                     <div class="form-group col-md-3">
                         <label for="motivo_llamada">Motivo de la llamada</label>
-                        <input type="text" class="form-control" id="motivollamada" name="motivollamada"
-                            readonly="readonly" placeholder="INSTALACION" style="background: #f9f936;" />
+                        <input type="text" class="form-control" id="motivo_llamada" name="motivo_llamada" disabled
+                            placeholder="INSTALACION" value="instalacion" style="background: #f9f936;" />
                     </div>
                     <div class="form-group col-md-3">
                         <label for="tecnologia">Tecnologia</label>
                         <select class="form-control" style="width: 100%;" name="tecnologia" tabindex="-1"
                             aria-hidden="true">
-                            <option selected="selected">Seleccione una opción</option>
+                            <option selected="selected" id="select_orden">Seleccione una opción</option>
                             <option value="HFC">HFC</option>
                             <option value="GPON">GPON</option>
                             <option value="ADSL">ADSL</option>
@@ -47,10 +47,10 @@
                         </select>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="tipoorden">Tipo De Orden</label>
-                        <select class="form-control" style="width: 100%;" name="tipo_servicio" tabindex="-1"
+                        <label for="tipo_orden">Tipo De Orden</label>
+                        <select class="form-control" style="width: 100%;" name="tipo_orden" tabindex="-1"
                             aria-hidden="true">
-                            <option selected="selected" value="">Seleccione una opción</option>
+                            <option selected="selected" id="select_orden">Seleccione una opción</option>
                             <option value="TV">TV</option>
                             <option value="TV DIG">TV DIG</option>
                             <option value="INTERNET">INTERNET</option>
@@ -74,18 +74,16 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_tv_hfc">Orden Tv</label>
-                                <input type="text" class="form-control" id="orden_tv_hfc" name="orden_tv_hfc"
-                                    required />
+                                <input type="text" class="form-control" id="orden_tv_hfc" name="orden_tv_hfc" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_internet_hfc">Orden Internet</label>
                                 <input type="text" class="form-control" id="orden_internet_hfc"
-                                    name="orden_internet_hfc" required />
+                                    name="orden_internet_hfc" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_linea_hfc">Orden Linea</label>
-                                <input type="text" class="form-control" id="orden_linea_hfc" name="orden_linea_hfc"
-                                    required />
+                                <input type="text" class="form-control" id="orden_linea_hfc" name="orden_linea_hfc" />
                             </div>
                         </div>
                         <div class="form-group-container" style="margin-top: 2.5rem;">
@@ -114,11 +112,11 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="tecnico">SYRENG</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="tecnico">SAP</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
                             </div>
                         </div>
                         <div class="from-group-container">
@@ -152,8 +150,7 @@
                                     <label for="EModem">
                                         Equipo Modem
                                     </label>
-                                    <input type="number" class="form-control" id="equipomodem" name="equipomodem"
-                                        required />
+                                    <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
                                 </div>
                             </div>
                             <div class="from-group-container">
@@ -161,8 +158,7 @@
                                     <label for="EModem">
                                         Numero Voip
                                     </label>
-                                    <input type="text" class="form-control" id="numerovoip" name="numerovoip"
-                                        required />
+                                    <input type="text" class="form-control" id="numerovoip" name="numerovoip" />
                                 </div>
                             </div>
                             <div class="from-group-container">
@@ -170,8 +166,7 @@
                                     <label for="EModem">
                                         Georeferencia
                                     </label>
-                                    <input type="text" class="form-control" id="georeferencia" name="georeferencia"
-                                        required />
+                                    <input type="text" class="form-control" id="georeferencia" name="georeferencia" />
                                 </div>
                             </div>
                             <div class="from-group-container">
@@ -190,8 +185,7 @@
                                     <label for="EModem">
                                         Observaciones
                                     </label>
-                                    <input type="number" class="form-control" id="equipomodem" name="equipomodem"
-                                        required />
+                                    <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
                                 </div>
                             </div>
                             <div class="from-group-container">
@@ -199,8 +193,7 @@
                                     <label for="EModem">
                                         Recibe
                                     </label>
-                                    <input type="number" class="form-control" id="equipomodem" name="equipomodem"
-                                        required />
+                                    <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
                                 </div>
                             </div>
                         </div>
@@ -214,25 +207,25 @@
                                         <label for="Nodo">
                                             Nodo
                                         </label>
-                                        <input type="number" class="form-control" id="nodo" name="nodo" required />
+                                        <input type="number" class="form-control" id="nodo" name="nodo" />
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="tap">
                                             TAP
                                         </label>
-                                        <input type="number" class="form-control" id="tap" name="tap" required />
+                                        <input type="number" class="form-control" id="tap" name="tap" />
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="tap">
                                             Posicion
                                         </label>
-                                        <input type="number" class="form-control" id="tap" name="tap" required />
+                                        <input type="number" class="form-control" id="tap" name="tap" />
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="tap">
                                             Materiales
                                         </label>
-                                        <input type="number" class="form-control" id="tap" name="tap" required />
+                                        <input type="number" class="form-control" id="tap" name="tap" />
                                     </div>
                                 </div>
                                 <!-- <div class="box-footer" style="text-align: center;">
@@ -247,18 +240,18 @@
                                 <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="codigo_tecnico">Orden Internet</label>
-                                <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico"
-                                    required />
+                                <label for="orden_internetadsl">Orden Internet</label>
+                                <input type="text" class="form-control" id="orden_internetadsl"
+                                    name="orden_internetadsl" />
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="telefono">SAP</label>
-                                <input type="number" class="form-control" id="telefono" name="telefono" required />
+                                <label for="sap_adsl">SAP</label>
+                                <input type="text" class="form-control" id="sap_adsl" name="sap_adsl" />
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="tipoactividadadsl">Tipo Actividad</label>
-                                <select class="form-control" style="width: 100%;" name="tipoactividadadsl" tabindex="-1"
-                                    aria-hidden="true">
+                                <label for="tipoactividad_adsl">Tipo Actividad</label>
+                                <select class="form-control" style="width: 100%;" name="tipoactividad_adsl"
+                                    tabindex="-1" aria-hidden="true">
                                     <option selected="selected">Seleccione una opción</option>
                                     <option value="REALIZADA">REALIZADA</option>
                                     <option value="OBJETADA">OBJETADA</option>
@@ -267,7 +260,8 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input id="trabajado_adsl" class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefault" />
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Trabajado
                                     </label>
@@ -275,14 +269,13 @@
                             </div>
                             <div class="form-group-container">
                                 <div class="form-group col-md-12">
-                                    <label for="telefono">Observaciones</label>
-                                    <input type="number" class="form-control" id="observaciones-form3"
-                                        name="observaciones-form3" required />
+                                    <label for="obv_adsl">Observaciones</label>
+                                    <input type="text" class="form-control" id="obv_adsl" name="obv_adsl" />
                                 </div>
                                 <div class="form-group col-md-9">
                                     <label for="telefono">Materiales</label>
-                                    <input type="text" class="form-control" id="materiales-form3"
-                                        name="materiales-form3" required placeholder="Comentarios..." />
+                                    <input type="text" class="form-control" id="materiale_-adsl" name="materiales_adsl"
+                                        placeholder="Comentarios..." />
                                 </div>
                             </div>
                             <!-- <div class="box-footer" style="text-align: center;">
@@ -298,16 +291,15 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="codigo_tecnico">Orden Tv</label>
-                                <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico"
-                                    required />
+                                <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="telefono">SYRENG</label>
-                                <input type="number" class="form-control" id="telefono" name="telefono" required />
+                                <input type="number" class="form-control" id="telefono" name="telefono" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="tecnico">SAP</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="tipoactividaddth">Tipo Actividad</label>
@@ -321,7 +313,7 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="tecnico">Georeferencia</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
                             </div>
                             <div class="form-group col-md-3">
                                 <div class="form-check">
@@ -379,17 +371,17 @@
                             <div class="form-group col-md-12">
                                 <label for="telefono">Observaciones</label>
                                 <input type="number" class="form-control" id="observaciones-form3"
-                                    name="observaciones-form3" required />
+                                    name="observaciones-form3" />
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="telefono">Recibe</label>
                                 <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                    required placeholder="" />
+                                    placeholder="" />
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="telefono">Materiales</label>
                                 <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                    required placeholder="Comentarios..." />
+                                    placeholder="Comentarios..." />
                             </div>
                         </div>
                         <!-- <div class="box-footer" style="text-align: center;">
@@ -404,16 +396,15 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="codigo_tecnico">Orden Linea</label>
-                                <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico"
-                                    required />
+                                <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="telefono">Numero</label>
-                                <input type="number" class="form-control" id="telefono" name="telefono" required />
+                                <input type="number" class="form-control" id="telefono" name="telefono" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="telefono">SAP</label>
-                                <input type="number" class="form-control" id="telefono" name="telefono" required />
+                                <input type="number" class="form-control" id="telefono" name="telefono" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="tipoactividaddth">Tipo Actividad</label>
@@ -427,7 +418,7 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="tecnico">Georeferencia</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
                             </div>
                             <div class="form-group col-md-3">
                                 <div class="form-check">
@@ -442,17 +433,17 @@
                             <div class="form-group col-md-12">
                                 <label for="telefono">Observaciones</label>
                                 <input type="number" class="form-control" id="observaciones-form3"
-                                    name="observaciones-form3" required />
+                                    name="observaciones-form3" />
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="telefono">Recibe</label>
                                 <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                    required placeholder="" />
+                                    placeholder="" />
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="telefono">Materiales</label>
                                 <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                    required placeholder="Comentarios..." />
+                                    placeholder="Comentarios..." />
                             </div>
                         </div>
                         <!-- <div class="box-footer" style="text-align: center;">
@@ -468,16 +459,15 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="codigo_tecnico">Orden Tv</label>
-                                <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico"
-                                    required />
+                                <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="telefono">Orden Internet</label>
-                                <input type="number" class="form-control" id="telefono" name="telefono" required />
+                                <input type="number" class="form-control" id="telefono" name="telefono" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="tecnico">Orden Linea</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
                             </div>
                         </div>
                         <div class="form-group-container" style="margin-top: 2.5rem;">
@@ -493,15 +483,15 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="tecnico">Numero GPON</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="tecnico">SYRENG</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="tecnico">SAP</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
                             </div>
                         </div>
 
@@ -526,11 +516,11 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="tecnico">Equipo Modem</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="tecnico">Georeferencia</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
                             </div>
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
@@ -548,17 +538,17 @@
                             <div class="form-group col-md-12">
                                 <label for="telefono">Observaciones</label>
                                 <input type="number" class="form-control" id="observaciones-form3"
-                                    name="observaciones-form3" required />
+                                    name="observaciones-form3" />
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="telefono">Recibe</label>
                                 <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                    required placeholder="" />
+                                    placeholder="" />
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="telefono">Materiales</label>
                                 <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                    required placeholder="Comentarios..." />
+                                    placeholder="Comentarios..." />
                             </div>
                         </div>
                         <!-- <div class="box-footer" style="text-align: center;">
@@ -566,7 +556,7 @@
                         </div> -->
                     </div>
                     <div class="box-footer" id="btn-save" style="text-align: center;">
-                        {!! Form::submit('Guardar Caso', ['class' => 'btn btn-warning']) !!}
+                        <button type="submit" class="btn btn-warning">Guardar Caso </button>
                     </div>
                 </div>
             </form>
@@ -607,9 +597,5 @@
             <!-- User definided -->
             <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script>
             <script src="{{asset('/js/instalaciones/registro.js')}}" type="text/javascript"></script>
-            <script></script>
+            <script src="{{asset('/js/instalaciones/validaciones.js')}}" type="text/javascript"> </script>
             @endsection
-        </div>
-    </div>
-</div>
-</div>
