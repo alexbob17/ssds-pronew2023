@@ -35,32 +35,12 @@
                         <select class="form-control" style="width: 100%;" name="motivo_llamada" tabindex="-1"
                             id="motivo_llamada" aria-hidden="true">
                             <option selected="selected">SELECCIONE UNA OPCION</option>
-                            <option value="INSTALACION">INSTALACION</option>
-                            <option value="POSTVENTA_TRASLADO">POSTVENTA</option>
+                            <option value="POSTVENTA_TRASLADO">POSTVENTA TRASLADO</option>
                             <option value="ADSL">REPARACIONES</option>
                             <option value="COBRE">CONSULTAS</option>
-                            <option value="DTH">ANULACIONES</option>
+                            <option value="DTH">ANULACION</option>
                             <option value="DTH">REACTIVACION</option>
 
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3" id="tec_input">
-                        <label for="tecnologia">Tecnologia</label>
-                        <select class="form-control" style="width: 100%;" name="tecnologia" tabindex="-1"
-                            id="tecnologia" aria-hidden="true">
-                            <option selected="selected">Seleccione una opción</option>
-                            <option value="HFC">HFC</option>
-                            <option value="GPON">GPON</option>
-                            <option value="ADSL">ADSL</option>
-                            <option value="COBRE">COBRE</option>
-                            <option value="DTH">DTH</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-6" id="select_ordenhide">
-                        <label for="select_orden">Tipo De Orden</label>
-                        <select class="form-control" id="select_orden" style="width: 100%;" name="select_orden"
-                            tabindex="-1" aria-hidden="true">
-                            <option>Seleccione una opción</option>
                         </select>
                     </div>
                     <div id="form2" class="box-body">
@@ -70,10 +50,10 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_tv_hfc">Orden Tv</label>
-                                <input type="text" class="form-control" id="orden_tv_hfc" name="orden_tv_hfc"
-                                    pattern="\d{8}" required />
+                                <input type="text" class="form-control" id="orden_tv_hfc" name="orden_tv_hfc" />
                                 <div class="invalid-feedback">Ingresa una orden valida.</div>
                             </div>
+
                             <div class="form-group col-md-3">
                                 <label for="orden_internet_hfc">Orden Internet</label>
                                 <input type="text" class="form-control" id="orden_internet_hfc"
@@ -596,6 +576,5 @@
             </script>
             <!-- User definided -->
             <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script>
-            <script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
-            <script src="{{asset('/js/instalaciones/registro.js')}}" type="text/javascript"> </script>
+
             @endsection

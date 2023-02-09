@@ -1,52 +1,54 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form1 = document.getElementById("form1");
-  const form2 = document.getElementById("form2");
-  const form3 = document.getElementById("form3");
-  const form4 = document.getElementById("form4");
-  const form5 = document.getElementById("form5");
-  const form6 = document.getElementById("form6");
-  const btn_show = document.getElementById("btn-save");
+const form = document.querySelector("form");
 
-  const select = document.querySelector("select[name='tecnologia']");
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-  form2.style.display = "none";
-  form3.style.display = "none";
-  form4.style.display = "none";
-  form5.style.display = "none";
-  form6.style.display = "none";
-  btn_show.style.display = "none";
+  const data = {
+    codigo_tecnico: document.querySelector("input[name='codigo_tecnico']")
+      .value,
+    telefono: document.querySelector("input[name='telefono']").value,
+    tecnologia: document.querySelector("input[name='tecnologia']").value,
+    motivo_llamada: document.querySelector(
+      "input[name='motivo_llamada'][value='instalacion']"
+    ).value,
+    tipo_orden: document.querySelector("select[name='tipo_orden']").value,
+    tecnico: document.querySelector("input[name='tecnico']").value,
+  };
 
-  form1.style.display = "block";
+  switch (data.tecnologia.value) {
+    case "HFC":
+      //   data.numero = document.querySelector("input[name='numero']").value;
+      break;
+    case "ADSL":
+      data.orden_internetads = document.querySelector(
+        "input[name='orden_internetadsl']"
+      ).value;
+      data.sap_adsl = document.querySelector("input[name='sap_adsl']").value;
+      data.trabajado_adsl = document.querySelector(
+        "input[name='trabajado_adsl']"
+      ).value;
+      data.materiales_adsl = document.querySelector(
+        "input[name='materiales_adsl']"
+      ).value;
+      data.obv_adsl = document.querySelector("input[name='obv_adsl']").value;
+      data.tipoactividad_adsl = document.querySelector(
+        "input[name='tipoactividad_adsl']"
+      ).value;
+      break;
+    case "DTH":
+      break;
+    case "COBRE":
+      break;
 
-  select.addEventListener("change", function () {
-    form2.style.display = "none";
-    form3.style.display = "none";
-    form4.style.display = "none";
-    form5.style.display = "none";
-    form6.style.display = "none";
-    btn_show.style.display = "none";
+    case "GPON":
+      //   data.georeferencia = document.querySelector(
+      //     "input[name='georeferencia']"
+      //   ).value;
+      break;
+  }
 
-    switch (select.value) {
-      case "HFC":
-        form2.style.display = "block";
-        btn_show.style.display = "block";
-        break;
-      case "ADSL":
-        form3.style.display = "block";
-        btn_show.style.display = "block";
-        break;
-      case "DTH":
-        form4.style.display = "block";
-        btn_show.style.display = "block";
-        break;
-      case "COBRE":
-        form5.style.display = "block";
-        btn_show.style.display = "block";
-        break;
-      case "GPON":
-        form6.style.display = "block";
-        btn_show.style.display = "block";
-        break;
-    }
-  });
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "{{route('registro.store')}}");
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.send(JSON.stringify(data));
 });

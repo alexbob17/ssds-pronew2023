@@ -40,11 +40,8 @@ Route::group(['middleware' => ['web']], function () {
 
 	
 	
-	Route::get('/postventastraslados/gpon', 'PostventasTrasladosController@showGpon');
-	Route::get('/postventastraslados/hfc', 'PostventasTrasladosController@showHfc');
-	Route::get('/postventastraslados/adsl', 'PostventasTrasladosController@showAdsl');
-	Route::get('/postventastraslados/cobre', 'PostventasTrasladosController@showCobre');
-	Route::get('/postventastraslados/dth', 'PostventasTrasladosController@showDth');
+	Route::get('/postventas/registro', 'PostventasController@showRegistro');
+
 
 	Route::get('/desperfecto/preparacionserviciosefectiva', 'DesperfectoController@showServicioEfectiva');
 	Route::get('/desperfecto/preparacionserviciotransferencia', 'DesperfectoController@showServicioTransferencia');

@@ -8,14 +8,14 @@ use SSD\Http\Requests;
 
 class PostventasController extends Controller
 {
-    public function showGpon()
+    public function showRegistro()
 	{		
 		$breadcrumb = [
-			['name' => 'PostVenta Traslado Adicion - Saturado' ]
+			['name' => 'PostVenta - Saturado' ]
 	];	
 	
-			return view('postventas/adicion')
-			->with('page_title', 'PostVenta - Adicion')
+			return view('postventas/registro')
+			->with('page_title', 'PostVenta - Registro')
 			->with('navigation', 'PostVenta');
 	}
 }

@@ -60,12 +60,12 @@ class InstalacionServicioController extends Controller
 	public function showRegistro()
 	{		
 		$breadcrumb = [
-				['name' => 'Instalacion Servicio - Saturado' ]
+				['name' => 'Llamadas - Saturado' ]
 		];		
 		
 		return view('instalacionservicio/registro')
-			->with('page_title', 'Instalacion - Servicio')
-			->with('navigation', 'instalacion');
+			->with('page_title', 'Llamadas - Servicio')
+			->with('navigation', 'Llamadas');
 	}
 
 	
