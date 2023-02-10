@@ -68,7 +68,15 @@ class InstalacionServicioController extends Controller
 			->with('navigation', 'Llamadas');
 	}
 
-	
+    public function leerJson()
+    {
+    $data = file_get_contents(public_path('public\Json\Localizaciones.json'));
+    $datos = json_decode($data, true);
+
+    return view('instalacionservicio/registro', compact('datos'));
+    }
+
+
 
    
 

@@ -36,7 +36,10 @@ Route::group(['middleware' => ['web']], function () {
 
 	// Nuevos Modulos
 	Route::get('/instalacionservicio/registro', 'InstalacionServicioController@showRegistro');
-	Route::post('instalacionservicio/registro', 'InstalacionServicioController@store')->name('registro.store');
+	// Route::post('instalacionservicio/registro', 'InstalacionServicioController@store')->name('registro.store');
+	Route::post('instalacionservicio/registro', 'InstalacionServicioController@leerJson');
+
+	
 
 	
 	

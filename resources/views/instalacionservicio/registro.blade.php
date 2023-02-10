@@ -13,20 +13,26 @@
                 <h3 class="box-title">Datos del Caso</h3>
             </div>
             <!-- FORMULARIO #1 -->
-            <form action="{{route('registro.store')}}" id="form1" method="post" class="box-body">
+            <form action="" id="form1" method="post" class="box-body">
                 <div class="form-group-container">
                     <div class="form-group col-md-3">
                         <label for="codigo_tecnico">Código Técnico</label>
-                        <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico" />
-
+                        <input type="text" class="form-control" placeholder="Ingrese Codigo Tecnico" id="codigo_tecnico"
+                            name="codigo_tecnico" oninput="this.value = this.value.toUpperCase()" />
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2" style="margin-top:2.5rem; width:auto;">
+                        <button type="button" id="btn_busqueda" class="btn btn-primary"><i class="fa fa-search"
+                                aria-hidden="true"></i></button>
+                        <button type="button" id="btn_reiniciar" class="btn btn-danger"><i class="fa fa-trash"
+                                aria-hidden="true"></i></button>
+                    </div>
+                    <div class="form-group col-md-2">
                         <label for="telefono">Teléfono</label>
-                        <input type="number" class="form-control" id="telefono" name="telefono" />
+                        <input type="text" class="form-control" id="telefono" name="telefono" readonly="true" />
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-5">
                         <label for="tecnico">Técnico</label>
-                        <input type="text" class="form-control" id="tecnico" name="tecnico" />
+                        <input type="text" class="form-control" id="tecnico" name="tecnico" readonly="true" />
                     </div>
                 </div>
                 <div class="form-group-container">
@@ -44,11 +50,11 @@
 
                         </select>
                     </div>
-                    <div class="form-group col-md-3" id="tec_input">
+                    <div class="form-group col-md-2" id="tec_input">
                         <label for="tecnologia">Tecnologia</label>
                         <select class="form-control" style="width: 100%;" name="tecnologia" tabindex="-1"
                             id="tecnologia" aria-hidden="true">
-                            <option selected="selected">Seleccione una opción</option>
+                            <option selected="selected">SELECCIONE</option>
                             <option value="HFC">HFC</option>
                             <option value="GPON">GPON</option>
                             <option value="ADSL">ADSL</option>
@@ -56,13 +62,21 @@
                             <option value="DTH">DTH</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-6" id="select_ordenhide">
+                    <div class="form-group col-md-3" id="select_ordenhide">
                         <label for="select_orden">Tipo De Orden</label>
                         <select class="form-control" id="select_orden" style="width: 100%;" name="select_orden"
                             tabindex="-1" aria-hidden="true">
-                            <option>Seleccione una opción</option>
+                            <option>SELECCIONE UNA OPCION</option>
                         </select>
                     </div>
+                    <div class="form-group col-md-4">
+                        <label for="dpto_colonia">DPTO / COLONIA</label>
+                        <select class="form-control select2 select2-hidden-accessible" id="dpto_colonia"
+                            style="width: 100%;" name="dpto_colonia" tabindex="-1" aria-hidden="true">
+                            <option value="">SELECCIONE UNA OPCION</option>
+                        </select>
+                    </div>
+
                     <div id="form2" class="box-body">
                         <div class="form-group-container" style="margin-top: 2.5rem;">
                             <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
@@ -70,9 +84,8 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_tv_hfc">Orden Tv</label>
-                                <input type="text" class="form-control" id="orden_tv_hfc" name="orden_tv_hfc"
-                                    pattern="\d{8}" required />
-                                <div class="invalid-feedback">Ingresa una orden valida.</div>
+                                <input type="text" class="form-control" id="orden_tv_hfc" name="orden_tv_hfc" />
+
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_internet_hfc">Orden Internet</label>
@@ -598,4 +611,8 @@
             <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script>
             <script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
             <script src="{{asset('/js/instalaciones/registro.js')}}" type="text/javascript"> </script>
+
+
+
+
             @endsection

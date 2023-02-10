@@ -107,3 +107,67 @@ select3.addEventListener("change", function () {
     input_orden.style.display = "block";
   }
 });
+
+fetch("../Json/Localizaciones.json")
+  .then((response) => response.json())
+  .then((datos) => {
+    var select_dpto = document.getElementById("dpto_colonia");
+    select_dpto.innerHTML = "<option value=''>Seleccione una opción</option>";
+    for (var i = 0; i < datos.length; i++) {
+      var option = document.createElement("option");
+      option.value = datos[i].DEPTO + datos[i].COLONIA;
+      option.text = datos[i].DEPTO + datos[i].COLONIA;
+      select_dpto.add(option);
+    }
+  });
+
+fetch("../Json/CodigoTecnico.json")
+  .then((response) => response.json())
+  .then((datos) => {
+    var inputCodigo = document.getElementById("codigo_tecnico");
+    var inputTecnico = document.getElementById("tecnico");
+    var inputTelefono = document.getElementById("telefono");
+    var btnBusqueda = document.getElementById("btn_busqueda");
+
+    btnBusqueda.addEventListener("click", function () {
+      buscarTecnico();
+    });
+
+    inputCodigo.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        buscarTecnico();
+      }
+    });
+
+    function buscarTecnico() {
+      if (inputCodigo.value === "") {
+        alert("INGRESA UN CODIGO DE TECNICO");
+        window.location.href = window.location.href;
+        return;
+      }
+      var codigoBuscado = inputCodigo.value.toUpperCase();
+      var tecnicoEncontrado = false;
+      for (var i = 0; i < datos.length; i++) {
+        if (datos[i].CODIGO == codigoBuscado) {
+          tecnicoEncontrado = true;
+          inputTecnico.value = datos[i].NOMBRE;
+          inputTelefono.value = datos[i].NUMERO;
+          inputCodigo.setAttribute("readonly", "readonly");
+          break;
+        }
+      }
+      if (!tecnicoEncontrado) {
+        inputCodigo.value = "";
+        inputTecnico.value = "";
+        inputTelefono.value = "";
+        btnBusqueda.disabled = false;
+        alert("TECNICO NO REGISTRADO");
+        window.location.href = window.location.href;
+      }
+    }
+    btn_reiniciar.disabled = false;
+  });
+
+btn_reiniciar.addEventListener("click", function () {
+  window.location.href = window.location.href;
+});
