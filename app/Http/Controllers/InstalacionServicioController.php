@@ -76,7 +76,16 @@ class InstalacionServicioController extends Controller
     return view('instalacionservicio/registro', compact('datos'));
     }
 
-
+    public function showPostVentas()
+	{		
+		$breadcrumb = [
+				['name' => 'Postventas - Saturado' ]
+		];		
+		
+		return view('instalacionservicio/postventa')
+			->with('page_title', 'Postventas - Servicio')
+			->with('navigation', 'Postventas');
+	}
 
    
 

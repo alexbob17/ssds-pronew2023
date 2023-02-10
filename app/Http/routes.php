@@ -36,6 +36,8 @@ Route::group(['middleware' => ['web']], function () {
 
 	// Nuevos Modulos
 	Route::get('/instalacionservicio/registro', 'InstalacionServicioController@showRegistro');
+	Route::get('/instalacionservicio/postventa', 'InstalacionServicioController@showPostVentas');
+
 	// Route::post('instalacionservicio/registro', 'InstalacionServicioController@store')->name('registro.store');
 	Route::post('instalacionservicio/registro', 'InstalacionServicioController@leerJson');
 
@@ -43,7 +45,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	
 	
-	Route::get('/postventas/registro', 'PostventasController@showRegistro');
+	// Route::get('/postventas/registro', 'PostventasController@showPostVentas');
 
 
 	Route::get('/desperfecto/preparacionserviciosefectiva', 'DesperfectoController@showServicioEfectiva');

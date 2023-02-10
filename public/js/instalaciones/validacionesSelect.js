@@ -94,17 +94,21 @@ select1.addEventListener("change", function () {
   }
 });
 
+// SELECCION DE MOTIVO LLAMADA
+
 const select3 = document.getElementById("motivo_llamada");
 const input_tecnologia = document.getElementById("tec_input");
 const input_orden = document.getElementById("select_ordenhide");
 
 select3.addEventListener("change", function () {
-  if (select3.value === "POSTVENTA_TRASLADO") {
-    input_tecnologia.style.display = "none";
-    input_orden.style.display = "none";
-  } else {
-    input_tecnologia.style.display = "block";
-    input_orden.style.display = "block";
+  if (select3.value === "POSTVENTA") {
+    // input_tecnologia.style.display = "none";
+    // input_orden.style.display = "none";
+    window.location.href =
+      "http://localhost/ssd-claroProd/public/instalacionservicio/postventa";
+  } else if (select3.value === "INSTALACION") {
+    window.location.href =
+      "http://localhost/ssd-claroProd/public/instalacionservicio/registro";
   }
 });
 
