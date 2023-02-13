@@ -7,7 +7,7 @@
         <ul class="sidebar-menu">
             <li class="header">MENÚ</li>
             @role(['admin','operador'])
-            @if(isset($navigation) && $navigation == 'instalacionservicio')
+            @if(isset($navigation) && $navigation == 'llamadashome')
             <li class="treeview active">
                 <a href="#">
                     <i class="fa fa-mobile"></i> <span>Llamadas</span> <i class="fa fa-angle-left pull-right"></i>
@@ -22,7 +22,7 @@
                         <ul class="treeview-menu">
                             @endif
                             @role(['admin', 'operador'])
-                            <li>{!! Html::decode(link_to('/instalacionservicio/registro','<i class="fa fa-book"></i>
+                            <li>{!! Html::decode(link_to('/llamadashome/registro','<i class="fa fa-book"></i>
                                 Registro'))
                                 !!}</li>
                             @endrole

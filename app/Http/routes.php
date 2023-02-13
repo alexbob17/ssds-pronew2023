@@ -35,31 +35,14 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get ('/logout', 'Auth\AuthController@logout');
 
 	// Nuevos Modulos
-	Route::get('/instalacionservicio/registro', 'InstalacionServicioController@showRegistro');
-	Route::get('/instalacionservicio/postventa', 'InstalacionServicioController@showPostVentas');
-
-	// Route::post('instalacionservicio/registro', 'InstalacionServicioController@store')->name('registro.store');
-	Route::post('instalacionservicio/registro', 'InstalacionServicioController@leerJson');
-
-	
-
-	
-	
-	// Route::get('/postventas/registro', 'PostventasController@showPostVentas');
-
-
-	Route::get('/desperfecto/preparacionserviciosefectiva', 'DesperfectoController@showServicioEfectiva');
-	Route::get('/desperfecto/preparacionserviciotransferencia', 'DesperfectoController@showServicioTransferencia');
+	Route::get('/llamadashome/registro', 'LlamadasServicioController@showRegistro');
+	Route::get('/llamadashome/postventa', 'LlamadasServicioController@showPostVentas');
+	Route::get('/llamadashome/instalaciones', 'LlamadasServicioController@showInstalaciones');
 
 
 
-
-
-
-
-
-
-
+	// Route::post('instalacionservicio/registro', 'LlamadasServicioController@store')->name('registro.store');
+	Route::post('llamadashome/registro', 'LlamadasServicioController@leerJson');
 
 
 	
@@ -71,9 +54,7 @@ Route::group(['middleware' => ['web']], function () {
 			'usuarios'			=> 'UsuariosController',
 			'nodos'				=> 'NodosSaturadosController',
 			'reclamos'			=> 'ReclamosTecnicaController',
-			'instalacionservicio' => 'InstalacionServicioController',
-			'postventastraslados' => 'PostventasTrasladosController',
-			'desperfecto'		=>  'DesperfectoController',
+			'llamadasservicio' => 'LlamadasServicioController',
 
 	]);
 });

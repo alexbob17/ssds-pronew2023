@@ -1,3 +1,5 @@
+// VALIDACIONES OCULTAR FORM EN BASE A TECNOLOGIA
+
 document.addEventListener("DOMContentLoaded", function () {
   const form1 = document.getElementById("form1");
   const form2 = document.getElementById("form2");
@@ -5,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const form4 = document.getElementById("form4");
   const form5 = document.getElementById("form5");
   const form6 = document.getElementById("form6");
-  const btn_show = document.getElementById("btn-save");
 
   const select = document.querySelector("select[name='tecnologia']");
 
@@ -14,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
   form4.style.display = "none";
   form5.style.display = "none";
   form6.style.display = "none";
-  btn_show.style.display = "none";
 
   form1.style.display = "block";
 
@@ -24,28 +24,22 @@ document.addEventListener("DOMContentLoaded", function () {
     form4.style.display = "none";
     form5.style.display = "none";
     form6.style.display = "none";
-    btn_show.style.display = "none";
 
     switch (select.value) {
       case "HFC":
         form2.style.display = "block";
-        btn_show.style.display = "block";
         break;
       case "ADSL":
         form3.style.display = "block";
-        btn_show.style.display = "block";
         break;
       case "DTH":
         form4.style.display = "block";
-        btn_show.style.display = "block";
         break;
       case "COBRE":
         form5.style.display = "block";
-        btn_show.style.display = "block";
         break;
       case "GPON":
         form6.style.display = "block";
-        btn_show.style.display = "block";
         break;
     }
   });
@@ -54,12 +48,14 @@ document.addEventListener("DOMContentLoaded", function () {
 const select1 = document.getElementById("tecnologia");
 const select2 = document.getElementById("select_orden");
 
+// OPCIONES DE INPUTS EN BASE A LA SELECCION DE LA TECNOLOGIA
+
 select1.addEventListener("change", function () {
   if (select1.value === "HFC") {
     select2.innerHTML = `
-    <option value="TV">SELECCIONA UNA OPCION</option>
-    <option value="TV">TV BASICA</option>
-    <option value="TV DIG">TV DIGITAL</option>
+    <option value="">SELECCIONA UNA OPCION</option>
+    <option value="TV BASICA">TV BASICA</option>
+    <option value="TV DIGITAL">TV DIGITAL</option>
     <option value="INTERNET">INTERNET</option>
     <option value="LINEA">LINEA</option>
     <option value="CASA CLARO TRIPLE">CASA CLARO TRIPLE</option>
@@ -94,23 +90,39 @@ select1.addEventListener("change", function () {
   }
 });
 
-// SELECCION DE MOTIVO LLAMADA
+// VALIDACIONES TIPO ORDEN
 
-const select3 = document.getElementById("motivo_llamada");
-const input_tecnologia = document.getElementById("tec_input");
-const input_orden = document.getElementById("select_ordenhide");
+const select_orden = document.getElementById("select_orden");
 
-select3.addEventListener("change", function () {
-  if (select3.value === "POSTVENTA") {
-    // input_tecnologia.style.display = "none";
-    // input_orden.style.display = "none";
-    window.location.href =
-      "http://localhost/ssd-claroProd/public/instalacionservicio/postventa";
-  } else if (select3.value === "INSTALACION") {
-    window.location.href =
-      "http://localhost/ssd-claroProd/public/instalacionservicio/registro";
-  }
+const orden_tv_hfc = document.getElementById("orden_tv_hfc");
+const orden_internet_hfc = document.getElementById("orden_internet_hfc");
+const orden_linea_hfc = document.getElementById("orden_linea_hfc");
+const btn_save = document.getElementById("btn-submit");
+
+orden_tv_hfc.disabled = true;
+orden_internet_hfc.disabled = true;
+orden_linea_hfc.disabled = true;
+btn_save.disabled = true;
+btn_save.style.display = "none";
+
+select_orden.addEventListener("change", function () {
+  var selectedOption = this.value;
+  var options = {
+    "TV BASICA": [false, true, true],
+    "TV DIGITAL": [false, true, true],
+    INTERNET: [true, false, true],
+    "CASA CLARO DOBLE - TV + INTERNET": [false, false, true],
+    "CASA CLARO DOBLE - INTERNET + LINEA": [true, false, false],
+    "CASA CLARO TRIPLE": [false, false, false],
+    LINEA: [true, true, false],
+  };
+  var disabledOptions = options[selectedOption] || [true, true, true];
+  orden_tv_hfc.disabled = disabledOptions[0];
+  orden_internet_hfc.disabled = disabledOptions[1];
+  orden_linea_hfc.disabled = disabledOptions[2];
 });
+
+// FETCH LOCALIZACIONES
 
 fetch("../Json/Localizaciones.json")
   .then((response) => response.json())
@@ -125,53 +137,46 @@ fetch("../Json/Localizaciones.json")
     }
   });
 
-fetch("../Json/CodigoTecnico.json")
-  .then((response) => response.json())
-  .then((datos) => {
-    var inputCodigo = document.getElementById("codigo_tecnico");
-    var inputTecnico = document.getElementById("tecnico");
-    var inputTelefono = document.getElementById("telefono");
-    var btnBusqueda = document.getElementById("btn_busqueda");
+// VALIDACIONES DE INPUTS PARA TIPO DE TRABAJO REALIZADO
 
-    btnBusqueda.addEventListener("click", function () {
-      buscarTecnico();
-    });
+document.addEventListener("DOMContentLoaded", function () {
+  const formHfc_Realizada = document.getElementById("formHfc_Realizada");
+  const formHfc_Objetada = document.getElementById("formHfc_Objetada");
+  // const formAdsl = document.getElementById("formAdsl ");
+  // const formCobre = document.getElementById("formCobre");
+  // const formDth = document.getElementById("formDth");
+  // const formGpon = document.getElementById("formGpon");
 
-    inputCodigo.addEventListener("keydown", function (event) {
-      if (event.key === "Enter") {
-        buscarTecnico();
-      }
-    });
+  const select = document.querySelector("select[name='tipo_actividad']");
 
-    function buscarTecnico() {
-      if (inputCodigo.value === "") {
-        alert("INGRESA UN CODIGO DE TECNICO");
-        window.location.href = window.location.href;
-        return;
-      }
-      var codigoBuscado = inputCodigo.value.toUpperCase();
-      var tecnicoEncontrado = false;
-      for (var i = 0; i < datos.length; i++) {
-        if (datos[i].CODIGO == codigoBuscado) {
-          tecnicoEncontrado = true;
-          inputTecnico.value = datos[i].NOMBRE;
-          inputTelefono.value = datos[i].NUMERO;
-          inputCodigo.setAttribute("readonly", "readonly");
-          break;
-        }
-      }
-      if (!tecnicoEncontrado) {
-        inputCodigo.value = "";
-        inputTecnico.value = "";
-        inputTelefono.value = "";
-        btnBusqueda.disabled = false;
-        alert("TECNICO NO REGISTRADO");
-        window.location.href = window.location.href;
-      }
+  formHfc_Realizada.style.display = "none";
+  formHfc_Objetada.style.display = "none";
+  // formAdsl.style.display = "none";
+  // formCobre.style.display = "none";
+  // formDth.style.display = "none";
+  // formGpon.style.display = "none";
+
+  select.addEventListener("change", function () {
+    formHfc_Realizada.style.display = "none";
+    // formCobre.style.display = "none";
+    // formDth.style.display = "none";
+    // formGpon.style.display = "none";
+    // form6.style.display = "none";
+
+    switch (select.value) {
+      case "REALIZADA":
+        formHfc_Realizada.style.display = "block";
+        btn_save.disabled = false;
+        btn_save.style.display = "block";
+        break;
+      case "OBJETADA":
+        formHfc_Objetada.style.display = "block";
+        btn_save.style.display = "block";
+
+        break;
+      case "TRANSFERIDA":
+        // formDth.style.display = "block";
+        break;
     }
-    btn_reiniciar.disabled = false;
   });
-
-btn_reiniciar.addEventListener("click", function () {
-  window.location.href = window.location.href;
 });
