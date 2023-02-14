@@ -43,6 +43,9 @@ Route::group(['middleware' => ['web']], function () {
 
 	// Route::post('instalacionservicio/registro', 'LlamadasServicioController@store')->name('registro.store');
 	Route::post('llamadashome/registro', 'LlamadasServicioController@leerJson');
+	// Route::post('/form1', [DatosController::class, 'postForm1']);
+	// Route::get('/formInstalaciones', [DatosController::class, 'getForm2']);
+
 
 
 	

@@ -20,7 +20,7 @@
                         <input type="text" class="form-control" placeholder="Ingrese Codigo Tecnico" id="codigo_tecnico"
                             name="codigo_tecnico" oninput="this.value = this.value.toUpperCase()" />
                     </div>
-                    <div class="form-group col-md-2" style="margin-top:2.5rem; width:auto;">
+                    <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
                         <button type="button" id="btn_busqueda" class="btn btn-primary"><i class="fa fa-search"
                                 aria-hidden="true"></i></button>
                         <button type="button" id="btn_reiniciar" class="btn btn-danger"><i class="fa fa-trash"
@@ -38,7 +38,7 @@
                 <div class="form-group-container">
                     <div class="form-group col-md-3" id="view-container">
                         <label for="motivo_llamada">Motivo de la llamada</label>
-                        <input type="text" class="form-control" placeholder="INSTALACION" disabled readonly="true">
+                        <input type="text" class="form-control" placeholder="INSTALACION" disabled readonly="true" />
                     </div>
                     <div class="form-group col-md-2" id="tec_input">
                         <label for="tecnologia">Tecnologia</label>
@@ -77,7 +77,6 @@
                             <div class="form-group col-md-3">
                                 <label for="orden_tv_hfc">Orden Tv</label>
                                 <input type="text" class="form-control" id="orden_tv_hfc" name="orden_tv_hfc" />
-
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_internet_hfc">Orden Internet</label>
@@ -141,7 +140,6 @@
                             </div>
 
                             <div class="from-group-container">
-
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <label for="EModem">
@@ -200,8 +198,8 @@
                                 <div class="form-group-container">
                                     <h4 class="box-title"
                                         style="color: #3e69d6; text-align: center; font-weight: bold;">
-                                        Elementos de
-                                        red</h4>
+                                        Elementos de red
+                                    </h4>
                                     <div class="box box-warning" style="margin: botton 12px;">
                                         <div class="form-group-container" style="margin-top: 1rem;">
                                             <div class="form-group col-md-3">
@@ -235,22 +233,36 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <!-- INPUTS HFC OBJETADA -->
 
                         <div class="form-group-container" id="formHfc_Objetada">
                             <div class="from-group-container">
-
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="tipo_actividad">Motivo</label>
-                                        <select class="form-control" style="width: 100%;" name="tipo_actividad"
-                                            tabindex="-1" id="tipo_actividad" aria-hidden="true">
-                                            <option selected="selected" value="">Seleccione una opción</option>
-                                            <option value="REALIZADA">REALIZADA</option>
-                                            <option value="OBJETADA">OBJETADA</option>
-                                            <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                        <label for="tipo_actividad">Motivo Objetada</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="tipo_actividad" tabindex="-1" id="tipo_actividad"
+                                            aria-hidden="true">
+                                            <option selected="selected">Seleccione una opción</option>
+                                            <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
+                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            </option>
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            </option>
+                                            <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP
+                                            </option>
+                                            <option value=" NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION
+                                                SYREM INEXISTENTE </option>
+                                            <option value=" PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                                OPEN </option>
+                                            <option value=" RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
+                                            <option value=" RED NO HABILITADA">RED NO HABILITADA </option>
+                                            <option value=" ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
+                                            <option value=" TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            </option>
+                                            <option value=" VANDALISMO"> VANDALISMO </option>
                                         </select>
                                     </div>
                                 </div>
@@ -296,11 +308,47 @@
 
                         <!-- INPUTS HFC TRANSFERIDA -->
 
+                        <div class="form-group-container" id="formHfc_Transferida">
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <label for="EModem">
+                                        Orden
+                                    </label>
+                                    <input type="text" class="form-control" id="numerovoip" name="numerovoip" />
+                                </div>
+                            </div>
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="flexCheckDefault" />
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Trabajado
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="from-group-container">
+                                <div class="form-group col-md-12">
+                                    <label for="EModem">
+                                        Problematica
+                                    </label>
+                                    <input type="text" class="form-control" id="georeferencia" name="georeferencia" />
+                                </div>
+                            </div>
 
+                            <div class="from-group-container">
+                                <div class="form-group col-md-12">
+                                    <label for="EModem">
+                                        Comentarios
+                                    </label>
+                                    <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <!-- FORMULARIO 3 -->
+                <!-- FORMULARIO #3 GPON -->
                 <div id="form3" class="box-body">
                     <div class="form-group-container">
                         <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
@@ -344,9 +392,6 @@
                                     placeholder="Comentarios..." />
                             </div>
                         </div>
-                        <!-- <div class="box-footer" style="text-align: center;">
-                                {!! Form::submit('Guardar Caso', ['class' => 'btn btn-warning']) !!}
-                            </div> -->
                     </div>
                 </div>
                 <!-- FORMULARIO #4 -->
@@ -450,9 +495,6 @@
                                 placeholder="Comentarios..." />
                         </div>
                     </div>
-                    <!-- <div class="box-footer" style="text-align: center;">
-                            {!! Form::submit('Guardar Caso', ['class' => 'btn btn-warning']) !!}
-                        </div> -->
                 </div>
                 <!-- FORMULARIO #5-->
                 <div id="form5" class="box-body">
@@ -548,81 +590,14 @@
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label for="tecnico">Numero GPON</label>
-                            <input type="text" class="form-control" id="tecnico" name="tecnico" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="tecnico">SYRENG</label>
-                            <input type="text" class="form-control" id="tecnico" name="tecnico" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="tecnico">SAP</label>
-                            <input type="text" class="form-control" id="tecnico" name="tecnico" />
-                        </div>
                     </div>
-
-                    <div class="from-group-container">
-                        <div class="form-group col-md-3">
-                            <label for="equipostv">Equipo Tv</label>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipotv1" name="equipotv1" />
-                            </div>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipostv2" name="equipostv2" />
-                            </div>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipostv3" name="equipostv3" />
-                            </div>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipostv" name="equipostv4" />
-                            </div>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipostv5" name="equipostv5" />
-                            </div>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="tecnico">Equipo Modem</label>
-                            <input type="text" class="form-control" id="tecnico" name="tecnico" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="tecnico">Georeferencia</label>
-                            <input type="text" class="form-control" id="tecnico" name="tecnico" />
-                        </div>
-                        <div class="from-group-container">
-                            <div class="form-group col-md-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Trabajado
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="box-footer" id="btn-submit"
+                        style="text-align: center; display: flex; justify-content: center;">
+                        <button id="" type="submit" class="btn btn-warning">Guardar Caso</button>
                     </div>
-                    <div class="form-group-container">
-                        <div class="form-group col-md-12">
-                            <label for="telefono">Observaciones</label>
-                            <input type="number" class="form-control" id="observaciones-form3"
-                                name="observaciones-form3" />
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label for="telefono">Recibe</label>
-                            <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                placeholder="" />
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label for="telefono">Materiales</label>
-                            <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                placeholder="Comentarios..." />
-                        </div>
-                    </div>
-                </div>
-                <div class="box-footer" id="" style="text-align: center;display: flex;justify-content: center;">
-                    <button id="btn-submit" type="submit" class="btn btn-warning">Guardar Caso </button>
-                </div>
+            </form>
         </div>
-        </form>
+
 
 
         @endsection @section('styles')
@@ -662,6 +637,7 @@
         <script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
         <script src="{{asset('/js/registro/validacionesregistro.js')}}" type="text/javascript"> </script>
         <!-- <script src="{{asset('/js/instalaciones/registro.js')}}" type="text/javascript"> </script> -->
+
 
 
         @endsection

@@ -140,42 +140,42 @@ fetch("../Json/Localizaciones.json")
 // VALIDACIONES DE INPUTS PARA TIPO DE TRABAJO REALIZADO
 
 document.addEventListener("DOMContentLoaded", function () {
+  // HFC
   const formHfc_Realizada = document.getElementById("formHfc_Realizada");
   const formHfc_Objetada = document.getElementById("formHfc_Objetada");
-  // const formAdsl = document.getElementById("formAdsl ");
-  // const formCobre = document.getElementById("formCobre");
-  // const formDth = document.getElementById("formDth");
-  // const formGpon = document.getElementById("formGpon");
+  const formHfc_Transferida = document.getElementById("formHfc_Transferida");
+
+  // GPON
+  // const formGpon_Realizada = document.getElementById("formGpon_Realizada");
+  // const formGpon_Objetada = document.getElementById("formGpon_Objetada");
+  // const formGpon_Transferida = document.getElementById("formGpon_Transferida");
 
   const select = document.querySelector("select[name='tipo_actividad']");
 
   formHfc_Realizada.style.display = "none";
   formHfc_Objetada.style.display = "none";
-  // formAdsl.style.display = "none";
-  // formCobre.style.display = "none";
-  // formDth.style.display = "none";
-  // formGpon.style.display = "none";
+  formHfc_Transferida.style.display = "none";
 
   select.addEventListener("change", function () {
     formHfc_Realizada.style.display = "none";
-    // formCobre.style.display = "none";
-    // formDth.style.display = "none";
-    // formGpon.style.display = "none";
-    // form6.style.display = "none";
 
     switch (select.value) {
       case "REALIZADA":
         formHfc_Realizada.style.display = "block";
         btn_save.disabled = false;
         btn_save.style.display = "block";
+        formHfc_Objetada.style.display = "none";
         break;
       case "OBJETADA":
+        formHfc_Realizada.style.display = "none";
         formHfc_Objetada.style.display = "block";
         btn_save.style.display = "block";
 
         break;
       case "TRANSFERIDA":
-        // formDth.style.display = "block";
+        formHfc_Transferida.style.display = "block";
+        formHfc_Realizada.style.display = "none";
+        formHfc_Objetada.style.display = "none";
         break;
     }
   });

@@ -57,6 +57,8 @@ class LlamadasServicioController extends Controller
 		return view('llamadashome/instalaciones')
 			->with('page_title', 'Instalaciones - Servicio')
 			->with('navigation', 'Instalaciones');
+
+			
 	}
 
    
