@@ -566,24 +566,25 @@
                             <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="telefono">Orden Internet</label>
-                            <input type="number" class="form-control" id="telefono" name="telefono" />
+                            <label for="OrdenInternet_Gpon">Orden Internet</label>
+                            <input type="number" class="form-control" id="OrdenInternet_Gpon"
+                                name="OrdenInternet_Gpon" />
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="codigo_tecnico">Orden Tv</label>
-                            <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico" />
+                            <label for="OrdenTv_Gpon">Orden Tv</label>
+                            <input type="text" class="form-control" id="OrdenTv_Gpon" name="OrdenTv_Gpon" />
                         </div>
 
                         <div class="form-group col-md-3">
-                            <label for="tecnico">Orden Linea</label>
-                            <input type="text" class="form-control" id="tecnico" name="tecnico" />
+                            <label for="OrdenLinea_Gpon">Orden Linea</label>
+                            <input type="text" class="form-control" id="OrdenLinea_Gpon" name="OrdenLinea_Gpon" />
                         </div>
                     </div>
                     <div class="form-group-container" style="margin-top: 2.5rem;">
                         <div class="form-group col-md-3">
-                            <label for="tipo_actividad">Tipo De Actividad</label>
-                            <select class="form-control" style="width: 100%;" name="tipo_servicio" tabindex="-1"
-                                aria-hidden="true">
+                            <label for="tipo_actividadGpon">Tipo De Actividad</label>
+                            <select class="form-control" style="width: 100%;" name="tipo_actividadGpon"
+                                id="tipo_actividadGpon" tabindex="-1" aria-hidden="true">
                                 <option selected="selected" value="">Seleccione una opción</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
@@ -591,6 +592,113 @@
                             </select>
                         </div>
                     </div>
+
+                    <!-- CAMBIO DE TIPO ACTIVIDAD REALIZADA GPON-->
+                    <div class="form-group-container" id="formGpon_Realizada">
+                        <div class="from-group-container">
+                            <div class="form-group col-md-3">
+                                <label for="equipostv">Equipo Tv</label>
+                                <div class="box_equipostv">
+                                    <input type="text" class="form-control" id="equipotv1" name="equipotv1" />
+                                </div>
+                                <div class="box_equipostv">
+                                    <input type="text" class="form-control" id="equipostv2" name="equipostv2" />
+                                </div>
+                                <div class="box_equipostv">
+                                    <input type="text" class="form-control" id="equipostv3" name="equipostv3" />
+                                </div>
+                                <div class="box_equipostv">
+                                    <input type="text" class="form-control" id="equipostv" name="equipostv4" />
+                                </div>
+                                <div class="box_equipostv">
+                                    <input type="text" class="form-control" id="equipostv5" name="equipostv5" />
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="tecnico">Equipo Modem</label>
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="tecnico">Georeferencia</label>
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                            </div>
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="flexCheckDefault" />
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Trabajado
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group-container">
+                            <div class="form-group col-md-12">
+                                <label for="telefono">Observaciones</label>
+                                <input type="number" class="form-control" id="observaciones-form3"
+                                    name="observaciones-form3" required />
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="telefono">Recibe</label>
+                                <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
+                                    required placeholder="" />
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="telefono">Materiales</label>
+                                <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
+                                    required placeholder="Comentarios..." />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TIPO ACTIVIDAD OBJETADA GPON -->
+
+                    <div class="form-group-container" id="formGpon_Objetada">
+                        <div class="from-group-container">
+                            <div class="form-group col-md-3">
+                                <label for="EModem">
+                                    Orden
+                                </label>
+                                <input type="text" class="form-control" id="numerovoip" name="numerovoip" />
+                            </div>
+                        </div>
+                        <div class="from-group-container">
+                            <div class="form-group col-md-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Trabajado
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="from-group-container">
+                            <div class="form-group col-md-12">
+                                <label for="EModem">
+                                    Problematica
+                                </label>
+                                <input type="text" class="form-control" id="georeferencia" name="georeferencia" />
+                            </div>
+                        </div>
+
+                        <div class="from-group-container">
+                            <div class="form-group col-md-12">
+                                <label for="EModem">
+                                    Comentarios
+                                </label>
+                                <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TIPO ACTIVIDAD TRANSFERIDA GPON -->
+                    <div class="form-group-container">
+
+                    </div>
+
+
                     <div class="box-footer" id="btn-submit"
                         style="text-align: center; display: flex; justify-content: center;">
                         <button id="" type="submit" class="btn btn-warning">Guardar Caso</button>

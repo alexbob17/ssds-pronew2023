@@ -468,7 +468,8 @@
         <div class="form-group-container" style="margin-top: 2.5rem;">
             <div class="form-group col-md-3">
                 <label for="tipo_actividad">Tipo De Actividad</label>
-                <select class="form-control" style="width: 100%;" name="tipo_servicio" tabindex="-1" aria-hidden="true">
+                <select class="form-control" style="width: 100%;" id="tipo_actividad" name="tipo_actividad"
+                    tabindex="-1" aria-hidden="true">
                     <option selected="selected" value="">Seleccione una opción</option>
                     <option value="REALIZADA">REALIZADA</option>
                     <option value="OBJETADA">OBJETADA</option>

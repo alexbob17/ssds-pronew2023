@@ -97,11 +97,20 @@ const select_orden = document.getElementById("select_orden");
 const orden_tv_hfc = document.getElementById("orden_tv_hfc");
 const orden_internet_hfc = document.getElementById("orden_internet_hfc");
 const orden_linea_hfc = document.getElementById("orden_linea_hfc");
+
+const OrdenTv_Gpon = document.getElementById("OrdenTv_Gpon");
+const OrdenInternet_Gpon = document.getElementById("OrdenInternet_Gpon");
+const OrdenLinea_Gpon = document.getElementById("OrdenLinea_Gpon");
+
 const btn_save = document.getElementById("btn-submit");
 
 orden_tv_hfc.disabled = true;
 orden_internet_hfc.disabled = true;
 orden_linea_hfc.disabled = true;
+OrdenTv_Gpon.disabled = true;
+OrdenInternet_Gpon.disabled = true;
+OrdenLinea_Gpon.disabled = true;
+
 btn_save.disabled = true;
 btn_save.style.display = "none";
 
@@ -115,11 +124,18 @@ select_orden.addEventListener("change", function () {
     "CASA CLARO DOBLE - INTERNET + LINEA": [true, false, false],
     "CASA CLARO TRIPLE": [false, false, false],
     LINEA: [true, true, false],
+    "INDIVIDUAL INTERNET": [false, true, true],
+    "GPON IPTV": [true, false, true],
+    "LINEA GPON": [true, true, false],
   };
   var disabledOptions = options[selectedOption] || [true, true, true];
   orden_tv_hfc.disabled = disabledOptions[0];
   orden_internet_hfc.disabled = disabledOptions[1];
   orden_linea_hfc.disabled = disabledOptions[2];
+
+  OrdenInternet_Gpon.disabled = disabledOptions[0];
+  OrdenTv_Gpon.disabled = disabledOptions[1];
+  OrdenLinea_Gpon.disabled = disabledOptions[2];
 });
 
 // FETCH LOCALIZACIONES
@@ -145,20 +161,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const formHfc_Objetada = document.getElementById("formHfc_Objetada");
   const formHfc_Transferida = document.getElementById("formHfc_Transferida");
 
-  // GPON
-  // const formGpon_Realizada = document.getElementById("formGpon_Realizada");
-  // const formGpon_Objetada = document.getElementById("formGpon_Objetada");
-  // const formGpon_Transferida = document.getElementById("formGpon_Transferida");
-
   const select = document.querySelector("select[name='tipo_actividad']");
 
   formHfc_Realizada.style.display = "none";
   formHfc_Objetada.style.display = "none";
   formHfc_Transferida.style.display = "none";
+  formGpon_Realizada.style.display = "none";
+  formGpon_Objetada.style.display = "none";
 
   select.addEventListener("change", function () {
-    formHfc_Realizada.style.display = "none";
-
     switch (select.value) {
       case "REALIZADA":
         formHfc_Realizada.style.display = "block";
@@ -179,4 +190,31 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
     }
   });
+});
+
+// TIPO ACTIVIDAD (GPON REALIZADA)
+
+const selectGpon = document.querySelector("select[name='tipo_actividadGpon']");
+// GPON
+const formGpon_Realizada = document.getElementById("formGpon_Realizada");
+const formGpon_Objetada = document.getElementById("formGpon_Objetada");
+
+selectGpon.addEventListener("change", function () {
+  formGpon_Realizada.style.display = "none";
+  switch (selectGpon.value) {
+    case "REALIZADA":
+      btn_save.disabled = false;
+      btn_save.style.display = "block";
+      formGpon_Realizada.style.display = "block";
+      formGpon_Objetada.style.display = "none";
+      break;
+    case "OBJETADA":
+      btn_save.disabled = false;
+      btn_save.style.display = "block";
+      formGpon_Objetada.style.display = "block";
+      formGpon_Realizada.style.display = "none";
+      break;
+    case "TRANSFERIDA":
+      break;
+  }
 });
