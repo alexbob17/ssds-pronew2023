@@ -168,6 +168,7 @@ document.addEventListener("DOMContentLoaded", function () {
   formHfc_Transferida.style.display = "none";
   formGpon_Realizada.style.display = "none";
   formGpon_Objetada.style.display = "none";
+  formGpon_Transferida.style.display = "none";
 
   select.addEventListener("change", function () {
     switch (select.value) {
@@ -198,23 +199,28 @@ const selectGpon = document.querySelector("select[name='tipo_actividadGpon']");
 // GPON
 const formGpon_Realizada = document.getElementById("formGpon_Realizada");
 const formGpon_Objetada = document.getElementById("formGpon_Objetada");
+const formGpon_Transferida = document.getElementById("formGpon_Transferida");
 
 selectGpon.addEventListener("change", function () {
   formGpon_Realizada.style.display = "none";
+  formGpon_Transferida.style.display = "none";
+  formGpon_Objetada.style.display = "none";
+
   switch (selectGpon.value) {
     case "REALIZADA":
       btn_save.disabled = false;
       btn_save.style.display = "block";
       formGpon_Realizada.style.display = "block";
-      formGpon_Objetada.style.display = "none";
       break;
     case "OBJETADA":
       btn_save.disabled = false;
       btn_save.style.display = "block";
       formGpon_Objetada.style.display = "block";
-      formGpon_Realizada.style.display = "none";
       break;
     case "TRANSFERIDA":
+      btn_save.disabled = false;
+      btn_save.style.display = "block";
+      formGpon_Transferida.style.display = "block";
       break;
   }
 });

@@ -253,16 +253,16 @@
                                             </option>
                                             <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP
                                             </option>
-                                            <option value=" NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION
+                                            <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION
                                                 SYREM INEXISTENTE </option>
-                                            <option value=" PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
                                                 OPEN </option>
-                                            <option value=" RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
-                                            <option value=" RED NO HABILITADA">RED NO HABILITADA </option>
-                                            <option value=" ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value=" TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
+                                            <option value="RED NO HABILITADA">RED NO HABILITADA </option>
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
                                             </option>
-                                            <option value=" VANDALISMO"> VANDALISMO </option>
+                                            <option value="VANDALISMO"> VANDALISMO </option>
                                         </select>
                                     </div>
                                 </div>
@@ -694,58 +694,92 @@
                     </div>
 
                     <!-- TIPO ACTIVIDAD TRANSFERIDA GPON -->
-                    <div class="form-group-container">
+                    <div class="form-group-container" id="formGpon_Transferida">
 
+                        <div class="form-group col-md-3">
+                            <label for="EModem">
+                                Orden
+                            </label>
+                            <input type="text" class="form-control" id="numerovoip" name="numerovoip" />
+                        </div>
+                        <div class="from-group-container">
+                            <div class="form-group col-md-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Trabajado
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="from-group-container">
+                            <div class="form-group col-md-12">
+                                <label for="EModem">
+                                    Problematica
+                                </label>
+                                <input type="text" class="form-control" id="georeferencia" name="georeferencia" />
+                            </div>
+                        </div>
+
+                        <div class="from-group-container">
+                            <div class="form-group col-md-12">
+                                <label for="EModem">
+                                    Comentarios
+                                </label>
+                                <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
+                            </div>
+                        </div>
                     </div>
-
-
-                    <div class="box-footer" id="btn-submit"
-                        style="text-align: center; display: flex; justify-content: center;">
-                        <button id="" type="submit" class="btn btn-warning">Guardar Caso</button>
-                    </div>
-            </form>
+                </div>
         </div>
 
 
-
-        @endsection @section('styles')
-        <!-- Select2 -->
-        <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
-        <link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
-        <!-- User definided -->
-        <link rel="stylesheet" href="{{ asset('/css/center-modal.css') }}" />
-        <style>
-        [type="submit"]:disabled {
-            cursor: default;
-        }
-        </style>
-        @endsection @section('scripts')
-        <!-- datepicker -->
-        <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript">
-        </script>
-        <script src="{{ asset('/plugins/datepicker/locales/bootstrap-datepicker.es.js') }}" type="text/javascript">
-        </script>
-        <!-- Select2 -->
-        <script src="{{ asset('/plugins/select2/select2.full.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('/plugins/select2/i18n/es.js') }}" type="text/javascript"></script>
-        <!-- InputMask -->
-        <script src="{{ asset('/plugins/input-mask/inputmask.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('/plugins/input-mask/inputmask.date.extensions.js') }}" type="text/javascript">
-        </script>
-        <script src="{{ asset('/plugins/input-mask/inputmask.regex.extensions.js') }}" type="text/javascript">
-        </script>
-        <script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
-        <!-- boostrap-fileinput -->
-        <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput.min.js') }}" type="text/javascript">
-        </script>
-        <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput_locale_es.js') }}" type="text/javascript">
-        </script>
-        <!-- User definided -->
-        <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script>
-        <script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
-        <script src="{{asset('/js/registro/validacionesregistro.js')}}" type="text/javascript"> </script>
-        <!-- <script src="{{asset('/js/instalaciones/registro.js')}}" type="text/javascript"> </script> -->
+        <div class="box-footer" id="btn-submit" style="text-align: center; display: flex; justify-content: center;">
+            <button id="" type="submit" class="btn btn-warning">Guardar Caso</button>
+        </div>
+        </form>
+    </div>
 
 
 
-        @endsection
+    @endsection @section('styles')
+    <!-- Select2 -->
+    <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
+    <!-- User definided -->
+    <link rel="stylesheet" href="{{ asset('/css/center-modal.css') }}" />
+    <style>
+    [type="submit"]:disabled {
+        cursor: default;
+    }
+    </style>
+    @endsection @section('scripts')
+    <!-- datepicker -->
+    <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript">
+    </script>
+    <script src="{{ asset('/plugins/datepicker/locales/bootstrap-datepicker.es.js') }}" type="text/javascript">
+    </script>
+    <!-- Select2 -->
+    <script src="{{ asset('/plugins/select2/select2.full.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/plugins/select2/i18n/es.js') }}" type="text/javascript"></script>
+    <!-- InputMask -->
+    <script src="{{ asset('/plugins/input-mask/inputmask.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('/plugins/input-mask/inputmask.date.extensions.js') }}" type="text/javascript">
+    </script>
+    <script src="{{ asset('/plugins/input-mask/inputmask.regex.extensions.js') }}" type="text/javascript">
+    </script>
+    <script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
+    <!-- boostrap-fileinput -->
+    <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput.min.js') }}" type="text/javascript">
+    </script>
+    <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput_locale_es.js') }}" type="text/javascript">
+    </script>
+    <!-- User definided -->
+    <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script>
+    <script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
+    <script src="{{asset('/js/registro/validacionesregistro.js')}}" type="text/javascript"> </script>
+    <!-- <script src="{{asset('/js/instalaciones/registro.js')}}" type="text/javascript"> </script> -->
+
+
+
+    @endsection
