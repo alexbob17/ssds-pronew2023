@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// TIPO ACTIVIDAD (GPON REALIZADA)
+// TIPO ACTIVIDAD (GPON-REALIZADA/TRANSFERIDA/OBJETADA)
 
 const selectGpon = document.querySelector("select[name='tipo_actividadGpon']");
 // GPON
