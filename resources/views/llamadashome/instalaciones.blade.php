@@ -253,8 +253,8 @@
                                             </option>
                                             <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP
                                             </option>
-                                            <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION
-                                                SYREM INEXISTENTE </option>
+                                            <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
+                                                INEXISTENTE </option>
                                             <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
                                                 OPEN </option>
                                             <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
@@ -350,7 +350,19 @@
                 </div>
                 <!-- FORMULARIO #3 GPON -->
                 <div id="form3" class="box-body">
-                    <div class="form-group-container">
+                    <div class="form-group col-md-3">
+                        <label for="tipoactividadAdsl">Tipo Actividad</label>
+                        <select class="form-control" style="width: 100%;" name="tipoactividadAdsl"
+                            id="tipoactividadAdsl" tabindex="-1" aria-hidden="true">
+                            <option selected="selected">Seleccione una opción</option>
+                            <option value="REALIZADA">REALIZADA</option>
+                            <option value="OBJETADA">OBJETADA</option>
+                            <option value="TRANSFERIDA">TRANSFERIDA</option>
+                        </select>
+                    </div>
+                    <!-- TIPO ACTIVIDAD REALIZADA (ADSL) -->
+                    <div class="form-group-container" id="formAdsl_Realizada">
+
                         <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
                             <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
                         </div>
@@ -362,16 +374,7 @@
                             <label for="sap_adsl">SAP</label>
                             <input type="text" class="form-control" id="sap_adsl" name="sap_adsl" />
                         </div>
-                        <div class="form-group col-md-3">
-                            <label for="tipoactividad">Tipo Actividad</label>
-                            <select class="form-control" style="width: 100%;" name="tipo-actividad" tabindex="-1"
-                                aria-hidden="true">
-                                <option selected="selected">Seleccione una opción</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
-                            </select>
-                        </div>
+
                         <div class="form-group col-md-3">
                             <div class="form-check">
                                 <input id="trabajado_adsl" class="form-check-input" type="checkbox" value=""
@@ -393,7 +396,12 @@
                             </div>
                         </div>
                     </div>
+
+                    <div id="formAdsl_Objetada"></div>
+                    <div id="formAdsl_Transferida"></div>
+
                 </div>
+
                 <!-- FORMULARIO #4 -->
                 <div id="form4" class="box-body">
                     <div class="form-group-container" style="margin-top: 2.5rem;">
@@ -656,6 +664,29 @@
                     <!-- TIPO ACTIVIDAD OBJETADA GPON -->
 
                     <div class="form-group-container" id="formGpon_Objetada">
+                        <div class="form-group col-md-3">
+                            <label for="tipo_actividad">Motivo Objetada</label>
+                            <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                                name="tipo_actividad" tabindex="-1" id="tipo_actividad" aria-hidden="true">
+                                <option selected="selected">Seleccione una opción</option>
+                                <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
+                                <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
+                                <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                </option>
+                                <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP </option>
+                                <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP </option>
+                                <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
+                                    INEXISTENTE
+                                </option>
+                                <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO OPEN
+                                </option>
+                                <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
+                                <option value="RED NO HABILITADA">RED NO HABILITADA </option>
+                                <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
+                                <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA </option>
+                                <option value="VANDALISMO"> VANDALISMO </option>
+                            </select>
+                        </div>
                         <div class="from-group-container">
                             <div class="form-group col-md-3">
                                 <label for="EModem">
@@ -677,7 +708,7 @@
                         <div class="from-group-container">
                             <div class="form-group col-md-12">
                                 <label for="EModem">
-                                    Problematica
+                                    Observaciones
                                 </label>
                                 <input type="text" class="form-control" id="georeferencia" name="georeferencia" />
                             </div>
@@ -695,7 +726,6 @@
 
                     <!-- TIPO ACTIVIDAD TRANSFERIDA GPON -->
                     <div class="form-group-container" id="formGpon_Transferida">
-
                         <div class="form-group col-md-3">
                             <label for="EModem">
                                 Orden
@@ -731,55 +761,48 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="box-footer" id="btn-submit"
+                    style="text-align: center; display: flex; justify-content: center;">
+                    <button id="" type="submit" class="btn btn-warning">Guardar Caso</button>
+                </div>
+            </form>
         </div>
 
+        @endsection @section('styles')
+        <!-- Select2 -->
+        <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
+        <!-- User definided -->
+        <link rel="stylesheet" href="{{ asset('/css/center-modal.css') }}" />
+        <style>
+        [type="submit"]:disabled {
+            cursor: default;
+        }
+        </style>
+        @endsection @section('scripts')
+        <!-- datepicker -->
+        <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/plugins/datepicker/locales/bootstrap-datepicker.es.js') }}" type="text/javascript">
+        </script>
+        <!-- Select2 -->
+        <script src="{{ asset('/plugins/select2/select2.full.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/plugins/select2/i18n/es.js') }}" type="text/javascript"></script>
+        <!-- InputMask -->
+        <script src="{{ asset('/plugins/input-mask/inputmask.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/plugins/input-mask/inputmask.date.extensions.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/plugins/input-mask/inputmask.regex.extensions.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
+        <!-- boostrap-fileinput -->
+        <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput_locale_es.js') }}" type="text/javascript">
+        </script>
+        <!-- User definided -->
+        <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script>
+        <script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
+        <script src="{{asset('/js/registro/validacionesregistro.js')}}" type="text/javascript"></script>
+        <!-- <script src="{{asset('/js/instalaciones/registro.js')}}" type="text/javascript"> </script> -->
 
-        <div class="box-footer" id="btn-submit" style="text-align: center; display: flex; justify-content: center;">
-            <button id="" type="submit" class="btn btn-warning">Guardar Caso</button>
-        </div>
-        </form>
+        @endsection
     </div>
-
-
-
-    @endsection @section('styles')
-    <!-- Select2 -->
-    <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
-    <link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
-    <!-- User definided -->
-    <link rel="stylesheet" href="{{ asset('/css/center-modal.css') }}" />
-    <style>
-    [type="submit"]:disabled {
-        cursor: default;
-    }
-    </style>
-    @endsection @section('scripts')
-    <!-- datepicker -->
-    <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript">
-    </script>
-    <script src="{{ asset('/plugins/datepicker/locales/bootstrap-datepicker.es.js') }}" type="text/javascript">
-    </script>
-    <!-- Select2 -->
-    <script src="{{ asset('/plugins/select2/select2.full.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('/plugins/select2/i18n/es.js') }}" type="text/javascript"></script>
-    <!-- InputMask -->
-    <script src="{{ asset('/plugins/input-mask/inputmask.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('/plugins/input-mask/inputmask.date.extensions.js') }}" type="text/javascript">
-    </script>
-    <script src="{{ asset('/plugins/input-mask/inputmask.regex.extensions.js') }}" type="text/javascript">
-    </script>
-    <script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
-    <!-- boostrap-fileinput -->
-    <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput.min.js') }}" type="text/javascript">
-    </script>
-    <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput_locale_es.js') }}" type="text/javascript">
-    </script>
-    <!-- User definided -->
-    <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script>
-    <script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
-    <script src="{{asset('/js/registro/validacionesregistro.js')}}" type="text/javascript"> </script>
-    <!-- <script src="{{asset('/js/instalaciones/registro.js')}}" type="text/javascript"> </script> -->
-
-
-
-    @endsection
+</div>

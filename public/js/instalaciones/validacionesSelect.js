@@ -1,3 +1,7 @@
+const btn_save = document.getElementById("btn-submit");
+
+btn_save.style.display = "none";
+
 // VALIDACIONES OCULTAR FORM EN BASE A TECNOLOGIA
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -45,50 +49,43 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const select1 = document.getElementById("tecnologia");
-const select2 = document.getElementById("select_orden");
+const technologySelect = document.getElementById("tecnologia");
+const optionSelect = document.getElementById("select_orden");
 
-// OPCIONES DE INPUTS EN BASE A LA SELECCION DE LA TECNOLOGIA
-
-select1.addEventListener("change", function () {
-  if (select1.value === "HFC") {
-    select2.innerHTML = `
-    <option value="">SELECCIONA UNA OPCION</option>
-    <option value="TV BASICA">TV BASICA</option>
-    <option value="TV DIGITAL">TV DIGITAL</option>
-    <option value="INTERNET">INTERNET</option>
-    <option value="LINEA">LINEA</option>
-    <option value="CASA CLARO TRIPLE">CASA CLARO TRIPLE</option>
-    <option value="CASA CLARO DOBLE - TV + INTERNET">CASA CLARO DOBLE - TV + INTERNET</option>
-    <option value="CASA CLARO DOBLE - INTERNET + LINEA">CASA CLARO DOBLE - INTERNET + LINEA</option>
-    `;
-  } else if (select1.value === "GPON") {
-    select2.innerHTML = `
-    <option value="TV">SELECCIONA UNA OPCION</option>
-      <option value="INDIVIDUAL INTERNET">INDIVIDUAL INTERNET</option>
-      <option value="GPON IPTV">GPON IPTV</option>
-      <option value="LINEA GPON">LINEA GPON</option>
-     
-      `;
-  } else if (select1.value === "ADSL") {
-    select2.innerHTML = `
-    <option value="TV">SELECCIONA UNA OPCION</option>
-      <option value="INDIVIDUAL INTERNET">INDIVIDUAL INTERNET</option>
-      <option value="INDIVIDUAL">INDIVIDUAL</option>
-      <option value="REACTIVACION">REACTIVACION</option>
-      `;
-  } else if (select1.value === "COBRE") {
-    select2.innerHTML = `
-      <option value="TV">SELECCIONA UNA OPCION</option>
-      <option value="INDIVIDUAL INTERNET">INDIVIDUAL</option>
-      `;
-  } else if (select1.value === "DTH") {
-    select2.innerHTML = `
-      <option value="TV">SELECCIONA UNA OPCION</option>
-      <option value="REACTIVACION">REACTIVACION</option>
-      `;
-  }
-});
+const technologyOptions = {
+  HFC: [
+    { value: "", label: "SELECCIONA UNA OPCION" },
+    { value: "TV BASICA", label: "TV BASICA" },
+    { value: "TV DIGITAL", label: "TV DIGITAL" },
+    { value: "INTERNET", label: "INTERNET" },
+    { value: "LINEA", label: "LINEA" },
+    { value: "CASA CLARO TRIPLE", label: "CASA CLARO TRIPLE" },
+    {
+      value: "CASA CLARO DOBLE - TV + INTERNET",
+      label: "CASA CLARO DOBLE - TV + INTERNET",
+    },
+    {
+      value: "CASA CLARO DOBLE - INTERNET + LINEA",
+      label: "CASA CLARO DOBLE - INTERNET + LINEA",
+    },
+  ],
+  GPON: [
+    { value: "", label: "SELECCIONA UNA OPCION" },
+    { value: "INDIVIDUAL INTERNET", label: "INDIVIDUAL INTERNET" },
+    { value: "GPON IPTV", label: "GPON IPTV" },
+    { value: "LINEA GPON", label: "LINEA GPON" },
+  ],
+  ADSL: [
+    { value: "", label: "SELECCIONA UNA OPCION" },
+    { value: "INDIVIDUAL INTERNET", label: "INDIVIDUAL INTERNET" },
+    { value: "INDIVIDUAL", label: "INDIVIDUAL" },
+    { value: "REACTIVACION", label: "REACTIVACION" },
+  ],
+  COBRE: [
+    { value: "", label: "SELECCIONA UNA OPCION" },
+    { value: "", label: "SELECCIONA UNA OPCION" },
+  ],
+};
 
 // VALIDACIONES TIPO ORDEN
 
@@ -101,8 +98,6 @@ const orden_linea_hfc = document.getElementById("orden_linea_hfc");
 const OrdenTv_Gpon = document.getElementById("OrdenTv_Gpon");
 const OrdenInternet_Gpon = document.getElementById("OrdenInternet_Gpon");
 const OrdenLinea_Gpon = document.getElementById("OrdenLinea_Gpon");
-
-const btn_save = document.getElementById("btn-submit");
 
 orden_tv_hfc.disabled = true;
 orden_internet_hfc.disabled = true;
@@ -153,74 +148,138 @@ fetch("../Json/Localizaciones.json")
     }
   });
 
-// VALIDACIONES DE INPUTS PARA TIPO DE TRABAJO REALIZADO
+const select = document.querySelector("select[name='tipo_actividad']");
+const formHfc_Realizada = document.getElementById("formHfc_Realizada");
+const formHfc_Objetada = document.getElementById("formHfc_Objetada");
+const formHfc_Transferida = document.getElementById("formHfc_Transferida");
+// const btn_save = document.getElementById("btn-submit");
 
-document.addEventListener("DOMContentLoaded", function () {
-  // HFC
-  const formHfc_Realizada = document.getElementById("formHfc_Realizada");
-  const formHfc_Objetada = document.getElementById("formHfc_Objetada");
-  const formHfc_Transferida = document.getElementById("formHfc_Transferida");
+formHfc_Realizada.style.display = "none";
+formHfc_Objetada.style.display = "none";
+formHfc_Transferida.style.display = "none";
+btn_save.style.display = "none";
 
-  const select = document.querySelector("select[name='tipo_actividad']");
-
+select.addEventListener("change", function () {
   formHfc_Realizada.style.display = "none";
   formHfc_Objetada.style.display = "none";
   formHfc_Transferida.style.display = "none";
-  formGpon_Realizada.style.display = "none";
-  formGpon_Objetada.style.display = "none";
-  formGpon_Transferida.style.display = "none";
+  btn_save.disabled = true;
 
-  select.addEventListener("change", function () {
+  if (!select.value) {
+    // si no se ha seleccionado ninguna opción
+    btn_save.disabled = true;
+    btn_save.style.display = "none";
+  } else {
+    // si se ha seleccionado una opción
+    btn_save.disabled = false;
+    btn_save.style.display = "block";
+
     switch (select.value) {
       case "REALIZADA":
         formHfc_Realizada.style.display = "block";
-        btn_save.disabled = false;
-        btn_save.style.display = "block";
-        formHfc_Objetada.style.display = "none";
         break;
       case "OBJETADA":
-        formHfc_Realizada.style.display = "none";
         formHfc_Objetada.style.display = "block";
-        btn_save.style.display = "block";
-
         break;
       case "TRANSFERIDA":
         formHfc_Transferida.style.display = "block";
-        formHfc_Realizada.style.display = "none";
-        formHfc_Objetada.style.display = "none";
         break;
+      default:
+        btn_save.disabled = true;
     }
-  });
+  }
 });
 
 // TIPO ACTIVIDAD (GPON-REALIZADA/TRANSFERIDA/OBJETADA)
 
 const selectGpon = document.querySelector("select[name='tipo_actividadGpon']");
-// GPON
 const formGpon_Realizada = document.getElementById("formGpon_Realizada");
 const formGpon_Objetada = document.getElementById("formGpon_Objetada");
 const formGpon_Transferida = document.getElementById("formGpon_Transferida");
+
+formGpon_Realizada.style.display = "none";
+formGpon_Objetada.style.display = "none";
+formGpon_Transferida.style.display = "none";
 
 selectGpon.addEventListener("change", function () {
   formGpon_Realizada.style.display = "none";
   formGpon_Transferida.style.display = "none";
   formGpon_Objetada.style.display = "none";
+  btn_save.disabled = true;
 
-  switch (selectGpon.value) {
-    case "REALIZADA":
-      btn_save.disabled = false;
-      btn_save.style.display = "block";
-      formGpon_Realizada.style.display = "block";
-      break;
-    case "OBJETADA":
-      btn_save.disabled = false;
-      btn_save.style.display = "block";
-      formGpon_Objetada.style.display = "block";
-      break;
-    case "TRANSFERIDA":
-      btn_save.disabled = false;
-      btn_save.style.display = "block";
-      formGpon_Transferida.style.display = "block";
-      break;
+  if (!selectGpon.value) {
+    // si no se ha seleccionado ninguna opción
+    formGpon_Realizada.disabled = true;
+    formGpon_Transferida.disabled = true;
+    formGpon_Objetada.disabled = true;
+    btn_save.disabled = true;
+    btn_save.style.display = "none";
+  } else {
+    // si se ha seleccionado una opción
+    btn_save.disabled = false;
+    btn_save.style.display = "block";
+
+    switch (selectGpon.value) {
+      case "REALIZADA":
+        formGpon_Realizada.style.display = "block";
+        formGpon_Realizada.disabled = false;
+        break;
+      case "OBJETADA":
+        formGpon_Objetada.style.display = "block";
+        formGpon_Objetada.disabled = false;
+        break;
+      case "TRANSFERIDA":
+        formGpon_Transferida.style.display = "block";
+        formGpon_Transferida.disabled = false;
+        break;
+      default:
+        btn_save.disabled = true;
+    }
+  }
+});
+
+const selectAdsl = document.querySelector("select[name='tipoactividadAdsl']");
+const formAdsl_Realizada = document.getElementById("formAdsl_Realizada");
+const formAdsl_Objetada = document.getElementById("formAdsl_Objetada");
+const formAdsl_Transferida = document.getElementById("formAdsl_Transferida");
+
+formAdsl_Realizada.style.display = "none";
+formAdsl_Objetada.style.display = "none";
+formAdsl_Transferida.style.display = "none";
+
+selectAdsl.addEventListener("change", function () {
+  formAdsl_Realizada.style.display = "none";
+  formAdsl_Transferida.style.display = "none";
+  formAdsl_Objetada.style.display = "none";
+  btn_save.disabled = true;
+
+  if (!selectAdsl.value) {
+    // si no se ha seleccionado ninguna opción
+    formAdsl_Realizada.disabled = true;
+    formAdsl_Transferida.disabled = true;
+    formAdsl_Objetada.disabled = true;
+    btn_save.disabled = true;
+    btn_save.style.display = "none";
+  } else {
+    // si se ha seleccionado una opción
+    btn_save.disabled = false;
+    btn_save.style.display = "block";
+
+    switch (selectAdsl.value) {
+      case "REALIZADA":
+        formAdsl_Realizada.style.display = "block";
+        formAdsl_Realizada.disabled = false;
+        break;
+      case "OBJETADA":
+        formAdsl_Objetada.style.display = "block";
+        formAdsl_Objetada.disabled = false;
+        break;
+      case "TRANSFERIDA":
+        formAdsl_Transferida.style.display = "block";
+        formAdsl_Transferida.disabled = false;
+        break;
+      default:
+        btn_save.disabled = true;
+    }
   }
 });
