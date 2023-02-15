@@ -13,7 +13,7 @@
                 <h3 class="box-title">Datos del Caso</h3>
             </div>
             <!-- FORMULARIO #1 -->
-            <form action="" id="form1" class="box-body">
+            <form action="" id="form1" class="formulario box-body">
                 <div class="form-group-container">
                     <div class="form-group col-md-3">
                         <label for="codigo_tecnico">Código Técnico</label>
@@ -69,24 +69,26 @@
 
                     <!-- FORMULARIO #2 HFC -->
 
-                    <div id="form2" class="box-body">
+                    <div id="form2" class="box-body formulario">
                         <div class="form-group-container" style="margin-top: 2.5rem;">
                             <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
                                 <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_tv_hfc">Orden Tv</label>
-                                <input type="text" class="form-control" id="orden_tv_hfc" name="orden_tv_hfc" />
+                                <input type="text" class="form-control" id="orden_tv_hfc" name="orden_tv_hfc"
+                                    disabled />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_internet_hfc">Orden Internet</label>
                                 <input type="text" class="form-control" id="orden_internet_hfc"
-                                    name="orden_internet_hfc" />
+                                    name="orden_internet_hfc" disabled />
                             </div>
 
                             <div class="form-group col-md-3">
                                 <label for="orden_linea_hfc">Orden Linea</label>
-                                <input type="text" class="form-control" id="orden_linea_hfc" name="orden_linea_hfc" />
+                                <input type="text" class="form-control" id="orden_linea_hfc" name="orden_linea_hfc"
+                                    disabled />
                             </div>
                         </div>
                         <div class="form-group-container" style="margin-top: 2.5rem;">
@@ -349,7 +351,7 @@
                     </div>
                 </div>
                 <!-- FORMULARIO #3 GPON -->
-                <div id="form3" class="box-body">
+                <div id="form3" class="box-body formulario">
                     <div class="form-group col-md-3">
                         <label for="tipoactividadAdsl">Tipo Actividad</label>
                         <select class="form-control" style="width: 100%;" name="tipoactividadAdsl"
@@ -403,7 +405,7 @@
                 </div>
 
                 <!-- FORMULARIO #4 -->
-                <div id="form4" class="box-body">
+                <div id="form4" class="box-body formulario">
                     <div class="form-group-container" style="margin-top: 2.5rem;">
                         <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
                             <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
@@ -505,7 +507,7 @@
                     </div>
                 </div>
                 <!-- FORMULARIO #5-->
-                <div id="form5" class="box-body">
+                <div id="form5" class="box-body formulario">
                     <div class="form-group-container">
                         <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
                             <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
@@ -562,30 +564,28 @@
                                 placeholder="Comentarios..." />
                         </div>
                     </div>
-                    <!-- <div class="box-footer" style="text-align: center;">
-                            {!! Form::submit('Guardar Caso', ['class' => 'btn btn-warning']) !!}
-                        </div> -->
                 </div>
 
                 <!-- FORMULARIO #6-->
-                <div id="form6" class="box-body">
+                <div id="form6" class="box-body formulario">
                     <div class="form-group-container" style="margin-top: 2.5rem;">
                         <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
                             <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="OrdenInternet_Gpon">Orden Internet</label>
-                            <input type="number" class="form-control" id="OrdenInternet_Gpon"
-                                name="OrdenInternet_Gpon" />
+                            <input type="number" class="form-control" id="OrdenInternet_Gpon" name="OrdenInternet_Gpon"
+                                disabled />
                         </div>
                         <div class="form-group col-md-3">
                             <label for="OrdenTv_Gpon">Orden Tv</label>
-                            <input type="text" class="form-control" id="OrdenTv_Gpon" name="OrdenTv_Gpon" />
+                            <input type="text" class="form-control" id="OrdenTv_Gpon" name="OrdenTv_Gpon" disabled />
                         </div>
 
                         <div class="form-group col-md-3">
                             <label for="OrdenLinea_Gpon">Orden Linea</label>
-                            <input type="text" class="form-control" id="OrdenLinea_Gpon" name="OrdenLinea_Gpon" />
+                            <input type="text" class="form-control" id="OrdenLinea_Gpon" name="OrdenLinea_Gpon"
+                                disabled />
                         </div>
                     </div>
                     <div class="form-group-container" style="margin-top: 2.5rem;">
@@ -762,9 +762,9 @@
                     </div>
                 </div>
 
-                <div class="box-footer" id="btn-submit"
-                    style="text-align: center; display: flex; justify-content: center;">
-                    <button id="" type="submit" class="btn btn-warning">Guardar Caso</button>
+                <div class="box-footer" id="" style="text-align: center; display: flex; justify-content: center;">
+                    <button id="btn-submit" type="submit" class="btn btn-warning" style="display:none">Guardar
+                        Caso</button>
                 </div>
             </form>
         </div>

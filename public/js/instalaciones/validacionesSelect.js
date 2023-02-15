@@ -1,6 +1,17 @@
 const btn_save = document.getElementById("btn-submit");
 
-btn_save.style.display = "none";
+const select_orden = document.getElementById("select_orden");
+
+const [
+  orden_tv_hfc,
+  orden_internet_hfc,
+  orden_linea_hfc,
+  OrdenTv_Gpon,
+  OrdenInternet_Gpon,
+  OrdenLinea_Gpon,
+] = document.querySelectorAll(
+  "#orden_tv_hfc, #orden_internet_hfc, #orden_linea_hfc, #OrdenTv_Gpon, #OrdenInternet_Gpon, #OrdenLinea_Gpon"
+);
 
 // VALIDACIONES OCULTAR FORM EN BASE A TECNOLOGIA
 
@@ -19,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
   form4.style.display = "none";
   form5.style.display = "none";
   form6.style.display = "none";
-
+  // btn_save.style.display = "none";
   form1.style.display = "block";
 
   select.addEventListener("change", function () {
@@ -28,88 +39,117 @@ document.addEventListener("DOMContentLoaded", function () {
     form4.style.display = "none";
     form5.style.display = "none";
     form6.style.display = "none";
+    // btn_save.style.display = "none";
 
     switch (select.value) {
       case "HFC":
         form2.style.display = "block";
+        orden_tv_hfc.disabled = true;
+        orden_internet_hfc.disabled = true;
+        orden_linea_hfc.disabled = true;
+        OrdenInternet_Gpon.disabled = true;
+        OrdenTv_Gpon.disabled = true;
+        OrdenLinea_Gpon.disabled = true;
+
         break;
       case "ADSL":
         form3.style.display = "block";
+        orden_tv_hfc.disabled = true;
+        orden_internet_hfc.disabled = true;
+        orden_linea_hfc.disabled = true;
+        OrdenInternet_Gpon.disabled = true;
+        OrdenTv_Gpon.disabled = true;
+        OrdenLinea_Gpon.disabled = true;
+
         break;
       case "DTH":
         form4.style.display = "block";
+
         break;
       case "COBRE":
         form5.style.display = "block";
+
         break;
       case "GPON":
         form6.style.display = "block";
+        orden_tv_hfc.disabled = true;
+        orden_internet_hfc.disabled = true;
+        orden_linea_hfc.disabled = true;
+        OrdenInternet_Gpon.disabled = true;
+        OrdenTv_Gpon.disabled = true;
+        OrdenLinea_Gpon.disabled = true;
+
         break;
+      default:
+      // btn_save.style.display = "none";
     }
   });
 });
 
-const technologySelect = document.getElementById("tecnologia");
-const optionSelect = document.getElementById("select_orden");
+const select1 = document.getElementById("tecnologia");
+const select2 = document.getElementById("select_orden");
 
-const technologyOptions = {
-  HFC: [
-    { value: "", label: "SELECCIONA UNA OPCION" },
-    { value: "TV BASICA", label: "TV BASICA" },
-    { value: "TV DIGITAL", label: "TV DIGITAL" },
-    { value: "INTERNET", label: "INTERNET" },
-    { value: "LINEA", label: "LINEA" },
-    { value: "CASA CLARO TRIPLE", label: "CASA CLARO TRIPLE" },
-    {
-      value: "CASA CLARO DOBLE - TV + INTERNET",
-      label: "CASA CLARO DOBLE - TV + INTERNET",
-    },
-    {
-      value: "CASA CLARO DOBLE - INTERNET + LINEA",
-      label: "CASA CLARO DOBLE - INTERNET + LINEA",
-    },
-  ],
-  GPON: [
-    { value: "", label: "SELECCIONA UNA OPCION" },
-    { value: "INDIVIDUAL INTERNET", label: "INDIVIDUAL INTERNET" },
-    { value: "GPON IPTV", label: "GPON IPTV" },
-    { value: "LINEA GPON", label: "LINEA GPON" },
-  ],
-  ADSL: [
-    { value: "", label: "SELECCIONA UNA OPCION" },
-    { value: "INDIVIDUAL INTERNET", label: "INDIVIDUAL INTERNET" },
-    { value: "INDIVIDUAL", label: "INDIVIDUAL" },
-    { value: "REACTIVACION", label: "REACTIVACION" },
-  ],
-  COBRE: [
-    { value: "", label: "SELECCIONA UNA OPCION" },
-    { value: "", label: "SELECCIONA UNA OPCION" },
-  ],
-};
+// OPCIONES DE INPUTS EN BASE A LA SELECCION DE LA TECNOLOGIA
+
+select1.addEventListener("change", function () {
+  if (select1.value === "HFC") {
+    select2.innerHTML = `
+    <option value="">SELECCIONA UNA OPCION</option>
+    <option value="TV BASICA">TV BASICA</option>
+    <option value="TV DIGITAL">TV DIGITAL</option>
+    <option value="INTERNET">INTERNET</option>
+    <option value="LINEA">LINEA</option>
+    <option value="CASA CLARO TRIPLE">CASA CLARO TRIPLE</option>
+    <option value="CASA CLARO DOBLE - TV + INTERNET">CASA CLARO DOBLE - TV + INTERNET</option>
+    <option value="CASA CLARO DOBLE - INTERNET + LINEA">CASA CLARO DOBLE - INTERNET + LINEA</option>
+    `;
+  } else if (select1.value === "GPON") {
+    select2.innerHTML = `
+    <option value="">SELECCIONA UNA OPCION</option>
+    <option value="INDIVIDUAL INTERNET">INDIVIDUAL INTERNET</option>
+    <option value="GPON IPTV">GPON IPTV</option>
+    <option value="LINEA GPON">LINEA GPON</option>
+    `;
+  } else if (select1.value === "ADSL") {
+    select2.innerHTML = `
+    <option value="">SELECCIONA UNA OPCION</option>
+    <option value="INDIVIDUAL INTERNET">INDIVIDUAL INTERNET</option>
+    <option value="INDIVIDUAL">INDIVIDUAL</option>
+    <option value="REACTIVACION">REACTIVACION</option>
+    `;
+  } else if (select1.value === "COBRE") {
+    select2.innerHTML = `
+    <option value="">SELECCIONA UNA OPCION</option>
+    <option value="INDIVIDUAL INTERNET">INDIVIDUAL</option>
+    `;
+  } else if (select1.value === "DTH") {
+    select2.innerHTML = `
+    <option value="">SELECCIONA UNA OPCION</option>
+    <option value="REACTIVACION">REACTIVACION</option>
+    `;
+  } else {
+    select2.innerHTML = `
+    <option value="">SELECCIONA UNA OPCION</option>
+    `;
+  }
+});
 
 // VALIDACIONES TIPO ORDEN
 
-const select_orden = document.getElementById("select_orden");
-
-const orden_tv_hfc = document.getElementById("orden_tv_hfc");
-const orden_internet_hfc = document.getElementById("orden_internet_hfc");
-const orden_linea_hfc = document.getElementById("orden_linea_hfc");
-
-const OrdenTv_Gpon = document.getElementById("OrdenTv_Gpon");
-const OrdenInternet_Gpon = document.getElementById("OrdenInternet_Gpon");
-const OrdenLinea_Gpon = document.getElementById("OrdenLinea_Gpon");
-
-orden_tv_hfc.disabled = true;
-orden_internet_hfc.disabled = true;
-orden_linea_hfc.disabled = true;
-OrdenTv_Gpon.disabled = true;
-OrdenInternet_Gpon.disabled = true;
-OrdenLinea_Gpon.disabled = true;
-
-btn_save.disabled = true;
-btn_save.style.display = "none";
-
 select_orden.addEventListener("change", function () {
+  // deshabilitar todas las opciones
+  orden_tv_hfc.disabled = true;
+  orden_internet_hfc.disabled = true;
+  orden_linea_hfc.disabled = true;
+  OrdenInternet_Gpon.disabled = true;
+  OrdenTv_Gpon.disabled = true;
+  OrdenLinea_Gpon.disabled = true;
+
+  // btn_save.disabled = true;
+  // btn_save.style.display = "none";
+
+  // resetFormFields(); // restablecer los campos
+
   var selectedOption = this.value;
   var options = {
     "TV BASICA": [false, true, true],
@@ -131,6 +171,18 @@ select_orden.addEventListener("change", function () {
   OrdenInternet_Gpon.disabled = disabledOptions[0];
   OrdenTv_Gpon.disabled = disabledOptions[1];
   OrdenLinea_Gpon.disabled = disabledOptions[2];
+
+  // verificar si se ha seleccionado una opción
+  if (selectedOption === "") {
+    // deshabilitar todas las opciones si no se ha seleccionado una opción
+    orden_tv_hfc.disabled = true;
+    orden_internet_hfc.disabled = true;
+    orden_linea_hfc.disabled = true;
+    OrdenInternet_Gpon.disabled = true;
+    OrdenTv_Gpon.disabled = true;
+    OrdenLinea_Gpon.disabled = true;
+    // resetFormFields(); // restablecer los campos
+  }
 });
 
 // FETCH LOCALIZACIONES
@@ -148,138 +200,72 @@ fetch("../Json/Localizaciones.json")
     }
   });
 
-const select = document.querySelector("select[name='tipo_actividad']");
-const formHfc_Realizada = document.getElementById("formHfc_Realizada");
-const formHfc_Objetada = document.getElementById("formHfc_Objetada");
-const formHfc_Transferida = document.getElementById("formHfc_Transferida");
-// const btn_save = document.getElementById("btn-submit");
+// SELECCION TIPO ACTIVIDAD
 
-formHfc_Realizada.style.display = "none";
-formHfc_Objetada.style.display = "none";
-formHfc_Transferida.style.display = "none";
-btn_save.style.display = "none";
+const formTypes = [
+  {
+    select: document.querySelector("select[name='tipo_actividad']"),
+    forms: [
+      document.getElementById("formHfc_Realizada"),
+      document.getElementById("formHfc_Objetada"),
+      document.getElementById("formHfc_Transferida"),
+    ],
+  },
+  {
+    select: document.querySelector("select[name='tipo_actividadGpon']"),
+    forms: [
+      document.getElementById("formGpon_Realizada"),
+      document.getElementById("formGpon_Objetada"),
+      document.getElementById("formGpon_Transferida"),
+    ],
+  },
+  {
+    select: document.querySelector("select[name='tipoactividadAdsl']"),
+    forms: [
+      document.getElementById("formAdsl_Realizada"),
+      document.getElementById("formAdsl_Objetada"),
+      document.getElementById("formAdsl_Transferida"),
+    ],
+  },
+];
 
-select.addEventListener("change", function () {
-  formHfc_Realizada.style.display = "none";
-  formHfc_Objetada.style.display = "none";
-  formHfc_Transferida.style.display = "none";
-  btn_save.disabled = true;
+formTypes.forEach(({ select, forms }) => {
+  forms.forEach((form) => {
+    form.style.display = "none";
+  });
 
-  if (!select.value) {
-    // si no se ha seleccionado ninguna opción
-    btn_save.disabled = true;
-    btn_save.style.display = "none";
-  } else {
-    // si se ha seleccionado una opción
-    btn_save.disabled = false;
-    btn_save.style.display = "block";
+  select.addEventListener("change", () => {
+    forms.forEach((form) => {
+      form.style.display = "none";
+    });
 
-    switch (select.value) {
-      case "REALIZADA":
-        formHfc_Realizada.style.display = "block";
-        break;
-      case "OBJETADA":
-        formHfc_Objetada.style.display = "block";
-        break;
-      case "TRANSFERIDA":
-        formHfc_Transferida.style.display = "block";
-        break;
-      default:
-        btn_save.disabled = true;
+    if (!select.value) {
+      // si no se ha seleccionado ninguna opción
+      forms.forEach((form) => {
+        form.disabled = true;
+      });
+      // btn_save.disabled = true;
+      btn_save.style.display = "none";
+    } else {
+      // si se ha seleccionado una opción
+      btn_save.style.display = "";
+
+      switch (select.value) {
+        case "REALIZADA":
+          forms[0].style.display = "block";
+          forms[0].disabled = false;
+          break;
+        case "OBJETADA":
+          forms[1].style.display = "block";
+          forms[1].disabled = false;
+          break;
+        case "TRANSFERIDA":
+          forms[2].style.display = "block";
+          forms[2].disabled = false;
+          break;
+        default:
+        // btn_save.disabled = true;
+      }
     }
-  }
-});
-
-// TIPO ACTIVIDAD (GPON-REALIZADA/TRANSFERIDA/OBJETADA)
-
-const selectGpon = document.querySelector("select[name='tipo_actividadGpon']");
-const formGpon_Realizada = document.getElementById("formGpon_Realizada");
-const formGpon_Objetada = document.getElementById("formGpon_Objetada");
-const formGpon_Transferida = document.getElementById("formGpon_Transferida");
-
-formGpon_Realizada.style.display = "none";
-formGpon_Objetada.style.display = "none";
-formGpon_Transferida.style.display = "none";
-
-selectGpon.addEventListener("change", function () {
-  formGpon_Realizada.style.display = "none";
-  formGpon_Transferida.style.display = "none";
-  formGpon_Objetada.style.display = "none";
-  btn_save.disabled = true;
-
-  if (!selectGpon.value) {
-    // si no se ha seleccionado ninguna opción
-    formGpon_Realizada.disabled = true;
-    formGpon_Transferida.disabled = true;
-    formGpon_Objetada.disabled = true;
-    btn_save.disabled = true;
-    btn_save.style.display = "none";
-  } else {
-    // si se ha seleccionado una opción
-    btn_save.disabled = false;
-    btn_save.style.display = "block";
-
-    switch (selectGpon.value) {
-      case "REALIZADA":
-        formGpon_Realizada.style.display = "block";
-        formGpon_Realizada.disabled = false;
-        break;
-      case "OBJETADA":
-        formGpon_Objetada.style.display = "block";
-        formGpon_Objetada.disabled = false;
-        break;
-      case "TRANSFERIDA":
-        formGpon_Transferida.style.display = "block";
-        formGpon_Transferida.disabled = false;
-        break;
-      default:
-        btn_save.disabled = true;
-    }
-  }
-});
-
-const selectAdsl = document.querySelector("select[name='tipoactividadAdsl']");
-const formAdsl_Realizada = document.getElementById("formAdsl_Realizada");
-const formAdsl_Objetada = document.getElementById("formAdsl_Objetada");
-const formAdsl_Transferida = document.getElementById("formAdsl_Transferida");
-
-formAdsl_Realizada.style.display = "none";
-formAdsl_Objetada.style.display = "none";
-formAdsl_Transferida.style.display = "none";
-
-selectAdsl.addEventListener("change", function () {
-  formAdsl_Realizada.style.display = "none";
-  formAdsl_Transferida.style.display = "none";
-  formAdsl_Objetada.style.display = "none";
-  btn_save.disabled = true;
-
-  if (!selectAdsl.value) {
-    // si no se ha seleccionado ninguna opción
-    formAdsl_Realizada.disabled = true;
-    formAdsl_Transferida.disabled = true;
-    formAdsl_Objetada.disabled = true;
-    btn_save.disabled = true;
-    btn_save.style.display = "none";
-  } else {
-    // si se ha seleccionado una opción
-    btn_save.disabled = false;
-    btn_save.style.display = "block";
-
-    switch (selectAdsl.value) {
-      case "REALIZADA":
-        formAdsl_Realizada.style.display = "block";
-        formAdsl_Realizada.disabled = false;
-        break;
-      case "OBJETADA":
-        formAdsl_Objetada.style.display = "block";
-        formAdsl_Objetada.disabled = false;
-        break;
-      case "TRANSFERIDA":
-        formAdsl_Transferida.style.display = "block";
-        formAdsl_Transferida.disabled = false;
-        break;
-      default:
-        btn_save.disabled = true;
-    }
-  }
+  });
 });
