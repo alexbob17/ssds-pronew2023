@@ -20,6 +20,9 @@ body {
   
 }
 
+.help-block {
+  color: red;
+}
 .box_equipostv{
   display: flex;
   /* flex-wrap:wrap !important; */

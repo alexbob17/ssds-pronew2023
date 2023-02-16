@@ -1,6 +1,6 @@
-const btn_save = document.getElementById("btn-submit");
-
 const select_orden = document.getElementById("select_orden");
+const btn_save = document.getElementById("btn-submit");
+btn_save.style.display = "none";
 
 const [
   orden_tv_hfc,
@@ -12,6 +12,16 @@ const [
 ] = document.querySelectorAll(
   "#orden_tv_hfc, #orden_internet_hfc, #orden_linea_hfc, #OrdenTv_Gpon, #OrdenInternet_Gpon, #OrdenLinea_Gpon"
 );
+
+const hfchide_realizado = document.getElementById("formHfc_Realizada");
+const hfchide_objetado = document.getElementById("formHfc_Objetada");
+const hfchide_transferido = document.getElementById("formHfc_Transferida");
+
+const gponhide_realizado = document.getElementById("formGpon_Realizada");
+const gponhide_transferido = document.getElementById("formGpon_Objetada");
+const gponhide_objetado = document.getElementById("formGpon_Transferida");
+
+// SEGUIR CON LAS DEMAS HIDDEN FORMS
 
 // VALIDACIONES OCULTAR FORM EN BASE A TECNOLOGIA
 
@@ -43,16 +53,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     switch (select.value) {
       case "HFC":
+        btn_save.style.display = "none";
         form2.style.display = "block";
+
         orden_tv_hfc.disabled = true;
         orden_internet_hfc.disabled = true;
         orden_linea_hfc.disabled = true;
+
         OrdenInternet_Gpon.disabled = true;
         OrdenTv_Gpon.disabled = true;
         OrdenLinea_Gpon.disabled = true;
 
+        hfchide_realizado.disabled = true;
+        hfchide_objetado.disabled = true;
+        hfchide_transferido.disabled = true;
+
         break;
       case "ADSL":
+        btn_save.style.display = "none";
         form3.style.display = "block";
         orden_tv_hfc.disabled = true;
         orden_internet_hfc.disabled = true;
@@ -61,23 +79,44 @@ document.addEventListener("DOMContentLoaded", function () {
         OrdenTv_Gpon.disabled = true;
         OrdenLinea_Gpon.disabled = true;
 
+        hfchide_realizado.disabled = true;
+        hfchide_objetado.disabled = true;
+        hfchide_transferido.disabled = true;
+
         break;
       case "DTH":
+        btn_save.style.display = "none";
+
+        hfchide_realizado.disabled = true;
+        hfchide_objetado.disabled = true;
+        hfchide_transferido.disabled = true;
+
         form4.style.display = "block";
 
         break;
       case "COBRE":
         form5.style.display = "block";
 
+        hfchide_realizado.disabled = true;
+        hfchide_objetado.disabled = true;
+        hfchide_transferido.disabled = true;
+
         break;
       case "GPON":
+        btn_save.style.display = "none";
         form6.style.display = "block";
+
         orden_tv_hfc.disabled = true;
         orden_internet_hfc.disabled = true;
         orden_linea_hfc.disabled = true;
+
         OrdenInternet_Gpon.disabled = true;
         OrdenTv_Gpon.disabled = true;
         OrdenLinea_Gpon.disabled = true;
+
+        hfchide_realizado.disabled = true;
+        hfchide_objetado.disabled = true;
+        hfchide_transferido.disabled = true;
 
         break;
       default:
@@ -220,11 +259,19 @@ const formTypes = [
     ],
   },
   {
-    select: document.querySelector("select[name='tipoactividadAdsl']"),
+    select: document.querySelector("select[name='tipo_actividadAdsl']"),
     forms: [
       document.getElementById("formAdsl_Realizada"),
       document.getElementById("formAdsl_Objetada"),
       document.getElementById("formAdsl_Transferida"),
+    ],
+  },
+  {
+    select: document.querySelector("select[name='tipo_actividadCobre']"),
+    forms: [
+      document.getElementById("formCobre_Realizada"),
+      document.getElementById("formCobre_Objetada"),
+      document.getElementById("formCobre_Transferida"),
     ],
   },
 ];
@@ -244,27 +291,26 @@ formTypes.forEach(({ select, forms }) => {
       forms.forEach((form) => {
         form.disabled = true;
       });
-      // btn_save.disabled = true;
       btn_save.style.display = "none";
     } else {
-      // si se ha seleccionado una opción
-      btn_save.style.display = "";
+      // si se ha seleccionado una opción válida
+      const selectedOption = select.value;
+      let selectedForm = null;
 
-      switch (select.value) {
-        case "REALIZADA":
-          forms[0].style.display = "block";
-          forms[0].disabled = false;
-          break;
-        case "OBJETADA":
-          forms[1].style.display = "block";
-          forms[1].disabled = false;
-          break;
-        case "TRANSFERIDA":
-          forms[2].style.display = "block";
-          forms[2].disabled = false;
-          break;
-        default:
-        // btn_save.disabled = true;
+      if (selectedOption === "REALIZADA") {
+        selectedForm = forms[0];
+      } else if (selectedOption === "OBJETADA") {
+        selectedForm = forms[1];
+      } else if (selectedOption === "TRANSFERIDA") {
+        selectedForm = forms[2];
+      }
+
+      if (selectedForm) {
+        selectedForm.style.display = "block";
+        selectedForm.disabled = false;
+        btn_save.style.display = "block";
+      } else {
+        btn_save.style.display = "none";
       }
     }
   });

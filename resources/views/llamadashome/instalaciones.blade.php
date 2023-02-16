@@ -12,13 +12,14 @@
             <div class="box-header with-border">
                 <h3 class="box-title">Datos del Caso</h3>
             </div>
-            <!-- FORMULARIO #1 -->
+            <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
             <form action="" id="form1" class="formulario box-body">
                 <div class="form-group-container">
                     <div class="form-group col-md-3">
                         <label for="codigo_tecnico">Código Técnico</label>
-                        <input type="text" class="form-control" placeholder="Ingrese Codigo Tecnico" id="codigo_tecnico"
-                            name="codigo_tecnico" oninput="this.value = this.value.toUpperCase()" />
+                        <input type="search" class="form-control" placeholder="Ingrese Codigo Tecnico"
+                            id="codigo_tecnico" name="codigo_tecnico" pattern="^[A-Za-z0-9]+$" maxlength="20"
+                            oninput="this.value = this.value.toUpperCase()" required />
                     </div>
                     <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
                         <button type="button" id="btn_busqueda" class="btn btn-primary"><i class="fa fa-search"
@@ -28,11 +29,12 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="telefono">Teléfono</label>
-                        <input type="text" class="form-control" id="telefono" name="telefono" readonly="true" />
+                        <input type="number" class="form-control" id="telefono" name="telefono" readonly="true"
+                            required />
                     </div>
                     <div class="form-group col-md-5">
                         <label for="tecnico">Técnico</label>
-                        <input type="text" class="form-control" id="tecnico" name="tecnico" readonly="true" />
+                        <input type="text" class="form-control" id="tecnico" name="tecnico" readonly="true" required />
                     </div>
                 </div>
                 <div class="form-group-container">
@@ -43,7 +45,7 @@
                     <div class="form-group col-md-2" id="tec_input">
                         <label for="tecnologia">Tecnologia</label>
                         <select class="form-control" style="width: 100%;" name="tecnologia" tabindex="-1"
-                            id="tecnologia" aria-hidden="true">
+                            id="tecnologia" aria-hidden="true" required>
                             <option selected="selected">SELECCIONE</option>
                             <option value="HFC">HFC</option>
                             <option value="GPON">GPON</option>
@@ -55,7 +57,7 @@
                     <div class="form-group col-md-3" id="select_ordenhide">
                         <label for="select_orden">Tipo De Orden</label>
                         <select class="form-control" id="select_orden" style="width: 100%;" name="select_orden"
-                            tabindex="-1" aria-hidden="true">
+                            tabindex="-1" aria-hidden="true" required>
                             <option>SELECCIONE UNA OPCION</option>
                         </select>
                     </div>
@@ -76,20 +78,20 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_tv_hfc">Orden Tv</label>
-                                <input type="text" class="form-control" id="orden_tv_hfc" name="orden_tv_hfc"
-                                    disabled />
+                                <input type="number" class="form-control" id="orden_tv_hfc" name="orden_tv_hfc"
+                                    pattern="^\d{8,}$" />
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_internet_hfc">Orden Internet</label>
-                                <input type="text" class="form-control" id="orden_internet_hfc"
-                                    name="orden_internet_hfc" disabled />
+                                <input type="number" class="form-control" id="orden_internet_hfc"
+                                    name="orden_internet_hfc" pattern="^\d{8,}$" />
                             </div>
-
                             <div class="form-group col-md-3">
                                 <label for="orden_linea_hfc">Orden Linea</label>
-                                <input type="text" class="form-control" id="orden_linea_hfc" name="orden_linea_hfc"
-                                    disabled />
+                                <input type="number" class="form-control" id="orden_linea_hfc" name="orden_linea_hfc"
+                                    pattern="^\d{8,}$" />
                             </div>
+
                         </div>
                         <div class="form-group-container" style="margin-top: 2.5rem;">
                             <div class="form-group col-md-3">
@@ -113,66 +115,65 @@
                                     <div>
                                         <p>Tv 1</p>
                                     </div>
-                                    <input type="text" class="form-control" id="equipotv1" name="equipotv1" />
+                                    <input type="number" class="form-control" id="equipotv1" name="equipotv1" />
                                 </div>
                                 <div class="box_equipostv">
                                     <p>Tv 2</p>
-                                    <input type="text" class="form-control" id="equipostv2" name="equipostv2" />
+                                    <input type="number" class="form-control" id="equipostv2" name="equipostv2" />
                                 </div>
                                 <div class="box_equipostv">
                                     <p>Tv 3</p>
-                                    <input type="text" class="form-control" id="equipostv3" name="equipostv3" />
+                                    <input type="number" class="form-control" id="equipostv3" name="equipostv3" />
                                 </div>
                                 <div class="box_equipostv">
                                     <p>Tv 4</p>
-                                    <input type="text" class="form-control" id="equipostv" name="equipostv4" />
+                                    <input type="number" class="form-control" id="equipostv" name="equipostv4" />
                                 </div>
                                 <div class="box_equipostv">
                                     <p>Tv 5</p>
-                                    <input type="text" class="form-control" id="equipostv5" name="equipostv5" />
+                                    <input type="number" class="form-control" id="equipostv5" name="equipostv5" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="tecnico">SYRENG</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
+                                <label for="syrengHfc">SYRENG</label>
+                                <input type="number" class="form-control" id="syrengHfc" name="syrengHfc" />
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="tecnico">SAP</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
+                                <label for="sapHfc">SAP</label>
+                                <input type="number" class="form-control" id="sapHfc" name="sapHfc" />
                             </div>
 
                             <div class="from-group-container">
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="EModem">
+                                        <label for="EquipoModem_Hfc">
                                             Equipo Modem
                                         </label>
-                                        <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
+                                        <input type="number" class="form-control" id="EquipoModem_Hfc"
+                                            name="EquipoModem_Hfc" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="EModem">
+                                        <label for="numeroVoip_hfc">
                                             Numero Voip
                                         </label>
-                                        <input type="text" class="form-control" id="numerovoip" name="numerovoip" />
+                                        <input type="number" class="form-control" id="numerovoip" name="numerovoip" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="EModem">
+                                        <label for="GeorefHfc">
                                             Georeferencia
                                         </label>
-                                        <input type="text" class="form-control" id="georeferencia"
-                                            name="georeferencia" />
+                                        <input type="text" class="form-control" id="GeorefHfc" name="GeorefHfc" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault" />
-                                            <label class="form-check-label" for="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoHfc" />
+                                            <label class="form-check-label" for="TrabajadoHfc">
                                                 Trabajado
                                             </label>
                                         </div>
@@ -180,18 +181,19 @@
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-9">
-                                        <label for="EModem">
+                                        <label for="ObservacionesHfc">
                                             Observaciones
                                         </label>
-                                        <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
+                                        <input type="text" class="form-control" id="ObservacionesHfc"
+                                            name="ObservacionesHfc" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-9">
-                                        <label for="EModem">
+                                        <label for="RecibeHfc">
                                             Recibe
                                         </label>
-                                        <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
+                                        <input type="text" class="form-control" id="RecibeHfc" name="RecibeHfc" />
                                     </div>
                                 </div>
                             </div>
@@ -205,33 +207,32 @@
                                     <div class="box box-warning" style="margin: botton 12px;">
                                         <div class="form-group-container" style="margin-top: 1rem;">
                                             <div class="form-group col-md-3">
-                                                <label for="Nodo">
+                                                <label for="NodoHfc">
                                                     Nodo
                                                 </label>
-                                                <input type="number" class="form-control" id="nodo" name="nodo" />
+                                                <input type="text" class="form-control" id="NodoHfc" name="NodoHfc" />
                                             </div>
                                             <div class="form-group col-md-3">
-                                                <label for="tap">
+                                                <label for="TapHfc">
                                                     TAP
                                                 </label>
-                                                <input type="number" class="form-control" id="tap" name="tap" />
+                                                <input type="number" class="form-control" id="TapHfc" name="TapHfc" />
                                             </div>
                                             <div class="form-group col-md-3">
-                                                <label for="tap">
+                                                <label for="PosicionHfc">
                                                     Posicion
                                                 </label>
-                                                <input type="number" class="form-control" id="tap" name="tap" />
+                                                <input type="number" class="form-control" id="PosicionHfc"
+                                                    name="PosicionHfc" />
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <label for="tap">
+                                                <label for="MaterialesHfc">
                                                     Materiales
                                                 </label>
-                                                <input type="number" class="form-control" id="tap" name="tap" />
+                                                <input type="number" class="form-control" id="MaterialesHfc"
+                                                    name="MaterialesHfc" />
                                             </div>
                                         </div>
-                                        <!-- <div class="box-footer" style="text-align: center;">
-                                    {!! Form::submit('Guardar Caso', ['class' => 'btn btn-warning']) !!}
-                                </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -242,10 +243,10 @@
                             <div class="from-group-container">
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="tipo_actividad">Motivo Objetada</label>
+                                        <label for="MotivoObjetada_Hfc">Motivo Objetada</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="tipo_actividad" tabindex="-1" id="tipo_actividad"
-                                            aria-hidden="true">
+                                            style="width: 100%;" name="MotivoObjetada_Hfc" tabindex="-1"
+                                            id="MotivoObjetada_Hfc" aria-hidden="true">
                                             <option selected="selected">Seleccione una opción</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
@@ -270,18 +271,18 @@
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="EModem">
+                                        <label for="OrdenObjetada_Hfc">
                                             Orden
                                         </label>
-                                        <input type="text" class="form-control" id="numerovoip" name="numerovoip" />
+                                        <input type="text" class="form-control" id="OrdenObjetada_Hfc"
+                                            name="OrdenObjetada_Hfc" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault" />
-                                            <label class="form-check-label" for="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaHfc" />
+                                            <label class="form-check-label">
                                                 Trabajado
                                             </label>
                                         </div>
@@ -289,20 +290,21 @@
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-12">
-                                        <label for="EModem">
+                                        <label for="ProblematicaObjetada_Hfc">
                                             Problematica
                                         </label>
-                                        <input type="text" class="form-control" id="georeferencia"
-                                            name="georeferencia" />
+                                        <input type="text" class="form-control" id="ProblematicaObjetada_Hfc"
+                                            name="ProblematicaObjetada_Hfc" />
                                     </div>
                                 </div>
 
                                 <div class="from-group-container">
                                     <div class="form-group col-md-12">
-                                        <label for="EModem">
+                                        <label for="ComentariosObjetados_Hfc">
                                             Comentarios
                                         </label>
-                                        <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
+                                        <input type="text" class="form-control" id="ComentariosObjetados_Hfc"
+                                            name="ComentariosObjetados_Hfc" />
                                     </div>
                                 </div>
                             </div>
@@ -313,18 +315,18 @@
                         <div class="form-group-container" id="formHfc_Transferida">
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
-                                    <label for="EModem">
+                                    <label for="OrdenTransferida_Hfc">
                                         Orden
                                     </label>
-                                    <input type="text" class="form-control" id="numerovoip" name="numerovoip" />
+                                    <input type="number" class="form-control" id="OrdenTransferida_Hfc"
+                                        name="OrdenTransferida_Hfc" />
                                 </div>
                             </div>
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="flexCheckDefault" />
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoTransferido_Hfc" />
+                                        <label class="form-check-label">
                                             Trabajado
                                         </label>
                                     </div>
@@ -332,19 +334,21 @@
                             </div>
                             <div class="from-group-container">
                                 <div class="form-group col-md-12">
-                                    <label for="EModem">
+                                    <label for="ProblematicaTransferida_Hfc">
                                         Problematica
                                     </label>
-                                    <input type="text" class="form-control" id="georeferencia" name="georeferencia" />
+                                    <input type="text" class="form-control" id="ProblematicaTransferida_Hfc"
+                                        name="ProblematicaTransferida_Hfc" />
                                 </div>
                             </div>
 
                             <div class="from-group-container">
                                 <div class="form-group col-md-12">
-                                    <label for="EModem">
+                                    <label for="ComentariosTransferida_Hfc">
                                         Comentarios
                                     </label>
-                                    <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
+                                    <input type="text" class="form-control" id="ComentariosTransferida_Hfc"
+                                        name="ComentariosTransferida_Hfc" />
                                 </div>
                             </div>
                         </div>
@@ -353,9 +357,9 @@
                 <!-- FORMULARIO #3 GPON -->
                 <div id="form3" class="box-body formulario">
                     <div class="form-group col-md-3">
-                        <label for="tipoactividadAdsl">Tipo Actividad</label>
-                        <select class="form-control" style="width: 100%;" name="tipoactividadAdsl"
-                            id="tipoactividadAdsl" tabindex="-1" aria-hidden="true">
+                        <label for="tipo_actividadAdsl">Tipo Actividad</label>
+                        <select class="form-control" style="width: 100%;" name="tipo_actividadAdsl"
+                            id="tipo_actividadAdsl" tabindex="-1" aria-hidden="true">
                             <option selected="selected">Seleccione una opción</option>
                             <option value="REALIZADA">REALIZADA</option>
                             <option value="OBJETADA">OBJETADA</option>
@@ -506,64 +510,92 @@
                         </div>
                     </div>
                 </div>
-                <!-- FORMULARIO #5-->
+                <!-- FORMULARIO #5 COBRE-->
                 <div id="form5" class="box-body formulario">
-                    <div class="form-group-container">
-                        <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
-                            <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
+                    <div class="form-group col-md-3">
+                        <label for="tipo_actividadCobre">Tipo Actividad</label>
+                        <select class="form-control" style="width: 100%;" name="tipo_actividadCobre"
+                            id="tipo_actividadCobre" tabindex="-1" aria-hidden="true">
+                            <option selected="selected">Seleccione una opción</option>
+                            <option value="REALIZADA">REALIZADA</option>
+                            <option value="OBJETADA">OBJETADA</option>
+                            <option value="TRANSFERIDA">TRANSFERIDA</option>
+                        </select>
+                    </div>
+
+                    <!-- TIPO ACTIVIDAD REALIZADA COBRE -->
+                    <div class="form-group-container" id="formCobre_Realizada">
+
+                        <div class="form-group-container">
+                            <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
+                                <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="codigo_tecnico">Orden Linea</label>
+                                <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico" />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="telefono">Numero</label>
+                                <input type="number" class="form-control" id="telefono" name="telefono" />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="telefono">SAP</label>
+                                <input type="number" class="form-control" id="telefono" name="telefono" />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="tipoactividaddth">Tipo Actividad</label>
+                                <select class="form-control" style="width: 100%;" name="tipoactividaddth" tabindex="-1"
+                                    aria-hidden="true">
+                                    <option selected="selected">Seleccione una opción</option>
+                                    <option value="REALIZADA">REALIZADA</option>
+                                    <option value="OBJETADA">OBJETADA</option>
+                                    <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="tecnico">Georeferencia</label>
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Trabajado
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label for="codigo_tecnico">Orden Linea</label>
-                            <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="telefono">Numero</label>
-                            <input type="number" class="form-control" id="telefono" name="telefono" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="telefono">SAP</label>
-                            <input type="number" class="form-control" id="telefono" name="telefono" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="tipoactividaddth">Tipo Actividad</label>
-                            <select class="form-control" style="width: 100%;" name="tipoactividaddth" tabindex="-1"
-                                aria-hidden="true">
-                                <option selected="selected">Seleccione una opción</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="tecnico">Georeferencia</label>
-                            <input type="text" class="form-control" id="tecnico" name="tecnico" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Trabajado
-                                </label>
+                        <div class="form-group-container">
+                            <div class="form-group col-md-12">
+                                <label for="telefono">Observaciones</label>
+                                <input type="number" class="form-control" id="observaciones-form3"
+                                    name="observaciones-form3" />
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="telefono">Recibe</label>
+                                <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
+                                    placeholder="" />
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="telefono">Materiales</label>
+                                <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
+                                    placeholder="Comentarios..." />
                             </div>
                         </div>
                     </div>
-                    <div class="form-group-container">
-                        <div class="form-group col-md-12">
-                            <label for="telefono">Observaciones</label>
-                            <input type="number" class="form-control" id="observaciones-form3"
-                                name="observaciones-form3" />
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label for="telefono">Recibe</label>
-                            <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                placeholder="" />
-                        </div>
-                        <div class="form-group col-md-12">
-                            <label for="telefono">Materiales</label>
-                            <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                placeholder="Comentarios..." />
-                        </div>
+
+                    <!-- TIPO ACTIVIDAD OBJETADA COBRE -->
+
+                    <div class="form-group-container" id="formCobre_Objetada">
+                        <label for="">OBJETADA</label>
                     </div>
+
+                    <!-- TIPO ACTIVIDAD TRANSFERIDA COBRE -->
+
+                    <div class="form-group-container" id="formCobre_Transferida">
+                        <label for="">Transferida</label>
+                    </div>
+
                 </div>
 
                 <!-- FORMULARIO #6-->
@@ -763,7 +795,7 @@
                 </div>
 
                 <div class="box-footer" id="" style="text-align: center; display: flex; justify-content: center;">
-                    <button id="btn-submit" type="submit" class="btn btn-warning" style="display:none">Guardar
+                    <button id="btn-submit" type="submit" class="btn btn-warning">Guardar
                         Caso</button>
                 </div>
             </form>
