@@ -13,7 +13,22 @@ const [
   "#orden_tv_hfc, #orden_internet_hfc, #orden_linea_hfc, #OrdenTv_Gpon, #OrdenInternet_Gpon, #OrdenLinea_Gpon"
 );
 
+// HIDDEN TIPO ACTIVIDAD AL INICIAR FORMULARIO
 const hideTipoActividad = document.getElementById("hideTipoActividad");
+const hideTipoActAdsl = document.getElementById("tipo_actividadAdslHidden");
+const tipoactividadDth_Hidden = document.getElementById(
+  "tipoactividadDth_Hidden"
+);
+
+const tipo_actividadCobreHide = document.getElementById(
+  "tipo_actividadCobreHide"
+);
+
+const tipoactividadHide_Gpon = document.getElementById(
+  "tipoactividadHide_Gpon"
+);
+
+// HIDDEN FORMULARIOS DE TIPO ACTIVIDAD (REALIZADO/OBJETADO/TRANSFERIDO)
 
 const hfchide_realizado = document.getElementById("formHfc_Realizada");
 const hfchide_objetado = document.getElementById("formHfc_Objetada");
@@ -30,11 +45,11 @@ const adslhide_transferido = document.getElementById("formAdsl_Transferida");
 const cobrehide_realizado = document.getElementById("formCobre_Realizada");
 const cobrehide_objetado = document.getElementById("formCobre_Objetada");
 const cobrehide_transferido = document.getElementById("formCobre_Transferida");
+
 // SEGUIR CON LAS DEMAS HIDDEN FORMS
 
-const tipoActividad_ChangeName = document.querySelector(
-  "select[name='tipo_actividad']"
-);
+const tipoActividad_ChangeName = document.getElementById("tipo_actividad");
+
 const select = document.querySelector("select[name='tecnologia']");
 
 // VALIDACIONES OCULTAR FORM EN BASE A TECNOLOGIA
@@ -67,6 +82,12 @@ document.addEventListener("DOMContentLoaded", function () {
       case "HFC":
         btn_save.style.display = "none";
         form2.style.display = "block";
+        tipoActividad_ChangeName.value = "Seleccione una opción";
+        hideTipoActAdsl.style.display = "none";
+        hideTipoActividad.style.display = "none";
+        tipoactividadDth_Hidden.style.display = "none";
+        tipo_actividadCobreHide.style.display = "none";
+        tipoactividadHide_Gpon.style.display = "none";
 
         // TIPO ORDEN
 
@@ -79,8 +100,6 @@ document.addEventListener("DOMContentLoaded", function () {
         OrdenLinea_Gpon.disabled = true;
 
         // TIPO ACTIVIDAD
-
-        tipoActividad_ChangeName[i].selectedIndex = 0;
 
         hfchide_realizado.style.display = "none";
         hfchide_objetado.style.display = "none";
@@ -98,6 +117,12 @@ document.addEventListener("DOMContentLoaded", function () {
       case "ADSL":
         btn_save.style.display = "none";
         form3.style.display = "block";
+        tipoActividad_ChangeName.value = "Seleccione una opción";
+        hideTipoActAdsl.style.display = "none";
+        hideTipoActividad.style.display = "none";
+        tipoactividadDth_Hidden.style.display = "none";
+        tipo_actividadCobreHide.style.display = "none";
+        tipoactividadHide_Gpon.style.display = "none";
 
         // TIPO ORDEN
 
@@ -111,11 +136,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // TIPO ACTIVIDAD
 
-        tipoActividad_ChangeName[i].selectedIndex = 0;
-
-        hfchide_realizado.disabled = true;
-        hfchide_objetado.disabled = true;
-        hfchide_transferido.disabled = true;
+        hfchide_realizado.style.display = "none";
+        hfchide_objetado.style.display = "none";
+        hfchide_transferido.style.display = "none";
 
         gponhide_realizado.disabled = true;
         gponhide_transferido.disabled = true;
@@ -129,6 +152,12 @@ document.addEventListener("DOMContentLoaded", function () {
       case "DTH":
         btn_save.style.display = "none";
         form4.style.display = "block";
+        tipoActividad_ChangeName.value = "Seleccione una opción";
+        hideTipoActAdsl.style.display = "none";
+        hideTipoActividad.style.display = "none";
+        tipoactividadDth_Hidden.style.display = "none";
+        tipo_actividadCobreHide.style.display = "none";
+        tipoactividadHide_Gpon.style.display = "none";
 
         // TIPO ORDEN
 
@@ -142,11 +171,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // TIPO ACTIVIDAD
 
-        tipoActividad_ChangeName[i].selectedIndex = 0;
-
-        hfchide_realizado.disabled = true;
-        hfchide_objetado.disabled = true;
-        hfchide_transferido.disabled = true;
+        hfchide_realizado.style.display = "none";
+        hfchide_objetado.style.display = "none";
+        hfchide_transferido.style.display = "none";
 
         gponhide_realizado.disabled = true;
         gponhide_transferido.disabled = true;
@@ -160,6 +187,12 @@ document.addEventListener("DOMContentLoaded", function () {
       case "COBRE":
         form5.style.display = "block";
         btn_save.style.display = "none";
+        tipoActividad_ChangeName.value = "Seleccione una opción";
+        hideTipoActAdsl.style.display = "none";
+        hideTipoActividad.style.display = "none";
+        tipoactividadDth_Hidden.style.display = "none";
+        tipo_actividadCobreHide.style.display = "none";
+        tipoactividadHide_Gpon.style.display = "none";
 
         // TIPO ORDEN HIDDEN
 
@@ -173,11 +206,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // TIPO ACTIVIDAD HIDDEN
 
-        tipoActividad_ChangeName[i].selectedIndex = 0;
-
-        hfchide_realizado.disabled = true;
-        hfchide_objetado.disabled = true;
-        hfchide_transferido.disabled = true;
+        hfchide_realizado.style.display = "none";
+        hfchide_objetado.style.display = "none";
+        hfchide_transferido.style.display = "none";
 
         gponhide_realizado.disabled = true;
         gponhide_transferido.disabled = true;
@@ -191,6 +222,12 @@ document.addEventListener("DOMContentLoaded", function () {
       case "GPON":
         btn_save.style.display = "none";
         form6.style.display = "block";
+        tipoActividad_ChangeName.value = "Seleccione una opción";
+        hideTipoActAdsl.style.display = "none";
+        hideTipoActividad.style.display = "none";
+        tipoactividadDth_Hidden.style.display = "none";
+        tipo_actividadCobreHide.style.display = "none";
+        tipoactividadHide_Gpon.style.display = "none";
 
         // TIPO ORDEN
 
@@ -204,15 +241,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // TIPO ACTIVIDAD
 
-        hfchide_realizado.disabled = true;
-        hfchide_objetado.disabled = true;
-        hfchide_transferido.disabled = true;
+        hfchide_realizado.style.display = "none";
+        hfchide_objetado.style.display = "none";
+        hfchide_transferido.style.display = "none";
 
-        tipoActividad_ChangeName[i].selectedIndex = 0;
-
-        gponhide_realizado.disabled = true;
-        gponhide_transferido.disabled = true;
-        gponhide_objetado.disabled = true;
+        gponhide_realizado.style.display = "none";
+        gponhide_transferido.style.display = "none";
+        gponhide_objetado.style.display = "none";
 
         adslhide_realizado.disabled = true;
         adslhide_objetado.disabled = true;
@@ -222,13 +257,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-// select.addEventListener("change", function () {
-//   // var tipoActividad_ChangeName = document.getElementsByTagName("select");
-//   for (var i = 0; i < tipoActividad_ChangeName.length; i++) {
-//     tipoActividad_ChangeName[i].selectedIndex = 0;
-//   }
-// });
 
 const select1 = document.getElementById("tecnologia");
 const select2 = document.getElementById("select_orden");
@@ -256,9 +284,13 @@ select1.addEventListener("change", function () {
   } else if (select1.value === "GPON") {
     select2.innerHTML = `
     <option value="">SELECCIONA UNA OPCION</option>
-    <option value="INDIVIDUAL INTERNET">INDIVIDUAL INTERNET</option>
-    <option value="GPON IPTV">GPON IPTV</option>
-    <option value="LINEA GPON">LINEA GPON</option>
+    <option value="INSTALACION DE CLARO HOGAR">INSTALACION DE CLARO HOGAR</option>
+    <option value="DOBLE - IPTV + LINEA"> DOBLE - IPTV + LINEA</option>
+    <option value="DOBLE - INTERNET + IPTV">DOBLE - INTERNET + IPTV</option>
+    <option value="DOBLE - INTERNET + LINEA">DOBLE - INTERNET + LINEA</option>
+    <option value="INTERNET INDIVIDUAL">INTERNET INDIVIDUAL</option>
+    <option value="IPTV INDIVIDUAL">IPTV INDIVIDUAL</option>
+    <option value="LINEA INDIVIDUAL">LINEA INDIVIDUAL</option>
     `;
   } else if (select1.value === "ADSL") {
     select2.innerHTML = `
@@ -291,11 +323,6 @@ select_orden.addEventListener("change", function () {
   OrdenTv_Gpon.disabled = true;
   OrdenLinea_Gpon.disabled = true;
 
-  // btn_save.disabled = true;
-  // btn_save.style.display = "none";
-
-  // resetFormFields(); // restablecer los campos
-
   var selectedOption = this.value;
   var options = {
     "DOBLE - INTERNET + LINEA": [true, false, false],
@@ -315,9 +342,15 @@ select_orden.addEventListener("change", function () {
     "TV - BASICO INDIVIDUAL": [false, true, true],
     "TV - DIGITAL INDIVIDUAL": [false, true, true],
 
-    "INDIVIDUAL INTERNET": [true, false, true],
-    "GPON IPTV": [false, true, true],
-    "LINEA GPON": [true, true, false],
+    // VALIDACIONES INPUTS DEL SELECT GPON
+    "INSTALACION DE CLARO HOGAR": [false, false, false],
+    "DOBLE - INTERNET + IPTV": [false, false, true],
+    "DOBLE - INTERNET + LINEA": [true, false, false],
+    "IPTV INDIVIDUAL": [true, false, true],
+    "DOBLE - IPTV + LINEA": [false, true, false],
+    "INTERNET INDIVIDUAL": [true, false, true],
+    "LINEA INDIVIDUAL": [true, true, false],
+    "IPTV INDIVIDUAL": [false, true, true],
   };
   var disabledOptions = options[selectedOption] || [true, true, true];
   orden_tv_hfc.disabled = disabledOptions[0];
@@ -445,8 +478,6 @@ const equipotv3 = document.getElementById("equipostv3");
 const equipotv4 = document.getElementById("equipostv4");
 const equipotv5 = document.getElementById("equipostv5");
 const EquipoModem_Hfc = document.getElementById("EquipoModem_Hfc");
-
-hideTipoActividad.style.display = "none";
 
 selectHide_TipoOrden.addEventListener("change", () => {
   const value = selectHide_TipoOrden.value;
@@ -576,6 +607,63 @@ selectHide_TipoOrden.addEventListener("change", () => {
     default:
       hideTipoActividad.style.display = "block";
 
+      break;
+  }
+});
+
+// DESACTIVACION DE INPUTS CONFORME EL TIPO DE ORDEN
+
+// TIPO ORDEN GPON
+
+const EqModenGpon = document.getElementById("EqModenGpon");
+
+const selectHide_TipoOrdenGpon = document.getElementById(
+  "tipoactividadHide_Gpon"
+);
+
+selectHide_TipoOrden.addEventListener("change", () => {
+  const value = selectHide_TipoOrden.value;
+  selectHide_TipoOrdenGpon.style.display = "none";
+  switch (value) {
+    case "INSTALACION DE CLARO HOGAR":
+      hideTipoActividad.style.display = "block";
+      selectHide_TipoOrdenGpon.style.display = "block";
+      EqModenGpon.disabled = false;
+
+      break;
+    case "DOBLE - INTERNET + IPTV":
+      hideTipoActividad.style.display = "block";
+      selectHide_TipoOrdenGpon.style.display = "block";
+      EqModenGpon.disabled = false;
+
+      break;
+    case "DOBLE - INTERNET + LINEA":
+      hideTipoActividad.style.display = "block";
+      selectHide_TipoOrdenGpon.style.display = "block";
+      EqModenGpon.disabled = false;
+
+      break;
+    case "DOBLE - IPTV + LINEA":
+      hideTipoActividad.style.display = "block";
+      selectHide_TipoOrdenGpon.style.display = "block";
+      EqModenGpon.disabled = true;
+
+      break;
+    case "IPTV INDIVIDUAL":
+      hideTipoActividad.style.display = "block";
+      selectHide_TipoOrdenGpon.style.display = "block";
+      EqModenGpon.disabled = true;
+
+      break;
+    case "LINEA INDIVIDUAL":
+      hideTipoActividad.style.display = "block";
+      selectHide_TipoOrdenGpon.style.display = "block";
+      EqModenGpon.disabled = true;
+
+      break;
+    default:
+      hideTipoActividad.style.display = "block";
+      selectHide_TipoOrdenGpon.style.display = "block";
       break;
   }
 });

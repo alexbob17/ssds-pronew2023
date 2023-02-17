@@ -97,7 +97,7 @@
                                 <label for="tipo_actividad">Tipo De Actividad</label>
                                 <select class="form-control" style="width: 100%;" name="tipo_actividad" tabindex="-1"
                                     id="tipo_actividad" aria-hidden="true">
-                                    <option selected="selected" value="">Seleccione una opción</option>
+                                    <option selected=" selected">Seleccione una opción</option>
                                     <option value="REALIZADA">REALIZADA</option>
                                     <option value="OBJETADA">OBJETADA</option>
                                     <option value="TRANSFERIDA">TRANSFERIDA</option>
@@ -356,7 +356,7 @@
                 </div>
                 <!-- FORMULARIO #3 ADSL -->
                 <div id="form3" class="form-group-container formulario">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-3" id="tipo_actividadAdslHidden">
                         <label for="tipo_actividadAdsl">Tipo Actividad</label>
                         <select class="form-control" style="width: 100%;" name="tipo_actividadAdsl"
                             id="tipo_actividadAdsl" tabindex="-1" aria-hidden="true">
@@ -515,7 +515,7 @@
                 <div id="form4" class="form-group-container">
                     <div class="form-group-container" style="margin-top: 2.5rem;">
                         <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
-                            <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
+                            <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudess</label>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="codigo_tecnico">Orden Tv</label>
@@ -529,7 +529,7 @@
                             <label for="tecnico">SAP</label>
                             <input type="text" class="form-control" id="tecnico" name="tecnico" />
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-3" id="tipoactividadDth_Hidden">
                             <label for="tipoactividaddth">Tipo Actividad</label>
                             <select class="form-control" style="width: 100%;" name="tipoactividaddth" tabindex="-1"
                                 aria-hidden="true">
@@ -615,7 +615,7 @@
                 </div>
                 <!-- FORMULARIO #5 COBRE-->
                 <div id="form5" class="form-group-container">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-3" id="tipo_actividadCobreHide">
                         <label for="tipo_actividadCobre">Tipo Actividad</label>
                         <select class="form-control" style="width: 100%;" name="tipo_actividadCobre"
                             id="tipo_actividadCobre" tabindex="-1" aria-hidden="true">
@@ -802,7 +802,7 @@
                         </div>
                     </div>
                     <div class="form-group-container" style="margin-top: 2.5rem;">
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-3" id="tipoactividadHide_Gpon">
                             <label for="tipo_actividadGpon">Tipo De Actividad</label>
                             <select class="form-control" style="width: 100%;" name="tipo_actividadGpon"
                                 id="tipo_actividadGpon" tabindex="-1" aria-hidden="true">
@@ -820,34 +820,45 @@
                             <div class="form-group col-md-3">
                                 <label for="equipostv">Equipo Tv</label>
                                 <div class="box_equipostv">
-                                    <input type="text" class="form-control" id="equipotv1" name="equipotv1" />
+                                    <input type="text" class="form-control" id="equipotv1Gpon" name="equipotv1Gpon" />
                                 </div>
                                 <div class="box_equipostv">
-                                    <input type="text" class="form-control" id="equipostv2" name="equipostv2" />
+                                    <input type="text" class="form-control" id="equipostv2Gpon" name="equipostv2Gpon" />
                                 </div>
                                 <div class="box_equipostv">
-                                    <input type="text" class="form-control" id="equipostv3" name="equipostv3" />
+                                    <input type="text" class="form-control" id="equipostv3Gpon" name="equipostv3Gpon" />
                                 </div>
                                 <div class="box_equipostv">
-                                    <input type="text" class="form-control" id="equipostv" name="equipostv4" />
+                                    <input type="text" class="form-control" id="equipostv4Gpon" name="equipostv4Gpon" />
                                 </div>
                                 <div class="box_equipostv">
-                                    <input type="text" class="form-control" id="equipostv5" name="equipostv5" />
+                                    <input type="text" class="form-control" id="equipostv5Gpon" name="equipostv5Gpon" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="tecnico">Equipo Modem</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                                <label for="EqModenGpon">Equipo Modem</label>
+                                <input type="text" class="form-control" id="EqModenGpon" name="EqModenGpon" required />
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="tecnico">Georeferencia</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" required />
+                                <label for="GeoRefGpon">Georeferencia</label>
+                                <input type="text" class="form-control" id="GeoRefGpon" name="GeoRefGpon" required />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="SapGpon">SAP</label>
+                                <input type="text" class="form-control" id="SapGpon" name="SapGpon" required />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="SapGpon">Numero Gpon</label>
+                                <input type="text" class="form-control" id="NumeroGpon" name="NumeroGpon" required />
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="SapGpon">Numero Voip</label>
+                                <input type="text" class="form-control" id="VoipGpon" name="VoipGpon" required />
                             </div>
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="flexCheckDefault" />
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoGpon" />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Trabajado
                                         </label>
@@ -858,17 +869,17 @@
                         <div class="form-group-container">
                             <div class="form-group col-md-12">
                                 <label for="telefono">Observaciones</label>
-                                <input type="number" class="form-control" id="observaciones-form3"
-                                    name="observaciones-form3" required />
+                                <input type="number" class="form-control" id="ObservacionesGpon"
+                                    name="ObservacionesGpon" required />
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="telefono">Recibe</label>
-                                <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                    required placeholder="" />
+                                <input type="text" class="form-control" id="RecibeGpon" name="RecibeGpon" required
+                                    placeholder="" />
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="telefono">Materiales</label>
-                                <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
+                                <input type="text" class="form-control" id="MaterialesGpon" name="MaterialesGpon"
                                     required placeholder="Comentarios..." />
                             </div>
                         </div>
