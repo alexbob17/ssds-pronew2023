@@ -13,6 +13,8 @@ const [
   "#orden_tv_hfc, #orden_internet_hfc, #orden_linea_hfc, #OrdenTv_Gpon, #OrdenInternet_Gpon, #OrdenLinea_Gpon"
 );
 
+const hideTipoActividad = document.getElementById("hideTipoActividad");
+
 const hfchide_realizado = document.getElementById("formHfc_Realizada");
 const hfchide_objetado = document.getElementById("formHfc_Objetada");
 const hfchide_transferido = document.getElementById("formHfc_Transferida");
@@ -30,6 +32,11 @@ const cobrehide_objetado = document.getElementById("formCobre_Objetada");
 const cobrehide_transferido = document.getElementById("formCobre_Transferida");
 // SEGUIR CON LAS DEMAS HIDDEN FORMS
 
+const tipoActividad_ChangeName = document.querySelector(
+  "select[name='tipo_actividad']"
+);
+const select = document.querySelector("select[name='tecnologia']");
+
 // VALIDACIONES OCULTAR FORM EN BASE A TECNOLOGIA
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -39,8 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const form4 = document.getElementById("form4");
   const form5 = document.getElementById("form5");
   const form6 = document.getElementById("form6");
-
-  const select = document.querySelector("select[name='tecnologia']");
 
   form2.style.display = "none";
   form3.style.display = "none";
@@ -75,9 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // TIPO ACTIVIDAD
 
-        hfchide_realizado.disabled = true;
-        hfchide_objetado.disabled = true;
-        hfchide_transferido.disabled = true;
+        tipoActividad_ChangeName[i].selectedIndex = 0;
+
+        hfchide_realizado.style.display = "none";
+        hfchide_objetado.style.display = "none";
+        hfchide_transferido.style.display = "none";
 
         gponhide_realizado.disabled = true;
         gponhide_transferido.disabled = true;
@@ -103,6 +110,8 @@ document.addEventListener("DOMContentLoaded", function () {
         OrdenLinea_Gpon.disabled = true;
 
         // TIPO ACTIVIDAD
+
+        tipoActividad_ChangeName[i].selectedIndex = 0;
 
         hfchide_realizado.disabled = true;
         hfchide_objetado.disabled = true;
@@ -133,6 +142,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // TIPO ACTIVIDAD
 
+        tipoActividad_ChangeName[i].selectedIndex = 0;
+
         hfchide_realizado.disabled = true;
         hfchide_objetado.disabled = true;
         hfchide_transferido.disabled = true;
@@ -161,6 +172,8 @@ document.addEventListener("DOMContentLoaded", function () {
         OrdenLinea_Gpon.disabled = true;
 
         // TIPO ACTIVIDAD HIDDEN
+
+        tipoActividad_ChangeName[i].selectedIndex = 0;
 
         hfchide_realizado.disabled = true;
         hfchide_objetado.disabled = true;
@@ -195,6 +208,8 @@ document.addEventListener("DOMContentLoaded", function () {
         hfchide_objetado.disabled = true;
         hfchide_transferido.disabled = true;
 
+        tipoActividad_ChangeName[i].selectedIndex = 0;
+
         gponhide_realizado.disabled = true;
         gponhide_transferido.disabled = true;
         gponhide_objetado.disabled = true;
@@ -207,6 +222,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+// select.addEventListener("change", function () {
+//   // var tipoActividad_ChangeName = document.getElementsByTagName("select");
+//   for (var i = 0; i < tipoActividad_ChangeName.length; i++) {
+//     tipoActividad_ChangeName[i].selectedIndex = 0;
+//   }
+// });
 
 const select1 = document.getElementById("tecnologia");
 const select2 = document.getElementById("select_orden");
@@ -221,6 +243,7 @@ select1.addEventListener("change", function () {
     <option value="DOBLE - TV + INTERNET">DOBLE - TV + INTERNET</option>
     <option value="DOBLE - INTERNET + LINEA">DOBLE - INTERNET + LINEA</option>
     <option value="TV - BASICO INDIVIDUAL">TV - BASICO INDIVIDUAL</option>
+    <option value="TV - DIGITAL INDIVIDUAL">TV - DIGITAL INDIVIDUAL</option>
     <option value="INTERNET INDIVIDUAL">INTERNET INDIVIDUAL</option>
     <option value="LINEA INDIVIDUAL">LINEA INDIVIDUAL</option>
     <option value="REACTIVACION -DOBLE - TV + INTERNET">REACTIVACION -DOBLE - TV + INTERNET</option>
@@ -229,9 +252,6 @@ select1.addEventListener("change", function () {
     <option value="REACTIVACION -TV - BASICO INDIVIDUAL">REACTIVACION -TV - BASICO INDIVIDUAL</option>
     <option value="REACTIVACION -TV - DIGITAL INDIVIDUAL">REACTIVACION -TV - DIGITAL INDIVIDUAL</option>
     <option value="REACTIVACION -LINEA INDIVIDUAL">REACTIVACION -LINEA INDIVIDUAL</option>
-
-
-    
     `;
   } else if (select1.value === "GPON") {
     select2.innerHTML = `
@@ -278,19 +298,22 @@ select_orden.addEventListener("change", function () {
 
   var selectedOption = this.value;
   var options = {
-    "DOBLE - INTERNET + LINEA": [false, true, true],
+    "DOBLE - INTERNET + LINEA": [true, false, false],
     "DOBLE - TV + INTERNET": [false, true, true],
-    "INSTALACION DE CLARO HOGAR": [false, true, true],
-    "DOBLE - TV + INTERNET": [false, true, true],
+    "INSTALACION DE CLARO HOGAR": [false, false, false],
+    "DOBLE - TV + INTERNET": [false, false, true],
     "INTERNET INDIVIDUAL": [true, false, true],
-    "LINEA INDIVIDUAL": [false, false, true],
-    "REACTIVACION - INSTALACION DE CLARO HOGAR": [true, false, false],
-    "REACTIVACION -DOBLE - TV + INTERNET": [true, false, false],
+    "LINEA INDIVIDUAL": [true, true, false],
+    "REACTIVACION - INSTALACION DE CLARO HOGAR": [false, false, false],
+    "REACTIVACION -DOBLE - TV + INTERNET": [false, false, true],
     "REACTIVACION -DOBLE - INTERNET + LINEA": [true, false, false],
-    "REACTIVACION -TV - DIGITAL INDIVIDUAL": [true, false, false],
-    "REACTIVACION -TV - BASICO INDIVIDUAL": [false, false, false],
-    "REACTIVACION -INTERNET INDIVIDUAL": [true, true, false],
+    "REACTIVACION -TV - DIGITAL INDIVIDUAL": [false, true, true],
+
+    "REACTIVACION -TV - BASICO INDIVIDUAL": [false, true, true],
+    "REACTIVACION -INTERNET INDIVIDUAL": [true, false, true],
     "REACTIVACION -LINEA INDIVIDUAL": [true, true, false],
+    "TV - BASICO INDIVIDUAL": [false, true, true],
+    "TV - DIGITAL INDIVIDUAL": [false, true, true],
 
     "INDIVIDUAL INTERNET": [true, false, true],
     "GPON IPTV": [false, true, true],
@@ -408,4 +431,151 @@ formTypes.forEach(({ select, forms }) => {
       }
     }
   });
+});
+
+// DESACTIVACION DE INPUTS CONFORME EL TIPO DE ORDEN
+
+// TIPO ORDEN HFC
+
+const selectHide_TipoOrden = document.getElementById("select_orden");
+const hideVoip_Hfc = document.getElementById("numeroVoip_hfc");
+const equipotv1 = document.getElementById("equipostv1");
+const equipotv2 = document.getElementById("equipostv2");
+const equipotv3 = document.getElementById("equipostv3");
+const equipotv4 = document.getElementById("equipostv4");
+const equipotv5 = document.getElementById("equipostv5");
+const EquipoModem_Hfc = document.getElementById("EquipoModem_Hfc");
+
+hideTipoActividad.style.display = "none";
+
+selectHide_TipoOrden.addEventListener("change", () => {
+  const value = selectHide_TipoOrden.value;
+  switch (value) {
+    case "INSTALACION DE CLARO HOGAR":
+      hideTipoActividad.style.display = "block";
+      hideVoip_Hfc.disabled = false;
+      EquipoModem_Hfc.disabled = false;
+      equipotv1.disabled = false;
+      equipotv2.disabled = false;
+      equipotv3.disabled = false;
+      equipotv4.disabled = false;
+      equipotv5.disabled = false;
+
+      break;
+    case "DOBLE - TV + INTERNET":
+      // HIDDEN INPUT VOIP
+      hideTipoActividad.style.display = "block";
+      hideVoip_Hfc.disabled = true;
+      equipotv1.disabled = false;
+      equipotv2.disabled = false;
+      equipotv3.disabled = false;
+      equipotv4.disabled = false;
+      equipotv5.disabled = false;
+
+      break;
+    case "DOBLE - INTERNET + LINEA":
+      hideTipoActividad.style.display = "block";
+      hideVoip_Hfc.disabled = false;
+      equipotv1.disabled = true;
+      equipotv2.disabled = true;
+      equipotv3.disabled = true;
+      equipotv4.disabled = true;
+      equipotv5.disabled = true;
+
+      break;
+    case "TV - BASICO INDIVIDUAL":
+      hideTipoActividad.style.display = "block";
+      EquipoModem_Hfc.disabled = true;
+      hideVoip_Hfc.disabled = true;
+      equipotv1.disabled = false;
+      equipotv2.disabled = false;
+      equipotv3.disabled = false;
+      equipotv4.disabled = false;
+      equipotv5.disabled = false;
+
+      break;
+
+    case "TV - DIGITAL INDIVIDUAL":
+      hideTipoActividad.style.display = "block";
+      EquipoModem_Hfc.disabled = true;
+      hideVoip_Hfc.disabled = true;
+      equipotv1.disabled = false;
+      equipotv2.disabled = false;
+      equipotv3.disabled = false;
+      equipotv4.disabled = false;
+      equipotv5.disabled = false;
+
+      break;
+    case "INTERNET INDIVIDUAL":
+      hideTipoActividad.style.display = "block";
+      EquipoModem_Hfc.disabled = false;
+      hideVoip_Hfc.disabled = false;
+      equipotv1.disabled = true;
+      equipotv2.disabled = true;
+      equipotv3.disabled = true;
+      equipotv4.disabled = true;
+      equipotv5.disabled = true;
+
+      break;
+    case "LINEA INDIVIDUAL":
+      hideTipoActividad.style.display = "block";
+      EquipoModem_Hfc.disabled = true;
+      hideVoip_Hfc.disabled = false;
+      equipotv1.disabled = true;
+      equipotv2.disabled = true;
+      equipotv3.disabled = true;
+      equipotv4.disabled = true;
+      equipotv5.disabled = true;
+
+      break;
+    case "REACTIVACION -DOBLE - TV + INTERNET":
+      // HIDDEN INPUT VOIP
+      hideTipoActividad.style.display = "block";
+      hideVoip_Hfc.disabled = true;
+      equipotv1.disabled = false;
+      equipotv2.disabled = false;
+      equipotv3.disabled = false;
+      equipotv4.disabled = false;
+      equipotv5.disabled = false;
+
+      break;
+    case "REACTIVACION - INSTALACION DE CLARO HOGAR":
+      hideTipoActividad.style.display = "block";
+      hideVoip_Hfc.disabled = false;
+      EquipoModem_Hfc.disabled = false;
+      equipotv1.disabled = false;
+      equipotv2.disabled = false;
+      equipotv3.disabled = false;
+      equipotv4.disabled = false;
+      equipotv5.disabled = false;
+
+      break;
+
+    case "REACTIVACION -DOBLE - INTERNET + LINEA":
+      hideTipoActividad.style.display = "block";
+      hideVoip_Hfc.disabled = false;
+      equipotv1.disabled = true;
+      equipotv2.disabled = true;
+      equipotv3.disabled = true;
+      equipotv4.disabled = true;
+      equipotv5.disabled = true;
+
+      break;
+
+    case "REACTIVACION -TV - BASICO INDIVIDUAL":
+      hideTipoActividad.style.display = "block";
+      EquipoModem_Hfc.disabled = true;
+      hideVoip_Hfc.disabled = true;
+      equipotv1.disabled = false;
+      equipotv2.disabled = false;
+      equipotv3.disabled = false;
+      equipotv4.disabled = false;
+      equipotv5.disabled = false;
+
+      break;
+    default:
+      hideTipoActividad.style.display = "block";
+
+      break;
+  }
 });

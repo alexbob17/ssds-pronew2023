@@ -92,7 +92,7 @@
                                     pattern="^\d{8,}$" />
                             </div>
                         </div>
-                        <div class="form-group-container" style="margin-top: 2.5rem;">
+                        <div class="form-group-container" style="margin-top: 2.5rem;" id="hideTipoActividad">
                             <div class="form-group col-md-3">
                                 <label for="tipo_actividad">Tipo De Actividad</label>
                                 <select class="form-control" style="width: 100%;" name="tipo_actividad" tabindex="-1"
@@ -108,13 +108,13 @@
                         <!-- INPUTS HFC REALIZADA -->
 
                         <div class="form-group-container box-warning" id="formHfc_Realizada">
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-3" id="hideEquipoTv">
                                 <label for="equipostv">Equipo Tv</label>
                                 <div class="box_equipostv">
                                     <div>
                                         <p>Tv 1</p>
                                     </div>
-                                    <input type="number" class="form-control" id="equipotv1" name="equipotv1" />
+                                    <input type="number" class="form-control" id="equipostv1" name="equipostv1" />
                                 </div>
                                 <div class="box_equipostv">
                                     <p>Tv 2</p>
@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="box_equipostv">
                                     <p>Tv 4</p>
-                                    <input type="number" class="form-control" id="equipostv" name="equipostv4" />
+                                    <input type="number" class="form-control" id="equipostv4" name="equipostv4" />
                                 </div>
                                 <div class="box_equipostv">
                                     <p>Tv 5</p>
@@ -152,12 +152,13 @@
                                             name="EquipoModem_Hfc" />
                                     </div>
                                 </div>
-                                <div class="from-group-container">
+                                <div class="from-group-container" id="hideVoip_Hfc">
                                     <div class="form-group col-md-3">
                                         <label for="numeroVoip_hfc">
                                             Numero Voip
                                         </label>
-                                        <input type="number" class="form-control" id="numerovoip" name="numerovoip" />
+                                        <input type="number" class="form-control" id="numeroVoip_hfc"
+                                            name="numeroVoip_hfc" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
@@ -179,7 +180,7 @@
                                     </div>
                                 </div>
                                 <div class="from-group-container">
-                                    <div class="form-group col-md-9">
+                                    <div class="form-group col-md-12">
                                         <label for="ObservacionesHfc">
                                             Observaciones
                                         </label>
@@ -188,7 +189,7 @@
                                     </div>
                                 </div>
                                 <div class="from-group-container">
-                                    <div class="form-group col-md-9">
+                                    <div class="form-group col-md-12">
                                         <label for="RecibeHfc">
                                             Recibe
                                         </label>
