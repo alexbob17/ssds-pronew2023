@@ -1,54 +1,22 @@
-const form = document.querySelector("form");
+// Obtener los elementos del primer formulario
+const codigo_tecnico = document.getElementById("codigo_tecnico");
+const telefono = document.getElementById("telefono");
+const tecnico = document.getElementById("tecnico");
 
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
+// Obtener el elemento select del primer formulario
+const motivo_llamada = document.getElementById("motivo_llamadaform1");
 
-  const data = {
-    codigo_tecnico: document.querySelector("input[name='codigo_tecnico']")
-      .value,
-    telefono: document.querySelector("input[name='telefono']").value,
-    tecnologia: document.querySelector("input[name='tecnologia']").value,
-    motivo_llamada: document.querySelector(
-      "input[name='motivo_llamada'][value='instalacion']"
-    ).value,
-    tipo_orden: document.querySelector("select[name='tipo_orden']").value,
-    tecnico: document.querySelector("input[name='tecnico']").value,
-  };
+// Escuchar el evento "change" del select del primer formulario
+motivo_llamada.addEventListener("change", function () {
+  // Obtener el valor seleccionado del select
+  const selectedOption =
+    motivo_llamada.options[motivo_llamada.selectedIndex].value;
 
-  switch (data.tecnologia.value) {
-    case "HFC":
-      //   data.numero = document.querySelector("input[name='numero']").value;
-      break;
-    case "ADSL":
-      data.orden_internetads = document.querySelector(
-        "input[name='orden_internetadsl']"
-      ).value;
-      data.sap_adsl = document.querySelector("input[name='sap_adsl']").value;
-      data.trabajado_adsl = document.querySelector(
-        "input[name='trabajado_adsl']"
-      ).value;
-      data.materiales_adsl = document.querySelector(
-        "input[name='materiales_adsl']"
-      ).value;
-      data.obv_adsl = document.querySelector("input[name='obv_adsl']").value;
-      data.tipoactividad_adsl = document.querySelector(
-        "input[name='tipoactividad_adsl']"
-      ).value;
-      break;
-    case "DTH":
-      break;
-    case "COBRE":
-      break;
-
-    case "GPON":
-      //   data.georeferencia = document.querySelector(
-      //     "input[name='georeferencia']"
-      //   ).value;
-      break;
+  // Verificar si la opción seleccionada es "INSTALACION"
+  if (selectedOption === "INSTALACION") {
+    // Guardar los valores en el LocalStorage
+    localStorage.setItem("codigo_tecnico", codigo_tecnico.value);
+    localStorage.setItem("telefono", telefono.value);
+    localStorage.setItem("tecnico", tecnico.value);
   }
-
-  const xhr = new XMLHttpRequest();
-  xhr.open("POST", "{{route('registro.store')}}");
-  xhr.setRequestHeader("Content-Type", "application/json");
-  xhr.send(JSON.stringify(data));
 });

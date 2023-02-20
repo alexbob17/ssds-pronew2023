@@ -18,10 +18,21 @@ fetch("../Json/CodigoTecnico.json")
 
     function buscarTecnico() {
       if (inputCodigo.value === "") {
-        alert("INGRESA UN CODIGO DE TECNICO");
+        Swal.fire({
+          icon: "warning",
+          title: "Ingresa un codigo de tecnico",
+          showConfirmButton: false,
+          timer: 3000,
+        });
         window.location.href = window.location.href;
         return;
       }
+      Swal.fire({
+        icon: "success",
+        title: "Tecnico Encontrado",
+        showConfirmButton: false,
+        timer: 1200,
+      });
       var codigoBuscado = inputCodigo.value.toUpperCase();
       var tecnicoEncontrado = false;
       for (var i = 0; i < datos.length; i++) {
@@ -38,12 +49,19 @@ fetch("../Json/CodigoTecnico.json")
         }
       }
       if (!tecnicoEncontrado) {
-        inputCodigo.value = "";
-        inputTecnico.value = "";
-        inputTelefono.value = "";
-        btnBusqueda.disabled = false;
-        alert("TECNICO NO REGISTRADO");
-        window.location.href = window.location.href;
+        // inputCodigo.value = "";
+        // inputTecnico.value = "";
+        // inputTelefono.value = "";
+        // btnBusqueda.disabled = false;
+        // alert("TECNICO NO REGISTRADO");
+
+        Swal.fire({
+          icon: "error",
+          title: "Opss...",
+          text: "Tecnico No Encontrado",
+          showConfirmButton: false,
+          timer: 3000,
+        });
       }
     }
     btn_reiniciar.disabled = false;

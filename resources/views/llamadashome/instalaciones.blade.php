@@ -13,34 +13,54 @@
                 <h3 class="box-title">Datos del Caso</h3>
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
-            <form action="" id="form1" class="formulario box-body">
+            <form action="" method="post" id="form1" class="formulario box-body"
+                style="border-bottom: 3px solid #3e69d6;">
                 <div class="form-group-container">
                     <div class="form-group col-md-3">
                         <label for="codigo_tecnico">Código Técnico</label>
-                        <input type="search" class="form-control" placeholder="Ingrese Codigo Tecnico"
-                            id="codigo_tecnico" name="codigo_tecnico" pattern="^[A-Za-z0-9]+$" maxlength="20"
-                            oninput="this.value = this.value.toUpperCase()" required />
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-square"></i>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Ingrese Codigo Tecnico"
+                                id="codigo_tecnico" name="codigo_tecnico"
+                                oninput="this.value = this.value.toUpperCase()" />
+                        </div>
                     </div>
+
                     <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
                         <button type="button" id="btn_busqueda" class="btn btn-primary"><i class="fa fa-search"
                                 aria-hidden="true"></i></button>
                         <button type="button" id="btn_reiniciar" class="btn btn-danger"><i class="fa fa-trash"
                                 aria-hidden="true"></i></button>
                     </div>
-                    <div class="form-group col-md-2">
-                        <label for="telefono">Teléfono</label>
-                        <input type="number" class="form-control" id="telefono" name="telefono" readonly="true"
-                            required />
-                    </div>
-                    <div class="form-group col-md-5">
-                        <label for="tecnico">Técnico</label>
-                        <input type="text" class="form-control" id="tecnico" name="tecnico" readonly="true" required />
+
+                    <div class="form-group">
+                        <div class="form-group col-md-2">
+                            <label for="telefono">Teléfono</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-phone-square"></i>
+                                </div>
+                                <input type="text" class="form-control" id="telefono" name="telefono" readonly="true" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-5">
+                            <label for="tecnico">Técnico</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <input type="text" class="form-control" id="tecnico" name="tecnico" readonly="true" />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group-container">
                     <div class="form-group col-md-3" id="view-container">
-                        <label for="motivo_llamada">Motivo de la llamada</label>
-                        <input type="text" class="form-control" placeholder="INSTALACION" disabled readonly="true" />
+                        <label for="motivo_llamada">Motivo Llamada</label>
+                        <input type="text" class="form-control" placeholder="INSTALACION" value="INSTALACION" disabled
+                            readonly="true" style="color: white; background: #3e69d6; text-align: center;" />
                     </div>
                     <div class="form-group col-md-2" id="tec_input">
                         <label for="tecnologia">Tecnologia</label>
@@ -55,7 +75,7 @@
                         </select>
                     </div>
                     <div class="form-group col-md-3" id="select_ordenhide">
-                        <label for="select_orden">Tipo De Orden</label>
+                        <label for="select_orden">Tipo Orden</label>
                         <select class="form-control" id="select_orden" style="width: 100%;" name="select_orden"
                             tabindex="-1" aria-hidden="true" required>
                             <option>SELECCIONE UNA OPCION</option>
@@ -74,101 +94,156 @@
                     <div id="form2" class="form-group-container formulario">
                         <div class="form-group-container" style="margin-top: 2.5rem;">
                             <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
-                                <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
+                                <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES</label>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_tv_hfc">Orden Tv</label>
-                                <input type="number" class="form-control" id="orden_tv_hfc" name="orden_tv_hfc"
-                                    pattern="^\d{8,}$" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="text" class="form-control OrdenHfc" id="orden_tv_hfc"
+                                        name="orden_tv_hfc" disabled />
+                                </div>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_internet_hfc">Orden Internet</label>
-                                <input type="number" class="form-control" id="orden_internet_hfc"
-                                    name="orden_internet_hfc" pattern="^\d{8,}$" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="number" class="form-control OrdenHfc" id="orden_internet_hfc"
+                                        name="orden_internet_hfc" disabled />
+                                </div>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="orden_linea_hfc">Orden Linea</label>
-                                <input type="number" class="form-control" id="orden_linea_hfc" name="orden_linea_hfc"
-                                    pattern="^\d{8,}$" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="number" class="form-control OrdenHfc" id="orden_linea_hfc"
+                                        name="orden_linea_hfc" disabled />
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group-container" style="margin-top: 2.5rem;" id="hideTipoActividad">
-                            <div class="form-group col-md-3">
-                                <label for="tipo_actividad">Tipo De Actividad</label>
-                                <select class="form-control" style="width: 100%;" name="tipo_actividad" tabindex="-1"
-                                    id="tipo_actividad" aria-hidden="true">
-                                    <option selected=" selected">Seleccione una opción</option>
-                                    <option value="REALIZADA">REALIZADA</option>
-                                    <option value="OBJETADA">OBJETADA</option>
-                                    <option value="TRANSFERIDA">TRANSFERIDA</option>
-                                </select>
+                        <div class="form-group-container">
+                            <div class="TipoActividad_Hidden" style="margin-top: 2.5rem;">
+                                <div class="form-group col-md-3">
+                                    <label for="tipo_actividad">TIPO ACTIVIDAD</label>
+                                    <select class="form-control" style="width: 100%;" name="tipo_actividad"
+                                        tabindex="-1" id="tipo_actividad" aria-hidden="true">
+                                        <option selected=" selected">SELECCIONE UNA OPCION</option>
+                                        <option value="REALIZADA">REALIZADA</option>
+                                        <option value="OBJETADA">OBJETADA</option>
+                                        <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
                         <!-- INPUTS HFC REALIZADA -->
 
-                        <div class="form-group-container box-warning" id="formHfc_Realizada">
+                        <div class="form-group-container box-warning FormHfc_Hidden" id="formHfc_Realizada">
                             <div class="form-group col-md-3" id="hideEquipoTv">
-                                <label for="equipostv">Equipo Tv</label>
-                                <div class="box_equipostv">
-                                    <div>
-                                        <p>Tv 1</p>
+                                <label for="EquiposTv_Hfc">Equipos Tv</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-square"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="equipostv1" name="equipostv1" />
+                                    <input type="text" class="form-control equipotvHfc" id="equipostv1"
+                                        name="equipostv1" placeholder="Equipo Tv 1" />
                                 </div>
-                                <div class="box_equipostv">
-                                    <p>Tv 2</p>
-                                    <input type="number" class="form-control" id="equipostv2" name="equipostv2" />
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-square"></i>
+                                    </div>
+                                    <input type="text" class="form-control equipotvHfc" id="equipostv2"
+                                        name="equipostv2" placeholder="Equipo Tv 2" />
                                 </div>
-                                <div class="box_equipostv">
-                                    <p>Tv 3</p>
-                                    <input type="number" class="form-control" id="equipostv3" name="equipostv3" />
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-square"></i>
+                                    </div>
+                                    <input type="text" class="form-control equipotvHfc" id="equipostv3"
+                                        name="equipostv3" placeholder="Equipo Tv 3" />
                                 </div>
-                                <div class="box_equipostv">
-                                    <p>Tv 4</p>
-                                    <input type="number" class="form-control" id="equipostv4" name="equipostv4" />
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-square"></i>
+                                    </div>
+                                    <input type="text" class="form-control equipotvHfc" id="equipostv4"
+                                        name="equipostv4" placeholder="Equipo Tv 4" />
                                 </div>
-                                <div class="box_equipostv">
-                                    <p>Tv 5</p>
-                                    <input type="number" class="form-control" id="equipostv5" name="equipostv5" />
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-square"></i>
+                                    </div>
+                                    <input type="text" class="form-control equipotvHfc" id="equipostv5"
+                                        name="equipostv5" placeholder="Equipo Tv 5" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="syrengHfc">SYRENG</label>
-                                <input type="number" class="form-control" id="syrengHfc" name="syrengHfc" />
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="sapHfc">SAP</label>
-                                <input type="number" class="form-control" id="sapHfc" name="sapHfc" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="number" class="form-control" id="syrengHfc" name="syrengHfc" />
+                                </div>
                             </div>
 
-                            <div class="from-group-container">
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <label for="EquipoModem_Hfc">
-                                            Equipo Modem
-                                        </label>
-                                        <input type="number" class="form-control" id="EquipoModem_Hfc"
-                                            name="EquipoModem_Hfc" />
+                            <div class="form-group col-md-3">
+                                <label for="sapHfc">SAP</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
                                     </div>
+                                    <input type="number" class="form-control" id="sapHfc" name="sapHfc" />
                                 </div>
-                                <div class="from-group-container" id="hideVoip_Hfc">
-                                    <div class="form-group col-md-3">
-                                        <label for="numeroVoip_hfc">
-                                            Numero Voip
-                                        </label>
-                                        <input type="number" class="form-control" id="numeroVoip_hfc"
-                                            name="numeroVoip_hfc" />
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="EquipoModem_Hfc">
+                                    Equipo Modem
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-rss"></i>
                                     </div>
+                                    <input type="number" class="form-control" id="EquipoModem_Hfc"
+                                        name="EquipoModem_Hfc" />
                                 </div>
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <label for="GeorefHfc">
-                                            Georeferencia
-                                        </label>
-                                        <input type="text" class="form-control" id="GeorefHfc" name="GeorefHfc" />
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="numeroVoip_hfc">
+                                    Numero Voip
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
                                     </div>
+                                    <input type="number" class="form-control" id="numeroVoip_hfc"
+                                        name="numeroVoip_hfc" />
                                 </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="GeorefHfc">
+                                    Georeferencia
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="GeorefHfc" name="GeorefHfc" />
+                                </div>
+                            </div>
+                            <div class="from-group col-md-3">
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
@@ -179,20 +254,30 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-12">
-                                        <label for="ObservacionesHfc">
-                                            Observaciones
-                                        </label>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group col-md-12">
+                                    <label for="ObservacionesHfc">
+                                        Observaciones
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-eye"></i>
+                                        </div>
                                         <input type="text" class="form-control" id="ObservacionesHfc"
                                             name="ObservacionesHfc" />
                                     </div>
                                 </div>
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-12">
-                                        <label for="RecibeHfc">
-                                            Recibe
-                                        </label>
+
+                                <div class="form-group col-md-12">
+                                    <label for="RecibeHfc">
+                                        Recibe
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
                                         <input type="text" class="form-control" id="RecibeHfc" name="RecibeHfc" />
                                     </div>
                                 </div>
@@ -202,35 +287,60 @@
                                 <div class="form-group-container">
                                     <h4 class="box-title"
                                         style="color: #3e69d6; text-align: center; font-weight: bold;">
-                                        Elementos de red
+                                        ELEMENTOS RED
                                     </h4>
-                                    <div class="box box-warning" style="margin: botton 12px;">
+                                    <div class="" style="margin: botton 12px; border-top: 1px solid #c0bfbf;">
                                         <div class="form-group-container" style="margin-top: 1rem;">
                                             <div class="form-group col-md-3">
                                                 <label for="NodoHfc">
                                                     Nodo
                                                 </label>
-                                                <input type="text" class="form-control" id="NodoHfc" name="NodoHfc" />
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-square"></i>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="NodoHfc"
+                                                        name="NodoHfc" />
+                                                </div>
                                             </div>
+
                                             <div class="form-group col-md-3">
                                                 <label for="TapHfc">
                                                     TAP
                                                 </label>
-                                                <input type="number" class="form-control" id="TapHfc" name="TapHfc" />
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-square"></i>
+                                                    </div>
+                                                    <input type="number" class="form-control" id="TapHfc"
+                                                        name="TapHfc" />
+                                                </div>
                                             </div>
+
                                             <div class="form-group col-md-3">
                                                 <label for="PosicionHfc">
                                                     Posicion
                                                 </label>
-                                                <input type="number" class="form-control" id="PosicionHfc"
-                                                    name="PosicionHfc" />
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-square"></i>
+                                                    </div>
+                                                    <input type="number" class="form-control" id="PosicionHfc"
+                                                        name="PosicionHfc" />
+                                                </div>
                                             </div>
+
                                             <div class="form-group col-md-12">
                                                 <label for="MaterialesHfc">
                                                     Materiales
                                                 </label>
-                                                <input type="number" class="form-control" id="MaterialesHfc"
-                                                    name="MaterialesHfc" />
+                                                <div class="input-group">
+                                                    <div class="input-group-addon">
+                                                        <i class="fa fa-edit"></i>
+                                                    </div>
+                                                    <input type="number" class="form-control" id="MaterialesHfc"
+                                                        name="MaterialesHfc" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -239,11 +349,11 @@
                         </div>
                         <!-- INPUTS HFC OBJETADA -->
 
-                        <div class="form-group-container" id="formHfc_Objetada">
+                        <div class="form-group-container FormHfc_Hidden" id="formHfc_Objetada">
                             <div class="from-group-container">
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjetada_Hfc">Motivo Objetada</label>
+                                        <label for="MotivoObjetada_Hfc">MOTIVO OBJETADO</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjetada_Hfc" tabindex="-1"
                                             id="MotivoObjetada_Hfc" aria-hidden="true">
@@ -269,15 +379,19 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <label for="OrdenObjetada_Hfc">
-                                            Orden
-                                        </label>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenObjetada_Hfc">
+                                        Orden
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
                                         <input type="text" class="form-control" id="OrdenObjetada_Hfc"
                                             name="OrdenObjetada_Hfc" />
                                     </div>
                                 </div>
+
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
@@ -288,21 +402,28 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-12">
-                                        <label for="ProblematicaObjetada_Hfc">
-                                            Problematica
-                                        </label>
+
+                                <div class="form-group col-md-12">
+                                    <label for="ProblematicaObjetada_Hfc">
+                                        Problematica
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-exclamation-triangle"></i>
+                                        </div>
                                         <input type="text" class="form-control" id="ProblematicaObjetada_Hfc"
                                             name="ProblematicaObjetada_Hfc" />
                                     </div>
                                 </div>
 
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-12">
-                                        <label for="ComentariosObjetados_Hfc">
-                                            Comentarios
-                                        </label>
+                                <div class="form-group col-md-12">
+                                    <label for="ComentariosObjetados_Hfc">
+                                        Comentarios
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
                                         <input type="text" class="form-control" id="ComentariosObjetados_Hfc"
                                             name="ComentariosObjetados_Hfc" />
                                     </div>
@@ -312,16 +433,20 @@
 
                         <!-- INPUTS HFC TRANSFERIDA -->
 
-                        <div class="form-group-container" id="formHfc_Transferida">
-                            <div class="from-group-container">
-                                <div class="form-group col-md-3">
-                                    <label for="OrdenTransferida_Hfc">
-                                        Orden
-                                    </label>
+                        <div class="form-group-container FormHfc_Hidden" id="formHfc_Transferida">
+                            <div class="form-group col-md-3">
+                                <label for="OrdenTransferida_Hfc">
+                                    Orden
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
                                     <input type="number" class="form-control" id="OrdenTransferida_Hfc"
                                         name="OrdenTransferida_Hfc" />
                                 </div>
                             </div>
+
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
@@ -332,21 +457,28 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="from-group-container">
-                                <div class="form-group col-md-12">
-                                    <label for="ProblematicaTransferida_Hfc">
-                                        Problematica
-                                    </label>
+
+                            <div class="form-group col-md-12">
+                                <label for="ProblematicaTransferida_Hfc">
+                                    Problematica
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-exclamation-triangle"></i>
+                                    </div>
                                     <input type="text" class="form-control" id="ProblematicaTransferida_Hfc"
                                         name="ProblematicaTransferida_Hfc" />
                                 </div>
                             </div>
 
-                            <div class="from-group-container">
-                                <div class="form-group col-md-12">
-                                    <label for="ComentariosTransferida_Hfc">
-                                        Comentarios
-                                    </label>
+                            <div class="form-group col-md-12">
+                                <label for="ComentariosTransferida_Hfc">
+                                    Comentarios
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
                                     <input type="text" class="form-control" id="ComentariosTransferida_Hfc"
                                         name="ComentariosTransferida_Hfc" />
                                 </div>
@@ -356,7 +488,7 @@
                 </div>
                 <!-- FORMULARIO #3 ADSL -->
                 <div id="form3" class="form-group-container formulario">
-                    <div class="form-group col-md-3" id="tipo_actividadAdslHidden">
+                    <div class="form-group col-md-3 TipoActividad_Hidden">
                         <label for="tipo_actividadAdsl">Tipo Actividad</label>
                         <select class="form-control" style="width: 100%;" name="tipo_actividadAdsl"
                             id="tipo_actividadAdsl" tabindex="-1" aria-hidden="true">
@@ -367,7 +499,7 @@
                         </select>
                     </div>
                     <!-- TIPO ACTIVIDAD REALIZADA (ADSL) -->
-                    <div class="form-group-container" id="formAdsl_Realizada">
+                    <div class="form-group-container FormAdsl_Hidden" id="formAdsl_Realizada">
                         <div class="form-group-container">
                             <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
                                 <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
@@ -407,7 +539,7 @@
 
                     <!-- TIPO ACTIVIDAD OBJETADA (ADSL) -->
 
-                    <div id="formAdsl_Objetada" class="form-group-container">
+                    <div id="formAdsl_Objetada" class="form-group-container FormAdsl_Hidden">
                         <div class="form-group col-md-3">
                             <label for="MotivoObjetada_Adsl">Motivo Objetada</label>
                             <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
@@ -471,7 +603,7 @@
                     </div>
 
                     <!-- TIPO ACTIVIDAD TRANSFERIDA (ADSL) -->
-                    <div class="form-group-container" id="formAdsl_Transferida">
+                    <div class="form-group-container FormAdsl_Hidden" id="formAdsl_Transferida">
                         <div class="form-group col-md-3">
                             <label for="OrdenAdsl_Transferida">
                                 Orden
@@ -511,7 +643,7 @@
                     </div>
                 </div>
 
-                <!-- FORMULARIO #4 -->
+                <!-- FORMULARIO #4 DTH -->
                 <div id="form4" class="form-group-container">
                     <div class="form-group-container" style="margin-top: 2.5rem;">
                         <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
@@ -529,7 +661,7 @@
                             <label for="tecnico">SAP</label>
                             <input type="text" class="form-control" id="tecnico" name="tecnico" />
                         </div>
-                        <div class="form-group col-md-3" id="tipoactividadDth_Hidden">
+                        <div class="form-group col-md-3 TipoActividad_Hidden">
                             <label for="tipoactividaddth">Tipo Actividad</label>
                             <select class="form-control" style="width: 100%;" name="tipoactividaddth" tabindex="-1"
                                 aria-hidden="true">
@@ -615,7 +747,7 @@
                 </div>
                 <!-- FORMULARIO #5 COBRE-->
                 <div id="form5" class="form-group-container">
-                    <div class="form-group col-md-3" id="tipo_actividadCobreHide">
+                    <div class="form-group col-md-3 TipoActividad_Hidden">
                         <label for="tipo_actividadCobre">Tipo Actividad</label>
                         <select class="form-control" style="width: 100%;" name="tipo_actividadCobre"
                             id="tipo_actividadCobre" tabindex="-1" aria-hidden="true">
@@ -627,7 +759,7 @@
                     </div>
 
                     <!-- TIPO ACTIVIDAD REALIZADA COBRE -->
-                    <div class="form-group-container" id="formCobre_Realizada">
+                    <div class="form-group-container FormCobre_Hidden" id="formCobre_Realizada">
                         <div class="form-group-container">
                             <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
                                 <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
@@ -674,7 +806,7 @@
 
                     <!-- TIPO ACTIVIDAD OBJETADA COBRE -->
 
-                    <div class="form-group-container" id="formCobre_Objetada">
+                    <div class="form-group-container FormCobre_Hidden" id="formCobre_Objetada">
                         <div class="form-group col-md-3">
                             <label for="MotivoObjetada_Cobre">Motivo Objetada</label>
                             <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
@@ -740,7 +872,7 @@
 
                     <!-- TIPO ACTIVIDAD TRANSFERIDA COBRE -->
 
-                    <div class="form-group-container" id="formCobre_Transferida">
+                    <div class="form-group-container FormCobre_Hidden" id="formCobre_Transferida">
                         <div class="from-group-container">
                             <div class="form-group col-md-3">
                                 <label for="EModem">
@@ -779,31 +911,46 @@
                     </div>
                 </div>
 
-                <!-- FORMULARIO #6-->
+                <!-- FORMULARIO #6 GPON-->
                 <div id="form6" class="form-group-container">
-                    <div class="form-group-container" style="margin-top: 2.5rem;">
+                    <div class="form-group-container">
                         <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
-                            <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="OrdenInternet_Gpon">Orden Internet</label>
-                            <input type="number" class="form-control" id="OrdenInternet_Gpon" name="OrdenInternet_Gpon"
-                                disabled />
+                            <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES</label>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="OrdenTv_Gpon">Orden Tv</label>
-                            <input type="text" class="form-control" id="OrdenTv_Gpon" name="OrdenTv_Gpon" disabled />
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-ticket"></i>
+                                </div>
+                                <input type="text" class="form-control OrdenGpon" id="OrdenTv_Gpon" name="OrdenTv_Gpon"
+                                    disabled />
+                            </div>
                         </div>
-
+                        <div class="form-group col-md-3">
+                            <label for="OrdenInternet_Gpon">Orden Internet</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-ticket"></i>
+                                </div>
+                                <input type="number" class="form-control OrdenGpon" id="OrdenInternet_Gpon"
+                                    name="OrdenInternet_Gpon" disabled />
+                            </div>
+                        </div>
                         <div class="form-group col-md-3">
                             <label for="OrdenLinea_Gpon">Orden Linea</label>
-                            <input type="text" class="form-control" id="OrdenLinea_Gpon" name="OrdenLinea_Gpon"
-                                disabled />
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-ticket"></i>
+                                </div>
+                                <input type="text" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
+                                    name="OrdenLinea_Gpon" disabled />
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group-container" style="margin-top: 2.5rem;">
-                        <div class="form-group col-md-3" id="tipoactividadHide_Gpon">
-                            <label for="tipo_actividadGpon">Tipo De Actividad</label>
+                    <div class="form-group-container">
+                        <div class="form-group col-md-3 TipoActividad_Hidden">
+                            <label for="tipo_actividadGpon">Tipo Actividad</label>
                             <select class="form-control" style="width: 100%;" name="tipo_actividadGpon"
                                 id="tipo_actividadGpon" tabindex="-1" aria-hidden="true">
                                 <option selected="selected" value="">Seleccione una opción</option>
@@ -815,46 +962,105 @@
                     </div>
 
                     <!-- CAMBIO DE TIPO ACTIVIDAD REALIZADA GPON-->
-                    <div class="form-group-container" id="formGpon_Realizada">
+                    <div class="form-group-container FormGpon_Hidden" id="formGpon_Realizada">
                         <div class="from-group-container">
-                            <div class="form-group col-md-3">
-                                <label for="equipostv">Equipo Tv</label>
-                                <div class="box_equipostv">
-                                    <input type="text" class="form-control" id="equipotv1Gpon" name="equipotv1Gpon" />
+                            <div class="form-group col-md-3" id="hideEquipoTv">
+                                <label for="EquiposTv_Hfc">Equipos Tv</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-square"></i>
+                                    </div>
+                                    <input type="text" class="form-control equipotvGpon" id="equipotv1Gpon"
+                                        name="equipotv1Gpon" placeholder="Equipo Tv 1" />
                                 </div>
-                                <div class="box_equipostv">
-                                    <input type="text" class="form-control" id="equipostv2Gpon" name="equipostv2Gpon" />
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-square"></i>
+                                    </div>
+                                    <input type="text" class="form-control equipotvGpon" id="equipotv1Gpon"
+                                        name="equipotv1Gpon" placeholder="Equipo Tv 2" />
                                 </div>
-                                <div class="box_equipostv">
-                                    <input type="text" class="form-control" id="equipostv3Gpon" name="equipostv3Gpon" />
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-square"></i>
+                                    </div>
+                                    <input type="text" class="form-control equipotvGpon" id="equipostv3Gpon"
+                                        name="equipostv3Gpon" placeholder="Equipo Tv 3" />
                                 </div>
-                                <div class="box_equipostv">
-                                    <input type="text" class="form-control" id="equipostv4Gpon" name="equipostv4Gpon" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-square"></i>
+                                    </div>
+                                    <input type="text" class="form-control equipotvGpon" id="equipostv4Gpon"
+                                        name="equipostv4Gpon" placeholder="Equipo Tv 4" />
                                 </div>
-                                <div class="box_equipostv">
-                                    <input type="text" class="form-control" id="equipostv5Gpon" name="equipostv5Gpon" />
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-square"></i>
+                                    </div>
+                                    <input type="text" class="form-control equipotvGpon" id="equipostv5Gpon"
+                                        name="equipostv5Gpon" placeholder="Equipo Tv 5" />
                                 </div>
                             </div>
+
                             <div class="form-group col-md-3">
-                                <label for="EqModenGpon">Equipo Modem</label>
-                                <input type="text" class="form-control" id="EqModenGpon" name="EqModenGpon" required />
+                                <label for="EqModenGpon">
+                                    Equipo Modem
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-rss"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="EqModenGpon" name="EqModenGpon"
+                                        required />
+                                </div>
                             </div>
+
                             <div class="form-group col-md-3">
                                 <label for="GeoRefGpon">Georeferencia</label>
-                                <input type="text" class="form-control" id="GeoRefGpon" name="GeoRefGpon" required />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="GeoRefGpon" name="GeoRefGpon"
+                                        required />
+                                </div>
                             </div>
+
                             <div class="form-group col-md-3">
                                 <label for="SapGpon">SAP</label>
-                                <input type="text" class="form-control" id="SapGpon" name="SapGpon" required />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="SapGpon" name="SapGpon" required />
+                                </div>
                             </div>
+
                             <div class="form-group col-md-3">
                                 <label for="SapGpon">Numero Gpon</label>
-                                <input type="text" class="form-control" id="NumeroGpon" name="NumeroGpon" required />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-square"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="NumeroGpon" name="NumeroGpon"
+                                        required />
+                                </div>
                             </div>
+
                             <div class="form-group col-md-3">
                                 <label for="SapGpon">Numero Voip</label>
-                                <input type="text" class="form-control" id="VoipGpon" name="VoipGpon" required />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="VoipGpon" name="VoipGpon" required />
+                                </div>
                             </div>
+
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
@@ -869,25 +1075,31 @@
                         <div class="form-group-container">
                             <div class="form-group col-md-12">
                                 <label for="telefono">Observaciones</label>
-                                <input type="number" class="form-control" id="ObservacionesGpon"
-                                    name="ObservacionesGpon" required />
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-eye"></i>
+                                    </div>
+                                    <input type="number" class="form-control" id="ObservacionesGpon"
+                                        name="ObservacionesGpon" required />
+                                </div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="telefono">Recibe</label>
-                                <input type="text" class="form-control" id="RecibeGpon" name="RecibeGpon" required
-                                    placeholder="" />
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="telefono">Materiales</label>
-                                <input type="text" class="form-control" id="MaterialesGpon" name="MaterialesGpon"
-                                    required placeholder="Comentarios..." />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="RecibeGpon" name="RecibeGpon" required
+                                        placeholder="" />
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- TIPO ACTIVIDAD OBJETADA GPON -->
 
-                    <div class="form-group-container" id="formGpon_Objetada">
+                    <div class="form-group-container FormGpon_Hidden" id="formGpon_Objetada">
                         <div class="form-group col-md-3">
                             <label for="tipo_actividad">Motivo Objetada</label>
                             <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
@@ -946,7 +1158,7 @@
                     </div>
 
                     <!-- TIPO ACTIVIDAD TRANSFERIDA GPON -->
-                    <div class="form-group-container" id="formGpon_Transferida">
+                    <div class="form-group-container FormGpon_Hidden" id="formGpon_Transferida">
                         <div class="form-group col-md-3">
                             <label for="EModem">
                                 Orden
@@ -984,12 +1196,17 @@
                 </div>
 
                 <div class="box-footer" id="" style="text-align: center; display: flex; justify-content: center;">
-                    <button id="btn-submit" type="submit" class="btn btn-warning">Guardar Caso</button>
+                    <button id="btn-submit" type="submit" class="btn btn-warning">GUARDAR REGISTRO</button>
                 </div>
             </form>
         </div>
 
         @endsection @section('styles')
+
+        <!-- SweetAlert -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
+
         <!-- Select2 -->
         <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
         <link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
@@ -1020,7 +1237,9 @@
         <!-- User definided -->
         <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script>
         <script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
-        <script src="{{asset('/js/registro/validacionesregistro.js')}}" type="text/javascript"></script>
+        <script src="{{asset('/js/registro/ValidacionTecnico.js')}}" type="text/javascript"></script>
+        <script src="{{asset('/js/instalaciones/ValoresTecnico.js')}}" type="text/javascript"></script>
+
         <!-- <script src="{{asset('/js/instalaciones/registro.js')}}" type="text/javascript"> </script> -->
 
         @endsection

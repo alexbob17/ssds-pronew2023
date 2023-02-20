@@ -14,39 +14,26 @@ const [
 );
 
 // HIDDEN TIPO ACTIVIDAD AL INICIAR FORMULARIO
-const hideTipoActividad = document.getElementById("hideTipoActividad");
-const hideTipoActAdsl = document.getElementById("tipo_actividadAdslHidden");
-const tipoactividadDth_Hidden = document.getElementById(
-  "tipoactividadDth_Hidden"
-);
 
-const tipo_actividadCobreHide = document.getElementById(
-  "tipo_actividadCobreHide"
-);
+const TipoActividad_Hidden = document.querySelectorAll(".TipoActividad_Hidden");
 
-const tipoactividadHide_Gpon = document.getElementById(
-  "tipoactividadHide_Gpon"
-);
+// DISABLED ORDENES AL CAMBIAR DE FORMULARIO
+
+const OrdenHfc = document.querySelectorAll(".OrdenHfc");
+const OrdenGpon = document.querySelectorAll(".OrdenGpon");
+// AGREGAR EL RESTO DE ORDENES(ADSL/COBRE/DTH)
 
 // HIDDEN FORMULARIOS DE TIPO ACTIVIDAD (REALIZADO/OBJETADO/TRANSFERIDO)
 
-const hfchide_realizado = document.getElementById("formHfc_Realizada");
-const hfchide_objetado = document.getElementById("formHfc_Objetada");
-const hfchide_transferido = document.getElementById("formHfc_Transferida");
+const FormHfc_Hidden = document.querySelectorAll(".FormHfc_Hidden");
 
-const gponhide_realizado = document.getElementById("formGpon_Realizada");
-const gponhide_transferido = document.getElementById("formGpon_Objetada");
-const gponhide_objetado = document.getElementById("formGpon_Transferida");
+const FormGpon_Hidden = document.querySelectorAll(".FormGpon_Hidden");
 
-const adslhide_realizado = document.getElementById("formAdsl_Realizada");
-const adslhide_objetado = document.getElementById("formAdsl_Objetada");
-const adslhide_transferido = document.getElementById("formAdsl_Transferida");
+const FormCobre_Hidden = document.querySelectorAll(".FormCobre_Hidden");
 
-const cobrehide_realizado = document.getElementById("formCobre_Realizada");
-const cobrehide_objetado = document.getElementById("formCobre_Objetada");
-const cobrehide_transferido = document.getElementById("formCobre_Transferida");
+const FormAdsl_Hidden = document.querySelectorAll(".FormAdsl_Hidden");
 
-// SEGUIR CON LAS DEMAS HIDDEN FORMS
+// SEGUIR CON LAS DEMAS HIDDEN FORMS (-FALTA DTH)
 
 const tipoActividad_ChangeName = document.getElementById("tipo_actividad");
 
@@ -82,176 +69,190 @@ document.addEventListener("DOMContentLoaded", function () {
       case "HFC":
         btn_save.style.display = "none";
         form2.style.display = "block";
-        tipoActividad_ChangeName.value = "Seleccione una opción";
-        hideTipoActAdsl.style.display = "none";
-        hideTipoActividad.style.display = "none";
-        tipoactividadDth_Hidden.style.display = "none";
-        tipo_actividadCobreHide.style.display = "none";
-        tipoactividadHide_Gpon.style.display = "none";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
 
-        // TIPO ORDEN
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
 
-        orden_tv_hfc.disabled = true;
-        orden_internet_hfc.disabled = true;
-        orden_linea_hfc.disabled = true;
+        // DESHABILITA EL TIPO ORDEN AL CAMBIAR DE TECNOLOGIA
 
-        OrdenInternet_Gpon.disabled = true;
-        OrdenTv_Gpon.disabled = true;
-        OrdenLinea_Gpon.disabled = true;
+        for (let i = 0; i < OrdenHfc.length; i++) {
+          OrdenHfc[i].disabled = true;
+        }
 
-        // TIPO ACTIVIDAD
+        for (let i = 0; i < OrdenGpon.length; i++) {
+          OrdenGpon[i].disabled = true;
+        }
 
-        hfchide_realizado.style.display = "none";
-        hfchide_objetado.style.display = "none";
-        hfchide_transferido.style.display = "none";
+        // TIPO ACTIVIDAD HIDDEN AL CAMBIAR DE TECNOLOGIA
 
-        gponhide_realizado.disabled = true;
-        gponhide_transferido.disabled = true;
-        gponhide_objetado.disabled = true;
+        for (let i = 0; i < FormHfc_Hidden.length; i++) {
+          FormHfc_Hidden[i].style.display = "none";
+        }
 
-        adslhide_realizado.disabled = true;
-        adslhide_objetado.disabled = true;
-        adslhide_transferido.disabled = true;
+        for (let i = 0; i < FormGpon_Hidden.length; i++) {
+          FormGpon_Hidden[i].style.display = "none";
+        }
 
         break;
       case "ADSL":
         btn_save.style.display = "none";
         form3.style.display = "block";
-        tipoActividad_ChangeName.value = "Seleccione una opción";
-        hideTipoActAdsl.style.display = "none";
-        hideTipoActividad.style.display = "none";
-        tipoactividadDth_Hidden.style.display = "none";
-        tipo_actividadCobreHide.style.display = "none";
-        tipoactividadHide_Gpon.style.display = "none";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
 
-        // TIPO ORDEN
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
 
-        orden_tv_hfc.disabled = true;
-        orden_internet_hfc.disabled = true;
-        orden_linea_hfc.disabled = true;
+        // DESHABILITA EL TIPO ORDEN AL CAMBIAR DE TECNOLOGIA
 
-        OrdenInternet_Gpon.disabled = true;
-        OrdenTv_Gpon.disabled = true;
-        OrdenLinea_Gpon.disabled = true;
+        for (let i = 0; i < OrdenHfc.length; i++) {
+          OrdenHfc[i].disabled = true;
+        }
 
-        // TIPO ACTIVIDAD
+        for (let i = 0; i < OrdenGpon.length; i++) {
+          OrdenGpon[i].disabled = true;
+        }
 
-        hfchide_realizado.style.display = "none";
-        hfchide_objetado.style.display = "none";
-        hfchide_transferido.style.display = "none";
+        // TIPO ACTIVIDAD HIDDEN AL CAMBIAR DE TECNOLOGIA
 
-        gponhide_realizado.disabled = true;
-        gponhide_transferido.disabled = true;
-        gponhide_objetado.disabled = true;
+        for (let i = 0; i < FormHfc_Hidden.length; i++) {
+          FormHfc_Hidden[i].style.display = "none";
+        }
 
-        adslhide_realizado.disabled = true;
-        adslhide_objetado.disabled = true;
-        adslhide_transferido.disabled = true;
+        for (let i = 0; i < FormGpon_Hidden.length; i++) {
+          FormGpon_Hidden[i].style.display = "none";
+        }
+
+        for (let i = 0; i < FormAdsl_Hidden.length; i++) {
+          FormAdsl_Hidden[i].style.display = "none";
+        }
+
+        for (let i = 0; i < FormCobre_Hidden.length; i++) {
+          FormCobre_Hidden[i].style.display = "none";
+        }
 
         break;
       case "DTH":
         btn_save.style.display = "none";
         form4.style.display = "block";
-        tipoActividad_ChangeName.value = "Seleccione una opción";
-        hideTipoActAdsl.style.display = "none";
-        hideTipoActividad.style.display = "none";
-        tipoactividadDth_Hidden.style.display = "none";
-        tipo_actividadCobreHide.style.display = "none";
-        tipoactividadHide_Gpon.style.display = "none";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
 
-        // TIPO ORDEN
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
 
-        orden_tv_hfc.disabled = true;
-        orden_internet_hfc.disabled = true;
-        orden_linea_hfc.disabled = true;
+        // DESHABILITA EL TIPO DE ORDEN AL CAMBIAR DE TECNOLOGIA
 
-        OrdenInternet_Gpon.disabled = true;
-        OrdenTv_Gpon.disabled = true;
-        OrdenLinea_Gpon.disabled = true;
+        for (let i = 0; i < OrdenHfc.length; i++) {
+          OrdenHfc[i].disabled = true;
+        }
+
+        for (let i = 0; i < OrdenGpon.length; i++) {
+          OrdenGpon[i].disabled = true;
+        }
 
         // TIPO ACTIVIDAD
 
-        hfchide_realizado.style.display = "none";
-        hfchide_objetado.style.display = "none";
-        hfchide_transferido.style.display = "none";
+        for (let i = 0; i < FormHfc_Hidden.length; i++) {
+          FormHfc_Hidden[i].style.display = "none";
+        }
 
-        gponhide_realizado.disabled = true;
-        gponhide_transferido.disabled = true;
-        gponhide_objetado.disabled = true;
+        for (let i = 0; i < FormGpon_Hidden.length; i++) {
+          FormGpon_Hidden[i].style.display = "none";
+        }
 
-        adslhide_realizado.disabled = true;
-        adslhide_objetado.disabled = true;
-        adslhide_transferido.disabled = true;
+        for (let i = 0; i < FormAdsl_Hidden.length; i++) {
+          FormAdsl_Hidden[i].style.display = "none";
+        }
+
+        for (let i = 0; i < FormCobre_Hidden.length; i++) {
+          FormCobre_Hidden[i].style.display = "none";
+        }
 
         break;
       case "COBRE":
         form5.style.display = "block";
         btn_save.style.display = "none";
-        tipoActividad_ChangeName.value = "Seleccione una opción";
-        hideTipoActAdsl.style.display = "none";
-        hideTipoActividad.style.display = "none";
-        tipoactividadDth_Hidden.style.display = "none";
-        tipo_actividadCobreHide.style.display = "none";
-        tipoactividadHide_Gpon.style.display = "none";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
 
         // TIPO ORDEN HIDDEN
 
-        orden_tv_hfc.disabled = true;
-        orden_internet_hfc.disabled = true;
-        orden_linea_hfc.disabled = true;
+        for (let i = 0; i < OrdenHfc.length; i++) {
+          OrdenHfc[i].disabled = true;
+        }
 
-        OrdenInternet_Gpon.disabled = true;
-        OrdenTv_Gpon.disabled = true;
-        OrdenLinea_Gpon.disabled = true;
+        for (let i = 0; i < OrdenGpon.length; i++) {
+          OrdenGpon[i].disabled = true;
+        }
+
+        // orden_tv_hfc.disabled = true;
+        // orden_internet_hfc.disabled = true;
+        // orden_linea_hfc.disabled = true;
+
+        // OrdenInternet_Gpon.disabled = true;
+        // OrdenTv_Gpon.disabled = true;
+        // OrdenLinea_Gpon.disabled = true;
 
         // TIPO ACTIVIDAD HIDDEN
 
-        hfchide_realizado.style.display = "none";
-        hfchide_objetado.style.display = "none";
-        hfchide_transferido.style.display = "none";
+        for (let i = 0; i < FormHfc_Hidden.length; i++) {
+          FormHfc_Hidden[i].style.display = "none";
+        }
 
-        gponhide_realizado.disabled = true;
-        gponhide_transferido.disabled = true;
-        gponhide_objetado.disabled = true;
+        for (let i = 0; i < FormGpon_Hidden.length; i++) {
+          FormGpon_Hidden[i].style.display = "none";
+        }
 
-        adslhide_realizado.disabled = true;
-        adslhide_objetado.disabled = true;
-        adslhide_transferido.disabled = true;
+        for (let i = 0; i < FormAdsl_Hidden.length; i++) {
+          FormAdsl_Hidden[i].style.display = "none";
+        }
+
+        for (let i = 0; i < FormCobre_Hidden.length; i++) {
+          FormCobre_Hidden[i].style.display = "none";
+        }
 
         break;
       case "GPON":
         btn_save.style.display = "none";
         form6.style.display = "block";
-        tipoActividad_ChangeName.value = "Seleccione una opción";
-        hideTipoActAdsl.style.display = "none";
-        hideTipoActividad.style.display = "none";
-        tipoactividadDth_Hidden.style.display = "none";
-        tipo_actividadCobreHide.style.display = "none";
-        tipoactividadHide_Gpon.style.display = "none";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
 
         // TIPO ORDEN
 
-        orden_tv_hfc.disabled = true;
-        orden_internet_hfc.disabled = true;
-        orden_linea_hfc.disabled = true;
+        for (let i = 0; i < OrdenHfc.length; i++) {
+          OrdenHfc[i].disabled = true;
+        }
 
-        OrdenInternet_Gpon.disabled = true;
-        OrdenTv_Gpon.disabled = true;
-        OrdenLinea_Gpon.disabled = true;
+        for (let i = 0; i < OrdenGpon.length; i++) {
+          OrdenGpon[i].disabled = true;
+        }
 
         // TIPO ACTIVIDAD
 
-        hfchide_realizado.style.display = "none";
-        hfchide_objetado.style.display = "none";
-        hfchide_transferido.style.display = "none";
+        for (let i = 0; i < FormHfc_Hidden.length; i++) {
+          FormHfc_Hidden[i].style.display = "none";
+        }
 
-        gponhide_realizado.style.display = "none";
-        gponhide_transferido.style.display = "none";
-        gponhide_objetado.style.display = "none";
+        for (let i = 0; i < FormGpon_Hidden.length; i++) {
+          FormGpon_Hidden[i].style.display = "none";
+        }
 
-        adslhide_realizado.disabled = true;
-        adslhide_objetado.disabled = true;
-        adslhide_transferido.disabled = true;
+        for (let i = 0; i < FormAdsl_Hidden.length; i++) {
+          FormAdsl_Hidden[i].style.display = "none";
+        }
+
+        for (let i = 0; i < FormCobre_Hidden.length; i++) {
+          FormCobre_Hidden[i].style.display = "none";
+        }
 
         break;
     }
@@ -315,7 +316,6 @@ select1.addEventListener("change", function () {
 // VALIDACIONES TIPO ORDEN
 
 select_orden.addEventListener("change", function () {
-  // deshabilitar todas las opciones
   orden_tv_hfc.disabled = true;
   orden_internet_hfc.disabled = true;
   orden_linea_hfc.disabled = true;
@@ -325,9 +325,9 @@ select_orden.addEventListener("change", function () {
 
   var selectedOption = this.value;
   var options = {
+    "INSTALACION DE CLARO HOGAR": [false, false, false],
     "DOBLE - INTERNET + LINEA": [true, false, false],
     "DOBLE - TV + INTERNET": [false, true, true],
-    "INSTALACION DE CLARO HOGAR": [false, false, false],
     "DOBLE - TV + INTERNET": [false, false, true],
     "INTERNET INDIVIDUAL": [true, false, true],
     "LINEA INDIVIDUAL": [true, true, false],
@@ -352,26 +352,16 @@ select_orden.addEventListener("change", function () {
     "LINEA INDIVIDUAL": [true, true, false],
     "IPTV INDIVIDUAL": [false, true, true],
   };
+
   var disabledOptions = options[selectedOption] || [true, true, true];
   orden_tv_hfc.disabled = disabledOptions[0];
   orden_internet_hfc.disabled = disabledOptions[1];
   orden_linea_hfc.disabled = disabledOptions[2];
-
   OrdenInternet_Gpon.disabled = disabledOptions[0];
   OrdenTv_Gpon.disabled = disabledOptions[1];
   OrdenLinea_Gpon.disabled = disabledOptions[2];
 
-  // verificar si se ha seleccionado una opción
-  if (selectedOption === "") {
-    // deshabilitar todas las opciones si no se ha seleccionado una opción
-    orden_tv_hfc.disabled = true;
-    orden_internet_hfc.disabled = true;
-    orden_linea_hfc.disabled = true;
-    OrdenInternet_Gpon.disabled = true;
-    OrdenTv_Gpon.disabled = true;
-    OrdenLinea_Gpon.disabled = true;
-    // resetFormFields(); // restablecer los campos
-  }
+  // deshabilitar todas las opciones si no se ha seleccionado una opción
 });
 
 // FETCH LOCALIZACIONES
@@ -472,140 +462,186 @@ formTypes.forEach(({ select, forms }) => {
 
 const selectHide_TipoOrden = document.getElementById("select_orden");
 const hideVoip_Hfc = document.getElementById("numeroVoip_hfc");
-const equipotv1 = document.getElementById("equipostv1");
-const equipotv2 = document.getElementById("equipostv2");
-const equipotv3 = document.getElementById("equipostv3");
-const equipotv4 = document.getElementById("equipostv4");
-const equipotv5 = document.getElementById("equipostv5");
+
 const EquipoModem_Hfc = document.getElementById("EquipoModem_Hfc");
+const equipotvHfc = document.querySelectorAll(".equipotvHfc");
 
 selectHide_TipoOrden.addEventListener("change", () => {
   const value = selectHide_TipoOrden.value;
   switch (value) {
     case "INSTALACION DE CLARO HOGAR":
-      hideTipoActividad.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
       hideVoip_Hfc.disabled = false;
       EquipoModem_Hfc.disabled = false;
-      equipotv1.disabled = false;
-      equipotv2.disabled = false;
-      equipotv3.disabled = false;
-      equipotv4.disabled = false;
-      equipotv5.disabled = false;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = false;
+      }
 
       break;
     case "DOBLE - TV + INTERNET":
       // HIDDEN INPUT VOIP
-      hideTipoActividad.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
       hideVoip_Hfc.disabled = true;
-      equipotv1.disabled = false;
-      equipotv2.disabled = false;
-      equipotv3.disabled = false;
-      equipotv4.disabled = false;
-      equipotv5.disabled = false;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = false;
+      }
 
       break;
     case "DOBLE - INTERNET + LINEA":
-      hideTipoActividad.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
       hideVoip_Hfc.disabled = false;
-      equipotv1.disabled = true;
-      equipotv2.disabled = true;
-      equipotv3.disabled = true;
-      equipotv4.disabled = true;
-      equipotv5.disabled = true;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = true;
+      }
 
       break;
     case "TV - BASICO INDIVIDUAL":
-      hideTipoActividad.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
       EquipoModem_Hfc.disabled = true;
       hideVoip_Hfc.disabled = true;
-      equipotv1.disabled = false;
-      equipotv2.disabled = false;
-      equipotv3.disabled = false;
-      equipotv4.disabled = false;
-      equipotv5.disabled = false;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = false;
+      }
 
       break;
 
     case "TV - DIGITAL INDIVIDUAL":
-      hideTipoActividad.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
       EquipoModem_Hfc.disabled = true;
       hideVoip_Hfc.disabled = true;
-      equipotv1.disabled = false;
-      equipotv2.disabled = false;
-      equipotv3.disabled = false;
-      equipotv4.disabled = false;
-      equipotv5.disabled = false;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = false;
+      }
 
       break;
     case "INTERNET INDIVIDUAL":
-      hideTipoActividad.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
       EquipoModem_Hfc.disabled = false;
       hideVoip_Hfc.disabled = false;
-      equipotv1.disabled = true;
-      equipotv2.disabled = true;
-      equipotv3.disabled = true;
-      equipotv4.disabled = true;
-      equipotv5.disabled = true;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = true;
+      }
 
       break;
     case "LINEA INDIVIDUAL":
-      hideTipoActividad.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
       EquipoModem_Hfc.disabled = true;
       hideVoip_Hfc.disabled = false;
-      equipotv1.disabled = true;
-      equipotv2.disabled = true;
-      equipotv3.disabled = true;
-      equipotv4.disabled = true;
-      equipotv5.disabled = true;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = true;
+      }
 
       break;
     case "REACTIVACION -DOBLE - TV + INTERNET":
       // HIDDEN INPUT VOIP
-      hideTipoActividad.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
       hideVoip_Hfc.disabled = true;
-      equipotv1.disabled = false;
-      equipotv2.disabled = false;
-      equipotv3.disabled = false;
-      equipotv4.disabled = false;
-      equipotv5.disabled = false;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = false;
+      }
 
       break;
     case "REACTIVACION - INSTALACION DE CLARO HOGAR":
-      hideTipoActividad.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
       hideVoip_Hfc.disabled = false;
       EquipoModem_Hfc.disabled = false;
-      equipotv1.disabled = false;
-      equipotv2.disabled = false;
-      equipotv3.disabled = false;
-      equipotv4.disabled = false;
-      equipotv5.disabled = false;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = false;
+      }
 
       break;
 
     case "REACTIVACION -DOBLE - INTERNET + LINEA":
-      hideTipoActividad.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
       hideVoip_Hfc.disabled = false;
-      equipotv1.disabled = true;
-      equipotv2.disabled = true;
-      equipotv3.disabled = true;
-      equipotv4.disabled = true;
-      equipotv5.disabled = true;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = true;
+      }
 
       break;
 
     case "REACTIVACION -TV - BASICO INDIVIDUAL":
-      hideTipoActividad.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
       EquipoModem_Hfc.disabled = true;
       hideVoip_Hfc.disabled = true;
-      equipotv1.disabled = false;
-      equipotv2.disabled = false;
-      equipotv3.disabled = false;
-      equipotv4.disabled = false;
-      equipotv5.disabled = false;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = false;
+      }
+
+      break;
+
+    case "REACTIVACION -TV - DIGITAL INDIVIDUAL":
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
+      EquipoModem_Hfc.disabled = true;
+      hideVoip_Hfc.disabled = true;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = false;
+      }
+
+      break;
+    case "REACTIVACION -INTERNET INDIVIDUAL":
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
+      EquipoModem_Hfc.disabled = false;
+      hideVoip_Hfc.disabled = true;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = true;
+      }
+
+    case "REACTIVACION -LINEA INDIVIDUAL":
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
+      EquipoModem_Hfc.disabled = true;
+      hideVoip_Hfc.disabled = false;
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = true;
+      }
 
       break;
     default:
-      hideTipoActividad.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
 
       break;
   }
@@ -616,54 +652,109 @@ selectHide_TipoOrden.addEventListener("change", () => {
 // TIPO ORDEN GPON
 
 const EqModenGpon = document.getElementById("EqModenGpon");
-
-const selectHide_TipoOrdenGpon = document.getElementById(
-  "tipoactividadHide_Gpon"
-);
+const VoipGpon = document.getElementById("VoipGpon");
+const equipotvGpon = document.querySelectorAll(".equipotvGpon");
 
 selectHide_TipoOrden.addEventListener("change", () => {
   const value = selectHide_TipoOrden.value;
-  selectHide_TipoOrdenGpon.style.display = "none";
+  // selectHide_TipoOrdenGpon.style.display = "none";
   switch (value) {
     case "INSTALACION DE CLARO HOGAR":
-      hideTipoActividad.style.display = "block";
-      selectHide_TipoOrdenGpon.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
+      // selectHide_TipoOrdenGpon.style.display = "block";
       EqModenGpon.disabled = false;
+      VoipGpon.disabled = false;
+      for (let i = 0; i < equipotvGpon.length; i++) {
+        equipotvGpon[i].disabled = false;
+      }
 
       break;
     case "DOBLE - INTERNET + IPTV":
-      hideTipoActividad.style.display = "block";
-      selectHide_TipoOrdenGpon.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
+      // selectHide_TipoOrdenGpon.style.display = "block";
       EqModenGpon.disabled = false;
+      VoipGpon.disabled = true;
+
+      for (let i = 0; i < equipotvGpon.length; i++) {
+        equipotvGpon[i].disabled = false;
+      }
 
       break;
     case "DOBLE - INTERNET + LINEA":
-      hideTipoActividad.style.display = "block";
-      selectHide_TipoOrdenGpon.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
+      // selectHide_TipoOrdenGpon.style.display = "block";
       EqModenGpon.disabled = false;
+      VoipGpon.disabled = false;
+
+      for (let i = 0; i < equipotvGpon.length; i++) {
+        equipotvGpon[i].disabled = true;
+      }
 
       break;
     case "DOBLE - IPTV + LINEA":
-      hideTipoActividad.style.display = "block";
-      selectHide_TipoOrdenGpon.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
+      // selectHide_TipoOrdenGpon.style.display = "block";
+      VoipGpon.disabled = true;
       EqModenGpon.disabled = true;
+
+      for (let i = 0; i < equipotvGpon.length; i++) {
+        equipotvGpon[i].disabled = false;
+      }
 
       break;
     case "IPTV INDIVIDUAL":
-      hideTipoActividad.style.display = "block";
-      selectHide_TipoOrdenGpon.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
+      // selectHide_TipoOrdenGpon.style.display = "block";
       EqModenGpon.disabled = true;
+      VoipGpon.disabled = true;
+
+      for (let i = 0; i < equipotvGpon.length; i++) {
+        equipotvGpon[i].disabled = false;
+      }
 
       break;
     case "LINEA INDIVIDUAL":
-      hideTipoActividad.style.display = "block";
-      selectHide_TipoOrdenGpon.style.display = "block";
-      EqModenGpon.disabled = true;
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
+      // selectHide_TipoOrdenGpon.style.display = "block";
+      EqModenGpon.disabled = false;
+      VoipGpon.disabled = false;
+
+      for (let i = 0; i < equipotvGpon.length; i++) {
+        equipotvGpon[i].disabled = false;
+      }
+
+      break;
+
+    case "INTERNET INDIVIDUAL":
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
+      // selectHide_TipoOrdenGpon.style.display = "block";
+      EqModenGpon.disabled = false;
+      VoipGpon.disabled = true;
+
+      for (let i = 0; i < equipotvGpon.length; i++) {
+        equipotvGpon[i].disabled = true;
+      }
 
       break;
     default:
-      hideTipoActividad.style.display = "block";
-      selectHide_TipoOrdenGpon.style.display = "block";
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
+      // selectHide_TipoOrdenGpon.style.display = "block";
       break;
   }
 });

@@ -35,20 +35,13 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get ('/logout', 'Auth\AuthController@logout');
 
 	// Nuevos Modulos
-	Route::get('/llamadashome/registro', 'LlamadasServicioController@showRegistro');
 	Route::get('/llamadashome/postventa', 'LlamadasServicioController@showPostVentas');
+
 	Route::get('/llamadashome/instalaciones', 'LlamadasServicioController@showInstalaciones');
 
+	Route::get('/llamadashome/registro', 'RegistroController@showRegistro');
 
 
-	// Route::post('instalacionservicio/registro', 'LlamadasServicioController@store')->name('registro.store');
-	Route::post('llamadashome/registro', 'LlamadasServicioController@leerJson');
-	// Route::post('/form1', [DatosController::class, 'postForm1']);
-	// Route::get('/formInstalaciones', [DatosController::class, 'getForm2']);
-
-
-
-	
 	
 	Route::controllers([
 			'inconsistencias'	=> 'InconsistenciasController',

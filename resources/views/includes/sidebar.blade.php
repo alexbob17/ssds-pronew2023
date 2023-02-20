@@ -200,7 +200,7 @@
                                     @if(isset($navigation) && $navigation == 'reclamos')
                                     <li class="treeview active">
                                         <a href="#">
-                                            <i class="fa fa-wrench"></i> <span>Reclamos Area
+                                            <i class="fa fa-wrench"></i> <span>Reclamos
                                                 Tecnica</span> <i class="fa fa-angle-left pull-right"></i>
                                         </a>
                                         <ul class="treeview-menu menu-open" style="display: block">
@@ -208,7 +208,7 @@
                                             <li class="treeview">
                                                 <a href="#">
                                                     <i class="fa fa-wrench"></i> <span>Reclamos
-                                                        Area
+
                                                         Tecnica</span> <i class="fa fa-angle-left pull-right"></i>
                                                 </a>
                                                 <ul class="treeview-menu">
