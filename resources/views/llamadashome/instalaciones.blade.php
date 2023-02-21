@@ -131,8 +131,8 @@
                             <div class="TipoActividad_Hidden" style="margin-top: 2.5rem;">
                                 <div class="form-group col-md-3">
                                     <label for="tipo_actividad">TIPO ACTIVIDAD</label>
-                                    <select class="form-control" style="width: 100%;" name="tipo_actividad"
-                                        tabindex="-1" id="tipo_actividad" aria-hidden="true">
+                                    <select class="form-control tipo_actividad" style="width: 100%;"
+                                        name="tipo_actividad" tabindex="-1" id="tipo_actividad" aria-hidden="true">
                                         <option selected=" selected">SELECCIONE UNA OPCION</option>
                                         <option value="REALIZADA">REALIZADA</option>
                                         <option value="OBJETADA">OBJETADA</option>
@@ -357,7 +357,7 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjetada_Hfc" tabindex="-1"
                                             id="MotivoObjetada_Hfc" aria-hidden="true">
-                                            <option selected="selected">Seleccione una opción</option>
+                                            <option selected="selected">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -488,11 +488,11 @@
                 </div>
                 <!-- FORMULARIO #3 ADSL -->
                 <div id="form3" class="form-group-container formulario">
-                    <div class="form-group col-md-3 TipoActividad_Hidden">
+                    <div class="form-group col-md-3">
                         <label for="tipo_actividadAdsl">Tipo Actividad</label>
-                        <select class="form-control" style="width: 100%;" name="tipo_actividadAdsl"
+                        <select class="form-control tipo_actividad" style="width: 100%;" name="tipo_actividadAdsl"
                             id="tipo_actividadAdsl" tabindex="-1" aria-hidden="true">
-                            <option selected="selected">Seleccione una opción</option>
+                            <option selected="selected">SELECCIONE UNA OPCION</option>
                             <option value="REALIZADA">REALIZADA</option>
                             <option value="OBJETADA">OBJETADA</option>
                             <option value="TRANSFERIDA">TRANSFERIDA</option>
@@ -502,16 +502,28 @@
                     <div class="form-group-container FormAdsl_Hidden" id="formAdsl_Realizada">
                         <div class="form-group-container">
                             <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
-                                <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
+                                <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES</label>
                             </div>
+
                             <div class="form-group col-md-3">
                                 <label for="orden_internetadsl">Orden Internet</label>
-                                <input type="text" class="form-control" id="orden_internetadsl"
-                                    name="orden_internetadsl" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="orden_internetadsl"
+                                        name="orden_internetadsl" />
+                                </div>
                             </div>
+
                             <div class="form-group col-md-3">
                                 <label for="sap_adsl">SAP</label>
-                                <input type="text" class="form-control" id="sap_adsl" name="sap_adsl" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="sap_adsl" name="sap_adsl" />
+                                </div>
                             </div>
 
                             <div class="form-group col-md-3">
@@ -526,120 +538,160 @@
                             <div class="form-group-container">
                                 <div class="form-group col-md-12">
                                     <label for="obv_adsl">Observaciones</label>
-                                    <input type="text" class="form-control" id="obv_adsl" name="obv_adsl" />
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-eye"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="obv_adsl" name="obv_adsl" />
+                                    </div>
                                 </div>
-                                <div class="form-group col-md-9">
+
+                                <div class="form-group col-md-12">
                                     <label for="telefono">Materiales</label>
-                                    <input type="text" class="form-control" id="materiale_-adsl" name="materiales_adsl"
-                                        placeholder="Comentarios..." />
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="materiale_-adsl"
+                                            name="materiales_adsl" placeholder="Comentarios..." />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- TIPO ACTIVIDAD OBJETADA (ADSL) -->
-
                     <div id="formAdsl_Objetada" class="form-group-container FormAdsl_Hidden">
-                        <div class="form-group col-md-3">
-                            <label for="MotivoObjetada_Adsl">Motivo Objetada</label>
-                            <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
-                                name="MotivoObjetada_Adsl" tabindex="-1" id="MotivoObjetada_Adsl" aria-hidden="true">
-                                <option selected="selected">Seleccione una opción</option>
-                                <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
-                                <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP </option>
-                                <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP </option>
-                                <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP </option>
-                                <option value=" NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
-                                    INEXISTENTE </option>
-                                <option value=" PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO OPEN
-                                </option>
-                                <option value=" RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
-                                <option value=" RED NO HABILITADA">RED NO HABILITADA </option>
-                                <option value=" ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                <option value=" TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA </option>
-                                <option value=" VANDALISMO"> VANDALISMO </option>
-                            </select>
-                        </div>
-
-                        <div class="from-group-container">
+                        <div class="form-group-container">
+                            <div class="form-group col-md-3">
+                                <label for="MotivoObjetada_Adsl">Motivo Objetada</label>
+                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                                    name="MotivoObjetada_Adsl" tabindex="-1" id="MotivoObjetada_Adsl"
+                                    aria-hidden="true">
+                                    <option selected="selected">SELECCIONE UNA OPCION</option>
+                                    <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
+                                    <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
+                                    <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                    </option>
+                                    <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP </option>
+                                    <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP </option>
+                                    <option value=" NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
+                                        INEXISTENTE </option>
+                                    <option value=" PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO OPEN
+                                    </option>
+                                    <option value=" RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
+                                    <option value=" RED NO HABILITADA">RED NO HABILITADA </option>
+                                    <option value=" ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
+                                    <option value=" TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                    </option>
+                                    <option value=" VANDALISMO"> VANDALISMO </option>
+                                </select>
+                            </div>
                             <div class="form-group col-md-3">
                                 <label for="OrdenAdsl_Objetada">
                                     Orden
                                 </label>
-                                <input type="number" class="form-control" id="OrdenAdsl_Objetada"
-                                    name="OrdenAdsl_Objetada" />
-                            </div>
-                        </div>
-                        <div class="from-group-container">
-                            <div class="form-group col-md-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="TrabajadoAdsl_Adsl" />
-                                    <label class="form-check-label">
-                                        Trabajado
-                                    </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="number" class="form-control" id="OrdenAdsl_Objetada"
+                                        name="OrdenAdsl_Objetada" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="from-group-container">
+
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="TrabajadoAdsl_Adsl" />
+                                        <label class="form-check-label">
+                                            Trabajado
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group col-md-12">
                                 <label for="ProblematicaObjetada_Adsl">
                                     Problematica
                                 </label>
-                                <input type="text" class="form-control" id="ProblematicaObjetada_Adsl"
-                                    name="ProblematicaObjetada_Adsl" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-exclamation-triangle"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ProblematicaObjetada_Adsl"
+                                        name="ProblematicaObjetada_Adsl" />
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="from-group-container">
                             <div class="form-group col-md-12">
                                 <label for="ComentariosObjetada_Adsl">
                                     Comentarios
                                 </label>
-                                <input type="number" class="form-control" id="ComentariosObjetada_Adsl"
-                                    name="ComentariosObjetada_Adsl" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ComentariosObjetada_Adsl"
+                                        name="ComentariosObjetada_Adsl" />
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- TIPO ACTIVIDAD TRANSFERIDA (ADSL) -->
                     <div class="form-group-container FormAdsl_Hidden" id="formAdsl_Transferida">
-                        <div class="form-group col-md-3">
-                            <label for="OrdenAdsl_Transferida">
-                                Orden
-                            </label>
-                            <input type="text" class="form-control" id="numerovoip" name="numerovoip" />
-                        </div>
-                        <div class="from-group-container">
+                        <div class="form-group-container">
+                            <div class="form-group col-md-3">
+                                <label for="OrdenAdsl_Transferida">
+                                    Orden
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="numerovoip" name="numerovoip" />
+                                </div>
+                            </div>
+
                             <div class="form-group col-md-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="TrabajadoAdsl_Transferido" />
-                                    <label class="form-check-label">
+                                    <input id="trabajado_adsl" class="form-check-input" type="checkbox" value=""
+                                        id="flexCheckDefault" />
+                                    <label class="form-check-label" for="flexCheckDefault">
                                         Trabajado
                                     </label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="from-group-container">
+
                             <div class="form-group col-md-12">
                                 <label for="ProblematicaAdsl_Transferida">
                                     Problematica
                                 </label>
-                                <input type="text" class="form-control" id="ProblematicaAdsl_Transferida"
-                                    name="ProblematicaAdsl_Transferida" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-exclamation-triangle"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ProblematicaAdsl_Transferida"
+                                        name="ProblematicaAdsl_Transferida" />
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="from-group-container">
                             <div class="form-group col-md-12">
                                 <label for="ComentariosAdsl_Transferido">
                                     Comentarios
                                 </label>
-                                <input type="number" class="form-control" id="ComentariosAdsl_Trasnferidos"
-                                    name="ComentariosAdsl_Trasnferidos" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="number" class="form-control" id="ComentariosAdsl_Trasnferidos"
+                                        name="ComentariosAdsl_Transferidos" />
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -665,7 +717,7 @@
                             <label for="tipoactividaddth">Tipo Actividad</label>
                             <select class="form-control" style="width: 100%;" name="tipoactividaddth" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">Seleccione una opción</option>
+                                <option selected="selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
@@ -747,11 +799,11 @@
                 </div>
                 <!-- FORMULARIO #5 COBRE-->
                 <div id="form5" class="form-group-container">
-                    <div class="form-group col-md-3 TipoActividad_Hidden">
+                    <div class="form-group col-md-3">
                         <label for="tipo_actividadCobre">Tipo Actividad</label>
                         <select class="form-control" style="width: 100%;" name="tipo_actividadCobre"
                             id="tipo_actividadCobre" tabindex="-1" aria-hidden="true">
-                            <option selected="selected">Seleccione una opción</option>
+                            <option selected="selected">SELECCIONE UNA OPCION</option>
                             <option value="REALIZADA">REALIZADA</option>
                             <option value="OBJETADA">OBJETADA</option>
                             <option value="TRANSFERIDA">TRANSFERIDA</option>
@@ -761,21 +813,38 @@
                     <!-- TIPO ACTIVIDAD REALIZADA COBRE -->
                     <div class="form-group-container FormCobre_Hidden" id="formCobre_Realizada">
                         <div class="form-group-container">
-                            <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
-                                <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudes</label>
+                            <div class="form-group col-md-3">
+                                <label for="OrdenLineaCobre">Orden Linea</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="OrdenLineaCobre"
+                                        name="OrdenLineaCobre" />
+                                </div>
                             </div>
                             <div class="form-group col-md-3">
-                                <label for="codigo_tecnico">Orden Linea</label>
-                                <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico" />
+                                <label for="NumeroCobre">Numero</label>
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-phone-square"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="NumeroCobre" name="NumeroCobre" />
+                                </div>
                             </div>
+
                             <div class="form-group col-md-3">
-                                <label for="telefono">Numero</label>
-                                <input type="number" class="form-control" id="telefono" name="telefono" />
+                                <label for="GeoCobreMap">Georeferencia</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="GeoCobreMap" name="GeoCobreMap" />
+                                </div>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="tecnico">Georeferencia</label>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" />
-                            </div>
+
                             <div class="form-group col-md-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
@@ -787,19 +856,32 @@
                         </div>
                         <div class="form-group-container">
                             <div class="form-group col-md-12">
-                                <label for="telefono">Observaciones</label>
-                                <input type="number" class="form-control" id="observaciones-form3"
-                                    name="observaciones-form3" />
+                                <label for="ObsCobre">Observaciones</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-eye"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ObsCobre" name="ObsCobre" />
+                                </div>
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="telefono">Recibe</label>
-                                <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                    placeholder="" />
+                                <label for="RecibeCobre">Recibe</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="RecibeCobre" name="RecibeCobre" />
+                                </div>
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="telefono">Materiales</label>
-                                <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                    placeholder="Comentarios..." />
+                                <label for="MaterialesCobre">Materiales</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="MaterialesCobre"
+                                        name="MaterialesCobre" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -807,65 +889,82 @@
                     <!-- TIPO ACTIVIDAD OBJETADA COBRE -->
 
                     <div class="form-group-container FormCobre_Hidden" id="formCobre_Objetada">
-                        <div class="form-group col-md-3">
-                            <label for="MotivoObjetada_Cobre">Motivo Objetada</label>
-                            <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
-                                name="MotivoObjetada_Cobre" tabindex="-1" id="MotivoObjetada_Cobre" aria-hidden="true">
-                                <option selected="selected">Seleccione una opción</option>
-                                <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
-                                <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP </option>
-                                <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP </option>
-                                <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP </option>
-                                <option value=" NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
-                                    INEXISTENTE </option>
-                                <option value=" PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO OPEN
-                                </option>
-                                <option value=" RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
-                                <option value=" RED NO HABILITADA">RED NO HABILITADA </option>
-                                <option value=" ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                <option value=" TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA </option>
-                                <option value=" VANDALISMO"> VANDALISMO </option>
-                            </select>
-                        </div>
+                        <div class="form-group-container">
+                            <div class="form-group col-md-3">
+                                <label for="MotivoObjetada_Cobre">Motivo Objetada</label>
+                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                                    name="MotivoObjetada_Cobre" tabindex="-1" id="MotivoObjetada_Cobre"
+                                    aria-hidden="true">
+                                    <option selected="selected">SELECCIONE UNA OPCION</option>
+                                    <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
+                                    <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
+                                    <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                    </option>
+                                    <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP </option>
+                                    <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP </option>
+                                    <option value=" NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
+                                        INEXISTENTE </option>
+                                    <option value=" PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO OPEN
+                                    </option>
+                                    <option value=" RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
+                                    <option value=" RED NO HABILITADA">RED NO HABILITADA </option>
+                                    <option value=" ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
+                                    <option value=" TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                    </option>
+                                    <option value=" VANDALISMO"> VANDALISMO </option>
+                                </select>
+                            </div>
 
-                        <div class="from-group-container">
+
                             <div class="form-group col-md-3">
                                 <label for="OrdenCobre_Objetada">
                                     Orden
                                 </label>
-                                <input type="number" class="form-control" id="OrdenCobre
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="number" class="form-control" id="OrdenCobre
                                 _Objetada" name="OrdenCobre_Objetada" />
-                            </div>
-                        </div>
-                        <div class="from-group-container">
-                            <div class="form-group col-md-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="TrabajadoCobre_Objetado" />
-                                    <label class="form-check-label">
-                                        Trabajado
-                                    </label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="from-group-container">
+
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="TrabajadoCobre_Objetado" />
+                                        <label class="form-check-label">
+                                            Trabajado
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group col-md-12">
                                 <label for="ProblematicaObjetada_Adsl">
                                     Problematica
                                 </label>
-                                <input type="text" class="form-control" id="ProblematicaObjetada_Adsl"
-                                    name="ProblematicaObjetada_Adsl" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-exclamation-triangle"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ProblematicaObjetada_Adsl"
+                                        name="ProblematicaObjetada_Adsl" />
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="from-group-container">
                             <div class="form-group col-md-12">
-                                <label for="ComentariosObjetada_Adsl">
+                                <label for="ProblematicaObjetada_Adsl">
                                     Comentarios
                                 </label>
-                                <input type="number" class="form-control" id="ComentariosObjetada_Adsl"
-                                    name="ComentariosObjetada_Adsl" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="number" class="form-control" id="ComentariosObjetada_Adsl"
+                                        name="ComentariosObjetada_Adsl" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -873,39 +972,55 @@
                     <!-- TIPO ACTIVIDAD TRANSFERIDA COBRE -->
 
                     <div class="form-group-container FormCobre_Hidden" id="formCobre_Transferida">
-                        <div class="from-group-container">
+                        <div class="form-group-container">
                             <div class="form-group col-md-3">
-                                <label for="EModem">
+                                <label for="OrdenTransferida_Hfc">
                                     Orden
                                 </label>
-                                <input type="text" class="form-control" id="numerovoip" name="numerovoip" />
-                            </div>
-                        </div>
-                        <div class="from-group-container">
-                            <div class="form-group col-md-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Trabajado
-                                    </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="number" class="form-control" id="OrdenTransferida_Hfc"
+                                        name="OrdenTransferida_Hfc" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="from-group-container">
+
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoTransferido_Hfc" />
+                                        <label class="form-check-label">
+                                            Trabajado
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group col-md-12">
-                                <label for="EModem">
+                                <label for="ProblematicaTransferida_Hfc">
                                     Problematica
                                 </label>
-                                <input type="text" class="form-control" id="georeferencia" name="georeferencia" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-exclamation-triangle"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ProblematicaTransferida_Hfc"
+                                        name="ProblematicaTransferida_Hfc" />
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="from-group-container">
                             <div class="form-group col-md-12">
-                                <label for="EModem">
+                                <label for="ComentariosTransferida_Hfc">
                                     Comentarios
                                 </label>
-                                <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ComentariosTransferida_Hfc"
+                                        name="ComentariosTransferida_Hfc" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -951,9 +1066,9 @@
                     <div class="form-group-container">
                         <div class="form-group col-md-3 TipoActividad_Hidden">
                             <label for="tipo_actividadGpon">Tipo Actividad</label>
-                            <select class="form-control" style="width: 100%;" name="tipo_actividadGpon"
+                            <select class="form-control tipo_actividad" style="width: 100%;" name="tipo_actividadGpon"
                                 id="tipo_actividadGpon" tabindex="-1" aria-hidden="true">
-                                <option selected="selected" value="">Seleccione una opción</option>
+                                <option selected=" selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
@@ -1100,96 +1215,112 @@
                     <!-- TIPO ACTIVIDAD OBJETADA GPON -->
 
                     <div class="form-group-container FormGpon_Hidden" id="formGpon_Objetada">
-                        <div class="form-group col-md-3">
-                            <label for="tipo_actividad">Motivo Objetada</label>
-                            <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
-                                name="tipo_actividad" tabindex="-1" id="tipo_actividad" aria-hidden="true">
-                                <option selected="selected">Seleccione una opción</option>
-                                <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
-                                <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP </option>
-                                <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP </option>
-                                <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP </option>
-                                <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM INEXISTENTE
-                                </option>
-                                <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO OPEN </option>
-                                <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
-                                <option value="RED NO HABILITADA">RED NO HABILITADA </option>
-                                <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA </option>
-                                <option value="VANDALISMO"> VANDALISMO </option>
-                            </select>
-                        </div>
-                        <div class="from-group-container">
+                        <div class="form-group-container">
                             <div class="form-group col-md-3">
-                                <label for="EModem">
-                                    Orden
-                                </label>
-                                <input type="text" class="form-control" id="numerovoip" name="numerovoip" />
+                                <label for="tipo_actividad">MOTIVO OBJETADO</label>
+                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                                    name="tipo_actividad" tabindex="-1" id="tipo_actividad" aria-hidden="true">
+                                    <option selected="selected">SELECCIONE UNA OPCION</option>
+                                    <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
+                                    <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
+                                    <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                    </option>
+                                    <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                    </option>
+                                    <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP </option>
+                                    <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
+                                        INEXISTENTE </option>
+                                    <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO OPEN
+                                    </option>
+                                    <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
+                                    <option value="RED NO HABILITADA">RED NO HABILITADA </option>
+                                    <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
+                                    <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                    </option>
+                                    <option value="VANDALISMO"> VANDALISMO </option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="from-group-container">
+
                             <div class="form-group col-md-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Trabajado
-                                    </label>
+                                <label for="OrdenGpon_Objetada">Orden</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="OrdenGpon_Objetada"
+                                        name="OrdenGpon_Objetada" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="from-group-container">
-                            <div class="form-group col-md-12">
-                                <label for="EModem">
-                                    Observaciones
-                                </label>
-                                <input type="text" class="form-control" id="georeferencia" name="georeferencia" />
-                            </div>
-                        </div>
 
-                        <div class="from-group-container">
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value=""
+                                            id="flexCheckDefault" />
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Trabajado
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group col-md-12">
-                                <label for="EModem">
-                                    Comentarios
-                                </label>
-                                <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
+                                <label for="ObsGpon_Objetada">Observaciones</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-eye"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ObsGpon_Objetada"
+                                        name="ObsGpon_Objetada" />
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="ComGpon_Objetada">Comentarios</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ComGpon_Objetada"
+                                        name="ComGpon_Objetada" />
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- TIPO ACTIVIDAD TRANSFERIDA GPON -->
                     <div class="form-group-container FormGpon_Hidden" id="formGpon_Transferida">
-                        <div class="form-group col-md-3">
-                            <label for="EModem">
-                                Orden
-                            </label>
-                            <input type="text" class="form-control" id="numerovoip" name="numerovoip" />
-                        </div>
-                        <div class="from-group-container">
+                        <div class="form-group-container">
                             <div class="form-group col-md-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="" />
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Trabajado
-                                    </label>
+                                <label for="OrdenTrans_Gpon">Orden</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="OrdenTrans_Gpon"
+                                        name="OrdenTrans_Gpon" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="from-group-container">
-                            <div class="form-group col-md-12">
-                                <label for="EModem">
-                                    Problematica
-                                </label>
-                                <input type="text" class="form-control" id="georeferencia" name="georeferencia" />
-                            </div>
-                        </div>
 
-                        <div class="from-group-container">
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="" />
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Trabajado
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="form-group col-md-12">
-                                <label for="EModem">
-                                    Comentarios
-                                </label>
-                                <input type="number" class="form-control" id="equipomodem" name="equipomodem" />
+                                <label for="OrdenTrans_Gpon">Comentarios</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ComsTrasn_Gpon" name="ComsTrasn_Gpon" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1198,50 +1329,55 @@
                 <div class="box-footer" id="" style="text-align: center; display: flex; justify-content: center;">
                     <button id="btn-submit" type="submit" class="btn btn-warning">GUARDAR REGISTRO</button>
                 </div>
-            </form>
         </div>
+        </form>
 
-        @endsection @section('styles')
-
-        <!-- SweetAlert -->
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
-
-        <!-- Select2 -->
-        <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
-        <link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
-        <!-- User definided -->
-        <link rel="stylesheet" href="{{ asset('/css/center-modal.css') }}" />
-        <style>
-        [type="submit"]:disabled {
-            cursor: default;
-        }
-        </style>
-        @endsection @section('scripts')
-        <!-- datepicker -->
-        <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('/plugins/datepicker/locales/bootstrap-datepicker.es.js') }}" type="text/javascript">
-        </script>
-        <!-- Select2 -->
-        <script src="{{ asset('/plugins/select2/select2.full.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('/plugins/select2/i18n/es.js') }}" type="text/javascript"></script>
-        <!-- InputMask -->
-        <script src="{{ asset('/plugins/input-mask/inputmask.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('/plugins/input-mask/inputmask.date.extensions.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('/plugins/input-mask/inputmask.regex.extensions.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
-        <!-- boostrap-fileinput -->
-        <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput.min.js') }}" type="text/javascript"></script>
-        <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput_locale_es.js') }}" type="text/javascript">
-        </script>
-        <!-- User definided -->
-        <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script>
-        <script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
-        <script src="{{asset('/js/registro/ValidacionTecnico.js')}}" type="text/javascript"></script>
-        <script src="{{asset('/js/instalaciones/ValoresTecnico.js')}}" type="text/javascript"></script>
-
-        <!-- <script src="{{asset('/js/instalaciones/registro.js')}}" type="text/javascript"> </script> -->
-
-        @endsection
     </div>
 </div>
+</div>
+
+@endsection @section('styles')
+
+<!-- SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
+
+<!-- Select2 -->
+<link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
+<!-- User definided -->
+<link rel="stylesheet" href="{{ asset('/css/center-modal.css') }}" />
+<style>
+[type="submit"]:disabled {
+    cursor: default;
+}
+</style>
+@endsection @section('scripts')
+<!-- datepicker -->
+<script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/plugins/datepicker/locales/bootstrap-datepicker.es.js') }}" type="text/javascript">
+</script>
+<!-- Select2 -->
+<script src="{{ asset('/plugins/select2/select2.full.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/plugins/select2/i18n/es.js') }}" type="text/javascript"></script>
+<!-- InputMask -->
+<script src="{{ asset('/plugins/input-mask/inputmask.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/plugins/input-mask/inputmask.date.extensions.js') }}" type="text/javascript">
+</script>
+<script src="{{ asset('/plugins/input-mask/inputmask.regex.extensions.js') }}" type="text/javascript">
+</script>
+<script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
+<!-- boostrap-fileinput -->
+<script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput.min.js') }}" type="text/javascript">
+</script>
+<script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput_locale_es.js') }}" type="text/javascript">
+</script>
+<!-- User definided -->
+<script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script>
+<script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
+<script src="{{asset('/js/registro/ValidacionTecnico.js')}}" type="text/javascript"></script>
+<script src="{{asset('/js/instalaciones/ValoresTecnico.js')}}" type="text/javascript"></script>
+
+<!-- <script src="{{asset('/js/instalaciones/registro.js')}}" type="text/javascript"> </script> -->
+
+@endsection

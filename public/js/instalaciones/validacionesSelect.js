@@ -36,6 +36,9 @@ const FormAdsl_Hidden = document.querySelectorAll(".FormAdsl_Hidden");
 // SEGUIR CON LAS DEMAS HIDDEN FORMS (-FALTA DTH)
 
 const tipoActividad_ChangeName = document.getElementById("tipo_actividad");
+const tipo_actividadAdsl = document.getElementById("tipo_actividadAdsl");
+const tipo_actividadCobre = document.getElementById("tipo_actividadCobre");
+const tipo_actividadGpon = document.getElementById("tipo_actividadGpon");
 
 const select = document.querySelector("select[name='tecnologia']");
 
@@ -70,6 +73,9 @@ document.addEventListener("DOMContentLoaded", function () {
         btn_save.style.display = "none";
         form2.style.display = "block";
         tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
 
         for (let i = 0; i < TipoActividad_Hidden.length; i++) {
           TipoActividad_Hidden[i].style.display = "none";
@@ -100,6 +106,9 @@ document.addEventListener("DOMContentLoaded", function () {
         btn_save.style.display = "none";
         form3.style.display = "block";
         tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
 
         for (let i = 0; i < TipoActividad_Hidden.length; i++) {
           TipoActividad_Hidden[i].style.display = "none";
@@ -138,6 +147,9 @@ document.addEventListener("DOMContentLoaded", function () {
         btn_save.style.display = "none";
         form4.style.display = "block";
         tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
 
         for (let i = 0; i < TipoActividad_Hidden.length; i++) {
           TipoActividad_Hidden[i].style.display = "none";
@@ -176,6 +188,9 @@ document.addEventListener("DOMContentLoaded", function () {
         form5.style.display = "block";
         btn_save.style.display = "none";
         tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
 
         for (let i = 0; i < TipoActividad_Hidden.length; i++) {
           TipoActividad_Hidden[i].style.display = "none";
@@ -190,14 +205,6 @@ document.addEventListener("DOMContentLoaded", function () {
         for (let i = 0; i < OrdenGpon.length; i++) {
           OrdenGpon[i].disabled = true;
         }
-
-        // orden_tv_hfc.disabled = true;
-        // orden_internet_hfc.disabled = true;
-        // orden_linea_hfc.disabled = true;
-
-        // OrdenInternet_Gpon.disabled = true;
-        // OrdenTv_Gpon.disabled = true;
-        // OrdenLinea_Gpon.disabled = true;
 
         // TIPO ACTIVIDAD HIDDEN
 
@@ -222,6 +229,10 @@ document.addEventListener("DOMContentLoaded", function () {
         btn_save.style.display = "none";
         form6.style.display = "block";
         tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
+
         for (let i = 0; i < TipoActividad_Hidden.length; i++) {
           TipoActividad_Hidden[i].style.display = "none";
         }
@@ -295,20 +306,24 @@ select1.addEventListener("change", function () {
     `;
   } else if (select1.value === "ADSL") {
     select2.innerHTML = `
-    <option value="INDIVIDUAL">INDIVIDUAL</option>
+    <option value="">SELECCIONA UNA OPCION</option>
+    <option value="INTERNET ADSL">INTERNET ADSL</option>
     `;
   } else if (select1.value === "COBRE") {
     select2.innerHTML = `
-    <option value="INDIVIDUAL">INDIVIDUAL</option>
+    <option value="">SELECCIONA UNA OPCION</option>
+    <option value="LINEA BASICA">LINEA BASICA</option>
+    
     `;
   } else if (select1.value === "DTH") {
     select2.innerHTML = `
     <option value="">SELECCIONA UNA OPCION</option>
-    <option value="REACTIVACION">REACTIVACION</option>
+    <option value="INTERNET ADSL">INTERNET ADSL</option>
     `;
   } else {
     select2.innerHTML = `
     <option value="">SELECCIONA UNA OPCION</option>
+    
     `;
   }
 });
@@ -345,12 +360,12 @@ select_orden.addEventListener("change", function () {
     // VALIDACIONES INPUTS DEL SELECT GPON
     "INSTALACION DE CLARO HOGAR": [false, false, false],
     "DOBLE - INTERNET + IPTV": [false, false, true],
-    "DOBLE - INTERNET + LINEA": [true, false, false],
+    "DOBLE - INTERNET + LINEA": [false, true, false],
     "IPTV INDIVIDUAL": [true, false, true],
-    "DOBLE - IPTV + LINEA": [false, true, false],
-    "INTERNET INDIVIDUAL": [true, false, true],
+    "DOBLE - IPTV + LINEA": [true, false, false],
+    "INTERNET INDIVIDUAL": [false, true, true],
     "LINEA INDIVIDUAL": [true, true, false],
-    "IPTV INDIVIDUAL": [false, true, true],
+    "IPTV INDIVIDUAL": [true, false, true],
   };
 
   var disabledOptions = options[selectedOption] || [true, true, true];
