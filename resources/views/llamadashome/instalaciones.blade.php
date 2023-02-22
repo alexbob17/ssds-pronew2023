@@ -13,7 +13,7 @@
                 <h3 class="box-title">Datos del Caso</h3>
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
-            <form action="" method="post" id="form1" class="formulario box-body"
+            <form action="" method="POST" id="form1" class="formulario box-body"
                 style="border-bottom: 3px solid #3e69d6;">
                 <div class="form-group-container">
                     <div class="form-group col-md-3">
@@ -102,7 +102,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="text" class="form-control OrdenHfc" id="orden_tv_hfc"
+                                    <input type="number" class="form-control OrdenHfc" id="orden_tv_hfc"
                                         name="orden_tv_hfc" disabled />
                                 </div>
                             </div>
@@ -136,7 +136,7 @@
                                         <option selected=" selected">SELECCIONE UNA OPCION</option>
                                         <option value="REALIZADA">REALIZADA</option>
                                         <option value="OBJETADA">OBJETADA</option>
-                                        <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                        <option value="TRANSFERIDA" class="ocultar">TRANSFERIDA</option>
                                     </select>
                                 </div>
                             </div>
@@ -215,7 +215,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-rss"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="EquipoModem_Hfc"
+                                    <input type="text" class="form-control" id="EquipoModem_Hfc"
                                         name="EquipoModem_Hfc" />
                                 </div>
                             </div>
@@ -266,7 +266,7 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" />
+                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
 
@@ -278,7 +278,8 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="RecibeHfc" name="RecibeHfc" />
+                                        <input type="text" placeholder="Ingresa quien recibe el caso"
+                                            class="form-control" id="RecibeHfc" name="RecibeHfc" />
                                     </div>
                                 </div>
                             </div>
@@ -299,8 +300,8 @@
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-square"></i>
                                                     </div>
-                                                    <input type="text" class="form-control" id="NodoHfc"
-                                                        name="NodoHfc" />
+                                                    <input type="text" class="form-control" id="NodoHfc" name="NodoHfc"
+                                                        placeholder="Ingresa el Nodo" />
                                                 </div>
                                             </div>
 
@@ -312,8 +313,8 @@
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-square"></i>
                                                     </div>
-                                                    <input type="number" class="form-control" id="TapHfc"
-                                                        name="TapHfc" />
+                                                    <input type="number" class="form-control" id="TapHfc" name="TapHfc"
+                                                        placeholder="Ingresa el nodo" />
                                                 </div>
                                             </div>
 
@@ -326,7 +327,7 @@
                                                         <i class="fa fa-square"></i>
                                                     </div>
                                                     <input type="number" class="form-control" id="PosicionHfc"
-                                                        name="PosicionHfc" />
+                                                        name="PosicionHfc" placeholder="Ingresa la posicion" />
                                                 </div>
                                             </div>
 
@@ -338,8 +339,8 @@
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-edit"></i>
                                                     </div>
-                                                    <input type="number" class="form-control" id="MaterialesHfc"
-                                                        name="MaterialesHfc" />
+                                                    <input type="text" class="form-control" id="MaterialesHfc"
+                                                        name="MaterialesHfc" placeholder="Comentarios..." />
                                                 </div>
                                             </div>
                                         </div>
@@ -364,7 +365,7 @@
                                             </option>
                                             <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
                                             </option>
-                                            <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="NO SE LOCALIZA AL CLIENTE">NO SE LOCALIZA AL CLIENTE
                                             </option>
                                             <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
                                                 INEXISTENTE </option>
@@ -379,18 +380,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label for="OrdenObjetada_Hfc">
-                                        Orden
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="OrdenObjetada_Hfc"
-                                            name="OrdenObjetada_Hfc" />
-                                    </div>
-                                </div>
+
 
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
@@ -400,19 +390,6 @@
                                                 Trabajado
                                             </label>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ProblematicaObjetada_Hfc">
-                                        Problematica
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-exclamation-triangle"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ProblematicaObjetada_Hfc"
-                                            name="ProblematicaObjetada_Hfc" />
                                     </div>
                                 </div>
 
@@ -434,19 +411,6 @@
                         <!-- INPUTS HFC TRANSFERIDA -->
 
                         <div class="form-group-container FormHfc_Hidden" id="formHfc_Transferida">
-                            <div class="form-group col-md-3">
-                                <label for="OrdenTransferida_Hfc">
-                                    Orden
-                                </label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-ticket"></i>
-                                    </div>
-                                    <input type="number" class="form-control" id="OrdenTransferida_Hfc"
-                                        name="OrdenTransferida_Hfc" />
-                                </div>
-                            </div>
-
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
@@ -459,15 +423,15 @@
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label for="ProblematicaTransferida_Hfc">
-                                    Problematica
+                                <label for="MotivoTransferidoHfc">
+                                    Motivo Transferido
                                 </label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-exclamation-triangle"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="ProblematicaTransferida_Hfc"
-                                        name="ProblematicaTransferida_Hfc" />
+                                    <input type="text" class="form-control" id="MotivoTransferidoHfc"
+                                        name="MotivoTransferidoHfc" />
                                 </div>
                             </div>
 
@@ -511,8 +475,18 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="orden_internetadsl"
+                                    <input type="number" class="form-control" id="orden_internetadsl"
                                         name="orden_internetadsl" />
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="GeoRefAdsl">Georeferencia</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-map-marker"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="GeoRefAdsl" name="GeoRefAdsl" />
                                 </div>
                             </div>
 
@@ -529,7 +503,7 @@
                             <div class="form-group col-md-3">
                                 <div class="form-check">
                                     <input id="trabajado_adsl" class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefault" />
+                                        id="TrabajadoAdsl" />
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Trabajado
                                     </label>
@@ -547,13 +521,23 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="telefono">Materiales</label>
+                                    <label for="Recibe_adsl">Recibe</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="materiale_-adsl"
-                                            name="materiales_adsl" placeholder="Comentarios..." />
+                                        <input type="text" class="form-control" id="Recibe_adsl" name="Recibe_adsl" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="materialeAdsl">Materiales</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="materialeAdsl" name="materialeAdsl"
+                                            placeholder="Comentarios..." />
                                     </div>
                                 </div>
                             </div>
@@ -564,7 +548,7 @@
                     <div id="formAdsl_Objetada" class="form-group-container FormAdsl_Hidden">
                         <div class="form-group-container">
                             <div class="form-group col-md-3">
-                                <label for="MotivoObjetada_Adsl">Motivo Objetada</label>
+                                <label for="MotivoObjetada_Adsl">MOTIVO OBJETADA</label>
                                 <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                     name="MotivoObjetada_Adsl" tabindex="-1" id="MotivoObjetada_Adsl"
                                     aria-hidden="true">
@@ -573,18 +557,20 @@
                                     <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                     <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                     </option>
-                                    <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP </option>
-                                    <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP </option>
-                                    <option value=" NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
+                                    <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                    </option>
+                                    <option value="NO SE LOCALIZA AL CLIENTE">NO SE LOCALIZA AL CLIENTE
+                                    </option>
+                                    <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
                                         INEXISTENTE </option>
-                                    <option value=" PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO OPEN
+                                    <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                        OPEN </option>
+                                    <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
+                                    <option value="RED NO HABILITADA">RED NO HABILITADA </option>
+                                    <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
+                                    <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
                                     </option>
-                                    <option value=" RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
-                                    <option value=" RED NO HABILITADA">RED NO HABILITADA </option>
-                                    <option value=" ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                    <option value=" TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
-                                    </option>
-                                    <option value=" VANDALISMO"> VANDALISMO </option>
+                                    <option value="VANDALISMO"> VANDALISMO </option>
                                 </select>
                             </div>
                             <div class="form-group col-md-3">
@@ -603,8 +589,7 @@
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="TrabajadoAdsl_Adsl" />
+                                        <input class="form-check-input" type="checkbox" value="" id="TrabajadoAdsl" />
                                         <label class="form-check-label">
                                             Trabajado
                                         </label>
@@ -612,18 +597,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-12">
-                                <label for="ProblematicaObjetada_Adsl">
-                                    Problematica
-                                </label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-exclamation-triangle"></i>
-                                    </div>
-                                    <input type="text" class="form-control" id="ProblematicaObjetada_Adsl"
-                                        name="ProblematicaObjetada_Adsl" />
-                                </div>
-                            </div>
 
                             <div class="form-group col-md-12">
                                 <label for="ComentariosObjetada_Adsl">
@@ -633,8 +606,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="ComentariosObjetada_Adsl"
-                                        name="ComentariosObjetada_Adsl" />
+                                    <input type="text" class="form-control" id="ComentariosObjetadas"
+                                        name="ComentariosObjetadas" />
                                 </div>
                             </div>
                         </div>
@@ -651,14 +624,15 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="numerovoip" name="numerovoip" />
+                                    <input type="number" class="form-control" id="OrdenAdsl_Transferida"
+                                        name="OrdenAdsl_Transferida" />
                                 </div>
                             </div>
 
                             <div class="form-group col-md-3">
                                 <div class="form-check">
                                     <input id="trabajado_adsl" class="form-check-input" type="checkbox" value=""
-                                        id="flexCheckDefault" />
+                                        id="TrabajadoTransferido_Adsl" />
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Trabajado
                                     </label>
@@ -666,135 +640,329 @@
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label for="ProblematicaAdsl_Transferida">
-                                    Problematica
+                                <label for="MotivoTransferidoAdsl">
+                                    Motivo Transferido
                                 </label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-exclamation-triangle"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="ProblematicaAdsl_Transferida"
-                                        name="ProblematicaAdsl_Transferida" />
+                                    <input type="text" class="form-control" id="MotivoTransferidoAdsl"
+                                        name="MotivoTransferidoAdsl" />
                                 </div>
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label for="ComentariosAdsl_Transferido">
+                                <label for="ComentariosAdsl_Transferidos">
                                     Comentarios
                                 </label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="ComentariosAdsl_Trasnferidos"
+                                    <input type="text" class="form-control" id="ComentariosAdsl_Transferidos"
                                         name="ComentariosAdsl_Transferidos" />
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
                 <!-- FORMULARIO #4 DTH -->
                 <div id="form4" class="form-group-container">
                     <div class="form-group-container" style="margin-top: 2.5rem;">
-                        <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
-                            <label for="" style="color: #3e69d6; font-size: 18px;">Solicitudess</label>
-                        </div>
                         <div class="form-group col-md-3">
-                            <label for="codigo_tecnico">Orden Tv</label>
-                            <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="telefono">SYRENG</label>
-                            <input type="number" class="form-control" id="telefono" name="telefono" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="tecnico">SAP</label>
-                            <input type="text" class="form-control" id="tecnico" name="tecnico" />
-                        </div>
-                        <div class="form-group col-md-3 TipoActividad_Hidden">
-                            <label for="tipoactividaddth">Tipo Actividad</label>
-                            <select class="form-control" style="width: 100%;" name="tipoactividaddth" tabindex="-1"
-                                aria-hidden="true">
+                            <label for="tipo_actividadDth">Tipo Actividad</label>
+                            <select class="form-control" style="width: 100%;" name="tipo_actividadDth"
+                                id="tipo_actividadDth" tabindex="-1" aria-hidden="true">
                                 <option selected="selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label for="tecnico">Georeferencia</label>
-                            <input type="text" class="form-control" id="tecnico" name="tecnico" />
-                        </div>
-                        <div class="form-group col-md-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Trabajado
-                                </label>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="from-group-container">
-                        <div class="form-group col-md-3">
-                            <label for="equipostv">Smarcard</label>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipotv1" name="equipotv1" />
-                            </div>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipostv2" name="equipostv2" />
-                            </div>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipostv3" name="equipostv3" />
-                            </div>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipostv" name="equipostv4" />
-                            </div>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipostv5" name="equipostv5" />
-                            </div>
-                        </div>
-                    </div>
+                        <!-- ACTIVIDAD REALIZADA DTH -->
 
-                    <div class="from-group-container">
-                        <div class="form-group col-md-3">
-                            <label for="equipostv">STB</label>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipotv1" name="equipotv1" />
-                            </div>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipostv2" name="equipostv2" />
-                            </div>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipostv3" name="equipostv3" />
-                            </div>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipostv" name="equipostv4" />
-                            </div>
-                            <div class="box_equipostv">
-                                <input type="text" class="form-control" id="equipostv5" name="equipostv5" />
-                            </div>
-                        </div>
-                    </div>
+                        <div class="FormDth_Hidden" id="formDth_Realizada">
+                            <div class="form-group-container">
+                                <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
+                                    <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES</label>
+                                </div>
 
-                    <div class="form-group-container">
-                        <div class="form-group col-md-12">
-                            <label for="telefono">Observaciones</label>
-                            <input type="number" class="form-control" id="observaciones-form3"
-                                name="observaciones-form3" />
+                                <div class="form-group col-md-3">
+                                    <label for="ordenTv_Dth">Orden Tv</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="ordenTv_Dth" name="ordenTv_Dth" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="SyrengDth">SYRENG</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="SyrengDth" name="SyrengDth" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="GeoRefDth">Georeferencia</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-map-marker"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="GeoRefDth" name="GeoRefDth" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="TrabajadoDth" />
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Trabajado
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <label for="Smarcard">Smarcard</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-square"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="SmarcardDth1"
+                                            name="SmarcardDth1" />
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-square"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="SmarcardDth2"
+                                            name="SmarcardDth2" />
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-square"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="SmarcardDth3"
+                                            name="SmarcardDth3" />
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-square"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="SmarcardDth4"
+                                            name="SmarcardDth4" />
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-square"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="SmarcardDth5"
+                                            name="SmarcardDth5" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <label for="StbDth">STB</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-square"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="StbDth1" name="StbDth1" />
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-square"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="StbDth2" name="StbDth2" />
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-square"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="StbDth3" name="StbDth3" />
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-square"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="StbDth4" name="StbDth4" />
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-square"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="StbDth5" name="StbDth5" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group-container">
+                                <div class="form-group col-md-12">
+                                    <label for="ObsDth">Observaciones</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-exclamation-triangle"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ObsDth" name="ObsDth" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="RecibeDth">Recibe</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="RecibeDth" name="RecibeDth" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="MaterialesDth">Materiales</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="MaterialesDth"
+                                            name="MaterialesDth" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group col-md-12">
-                            <label for="telefono">Recibe</label>
-                            <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                placeholder="" />
+
+                        <!-- ACTIVIDAD OBJETADA DTH -->
+                        <div class="FormDth_Hidden" id="formDth_Objetada">
+                            <div class="from-group-container">
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <label for="MotivoObjetada_Dth">MOTIVO OBJETADO</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="MotivoObjetada_Dth" tabindex="-1"
+                                            id="MotivoObjetada_Dth" aria-hidden="true">
+                                            <option selected="selected">SELECCIONE UNA OPCION</option>
+                                            <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
+                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            </option>
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            </option>
+                                            <option value="NO SE LOCALIZA AL CLIENTE">NO SE LOCALIZA AL CLIENTE
+                                            </option>
+                                            <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
+                                                INEXISTENTE </option>
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                                OPEN </option>
+                                            <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
+                                            <option value="RED NO HABILITADA">RED NO HABILITADA </option>
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            </option>
+                                            <option value="VANDALISMO"> VANDALISMO </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenObj_Dth">
+                                        Orden
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="OrdenObj_Dth"
+                                            name="OrdenObj_Dth" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoObj_Dth" />
+                                            <label class="form-check-label">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="ComObjetado_Dth">
+                                        Comentarios
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ComObjetado_Dth"
+                                            name="ComObjetado_Dth" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group col-md-12">
-                            <label for="telefono">Materiales</label>
-                            <input type="text" class="form-control" id="materiales-form3" name="materiales-form3"
-                                placeholder="Comentarios..." />
-                        </div>
+
+                        <!--ACTIVIDAD TRANSFERIDA DTH  -->
+                        <!-- <div class="FormDth_Hidden" id="formDth_Transferida">
+                            <div class="form-group-container">
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenTransferida_Dth">
+                                        Orden
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="OrdenTransferida_Dth"
+                                            name="OrdenTransferida_Dth" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"
+                                                id="TrabajadoTransferido_Dth" />
+                                            <label class="form-check-label">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="MotivoTransferidoDth">
+                                        Motivo Transferido
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-exclamation-triangle"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="MotivoTransferidoDth"
+                                            name="MotivoTransferidoDth" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="ComentariosTransferidos_Dth">
+                                        Comentarios
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ComentariosTransferidos_Dth"
+                                            name="ComentariosTransferidos_Dth" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- FORMULARIO #5 COBRE-->
@@ -806,7 +974,7 @@
                             <option selected="selected">SELECCIONE UNA OPCION</option>
                             <option value="REALIZADA">REALIZADA</option>
                             <option value="OBJETADA">OBJETADA</option>
-                            <option value="TRANSFERIDA">TRANSFERIDA</option>
+                            <!-- <option value="TRANSFERIDA">TRANSFERIDA</option> -->
                         </select>
                     </div>
 
@@ -820,7 +988,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="OrdenLineaCobre"
+                                    <input type="number" class="form-control" id="OrdenLineaCobre"
                                         name="OrdenLineaCobre" />
                                 </div>
                             </div>
@@ -831,7 +999,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-phone-square"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="NumeroCobre" name="NumeroCobre" />
+                                    <input type="number" class="form-control" id="NumeroCobre" name="NumeroCobre" />
                                 </div>
                             </div>
 
@@ -847,7 +1015,7 @@
 
                             <div class="form-group col-md-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                    <input class="form-check-input" type="checkbox" value="" id="TrabajadoCobre" />
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Trabajado
                                     </label>
@@ -900,21 +1068,22 @@
                                     <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                     <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                     </option>
-                                    <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP </option>
-                                    <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP </option>
-                                    <option value=" NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
+                                    <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                    </option>
+                                    <option value="NO SE LOCALIZA AL CLIENTE">NO SE LOCALIZA AL CLIENTE
+                                    </option>
+                                    <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
                                         INEXISTENTE </option>
-                                    <option value=" PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO OPEN
+                                    <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                        OPEN </option>
+                                    <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
+                                    <option value="RED NO HABILITADA">RED NO HABILITADA </option>
+                                    <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
+                                    <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
                                     </option>
-                                    <option value=" RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
-                                    <option value=" RED NO HABILITADA">RED NO HABILITADA </option>
-                                    <option value=" ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                    <option value=" TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
-                                    </option>
-                                    <option value=" VANDALISMO"> VANDALISMO </option>
+                                    <option value="VANDALISMO"> VANDALISMO </option>
                                 </select>
                             </div>
-
 
                             <div class="form-group col-md-3">
                                 <label for="OrdenCobre_Objetada">
@@ -941,29 +1110,18 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-12">
-                                <label for="ProblematicaObjetada_Adsl">
-                                    Problematica
-                                </label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-exclamation-triangle"></i>
-                                    </div>
-                                    <input type="text" class="form-control" id="ProblematicaObjetada_Adsl"
-                                        name="ProblematicaObjetada_Adsl" />
-                                </div>
-                            </div>
+
 
                             <div class="form-group col-md-12">
-                                <label for="ProblematicaObjetada_Adsl">
+                                <label for="ComentariosCobre_Objetados">
                                     Comentarios
                                 </label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="ComentariosObjetada_Adsl"
-                                        name="ComentariosObjetada_Adsl" />
+                                    <input type="text" class="form-control" id="ComentariosCobre_Objetados"
+                                        name="ComentariosCobre_Objetados" />
                                 </div>
                             </div>
                         </div>
@@ -974,22 +1132,22 @@
                     <div class="form-group-container FormCobre_Hidden" id="formCobre_Transferida">
                         <div class="form-group-container">
                             <div class="form-group col-md-3">
-                                <label for="OrdenTransferida_Hfc">
+                                <label for="OrdenTransferidad_Cobre">
                                     Orden
                                 </label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="OrdenTransferida_Hfc"
-                                        name="OrdenTransferida_Hfc" />
+                                    <input type="number" class="form-control" id="OrdenTransferidad_Cobre"
+                                        name="OrdenTransferidad_Cobre" />
                                 </div>
                             </div>
 
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="TrabajadoTransferido_Hfc" />
+                                        <input class="form-check-input" type="checkbox" id="TrabajoTransferido_Cobre" />
                                         <label class="form-check-label">
                                             Trabajado
                                         </label>
@@ -998,49 +1156,38 @@
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label for="ProblematicaTransferida_Hfc">
-                                    Problematica
+                                <label for="MotivoTransferidoCobre">
+                                    Motivo Transferido
                                 </label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-exclamation-triangle"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="ProblematicaTransferida_Hfc"
-                                        name="ProblematicaTransferida_Hfc" />
+                                    <input type="text" class="form-control" id="MotivoTransferidoCobre"
+                                        name="MotivoTransferidoCobre" />
                                 </div>
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label for="ComentariosTransferida_Hfc">
+                                <label for="ComentariosTransferida_Cobre">
                                     Comentarios
                                 </label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="ComentariosTransferida_Hfc"
-                                        name="ComentariosTransferida_Hfc" />
+                                    <input type="text" class="form-control" id="ComentariosTransferida_Cobre"
+                                        name="ComentariosTransferida_Cobre" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <!-- FORMULARIO #6 GPON-->
                 <div id="form6" class="form-group-container">
                     <div class="form-group-container">
                         <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
                             <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES</label>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="OrdenTv_Gpon">Orden Tv</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-ticket"></i>
-                                </div>
-                                <input type="text" class="form-control OrdenGpon" id="OrdenTv_Gpon" name="OrdenTv_Gpon"
-                                    disabled />
-                            </div>
                         </div>
                         <div class="form-group col-md-3">
                             <label for="OrdenInternet_Gpon">Orden Internet</label>
@@ -1053,12 +1200,23 @@
                             </div>
                         </div>
                         <div class="form-group col-md-3">
+                            <label for="OrdenTv_Gpon">Orden Tv</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-ticket"></i>
+                                </div>
+                                <input type="number" class="form-control OrdenGpon" id="OrdenTv_Gpon"
+                                    name="OrdenTv_Gpon" disabled />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
                             <label for="OrdenLinea_Gpon">Orden Linea</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <i class="fa fa-ticket"></i>
                                 </div>
-                                <input type="text" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
+                                <input type="number" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
                                     name="OrdenLinea_Gpon" disabled />
                             </div>
                         </div>
@@ -1080,7 +1238,7 @@
                     <div class="form-group-container FormGpon_Hidden" id="formGpon_Realizada">
                         <div class="from-group-container">
                             <div class="form-group col-md-3" id="hideEquipoTv">
-                                <label for="EquiposTv_Hfc">Equipos Tv</label>
+                                <label for="EquiposTv_Gpon">Equipos Tv</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-square"></i>
@@ -1161,20 +1319,20 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-square"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="NumeroGpon" name="NumeroGpon"
+                                    <input type="number" class="form-control" id="NumeroGpon" name="NumeroGpon"
                                         required />
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-3">
+                            <!-- <div class="form-group col-md-3">
                                 <label for="SapGpon">Numero Voip</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="VoipGpon" name="VoipGpon" required />
+                                    <input type="number" class="form-control" id="VoipGpon" name="VoipGpon" required />
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
@@ -1195,7 +1353,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-eye"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="ObservacionesGpon"
+                                    <input type="text" class="form-control" id="ObservacionesGpon"
                                         name="ObservacionesGpon" required />
                                 </div>
                             </div>
@@ -1210,6 +1368,69 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="form-group-container">
+                            <div class="form-group-container">
+                                <h4 class="box-title" style="color: #3e69d6; text-align: center; font-weight: bold;">
+                                    ELEMENTOS RED
+                                </h4>
+                                <div class="" style="margin: botton 12px; border-top: 1px solid #c0bfbf;">
+                                    <div class="form-group-container" style="margin-top: 1rem;">
+                                        <div class="form-group col-md-3">
+                                            <label for="NodoGpon">
+                                                Nodo
+                                            </label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-square"></i>
+                                                </div>
+                                                <input type="text" class="form-control" id="NodoGpon" name="NodoGpon"
+                                                    placeholder="Ingresa el Nodo" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="CajaGpon">
+                                                Caja
+                                            </label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-square"></i>
+                                                </div>
+                                                <input type="number" class="form-control" id="CajaGpon" name="CajaGpon"
+                                                    placeholder="Ingresa Caja" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-3">
+                                            <label for="PuertoGpon">
+                                                Puerto
+                                            </label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-square"></i>
+                                                </div>
+                                                <input type="number" class="form-control" id="PuertoGpon"
+                                                    name="PuertoGpon" placeholder="Ingresa el puerto" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="MaterialesRed">
+                                                Materiales
+                                            </label>
+                                            <div class="input-group">
+                                                <div class="input-group-addon">
+                                                    <i class="fa fa-edit"></i>
+                                                </div>
+                                                <input type="text" class="form-control" id="MaterialesRed"
+                                                    name="MaterialesRed" placeholder="Comentarios..." />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- TIPO ACTIVIDAD OBJETADA GPON -->
@@ -1217,9 +1438,10 @@
                     <div class="form-group-container FormGpon_Hidden" id="formGpon_Objetada">
                         <div class="form-group-container">
                             <div class="form-group col-md-3">
-                                <label for="tipo_actividad">MOTIVO OBJETADO</label>
+                                <label for="MotivoObjetado_Gpon">MOTIVO OBJETADO</label>
                                 <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
-                                    name="tipo_actividad" tabindex="-1" id="tipo_actividad" aria-hidden="true">
+                                    name="MotivoObjetado_Gpon" tabindex="-1" id="MotivoObjetado_Gpon"
+                                    aria-hidden="true">
                                     <option selected="selected">SELECCIONE UNA OPCION</option>
                                     <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                     <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
@@ -1227,11 +1449,12 @@
                                     </option>
                                     <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
                                     </option>
-                                    <option value="NO SE LOCALIZA AL CLIENTE">EQUIPOS CON PROBLEMAS EN SAP </option>
+                                    <option value="NO SE LOCALIZA AL CLIENTE">NO SE LOCALIZA AL CLIENTE
+                                    </option>
                                     <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
                                         INEXISTENTE </option>
-                                    <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO OPEN
-                                    </option>
+                                    <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                        OPEN </option>
                                     <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
                                     <option value="RED NO HABILITADA">RED NO HABILITADA </option>
                                     <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
@@ -1239,17 +1462,6 @@
                                     </option>
                                     <option value="VANDALISMO"> VANDALISMO </option>
                                 </select>
-                            </div>
-
-                            <div class="form-group col-md-3">
-                                <label for="OrdenGpon_Objetada">Orden</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-ticket"></i>
-                                    </div>
-                                    <input type="text" class="form-control" id="OrdenGpon_Objetada"
-                                        name="OrdenGpon_Objetada" />
-                                </div>
                             </div>
 
                             <div class="from-group-container">
@@ -1288,24 +1500,16 @@
                         </div>
                     </div>
 
+
                     <!-- TIPO ACTIVIDAD TRANSFERIDA GPON -->
                     <div class="form-group-container FormGpon_Hidden" id="formGpon_Transferida">
                         <div class="form-group-container">
-                            <div class="form-group col-md-3">
-                                <label for="OrdenTrans_Gpon">Orden</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-ticket"></i>
-                                    </div>
-                                    <input type="text" class="form-control" id="OrdenTrans_Gpon"
-                                        name="OrdenTrans_Gpon" />
-                                </div>
-                            </div>
 
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="" />
+                                        <input class="form-check-input" type="checkbox"
+                                            id="TrabajadoTransferido_Gpon" />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Trabajado
                                         </label>
@@ -1314,12 +1518,24 @@
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label for="OrdenTrans_Gpon">Comentarios</label>
+                                <label for="MotivoTransferidoGpon">Motivo Trasnferido</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="ComsTrasn_Gpon" name="ComsTrasn_Gpon" />
+                                    <input type="text" class="form-control" id="MotivoTransferidoGponn"
+                                        name="MotivoTransferidoGpon" />
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="ComentarioTransferido_Gpon">Comentarios</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
+                                        name="ComentarioTransferido_Gpon" />
                                 </div>
                             </div>
                         </div>
@@ -1329,11 +1545,9 @@
                 <div class="box-footer" id="" style="text-align: center; display: flex; justify-content: center;">
                     <button id="btn-submit" type="submit" class="btn btn-warning">GUARDAR REGISTRO</button>
                 </div>
+            </form>
         </div>
-        </form>
-
     </div>
-</div>
 </div>
 
 @endsection @section('styles')

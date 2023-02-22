@@ -17,12 +17,24 @@ body {
   font-weight: 400;
   /* overflow-x: hidden; */
   overflow-y:thin;;
-  
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 
 .modal-confirm {
   color: #434e65;
-  width: 525px;
+  width: 50px;
 }
 .modal-confirm .modal-content {
   padding: 20px;

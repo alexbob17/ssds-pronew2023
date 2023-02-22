@@ -60,7 +60,7 @@ fetch("../Json/CodigoTecnico.json")
           title: "Opss...",
           text: "Tecnico No Encontrado",
           showConfirmButton: false,
-          timer: 3000,
+          timer: 2000,
         });
       }
     }
