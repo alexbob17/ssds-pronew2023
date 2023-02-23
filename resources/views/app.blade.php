@@ -15,7 +15,14 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('../public/img/img/logo.ico') }}">
 
 
+    <!-- ... -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- ... -->
+
+
     <link rel="shortcut icon" href="{{ asset('../public/img/logo.ico') }}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="icon" type="image/png" href="{{ asset('../public/img/logo.ico') }}">
 
     <!-- iCheck -->

@@ -308,7 +308,17 @@
                                                                         !!}
                                                                     </li>
                                                                     @endrole
+
+                                                                    @role(['admin'])
+                                                                    <li>{!!
+                                                                        Html::decode(link_to('/tecnicos/registro','<i
+                                                                            class="fa-solid fa-helmet-safety"></i>
+                                                                        Tecnicos'))
+                                                                        !!}</li>
+                                                                    @endrole
                                                                 </ul>
+
+
                                                             </li>
                                                             @endrole
                                                         </ul>

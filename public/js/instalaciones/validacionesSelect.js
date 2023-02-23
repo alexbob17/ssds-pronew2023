@@ -534,6 +534,11 @@ const EquipoModem_Hfc = document.getElementById("EquipoModem_Hfc");
 const equipotvHfc = document.querySelectorAll(".equipotvHfc");
 const sapHfc = document.getElementById("sapHfc");
 
+// OCULTA FORM TRANSFERIDO SI ES REACTIVACION
+const optionTransferidaHfc = document.querySelector(
+  "select[name='tipo_actividad'] option.ocultar"
+);
+
 selectHide_TipoOrden.addEventListener("change", () => {
   const value = selectHide_TipoOrden.value;
   switch (value) {
@@ -548,6 +553,9 @@ selectHide_TipoOrden.addEventListener("change", () => {
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = false;
       }
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "block"; // muestra el elemento
+      }
 
       break;
     case "DOBLE - TV + INTERNET":
@@ -561,6 +569,9 @@ selectHide_TipoOrden.addEventListener("change", () => {
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = false;
       }
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "block"; // muestra el elemento
+      }
 
       break;
     case "DOBLE - INTERNET + LINEA":
@@ -572,6 +583,9 @@ selectHide_TipoOrden.addEventListener("change", () => {
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = true;
+      }
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "block"; // muestra el elemento
       }
 
       break;
@@ -585,6 +599,9 @@ selectHide_TipoOrden.addEventListener("change", () => {
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = false;
+      }
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "block"; // muestra el elemento
       }
 
       break;
@@ -600,6 +617,9 @@ selectHide_TipoOrden.addEventListener("change", () => {
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = false;
       }
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "block"; // muestra el elemento
+      }
 
       break;
     case "INTERNET INDIVIDUAL":
@@ -614,6 +634,9 @@ selectHide_TipoOrden.addEventListener("change", () => {
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = true;
       }
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "block"; // muestra el elemento
+      }
 
       break;
     case "LINEA INDIVIDUAL":
@@ -626,6 +649,10 @@ selectHide_TipoOrden.addEventListener("change", () => {
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = true;
+      }
+
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "block"; // muestra el elemento
       }
 
       break;
@@ -642,19 +669,14 @@ selectHide_TipoOrden.addEventListener("change", () => {
         equipotvHfc[i].disabled = false;
       }
 
-      // OCULTA FORM TRANSFERIDO SI ES REACTIVACION
-      const optionTransferida = document.querySelector(
-        "select[name='tipo_actividad'] option.ocultar"
-      );
-
-      if (optionTransferida) {
-        optionTransferida.remove();
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "none";
       }
 
       break;
     case "REACTIVACION - INSTALACION DE CLARO HOGAR":
       for (let i = 0; i < TipoActividad_Hidden.length; i++) {
-        TipoActividad_Hidden[i].style.display = "block";
+        TipoActividad_Hidden[i].style.display = "none";
       }
       hideVoip_Hfc.disabled = false;
       EquipoModem_Hfc.disabled = false;
@@ -664,15 +686,15 @@ selectHide_TipoOrden.addEventListener("change", () => {
         equipotvHfc[i].disabled = false;
       }
 
-      if (optionTransferida) {
-        optionTransferida.remove();
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "none";
       }
 
       break;
 
     case "REACTIVACION -DOBLE - INTERNET + LINEA":
       for (let i = 0; i < TipoActividad_Hidden.length; i++) {
-        TipoActividad_Hidden[i].style.display = "block";
+        TipoActividad_Hidden[i].style.display = "none";
       }
       hideVoip_Hfc.disabled = false;
       sapHfc.disabled = true;
@@ -680,15 +702,15 @@ selectHide_TipoOrden.addEventListener("change", () => {
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = true;
       }
-      if (optionTransferida) {
-        optionTransferida.remove();
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "none";
       }
 
       break;
 
     case "REACTIVACION -TV - BASICO INDIVIDUAL":
       for (let i = 0; i < TipoActividad_Hidden.length; i++) {
-        TipoActividad_Hidden[i].style.display = "block";
+        TipoActividad_Hidden[i].style.display = "none";
       }
       EquipoModem_Hfc.disabled = true;
       hideVoip_Hfc.disabled = true;
@@ -697,15 +719,15 @@ selectHide_TipoOrden.addEventListener("change", () => {
         equipotvHfc[i].disabled = false;
       }
 
-      if (optionTransferida) {
-        optionTransferida.remove();
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "none";
       }
 
       break;
 
     case "REACTIVACION -TV - DIGITAL INDIVIDUAL":
       for (let i = 0; i < TipoActividad_Hidden.length; i++) {
-        TipoActividad_Hidden[i].style.display = "block";
+        TipoActividad_Hidden[i].style.display = "none";
       }
       EquipoModem_Hfc.disabled = true;
       hideVoip_Hfc.disabled = true;
@@ -715,14 +737,14 @@ selectHide_TipoOrden.addEventListener("change", () => {
         equipotvHfc[i].disabled = false;
       }
 
-      if (optionTransferida) {
-        optionTransferida.remove();
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "none";
       }
 
       break;
     case "REACTIVACION -INTERNET INDIVIDUAL":
       for (let i = 0; i < TipoActividad_Hidden.length; i++) {
-        TipoActividad_Hidden[i].style.display = "block";
+        TipoActividad_Hidden[i].style.display = "none";
       }
       EquipoModem_Hfc.disabled = false;
       hideVoip_Hfc.disabled = true;
@@ -731,13 +753,13 @@ selectHide_TipoOrden.addEventListener("change", () => {
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = true;
       }
-      if (optionTransferida) {
-        optionTransferida.remove();
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "none";
       }
 
     case "REACTIVACION -LINEA INDIVIDUAL":
       for (let i = 0; i < TipoActividad_Hidden.length; i++) {
-        TipoActividad_Hidden[i].style.display = "block";
+        TipoActividad_Hidden[i].style.display = "none";
       }
       EquipoModem_Hfc.disabled = true;
       hideVoip_Hfc.disabled = false;
@@ -746,8 +768,8 @@ selectHide_TipoOrden.addEventListener("change", () => {
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = true;
       }
-      if (optionTransferida) {
-        optionTransferida.remove();
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "none";
       }
 
       break;

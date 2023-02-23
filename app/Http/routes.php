@@ -40,6 +40,11 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/llamadashome/instalaciones', 'LlamadasServicioController@showInstalaciones');
 
 	Route::get('/llamadashome/registro', 'RegistroController@showRegistro');
+	Route::get('/tecnicos/registro', 'RegistroTecnicoController@showTecnicos');
+
+	Route::post('/tecnicos/registro', 'RegistroTecnicoController@store')->name('registro_tecnico.store');
+
+
 
 
 	
@@ -51,6 +56,7 @@ Route::group(['middleware' => ['web']], function () {
 			'nodos'				=> 'NodosSaturadosController',
 			'reclamos'			=> 'ReclamosTecnicaController',
 			'llamadasservicio' => 'LlamadasServicioController',
+
 
 	]);
 });

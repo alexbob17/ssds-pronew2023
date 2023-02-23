@@ -49,12 +49,6 @@ fetch("../Json/CodigoTecnico.json")
         }
       }
       if (!tecnicoEncontrado) {
-        // inputCodigo.value = "";
-        // inputTecnico.value = "";
-        // inputTelefono.value = "";
-        // btnBusqueda.disabled = false;
-        // alert("TECNICO NO REGISTRADO");
-
         Swal.fire({
           icon: "error",
           title: "Opss...",

@@ -301,7 +301,7 @@
                                                         <i class="fa fa-square"></i>
                                                     </div>
                                                     <input type="text" class="form-control" id="NodoHfc" name="NodoHfc"
-                                                        placeholder="Ingresa el Nodo" />
+                                                        placeholder="Ingresa Nodo" />
                                                 </div>
                                             </div>
 
@@ -314,7 +314,7 @@
                                                         <i class="fa fa-square"></i>
                                                     </div>
                                                     <input type="number" class="form-control" id="TapHfc" name="TapHfc"
-                                                        placeholder="Ingresa el nodo" />
+                                                        placeholder="Ingresa TAP" />
                                                 </div>
                                             </div>
 
@@ -327,7 +327,7 @@
                                                         <i class="fa fa-square"></i>
                                                     </div>
                                                     <input type="number" class="form-control" id="PosicionHfc"
-                                                        name="PosicionHfc" placeholder="Ingresa la posicion" />
+                                                        name="PosicionHfc" placeholder="Ingresa Posicion" />
                                                 </div>
                                             </div>
 
@@ -1354,7 +1354,8 @@
                                         <i class="fa fa-eye"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ObservacionesGpon"
-                                        name="ObservacionesGpon" required />
+                                        name="ObservacionesGpon" required
+                                        placeholder="Ingresa las observaciones del caso" />
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -1364,7 +1365,7 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="RecibeGpon" name="RecibeGpon" required
-                                        placeholder="" />
+                                        placeholder="Ingresa quien recibe el caso" />
                                 </div>
                             </div>
                         </div>
@@ -1385,7 +1386,7 @@
                                                     <i class="fa fa-square"></i>
                                                 </div>
                                                 <input type="text" class="form-control" id="NodoGpon" name="NodoGpon"
-                                                    placeholder="Ingresa el Nodo" />
+                                                    placeholder="Ingresa Nodo" />
                                             </div>
                                         </div>
 
@@ -1411,7 +1412,7 @@
                                                     <i class="fa fa-square"></i>
                                                 </div>
                                                 <input type="number" class="form-control" id="PuertoGpon"
-                                                    name="PuertoGpon" placeholder="Ingresa el puerto" />
+                                                    name="PuertoGpon" placeholder="Ingresa Puerto" />
                                             </div>
                                         </div>
 
