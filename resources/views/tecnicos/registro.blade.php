@@ -7,132 +7,188 @@
             <p>{{ session('success_message') }}</p>
         </div>
         @endif
-        <!-- general form elements -->
+
         <div class="box box-warning">
             <div class="box-header with-border">
                 <h3 class="box-title">Datos del Caso</h3>
             </div>
-            <!-- FORMULARIO #1 -->
-
+            <!-- FORMULARIO #REGISTRO TECNICO-->
 
             <form id="registro-tecnico-form" method="POST" action="{{ route('registro_tecnico.store') }}">
                 {!! csrf_field() !!}
 
-                <div class="form-group col-md-3">
-                    <label for="codigo_tecnico">Código Técnico:</label>
-                    <input type="text" class="form-control" id="codigo_tecnico" name="codigo_tecnico" required>
+                <div class="form-group-container">
+                    <div class="form-group col-md-3">
+                        <label for="codigo_tecnico">Código Técnico</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-square"></i>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Ingrese Codigo Tecnico"
+                                id="codigo_tecnico" name="codigo_tecnico"
+                                oninput="this.value = this.value.toUpperCase()" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group col-md-2">
+                            <label for="telefono">Teléfono</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-phone-square"></i>
+                                </div>
+                                <input type="text" class="form-control" id="telefono" name="telefono" />
+                            </div>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="tecnico">Técnico</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <input type="text" class="form-control" id="tecnico" name="tecnico"
+                                    oninput="this.value = this.value.toUpperCase()" />
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <button type="submit" class="btn btn-primary" style="margin-top: 2.4rem;">Guardar
+                                Registro</button>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="nombre_tecnico">Nombre Técnico:</label>
-                    <input type="text" class="form-control" id="nombre_tecnico" name="nombre_tecnico" required>
-                </div>
-                <div class="form-group col-md3">
-                    <label for="telefono">Teléfono:</label>
-                    <input type="tel" class="form-control" id="telefono" name="telefono" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Registrar</button>
             </form>
+        </div>
 
+        <div class="box box-warning">
+            <div class="">
+                <div class="">
+                    <div class="">
+                        <div class="box-header">
+                            <!-- /.box-header -->
+                            <!-- form start -->
+                            <div class="box-body">
+                                <div class="form-group-container">
+                                    <table id="TableTecnico" data-toggle="table" data-search="true"
+                                        data-pagination="true" data-page-size="5" data-refresh="true"
+                                        data-search-align="left" data-toolbar="#toolbar" data-refresh="true">
+                                        <thead class="thead-dark">
+                                            <tr style="background: #3e69d6; color: white;">
+                                                <th>Código Técnico</th>
+                                                <th>Técnico</th>
+                                                <th>Teléfono</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @if(isset($data)) @foreach($data as $registro)
+                                            <tr>
+                                                <td>{{ $registro['CODIGO'] }}</td>
+                                                <td>{{ $registro['NOMBRE'] }}</td>
+                                                <td>{{ $registro['NUMERO'] }}</td>
+                                                <td>
+                                                    <a href="#" class="btn"
+                                                        style="background: #ffc107; color: white; border-color: #ffc107;"><i
+                                                            class="fa-solid fa-user-pen"></i></a>
+                                                    <button class="btn btn-danger eliminar-tecnico"
+                                                        data-codigo="{{ $registro['CODIGO'] }}">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            @endforeach @endif
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.box -->
 
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
+        @if(isset($message))
+        @if(isset($success) && $success)
+        <script>
+        Swal.fire({
+            icon: "success",
+            title: "{{$message}}",
+            showConfirmButton: false,
+            timer: 1800,
+        });
 
-                </tbody>
-            </table>
+        // window.location = window.location;
+        </script>
+        @else
+        <script>
+        Swal.fire({
+            icon: "error",
+            title: "{{$message}}",
+            showConfirmButton: false,
+            timer: 1900,
+        });
+        // window.location = window.location;
+        </script>
+        @endif
+        @endif
 
-            <table class="table">
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                </tbody>
-            </table>
+        @endsection @section('styles')
+        <!-- SweetAlert -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
 
+        <script>
+        // var $table = $('#TableTecnico')
+        // var $button = $('#button')
+        $(function() {
+            $("#TableTecnico").bootstrapTable({
+                customSearch: function(text) {
+                    // Aquí se realiza la búsqueda personalizada
+                },
+            });
 
+            $("#TableTecnico .caret").css("display", "none");
+            // Cambiar texto e icono de búsqueda
+            $(".bootstrap-table .form-control").attr("placeholder", "Buscar Tecnicos...");
+            $(".bootstrap-table .search button i").removeClass("glyphicon-search").addClass(
+                "fa-duotone fa-user-magnifying-glass");
+        });
+        </script>
 
-            @if(isset($message))
-            <script>
-            Swal.fire({
-                icon: 'success',
-                title: '{{$message}}',
-                showConfirmButton: false,
-                timer: 1500
-            })
-            </script>
-            @endif
+        <!-- Select2 -->
+        <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
+        <link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
+        <!-- User definided -->
+        <link rel="stylesheet" href="{{ asset('/css/center-modal.css') }}" />
 
+        <style>
+        [type="submit"]:disabled {
+            cursor: default;
+        }
+        </style>
+        @endsection @section('scripts')
 
+        <!-- datepicker -->
+        <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/plugins/datepicker/locales/bootstrap-datepicker.es.js') }}" type="text/javascript">
+        </script>
+        <!-- Select2 -->
+        <script src="{{ asset('/plugins/select2/select2.full.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/plugins/select2/i18n/es.js') }}" type="text/javascript"></script>
+        <!-- InputMask -->
+        <script src="{{ asset('/plugins/input-mask/inputmask.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/plugins/input-mask/inputmask.date.extensions.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/plugins/input-mask/inputmask.regex.extensions.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
+        <!-- boostrap-fileinput -->
+        <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput_locale_es.js') }}" type="text/javascript">
+        </script>
+        <!-- User definided -->
 
-            @endsection @section('styles')
+        <script src="{{asset('/js/Tecnicos/RegistrarTecnico.js')}}" type="text/javascript"> </script>
 
-
-
-            <!-- Select2 -->
-            <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
-            <link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
-            <!-- User definided -->
-            <link rel="stylesheet" href="{{ asset('/css/center-modal.css') }}" />
-            <style>
-            [type="submit"]:disabled {
-                cursor: default;
-            }
-            </style>
-            @endsection @section('scripts')
-
-            <!-- SweetAlert -->
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css">
-
-            <!-- datepicker -->
-            <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript">
-            </script>
-            <script src="{{ asset('/plugins/datepicker/locales/bootstrap-datepicker.es.js') }}" type="text/javascript">
-            </script>
-            <!-- Select2 -->
-            <script src="{{ asset('/plugins/select2/select2.full.js') }}" type="text/javascript"></script>
-            <script src="{{ asset('/plugins/select2/i18n/es.js') }}" type="text/javascript"></script>
-            <!-- InputMask -->
-            <script src="{{ asset('/plugins/input-mask/inputmask.js') }}" type="text/javascript"></script>
-            <script src="{{ asset('/plugins/input-mask/inputmask.date.extensions.js') }}" type="text/javascript">
-            </script>
-            <script src="{{ asset('/plugins/input-mask/inputmask.regex.extensions.js') }}" type="text/javascript">
-            </script>
-            <script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
-            <!-- boostrap-fileinput -->
-            <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput.min.js') }}" type="text/javascript">
-            </script>
-            <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput_locale_es.js') }}" type="text/javascript">
-            </script>
-            <!-- User definided -->
-            <!-- <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script> -->
-            <!-- <script src="{{asset('/js/registro/ValidacionTecnico.js')}}" type="text/javascript"> </script> -->
-            <script src="{{asset('/js/Tecnicos/RegistrarTecnico.js')}}" type="text/javascript"> </script>
-
-            <!-- <script src="{{asset('/js/instalaciones/changePage.js')}}" type="text/javascript"> </script> -->
-
-            @endsection
+        @endsection
+    </div>
+</div>

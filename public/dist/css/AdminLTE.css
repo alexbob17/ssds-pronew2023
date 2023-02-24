@@ -31,6 +31,56 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.search-input{
+  width: 250px !important;
+}
+
+
+.bootstrap-table .search input[type=search]{
+  position: relative;
+  padding-left: 10px !important; /* espacio para el icono */
+  border-radius:5px;
+
+}
+
+.bootstrap-table .search input[type=search]::before {
+  content: ""; 
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: inline-block;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+
+
+.caret{
+  display: none;
+}
+
+.bootstrap-table .search input[type=search] {
+  background-image: none;
+  padding-left: 30px; /* Ajusta el espacio para el icono */
+}
+
+.bootstrap-table .search input[type=search]::placeholder:before {
+  content: '\f002'; /* Agrega el código del icono de Font Awesome */
+  font-family: 'Font Awesome 5 Free';
+  position: absolute;
+  top: 9px; /* Ajusta la posición vertical del icono */
+  left: 10px; /* Ajusta la posición horizontal del icono */
+  font-size: 16px;
+  color: #ccc;
+}
+
+.dataTables_filter input {
+  border: 2px solid red;
+}
+
+
 
 .modal-confirm {
   color: #434e65;
