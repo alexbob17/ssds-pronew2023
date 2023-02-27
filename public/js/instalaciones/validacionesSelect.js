@@ -340,18 +340,15 @@ select1.addEventListener("change", function () {
     `;
   } else if (select1.value === "ADSL") {
     select2.innerHTML = `
-    <option value="">SELECCIONA UNA OPCION</option>
     <option value="INTERNET ADSL">INTERNET ADSL</option>
     `;
   } else if (select1.value === "COBRE") {
     select2.innerHTML = `
-    <option value="">SELECCIONA UNA OPCION</option>
     <option value="LINEA BASICA">LINEA BASICA</option>
     
     `;
   } else if (select1.value === "DTH") {
     select2.innerHTML = `
-    <option value="">SELECCIONA UNA OPCION</option>
     <option value="TV SATELITAL">TV SATELITAL</option>
     <option value="REACTIVACION">REACTIVACION</option>
 
@@ -453,7 +450,7 @@ const formTypes = [
     forms: [
       document.getElementById("formAdsl_Realizada"),
       document.getElementById("formAdsl_Objetada"),
-      document.getElementById("formAdsl_Transferida"),
+      // document.getElementById("formAdsl_Transferida"),
     ],
   },
   {
@@ -521,6 +518,14 @@ const optionTransferida = selectDth.querySelector(
 );
 if (optionTransferida) {
   optionTransferida.remove();
+}
+
+const selectAdsl = document.querySelector("select[name='tipo_actividadAdsl']");
+const optionTransferidaAdsl = selectAdsl.querySelector(
+  "option[value='TRANSFERIDA']"
+);
+if (optionTransferidaAdsl) {
+  optionTransferidaAdsl.remove();
 }
 
 // DESACTIVACION DE INPUTS CONFORME EL TIPO DE ORDEN
@@ -787,7 +792,7 @@ selectHide_TipoOrden.addEventListener("change", () => {
 // TIPO ORDEN GPON
 
 const EqModenGpon = document.getElementById("EqModenGpon");
-const VoipGpon = document.getElementById("VoipGpon");
+// const VoipGpon = document.getElementById("VoipGpon");
 const equipotvGpon = document.querySelectorAll(".equipotvGpon");
 const NumeroGpon = document.getElementById("NumeroGpon");
 
@@ -801,7 +806,8 @@ selectHide_TipoOrden.addEventListener("change", () => {
       }
       // selectHide_TipoOrdenGpon.style.display = "block";
       EqModenGpon.disabled = false;
-      VoipGpon.disabled = false;
+      NumeroGpon.disabled = false;
+
       for (let i = 0; i < equipotvGpon.length; i++) {
         equipotvGpon[i].disabled = false;
       }
@@ -812,9 +818,8 @@ selectHide_TipoOrden.addEventListener("change", () => {
         TipoActividad_Hidden[i].style.display = "block";
       }
       // selectHide_TipoOrdenGpon.style.display = "block";
-      EqModenGpon.disabled = false;
-      VoipGpon.disabled = true;
-      NumeroGpon.disabled = true;
+      EqModenGpon.disabled = true;
+      NumeroGpon.disabled = false;
 
       for (let i = 0; i < equipotvGpon.length; i++) {
         equipotvGpon[i].disabled = false;
@@ -827,7 +832,7 @@ selectHide_TipoOrden.addEventListener("change", () => {
       }
       // selectHide_TipoOrdenGpon.style.display = "block";
       EqModenGpon.disabled = false;
-      VoipGpon.disabled = false;
+      NumeroGpon.disabled = false;
 
       for (let i = 0; i < equipotvGpon.length; i++) {
         equipotvGpon[i].disabled = true;
@@ -839,8 +844,8 @@ selectHide_TipoOrden.addEventListener("change", () => {
         TipoActividad_Hidden[i].style.display = "block";
       }
       // selectHide_TipoOrdenGpon.style.display = "block";
-      VoipGpon.disabled = true;
       EqModenGpon.disabled = true;
+      NumeroGpon.disabled = false;
 
       for (let i = 0; i < equipotvGpon.length; i++) {
         equipotvGpon[i].disabled = false;
@@ -853,7 +858,6 @@ selectHide_TipoOrden.addEventListener("change", () => {
       }
       // selectHide_TipoOrdenGpon.style.display = "block";
       EqModenGpon.disabled = true;
-      VoipGpon.disabled = true;
       NumeroGpon.disabled = true;
 
       for (let i = 0; i < equipotvGpon.length; i++) {
@@ -865,12 +869,12 @@ selectHide_TipoOrden.addEventListener("change", () => {
       for (let i = 0; i < TipoActividad_Hidden.length; i++) {
         TipoActividad_Hidden[i].style.display = "block";
       }
-      // selectHide_TipoOrdenGpon.style.display = "block";
-      EqModenGpon.disabled = false;
-      VoipGpon.disabled = false;
+
+      EqModenGpon.disabled = true;
+      NumeroGpon.disabled = false;
 
       for (let i = 0; i < equipotvGpon.length; i++) {
-        equipotvGpon[i].disabled = false;
+        equipotvGpon[i].disabled = true;
       }
 
       break;
@@ -881,7 +885,6 @@ selectHide_TipoOrden.addEventListener("change", () => {
       }
       // selectHide_TipoOrdenGpon.style.display = "block";
       EqModenGpon.disabled = false;
-      VoipGpon.disabled = true;
       NumeroGpon.disabled = true;
 
       for (let i = 0; i < equipotvGpon.length; i++) {

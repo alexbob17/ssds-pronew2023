@@ -490,7 +490,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-3">
+                            <!-- <div class="form-group col-md-3">
                                 <label for="sap_adsl">SAP</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
@@ -498,7 +498,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="sap_adsl" name="sap_adsl" />
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="form-group col-md-3">
                                 <div class="form-check">
@@ -716,6 +716,16 @@
                                             <i class="fa fa-map-marker"></i>
                                         </div>
                                         <input type="text" class="form-control" id="GeoRefDth" name="GeoRefDth" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="sap_dth">SAP</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="sap_dth" name="sap_dth" />
                                     </div>
                                 </div>
 
@@ -1010,6 +1020,16 @@
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                     <input type="text" class="form-control" id="GeoCobreMap" name="GeoCobreMap" />
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="sap_cobre">SAP</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="sap_cobre" name="sap_cobre" />
                                 </div>
                             </div>
 

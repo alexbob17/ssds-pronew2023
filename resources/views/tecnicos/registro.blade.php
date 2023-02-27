@@ -73,7 +73,7 @@
                                         data-pagination="true" data-page-size="5" data-refresh="true"
                                         data-search-align="left" data-toolbar="#toolbar" data-refresh="true">
                                         <thead class="thead-dark">
-                                            <tr style="background: #3e69d6; color: white;">
+                                            <tr>
                                                 <th>Código Técnico</th>
                                                 <th>Técnico</th>
                                                 <th>Teléfono</th>
@@ -92,12 +92,18 @@
                                                             class="fa-solid fa-user-pen"></i></a>
                                                     <button class="btn btn-danger eliminar-tecnico"
                                                         data-codigo="{{ $registro['CODIGO'] }}">
+
                                                         <i class="fa-solid fa-trash"></i>
                                                     </button>
                                                 </td>
                                             </tr>
+
+
                                             @endforeach @endif
+
+
                                         </tbody>
+
                                     </table>
                                 </div>
                             </div>
@@ -107,6 +113,8 @@
             </div>
         </div>
         <!-- /.box -->
+
+
 
         @if(isset($message))
         @if(isset($success) && $success)
@@ -126,9 +134,9 @@
             icon: "error",
             title: "{{$message}}",
             showConfirmButton: false,
-            timer: 1900,
+            timer: 2000,
         });
-        // window.location = window.location;
+        window.location = window.location;
         </script>
         @endif
         @endif
@@ -139,8 +147,6 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
 
         <script>
-        // var $table = $('#TableTecnico')
-        // var $button = $('#button')
         $(function() {
             $("#TableTecnico").bootstrapTable({
                 customSearch: function(text) {
@@ -155,6 +161,7 @@
                 "fa-duotone fa-user-magnifying-glass");
         });
         </script>
+
 
         <!-- Select2 -->
         <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
