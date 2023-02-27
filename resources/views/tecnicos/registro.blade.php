@@ -15,7 +15,6 @@
             <!-- FORMULARIO #REGISTRO TECNICO-->
 
             <form id="registro-tecnico-form" method="POST" action="{{ route('registro_tecnico.store') }}">
-                {!! csrf_field() !!}
 
                 <div class="form-group-container">
                     <div class="form-group col-md-3">
@@ -70,7 +69,7 @@
                             <div class="box-body">
                                 <div class="form-group-container">
                                     <table id="TableTecnico" data-toggle="table" data-search="true"
-                                        data-pagination="true" data-page-size="5" data-refresh="true"
+                                        data-pagination="true" data-refresh="true" data-pagination="10"
                                         data-search-align="left" data-toolbar="#toolbar" data-refresh="true">
                                         <thead class="thead-dark">
                                             <tr>
@@ -81,7 +80,9 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @if(isset($data)) @foreach($data as $registro)
+
+                                            @if(isset($data))
+                                            @foreach($data as $registro)
                                             <tr>
                                                 <td>{{ $registro['CODIGO'] }}</td>
                                                 <td>{{ $registro['NOMBRE'] }}</td>
@@ -90,20 +91,19 @@
                                                     <a href="#" class="btn"
                                                         style="background: #ffc107; color: white; border-color: #ffc107;"><i
                                                             class="fa-solid fa-user-pen"></i></a>
-                                                    <button class="btn btn-danger eliminar-tecnico"
-                                                        data-codigo="{{ $registro['CODIGO'] }}">
+                                                    <form action="{{ route('tecnicos_delete', $registro['CODIGO']) }}"
+                                                        method="POST">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-                                                        <i class="fa-solid fa-trash"></i>
-                                                    </button>
+                                                        <input type="hidden" name="_method" value="delete" />
+
+                                                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                                                    </form>
                                                 </td>
                                             </tr>
-
-
-                                            @endforeach @endif
-
-
+                                            @endforeach
+                                            @endif
                                         </tbody>
-
                                     </table>
                                 </div>
                             </div>

@@ -46,14 +46,13 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/tecnicos/registro', 'RegistroTecnicoController@LeerTecnicos')->name('mostrar_tecnicos');
 
-	
-	// Route::delete('/tecnicos/{codigo_tecnico}', 'RegistroTecnicoController@destroy');
-
-	Route::delete('/registro/{id}', 'RegistroTecnicoController@eliminar')->name('registro.eliminar');
+	Route::delete('/tecnicos/registro/{codigo_tecnico}','RegistroTecnicoController@LeerTecnicos')->name('tecnicos_delete');
 
 
 
-	// Route::post('/tecnicos/registro', [TecnicoController::class, 'store'])->name('tecnicos.store')->middleware('auth');
+
+
+
 
 
 
