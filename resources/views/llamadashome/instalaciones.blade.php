@@ -475,65 +475,70 @@
                             </div>
 
                             <div class="form-group col-md-3">
-                                <label for="orden_internetadsl">Orden Internet</label>
+                                <label for="orden_internet_adsl">Orden Internet</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="orden_internetadsl"
-                                        name="orden_internetadsl" />
+                                    <input type="number" class="form-control" id="orden_internet_adsl"
+                                        name="orden_internet_adsl" />
                                 </div>
                             </div>
 
                             <div class="form-group col-md-3">
-                                <label for="GeoRefAdsl">Georeferencia</label>
+                                <label for="Georeferencia_Adsl">Georeferencia</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-map-marker"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="GeoRefAdsl" name="GeoRefAdsl" />
+                                    <input type="text" class="form-control" id="Georeferencia_Adsl"
+                                        name="Georeferencia_Adsl" />
                                 </div>
                             </div>
 
 
                             <div class="form-group col-md-3">
                                 <div class="form-check">
-                                    <input id="trabajado_adsl" class="form-check-input" type="checkbox" value=""
-                                        id="TrabajadoAdsl" />
+                                    <input class="form-check-input" type="checkbox" value="" id="TrabajadoAdsl"
+                                        name="TrabajadoAdsl" />
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Trabajado
                                     </label>
                                 </div>
+
+
+
                             </div>
                             <div class="form-group-container">
                                 <div class="form-group col-md-12">
-                                    <label for="obv_adsl">Observaciones</label>
+                                    <label for="Obvservaciones_Adsl">Observaciones</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="obv_adsl" name="obv_adsl" />
+                                        <input type="text" class="form-control" id="Obvservaciones_Adsl"
+                                            name="Obvservaciones_Adsl" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="Recibe_adsl">Recibe</label>
+                                    <label for="Recibe_Adsl">Recibe</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="Recibe_adsl" name="Recibe_adsl" />
+                                        <input type="text" class="form-control" id="Recibe_Adsl" name="Recibe_Adsl" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="materialeAdsl">Materiales</label>
+                                    <label for="Materiales_Adsl">Materiales</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="materialeAdsl" name="materialeAdsl"
-                                            placeholder="Comentarios..." />
+                                        <input type="text" class="form-control" id="Materiales_Adsl"
+                                            name="Materiales_Adsl" placeholder="Comentarios..." />
                                     </div>
                                 </div>
                             </div>
@@ -585,7 +590,8 @@
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="TrabajadoAdsl" />
+                                        <input class="form-check-input" type="checkbox" value="Trabajado"
+                                            id="TrabajadoAdslObjetado" name="TrabajadoAdslObjetado" />
                                         <label class="form-check-label">
                                             Trabajado
                                         </label>
@@ -602,8 +608,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="ComentariosObjetadas"
-                                        name="ComentariosObjetadas" />
+                                    <input type="text" class="form-control" id="ComentariosObjetada_Adsl"
+                                        name="ComentariosObjetada_Adsl" />
                                 </div>
                             </div>
                         </div>
@@ -627,7 +633,7 @@
 
                             <div class="form-group col-md-3">
                                 <div class="form-check">
-                                    <input id="trabajado_adsl" class="form-check-input" type="checkbox" value=""
+                                    <input class="form-check-input" type="checkbox" value=""
                                         id="TrabajadoTransferido_Adsl" />
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Trabajado
@@ -1565,7 +1571,33 @@
 
 
 
+@if(isset($message))
+<script>
+Swal.fire({
+    icon: "success",
+    title: "{{$message}}",
+    text: "{{$messages}}",
+    showConfirmButton: false,
+    timer: 1800,
+});
+
+// window.location = window.location;
+</script>
+@endif
+
 @endsection @section('styles')
+
+
+
+<!-- SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
+
+
+
+
+
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -1592,9 +1624,29 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- SweetAlert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var checkbox = document.getElementById('TrabajadoAdsl');
+    actualizarTextoCheckbox(checkbox);
+
+    checkbox.addEventListener('change', function() {
+        actualizarTextoCheckbox(checkbox);
+    });
+
+    function actualizarTextoCheckbox(checkbox) {
+        if (checkbox.checked) {
+            checkbox.value = 'TRABAJADO';
+        } else {
+            checkbox.value = 'PENDIENTE';
+        }
+    }
+});
+</script>
+
+
+
+
+
 
 <!-- Select2 -->
 <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />

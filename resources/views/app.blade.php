@@ -37,7 +37,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.18.3/bootstrap-table.min.css">
 
 
-
     <!-- ... -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- ... -->

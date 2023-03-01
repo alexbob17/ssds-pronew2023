@@ -4,10 +4,10 @@ namespace SSD\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class InstalacionAdslRealizada extends Model
+class InstalacionAdslObjetada extends Model
 {
-
-    protected $table = 'instalacionadsl_realizada';
+    
+    protected $table = 'instalacionadsl_objetada';
     
     protected $fillable = [
         'codigo_tecnico',
@@ -17,11 +17,10 @@ class InstalacionAdslRealizada extends Model
         'select_orden',
         'dpto_colonia',
         'tipo_actividadAdsl',
-        'orden_internet_adsl',
-        'Georeferencia_Adsl',
-        'TrabajadoAdsl',
-        'Obvservaciones_Adsl',
-        'Recibe_Adsl',
-        'Materiales_Adsl',
+        'MotivoObjetada_Adsl',
+		'OrdenAdsl_Objetada',
+		'TrabajadoAdslObjetado',
+	    'ComentariosObjetada_Adsl',
     ];
+    
 }

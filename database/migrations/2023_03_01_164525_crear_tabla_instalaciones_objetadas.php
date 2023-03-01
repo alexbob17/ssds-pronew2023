@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaInstalacionesRealizadas extends Migration
+class CrearTablaInstalacionesObjetadas extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CrearTablaInstalacionesRealizadas extends Migration
      */
     public function up()
     {
-        Schema::create('instalacionadsl_realizada', function (Blueprint $table) {
+        Schema::create('instalacionadsl_objetada', function (Blueprint $table) {
             $table->increments('id');
             $table->string('codigo_tecnico');
             $table->string('telefono');
@@ -21,12 +21,10 @@ class CrearTablaInstalacionesRealizadas extends Migration
             $table->string('select_orden');
             $table->string('dpto_colonia');
             $table->string('tipo_actividadAdsl');
-            $table->integer('orden_internet_adsl');
-            $table->string('Georeferencia_Adsl');
-            $table->string('TrabajadoAdsl');
-            $table->string('Obvservaciones_Adsl');
-            $table->string('Recibe_Adsl');
-            $table->string('Materiales_Adsl');
+            $table->string('MotivoObjetada_Adsl');
+            $table->integer('OrdenAdsl_Objetada');
+            $table->string('TrabajadoAdslObjetado');
+            $table->string('ComentariosObjetada_Adsl');
             $table->timestamps();
         });
     }
@@ -38,7 +36,7 @@ class CrearTablaInstalacionesRealizadas extends Migration
      */
     public function down()
     {
-        Schema::drop('instalacionadsl_realizada');
+        Schema::drop('instalacionadsl_objetada');
         
     }
 }
