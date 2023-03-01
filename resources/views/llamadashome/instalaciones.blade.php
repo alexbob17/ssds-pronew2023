@@ -13,8 +13,12 @@
                 <h3 class="box-title">Datos del Caso</h3>
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
-            <form action="" method="POST" id="form1" class="formulario box-body"
+            <form action="{{ route('registro_llamadas.store') }}" method="POST" id="form1" class="formulario box-body"
                 style="border-bottom: 3px solid #3e69d6;">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                <input type="hidden" name="selected_fields" id="selected-fields">
+
+
                 <div class="form-group-container">
                     <div class="form-group col-md-3">
                         <label for="codigo_tecnico">Código Técnico</label>
@@ -59,13 +63,14 @@
                 <div class="form-group-container">
                     <div class="form-group col-md-3" id="view-container">
                         <label for="motivo_llamada">Motivo Llamada</label>
-                        <input type="text" class="form-control" placeholder="INSTALACION" value="INSTALACION" disabled
-                            readonly="true" style="color: white; background: #3e69d6; text-align: center;" />
+                        <input type="text" class="form-control" placeholder="INSTALACION" value="INSTALACION"
+                            readonly="true" id="motivo_llamada" name="motivo_llamada"
+                            style="color: white; background: #3e69d6; text-align: center;" />
                     </div>
                     <div class="form-group col-md-2" id="tec_input">
                         <label for="tecnologia">Tecnologia</label>
                         <select class="form-control" style="width: 100%;" name="tecnologia" tabindex="-1"
-                            id="tecnologia" aria-hidden="true" required>
+                            id="tecnologia" aria-hidden="true">
                             <option selected="selected">SELECCIONE</option>
                             <option value="HFC">HFC</option>
                             <option value="GPON">GPON</option>
@@ -77,8 +82,8 @@
                     <div class="form-group col-md-3" id="select_ordenhide">
                         <label for="select_orden">Tipo Orden</label>
                         <select class="form-control" id="select_orden" style="width: 100%;" name="select_orden"
-                            tabindex="-1" aria-hidden="true" required>
-                            <option>SELECCIONE UNA OPCION</option>
+                            tabindex="-1" aria-hidden="true">
+                            <option value="">SELECCIONE UNA OPCION</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
@@ -490,15 +495,6 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="form-group col-md-3">
-                                <label for="sap_adsl">SAP</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-ticket"></i>
-                                    </div>
-                                    <input type="text" class="form-control" id="sap_adsl" name="sap_adsl" />
-                                </div>
-                            </div> -->
 
                             <div class="form-group col-md-3">
                                 <div class="form-check">
@@ -1307,8 +1303,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-rss"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="EqModenGpon" name="EqModenGpon"
-                                        required />
+                                    <input type="text" class="form-control" id="EqModenGpon" name="EqModenGpon" />
                                 </div>
                             </div>
 
@@ -1318,8 +1313,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-map-marker"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="GeoRefGpon" name="GeoRefGpon"
-                                        required />
+                                    <input type="text" class="form-control" id="GeoRefGpon" name="GeoRefGpon" />
                                 </div>
                             </div>
 
@@ -1329,7 +1323,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="SapGpon" name="SapGpon" required />
+                                    <input type="text" class="form-control" id="SapGpon" name="SapGpon" />
                                 </div>
                             </div>
 
@@ -1339,8 +1333,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-square"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="NumeroGpon" name="NumeroGpon"
-                                        required />
+                                    <input type="number" class="form-control" id="NumeroGpon" name="NumeroGpon" />
                                 </div>
                             </div>
 
@@ -1350,7 +1343,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="VoipGpon" name="VoipGpon" required />
+                                    <input type="number" class="form-control" id="VoipGpon" name="VoipGpon" />
                                 </div>
                             </div> -->
 
@@ -1374,8 +1367,7 @@
                                         <i class="fa fa-eye"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ObservacionesGpon"
-                                        name="ObservacionesGpon" required
-                                        placeholder="Ingresa las observaciones del caso" />
+                                        name="ObservacionesGpon" placeholder="Ingresa las observaciones del caso" />
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -1384,7 +1376,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="RecibeGpon" name="RecibeGpon" required
+                                    <input type="text" class="form-control" id="RecibeGpon" name="RecibeGpon"
                                         placeholder="Ingresa quien recibe el caso" />
                                 </div>
                             </div>
@@ -1571,7 +1563,34 @@
     </div>
 </div>
 
+
+
 @endsection @section('styles')
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById("form1");
+    const selectedFieldsInput = document.querySelector('#selected-fields');
+    const inputs = form.querySelectorAll('input[type="text"], input[type="number"], input[type="checkbox"]');
+
+
+    let selectedFields = [];
+
+    inputs.forEach(input => {
+        input.addEventListener('change', () => {
+            if (input.checked) {
+                selectedFields.push(input.name);
+            } else {
+                const index = selectedFields.indexOf(input.name);
+                if (index !== -1) {
+                    selectedFields.splice(index, 1);
+                }
+            }
+            selectedFieldsInput.value = JSON.stringify(selectedFields);
+        });
+    });
+});
+</script>
 
 <!-- SweetAlert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>

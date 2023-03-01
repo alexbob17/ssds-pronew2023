@@ -41,9 +41,8 @@ fetch("../Json/CodigoTecnico.json")
           inputTecnico.value = datos[i].NOMBRE;
           inputTelefono.value = datos[i].NUMERO;
           inputCodigo.setAttribute("readonly", "readonly");
-          inputCodigo.setAttribute("disabled", "disabled");
-          inputTelefono.setAttribute("disabled", "disabled");
-          inputTecnico.setAttribute("disabled", "disabled");
+          inputTelefono.setAttribute("readonly", "readonly");
+          inputTecnico.setAttribute("readonly", "readonly");
 
           break;
         }

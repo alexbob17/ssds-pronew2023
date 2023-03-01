@@ -9,6 +9,14 @@ codigo_tecnico.value = localStorage.getItem("codigo_tecnico");
 telefono.value = localStorage.getItem("telefono");
 tecnico.value = localStorage.getItem("tecnico");
 
+const btn_busqueda = document.getElementById("btn_busqueda");
+
+btn_busqueda.addEventListener("click", function () {
+  localStorage.setItem("codigo_tecnico", codigo_tecnico.value);
+  localStorage.setItem("telefono", telefono.value);
+  localStorage.setItem("tecnico", tecnico.value);
+});
+
 const btnReiniciar = document.getElementById("btn_reiniciar");
 
 btnReiniciar.addEventListener("click", function () {

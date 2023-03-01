@@ -15,6 +15,7 @@
             <!-- FORMULARIO #REGISTRO TECNICO-->
 
             <form id="registro-tecnico-form" method="POST" action="{{ route('registro_tecnico.store') }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                 <div class="form-group-container">
                     <div class="form-group col-md-3">
@@ -88,17 +89,22 @@
                                                 <td>{{ $registro['NOMBRE'] }}</td>
                                                 <td>{{ $registro['NUMERO'] }}</td>
                                                 <td>
-                                                    <a href="#" class="btn"
-                                                        style="background: #ffc107; color: white; border-color: #ffc107;"><i
+
+                                                    <a href="#" class="btn" style="background:#ffff33;color:white"><i
                                                             class="fa-solid fa-user-pen"></i></a>
-                                                    <form action="{{ route('tecnicos_delete', $registro['CODIGO']) }}"
+
+                                                    <a href="#" class="btn btn-danger"><i
+                                                            class="fa-solid fa-trash"></i></a>
+
+                                                    <!-- <form action="{{ route('tecnicos_delete', $registro['CODIGO']) }}"
                                                         method="POST">
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                                                         <input type="hidden" name="_method" value="delete" />
 
-                                                        <button type="submit" class="btn btn-danger">Eliminar</button>
-                                                    </form>
+                                                        <button type="submit" class="btn btn-danger"><i
+                                                                class="fa-solid fa-trash"></i></button>
+                                                    </form> -->
                                                 </td>
                                             </tr>
                                             @endforeach

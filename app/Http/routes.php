@@ -49,6 +49,10 @@ Route::group(['middleware' => ['web']], function () {
 	Route::delete('/tecnicos/registro/{codigo_tecnico}','RegistroTecnicoController@LeerTecnicos')->name('tecnicos_delete');
 
 
+	Route::post('/llamadashome/registro', 'LlamadasServicioController@store')->name('registro_llamadas.store');
+
+
+
 
 
 

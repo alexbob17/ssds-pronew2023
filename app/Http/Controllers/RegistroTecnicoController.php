@@ -77,6 +77,10 @@ public function store(Request  $request)
     // Obtener los datos actualizados del archivo
     $data = json_decode(Storage::get('public/Json/RegistroTecnico.json'), true);
 
+    usort($data, function($a, $b) {
+        return strcmp($a['CODIGO'], $b['CODIGO']);
+    });
+
     // Redirigir a la página de éxito
     $message = "Técnico registrado correctamente";
     return view('tecnicos/registro', compact('data'))

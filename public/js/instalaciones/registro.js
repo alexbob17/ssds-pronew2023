@@ -20,3 +20,11 @@ motivo_llamada.addEventListener("change", function () {
     localStorage.setItem("tecnico", tecnico.value);
   }
 });
+
+// const btn_busqueda = document.getElementById("btn_busqueda");
+
+// btn_busqueda.addEventListener("click", function () {
+//   localStorage.setItem("codigo_tecnico", codigo_tecnico.value);
+//   localStorage.setItem("telefono", telefono.value);
+//   localStorage.setItem("tecnico", tecnico.value);
+// });
