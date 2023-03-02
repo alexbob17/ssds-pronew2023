@@ -16,6 +16,11 @@ use SSD\Models\InstalacionDthRealizada;
 
 use SSD\Models\InstalacionDthObjetada;
 
+use SSD\Models\InstalacionGponRealizada;
+
+use SSD\Models\InstalacionGponObjetada;
+
+use SSD\Models\InstalacionGponTransferida;
 
 
 use SSD\Http\Requests;
@@ -62,7 +67,164 @@ class LlamadasServicioController extends Controller
         switch ($tecnologia) {
             case 'HFC':
                 break;
-            case 'GPON':
+            case 'GPON':	
+				$selectedFields = [
+					'codigo_tecnico',
+					'telefono',
+					'tecnico',
+					'motivo_llamada',
+					'select_orden',
+					'dpto_colonia',
+					'OrdenInternet_Gpon',
+					'OrdenTv_Gpon',
+					'OrdenLinea_Gpon',
+					'tipo_actividadGpon',
+					'equipotv1Gpon',
+					'equipotv2Gpon',
+					'equipostv3Gpon',
+					'equipostv4Gpon',
+					'equipostv5Gpon',
+					'EqModenGpon',
+					'GeoreferenciaGpon',
+					'SapGpon',
+					'NumeroGpon',
+					'TrabajadoGpon',
+					'ObservacionesGpon',
+					'RecibeGpon',
+					'NodoGpon',
+					'CajaGpon',
+					'PuertoGpon',
+					'MaterialesRedGpon',
+                ];
+
+                $data = [];
+
+                // Iteramos por los campos seleccionados del formulario
+				foreach ($selectedFields as $fieldName) {
+					$value = $request->input($fieldName);
+					if ($fieldName === 'TrabajadoGpon' && $request->has('TrabajadoGpon')) {
+						$data[$fieldName] = 'TRABAJADO';
+					} elseif ($fieldName === 'TrabajadoGpon') {
+						$data[$fieldName] = 'PENDIENTE';
+					} else {
+						$data[$fieldName] = $value;
+					}
+				}
+				// dd($data);
+
+				
+                // Evaluamos si la tecnología ADSL fue realizada u objetada
+                if ($data['tipo_actividadGpon'] == 'REALIZADA') {
+                    // Incluimos los datos adicionales para la tecnología ADSL realizada
+                    $dataGponRealizada = new InstalacionGponRealizada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataGponRealizada->save();
+
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO GPON COMPLETADO";
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('navigation', 'Instalaciones');
+                }elseif ($data['tipo_actividadGpon'] == 'OBJETADA') {
+					
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'tipo_actividadGpon',
+						'OrdenInternet_Gpon',
+						'OrdenTv_Gpon',
+						'OrdenLinea_Gpon',
+						'MotivoObjetado_Gpon',
+						'TrabajadoGpon_Objetado',
+						'ObsGpon_Objetada',
+						'ComentariosGpon_Objetada',
+					];
+	
+					$data = [];
+	
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoGpon_Objetado' && $request->has('TrabajadoGpon_Objetado')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoGpon_Objetado') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+					// dd($data);
+
+					$dataGponObjetada = new InstalacionGponObjetada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataGponlObjetada->save();
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO GPON OBJETADO COMPLETADO";
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('navigation', 'Instalaciones');
+					
+                }elseif ($data['tipo_actividadGpon'] == 'TRANSFERIDA') {
+					
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'tipo_actividadGpon',
+						'OrdenInternet_Gpon',
+						'OrdenTv_Gpon',
+						'OrdenLinea_Gpon',
+						'MotivoTransferidoGpon',
+						'TrabajadoTransferido_Gpon',
+						'ComentarioTransferido_Gpon',
+
+					];
+	
+					$data = [];
+	
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoTransferido_Gpon' && $request->has('TrabajadoTransferido_Gpon')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoTransferido_Gpon') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+					// dd($data);
+
+					$dataGponTransferida= new InstalacionGponTransferida($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataGponTransferida->save();
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO GPON TRANSFERIDO 
+					COMPLETADO";
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('navigation', 'Instalaciones');
+					
+                }	
                 break;
             case 'COBRE':
 				$selectedFields = [

@@ -888,8 +888,8 @@ selectHide_TipoOrden.addEventListener("change", () => {
         TipoActividad_Hidden[i].style.display = "block";
       }
       // selectHide_TipoOrdenGpon.style.display = "block";
-      EqModenGpon.disabled = true;
-      NumeroGpon.disabled = false;
+      EqModenGpon.disabled = false;
+      NumeroGpon.disabled = true;
 
       for (let i = 0; i < equipotvGpon.length; i++) {
         equipotvGpon[i].disabled = false;

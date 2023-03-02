@@ -1280,8 +1280,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-square"></i>
                                     </div>
-                                    <input type="text" class="form-control equipotvGpon" id="equipotv1Gpon"
-                                        name="equipotv1Gpon" placeholder="Equipo Tv 2" />
+                                    <input type="text" class="form-control equipotvGpon" id="equipotv2Gpon"
+                                        name="equipotv2Gpon" placeholder="Equipo Tv 2" />
                                 </div>
 
                                 <div class="input-group">
@@ -1321,12 +1321,13 @@
                             </div>
 
                             <div class="form-group col-md-3">
-                                <label for="GeoRefGpon">Georeferencia</label>
+                                <label for="GeoreferenciaGpon">Georeferencia</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-map-marker"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="GeoRefGpon" name="GeoRefGpon" />
+                                    <input type="text" class="form-control" id="GeoreferenciaGpon"
+                                        name="GeoreferenciaGpon" />
                                 </div>
                             </div>
 
@@ -1341,7 +1342,7 @@
                             </div>
 
                             <div class="form-group col-md-3">
-                                <label for="SapGpon">Numero Gpon</label>
+                                <label for="NumeroGpon">Numero Gpon</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-square"></i>
@@ -1373,7 +1374,7 @@
                         </div>
                         <div class="form-group-container">
                             <div class="form-group col-md-12">
-                                <label for="telefono">Observaciones</label>
+                                <label for="ObservacionesGpon">Observaciones</label>
 
                                 <div class="input-group">
                                     <div class="input-group-addon">
@@ -1384,7 +1385,7 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
-                                <label for="telefono">Recibe</label>
+                                <label for="RecibeGpon">Recibe</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
@@ -1411,7 +1412,7 @@
                                                     <i class="fa fa-square"></i>
                                                 </div>
                                                 <input type="text" class="form-control" id="NodoGpon" name="NodoGpon"
-                                                    placeholder="Ingresa Nodo" />
+                                                    placeholder="Ingresa Nodo" name="NodoGpon" />
                                             </div>
                                         </div>
 
@@ -1442,15 +1443,15 @@
                                         </div>
 
                                         <div class="form-group col-md-12">
-                                            <label for="MaterialesRed">
+                                            <label for="MaterialesRedGpon">
                                                 Materiales
                                             </label>
                                             <div class="input-group">
                                                 <div class="input-group-addon">
                                                     <i class="fa fa-edit"></i>
                                                 </div>
-                                                <input type="text" class="form-control" id="MaterialesRed"
-                                                    name="MaterialesRed" placeholder="Comentarios..." />
+                                                <input type="text" class="form-control" id="MaterialesRedGpon"
+                                                    name="MaterialesRedGpon" placeholder="Comentarios..." />
                                             </div>
                                         </div>
                                     </div>
@@ -1494,8 +1495,8 @@
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value=""
-                                            id="flexCheckDefault" />
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                            id="TrabajadoGpon_Objetado" name="TrabajadoGpon_Objetado" />
+                                        <label class="form-check-label" for="">
                                             Trabajado
                                         </label>
                                     </div>
@@ -1514,13 +1515,13 @@
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label for="ComGpon_Objetada">Comentarios</label>
+                                <label for="ComentariosGpon_Objetada">Comentarios</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="ComGpon_Objetada"
-                                        name="ComGpon_Objetada" />
+                                    <input type="text" class="form-control" id="ComentariosGpon_Objetada"
+                                        name="ComentariosGpon_Objetada" />
                                 </div>
                             </div>
                         </div>
@@ -1534,8 +1535,8 @@
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox"
-                                            id="TrabajadoTransferido_Gpon" />
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoTransferido_Gpon"
+                                            name="TrabajadoTransferido_Gpon" />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Trabajado
                                         </label>
@@ -1703,6 +1704,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
     checkboxDth.addEventListener('change', function() {
         actualizarTextoCheckbox(checkboxDth);
+    })
+
+    function actualizarTextoCheckbox(checkbox) {
+        if (checkbox.checked) {
+            checkbox.value = 'TRABAJADO';
+        } else {
+            checkbox.value = 'PENDIENTE';
+        }
+    }
+
+    var checkboxGpon = document.getElementById('TrabajadoGpon');
+    actualizarTextoCheckbox(checkboxGpon);
+
+
+    checkboxGpon.addEventListener('change', function() {
+        actualizarTextoCheckbox(checkboxGpon);
+    })
+
+    function actualizarTextoCheckbox(checkbox) {
+        if (checkbox.checked) {
+            checkbox.value = 'TRABAJADO';
+        } else {
+            checkbox.value = 'PENDIENTE';
+        }
+    }
+
+    var checkboxGponObjetado = document.getElementById('TrabajadoGpon_Objetado');
+    actualizarTextoCheckbox(checkboxGponObjetado);
+
+
+    checkboxGponObjetado.addEventListener('change', function() {
+        actualizarTextoCheckbox(checkboxGponObjetado);
     })
 
     function actualizarTextoCheckbox(checkbox) {
