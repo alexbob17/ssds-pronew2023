@@ -8,6 +8,16 @@ use SSD\Models\InstalacionAdslRealizada;
 
 use SSD\Models\InstalacionAdslObjetada;
 
+use SSD\Models\InstalacionCobreRealizada;
+
+use SSD\Models\InstalacionCobreObjetada;
+
+use SSD\Models\InstalacionDthRealizada;
+
+use SSD\Models\InstalacionDthObjetada;
+
+
+
 use SSD\Http\Requests;
 
 use Illuminate\Support\Facades\Storage;
@@ -55,8 +65,208 @@ class LlamadasServicioController extends Controller
             case 'GPON':
                 break;
             case 'COBRE':
+				$selectedFields = [
+					'codigo_tecnico',
+					'telefono',
+					'tecnico',
+					'motivo_llamada',
+					'select_orden',
+					'dpto_colonia',
+					'tipo_actividadCobre',
+					'OrdenLineaCobre',
+					'NumeroCobre',
+					'GeoreferenciaCobre',
+					'sap_cobre',
+					'TrabajadoCobre',
+					'ObservacionesCobre',
+					'RecibeCobre',
+					'MaterialesCobre',
+                ];
+
+                $data = [];
+
+                // Iteramos por los campos seleccionados del formulario
+				foreach ($selectedFields as $fieldName) {
+					$value = $request->input($fieldName);
+					if ($fieldName === 'TrabajadoCobre' && $request->has('TrabajadoCobre')) {
+						$data[$fieldName] = 'TRABAJADO';
+					} elseif ($fieldName === 'TrabajadoCobre') {
+						$data[$fieldName] = 'PENDIENTE';
+					} else {
+						$data[$fieldName] = $value;
+					}
+				}
+				// dd($data);
+
+				
+                // Evaluamos si la tecnología ADSL fue realizada u objetada
+                if ($data['tipo_actividadCobre'] == 'REALIZADA') {
+                    // Incluimos los datos adicionales para la tecnología ADSL realizada
+                    $dataCobreRealizada = new InstalacionCobreRealizada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataCobreRealizada->save();
+
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO COBRE COMPLETADO";
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('navigation', 'Instalaciones');
+                }
+				elseif ($data['tipo_actividadCobre'] == 'OBJETADA') {
+					
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'tipo_actividadCobre',
+						'MotivoObjetada_Cobre',
+						'OrdenCobre_Objetada',
+						'TrabajadoCobre_Objetado',
+						'ComentariosCobre_Objetados',
+					];
+	
+					$data = [];
+	
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoCobre_Objetado' && $request->has('TrabajadoCobre_Objetado')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoCobre_Objetado') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+					// dd($data);
+
+					$dataCobreObjetada = new InstalacionCobreObjetada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataCobreObjetada->save();
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO COBRE OBJETADO COMPLETADO";
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('navigation', 'Instalaciones');
+					
+                }
                 break;
             case 'DTH':
+				$selectedFields = [
+                    'codigo_tecnico',
+					'telefono',
+					'tecnico',
+					'motivo_llamada',
+					'select_orden',
+					'dpto_colonia',
+					'tipo_actividadDth',
+					'ordenTv_Dth',
+					'SyrengDth',
+					'GeoreferenciaDth',
+					'sap_dth',
+					'TrabajadoDth',
+					'SmarcardDth1',
+					'SmarcardDth2',
+					'SmarcardDth3',
+					'SmarcardDth4',
+					'SmarcardDth5',
+					'StbDth1',
+					'StbDth2',
+					'StbDth3',
+					'StbDth4',
+					'StbDth5',
+					'ObservacionesDth',
+					'RecibeDth',
+					'MaterialesDth'
+                ];
+
+                $data = [];
+
+                // Iteramos por los campos seleccionados del formulario
+				foreach ($selectedFields as $fieldName) {
+					$value = $request->input($fieldName);
+					if ($fieldName === 'TrabajadoDth' && $request->has('TrabajadoDth')) {
+						$data[$fieldName] = 'TRABAJADO';
+					} elseif ($fieldName === 'TrabajadoDth') {
+						$data[$fieldName] = 'PENDIENTE';
+					} else {
+						$data[$fieldName] = $value;
+					}
+				}
+				// dd($data);
+				
+                // Evaluamos si la tecnología ADSL fue realizada u objetada
+                if ($data['tipo_actividadDth'] == 'REALIZADA') {
+                    // Incluimos los datos adicionales para la tecnología ADSL realizada
+                    $dataDthRealizada = new InstalacionDthRealizada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataDthRealizada->save();
+
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO DTH COMPLETADO";
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('navigation', 'Instalaciones');
+                }elseif ($data['tipo_actividadDth'] == 'OBJETADA') {
+					
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'tipo_actividadDth',
+						'MotivoObjetada_Dth',
+						'TrabajadoObj_Dth',
+						'OrdenObj_Dth',
+						'ComentarioObjetado_Dth',
+					];
+	
+					$data = [];
+	
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoObj_Dth' && $request->has('TrabajadoObj_Dth')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoObj_Dth') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+					// dd($data);
+
+					$dataDthObjetada = new InstalacionDthObjetada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataDthObjetada->save();
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO DTH OBJETADO COMPLETADO";
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('navigation', 'Instalaciones');
+					
+                }
                 break;
             case 'ADSL':
                 $selectedFields = [

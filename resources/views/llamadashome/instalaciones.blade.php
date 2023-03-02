@@ -712,12 +712,13 @@
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="GeoRefDth">Georeferencia</label>
+                                    <label for="GeoreferenciaDth">Georeferencia</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-map-marker"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="GeoRefDth" name="GeoRefDth" />
+                                        <input type="text" class="form-control" id="GeoreferenciaDth"
+                                            name="GeoreferenciaDth" />
                                     </div>
                                 </div>
 
@@ -733,7 +734,8 @@
 
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="TrabajadoDth" />
+                                        <input class="form-check-input" type="checkbox" value="" id="TrabajadoDth"
+                                            name="TrabajadoDth" />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Trabajado
                                         </label>
@@ -820,12 +822,13 @@
 
                             <div class="form-group-container">
                                 <div class="form-group col-md-12">
-                                    <label for="ObsDth">Observaciones</label>
+                                    <label for="ObservacionesDth">Observaciones</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-exclamation-triangle"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObsDth" name="ObsDth" />
+                                        <input type="text" class="form-control" id="ObservacionesDth"
+                                            name="ObservacionesDth" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -897,7 +900,8 @@
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoObj_Dth" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoObj_Dth"
+                                                name="TrabajadoObj_Dth" />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -906,15 +910,15 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComObjetado_Dth">
+                                    <label for="ComentarioObjetado_Dth">
                                         Comentarios
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComObjetado_Dth"
-                                            name="ComObjetado_Dth" />
+                                        <input type="text" class="form-control" id="ComentarioObjetado_Dth"
+                                            name="ComentarioObjetado_Dth" />
                                     </div>
                                 </div>
                             </div>
@@ -1016,12 +1020,13 @@
                             </div>
 
                             <div class="form-group col-md-3">
-                                <label for="GeoCobreMap">Georeferencia</label>
+                                <label for="GeoreferenciaCobre">Georeferencia</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-map-marker"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="GeoCobreMap" name="GeoCobreMap" />
+                                    <input type="text" class="form-control" id="GeoreferenciaCobre"
+                                        name="GeoreferenciaCobre" />
                                 </div>
                             </div>
 
@@ -1037,7 +1042,8 @@
 
                             <div class="form-group col-md-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="TrabajadoCobre" />
+                                    <input class="form-check-input" type="checkbox" value="" id="TrabajadoCobre"
+                                        name="TrabajadoCobre" />
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Trabajado
                                     </label>
@@ -1046,12 +1052,13 @@
                         </div>
                         <div class="form-group-container">
                             <div class="form-group col-md-12">
-                                <label for="ObsCobre">Observaciones</label>
+                                <label for="ObservacionesCobre">Observaciones</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-eye"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="ObsCobre" name="ObsCobre" />
+                                    <input type="text" class="form-control" id="ObservacionesCobre"
+                                        name="ObservacionesCobre" />
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -1124,7 +1131,7 @@
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value=""
-                                            id="TrabajadoCobre_Objetado" />
+                                            id="TrabajadoCobre_Objetado" name="TrabajadoCobre_Objetado" />
                                         <label class="form-check-label">
                                             Trabajado
                                         </label>
@@ -1640,8 +1647,74 @@ document.addEventListener('DOMContentLoaded', function() {
             checkbox.value = 'PENDIENTE';
         }
     }
+
+    var checkboxAdslObjetado = document.getElementById('TrabajadoAdslObjetado');
+    actualizarTextoCheckbox(checkboxAdslObjetado);
+
+
+    checkboxAdslObjetado.addEventListener('change', function() {
+        actualizarTextoCheckbox(checkboxAdslObjetado);
+    })
+
+    function actualizarTextoCheckbox(checkbox) {
+        if (checkbox.checked) {
+            checkbox.value = 'TRABAJADO';
+        } else {
+            checkbox.value = 'PENDIENTE';
+        }
+    }
+
+    var checkboxCobre = document.getElementById('TrabajadoCobre');
+    actualizarTextoCheckbox(checkboxCobre);
+
+
+    checkboxCobre.addEventListener('change', function() {
+        actualizarTextoCheckbox(checkboxCobre);
+    })
+
+    function actualizarTextoCheckbox(checkbox) {
+        if (checkbox.checked) {
+            checkbox.value = 'TRABAJADO';
+        } else {
+            checkbox.value = 'PENDIENTE';
+        }
+    }
+
+
+    var checkboxCobreObjetado = document.getElementById('TrabajadoCobre_Objetado');
+    actualizarTextoCheckbox(checkboxCobreObjetado);
+
+
+    checkboxCobreObjetado.addEventListener('change', function() {
+        actualizarTextoCheckbox(checkboxCobreObjetado);
+    })
+
+    function actualizarTextoCheckbox(checkbox) {
+        if (checkbox.checked) {
+            checkbox.value = 'TRABAJADO';
+        } else {
+            checkbox.value = 'PENDIENTE';
+        }
+    }
+
+    var checkboxDth = document.getElementById('TrabajadoDth');
+    actualizarTextoCheckbox(checkboxDth);
+
+
+    checkboxDth.addEventListener('change', function() {
+        actualizarTextoCheckbox(checkboxDth);
+    })
+
+    function actualizarTextoCheckbox(checkbox) {
+        if (checkbox.checked) {
+            checkbox.value = 'TRABAJADO';
+        } else {
+            checkbox.value = 'PENDIENTE';
+        }
+    }
 });
 </script>
+
 
 
 
