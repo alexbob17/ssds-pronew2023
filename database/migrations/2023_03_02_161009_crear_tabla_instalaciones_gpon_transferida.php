@@ -21,9 +21,9 @@ class CrearTablaInstalacionesGponTransferida extends Migration
             $table->string('select_orden');
             $table->string('dpto_colonia');
             $table->string('tipo_actividadGpon');
-            $table->integer('OrdenInternet_Gpon');
-            $table->integer('OrdenTv_Gpon');
-            $table->integer('OrdenLinea_Gpon');
+            $table->integer('OrdenInternet_Gpon')->nullable();
+            $table->integer('OrdenTv_Gpon')->nullable();
+            $table->integer('OrdenLinea_Gpon')->nullable();
             $table->string('MotivoTransferidoGpon');
             $table->string('TrabajadoTransferido_Gpon');
             $table->string('ComentarioTransferido_Gpon');

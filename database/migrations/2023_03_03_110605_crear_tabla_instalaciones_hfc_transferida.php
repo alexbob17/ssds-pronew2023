@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CrearTablaInstalacionesGponObjetada extends Migration
+class CrearTablaInstalacionesHfcTransferida extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CrearTablaInstalacionesGponObjetada extends Migration
     public function up()
     {
         
-        Schema::create('instalaciongpon_objetada', function (Blueprint $table) {
+        Schema::create('instalacionhfc_transferida', function (Blueprint $table) {
             $table->increments('id');
             $table->string('codigo_tecnico');
             $table->string('telefono');
@@ -21,17 +21,15 @@ class CrearTablaInstalacionesGponObjetada extends Migration
             $table->string('motivo_llamada');
             $table->string('select_orden');
             $table->string('dpto_colonia');
-            $table->string('tipo_actividadGpon');
-            $table->integer('OrdenInternet_Gpon')->nullable();
-            $table->integer('OrdenTv_Gpon')->nullable();
-            $table->integer('OrdenLinea_Gpon')->nullable();
-            $table->string('MotivoObjetado_Gpon');
-            $table->string('TrabajadoGpon_Objetado');
-            $table->string('ObsGpon_Objetada');
-            $table->string('ComentariosGpon_Objetada');
+            $table->string('tipo_actividad');
+            $table->integer('orden_tv_hfc')->nullable();
+            $table->integer('orden_internet_hfc')->nullable();
+            $table->integer('orden_linea_hfc')->nullable();
+            $table->string('TrabajadoTransferido_Hfc');
+            $table->string('MotivoTransferidoHfc');
+            $table->string('ComentariosTransferida_Hfc');
             $table->timestamps();
         });
-
     }
 
     /**
@@ -41,7 +39,6 @@ class CrearTablaInstalacionesGponObjetada extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('instalaciongpon_objetada');
-
+        Schema::dropIfExists('instalacionhfc_transferida');
     }
 }

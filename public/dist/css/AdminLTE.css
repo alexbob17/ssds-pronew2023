@@ -19,17 +19,123 @@ body {
   overflow-y:thin;;
 }
 
+.span_check{
+  position: absolute;
+  right: 10px; /* ajusta esto para posicionar el icono en la derecha */
+  top: 50%; /* ajusta esto para posicionar el icono verticalmente */
+  transform: translateY(-50%);
+  z-index: 100;
+  color: rgb(67, 170, 19);
+}
+
+.span_error{
+  position: absolute;
+  right: 10px; /* ajusta esto para posicionar el icono en la derecha */
+  top: 50%; /* ajusta esto para posicionar el icono verticalmente */
+  transform: translateY(-50%);
+  z-index: 100;
+  color: rgb(241, 37, 37);
+}
+
+.hideElement {
+  display: none;
+}
+
+.span_error_mensaje{
+  font-size: 12px;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  color: #e71717;
+  font-weight: bold;
+}
+
+input[type=checkbox], input[type=radio]{
+  margin: 4px 0 0;
+  margin-top: 1px\9;
+  transform: scale(1.5)!important;
+  line-height: normal;
+  transition: 0.35s ease-in-out !important;
+  transition: all 0.35s ease-in-out !important;
+}
+
+.form-check-label{
+  padding:12px !important;
+}
+
+.form-check{
+  display:flex!important;
+  padding-top: 21px !important;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
+input{
+  /* border-radius: 3px !important; */
+  /* background-color: #F9F9F9 !important; */
+  -webkit-transition: 0.35s ease-in-out;
+  -moz-transition: 0.35s ease-in-out;
+  -o-transition: 0.35s ease-in-out;
+  transition: 0.35s ease-in-out !important;
+  transition: all 0.35s ease-in-out !important;
+}
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+input:focus {
+  outline: 0;
+  border-color: #1e2be4 !important;
+}
+
+input{
+  height: 36px !important;
+}
+
+/* .input-group .form-control{
+  border-left: none;
+}
+
+.input-group-addon:focus{
+  outline: 0;
+  border-color: #1e2be4 !important;
+}
+
+.input-container {
+  position: relative;
+}
+.input-container label {
+  position: absolute;
+  /* left: 10px;  */
+  /* top: 25%;
+  transform: translateY(-50%); */
+/* } */
+/* .input-container input {
+  padding-left: 30px;
+  width: auto;
+  height: 40px;
+  border-radius: 5px;
+} */
+
+/* Estilos para el icono */
+/* .input-container i {
+  position: absolute;
+  top: 0;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+  */
+
 
 .search-input{
   width: 250px !important;
@@ -2538,13 +2644,15 @@ a:focus {
   background-color: #e7e7e7;
 }
 .btn-primary {
-  background-color: #3c8dbc;
-  border-color: #367fa9;
+  background-color: #3e69d6 !important;
+  border-color: #3E69D6;
+
 }
+
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.hover {
-  background-color: #367fa9;
+  background-color: #225b9c !important;
 }
 .btn-success {
   background-color: #00a65a;

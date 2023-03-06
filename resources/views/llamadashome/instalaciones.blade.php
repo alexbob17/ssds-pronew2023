@@ -26,7 +26,7 @@
                             <div class="input-group-addon">
                                 <i class="fa fa-square"></i>
                             </div>
-                            <input type="text" class="form-control" placeholder="Ingrese Codigo Tecnico"
+                            <input type="text" class="form-control effect-8" placeholder="N° Codigo Tecnico"
                                 id="codigo_tecnico" name="codigo_tecnico"
                                 oninput="this.value = this.value.toUpperCase()" />
                         </div>
@@ -46,7 +46,8 @@
                                 <div class="input-group-addon">
                                     <i class="fa fa-phone-square"></i>
                                 </div>
-                                <input type="text" class="form-control" id="telefono" name="telefono" readonly="true" />
+                                <input type="text" placeholder="Numero" class="form-control" id="telefono"
+                                    name="telefono" readonly="true" />
                             </div>
                         </div>
                         <div class="form-group col-md-5">
@@ -55,7 +56,8 @@
                                 <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                 </div>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico" readonly="true" />
+                                <input type="text" placeholder="Nombre Tecnico" class="form-control" id="tecnico"
+                                    name="tecnico" readonly="true" />
                             </div>
                         </div>
                     </div>
@@ -208,7 +210,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="sapHfc" name="sapHfc" />
+                                    <input type="text" class="form-control" id="sapHfc" name="sapHfc" />
                                 </div>
                             </div>
 
@@ -252,7 +254,8 @@
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoHfc" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
+                                                name="TrabajadoHfc" />
                                             <label class="form-check-label" for="TrabajadoHfc">
                                                 Trabajado
                                             </label>
@@ -390,7 +393,8 @@
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaHfc" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaHfc"
+                                                name="TrabajadoObjetadaHfc" />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -419,7 +423,8 @@
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="TrabajadoTransferido_Hfc" />
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoTransferido_Hfc"
+                                            name="TrabajadoTransferido_Hfc" />
                                         <label class="form-check-label">
                                             Trabajado
                                         </label>
@@ -481,8 +486,16 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="orden_internet_adsl"
-                                        name="orden_internet_adsl" />
+                                        name="orden_internet_adsl" placeholder="Ingresa N° Orden" />
+                                    <span class="span_check checkValid" id="checkValid"><i
+                                            class="fa-solid fa-circle-check"></i></span>
+
+                                    <span class="span_error checkError" id="checkError"><i
+                                            class="fa-sharp fa-solid fa-circle-exclamation"></i></span>
                                 </div>
+                                <!-- <span class="span_error_mensaje" id="ErrorOrdenInternetAdsl">Debes de ingresar 8
+                                    digitos</span> -->
+
                             </div>
 
                             <div class="form-group col-md-3">
@@ -492,20 +505,21 @@
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                     <input type="text" class="form-control" id="Georeferencia_Adsl"
-                                        name="Georeferencia_Adsl" />
+                                        name="Georeferencia_Adsl" placeholder="Latitud, Longitud" />
+
+
                                 </div>
                             </div>
 
 
                             <div class="form-group col-md-3">
-                                <div class="form-check">
+                                <div class="form-check" style="display:flex;padding-top: 21px;">
                                     <input class="form-check-input" type="checkbox" value="" id="TrabajadoAdsl"
                                         name="TrabajadoAdsl" />
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Trabajado
                                     </label>
                                 </div>
-
 
 
                             </div>
@@ -517,7 +531,13 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="Obvservaciones_Adsl"
-                                            name="Obvservaciones_Adsl" />
+                                            name="Obvservaciones_Adsl" placeholder="Observaciones del caso" />
+
+                                        <span class="span_check checkValid" id="checkValid1"><i
+                                                class="fa-solid fa-circle-check"></i></span>
+
+                                        <span class="span_error checkError" id="checkError1"><i
+                                                class="fa-sharp fa-solid fa-circle-exclamation"></i></span>
                                     </div>
                                 </div>
 
@@ -527,7 +547,8 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="Recibe_Adsl" name="Recibe_Adsl" />
+                                        <input type="text" class="form-control" placeholder="Ingresa quien recibe"
+                                            id="Recibe_Adsl" name="Recibe_Adsl" />
                                     </div>
                                 </div>
 
@@ -583,7 +604,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="OrdenAdsl_Objetada"
-                                        name="OrdenAdsl_Objetada" />
+                                        name="OrdenAdsl_Objetada" placeholder="Ingresa N° Orden" />
                                 </div>
                             </div>
 
@@ -609,7 +630,7 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosObjetada_Adsl"
-                                        name="ComentariosObjetada_Adsl" />
+                                        name="ComentariosObjetada_Adsl" placeholder="Comentarios del caso" />
                                 </div>
                             </div>
                         </div>
@@ -697,7 +718,8 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="ordenTv_Dth" name="ordenTv_Dth" />
+                                        <input type="number" placeholder="Ingresa N° Orden Tv" class="form-control"
+                                            id="ordenTv_Dth" name="ordenTv_Dth" />
                                     </div>
                                 </div>
 
@@ -707,7 +729,8 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="SyrengDth" name="SyrengDth" />
+                                        <input type="number" placeholder="Ingresa N° Syreng" class="form-control"
+                                            id="SyrengDth" name="SyrengDth" />
                                     </div>
                                 </div>
 
@@ -718,7 +741,7 @@
                                             <i class="fa fa-map-marker"></i>
                                         </div>
                                         <input type="text" class="form-control" id="GeoreferenciaDth"
-                                            name="GeoreferenciaDth" />
+                                            name="GeoreferenciaDth" placeholder="Latidud, Longitud" />
                                     </div>
                                 </div>
 
@@ -728,7 +751,8 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="sap_dth" name="sap_dth" />
+                                        <input type="text" placeholder="Ingresa SAP" class="form-control" id="sap_dth"
+                                            name="sap_dth" />
                                     </div>
                                 </div>
 
@@ -750,36 +774,36 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="SmarcardDth1"
-                                            name="SmarcardDth1" />
+                                        <input type="number" class="form-control" id="SmarcardDth1" name="SmarcardDth1"
+                                            placeholder="Smarcard 1" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="SmarcardDth2"
-                                            name="SmarcardDth2" />
+                                        <input type="number" class="form-control" id="SmarcardDth2" name="SmarcardDth2"
+                                            placeholder="Smarcard 2" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="SmarcardDth3"
-                                            name="SmarcardDth3" />
+                                        <input type="number" class="form-control" id="SmarcardDth3" name="SmarcardDth3"
+                                            placeholder="Smarcard 3" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="SmarcardDth4"
-                                            name="SmarcardDth4" />
+                                        <input type="number" class="form-control" id="SmarcardDth4" name="SmarcardDth4"
+                                            placeholder="Smarcard 4" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="SmarcardDth5"
-                                            name="SmarcardDth5" />
+                                        <input type="number" class="form-control" id="SmarcardDth5" name="SmarcardDth5"
+                                            placeholder="Smarcard 5" />
                                     </div>
                                 </div>
                             </div>
@@ -791,31 +815,36 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="StbDth1" name="StbDth1" />
+                                        <input type="number" placeholder="STB 1" class="form-control" id="StbDth1"
+                                            name="StbDth1" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="StbDth2" name="StbDth2" />
+                                        <input type="number" placeholder="STB 2" class="form-control" id="StbDth2"
+                                            name="StbDth2" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="StbDth3" name="StbDth3" />
+                                        <input type="number" placeholder="STB 3" class="form-control" id="StbDth3"
+                                            name="StbDth3" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="StbDth4" name="StbDth4" />
+                                        <input type="number" placeholder="STB 4" class="form-control" id="StbDth4"
+                                            name="StbDth4" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="StbDth5" name="StbDth5" />
+                                        <input type="number" placeholder="STB 5" class="form-control" id="StbDth5"
+                                            name="StbDth5" />
                                     </div>
                                 </div>
                             </div>
@@ -825,10 +854,10 @@
                                     <label for="ObservacionesDth">Observaciones</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
-                                            <i class="fa fa-exclamation-triangle"></i>
+                                            <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObservacionesDth"
-                                            name="ObservacionesDth" />
+                                            name="ObservacionesDth" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -837,7 +866,8 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="RecibeDth" name="RecibeDth" />
+                                        <input type="text" placeholder="Ingresa quien recibe" class=" form-control"
+                                            id="RecibeDth" name="RecibeDth" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -846,8 +876,8 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MaterialesDth"
-                                            name="MaterialesDth" />
+                                        <input type="text" class="form-control" id="MaterialesDth" name="MaterialesDth"
+                                            placeholder="Comentarios..." />
                                     </div>
                                 </div>
                             </div>
@@ -892,8 +922,8 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObj_Dth"
-                                            name="OrdenObj_Dth" />
+                                        <input type="number" class="form-control" id="OrdenObj_Dth" name="OrdenObj_Dth"
+                                            placeholder="Ingresa N° Orden" />
                                     </div>
                                 </div>
 
@@ -918,7 +948,7 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioObjetado_Dth"
-                                            name="ComentarioObjetado_Dth" />
+                                            name="ComentarioObjetado_Dth" placeholder="Ingresa comentarios del caso" />
                                     </div>
                                 </div>
                             </div>
@@ -1005,7 +1035,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="OrdenLineaCobre"
-                                        name="OrdenLineaCobre" />
+                                        name="OrdenLineaCobre" placeholder="Ingrese N° Orden" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
@@ -1015,7 +1045,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-phone-square"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="NumeroCobre" name="NumeroCobre" />
+                                    <input type="number" placeholder="Ingresa Numero Cobre" class="form-control"
+                                        id="NumeroCobre" name="NumeroCobre" />
                                 </div>
                             </div>
 
@@ -1026,7 +1057,7 @@
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                     <input type="text" class="form-control" id="GeoreferenciaCobre"
-                                        name="GeoreferenciaCobre" />
+                                        name="GeoreferenciaCobre" placeholder="Latitud, Longitud" />
                                 </div>
                             </div>
 
@@ -1036,7 +1067,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="sap_cobre" name="sap_cobre" />
+                                    <input type="text" placeholder="Ingresa Sap" class="form-control" id="sap_cobre"
+                                        name="sap_cobre" />
                                 </div>
                             </div>
 
@@ -1058,7 +1090,7 @@
                                         <i class="fa fa-eye"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ObservacionesCobre"
-                                        name="ObservacionesCobre" />
+                                        name="ObservacionesCobre" placeholder="Ingresa las observaciones del caso" />
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -1067,7 +1099,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="RecibeCobre" name="RecibeCobre" />
+                                    <input type="text" class="form-control" placeholder="Ingresa quien recibe el caso"
+                                        id="RecibeCobre" name="RecibeCobre" />
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -1076,8 +1109,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="MaterialesCobre"
-                                        name="MaterialesCobre" />
+                                    <input type="text" class="form-control" id="MaterialesCobre" name="MaterialesCobre"
+                                        placeholder="Comentarios..." />
                                 </div>
                             </div>
                         </div>
@@ -1122,8 +1155,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="OrdenCobre
-                                _Objetada" name="OrdenCobre_Objetada" />
+                                    <input type="number" class="form-control" id="OrdenCobre_Objetada"
+                                        name="OrdenCobre_Objetada" placeholder="Ingresa N° Orden" />
                                 </div>
                             </div>
 
@@ -1150,7 +1183,7 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosCobre_Objetados"
-                                        name="ComentariosCobre_Objetados" />
+                                        name="ComentariosCobre_Objetados" placeholder="Ingresa comentarios del caso" />
                                 </div>
                             </div>
                         </div>
@@ -1364,7 +1397,8 @@
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="TrabajadoGpon" />
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoGpon"
+                                            name="TrabajadoGpon" />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Trabajado
                                         </label>
@@ -1412,7 +1446,7 @@
                                                     <i class="fa fa-square"></i>
                                                 </div>
                                                 <input type="text" class="form-control" id="NodoGpon" name="NodoGpon"
-                                                    placeholder="Ingresa Nodo" name="NodoGpon" />
+                                                    placeholder="Ingresa N° Nodo" />
                                             </div>
                                         </div>
 
@@ -1425,7 +1459,7 @@
                                                     <i class="fa fa-square"></i>
                                                 </div>
                                                 <input type="number" class="form-control" id="CajaGpon" name="CajaGpon"
-                                                    placeholder="Ingresa Caja" />
+                                                    placeholder="Ingresa N° Caja" />
                                             </div>
                                         </div>
 
@@ -1545,7 +1579,7 @@
                             </div>
 
                             <div class="form-group col-md-12">
-                                <label for="MotivoTransferidoGpon">Motivo Trasnferido</label>
+                                <label for="MotivoTransferidoGpon">Motivo Transferido</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
@@ -1569,9 +1603,13 @@
                     </div>
                 </div>
 
-                <div class="box-footer" id="" style="text-align: center; display: flex; justify-content: center;">
-                    <button id="btn-submit" type="submit" class="btn btn-warning">GUARDAR REGISTRO</button>
+                <div class="box-footer" id="btn-submitForm"
+                    style="text-align: center; display: flex; justify-content: center;">
+                    <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-floppy-disk"
+                            style="padding-right:8px"></i>GUARDAR
+                        REGISTRO</button>
                 </div>
+
             </form>
         </div>
     </div>
@@ -1745,6 +1783,41 @@ document.addEventListener('DOMContentLoaded', function() {
             checkbox.value = 'PENDIENTE';
         }
     }
+
+
+    var checkboxGponTransferido = document.getElementById('TrabajadoTransferido_Gpon');
+    actualizarTextoCheckbox(checkboxGponTransferido);
+
+
+    checkboxGponTransferido.addEventListener('change', function() {
+        actualizarTextoCheckbox(checkboxGponTransferido);
+    })
+
+    function actualizarTextoCheckbox(checkbox) {
+        if (checkbox.checked) {
+            checkbox.value = 'TRABAJADO';
+        } else {
+            checkbox.value = 'PENDIENTE';
+        }
+    }
+
+    var checkboxGponTrabajadoHfc = document.getElementById('TrabajadoHfc');
+    actualizarTextoCheckbox(checkboxGponTrabajadoHfc);
+
+
+    checkboxGponTrabajadoHfc.addEventListener('change', function() {
+        actualizarTextoCheckbox(checkboxGponTrabajadoHfc);
+    })
+
+    function actualizarTextoCheckbox(checkbox) {
+        if (checkbox.checked) {
+            checkbox.value = 'TRABAJADO';
+        } else {
+            checkbox.value = 'PENDIENTE';
+        }
+    }
+
+
 });
 </script>
 
@@ -1759,11 +1832,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
 <!-- User definided -->
 <link rel="stylesheet" href="{{ asset('/css/center-modal.css') }}" />
-<style>
-[type="submit"]:disabled {
-    cursor: default;
-}
-</style>
+
 @endsection @section('scripts')
 <!-- datepicker -->
 <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript"></script>
@@ -1790,6 +1859,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <script src="{{asset('/js/registro/ValidacionTecnico.js')}}" type="text/javascript"></script>
 <script src="{{asset('/js/instalaciones/ValoresTecnico.js')}}" type="text/javascript"></script>
 
-<!-- <script src="{{asset('/js/instalaciones/registro.js')}}" type="text/javascript"> </script> -->
+<script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"> </script>
 
 @endsection
