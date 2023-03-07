@@ -404,38 +404,76 @@
 
                     <!-- POSTVENTAS TRASLADOS GPON -->
                     <div class="form-group-container HiddenTrasladoGpon" id="PostventaTrasladosGpon">
-                        <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
-                            <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES GPON</label>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="OrdenInternet_Gpon">Orden Internet</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-ticket"></i>
-                                </div>
-                                <input type="number" class="form-control OrdenGpon" id="OrdenInternet_Gpon"
-                                    name="OrdenInternet_Gpon" />
+                        <div class="form-group-container">
+                            <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
+                                <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES GPON</label>
                             </div>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="OrdenTv_Gpon">Orden Tv</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-ticket"></i>
+                            <div class="form-group col-md-3">
+                                <label for="OrdenInternet_Gpon">Orden Internet</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="number" class="form-control OrdenGpon" id="OrdenInternet_Gpon"
+                                        name="OrdenInternet_Gpon" />
                                 </div>
-                                <input type="number" class="form-control OrdenGpon" id="OrdenTv_Gpon"
-                                    name="OrdenTv_Gpon" />
                             </div>
-                        </div>
+                            <div class="form-group col-md-3">
+                                <label for="OrdenTv_Gpon">Orden Tv</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="number" class="form-control OrdenGpon" id="OrdenTv_Gpon"
+                                        name="OrdenTv_Gpon" />
+                                </div>
+                            </div>
 
-                        <div class="form-group col-md-3">
-                            <label for="OrdenLinea_Gpon">Orden Linea</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-ticket"></i>
+                            <div class="form-group col-md-3">
+                                <label for="OrdenLinea_Gpon">Orden Linea</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="number" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
+                                        name="OrdenLinea_Gpon" />
                                 </div>
-                                <input type="number" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
-                                    name="OrdenLinea_Gpon" />
+                            </div>
+                        </div>
+                        <div class="form-group-container">
+
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoTransferido_Gpon"
+                                            name="TrabajadoTransferido_Gpon" />
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Trabajado
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="MotivoTransferidoGpon">Motivo Transferido</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="MotivoTransferidoGpon"
+                                        name="MotivoTransferidoGpon" />
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="ComentarioTransferido_Gpon">Comentarios</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
+                                        name="ComentarioTransferido_Gpon" />
+                                </div>
                             </div>
                         </div>
                     </div>

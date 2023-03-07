@@ -1,3 +1,8 @@
+$(function () {
+  // Initialize Select2 Elements
+  $(".select2").select2();
+});
+
 // Obtenemos los elementos a ocultar o mostrar
 const postventaTrasladosHfc = document.getElementById("PostventaTrasladosHfc");
 const postventaTrasladosGpon = document.getElementById(
@@ -89,7 +94,7 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaTrasladoHfc"),
       document.getElementById("ObjetadaTrasladoHfc"),
-      document.getElementById("ObjetadaTrasladoHfc"),
+      document.getElementById("PostventaTrasladosGpon"),
     ],
   },
 ];
