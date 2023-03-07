@@ -131,7 +131,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
                 }elseif ($data['tipo_actividad'] == 'OBJETADA') {
 					
@@ -176,7 +176,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
 					
                 }elseif ($data['tipo_actividad'] == 'TRANSFERIDA') {
@@ -223,7 +223,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
 					
                 }
@@ -288,7 +288,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
                 }elseif ($data['tipo_actividadGpon'] == 'OBJETADA') {
 					
@@ -334,7 +334,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
 					
                 }elseif ($data['tipo_actividadGpon'] == 'TRANSFERIDA') {
@@ -381,7 +381,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
 					
                 }	
@@ -435,7 +435,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
                 }
 				elseif ($data['tipo_actividadCobre'] == 'OBJETADA') {
@@ -479,7 +479,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
 					
                 }
@@ -542,7 +542,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
                 }elseif ($data['tipo_actividadDth'] == 'OBJETADA') {
 					
@@ -585,7 +585,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
 					
                 }
@@ -637,7 +637,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
                 } elseif ($data['tipo_actividadAdsl'] == 'OBJETADA') {
 					
@@ -680,7 +680,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Instalaciones Servicio')
+                        ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
 					
                 }

@@ -1258,7 +1258,7 @@
                                     <i class="fa fa-ticket"></i>
                                 </div>
                                 <input type="number" class="form-control OrdenGpon" id="OrdenInternet_Gpon"
-                                    name="OrdenInternet_Gpon" disabled />
+                                    name="OrdenInternet_Gpon" placeholder="N° Orden Internet" disabled />
                             </div>
                         </div>
                         <div class="form-group col-md-3">
@@ -1268,7 +1268,7 @@
                                     <i class="fa fa-ticket"></i>
                                 </div>
                                 <input type="number" class="form-control OrdenGpon" id="OrdenTv_Gpon"
-                                    name="OrdenTv_Gpon" disabled />
+                                    name="OrdenTv_Gpon" placeholder="N° Orden Gpon" disabled />
                             </div>
                         </div>
 
@@ -1279,7 +1279,7 @@
                                     <i class="fa fa-ticket"></i>
                                 </div>
                                 <input type="number" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
-                                    name="OrdenLinea_Gpon" disabled />
+                                    name="OrdenLinea_Gpon" placeholder="N° Orden Linea" disabled />
                             </div>
                         </div>
                     </div>
@@ -1349,7 +1349,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-rss"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="EqModenGpon" name="EqModenGpon" />
+                                    <input type="text" class="form-control" id="EqModenGpon"
+                                        placeholder="N° Equipo Modem" name="EqModenGpon" />
                                 </div>
                             </div>
 
@@ -1360,7 +1361,7 @@
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                     <input type="text" class="form-control" id="GeoreferenciaGpon"
-                                        name="GeoreferenciaGpon" />
+                                        name="GeoreferenciaGpon" placeholder="Latitud,Longitud" />
                                 </div>
                             </div>
 
@@ -1370,7 +1371,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="SapGpon" name="SapGpon" />
+                                    <input type="text" class="form-control" id="SapGpon" placeholder="Ingrese SAP"
+                                        name="SapGpon" />
                                 </div>
                             </div>
 
@@ -1380,7 +1382,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-square"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="NumeroGpon" name="NumeroGpon" />
+                                    <input type="number" class="form-control" id="NumeroGpon"
+                                        placeholder="Ingresa N° Gpon" name="NumeroGpon" />
                                 </div>
                             </div>
 
@@ -1544,7 +1547,7 @@
                                         <i class="fa fa-eye"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ObsGpon_Objetada"
-                                        name="ObsGpon_Objetada" />
+                                        name="ObsGpon_Objetada" placeholder="Ingresa las observaciones del caso" />
                                 </div>
                             </div>
 
@@ -1555,7 +1558,7 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosGpon_Objetada"
-                                        name="ComentariosGpon_Objetada" />
+                                        name="ComentariosGpon_Objetada" placeholder="Comentarios..." />
                                 </div>
                             </div>
                         </div>
@@ -1584,7 +1587,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="MotivoTransferidoGponn"
+                                    <input type="text" class="form-control" id="MotivoTransferidoGpon"
                                         name="MotivoTransferidoGpon" />
                                 </div>
                             </div>
@@ -1854,7 +1857,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput_locale_es.js') }}" type="text/javascript">
 </script>
 <!-- User definided -->
-<script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script>
+<!-- <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script> -->
 <script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
 <script src="{{asset('/js/registro/ValidacionTecnico.js')}}" type="text/javascript"></script>
 <script src="{{asset('/js/instalaciones/ValoresTecnico.js')}}" type="text/javascript"></script>

@@ -1,3 +1,8 @@
+$(function () {
+  // Initialize Select2 Elements
+  $(".select2").select2();
+});
+
 const select_orden = document.getElementById("select_orden");
 const btn_save = document.getElementById("btn-submitForm");
 btn_save.style.display = "none";

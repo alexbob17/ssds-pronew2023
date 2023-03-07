@@ -19,6 +19,12 @@ motivo_llamada.addEventListener("change", function () {
     localStorage.setItem("telefono", telefono.value);
     localStorage.setItem("tecnico", tecnico.value);
   }
+  if (selectedOption === "POSTVENTA") {
+    // Guardar los valores en el LocalStorage
+    localStorage.setItem("codigo_tecnico", codigo_tecnico.value);
+    localStorage.setItem("telefono", telefono.value);
+    localStorage.setItem("tecnico", tecnico.value);
+  }
 });
 
 // const btn_busqueda = document.getElementById("btn_busqueda");
