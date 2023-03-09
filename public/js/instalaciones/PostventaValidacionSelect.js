@@ -3,7 +3,7 @@ $(function () {
   $(".select2").select2();
 });
 
-// Obtenemos los forms generales a ocultar de traslados
+// OBTENEMOS LOS FORMS GENERALES A OCULTAR DE POSVENTA TRASLADOS
 const postventaTrasladosHfc = document.getElementById("PostventaTrasladosHfc");
 const postventaTrasladosGpon = document.getElementById(
   "PostventaTrasladosGpon"
@@ -11,11 +11,9 @@ const postventaTrasladosGpon = document.getElementById(
 const postventaTrasladosAdsl = document.getElementById(
   "PostventaTrasladosAdsl"
 );
-
 const postventaTrasladosCobre = document.getElementById(
   "PostventaTrasladosCobre"
 );
-
 const postventaTrasladosDth = document.getElementById("PostventaTrasladosDth");
 
 // OBTENEMOS LOS FORMS GENERALES DE POSTVENTA ADICION
@@ -23,439 +21,366 @@ const PostventaAdicionHfc = document.getElementById("PostventaAdicionHfc");
 const PostventaAdicionGpon = document.getElementById("PostventaAdicionGpon");
 const PostventaAdicionDth = document.getElementById("PostventaAdicionDth");
 
-// OBTENEMOS EL BOTON DEL FORM
+// OBTENEMOS LOS FORMS GENERALES POSTVENTA CAMBIO EQUIPO
+const PostventaCambioHfc = document.getElementById("PostventaCambioHfc");
+const PostventaCambioGpon = document.getElementById("PostventaCambioGpon");
+const PostventaCambioAdsl = document.getElementById("PostventaCambioAdsl");
+const PostventaCambioDth = document.getElementById("PostventaCambioDth");
+const PostventaCambioCobre = document.getElementById("PostventaCambioCobre");
+
+// OBTENEMOS LOS FORMS GENERALES DE POSTVENTA MIGRACION
+const PostventaMigracionHfc = document.getElementById("PostventaMigracionHfc");
+
+// OBTENEMOS EL BOTON DEL FORM Y LO OCULTAMOS
 const btn_submit = document.getElementById("btn-submit");
 btn_submit.style.display = "none";
 
-// Obtenemos los forms generales a ocultar de adicion
+// FORMS GENERALES A OCULTAR
+const elementsToHide = [
+  postventaTrasladosHfc,
+  postventaTrasladosGpon,
+  postventaTrasladosAdsl,
+  postventaTrasladosCobre,
+  postventaTrasladosDth,
+  PostventaAdicionHfc,
+  PostventaAdicionGpon,
+  PostventaAdicionDth,
+  PostventaCambioHfc,
+  PostventaCambioGpon,
+  PostventaCambioAdsl,
+  PostventaCambioCobre,
+  PostventaCambioDth,
+  PostventaMigracionHfc,
+  btn_submit,
+];
 
-// TIPO ACTIVIDAD POSTVENTA TRASLADO
+// OBTENEMOS LOS TIPO ACTIVIDAD
 
-const TipoActividadTrasladoHfc = document.getElementById(
-  "TipoActividadTrasladoHfc"
-);
-const TipoActividadTrasladoGpon = document.getElementById(
-  "TipoActividadTrasladoGpon"
-);
-const TipoActividadTrasladoAdsl = document.getElementById(
-  "TipoActividadTrasladoAdsl"
-);
-const TipoActividadTrasladoCobre = document.getElementById(
-  "TipoActividadTrasladoCobre"
-);
-const TipoActividadTrasladoDth = document.getElementById(
-  "TipoActividadTrasladoDth"
-);
+const tiposActividad = [
+  "TipoActividadTrasladoHfc",
+  "TipoActividadTrasladoGpon",
+  "TipoActividadTrasladoAdsl",
+  "TipoActividadTrasladoCobre",
+  "TipoActividadTrasladoDth",
+  "TipoActividadAdicionHfc",
+  "TipoActividadAdicionGpon",
+  "TipoActividadAdicionDth",
+  "TipoActividadCambioHfc",
+  "TipoActividadCambioGpon",
+  "TipoActividadCambioAdsl",
+  "TipoActividadCambioDth",
+  "TipoActividadCambioCobre",
+  "TipoActividadMigracionHfc",
+];
 
-// TIPO ACTIVIDAD POSTVENTA ADICION
-
-const TipoActividadAdicionHfc = document.getElementById(
-  "TipoActividadAdicionHfc"
-);
-
-const TipoActividadAdicionGpon = document.getElementById(
-  "TipoActividadAdicionGpon"
-);
-
-const TipoActividadAdicionDth = document.getElementById(
-  "TipoActividadAdicionDth"
-);
-// Obtenemos los selects
+// OBTENEMOS EL SELECT POSTVENTA
 const selectPostventa = document.querySelector(
   "select[name='Select_Postventa']"
 );
+
+// OCULTAR LOS CAMPOS DE CADA ACTIVIDAD AL CAMBIAR DE TECNOLOGIA
 const selectTecnologia = document.querySelector("select[name='tecnologia']");
 
-// Obtenemos los divs RealizadoObjetadoAnulado de cada Postventa Traslados
-const TrasladoHfcHidden = document.querySelectorAll(".TrasladoHfcHidden");
-const TrasladoGponHidden = document.querySelectorAll(".TrasladoGponHidden");
-const TrasladoAdslHidden = document.querySelectorAll(".TrasladoAdslHidden");
-const TrasladoCobreHidden = document.querySelectorAll(".TrasladoCobreHidden");
-const TrasladoDthHidden = document.querySelectorAll(".TrasladoDthHidden");
+function ocultarElementos(elementos) {
+  for (let i = 0; i < elementos.length; i++) {
+    elementos[i].style.display = "none";
+  }
+}
 
-// Obtenemos los divs RealizadoObjetadoAnulado de cada Postventa Traslados
+// POSTVENTAS TRASLADOS
+const elementosPostventTraslado = [
+  ...document.querySelectorAll(".TrasladoHfcHidden"),
+  ...document.querySelectorAll(".TrasladoGponHidden"),
+  ...document.querySelectorAll(".TrasladoAdslHidden"),
+  ...document.querySelectorAll(".TrasladoCobreHidden"),
+  ...document.querySelectorAll(".TrasladoDthHidden"),
+];
 
-const PostventaAdicionHfcHidden = document.querySelectorAll(
-  ".PostventaAdicionHfcHidden"
-);
-const PostventaAdicionGponHidden = document.querySelectorAll(
-  ".PostventaAdicionGponHidden"
-);
-const PostventaAdicionDthHidden = document.querySelectorAll(
-  ".PostventaAdicionDthHidden"
-);
+// POSTVENTA ADICION
+const elementosPostventaAdicion = [
+  ...document.querySelectorAll(".PostventaAdicionHfcHidden"),
+  ...document.querySelectorAll(".PostventaAdicionGponHidden"),
+  ...document.querySelectorAll(".PostventaAdicionDthHidden"),
+];
 
-// Obtenemos los div
+// POSTVENTA CAMBIO EQUIPO
+const elementosPostventaCambioEquipo = [
+  ...document.querySelectorAll(".PostventaCambioHfcHidden"),
+  ...document.querySelectorAll(".PostventaCambioGponHidden"),
+  ...document.querySelectorAll(".PostventaCambioAdslHidden"),
+  ...document.querySelectorAll(".PostventaCambioCobreHidden"),
+  ...document.querySelectorAll(".PostventaCambioDthHidden"),
+];
 
-// Creamos una función que muestre u oculte los elementos según los valores de los selects
+// POSTVENTA MIGRACION
+const elementosPostventaMigracion = [
+  ...document.querySelectorAll(".PostventaMigracionHfcHidden"),
+];
+
 function mostrarElementos() {
-  // Los ocultamos al principio
-  postventaTrasladosHfc.style.display = "none";
-  postventaTrasladosGpon.style.display = "none";
-  postventaTrasladosAdsl.style.display = "none";
-  postventaTrasladosCobre.style.display = "none";
-  postventaTrasladosDth.style.display = "none";
-
-  //POSTVENTA ADICION
-  PostventaAdicionHfc.style.display = "none";
-  PostventaAdicionGpon.style.display = "none";
-  PostventaAdicionDth.style.display = "none";
-
-  //BUTTON SUBMIT
-  btn_submit.style.display = "none";
+  // OCULTANDO TODOS LOS ELEMENTOS
+  elementsToHide.forEach((element) => {
+    element.style.display = "none";
+  });
 
   switch (selectPostventa.value + "|" + selectTecnologia.value) {
     case "POSTVENTA TRASLADO|HFC":
-      // MOSTRAR FORMS EN BASE A LA SELECCION
+      //  MUESTRA EL DIV CORRESPONDIENTE
       postventaTrasladosHfc.style.display = "block";
 
-      //MOSTRAR VALORES RESET DEL TIPO ACTIVIDAD AL CAMBIAR DE TECNOLOGIA
-      //   POSTVENTA
-      TipoActividadTrasladoHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoAdsl.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoCobre.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoDth.value = "SELECCIONE UNA OPCION";
-      //   ADICION
-      TipoActividadAdicionHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionDth.value = "SELECCIONE UNA OPCION";
-
-      //   OCULTA TODOS LAS CLASES HIDDEN POSTVENTA
-      for (let i = 0; i < TrasladoHfcHidden.length; i++) {
-        TrasladoHfcHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoGponHidden.length; i++) {
-        TrasladoGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoAdslHidden.length; i++) {
-        TrasladoAdslHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoCobreHidden.length; i++) {
-        TrasladoCobreHidden[i].style.display = "none";
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
       }
 
-      for (let i = 0; i < TrasladoDthHidden.length; i++) {
-        TrasladoDthHidden[i].style.display = "none";
-      }
-
-      //   OCULTA TODOS LAS CLASES HIDDEN ADICION
-      for (let i = 0; i < PostventaAdicionHfcHidden.length; i++) {
-        PostventaAdicionHfcHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionGponHidden.length; i++) {
-        PostventaAdicionGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionDthHidden.length; i++) {
-        PostventaAdicionDthHidden[i].style.display = "none";
-      }
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
 
       break;
     case "POSTVENTA TRASLADO|GPON":
-      //MOSTRAR VALORES RESET DEL TIPO ACTIVIDAD AL CAMBIAR DE TECNOLOGIA
-      //   POSTVENTA
-      TipoActividadTrasladoHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoAdsl.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoCobre.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoDth.value = "SELECCIONE UNA OPCION";
-      //   ADICION
-      TipoActividadAdicionHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionDth.value = "SELECCIONE UNA OPCION";
-
-      //   OCULTA TODOS LAS CLASES HIDDEN POSTVENTA
-      for (let i = 0; i < TrasladoHfcHidden.length; i++) {
-        TrasladoHfcHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoGponHidden.length; i++) {
-        TrasladoGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoAdslHidden.length; i++) {
-        TrasladoAdslHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoCobreHidden.length; i++) {
-        TrasladoCobreHidden[i].style.display = "none";
-      }
-
-      for (let i = 0; i < TrasladoDthHidden.length; i++) {
-        TrasladoDthHidden[i].style.display = "none";
-      }
-      //   OCULTA TODOS LAS CLASES HIDDEN ADICION
-      for (let i = 0; i < PostventaAdicionHfcHidden.length; i++) {
-        PostventaAdicionHfcHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionGponHidden.length; i++) {
-        PostventaAdicionGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionDthHidden.length; i++) {
-        PostventaAdicionDthHidden[i].style.display = "none";
-      }
-
-      //   MUESTRA EL DIV CORRESPONDIENTE
+      //  MUESTRA EL DIV CORRESPONDIENTE
       postventaTrasladosGpon.style.display = "block";
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
+
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
 
       break;
     case "POSTVENTA TRASLADO|ADSL":
-      // MUESTRA EL FORM
+      //  MUESTRA EL DIV CORRESPONDIENTE
       postventaTrasladosAdsl.style.display = "block";
 
-      // OCULTA HFC/GPON/COBRE/DTH
-
-      //MOSTRAR VALORES RESET DEL TIPO ACTIVIDAD AL CAMBIAR DE TECNOLOGIA
-      TipoActividadTrasladoHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoAdsl.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoCobre.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoDth.value = "SELECCIONE UNA OPCION";
-
-      //   ADICION
-      TipoActividadAdicionHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionDth.value = "SELECCIONE UNA OPCION";
-
-      //   OCULTA TODOS LAS CLASES HIDDEN POSTVENTA
-      for (let i = 0; i < TrasladoHfcHidden.length; i++) {
-        TrasladoHfcHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoGponHidden.length; i++) {
-        TrasladoGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoAdslHidden.length; i++) {
-        TrasladoAdslHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoCobreHidden.length; i++) {
-        TrasladoCobreHidden[i].style.display = "none";
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
       }
 
-      for (let i = 0; i < TrasladoDthHidden.length; i++) {
-        TrasladoDthHidden[i].style.display = "none";
-      }
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
 
-      //   OCULTA TODOS LAS CLASES HIDDEN ADICION
-      for (let i = 0; i < PostventaAdicionHfcHidden.length; i++) {
-        PostventaAdicionHfcHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionGponHidden.length; i++) {
-        PostventaAdicionGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionDthHidden.length; i++) {
-        PostventaAdicionDthHidden[i].style.display = "none";
-      }
       break;
     case "POSTVENTA TRASLADO|COBRE":
-      //MOSTRAR VALORES RESET DEL TIPO ACTIVIDAD AL CAMBIAR DE TECNOLOGIA
-      TipoActividadTrasladoHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoAdsl.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoCobre.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoDth.value = "SELECCIONE UNA OPCION";
-
-      //   ADICION
-      TipoActividadAdicionHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionDth.value = "SELECCIONE UNA OPCION";
-
-      //   OCULTA TODOS LAS CLASES HIDDEN POSTVENTA
-      for (let i = 0; i < TrasladoHfcHidden.length; i++) {
-        TrasladoHfcHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoGponHidden.length; i++) {
-        TrasladoGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoAdslHidden.length; i++) {
-        TrasladoAdslHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoCobreHidden.length; i++) {
-        TrasladoCobreHidden[i].style.display = "none";
-      }
-
-      for (let i = 0; i < TrasladoDthHidden.length; i++) {
-        TrasladoDthHidden[i].style.display = "none";
-      }
-
-      //   OCULTA TODOS LAS CLASES HIDDEN ADICION
-      for (let i = 0; i < PostventaAdicionHfcHidden.length; i++) {
-        PostventaAdicionHfcHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionGponHidden.length; i++) {
-        PostventaAdicionGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionDthHidden.length; i++) {
-        PostventaAdicionDthHidden[i].style.display = "none";
-      }
       postventaTrasladosCobre.style.display = "block";
+
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
+
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
 
       break;
     case "POSTVENTA TRASLADO|DTH":
-      //MOSTRAR VALORES RESET DEL TIPO ACTIVIDAD AL CAMBIAR DE TECNOLOGIA
-      TipoActividadTrasladoHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoAdsl.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoCobre.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoDth.value = "SELECCIONE UNA OPCION";
+      //  MUESTRA EL DIV CORRESPONDIENTE
 
-      //   ADICION
-      TipoActividadAdicionHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionDth.value = "SELECCIONE UNA OPCION";
-
-      //   OCULTA TODOS LAS CLASES HIDDEN POSTVENTA
-      for (let i = 0; i < TrasladoHfcHidden.length; i++) {
-        TrasladoHfcHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoGponHidden.length; i++) {
-        TrasladoGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoAdslHidden.length; i++) {
-        TrasladoAdslHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoCobreHidden.length; i++) {
-        TrasladoCobreHidden[i].style.display = "none";
-      }
-
-      for (let i = 0; i < TrasladoDthHidden.length; i++) {
-        TrasladoDthHidden[i].style.display = "none";
-      }
-
-      //   OCULTA TODOS LAS CLASES HIDDEN ADICION
-      for (let i = 0; i < PostventaAdicionHfcHidden.length; i++) {
-        PostventaAdicionHfcHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionGponHidden.length; i++) {
-        PostventaAdicionGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionDthHidden.length; i++) {
-        PostventaAdicionDthHidden[i].style.display = "none";
-      }
-
-      //   ADICION POSTVENTA
-      for (let i = 0; i < PostventaAdicionHfcHidden.length; i++) {
-        PostventaAdicionHfcHidden[i].style.display = "none";
-      }
       postventaTrasladosDth.style.display = "block";
+
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
+
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
 
       break;
     case "POSTVENTA ADICION|HFC":
-      TipoActividadTrasladoHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoAdsl.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoCobre.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoDth.value = "SELECCIONE UNA OPCION";
-
-      //   ADICION
-      TipoActividadAdicionHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionDth.value = "SELECCIONE UNA OPCION";
-
       PostventaAdicionHfc.style.display = "block";
 
-      //   ADICION POSTVENTA
-      for (let i = 0; i < PostventaAdicionHfcHidden.length; i++) {
-        PostventaAdicionHfcHidden[i].style.display = "none";
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
       }
-      for (let i = 0; i < PostventaAdicionGponHidden.length; i++) {
-        PostventaAdicionGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionDthHidden.length; i++) {
-        PostventaAdicionDthHidden[i].style.display = "none";
-      }
+
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
+
       break;
     case "POSTVENTA ADICION|GPON":
-      TipoActividadTrasladoHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoAdsl.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoCobre.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoDth.value = "SELECCIONE UNA OPCION";
-
-      //   ADICION
-      TipoActividadAdicionHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionDth.value = "SELECCIONE UNA OPCION";
+      //  MUESTRA EL DIV CORRESPONDIENTE
 
       PostventaAdicionGpon.style.display = "block";
-      //   ADICION POSTVENTA
-      for (let i = 0; i < PostventaAdicionHfcHidden.length; i++) {
-        PostventaAdicionHfcHidden[i].style.display = "none";
+
+      // RESET VALUES SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
       }
-      for (let i = 0; i < PostventaAdicionGponHidden.length; i++) {
-        PostventaAdicionGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionDthHidden.length; i++) {
-        PostventaAdicionDthHidden[i].style.display = "none";
-      }
+
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
+
       break;
     case "POSTVENTA ADICION|DTH":
-      TipoActividadTrasladoHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoAdsl.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoCobre.value = "SELECCIONE UNA OPCION";
-      TipoActividadTrasladoDth.value = "SELECCIONE UNA OPCION";
-
-      //   ADICION
-      TipoActividadAdicionHfc.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionGpon.value = "SELECCIONE UNA OPCION";
-      TipoActividadAdicionDth.value = "SELECCIONE UNA OPCION";
+      //  MUESTRA EL DIV CORRESPONDIENTE
 
       PostventaAdicionGpon.style.display = "block";
-      //   ADICION POSTVENTA
-      for (let i = 0; i < PostventaAdicionHfcHidden.length; i++) {
-        PostventaAdicionHfcHidden[i].style.display = "none";
+
+      // RESET VALUES SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
       }
-      for (let i = 0; i < PostventaAdicionGponHidden.length; i++) {
-        PostventaAdicionGponHidden[i].style.display = "none";
+
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
+
+      break;
+    case "POSTVENTA CAMBIO DE EQUIPO|HFC":
+      //  MUESTRA EL DIV CORRESPONDIENTE
+      PostventaCambioHfc.style.display = "block";
+
+      // RESET VALUES SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
       }
-      for (let i = 0; i < PostventaAdicionDthHidden.length; i++) {
-        PostventaAdicionDthHidden[i].style.display = "none";
+
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
+
+      break;
+
+    case "POSTVENTA CAMBIO DE EQUIPO|GPON":
+      //  MUESTRA EL DIV CORRESPONDIENTE
+      PostventaCambioGpon.style.display = "block";
+
+      // RESET VALUES SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
       }
+
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
+
+      break;
+    case "POSTVENTA CAMBIO DE EQUIPO|ADSL":
+      //  MUESTRA EL DIV CORRESPONDIENTE
+      PostventaCambioAdsl.style.display = "block";
+
+      // RESET VALUES SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
+
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
+
+      break;
+    case "POSTVENTA CAMBIO DE EQUIPO|COBRE":
+      //  MUESTRA EL DIV CORRESPONDIENTE
+      PostventaCambioCobre.style.display = "block";
+
+      // RESET VALUES SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
+
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
+
+      break;
+    case "POSTVENTA CAMBIO DE EQUIPO|DTH":
+      //  MUESTRA EL DIV CORRESPONDIENTE
+      PostventaCambioDth.style.display = "block";
+
+      // RESET VALUES SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
+
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
+
+      break;
+    case "POSTVENTA MIGRACION|HFC":
+      //  MUESTRA EL DIV CORRESPONDIENTE
+      PostventaMigracionHfc.style.display = "block";
+
+      // RESET VALUES SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
+
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
+
       break;
     default:
-      // OCULTA TODOS
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
 
-      //   POSTVENTA TRASLADOS
-      for (let i = 0; i < TrasladoHfcHidden.length; i++) {
-        TrasladoHfcHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoGponHidden.length; i++) {
-        TrasladoGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoAdslHidden.length; i++) {
-        TrasladoAdslHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < TrasladoCobreHidden.length; i++) {
-        TrasladoCobreHidden[i].style.display = "none";
-      }
+      // OCULTANDO TODOS LOS ELEMENTOS
+      elementsToHide.forEach((element) => {
+        element.style.display = "none";
+      });
 
-      for (let i = 0; i < TrasladoDthHidden.length; i++) {
-        TrasladoDthHidden[i].style.display = "none";
-      }
-
-      //   ADICION POSTVENTA
-      for (let i = 0; i < PostventaAdicionHfcHidden.length; i++) {
-        PostventaAdicionHfcHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionGponHidden.length; i++) {
-        PostventaAdicionGponHidden[i].style.display = "none";
-      }
-      for (let i = 0; i < PostventaAdicionDthHidden.length; i++) {
-        PostventaAdicionDthHidden[i].style.display = "none";
-      }
-      postventaTrasladosGpon.style.display = "none";
-      postventaTrasladosHfc.style.display = "none";
-      postventaTrasladosAdsl.style.display = "none";
-      postventaTrasladosCobre.style.display = "none";
-      postventaTrasladosDth.style.display = "none";
-
-      //POSTVENTA ADICION
-      PostventaAdicionHfc.style.display = "none";
-      PostventaAdicionGpon.style.display = "none";
-      PostventaAdicionDth.style.display = "none";
+      selectTecnologia.value = "SELECCIONE";
 
       break;
   }
 }
 
-// Llamamos la función para que se ejecute al inicio y cada vez que cambie un select
+// SE MUESTRAN LOS ELEMENTOS
 document.addEventListener("DOMContentLoaded", mostrarElementos);
 selectPostventa.addEventListener("change", mostrarElementos);
 selectTecnologia.addEventListener("change", mostrarElementos);
@@ -483,7 +408,7 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaTrasladoAdsl"),
       document.getElementById("ObjetadaTrasladoAdsl"),
-      document.getElementById("AnuladaTrasladoAdsl"),
+      //   document.getElementById("AnuladaTrasladoAdsl"),
     ],
   },
   {
@@ -491,7 +416,7 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaTrasladoCobre"),
       document.getElementById("ObjetadaTrasladoCobre"),
-      document.getElementById("AnuladaTrasladoCobre"),
+      //   document.getElementById("AnuladaTrasladoCobre"),
     ],
   },
   {
@@ -499,7 +424,7 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaTrasladoDth"),
       document.getElementById("ObjetadaTrasladoDth"),
-      document.getElementById("AnuladaTrasladoDth"),
+      //   document.getElementById("AnuladaTrasladoDth"),
     ],
   },
   {
@@ -507,7 +432,7 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaAdicionHfc"),
       document.getElementById("ObjetadaAdicionHfc"),
-      document.getElementById("AnuladaAdicionHfc"),
+      //   document.getElementById("AnuladaAdicionHfc"),
     ],
   },
   {
@@ -515,7 +440,55 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaAdicionGpon"),
       document.getElementById("ObjetadaAdicionGpon"),
-      document.getElementById("AnuladaAdicionGpon"),
+      //   document.getElementById("AnuladaAdicionGpon"),
+    ],
+  },
+  {
+    select: document.querySelector("select[name='TipoActividadCambioHfc']"),
+    forms: [
+      document.getElementById("RealizadaCambioHfc"),
+      document.getElementById("ObjetadaCambioHfc"),
+      //   document.getElementById("AnuladaCambioHfc"),
+    ],
+  },
+  {
+    select: document.querySelector("select[name='TipoActividadCambioGpon']"),
+    forms: [
+      document.getElementById("RealizadaCambioGpon"),
+      document.getElementById("ObjetadaCambioGpon"),
+      //   document.getElementById("AnuladaCambioGpon"),
+    ],
+  },
+  {
+    select: document.querySelector("select[name='TipoActividadCambioAdsl']"),
+    forms: [
+      document.getElementById("RealizadaCambioAdsl"),
+      document.getElementById("ObjetadaCambioAdsl"),
+      //   document.getElementById("AnuladaCambioAdsl"),
+    ],
+  },
+  {
+    select: document.querySelector("select[name='TipoActividadCambioCobre']"),
+    forms: [
+      document.getElementById("RealizadaCambioCobre"),
+      document.getElementById("ObjetadaCambioCobre"),
+      //   document.getElementById("AnuladaCambioCobre"),
+    ],
+  },
+  {
+    select: document.querySelector("select[name='TipoActividadCambioDth']"),
+    forms: [
+      document.getElementById("RealizadaCambioDth"),
+      document.getElementById("ObjetadaCambioDth"),
+      //   document.getElementById("AnuladaCambioDth"),
+    ],
+  },
+  {
+    select: document.querySelector("select[name='TipoActividadMigracionHfc']"),
+    forms: [
+      document.getElementById("RealizadaMigracionHfc"),
+      document.getElementById("ObjetadaMigracionHfc"),
+      document.getElementById("AnuladaMigracionHfc"),
     ],
   },
 ];
@@ -559,6 +532,28 @@ formTypes.forEach(({ select, forms }) => {
     }
   });
 });
+
+// ELIMINAR OPCION TRANSFERIDA DEL SELECT EN TRASLADO
+
+function removeOptionFromSelector(selectorName, optionValue) {
+  const select = document.querySelector(`select[name='${selectorName}']`);
+  const option = select.querySelector(`option[value='${optionValue}']`);
+  if (option) {
+    option.remove();
+  }
+}
+
+removeOptionFromSelector("TipoActividadTrasladoAdsl", "TRANSFERIDA");
+removeOptionFromSelector("TipoActividadTrasladoCobre", "TRANSFERIDA");
+removeOptionFromSelector("TipoActividadTrasladoDth", "TRANSFERIDA");
+removeOptionFromSelector("TipoActividadAdicionHfc", "TRANSFERIDA");
+removeOptionFromSelector("TipoActividadAdicionGpon", "TRANSFERIDA");
+removeOptionFromSelector("TipoActividadAdicionDth", "TRANSFERIDA");
+removeOptionFromSelector("TipoActividadCambioHfc", "TRANSFERIDA");
+removeOptionFromSelector("TipoActividadCambioGpon", "TRANSFERIDA");
+removeOptionFromSelector("TipoActividadCambioAdsl", "TRANSFERIDA");
+removeOptionFromSelector("TipoActividadCambioCobre", "TRANSFERIDA");
+removeOptionFromSelector("TipoActividadCambioDth", "TRANSFERIDA");
 
 // CAMBIAR TIPO DE ORDEN EN BASE TIPO POSTVENTA Y TECNOLOGIA
 
@@ -625,15 +620,99 @@ function actualizarOpciones() {
   
           `;
       break;
+    case "POSTVENTA CAMBIO DE EQUIPO|HFC":
+      select_orden.innerHTML = `
+            <option value="">SELECCIONE</option>
+            <option value="CAMBIO EQUIPO TV">CAMBIO EQUIPO TV</option>
+            <option value="CAMBIO EQUIPO INTERNET">CAMBIO EQUIPO INTERNET</option>
+  
+          `;
+      break;
+    case "POSTVENTA CAMBIO DE EQUIPO|GPON":
+      select_orden.innerHTML = `
+            <option value="">SELECCIONE</option>
+             <option value="CAMBIO EQUIPO TV">CAMBIO EQUIPO TV</option>
+            <option value="CAMBIO EQUIPO INTERNET">CAMBIO EQUIPO INTERNET</option>
+  
+          `;
+      break;
+    case "POSTVENTA CAMBIO DE EQUIPO|DTH":
+      select_orden.innerHTML = `
+            <option value="">SELECCIONE</option>
+             <option value="CAMBIO EQUIPO TV">CAMBIO EQUIPO TV</option>
+            <option value="CAMBIO EQUIPO INTERNET">CAMBIO EQUIPO INTERNET</option>
+  
+          `;
+      break;
+    case "POSTVENTA CAMBIO DE EQUIPO|ADSL":
+      select_orden.innerHTML = `
+            <option value="">SELECCIONE</option>
+             <option value="CAMBIO EQUIPO TV">CAMBIO EQUIPO TV</option>
+            <option value="CAMBIO EQUIPO INTERNET">CAMBIO EQUIPO INTERNET</option>
+  
+          `;
+      break;
+    case "POSTVENTA CAMBIO DE EQUIPO|COBRE":
+      select_orden.innerHTML = `
+            <option value="">SELECCIONE</option>
+             <option value="CAMBIO EQUIPO TV">CAMBIO EQUIPO TV</option>
+            <option value="CAMBIO EQUIPO INTERNET">CAMBIO EQUIPO INTERNET</option>
+  
+          `;
+      break;
     // AQUI PODRIAS AGREGAR MAS CASOS PARA DIFERENTES COMBINACIONES DE VALORES
     default:
       select_orden.innerHTML = `<option value="">SELECCIONE</option>`;
   }
 }
 
-// ACTUALIZAR LAS OPCIONES CUANDO CAMBIA selectPostventa O selectTecnologia
 selectPostventa.addEventListener("change", actualizarOpciones);
 selectTecnologia.addEventListener("change", actualizarOpciones);
+
+//   OCULTAR TECNOLOGIA SI SE SELECCIONA POSTVENTA ADICION
+const postventaSelect = document.getElementById("Select_Postventa");
+const tecnologiaSelect = document.getElementById("tecnologia");
+
+postventaSelect.addEventListener("change", function () {
+  // Verificar si la opción "POSTVENTA ADICION" ha sido seleccionada
+  if (postventaSelect.value === "POSTVENTA ADICION") {
+    // Si es así, ocultar las opciones "ADSL" y "COBRE" del select de tecnología
+    const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
+    const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
+    adslOption.style.display = "none";
+    cobreOption.style.display = "none";
+    tecnologiaSelect.value = "SELECCIONE";
+    PostventaAdicionHfc.style.display = "none";
+    PostventaAdicionGpon.style.display = "none";
+    PostventaAdicionDth.style.display = "none";
+  }
+  if (postventaSelect.value === "POSTVENTA MIGRACION") {
+    // Si es así, ocultar las opciones "ADSL" y "COBRE" del select de tecnología
+
+    const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
+    const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
+    const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
+    const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
+
+    adslOption.style.display = "none";
+    cobreOption.style.display = "none";
+    dthOption.style.display = "none";
+    gponOption.style.display = "none";
+
+    tecnologiaSelect.value = "SELECCIONE";
+    PostventaMigracionHfc.style.display = "none";
+  } else {
+    // Si no, mostrar las opciones "ADSL" y "COBRE" del select de tecnología
+    const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
+    const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
+    const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
+    const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
+    adslOption.style.display = "block";
+    cobreOption.style.display = "block";
+    dthOption.style.display = "none";
+    gponOption.style.display = "none";
+  }
+});
 
 // FETCH LOCALIZACIONES
 
@@ -649,29 +728,3 @@ fetch("../Json/Localizaciones.json")
       select_dpto.add(option);
     }
   });
-
-//   OCULTAR TECNOLOGIA SI SE SELECCIONA POSTVENTA ADICION
-const postventaSelect = document.getElementById("Select_Postventa");
-const tecnologiaSelect = document.getElementById("tecnologia");
-
-// Agregar un event listener al select de postventa
-postventaSelect.addEventListener("change", function () {
-  // Verificar si la opción "POSTVENTA ADICION" ha sido seleccionada
-  if (postventaSelect.value === "POSTVENTA ADICION") {
-    // Si es así, ocultar las opciones "ADSL" y "COBRE" del select de tecnología
-    const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
-    const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
-    adslOption.style.display = "none";
-    cobreOption.style.display = "none";
-    tecnologiaSelect.value = "SELECCIONE";
-    PostventaAdicionHfc.style.display = "none";
-    PostventaAdicionGpon.style.display = "none";
-    PostventaAdicionDth.style.display = "none";
-  } else {
-    // Si no, mostrar las opciones "ADSL" y "COBRE" del select de tecnología
-    const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
-    const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
-    adslOption.style.display = "block";
-    cobreOption.style.display = "block";
-  }
-});
