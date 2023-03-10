@@ -110,7 +110,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control OrdenHfc" id="orden_tv_hfc"
-                                        name="orden_tv_hfc" disabled />
+                                        name="orden_tv_hfc" disabled placeholder="N° Orden Tv" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
@@ -120,7 +120,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control OrdenHfc" id="orden_internet_hfc"
-                                        name="orden_internet_hfc" disabled />
+                                        name="orden_internet_hfc" disabled placeholder="N° Orden Internet" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
@@ -130,7 +130,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control OrdenHfc" id="orden_linea_hfc"
-                                        name="orden_linea_hfc" disabled />
+                                        name="orden_linea_hfc" disabled placeholder="N° Orden Linea" />
                                 </div>
                             </div>
                         </div>
@@ -200,7 +200,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="syrengHfc" name="syrengHfc" />
+                                    <input type="number" class="form-control" id="syrengHfc"
+                                        placeholder="Ingresa SYRENG" name="syrengHfc" />
                                 </div>
                             </div>
 
@@ -210,7 +211,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="sapHfc" name="sapHfc" />
+                                    <input type="text" placeholder="Ingresa SAP" class="form-control" id="sapHfc"
+                                        name="sapHfc" />
                                 </div>
                             </div>
 
@@ -222,8 +224,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-rss"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="EquipoModem_Hfc"
-                                        name="EquipoModem_Hfc" />
+                                    <input type="text" class="form-control" id="EquipoModem_Hfc" name="EquipoModem_Hfc"
+                                        placeholder="Ingresa Equipo Modem" />
                                 </div>
                             </div>
 
@@ -235,8 +237,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="numeroVoip_hfc"
-                                        name="numeroVoip_hfc" />
+                                    <input type="number" class="form-control" id="numeroVoip_hfc" name="numeroVoip_hfc"
+                                        placeholder="Ingresa Numero Voip" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
@@ -247,7 +249,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-map-marker"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="GeorefHfc" name="GeorefHfc" />
+                                    <input type="text" class="form-control" id="GeorefHfc" name="GeorefHfc"
+                                        placeholder="Latitud, Longitud" />
                                 </div>
                             </div>
                             <div class="from-group col-md-3">
@@ -411,7 +414,7 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ComentariosObjetados_Hfc"
-                                            name="ComentariosObjetados_Hfc" />
+                                            name="ComentariosObjetados_Hfc" placeholder="Comentarios del caso" />
                                     </div>
                                 </div>
                             </div>
@@ -441,7 +444,7 @@
                                         <i class="fa fa-exclamation-triangle"></i>
                                     </div>
                                     <input type="text" class="form-control" id="MotivoTransferidoHfc"
-                                        name="MotivoTransferidoHfc" />
+                                        name="MotivoTransferidoHfc" placeholder="Ingresa motivo transferido" />
                                 </div>
                             </div>
 
@@ -454,7 +457,7 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosTransferida_Hfc"
-                                        name="ComentariosTransferida_Hfc" />
+                                        name="ComentariosTransferida_Hfc" placeholder="Comentarios del caso" />
                                 </div>
                             </div>
                         </div>
@@ -487,10 +490,10 @@
                                     </div>
                                     <input type="number" class="form-control" id="orden_internet_adsl"
                                         name="orden_internet_adsl" placeholder="Ingresa N° Orden" />
-                                    <span class="span_check checkValid" id="checkValid"><i
+                                    <span class="span_check checkValid validar" id="checkValid"><i
                                             class="fa-solid fa-circle-check"></i></span>
 
-                                    <span class="span_error checkError" id="checkError"><i
+                                    <span class="span_error checkError validar" id="checkError"><i
                                             class="fa-sharp fa-solid fa-circle-exclamation"></i></span>
                                 </div>
                                 <!-- <span class="span_error_mensaje" id="ErrorOrdenInternetAdsl">Debes de ingresar 8
@@ -692,7 +695,7 @@
                 </div>
                 <!-- FORMULARIO #4 DTH -->
                 <div id="form4" class="form-group-container">
-                    <div class="form-group-container" style="margin-top: 2.5rem;">
+                    <div class="form-group-container">
                         <div class="form-group col-md-3">
                             <label for="tipo_actividadDth">Tipo Actividad</label>
                             <select class="form-control" style="width: 100%;" name="tipo_actividadDth"
@@ -1588,7 +1591,7 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="MotivoTransferidoGpon"
-                                        name="MotivoTransferidoGpon" />
+                                        name="MotivoTransferidoGpon" placeholder="Ingresa motivo transferido" />
                                 </div>
                             </div>
 
@@ -1599,7 +1602,7 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
-                                        name="ComentarioTransferido_Gpon" />
+                                        name="ComentarioTransferido_Gpon" placeholder="Ingresa comentarios del caso" />
                                 </div>
                             </div>
                         </div>

@@ -30,7 +30,7 @@ class CrearTablaInstalacionesHfcRealizada extends Migration
             $table->string('equipostv4')->nullable();
             $table->string('equipostv5')->nullable();
             $table->integer('syrengHfc');
-            $table->string('sapHfc');
+            $table->string('sapHfc')->nullable();;
             $table->string('EquipoModem_Hfc')->nullable();
             $table->integer('numeroVoip_hfc')->nullable();
             $table->string('GeorefHfc');
