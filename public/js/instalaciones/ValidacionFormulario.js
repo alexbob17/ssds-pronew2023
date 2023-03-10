@@ -28,6 +28,443 @@ form.addEventListener("submit", function (event) {
   ) {
     case "HFC":
       // Validar los campos para HFC
+      const tipo_actividad = document.getElementById("tipo_actividad").value;
+      const orden_linea_hfc = document.getElementById("orden_linea_hfc").value;
+      const orden_tv_hfc = document.getElementById("orden_tv_hfc").value;
+      const orden_internet_hfc =
+        document.getElementById("orden_internet_hfc").value;
+      const equipostv1 = document.getElementById("equipostv1").value;
+      const equipostv2 = document.getElementById("equipostv2").value;
+      const equipostv3 = document.getElementById("equipostv3").value;
+      const equipostv4 = document.getElementById("equipostv4").value;
+      const equipostv5 = document.getElementById("equipostv5").value;
+      const syrengHfc = document.getElementById("syrengHfc").value;
+      const sapHfc = document.getElementById("sapHfc").value;
+      const EquipoModem_Hfc = document.getElementById("EquipoModem_Hfc").value;
+      const numeroVoip_hfc = document.getElementById("numeroVoip_hfc").value;
+      const GeorefHfc = document.getElementById("GeorefHfc").value;
+      const TrabajadoHfc = document.getElementById("TrabajadoHfc").value;
+      const ObservacionesHfc =
+        document.getElementById("ObservacionesHfc").value;
+      const RecibeHfc = document.getElementById("RecibeHfc").value;
+      const NodoHfc = document.getElementById("NodoHfc").value;
+      const TapHfc = document.getElementById("TapHfc").value;
+      const PosicionHfc = document.getElementById("PosicionHfc").value;
+      const MaterialesHfc = document.getElementById("MaterialesHfc").value;
+
+      if (tipo_actividadGpon === "REALIZADA") {
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          dpto_colonia === "" ||
+          select_orden === "" ||
+          tipo_actividad === "" ||
+          OrdenInternet_Gpon === "" ||
+          OrdenTv_Gpon === "" ||
+          OrdenLinea_Gpon === "" ||
+          equipotv1Gpon === "" ||
+          equipotv2Gpon === "" ||
+          equipotv3Gpon === "" ||
+          equipotv4Gpon === "" ||
+          equipotv5Gpon === "" ||
+          EqModenGpon === "" ||
+          syrengHfc === "" ||
+          sapHfc === "" ||
+          EquipoModem_Hfc === "" ||
+          numeroVoip_hfc === "" ||
+          GeorefHfc === "" ||
+          TrabajadoHfc === "" ||
+          ObservacionesHfc === "" ||
+          RecibeHfc === "" ||
+          NodoHfc === "" ||
+          TapHfc === "" ||
+          PosicionHfc === "" ||
+          MaterialesHfc === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        let errorMensaje = "";
+        let errorMensajeTv = "";
+        let errorMensaje3 = "";
+
+        // VALIDAR POR TIPO DE ORDEN
+        switch (select_orden) {
+          case "INSTALACION DE CLARO HOGAR":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensaje = "Debes ingresar el N° de las 3 orden.";
+            }
+            if (
+              OrdenInternet_Gpon !== "" &&
+              parseInt(OrdenInternet_Gpon.length) !== 8
+            ) {
+              errorMensaje =
+                "El número de orden de internet debe tener 8 dígitos.";
+            }
+
+            if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
+              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+            }
+
+            if (
+              OrdenLinea_Gpon !== "" &&
+              parseInt(OrdenLinea_Gpon.length) !== 8
+            ) {
+              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+            }
+
+            break;
+          case "DOBLE - INTERNET + IPTV":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensaje = "Debes ingresar el N° Internet / N° IPTV.";
+            }
+            if (
+              OrdenInternet_Gpon !== "" &&
+              parseInt(OrdenInternet_Gpon.length) !== 8
+            ) {
+              errorMensaje =
+                "El número de orden de internet debe tener 8 dígitos.";
+            }
+
+            if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
+              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+            }
+
+            break;
+          case "DOBLE - INTERNET + LINEA":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensaje = "Debes ingresar el N° Internet / N° Linea.";
+            }
+            if (
+              OrdenInternet_Gpon !== "" &&
+              parseInt(OrdenInternet_Gpon.length) !== 8
+            ) {
+              errorMensaje =
+                "El número de orden de internet debe tener 8 dígitos.";
+            }
+
+            if (
+              OrdenLinea_Gpon !== "" &&
+              parseInt(OrdenLinea_Gpon.length) !== 8
+            ) {
+              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+            }
+            break;
+          case "DOBLE - IPTV + LINEA":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensaje = "Debes ingresar el N° IPTV / N° Linea.";
+            }
+
+            if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
+              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+            }
+
+            if (
+              OrdenLinea_Gpon !== "" &&
+              parseInt(OrdenLinea_Gpon.length) !== 8
+            ) {
+              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+            }
+            break;
+          case "INTERNET INDIVIDUAL":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensaje = "Debes ingresar el N° Internet";
+            }
+            if (
+              OrdenInternet_Gpon !== "" &&
+              parseInt(OrdenInternet_Gpon.length) !== 8
+            ) {
+              errorMensaje =
+                "El número de orden de internet debe tener 8 dígitos.";
+            }
+
+            break;
+          case "LINEA INDIVIDUAL":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensaje = "Debes ingresar el N° Linea.";
+            }
+            if (
+              OrdenLinea_Gpon !== "" &&
+              parseInt(OrdenLinea_Gpon.length) !== 8
+            ) {
+              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+            }
+            break;
+          case "IPTV INDIVIDUAL":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensaje = "Debes ingresar el N° IPTV.";
+            }
+            if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
+              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+            }
+            break;
+        }
+
+        if (errorMensaje !== "") {
+          Swal.fire({
+            icon: "error",
+            title: errorMensaje,
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        if (!regexCoordenadas.test(GeoreferenciaGpon)) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "Las coordenadas deben estar en el formato latitud,longitud",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        // VALIDAR POR EQUIPO DE TV
+
+        switch (select_orden) {
+          case "INSTALACION DE CLARO HOGAR":
+            if (
+              equipostv1 === "" &&
+              equipostv2 === "" &&
+              equipostv3 === "" &&
+              equipostv4 === "" &&
+              equipostv5 === ""
+            ) {
+              errorMensajeTv = "Debes ingresar al menos un equipo";
+            }
+            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv1.";
+            }
+            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv2.";
+            }
+            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv3.";
+            }
+            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv4.";
+            }
+            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv5.";
+            }
+
+            break;
+          case "DOBLE - INTERNET + IPTV":
+            if (
+              equipostv1 === "" &&
+              equipostv2 === "" &&
+              equipostv3 === "" &&
+              equipostv4 === "" &&
+              equipostv5 === ""
+            ) {
+              errorMensajeTv = "Debes ingresar al menos un equipo";
+            }
+            if (equipotv1Gpon !== "" && parseInt(equipotv1Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv1.";
+            }
+            if (equipotv2Gpon !== "" && parseInt(equipotv2Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv2.";
+            }
+            if (equipotv3Gpon !== "" && parseInt(equipotv3Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv3.";
+            }
+            if (equipotv4Gpon !== "" && parseInt(equipotv4Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv4.";
+            }
+            if (equipotv5Gpon !== "" && parseInt(equipotv5Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv5.";
+            }
+            break;
+          case "DOBLE - INTERNET + LINEA":
+            break;
+          case "DOBLE - IPTV + LINEA":
+            if (
+              equipotv1Gpon === "" &&
+              equipotv2Gpon === "" &&
+              equipotv3Gpon === "" &&
+              equipotv4Gpon === "" &&
+              equipotv5Gpon === ""
+            ) {
+              errorMensajeTv = "Debes ingresar al menos un equipo";
+            }
+            if (equipotv1Gpon !== "" && parseInt(equipotv1Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv1.";
+            }
+            if (equipotv2Gpon !== "" && parseInt(equipotv2Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv2.";
+            }
+            if (equipotv3Gpon !== "" && parseInt(equipotv3Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv3.";
+            }
+            if (equipotv4Gpon !== "" && parseInt(equipotv4Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv4.";
+            }
+            if (equipotv5Gpon !== "" && parseInt(equipotv5Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv5.";
+            }
+            break;
+          case "INTERNET INDIVIDUAL":
+            break;
+          case "LINEA INDIVIDUAL":
+            break;
+          case "IPTV INDIVIDUAL":
+            if (
+              equipotv1Gpon === "" &&
+              equipotv2Gpon === "" &&
+              equipotv3Gpon === "" &&
+              equipotv4Gpon === "" &&
+              equipotv5Gpon === ""
+            ) {
+              errorMensajeTv = "Debes ingresar al menos un equipo";
+            }
+            if (equipotv1Gpon !== "" && parseInt(equipotv1Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv1.";
+            }
+            if (equipotv2Gpon !== "" && parseInt(equipotv2Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv2.";
+            }
+            if (equipotv3Gpon !== "" && parseInt(equipotv3Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv3.";
+            }
+            if (equipotv4Gpon !== "" && parseInt(equipotv4Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv4.";
+            }
+            if (equipotv5Gpon !== "" && parseInt(equipotv5Gpon.length) !== 10) {
+              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv5.";
+            }
+            break;
+        }
+
+        if (errorMensajeTv !== "") {
+          Swal.fire({
+            icon: "error",
+            title: errorMensajeTv,
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        switch (select_orden) {
+          case "INSTALACION DE CLARO HOGAR":
+            if (EqModenGpon === "") {
+              errorMensaje3 = "Debes ingresar el Equipo Modem";
+            }
+            if (EqModenGpon !== "" && parseInt(EqModenGpon.length) !== 16) {
+              errorMensaje3 = "Debes ingresar 16 digitos Equipo Modem.";
+            }
+            if (NumeroGpon === "") {
+              errorMensaje3 = "Debes ingresar el Numero Gpon";
+            }
+            if (NumeroGpon !== "" && parseInt(NumeroGpon.length) !== 8) {
+              errorMensaje3 = "Debes ingresar 8 digitos Numero Gpon.";
+            }
+            break;
+          case "DOBLE - INTERNET + IPTV":
+            if (EqModenGpon === "") {
+              errorMensaje3 = "Debes ingresar el Equipo Modem";
+            }
+            if (EqModenGpon !== "" && parseInt(EqModenGpon.length) !== 16) {
+              errorMensaje3 = "Debes ingresar 16 digitos Equipo Modem.";
+            }
+
+            break;
+          case "DOBLE - INTERNET + LINEA":
+            if (EqModenGpon === "") {
+              errorMensaje3 = "Debes ingresar el Equipo Modem";
+            }
+            if (EqModenGpon !== "" && parseInt(EqModenGpon.length) !== 16) {
+              errorMensaje3 = "Debes ingresar 16 digitos Equipo Modem.";
+            }
+            if (NumeroGpon === "") {
+              errorMensaje3 = "Debes ingresar el Numero Gpon";
+            }
+            if (NumeroGpon !== "" && parseInt(NumeroGpon.length) !== 8) {
+              errorMensaje3 = "Debes ingresar 8 digitos Numero Gpon.";
+            }
+            break;
+          case "DOBLE - IPTV + LINEA":
+            if (NumeroGpon === "") {
+              errorMensaje3 = "Debes ingresar el Numero Gpon";
+            }
+            if (NumeroGpon !== "" && parseInt(NumeroGpon.length) !== 8) {
+              errorMensaje3 = "Debes ingresar 8 digitos Numero Gpon.";
+            }
+            break;
+          case "INTERNET INDIVIDUAL":
+            if (EqModenGpon === "") {
+              errorMensaje3 = "Debes ingresar el Equipo Modem";
+            }
+            if (EqModenGpon !== "" && parseInt(EqModenGpon.length) !== 16) {
+              errorMensaje3 = "Debes ingresar 16 digitos Equipo Modem.";
+            }
+            break;
+          case "LINEA INDIVIDUAL":
+            break;
+          case "IPTV INDIVIDUAL":
+            if (NumeroGpon === "") {
+              errorMensaje3 = "Debes ingresar el Numero Gpon";
+            }
+            if (NumeroGpon !== "" && parseInt(NumeroGpon.length) !== 8) {
+              errorMensaje3 = "Debes ingresar 8 digitos Numero Gpon.";
+            }
+            break;
+        }
+
+        if (errorMensaje3 !== "") {
+          Swal.fire({
+            icon: "error",
+            title: errorMensaje3,
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      }
+
       break;
     case "GPON":
       // Validar los campos para GPON
@@ -656,51 +1093,6 @@ form.addEventListener("submit", function (event) {
           event.preventDefault();
           return false;
         }
-
-        //   var selectedOption = this.value;
-
-        //   // Validar que se haya ingresado al menos un campo para la opción seleccionada
-        //   switch (selectedOption) {
-        //     case "INSTALACION DE CLARO HOGAR":
-        //       if (
-        //         OrdenInternet_Gpon.value.trim() === "" &&
-        //         OrdenTv_Gpon.value.trim() === "" &&
-        //         OrdenLinea_Gpon.value.trim() === ""
-        //       ) {
-        //         errorMensaje =
-        //           "Debes ingresar al menos una orden INSTALACION CLARO HOGAR.";
-        //       }
-        //       break;
-        //     case "DOBLE - IPTV + LINEA":
-        //       if (
-        //         OrdenTv_Gpon.value.trim() === "" &&
-        //         OrdenLinea_Gpon.value.trim() === ""
-        //       ) {
-        //         errorMensaje =
-        //           "Debes ingresar al menos una orden IPTV + LINEA.";
-        //       }
-        //       break;
-        //     case "DOBLE - INTERNET + LINEA":
-        //       if (
-        //         OrdenInternet_Gpon.value.trim() === "" &&
-        //         OrdenTv_Gpon.value.trim() === ""
-        //       ) {
-        //         errorMensaje =
-        //           "Debes ingresar al menos una orden INTERNET + LINEA.";
-        //       }
-        //       break;
-        //   }
-        //   if (errorMensaje !== "") {
-        //     Swal.fire({
-        //       icon: "error",
-        //       title: errorMensaje,
-        //       showConfirmButton: false,
-        //       timer: 1900,
-        //     });
-        //     event.preventDefault();
-        //     return false;
-        //   }
-        // });
       } else if (tipo_actividadGpon === "TRANSFERIDA") {
         const TrabajadoTransferido_Gpon = document.getElementById(
           "TrabajadoTransferido_Gpon"
