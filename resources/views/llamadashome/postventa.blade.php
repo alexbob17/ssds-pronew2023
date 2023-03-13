@@ -1,5 +1,7 @@
 @extends('app')
 @section('content')
+
+
 <div class="row">
     <div class="col-md-12">
         @if (session()->has('success_message'))
@@ -135,48 +137,49 @@
                                     <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES HFC </label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenInternet_Gpon">Orden Internet</label>
+                                    <label for="OrdenInternetTrasladoHfc">Orden Internet</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon" id="OrdenInternet_Gpon"
-                                            name="OrdenInternet_Gpon" />
+                                        <input type="number" class="form-control OrdenGpon"
+                                            id="OrdenInternetTrasladoHfc" name="OrdenInternetTrasladoHfc" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenTv_Gpon">Orden Tv</label>
+                                    <label for="OrdenTvTrasladoHfc">Orden Tv</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon" id="OrdenTv_Gpon"
-                                            name="OrdenTv_Gpon" />
+                                        <input type="number" class="form-control OrdenGpon" id="OrdenTvTrasladoHfc"
+                                            name="OrdenTvTrasladoHfc" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenLinea_Gpon">Orden Linea</label>
+                                    <label for="OrdenLineaTrasladoHfc">Orden Linea</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
-                                            name="OrdenLinea_Gpon" />
+                                        <input type="number" class="form-control OrdenGpon" id="OrdenLineaTrasladoHfc"
+                                            name="OrdenLineaTrasladoHfc" />
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group-container">
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObservacionesTrasladoHfc">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso" />
+                                        <input type="text" class="form-control" id="ObservacionesTrasladoHfc"
+                                            name="ObservacionesTrasladoHfc"
+                                            placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
 
@@ -203,54 +206,54 @@
                                     <div class="" style="margin: botton 12px; border-top: 1px solid #c0bfbf;">
                                         <div class="form-group-container" style="margin-top: 1rem;">
                                             <div class="form-group col-md-3">
-                                                <label for="NodoHfc">
+                                                <label for="NodoTrasladoHfc">
                                                     Nodo
                                                 </label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-square"></i>
                                                     </div>
-                                                    <input type="text" class="form-control" id="NodoHfc" name="NodoHfc"
-                                                        placeholder="Ingresa Nodo" />
+                                                    <input type="text" class="form-control" id="NodoTrasladoHfc"
+                                                        name="NodoTrasladoHfc" placeholder="Ingresa Nodo" />
                                                 </div>
                                             </div>
 
                                             <div class="form-group col-md-3">
-                                                <label for="TapHfc">
+                                                <label for="TapTrasladoHfc">
                                                     TAP
                                                 </label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-square"></i>
                                                     </div>
-                                                    <input type="number" class="form-control" id="TapHfc" name="TapHfc"
-                                                        placeholder="Ingresa TAP" />
+                                                    <input type="number" class="form-control" id="TapTrasladoHfc"
+                                                        name="TapTrasladoHfc" placeholder="Ingresa TAP" />
                                                 </div>
                                             </div>
 
                                             <div class="form-group col-md-3">
-                                                <label for="PosicionHfc">
+                                                <label for="PosicionTrasladoHfc">
                                                     Posicion
                                                 </label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-square"></i>
                                                     </div>
-                                                    <input type="number" class="form-control" id="PosicionHfc"
-                                                        name="PosicionHfc" placeholder="Ingresa Posicion" />
+                                                    <input type="number" class="form-control" id="PosicionTrasladoHfc"
+                                                        name="PosicionTrasladoHfc" placeholder="Ingresa Posicion" />
                                                 </div>
                                             </div>
 
                                             <div class="form-group col-md-12">
-                                                <label for="MaterialesHfc">
+                                                <label for="MaterialesTrasladoHfc">
                                                     Materiales
                                                 </label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-edit"></i>
                                                     </div>
-                                                    <input type="text" class="form-control" id="MaterialesHfc"
-                                                        name="MaterialesHfc" placeholder="Comentarios..." />
+                                                    <input type="text" class="form-control" id="MaterialesTrasladoHfc"
+                                                        name="MaterialesTrasladoHfc" placeholder="Comentarios..." />
                                                 </div>
                                             </div>
                                         </div>
@@ -265,43 +268,43 @@
                                     <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES HFC</label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenInternet_Gpon">Orden Internet</label>
+                                    <label for="OrdenInternetObjTrasladoHfc">Orden Internet</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon" id="OrdenInternet_Gpon"
-                                            name="OrdenInternet_Gpon" />
+                                        <input type="number" class="form-control OrdenGpon"
+                                            id="OrdenInternetObjTrasladoHfc" name="OrdenInternetObjTrasladoHfc" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenTv_Gpon">Orden Tv</label>
+                                    <label for="OrdenTvObjTrasladoHfc">Orden Tv</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon" id="OrdenTv_Gpon"
-                                            name="OrdenTv_Gpon" />
+                                        <input type="number" class="form-control OrdenGpon" id="OrdenTvObjTrasladoHfc"
+                                            name="OrdenTvObjTrasladoHfc" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenLinea_Gpon">Orden Linea</label>
+                                    <label for="OrdenLineaObjTrasladoHfc">Orden Linea</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
-                                            name="OrdenLinea_Gpon" />
+                                        <input type="number" class="form-control OrdenGpon"
+                                            id="OrdenLineaObjTrasladoHfc" name="OrdenLineaObjTrasladoHfc" />
                                     </div>
                                 </div>
 
                                 <div class="form-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjetado_Gpon">MOTIVO OBJETADO</label>
+                                        <label for="MotivioObjTrasladoHfc">MOTIVO OBJETADO</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetado_Gpon" tabindex="-1"
-                                            id="MotivoObjetado_Gpon" aria-hidden="true">
+                                            style="width: 100%;" name="MotivioObjTrasladoHfc" tabindex="-1"
+                                            id="MotivioObjTrasladoHfc" aria-hidden="true">
                                             <option selected="selected">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
@@ -328,7 +331,7 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoGpon_Objetado" name="TrabajadoGpon_Objetado" />
+                                                    id="TrabajadoObjTrasladoHfc" name="TrabajadoObjTrasladoHfc" />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -337,25 +340,25 @@
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ObsGpon_Objetada">Observaciones</label>
+                                        <label for="ObvsObjTrasladoHfc">Observaciones</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-eye"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ObsGpon_Objetada"
-                                                name="ObsGpon_Objetada"
+                                            <input type="text" class="form-control" id="ObvsObjTrasladoHfc"
+                                                name="ObvsObjTrasladoHfc"
                                                 placeholder="Ingresa las observaciones del caso" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentariosGpon_Objetada">Comentarios</label>
+                                        <label for="ComentariosObjTrasladoHfc">Comentarios</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentariosGpon_Objetada"
-                                                name="ComentariosGpon_Objetada" placeholder="Comentarios..." />
+                                            <input type="text" class="form-control" id="ComentariosObjTrasladoHfc"
+                                                name="ComentariosObjTrasladoHfc" placeholder="Comentarios..." />
                                         </div>
                                     </div>
                                 </div>
@@ -369,34 +372,34 @@
                                         <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES HFC</label>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenInternet_Gpon">Orden Internet</label>
+                                        <label for="OrdenInternetTransferidoHfc">Orden Internet</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="number" class="form-control OrdenGpon" id="OrdenInternet_Gpon"
-                                                name="OrdenInternet_Gpon" />
+                                            <input type="number" class="form-control OrdenGpon"
+                                                id="OrdenInternetTransferidoHfc" name="OrdenInternetTransferidoHfc" />
                                         </div>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenTv_Gpon">Orden Tv</label>
+                                        <label for="OrdenTvTransferidoHfc">Orden Tv</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="number" class="form-control OrdenGpon" id="OrdenTv_Gpon"
-                                                name="OrdenTv_Gpon" />
+                                            <input type="number" class="form-control OrdenGpon"
+                                                id="OrdenTvTransferidoHfc" name="OrdenTvTransferidoHfc" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenLinea_Gpon">Orden Linea</label>
+                                        <label for="OrdenLineaTransferidoHfc">Orden Linea</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="number" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
-                                                name="OrdenLinea_Gpon" />
+                                            <input type="number" class="form-control OrdenGpon"
+                                                id="OrdenLineaTransferidoHfc" name="OrdenLineaTransferidoHfc" />
                                         </div>
                                     </div>
                                 </div>
@@ -406,7 +409,7 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox"
-                                                    id="TrabajadoTransferido_Hfc" name="TrabajadoTransferido_Hfc" />
+                                                    id="TrabajadoTransTrasladoHfc" name="TrabajadoTransTrasladoHfc" />
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                     Trabajado
                                                 </label>
@@ -415,24 +418,24 @@
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="MotivoTransferidoGpon">Motivo Transferido</label>
+                                        <label for="MotivoTransTrasladoHfc">Motivo Transferido</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="MotivoTransferidoGpon"
-                                                name="MotivoTransferidoGpon" />
+                                            <input type="text" class="form-control" id="MotivoTransTrasladoHfc"
+                                                name="MotivoTransTrasladoHfc" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentarioTransferido_Gpon">Comentarios</label>
+                                        <label for="ComentarioTrasladoTransHfc">Comentarios</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
-                                                name="ComentarioTransferido_Gpon" />
+                                            <input type="text" class="form-control" id="ComentarioTrasladoTransHfc"
+                                                name="ComentarioTrasladoTransHfc" />
                                         </div>
                                     </div>
                                 </div>
@@ -461,53 +464,53 @@
                                     <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES GPON </label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenInternet_Hfc">Orden Internet</label>
+                                    <label for="OrdenInternetTrasladoGpon">Orden Internet</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon" id="OrdenInternet_Hfc"
-                                            name="OrdenInternet_Hfc" />
+                                        <input type="number" class="form-control OrdenGpon"
+                                            id="OrdenInternetTrasladoGpon" name="OrdenInternetTrasladoGpon" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenTv_Gpon">Orden Tv</label>
+                                    <label for="OrdenTvTrasladoGpon">Orden Tv</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon" id="OrdenTv_Gpon"
-                                            name="OrdenTv_Gpon" />
+                                        <input type="number" class="form-control OrdenGpon" id="OrdenTvTrasladoGpon"
+                                            name="OrdenTvTrasladoGpon" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenLinea_Gpon">Orden Linea</label>
+                                    <label for="OrdenLineaTrasladoGpon">Orden Linea</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
-                                            name="OrdenLinea_Gpon" />
+                                        <input type="number" class="form-control OrdenGpon" id="OrdenLineaTrasladoGpon"
+                                            name="OrdenLineaTrasladoGpon" />
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group-container">
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObvsTrasladoGpon">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso" />
+                                        <input type="text" class="form-control" id="ObvsTrasladoGpon"
+                                            name="ObvsTrasladoGpon" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeTrasladoGpon">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -515,7 +518,7 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc" />
+                                            class="form-control" id="RecibeTrasladoGpon" name="RecibeTrasladoGpon" />
                                     </div>
                                 </div>
                             </div>
@@ -529,54 +532,54 @@
                                     <div class="" style="margin: botton 12px; border-top: 1px solid #c0bfbf;">
                                         <div class="form-group-container" style="margin-top: 1rem;">
                                             <div class="form-group col-md-3">
-                                                <label for="NodoHfc">
+                                                <label for="NodoTrasladoGpon">
                                                     Nodo
                                                 </label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-square"></i>
                                                     </div>
-                                                    <input type="text" class="form-control" id="NodoHfc" name="NodoHfc"
-                                                        placeholder="Ingresa Nodo" />
+                                                    <input type="text" class="form-control" id="NodoTrasladoGpon"
+                                                        name="NodoTrasladoGpon" placeholder="Ingresa Nodo" />
                                                 </div>
                                             </div>
 
                                             <div class="form-group col-md-3">
-                                                <label for="TapHfc">
+                                                <label for="TapTrasladoGpon">
                                                     TAP
                                                 </label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-square"></i>
                                                     </div>
-                                                    <input type="number" class="form-control" id="TapHfc" name="TapHfc"
-                                                        placeholder="Ingresa TAP" />
+                                                    <input type="number" class="form-control" id="TapTrasladoGpon"
+                                                        name="TapTrasladoGpon" placeholder="Ingresa TAP" />
                                                 </div>
                                             </div>
 
                                             <div class="form-group col-md-3">
-                                                <label for="PosicionHfc">
+                                                <label for="PosicionTrasladoGpon">
                                                     Posicion
                                                 </label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-square"></i>
                                                     </div>
-                                                    <input type="number" class="form-control" id="PosicionHfc"
-                                                        name="PosicionHfc" placeholder="Ingresa Posicion" />
+                                                    <input type="number" class="form-control" id="PosicionTrasladoGpon"
+                                                        name="PosicionTrasladoGpon" placeholder="Ingresa Posicion" />
                                                 </div>
                                             </div>
 
                                             <div class="form-group col-md-12">
-                                                <label for="MaterialesHfc">
+                                                <label for="MaterialesTrasladoGpon">
                                                     Materiales
                                                 </label>
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-edit"></i>
                                                     </div>
-                                                    <input type="text" class="form-control" id="MaterialesHfc"
-                                                        name="MaterialesHfc" placeholder="Comentarios..." />
+                                                    <input type="text" class="form-control" id="MaterialesTrasladoGpon"
+                                                        name="MaterialesTrasladoGpon" placeholder="Comentarios..." />
                                                 </div>
                                             </div>
                                         </div>
@@ -592,43 +595,43 @@
                                     <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES GPON</label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenInternet_Gpon">Orden Internet</label>
+                                    <label for="OrdenInternetObjTrasladoGpon">Orden Internet</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon" id="OrdenInternet_Gpon"
-                                            name="OrdenInternet_Gpon" />
+                                        <input type="number" class="form-control OrdenGpon"
+                                            id="OrdenInternetObjTrasladoGpon" name="OrdenInternetObjTrasladoGpon" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenTv_Gpon">Orden Tv</label>
+                                    <label for="OrdenTvTrasladoObjGpon">Orden Tv</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon" id="OrdenTv_Gpon"
-                                            name="OrdenTv_Gpon" />
+                                        <input type="number" class="form-control OrdenGpon" id="OrdenTvTrasladoObjGpon"
+                                            name="OrdenTvTrasladoObjGpon" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenLinea_Gpon">Orden Linea</label>
+                                    <label for="OrdenLineaTrasladoObjGpon">Orden Linea</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
-                                            name="OrdenLinea_Gpon" />
+                                        <input type="number" class="form-control OrdenGpon"
+                                            id="OrdenLineaTrasladoObjGpon" name="OrdenLineaTrasladoObjGpon" />
                                     </div>
                                 </div>
 
                                 <div class="form-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjetado_Gpon">MOTIVO OBJETADO</label>
+                                        <label for="MotivoObjTrasladoGpon">MOTIVO OBJETADO</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetado_Gpon" tabindex="-1"
-                                            id="MotivoObjetado_Gpon" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoObjTrasladoGpon" tabindex="-1"
+                                            id="MotivoObjTrasladoGpon" aria-hidden="true">
                                             <option selected="selected">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
@@ -655,7 +658,7 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoGpon_Objetado" name="TrabajadoGpon_Objetado" />
+                                                    id="TrabajadoTrasladoObjGpon" name="TrabajadoTrasladoObj" />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -664,25 +667,25 @@
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ObsGpon_Objetada">Observaciones</label>
+                                        <label for="ObvsTrasladoObjGpon">Observaciones</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-eye"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ObsGpon_Objetada"
-                                                name="ObsGpon_Objetada"
+                                            <input type="text" class="form-control" id="ObvsTrasladoObjGpon"
+                                                name="ObvsTrasladoObjGpon"
                                                 placeholder="Ingresa las observaciones del caso" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentariosGpon_Objetada">Comentarios</label>
+                                        <label for="ComentariosTrasladoObjGpon">Comentarios</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentariosGpon_Objetada"
-                                                name="ComentariosGpon_Objetada" placeholder="Comentarios..." />
+                                            <input type="text" class="form-control" id="ComentariosTrasladoObjGpon"
+                                                name="ComentariosTrasladoObjGpon" placeholder="Comentarios..." />
                                         </div>
                                     </div>
                                 </div>
@@ -697,42 +700,42 @@
                                         <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES GPON</label>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenInternet_Gpon">Orden Internet</label>
+                                        <label for="OrdenIntTransGpon">Orden Internet</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="number" class="form-control OrdenGpon" id="OrdenInternet_Gpon"
-                                                name="OrdenInternet_Gpon" />
+                                            <input type="number" class="form-control OrdenGpon" id="OrdenIntTransGpon"
+                                                name="OrdenIntTransGpon" />
                                         </div>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenTv_Gpon">Orden Tv</label>
+                                        <label for="OrdenTvTraslTransGpon">Orden Tv</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="number" class="form-control OrdenGpon" id="OrdenTv_Gpon"
-                                                name="OrdenTv_Gpon" />
+                                            <input type="number" class="form-control OrdenGpon"
+                                                id="OrdenTvTraslTransGpon" name="OrdenTvTraslTransGpon" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenLinea_Gpon">Orden Linea</label>
+                                        <label for="OrdenLineaTraslTransGpon">Orden Linea</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="number" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
-                                                name="OrdenLinea_Gpon" />
+                                            <input type="number" class="form-control OrdenGpon"
+                                                id="OrdenLineaTraslTransGpon" name="OrdenLinea_Gpon" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTransferido_Gpon" name="TrabajadoTransferido_Gpon" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoTraslTransGpon"
+                                                name="TrabajadoTraslTransGpon" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -741,24 +744,24 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="MotivoTransferidoGpon">Motivo Transferido</label>
+                                    <label for="MotivoTransTrasladoGpon">Motivo Transferido</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MotivoTransferidoGpon"
-                                            name="MotivoTransferidoGpon" />
+                                        <input type="text" class="form-control" id="MotivoTransTrasladoGpon"
+                                            name="MotivoTransTrasladoGpon" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentarioTransferido_Gpon">Comentarios</label>
+                                    <label for="ComentariosTrasladoTransGpon">Comentarios</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
-                                            name="ComentarioTransferido_Gpon" />
+                                        <input type="text" class="form-control" id="ComentariosTrasladoTransGpon"
+                                            name="ComentariosTrasladoTransGpon" />
                                     </div>
                                 </div>
                             </div>
@@ -786,32 +789,32 @@
                             <div class="form-group-container">
 
                                 <div class="form-group col-md-3">
-                                    <label for="GeoreferenciaAdsl">Georeferencia</label>
+                                    <label for="GeorefTrasladoAdsl">Georeferencia</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-map-marker"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="GeoreferenciaAdsl"
-                                            name="GeoreferenciaAdsl" placeholder="Latitud,Longitud" />
+                                        <input type="text" class="form-control" id="GeorefTrasladoAdsl"
+                                            name="GeorefTrasladoAdsl" placeholder="Latitud,Longitud" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="MaterialesRedGpon">
+                                    <label for="MaterialesTrasladoAdsl">
                                         Materiales
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MaterialesRedGpon"
-                                            name="MaterialesRedGpon" placeholder="Comentarios..." />
+                                        <input type="text" class="form-control" id="MaterialesTrasladoAdsl"
+                                            name="MaterialesTrasladoAdsl" placeholder="Comentarios..." />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoGpon"
-                                                name="TrabajadoGpon" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoTrasladoAdsl"
+                                                name="TrabajadoTrasladoAdsl" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -821,19 +824,19 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObvsTrasladoAdsl">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso" />
+                                        <input type="text" class="form-control" id="ObvsTrasladoAdsl"
+                                            name="ObvsTrasladoAdsl" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeTrasladoAdsl">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -841,7 +844,7 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc" />
+                                            class="form-control" id="RecibeTrasladoAdsl" name="RecibeTrasladoAdsl" />
                                     </div>
                                 </div>
 
@@ -853,10 +856,10 @@
                             <div class="">
                                 <div class="form-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjetado_Gpon">MOTIVO OBJETADO</label>
+                                        <label for="MotivoObjTrasladoAdsl">MOTIVO OBJETADO</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetado_Gpon" tabindex="-1"
-                                            id="MotivoObjetado_Gpon" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoObjTrasladoAdsl" tabindex="-1"
+                                            id="MotivoObjTrasladoAdsl" aria-hidden="true">
                                             <option selected="selected">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
@@ -883,7 +886,7 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoGpon_Objetado" name="TrabajadoGpon_Objetado" />
+                                                    id="TrabajadoTrasladoObjAdsl" name="TrabajadoTrasladoObjAdsl" />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -892,25 +895,25 @@
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ObsGpon_Objetada">Observaciones</label>
+                                        <label for="ObvsTrasladoObjAdsl">Observaciones</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-eye"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ObsGpon_Objetada"
-                                                name="ObsGpon_Objetada"
+                                            <input type="text" class="form-control" id="ObvsTrasladoObjAdsl"
+                                                name="ObvsTrasladoObjAdsl"
                                                 placeholder="Ingresa las observaciones del caso" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentariosGpon_Objetada">Comentarios</label>
+                                        <label for="ComentariosTrasladosObjAdsl">Comentarios</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentariosGpon_Objetada"
-                                                name="ComentariosGpon_Objetada" placeholder="Comentarios..." />
+                                            <input type="text" class="form-control" id="ComentariosTrasladosObjAdsl"
+                                                name="ComentariosTrasladosObjAdsl" placeholder="Comentarios..." />
                                         </div>
                                     </div>
                                 </div>
@@ -924,7 +927,7 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTransferido_Gpon" name="TrabajadoTransferido_Gpon" />
+                                                id="TrabajadoTransferidoAdsl" name="TrabajadoTransferidoAdsl" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -933,24 +936,24 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="MotivoTransferidoGpon">Motivo Transferido</label>
+                                    <label for="MotivoTransferidoTrasladoAdsl">Motivo Transferido</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MotivoTransferidoGpon"
-                                            name="MotivoTransferidoGpon" />
+                                        <input type="text" class="form-control" id="MotivoTransferidoTrasladoAdsl"
+                                            name="MotivoTransferidoTrasladoAdsl" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentarioTransferido_Gpon">Comentarios</label>
+                                    <label for="ComentariosTrasladoTransAdsl">Comentarios</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
-                                            name="ComentarioTransferido_Gpon" />
+                                        <input type="text" class="form-control" id="ComentariosTrasladoTransAdsl"
+                                            name="ComentariosTrasladoTransAdsl" />
                                     </div>
                                 </div>
                             </div>
@@ -976,32 +979,32 @@
                             <div class="form-group-container">
 
                                 <div class="form-group col-md-3">
-                                    <label for="GeoreferenciaCobre">Georeferencia</label>
+                                    <label for="GeorefTrasladoCobre">Georeferencia</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-map-marker"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="GeoreferenciaAdsl"
-                                            name="GeoreferenciaAdsl" placeholder="Latitud,Longitud" />
+                                        <input type="text" class="form-control" id="GeorefTrasladoCobre"
+                                            name="GeorefTrasladoCobre" placeholder="Latitud,Longitud" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="MaterialesRedGpon">
+                                    <label for="MaterialesTrasladoCobre">
                                         Materiales
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MaterialesRedGpon"
-                                            name="MaterialesRedGpon" placeholder="Comentarios..." />
+                                        <input type="text" class="form-control" id="MaterialesTrasladoCobre"
+                                            name="MaterialesTrasladoCobre" placeholder="Comentarios..." />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoGpon"
-                                                name="TrabajadoGpon" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoTrasladoCobre"
+                                                name="TrabajadoTrasladoCobre" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -1011,19 +1014,19 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObvsTrasladoCobre">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso" />
+                                        <input type="text" class="form-control" id="ObvsTrasladoCobre"
+                                            name="ObvsTrasladoCobre" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeTrasladoCobre">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -1031,7 +1034,7 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc" />
+                                            class="form-control" id="RecibeTrasladoCobre" name="RecibeTrasladoCobre" />
                                     </div>
                                 </div>
 
@@ -1043,10 +1046,10 @@
                             <div class="">
                                 <div class="form-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjetado_Gpon">MOTIVO OBJETADO</label>
+                                        <label for="MotivoObjTrasladoCobre">MOTIVO OBJETADO</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetado_Gpon" tabindex="-1"
-                                            id="MotivoObjetado_Gpon" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoObjTrasladoCobre" tabindex="-1"
+                                            id="MotivoObjTrasladoCobre" aria-hidden="true">
                                             <option selected="selected">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
@@ -1073,7 +1076,7 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoGpon_Objetado" name="TrabajadoGpon_Objetado" />
+                                                    id="TrabajadoTrasladoObjCobre" name="TrabajadoTrasladoObjCobre" />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -1082,25 +1085,25 @@
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ObsGpon_Objetada">Observaciones</label>
+                                        <label for="ObsObjTrasladoCobre">Observaciones</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-eye"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ObsGpon_Objetada"
-                                                name="ObsGpon_Objetada"
+                                            <input type="text" class="form-control" id="ObsObjTrasladoCobre"
+                                                name="ObsObjTrasladoCobre"
                                                 placeholder="Ingresa las observaciones del caso" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentariosGpon_Objetada">Comentarios</label>
+                                        <label for="ComentariosObjTrasladoCobre">Comentarios</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentariosGpon_Objetada"
-                                                name="ComentariosGpon_Objetada" placeholder="Comentarios..." />
+                                            <input type="text" class="form-control" id="ComentariosObjTrasladoCobre"
+                                                name="ComentariosObjTrasladoCobre" placeholder="Comentarios..." />
                                         </div>
                                     </div>
                                 </div>
@@ -1114,7 +1117,7 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTransferido_Gpon" name="TrabajadoTransferido_Gpon" />
+                                                id="TrabajadoTransTrasladoCobre" name="TrabajadoTransTrasladoCobre" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -1123,24 +1126,24 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="MotivoTransferidoGpon">Motivo Transferido</label>
+                                    <label for="MotivoTransTrasladoCobre">Motivo Transferido</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MotivoTransferidoGpon"
-                                            name="MotivoTransferidoGpon" />
+                                        <input type="text" class="form-control" id="MotivoTransTrasladoCobre"
+                                            name="MotivoTransTrasladoCobre" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentarioTransferido_Gpon">Comentarios</label>
+                                    <label for="ComentarioTransTrasladoCobre">Comentarios</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
-                                            name="ComentarioTransferido_Gpon" />
+                                        <input type="text" class="form-control" id="ComentarioTransTrasladoCobre"
+                                            name="ComentarioTransTrasladoCobre" />
                                     </div>
                                 </div>
                             </div>
@@ -1166,32 +1169,32 @@
                             <div class="form-group-container">
 
                                 <div class="form-group col-md-3">
-                                    <label for="GeoreferenciaCobre">Georeferencia</label>
+                                    <label for="GeorefTrasladoDth">Georeferencia</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-map-marker"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="GeoreferenciaAdsl"
-                                            name="GeoreferenciaAdsl" placeholder="Latitud,Longitud" />
+                                        <input type="text" class="form-control" id="GeorefTrasladoDth"
+                                            name="GeorefTrasladoDth" placeholder="Latitud,Longitud" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="MaterialesRedGpon">
+                                    <label for="MaterialesTrasladoDth">
                                         Materiales
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MaterialesRedGpon"
-                                            name="MaterialesRedGpon" placeholder="Comentarios..." />
+                                        <input type="text" class="form-control" id="MaterialesTrasladoDth"
+                                            name="MaterialesTrasladoDth" placeholder="Comentarios..." />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoGpon"
-                                                name="TrabajadoGpon" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoTrasladoDth"
+                                                name="TrabajadoTrasladoDth" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -1201,19 +1204,19 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObvsTrasladoDth">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso" />
+                                        <input type="text" class="form-control" id="ObvsTrasladoDth"
+                                            name="ObvsTrasladoDth" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeTrasladoDth">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -1221,7 +1224,7 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc" />
+                                            class="form-control" id="RecibeTrasladoDth" name="RecibeTrasladoDth" />
                                     </div>
                                 </div>
 
@@ -1233,10 +1236,10 @@
                             <div class="">
                                 <div class="form-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjetado_Gpon">MOTIVO OBJETADO</label>
+                                        <label for="MotivoObjTrasladoDth">MOTIVO OBJETADO</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetado_Gpon" tabindex="-1"
-                                            id="MotivoObjetado_Gpon" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoObjTrasladoDth" tabindex="-1"
+                                            id="MotivoObjTrasladoDth" aria-hidden="true">
                                             <option selected="selected">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
@@ -1263,7 +1266,7 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoGpon_Objetado" name="TrabajadoGpon_Objetado" />
+                                                    id="TrabajadoTrasladoObjDth" name="TrabajadoTrasladoObjDth" />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -1272,25 +1275,25 @@
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ObsGpon_Objetada">Observaciones</label>
+                                        <label for="ObvsTrasladoObjDth">Observaciones</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-eye"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ObsGpon_Objetada"
-                                                name="ObsGpon_Objetada"
+                                            <input type="text" class="form-control" id="ObvsTrasladoObjDth"
+                                                name="ObvsTrasladoObjDth"
                                                 placeholder="Ingresa las observaciones del caso" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentariosGpon_Objetada">Comentarios</label>
+                                        <label for="ComentariosTrasladoObjDth">Comentarios</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentariosGpon_Objetada"
-                                                name="ComentariosGpon_Objetada" placeholder="Comentarios..." />
+                                            <input type="text" class="form-control" id="ComentariosTrasladoObjDth"
+                                                name="ComentariosTrasladoObjDth" placeholder="Comentarios..." />
                                         </div>
                                     </div>
                                 </div>
@@ -1303,8 +1306,8 @@
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTransferido_Gpon" name="TrabajadoTransferido_Gpon" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoTransferidoDth"
+                                                name="TrabajadoTransferidoDth" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -1313,24 +1316,24 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="MotivoTransferidoGpon">Motivo Transferido</label>
+                                    <label for="MotivioTrasnTrasladoDth">Motivo Transferido</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MotivoTransferidoGpon"
-                                            name="MotivoTransferidoGpon" />
+                                        <input type="text" class="form-control" id="MotivioTrasnTrasladoDth"
+                                            name="MotivioTrasnTrasladoDth" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentarioTransferido_Gpon">Comentarios</label>
+                                    <label for="ComentarioTrasnferidoTrasladoDth">Comentarios</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
-                                            name="ComentarioTransferido_Gpon" />
+                                        <input type="text" class="form-control" id="ComentarioTrasnferidoTrasladoDth"
+                                            name="ComentarioTrasnferidoTrasladoDth" />
                                     </div>
                                 </div>
                             </div>
@@ -1364,57 +1367,57 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv1"
-                                            name="equipostv1" placeholder="Equipo Tv 1" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc1"
+                                            name="equipostvAdicionHfc1" placeholder="Equipo Tv 1" />
                                     </div>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv2"
-                                            name="equipostv2" placeholder="Equipo Tv 2" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc2"
+                                            name="equipostvAdicionHfc2" placeholder="Equipo Tv 2" />
                                     </div>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv3"
-                                            name="equipostv3" placeholder="Equipo Tv 3" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc3"
+                                            name="equipostvAdicionHfc3" placeholder="Equipo Tv 3" />
                                     </div>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv4"
-                                            name="equipostv4" placeholder="Equipo Tv 4" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc5"
+                                            name="equipostvAdicionHfc5" placeholder="Equipo Tv 4" />
                                     </div>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv5"
-                                            name="equipostv5" placeholder="Equipo Tv 5" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc5"
+                                            name="equipostvAdicionHfc5" placeholder="Equipo Tv 5" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="obvsAdicionHfc">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso" />
+                                        <input type="text" class="form-control" id="obvsAdicionHfc"
+                                            name="obvsAdicionHfc" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeAdicionHfc">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -1422,14 +1425,14 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc" />
+                                            class="form-control" id="RecibeAdicionHfc" name="RecibeAdicionHfc" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoGpon"
-                                                name="TrabajadoGpon" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAdicionHfc"
+                                                name="TrabajadoAdicionHfc" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -1446,10 +1449,10 @@
                             <div class="">
                                 <div class="form-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjetado_Gpon">MOTIVO OBJETADO</label>
+                                        <label for="MotivoObjAdicionHfc">MOTIVO OBJETADO</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetado_Gpon" tabindex="-1"
-                                            id="MotivoObjetado_Gpon" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoObjAdicionHfc" tabindex="-1"
+                                            id="MotivoObjAdicionHfc" aria-hidden="true">
                                             <option selected="selected">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
@@ -1476,7 +1479,7 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoGpon_Objetado" name="TrabajadoGpon_Objetado" />
+                                                    id="TrabajadoObjAdicionHfc" name="TrabajadoObjAdicionHfc" />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -1485,25 +1488,25 @@
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ObsGpon_Objetada">Observaciones</label>
+                                        <label for="ObvsAdicionObjHfc">Observaciones</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-eye"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ObsGpon_Objetada"
-                                                name="ObsGpon_Objetada"
+                                            <input type="text" class="form-control" id="ObvsAdicionObjHfc"
+                                                name="ObvsAdicionObjHfc"
                                                 placeholder="Ingresa las observaciones del caso" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentariosGpon_Objetada">Comentarios</label>
+                                        <label for="ComentariosObjAdicionHfc">Comentarios</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentariosGpon_Objetada"
-                                                name="ComentariosGpon_Objetada" placeholder="Comentarios..." />
+                                            <input type="text" class="form-control" id="ComentariosObjAdicionHfc"
+                                                name="ComentariosObjAdicionHfc" placeholder="Comentarios..." />
                                         </div>
                                     </div>
                                 </div>
@@ -1517,7 +1520,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTransferido_Gpon" name="TrabajadoTransferido_Gpon" />
+                                                id="TrabajadoAdicionTransferidoHfc"
+                                                name="TrabajadoAdicionTransferidoHfc" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -1526,24 +1530,24 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="MotivoTransferidoGpon">Motivo Transferido</label>
+                                    <label for="MotivioTransferidoAdicionHfc">Motivo Transferido</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MotivoTransferidoGpon"
-                                            name="MotivoTransferidoGpon" />
+                                        <input type="text" class="form-control" id="MotivioTransferidoAdicionHfc"
+                                            name="MotivioTransferidoAdicionHfc" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentarioTransferido_Gpon">Comentarios</label>
+                                    <label for="ComentarioTransferidoAdicionHfc">Comentarios</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
-                                            name="ComentarioTransferido_Gpon" />
+                                        <input type="text" class="form-control" id="ComentarioTransferidoAdicionHfc"
+                                            name="ComentarioTransferidoAdicionHfc" />
                                     </div>
                                 </div>
                             </div>
@@ -1572,57 +1576,57 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv1"
-                                            name="equipostv1" placeholder="Equipo Tv 1" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon1"
+                                            name="equipostvAdicionGpon1" placeholder="Equipo Tv 1" />
                                     </div>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv2"
-                                            name="equipostv2" placeholder="Equipo Tv 2" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon2"
+                                            name="equipostvAdicionGpon2" placeholder="Equipo Tv 2" />
                                     </div>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv3"
-                                            name="equipostv3" placeholder="Equipo Tv 3" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon3"
+                                            name="equipostvAdicionGpon3" placeholder="Equipo Tv 3" />
                                     </div>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv4"
-                                            name="equipostv4" placeholder="Equipo Tv 4" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon4"
+                                            name="equipostvAdicionGpon4" placeholder="Equipo Tv 4" />
                                     </div>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv5"
-                                            name="equipostv5" placeholder="Equipo Tv 5" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon5"
+                                            name="equipostvAdicionGpon5" placeholder="Equipo Tv 5" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObvsAdicionGpon">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso" />
+                                        <input type="text" class="form-control" id="ObvsAdicionGpon"
+                                            name="ObvsAdicionGpon" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeAdicionGpon">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -1630,14 +1634,14 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc" />
+                                            class="form-control" id="RecibeAdicionGpon" name="RecibeAdicionGpon" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoGpon"
-                                                name="TrabajadoGpon" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAdicionGpon"
+                                                name="TrabajadoAdicionGpon" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -1654,10 +1658,10 @@
                             <div class="">
                                 <div class="form-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjetado_Gpon">MOTIVO OBJETADO</label>
+                                        <label for="MotivoAdicionObjGpon">MOTIVO OBJETADO</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetado_Gpon" tabindex="-1"
-                                            id="MotivoObjetado_Gpon" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoAdicionObjGpon" tabindex="-1"
+                                            id="MotivoAdicionObjGpon" aria-hidden="true">
                                             <option selected="selected">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
@@ -1684,7 +1688,7 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoGpon_Objetado" name="TrabajadoGpon_Objetado" />
+                                                    id="TrabajadoAdicionObjGpon" name="TrabajadoAdicionObjGpon" />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -1693,25 +1697,25 @@
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ObsGpon_Objetada">Observaciones</label>
+                                        <label for="ObvsAdicionObjGpon">Observaciones</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-eye"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ObsGpon_Objetada"
-                                                name="ObsGpon_Objetada"
+                                            <input type="text" class="form-control" id="ObvsAdicionObjGpon"
+                                                name="ObvsAdicionObjGpon"
                                                 placeholder="Ingresa las observaciones del caso" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentariosGpon_Objetada">Comentarios</label>
+                                        <label for="ComentariosAdicionObjGpon">Comentarios</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentariosGpon_Objetada"
-                                                name="ComentariosGpon_Objetada" placeholder="Comentarios..." />
+                                            <input type="text" class="form-control" id="ComentariosAdicionObjGpon"
+                                                name="ComentariosAdicionObjGpon" placeholder="Comentarios..." />
                                         </div>
                                     </div>
                                 </div>
@@ -1725,7 +1729,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTransferido_Gpon" name="TrabajadoTransferido_Gpon" />
+                                                id="TrabajadoTransferidoAdicionGpon"
+                                                name="TrabajadoTransferidoAdicionGpon" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -1734,24 +1739,24 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="MotivoTransferidoGpon">Motivo Transferido</label>
+                                    <label for="MotivoTransferidoAdicionGpon">Motivo Transferido</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MotivoTransferidoGpon"
-                                            name="MotivoTransferidoGpon" />
+                                        <input type="text" class="form-control" id="MotivoTransferidoAdicionGpon"
+                                            name="MotivoTransferidoAdicionGpon" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentarioTransferido_Gpon">Comentarios</label>
+                                    <label for="ComentarioTransferidoAdicionGpon">Comentarios</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
-                                            name="ComentarioTransferido_Gpon" />
+                                        <input type="text" class="form-control" id="ComentarioTransferidoAdicionGpon"
+                                            name="ComentarioTransferidoAdicionGpon" />
                                     </div>
                                 </div>
                             </div>
@@ -1781,57 +1786,57 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv1"
-                                            name="equipostv1" placeholder="Equipo Tv 1" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth1"
+                                            name="equipostvAdicionDth1" placeholder="Equipo Tv 1" />
                                     </div>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv2"
-                                            name="equipostv2" placeholder="Equipo Tv 2" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth2"
+                                            name="equipostvAdicionDth2" placeholder="Equipo Tv 2" />
                                     </div>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv3"
-                                            name="equipostv3" placeholder="Equipo Tv 3" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth3"
+                                            name="equipostvAdicionDth3" placeholder="Equipo Tv 3" />
                                     </div>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv4"
-                                            name="equipostv4" placeholder="Equipo Tv 4" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth4"
+                                            name="equipostvAdicionDth4" placeholder="Equipo Tv 4" />
                                     </div>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv5"
-                                            name="equipostv5" placeholder="Equipo Tv 5" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth5"
+                                            name="equipostvAdicionDth5" placeholder="Equipo Tv 5" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObvsAdicionDth">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso" />
+                                        <input type="text" class="form-control" id="ObvsAdicionDths"
+                                            name="ObvsAdicionDths" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeAdicionDth">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -1839,14 +1844,14 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc" />
+                                            class="form-control" id="RecibeAdicionDth" name="RecibeAdicionDth" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoGpon"
-                                                name="TrabajadoGpon" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAdicionDth"
+                                                name="TrabajadoAdicionDth" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -1863,10 +1868,10 @@
                             <div class="">
                                 <div class="form-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjetado_Gpon">MOTIVO OBJETADO</label>
+                                        <label for="MotivoObjAdicionDth">MOTIVO OBJETADO</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetado_Gpon" tabindex="-1"
-                                            id="MotivoObjetado_Gpon" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoObjAdicionDth" tabindex="-1"
+                                            id="MotivoObjAdicionDth" aria-hidden="true">
                                             <option selected="selected">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
@@ -1893,7 +1898,7 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoGpon_Objetado" name="TrabajadoGpon_Objetado" />
+                                                    id="TrabajadoAdicionObjDth" name="TrabajadoAdicionObjDth" />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -1902,25 +1907,25 @@
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ObsGpon_Objetada">Observaciones</label>
+                                        <label for="ObvsAdicionObjDth">Observaciones</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-eye"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ObsGpon_Objetada"
-                                                name="ObsGpon_Objetada"
+                                            <input type="text" class="form-control" id="ObvsAdicionObjDth"
+                                                name="ObvsAdicionObjDth"
                                                 placeholder="Ingresa las observaciones del caso" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentariosGpon_Objetada">Comentarios</label>
+                                        <label for="ComentariosAdicionObjDth">Comentarios</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentariosGpon_Objetada"
-                                                name="ComentariosGpon_Objetada" placeholder="Comentarios..." />
+                                            <input type="text" class="form-control" id="ComentariosAdicionObjDth"
+                                                name="ComentariosAdicionObjDth" placeholder="Comentarios..." />
                                         </div>
                                     </div>
                                 </div>
@@ -1934,7 +1939,7 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTransferido_Gpon" name="TrabajadoTransferido_Gpon" />
+                                                id="TrabajadoTransAdicionDth" name="TrabajadoTransAdicionDth" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -1943,24 +1948,24 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="MotivoTransferidoGpon">Motivo Transferido</label>
+                                    <label for="MotivoTransAdicionDth">Motivo Transferido</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MotivoTransferidoGpon"
-                                            name="MotivoTransferidoGpon" />
+                                        <input type="text" class="form-control" id="MotivoTransAdicionDth"
+                                            name="MotivoTransAdicionDth" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentarioTransferido_Gpon">Comentarios</label>
+                                    <label for="ComentariosTransferidoAdicionDth">Comentarios</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
-                                            name="ComentarioTransferido_Gpon" />
+                                        <input type="text" class="form-control" id="ComentariosTransferidoAdicionDth"
+                                            name="ComentariosTransferidoAdicionDth" />
                                     </div>
                                 </div>
                             </div>
@@ -1988,40 +1993,42 @@
                         <div class="PostventaCambioHfcHidden" id="RealizadaCambioHfc">
                             <div class="form-group-container">
                                 <div class="form-group col-md-3" id="hideEquipoTv">
-                                    <label for="EquiposTv_Hfc">Equipo Instalar</label>
+                                    <label for="EquipoTvInstalarC_EquipoHfc">Equipo Instalar</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv1"
-                                            name="equipostv1" placeholder="N° Equipo Instalar" />
+                                        <input type="text" class="form-control equipotvHfc"
+                                            id="EquipoTvInstalarC_EquipoHfc" name="EquipoTvInstalarC_EquipoHfc"
+                                            placeholder="N° Equipo Instalar" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" id="hideEquipoTv">
-                                    <label for="EquiposTv_Hfc">Equipo Desinstalar</label>
+                                    <label for="EquipoTvDesinstalarC_EquipoHfc">Equipo Desinstalar</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv1"
-                                            name="equipostv1" placeholder="N° Equipo Instalar" />
+                                        <input type="text" class="form-control equipotvHfc"
+                                            id="EquipoTvDesinstalarC_EquipoHfc" name="EquipoTvDesinstalarC_EquipoHfc"
+                                            placeholder="N° Equipo Desinstalar" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObvsC_EquipoHfc">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso" />
+                                        <input type="text" class="form-control" id="ObvsC_EquipoHfc"
+                                            name="ObvsC_EquipoHfc" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeC_EquipoHfc">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -2029,14 +2036,14 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc" />
+                                            class="form-control" id="RecibeC_EquipoHfc" name="RecibeC_EquipoHfc" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoGpon"
-                                                name="TrabajadoGpon" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoC_EquipoHfc"
+                                                name="TrabajadoC_EquipoHfc" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -2053,10 +2060,10 @@
                             <div class="">
                                 <div class="form-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjetado_Gpon">MOTIVO OBJETADO</label>
+                                        <label for="MotivoC_EquipoObjHfc">MOTIVO OBJETADO</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetado_Gpon" tabindex="-1"
-                                            id="MotivoObjetado_Gpon" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoC_EquipoObjHfc" tabindex="-1"
+                                            id="MotivoC_EquipoObjHfc" aria-hidden="true">
                                             <option selected="selected">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
@@ -2083,7 +2090,7 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoGpon_Objetado" name="TrabajadoGpon_Objetado" />
+                                                    id="TrabajadoObjC_EquipoHfc" name="TrabajadoObjC_EquipoHfc" />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -2092,25 +2099,25 @@
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ObsGpon_Objetada">Observaciones</label>
+                                        <label for="ObvsC_EquipoObjHfc">Observaciones</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-eye"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ObsGpon_Objetada"
-                                                name="ObsGpon_Objetada"
+                                            <input type="text" class="form-control" id="ObvsC_EquipoObjHfc"
+                                                name="ObvsC_EquipoObjHfc"
                                                 placeholder="Ingresa las observaciones del caso" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentariosGpon_Objetada">Comentarios</label>
+                                        <label for="ComentariosC_EquipoObjHfc">Comentarios</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentariosGpon_Objetada"
-                                                name="ComentariosGpon_Objetada" placeholder="Comentarios..." />
+                                            <input type="text" class="form-control" id="ComentariosC_EquipoObjHfc"
+                                                name="ComentariosC_EquipoObjHfc" placeholder="Comentarios..." />
                                         </div>
                                     </div>
                                 </div>
@@ -2124,7 +2131,7 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTransferido_Gpon" name="TrabajadoTransferido_Gpon" />
+                                                id="TrabajadoTransC_EquipoHfc" name="TrabajadoTransC_EquipoHfc" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -2133,24 +2140,24 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="MotivoTransferidoGpon">Motivo Transferido</label>
+                                    <label for="MotivoTransC_EquipoHfc">Motivo Transferido</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MotivoTransferidoGpon"
-                                            name="MotivoTransferidoGpon" />
+                                        <input type="text" class="form-control" id="MotivoTransC_EquipoHfc"
+                                            name="MotivoTransC_EquipoHfc" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentarioTransferido_Gpon">Comentarios</label>
+                                    <label for="ComentarioTransC_EquipoHfc">Comentarios</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
-                                            name="ComentarioTransferido_Gpon" />
+                                        <input type="text" class="form-control" id="ComentarioTransC_EquipoHfc"
+                                            name="ComentarioTransC_EquipoHfc" />
                                     </div>
                                 </div>
                             </div>
@@ -2179,8 +2186,8 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv1"
-                                            name="equipostv1" placeholder="N° Equipo Instalar" />
+                                        <input type="text" class="form-control equipotvHfc" id="EquipoTvC_EquipoGpon"
+                                            name="EquipoTvC_EquipoGpon" placeholder="N° Equipo Instalar" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" id="hideEquipoTv">
@@ -2189,25 +2196,26 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv1"
-                                            name="equipostv1" placeholder="N° Equipo Instalar" />
+                                        <input type="text" class="form-control equipotvHfc" id="EquipoTvC_EquipoGpon"
+                                            name="EquipoTvC_EquipoGpon" placeholder="N° Equipo Desinstalar" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObvservacionesC_EquipoGpon">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso" />
+                                        <input type="text" class="form-control" id="ObvservacionesC_EquipoGpon"
+                                            name="ObvservacionesC_EquipoGpon"
+                                            placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeC_EquipoGpon">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -2215,14 +2223,14 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc" />
+                                            class="form-control" id="RecibeC_EquipoGpon" name="RecibeC_EquipoGpon" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoGpon"
-                                                name="TrabajadoGpon" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajdoC_EquipoGpon"
+                                                name="TrabajdoC_EquipoGpon" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -2239,10 +2247,10 @@
                             <div class="">
                                 <div class="form-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjetado_Gpon">MOTIVO OBJETADO</label>
+                                        <label for="MotivoObjC_EquipoGpon">MOTIVO OBJETADO</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetado_Gpon" tabindex="-1"
-                                            id="MotivoObjetado_Gpon" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoObjC_EquipoGpon" tabindex="-1"
+                                            id="MotivoObjC_EquipoGpon" aria-hidden="true">
                                             <option selected="selected">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
@@ -2269,7 +2277,7 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoGpon_Objetado" name="TrabajadoGpon_Objetado" />
+                                                    id="TrabajadoObjC_EquipoGpon" name="TrabajadoObjC_EquipoGpon" />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -2278,25 +2286,25 @@
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ObsGpon_Objetada">Observaciones</label>
+                                        <label for="ObvsObjC_EquipoGpon">Observaciones</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-eye"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ObsGpon_Objetada"
-                                                name="ObsGpon_Objetada"
+                                            <input type="text" class="form-control" id="ObvsObjC_EquipoGpon"
+                                                name="ObvsObjC_EquipoGpon"
                                                 placeholder="Ingresa las observaciones del caso" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentariosGpon_Objetada">Comentarios</label>
+                                        <label for="ComentariosObjC_EquipoGpon">Comentarios</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentariosGpon_Objetada"
-                                                name="ComentariosGpon_Objetada" placeholder="Comentarios..." />
+                                            <input type="text" class="form-control" id="ComentariosObjC_EquipoGpon"
+                                                name="ComentariosObjC_EquipoGpon" placeholder="Comentarios..." />
                                         </div>
                                     </div>
                                 </div>
@@ -2310,7 +2318,7 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTransferido_Gpon" name="TrabajadoTransferido_Gpon" />
+                                                id="TrabajadoTranfC_EquipoGpon" name="TrabajadoTranfC_EquipoGpon" />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -2319,24 +2327,24 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="MotivoTransferidoGpon">Motivo Transferido</label>
+                                    <label for="MotivoTranfC_EquipoGpon">Motivo Transferido</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MotivoTransferidoGpon"
-                                            name="MotivoTransferidoGpon" />
+                                        <input type="text" class="form-control" id="MotivoTranfC_EquipoGpon"
+                                            name="MotivoTranfC_EquipoGpon" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentarioTransferido_Gpon">Comentarios</label>
+                                    <label for="ComentarioTranfC_EquipoGpon">Comentarios</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
-                                            name="ComentarioTransferido_Gpon" />
+                                        <input type="text" class="form-control" id="ComentarioTranfC_EquipoGpon"
+                                            name="ComentarioTranfC_EquipoGpon" />
                                     </div>
                                 </div>
                             </div>
@@ -2360,36 +2368,38 @@
                         <div class="PostventaCambioAdslHidden" id="RealizadaCambioAdsl">
                             <div class="form-group-container">
                                 <div class="form-group col-md-3" id="hideEquipoTv">
-                                    <label for="EquiposTv_Hfc">Equipo Instalar</label>
+                                    <label for="EquipoTvC_EquipoAdsl">Equipo Instalar</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv1"
-                                            name="equipostv1" placeholder="N° Equipo Instalar" />
+                                        <input type="text" class="form-control equipotvHfc"
+                                            id="EquipoTvC_EquipoInstalarAdsl" name="EquipoTvC_EquipoInstalarAdsl"
+                                            placeholder="N° Equipo Instalar" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" id="hideEquipoTv">
-                                    <label for="EquiposTv_Hfc">Equipo Desinstalar</label>
+                                    <label for="EquipoTvC_EquipoDesinstalarAdsl">Equipo Desinstalar</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostv1"
-                                            name="equipostv1" placeholder="N° Equipo Instalar" />
+                                        <input type="text" class="form-control equipotvHfc"
+                                            id="EquipoTvC_EquipoDesinstalarAdsl" name="EquipoTvC_EquipoDesinstalarAdsl"
+                                            placeholder="N° Equipo Instalar" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObvsC_EquipoAdsl">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso" />
+                                        <input type="text" class="form-control" id="ObvsC_EquipoAdsl"
+                                            name="ObvsC_EquipoAdsl" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
