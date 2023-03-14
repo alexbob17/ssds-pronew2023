@@ -501,6 +501,7 @@ const formTypes = [
     forms: [
       document.getElementById("formCobre_Realizada"),
       document.getElementById("formCobre_Objetada"),
+      document.getElementById("formCobre_Anulada"),
       document.getElementById("formCobre_Transferida"),
     ],
   },
@@ -510,7 +511,7 @@ const formTypes = [
     forms: [
       document.getElementById("formDth_Realizada"),
       document.getElementById("formDth_Objetada"),
-      // document.getElementById("formDth_Transferida"),
+      document.getElementById("formDth_Anulada"),
     ],
   },
 ];
@@ -540,8 +541,10 @@ formTypes.forEach(({ select, forms }) => {
         selectedForm = forms[0];
       } else if (selectedOption === "OBJETADA") {
         selectedForm = forms[1];
-      } else if (selectedOption === "TRANSFERIDA") {
+      } else if (selectedOption === "ANULACION") {
         selectedForm = forms[2];
+      } else if (selectedOption === "TRANSFERIDA") {
+        selectedForm = forms[3];
       }
 
       if (selectedForm) {

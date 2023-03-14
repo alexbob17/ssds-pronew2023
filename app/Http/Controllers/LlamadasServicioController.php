@@ -12,9 +12,14 @@ use SSD\Models\InstalacionCobreRealizada;
 
 use SSD\Models\InstalacionCobreObjetada;
 
+use SSD\Models\InstalacionCobreAnulada;
+
+
 use SSD\Models\InstalacionDthRealizada;
 
 use SSD\Models\InstalacionDthObjetada;
+
+use SSD\Models\InstalacionDthAnulada;
 
 use SSD\Models\InstalacionGponRealizada;
 
@@ -482,6 +487,52 @@ class LlamadasServicioController extends Controller
                         ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
 					
+                }elseif ($data['tipo_actividadCobre'] == 'ANULACION') {
+					
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'MotivoAnulada_Cobre',
+						'OrdenAnuladaCobre',
+						'TrabajadoAnulada_Cobre',
+						'ComentarioAnulada_Cobre',
+					];
+	
+					$data = [];
+	
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoAnulada_Cobre' && $request->has('TrabajadoAnulada_Cobre')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoAnulada_Cobre') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+					// dd($data);
+
+					$dataCobreAnulada = new InstalacionCobreAnulada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataCobreAnulada->save();
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO COBRE ANULACION COMPLETADO";
+
+					
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('navigation', 'Instalaciones');
+						
+					
                 }
                 break;
             case 'DTH':
@@ -587,6 +638,53 @@ class LlamadasServicioController extends Controller
 						->with('messages', $messages)
                         ->with('page_title', 'Instalaciones - Servicio')
                         ->with('navigation', 'Instalaciones');
+					
+                }elseif ($data['tipo_actividadDth'] == 'ANULACION') {
+					
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'tipo_actividadDth',
+						'MotivoAnulada_Dth',
+						'OrdenAnulada_Dth',
+						'TrabajadoAnulada_Dth',
+						'ComentarioAnulada_Dth',
+					];
+	
+					$data = [];
+	
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoAnulada_Dth' && $request->has('TrabajadoAnulada_Dth')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoAnulada_Dth') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+					// dd($data);
+
+					$dataDthAnulada = new InstalacionDthAnulada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataDthAnulada->save();
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO DTH ANULACION COMPLETADO";
+
+					
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('navigation', 'Instalaciones');
+						
 					
                 }
                 break;

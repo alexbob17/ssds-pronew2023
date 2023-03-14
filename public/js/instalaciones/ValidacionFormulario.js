@@ -18,6 +18,8 @@ checkError.forEach(function (el) {
 // console.log("Orden Internet:", document.getElementById("OrdenLinea_Gpon"));
 
 const form = document.getElementById("form1");
+const selectElements = form.querySelectorAll("select");
+
 form.addEventListener("submit", function (event) {
   // event.preventDefault();
 
@@ -2411,6 +2413,57 @@ form.addEventListener("submit", function (event) {
           event.preventDefault();
           return false;
         }
+      } else if (tipo_actividadCobre === "ANULACION") {
+        const MotivoAnulada_Cobre = document.getElementById(
+          "MotivoAnulada_Cobre"
+        ).value;
+        const OrdenAnuladaCobre =
+          document.getElementById("OrdenAnuladaCobre").value;
+        const TrabajadoAnulada_Cobre = document.getElementById(
+          "TrabajadoAnulada_Cobre"
+        ).value;
+        const ComentarioAnulada_Cobre = document.getElementById(
+          "ComentarioAnulada_Cobre"
+        ).value;
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          dpto_colonia === "" ||
+          select_orden === "" ||
+          tipo_actividadCobre === "" ||
+          MotivoAnulada_Cobre === "" ||
+          OrdenAnuladaCobre === "" ||
+          TrabajadoAnulada_Cobre === "" ||
+          ComentarioAnulada_Cobre === ""
+        ) {
+          // checkError.style.display = "block";
+          // checkError1.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        } else if (parseInt(OrdenAnuladaCobre.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "N° Orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        } else {
+          // form.reset();
+          // selectElements.forEach((selectElement) => {
+          //   selectElement.selectedIndex = -1;
+          // });
+        }
       }
       break;
     case "DTH":
@@ -2661,6 +2714,56 @@ form.addEventListener("submit", function (event) {
           event.preventDefault();
           return false;
         }
+      } else if (tipo_actividadDth === "ANULACION") {
+        const MotivoAnulada_Dth =
+          document.getElementById("MotivoAnulada_Dth").value;
+        const OrdenAnulada_Dth =
+          document.getElementById("OrdenAnulada_Dth").value;
+        const TrabajadoAnulada_Dth = document.getElementById(
+          "TrabajadoAnulada_Dth"
+        ).value;
+        const ComentarioAnulada_Dth = document.getElementById(
+          "ComentarioAnulada_Dth"
+        ).value;
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          dpto_colonia === "" ||
+          select_orden === "" ||
+          tipo_actividadDth === "" ||
+          MotivoAnulada_Dth === "" ||
+          OrdenAnulada_Dth === "" ||
+          TrabajadoAnulada_Dth === "" ||
+          ComentarioAnulada_Dth === ""
+        ) {
+          // checkError.style.display = "block";
+          // checkError1.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        } else if (parseInt(OrdenAnulada_Dth.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "N° Orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        } else {
+          // form.reset();
+          // selectElements.forEach((selectElement) => {
+          //   selectElement.selectedIndex = -1;
+          // });
+        }
       }
       break;
     case "ADSL":
@@ -2779,11 +2882,3 @@ form.addEventListener("submit", function (event) {
       break;
   }
 });
-
-// var ErrorOrdenInternetAdsl = document.getElementById("ErrorOrdenInternetAdsl");
-
-// ErrorOrdenInternetAdsl.style.display = "none";
-
-// Obtener todos los campos de entrada con la clase "validar"
-
-const inputNombre = document.getElementById("orden_internetAdsl");
