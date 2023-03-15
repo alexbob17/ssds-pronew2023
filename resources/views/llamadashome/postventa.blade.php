@@ -120,6 +120,7 @@
 
                 <!-- POSTVENTAS TRASLADOS -->
                 <div class="form-group-container">
+
                     <!-- POSTVENTAS TRASLADOS HFC -->
                     <div class="form-group-container HiddenTrasladoHfc postventa-traslados" id="PostventaTrasladosHfc">
                         <div class="form-group col-md-3" style="padding-top:1.5rem">
@@ -140,16 +141,6 @@
                                     <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES HFC </label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenInternetTrasladoHfc">Orden Internet</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="number" class="form-control OrdenGpon"
-                                            id="OrdenInternetTrasladoHfc" name="OrdenInternetTrasladoHfc" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3">
                                     <label for="OrdenTvTrasladoHfc">Orden Tv</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -159,6 +150,17 @@
                                             name="OrdenTvTrasladoHfc" />
                                     </div>
                                 </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenInternetTrasladoHfc">Orden Internet</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control OrdenGpon"
+                                            id="OrdenInternetTrasladoHfc" name="OrdenInternetTrasladoHfc" />
+                                    </div>
+                                </div>
+
 
                                 <div class="form-group col-md-3">
                                     <label for="OrdenLineaTrasladoHfc">Orden Linea</label>
@@ -190,7 +192,7 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value=""
-                                                id="TrabajadoObjTrasladoHfc" name="TrabajadoObjTrasladoHfc" />
+                                                id="TrabajadoTrasladoHfc" name="TrabajadoTrasladoHfc" />
                                             <label class="form-check-label" for="">
                                                 Trabajado
                                             </label>
@@ -199,7 +201,7 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeHfcRealizado">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -207,7 +209,7 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc" />
+                                            class="form-control" id="RecibeHfcRealizado" name="RecibeHfcRealizado" />
                                     </div>
                                 </div>
                             </div>
@@ -285,34 +287,35 @@
                                     <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES HFC</label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenInternetObjTrasladoHfc">Orden Internet</label>
+                                    <label for="OrdenTvObjetadoTrasladoHfc">Orden Tv</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control OrdenGpon"
-                                            id="OrdenInternetObjTrasladoHfc" name="OrdenInternetObjTrasladoHfc" />
+                                            id="OrdenTvObjetadoTrasladoHfc" name="OrdenTvObjetadoTrasladoHfc" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenTvObjTrasladoHfc">Orden Tv</label>
+                                    <label for="OrdenIntObjTrasladoHfc">Orden Internet</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon" id="OrdenTvObjTrasladoHfc"
-                                            name="OrdenTvObjTrasladoHfc" />
+                                        <input type="number" class="form-control OrdenGpon" id="OrdenIntObjTrasladoHfc"
+                                            name="OrdenIntObjTrasladoHfc" />
                                     </div>
                                 </div>
 
+
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenLineaObjTrasladoHfc">Orden Linea</label>
+                                    <label for="OrdenLineaObjetadoTrasladoHfc">Orden Linea</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control OrdenGpon"
-                                            id="OrdenLineaObjTrasladoHfc" name="OrdenLineaObjTrasladoHfc" />
+                                            id="OrdenLineaObjetadoTrasladoHfc" name="OrdenLineaObjetadoTrasladoHfc" />
                                     </div>
                                 </div>
 
@@ -389,16 +392,6 @@
                                         <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES HFC</label>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenInternetTransferidoHfc">Orden Internet</label>
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-ticket"></i>
-                                            </div>
-                                            <input type="number" class="form-control OrdenGpon"
-                                                id="OrdenInternetTransferidoHfc" name="OrdenInternetTransferidoHfc" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-3">
                                         <label for="OrdenTvTransferidoHfc">Orden Tv</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
@@ -408,6 +401,17 @@
                                                 id="OrdenTvTransferidoHfc" name="OrdenTvTransferidoHfc" />
                                         </div>
                                     </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="OrdenInternetTransferidoHfc">Orden Internet</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-ticket"></i>
+                                            </div>
+                                            <input type="number" class="form-control OrdenGpon"
+                                                id="OrdenInternetTransferidoHfc" name="OrdenInternetTransferidoHfc" />
+                                        </div>
+                                    </div>
+
 
                                     <div class="form-group col-md-3">
                                         <label for="OrdenLineaTransferidoHfc">Orden Linea</label>
@@ -420,8 +424,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group-container">
 
+
+                                <div class="form-group-container">
                                     <div class="form-group col-md-9">
                                         <label for="MotivoTransTrasladoHfc">Motivo Transferido</label>
                                         <div class="input-group">
@@ -462,12 +467,47 @@
 
                         <div class="form-group-container TrasladoHfcHidden" id="AnuladaTrasladoHfc">
                             <div class="form-group-container">
+                                <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
+                                    <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES HFC</label>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenTvAnulTraslHfc">Orden Tv</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control OrdenGpon" id="OrdenTvAnulTraslHfc"
+                                            name="OrdenTvAnulTraslHfc" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenInterAnulTraslHfc">Orden Internet</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control OrdenGpon" id="OrdenInterAnulTraslHfc"
+                                            name="OrdenInterAnulTraslHfc" />
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenLineaAnulTraslHfc">Orden Linea</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control OrdenGpon" id="OrdenLineaAnulTraslHfc"
+                                            name="OrdenLineaAnulTraslHfc" />
+                                    </div>
+                                </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-4">
-                                        <label for="MotivoAnulada_Hfc">Motivo Anulación</label>
+                                        <label for="MotivoAnuladaTraslado_Hfc">Motivo Anulación</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoAnulada_Hfc" tabindex="-1"
-                                            id="MotivoAnulada_Hfc" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoAnuladaTraslado_Hfc" tabindex="-1"
+                                            id="MotivoAnuladaTraslado_Hfc" aria-hidden="true">
                                             <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
                                             <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
@@ -521,8 +561,8 @@
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Hfc"
-                                                name="TrabajadoAnulada_Hfc" />
+                                            <input class="form-check-input" type="checkbox"
+                                                id="TrabajadoAnuladaTraslado_Hfc" name="TrabajadoAnuladaTraslado_Hfc" />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -531,15 +571,16 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentarioAnulada_Hfc">
+                                    <label for="ComenAnuladaTraslado_Hfc">
                                         Comentarios
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                            name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso" />
+                                        <input type="text" class="form-control" id="ComenAnuladaTraslado_Hfc"
+                                            name="ComenAnuladaTraslado_Hfc"
+                                            placeholder="Ingresa comentarios del caso" />
                                     </div>
                                 </div>
                             </div>
@@ -568,16 +609,6 @@
                                     <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES GPON </label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenInternetTrasladoGpon">Orden Internet</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="number" class="form-control OrdenGpon"
-                                            id="OrdenInternetTrasladoGpon" name="OrdenInternetTrasladoGpon" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3">
                                     <label for="OrdenTvTrasladoGpon">Orden Tv</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -587,6 +618,17 @@
                                             name="OrdenTvTrasladoGpon" />
                                     </div>
                                 </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenInternetTrasladoGpon">Orden Internet</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control OrdenGpon"
+                                            id="OrdenInternetTrasladoGpon" name="OrdenInternetTrasladoGpon" />
+                                    </div>
+                                </div>
+
 
                                 <div class="form-group col-md-3">
                                     <label for="OrdenLineaTrasladoGpon">Orden Linea</label>
@@ -710,16 +752,6 @@
                                     <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES GPON</label>
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenInternetObjTrasladoGpon">Orden Internet</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="number" class="form-control OrdenGpon"
-                                            id="OrdenInternetObjTrasladoGpon" name="OrdenInternetObjTrasladoGpon" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3">
                                     <label for="OrdenTvTrasladoObjGpon">Orden Tv</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -729,15 +761,26 @@
                                             name="OrdenTvTrasladoObjGpon" />
                                     </div>
                                 </div>
-
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenLineaTrasladoObjGpon">Orden Linea</label>
+                                    <label for="OrdenInterObjTraslGpon">Orden Internet</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control OrdenGpon"
-                                            id="OrdenLineaTrasladoObjGpon" name="OrdenLineaTrasladoObjGpon" />
+                                        <input type="number" class="form-control OrdenGpon" id="OrdenInterObjTraslGpon"
+                                            name="OrdenInterObjTraslGpon" />
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenLineaTraslObjGpon">Orden Linea</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control OrdenGpon" id="OrdenLineaTraslObjGpon"
+                                            name="OrdenLineaTraslObjGpon" />
                                     </div>
                                 </div>
 
@@ -773,7 +816,7 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoTrasladoObjGpon" name="TrabajadoTrasladoObj" />
+                                                    id="TrabajadoTrasladoObjGpon" name="TrabajadoTrasladoObjGpon" />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -794,13 +837,13 @@
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentariosTrasladoObjGpon">Comentarios</label>
+                                        <label for="ComentTrasladoObjGpon">Comentarios</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentariosTrasladoObjGpon"
-                                                name="ComentariosTrasladoObjGpon" placeholder="Comentarios..." />
+                                            <input type="text" class="form-control" id="ComentTrasladoObjGpon"
+                                                name="ComentTrasladoObjGpon" placeholder="Comentarios..." />
                                         </div>
                                     </div>
                                 </div>
@@ -815,40 +858,41 @@
                                         <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES GPON</label>
                                     </div>
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenIntTransGpon">Orden Internet</label>
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-ticket"></i>
-                                            </div>
-                                            <input type="number" class="form-control OrdenGpon" id="OrdenIntTransGpon"
-                                                name="OrdenIntTransGpon" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="OrdenTvTraslTransGpon">Orden Tv</label>
+                                        <label for="OrdenTvTrasladoTransGpon">Orden Tv</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="number" class="form-control OrdenGpon"
-                                                id="OrdenTvTraslTransGpon" name="OrdenTvTraslTransGpon" />
+                                                id="OrdenTvTrasladoTransGpon" name="OrdenTvTrasladoTransGpon" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="OrdenIntTransladoGpon">Orden Internet</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-ticket"></i>
+                                            </div>
+                                            <input type="number" class="form-control OrdenGpon"
+                                                id="OrdenIntTransladoGpon" name="OrdenIntTransladoGpon" />
                                         </div>
                                     </div>
 
+
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenLineaTraslTransGpon">Orden Linea</label>
+                                        <label for="OrdenLineaTrasladoTransGpon">Orden Linea</label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="number" class="form-control OrdenGpon"
-                                                id="OrdenLineaTraslTransGpon" name="OrdenLinea_Gpon" />
+                                                id="OrdenLineaTrasladoTransGpon" name="OrdenLineaTrasladoTransGpon" />
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-9">
                                     <label for="MotivoTransTrasladoGpon">Motivo Transferido</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -872,13 +916,13 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentariosTrasladoTransGpon">Comentarios</label>
+                                    <label for="ComentTrasladoTransGpon">Comentarios</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentariosTrasladoTransGpon"
-                                            name="ComentariosTrasladoTransGpon" />
+                                        <input type="text" class="form-control" id="ComentTrasladoTransGpon"
+                                            name="ComentTrasladoTransGpon" />
                                     </div>
                                 </div>
 
@@ -889,12 +933,49 @@
                         <!-- ANULADA -->
                         <div class="form-group-container TrasladoGponHidden" id="AnuladaTrasladoGpon">
                             <div class="form-group-container">
+                                <div class="col-md-12">
+                                    <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
+                                        <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES GPON</label>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="OrdenTvTraslAnuladoGpon">Orden Tv</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-ticket"></i>
+                                            </div>
+                                            <input type="number" class="form-control OrdenGpon"
+                                                id="OrdenTvTraslAnuladoGpon" name="OrdenTvTraslAnuladoGpon" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="OrdenIntTrasladoAnulGpon">Orden Internet</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-ticket"></i>
+                                            </div>
+                                            <input type="number" class="form-control OrdenGpon"
+                                                id="OrdenIntTrasladoAnulGpon" name="OrdenIntTrasladoAnulGpon" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group col-md-3">
+                                        <label for="OrdenLineaTraslAnulGpon">Orden Linea</label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-ticket"></i>
+                                            </div>
+                                            <input type="number" class="form-control OrdenGpon"
+                                                id="OrdenLineaTraslAnulGpon" name="OrdenLineaTraslAnulGpon" />
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-4">
-                                        <label for="MotivoAnulada_Gpon">Motivo Anulación</label>
+                                        <label for="MotivoTrasladoAnulada_Gpon">Motivo Anulación</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoAnulada_Gpon" tabindex="-1"
-                                            id="MotivoAnulada_Gpon" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoTrasladoAnulada_Gpon" tabindex="-1"
+                                            id="MotivoTrasladoAnulada_Gpon" aria-hidden="true">
                                             <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
                                             <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
@@ -932,8 +1013,9 @@
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Hfc"
-                                                name="TrabajadoAnulada_Hfc" />
+                                            <input class="form-check-input" type="checkbox"
+                                                id="TrabajadoAnuladaTraslado_gpon"
+                                                name="TrabajadoAnuladaTraslado_gpon" />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -942,15 +1024,16 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentarioAnulada_Hfc">
+                                    <label for="ComentarioTrasladoAnulada_Gpon">
                                         Comentarios
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                            name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso" />
+                                        <input type="text" class="form-control" id="ComentarioTrasladoAnulada_Gpon"
+                                            name="ComentarioTrasladoAnulada_Gpon"
+                                            placeholder="Ingresa comentarios del caso" />
                                     </div>
                                 </div>
                             </div>
@@ -1057,7 +1140,7 @@
                             <div class="">
                                 <div class="form-group-container">
                                     <div class="form-group col-md-4">
-                                        <label for="MotivoObjTrasladoAdsl">MOTIVO OBJETADO</label>
+                                        <label for="MotivoObjTrasladoAdsl">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjTrasladoAdsl" tabindex="-1"
                                             id="MotivoObjTrasladoAdsl" aria-hidden="true">
@@ -1186,6 +1269,7 @@
                         <!-- ANULADA -->
                         <div class="form-group-container TrasladoAdslHidden" id="AnuladaTrasladoAdsl">
                             <div class="form-group-container">
+
                                 <div class="from-group-container">
                                     <div class="form-group col-md-4">
                                         <label for="MotivoAnulada_Adsl">Motivo Anulación</label>
@@ -1223,6 +1307,17 @@
                                                 RED SATURADA </option>
                                             <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenTrasladosAdsl">
+                                        Orden </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="OrdenTrasladosAdsl"
+                                            placeholder="N° Orden" name="OrdenTrasladosAdsl" />
                                     </div>
                                 </div>
 
@@ -1525,6 +1620,17 @@
 
                                     </div>
                                 </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenTrasladosAdsl">
+                                        Orden </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="OrdenTrasladosAdsl"
+                                            placeholder="N° Orden" name="OrdenTrasladosAdsl" />
+                                    </div>
+                                </div>
 
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
@@ -1809,6 +1915,18 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenTrasladosAdsl">
+                                        Orden </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="OrdenTrasladosAdsl"
+                                            placeholder="N° Orden" name="OrdenTrasladosAdsl" />
+                                    </div>
+                                </div>
+
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
@@ -1852,6 +1970,7 @@
                                 <option selected="selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
+                                <option value="ANULACION">ANULACION</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
                             </select>
                         </div>
@@ -1912,8 +2031,18 @@
                                             placeholder="N° Orden" name="OrdenAdicionHfc" />
                                     </div>
                                 </div>
+                                <div class="col-md-3" style="padding-left:20px">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoAdicionHfc"
+                                            name="TrabajadoAdicionHfc" />
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Trabajado
+                                        </label>
+                                    </div>
+                                </div>
 
-                                <div class="form-group col-md-12">
+
+                                <div class="col-md-9">
                                     <label for="obvsAdicionHfc">
                                         Observaciones
                                     </label>
@@ -1925,7 +2054,9 @@
                                             name="obvsAdicionHfc" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
-                                <div class="form-group col-md-9">
+
+
+                                <div class="form-group col-md-9" style="padding-top: 10px;">
                                     <label for="RecibeAdicionHfc">
                                         Recibe
                                     </label>
@@ -1937,18 +2068,6 @@
                                             class="form-control" id="RecibeAdicionHfc" name="RecibeAdicionHfc" />
                                     </div>
                                 </div>
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAdicionHfc"
-                                                name="TrabajadoAdicionHfc" />
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Trabajado
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                </div>
 
                             </div>
                         </div>
@@ -1957,8 +2076,8 @@
                         <div class="PostventaAdicionHfcHidden" id="ObjetadaAdicionHfc">
                             <div class="">
                                 <div class="form-group-container">
-                                    <div class="form-group col-md-3">
-                                        <label for="MotivoObjAdicionHfc">MOTIVO OBJETADO</label>
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoObjAdicionHfc">Motivo Objetada</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjAdicionHfc" tabindex="-1"
                                             id="MotivoObjAdicionHfc" aria-hidden="true">
@@ -2035,7 +2154,7 @@
                         </div>
 
                         <!-- TRANSFERIDA -->
-                        <div class="PostventaAdicionHfcHidden" id="AnuladaAdicionHfc">
+                        <!-- <div class="PostventaAdicionHfcHidden" id="AnuladaAdicionHfc">
                             <div class="form-group-container">
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
@@ -2084,7 +2203,106 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> -->
+
+                        <!-- ANULADA -->
+                        <div class="form-group-container PostventaAdicionHfcHidden" id="AnuladaAdicionHfc">
+                            <div class="form-group-container">
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoAnulada_Hfc">Motivo Anulación</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="MotivoAnulada_Hfc" tabindex="-1"
+                                            id="MotivoAnulada_Hfc" aria-hidden="true">
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option value="CASA CERRADA">CASA CERRADA </option>
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                                CONDICIONES DE INSTALACION </option>
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
+                                            </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
+                                                SOLICITA INSTALACION CON FECHA POSTERIOR
+                                            </option>
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                                TECNICAS (DISTANCIA NO PERMITIDA)
+                                            </option>
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                                REGISTRADA CON EXCEDENTE DE CARACTERES
+                                            </option>
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            </option>
+                                            <option value="FALTA POSTERIA">FALTA POSTERIA
+                                            </option>
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                                EN CENTRAL CONCENTRADOR O SHELTER
+                                            </option>
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
+                                            </option>
+                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
+                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
+                                            </option>
+                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS
+                                            </option>
+                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
+                                                PERO NO ACTIVA
+                                            </option>
+                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL
+                                            </option>
+                                            <option value="NO HAY RED"> NO HAY RED </option>
+                                            <option value="RED SATURADA">
+                                                RED SATURADA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                            <option
+                                                value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenAdicionHfc">
+                                        Orden </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="OrdenAdicionHfc"
+                                            placeholder="N° Orden" name="OrdenAdicionHfc" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Hfc"
+                                                name="TrabajadoAnulada_Hfc" />
+                                            <label class="form-check-label">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group col-md-12">
+                                    <label for="ComentarioAnulada_Hfc">
+                                        Comentarios
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                            name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
 
                     <!-- POSTVENTA ADICION GPON -->
@@ -2097,7 +2315,9 @@
                                 <option selected="selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
+                                <option value="ANULACION">ANULACION</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
+
                             </select>
                         </div>
                         <!-- REALIZADA -->
@@ -2146,7 +2366,9 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-3">
+
+
+                                <div class=" col-md-3">
                                     <label for="OrdenAdicionGpon">
                                         Orden </label>
                                     <div class="input-group">
@@ -2157,8 +2379,17 @@
                                             placeholder="N° Orden" name="OrdenAdicionGpon" />
                                     </div>
                                 </div>
+                                <div class=" col-md-3" style="padding-left:18px">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoAdicionGpon"
+                                            name="TrabajadoAdicionGpon" />
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                            Trabajado
+                                        </label>
+                                    </div>
+                                </div>
 
-                                <div class="form-group col-md-12">
+                                <div class=" col-md-9">
                                     <label for="ObvsAdicionGpon">
                                         Observaciones
                                     </label>
@@ -2170,7 +2401,7 @@
                                             name="ObvsAdicionGpon" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
-                                <div class="form-group col-md-9">
+                                <div class="form-group col-md-9" style="padding-top:10px">
                                     <label for="RecibeAdicionGpon">
                                         Recibe
                                     </label>
@@ -2182,18 +2413,9 @@
                                             class="form-control" id="RecibeAdicionGpon" name="RecibeAdicionGpon" />
                                     </div>
                                 </div>
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAdicionGpon"
-                                                name="TrabajadoAdicionGpon" />
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Trabajado
-                                            </label>
-                                        </div>
-                                    </div>
 
-                                </div>
+
+
 
                             </div>
                         </div>
@@ -2203,7 +2425,7 @@
                             <div class="">
                                 <div class="form-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoAdicionObjGpon">MOTIVO OBJETADO</label>
+                                        <label for="MotivoAdicionObjGpon">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoAdicionObjGpon" tabindex="-1"
                                             id="MotivoAdicionObjGpon" aria-hidden="true">
@@ -2280,7 +2502,7 @@
                         </div>
 
                         <!-- TRANSFERIDA -->
-                        <div class="PostventaAdicionGponHidden" id="AnuladaAdicionGpon">
+                        <!-- <div class="PostventaAdicionGponHidden" id="AnuladaAdicionGpon">
                             <div class="form-group-container">
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
@@ -2329,6 +2551,88 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> -->
+
+                        <!-- ANULADA -->
+                        <div class="form-group-container PostventaAdicionGponHidden" id="AnuladaAdicionGpon">
+                            <div class="form-group-container">
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoAnulada_Gpon">Motivo Anulación</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="MotivoAnulada_Gpon" tabindex="-1"
+                                            id="MotivoAnulada_Gpon" aria-hidden="true">
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option value="CASA CERRADA">CASA CERRADA </option>
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                                CONDICIONES DE INSTALACION </option>
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
+                                            </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            </option>
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                                TECNICAS (DISTANCIA NO PERMITIDA)
+                                            </option>
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                                REGISTRADA CON EXCEDENTE DE CARACTERES
+                                            </option>
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            </option>
+                                            <option value="FALTA POSTERIA">FALTA POSTERIA
+                                            </option>
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                                EN
+                                                CENTRAL CONCENTRADOR O SHELTER
+                                            </option>
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
+                                            </option>
+                                            <option value="NO HAY RED"> NO HAY RED </option>
+                                            <option value="RED SATURADA">
+                                                RED SATURADA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class=" col-md-3">
+                                    <label for="OrdenAdicionGpon">
+                                        Orden </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="OrdenAdicionGpon"
+                                            placeholder="N° Orden" name="OrdenAdicionGpon" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Hfc"
+                                                name="TrabajadoAnulada_Hfc" />
+                                            <label class="form-check-label">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="ComentarioAnulada_Hfc">
+                                        Comentarios
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                            name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -2343,6 +2647,7 @@
                                 <option selected="selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
+                                <option value="ANULACION">ANULACION</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
                             </select>
                         </div>
@@ -2402,33 +2707,8 @@
                                             placeholder="N° Orden" name="OrdenAdicionDth" />
                                     </div>
                                 </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ObvsAdicionDth">
-                                        Observaciones
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-eye"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ObvsAdicionDths"
-                                            name="ObvsAdicionDths" placeholder="Ingresa las observaciones del caso" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-9">
-                                    <label for="RecibeAdicionDth">
-                                        Recibe
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeAdicionDth" name="RecibeAdicionDth" />
-                                    </div>
-                                </div>
                                 <div class="from-group-container">
-                                    <div class="form-group col-md-3">
+                                    <div class=" col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoAdicionDth"
                                                 name="TrabajadoAdicionDth" />
@@ -2440,6 +2720,33 @@
 
                                 </div>
 
+
+                                <div class=" col-md-9">
+                                    <label for="ObvsAdicionDth">
+                                        Observaciones
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-eye"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ObvsAdicionDths"
+                                            name="ObvsAdicionDths" placeholder="Ingresa las observaciones del caso" />
+                                    </div>
+                                </div>
+                                <div class=" col-md-9" style="padding-top:8px">
+                                    <label for="RecibeAdicionDth">
+                                        Recibe
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" placeholder="Ingresa quien recibe el caso"
+                                            class="form-control" id="RecibeAdicionDth" name="RecibeAdicionDth" />
+                                    </div>
+                                </div>
+
+
                             </div>
                         </div>
 
@@ -2448,7 +2755,7 @@
                             <div class="">
                                 <div class="form-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjAdicionDth">MOTIVO OBJETADO</label>
+                                        <label for="MotivoObjAdicionDth">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjAdicionDth" tabindex="-1"
                                             id="MotivoObjAdicionDth" aria-hidden="true">
@@ -2525,7 +2832,7 @@
                         </div>
 
                         <!-- TRANSFERIDA -->
-                        <div class="PostventaAdicionDthHidden" id="AnuladaAdicionDth">
+                        <!-- <div class="PostventaAdicionDthHidden" id="AnuladaAdicionDth">
                             <div class="form-group-container">
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
@@ -2572,6 +2879,74 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> -->
+
+                        <!-- ANULADA DTH -->
+                        <div class="PostventaAdicionDthHidden" id="AnuladaAdicionDth">
+                            <div class="form-group-container">
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoAnulada_Dth">Motivo Anulación</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="MotivoAnulada_Dth" tabindex="-1"
+                                            id="MotivoAnulada_Dth" aria-hidden="true">
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option value="CASA CERRADA">CASA CERRADA </option>
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                                CONDICIONES DE INSTALACION </option>
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
+                                            </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            </option>
+                                            <option value="SOLICITUD MAL REGISTRADA"> SOLICITUD MAL REGISTRADA </option>
+                                            <option
+                                                value="SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA)">
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA) </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenAnulada_Dth">
+                                        Orden
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="OrdenAnulada_Dth"
+                                            name="OrdenAnulada_Dth" placeholder="Ingresa N° Orden" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Dth"
+                                                name="TrabajadoAnulada_Dth" />
+                                            <label class="form-check-label">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="ComentarioAnulada_Dth">
+                                        Comentarios
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ComentarioAnulada_Dth"
+                                            name="ComentarioAnulada_Dth" placeholder="Ingresa comentarios del caso" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2589,6 +2964,7 @@
                                 <option selected="selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
+                                <option value="ANULACION">ANULACION</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
                             </select>
                         </div>
@@ -2674,8 +3050,8 @@
                         <div class="PostventaCambioHfcHidden" id="ObjetadaCambioHfc">
                             <div class="">
                                 <div class="form-group-container">
-                                    <div class="form-group col-md-3">
-                                        <label for="MotivoC_EquipoObjHfc">MOTIVO OBJETADO</label>
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoC_EquipoObjHfc">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoC_EquipoObjHfc" tabindex="-1"
                                             id="MotivoC_EquipoObjHfc" aria-hidden="true">
@@ -2751,15 +3127,53 @@
                             </div>
                         </div>
 
-                        <!-- TRANSFERIDA -->
+                        <!-- ANULACION -->
                         <div class="PostventaCambioHfcHidden" id="AnuladaCambioHfc">
                             <div class="form-group-container">
                                 <div class="from-group-container">
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoAnulada_Dth">Motivo Anulación</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="MotivoAnulada_Dth" tabindex="-1"
+                                            id="MotivoAnulada_Dth" aria-hidden="true">
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option value="CASA CERRADA">CASA CERRADA </option>
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                                CONDICIONES DE INSTALACION </option>
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
+                                            </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            </option>
+                                            <option value="SOLICITUD MAL REGISTRADA"> SOLICITUD MAL REGISTRADA </option>
+                                            <option
+                                                value="SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA)">
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA) </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenAnulada_Dth">
+                                        Orden
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="OrdenAnulada_Dth"
+                                            name="OrdenAnulada_Dth" placeholder="Ingresa N° Orden" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTransC_EquipoHfc" name="TrabajadoTransC_EquipoHfc" />
-                                            <label class="form-check-label" for="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Dth"
+                                                name="TrabajadoAnulada_Dth" />
+                                            <label class="form-check-label">
                                                 Trabajado
                                             </label>
                                         </div>
@@ -2767,36 +3181,15 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="MotivoTransC_EquipoHfc">Motivo Transferido</label>
+                                    <label for="ComentarioAnulada_Dth">
+                                        Comentarios
+                                    </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MotivoTransC_EquipoHfc"
-                                            name="MotivoTransC_EquipoHfc" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-3">
-                                    <label for="OrdenC_EquiposTransfHfc">
-                                        Orden </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="OrdenC_EquiposTransfHfc"
-                                            placeholder="N° Orden" name="OrdenC_EquiposTransfHfc" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ComentarioTransC_EquipoHfc">Comentarios</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ComentarioTransC_EquipoHfc"
-                                            name="ComentarioTransC_EquipoHfc" />
+                                        <input type="text" class="form-control" id="ComentarioAnulada_Dth"
+                                            name="ComentarioAnulada_Dth" placeholder="Ingresa comentarios del caso" />
                                     </div>
                                 </div>
                             </div>
@@ -2813,6 +3206,7 @@
                                 <option selected="selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
+                                <option value="ANULACION">ANULACION</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
                             </select>
                         </div>
@@ -2897,7 +3291,7 @@
                             <div class="">
                                 <div class="form-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjC_EquipoGpon">MOTIVO OBJETADO</label>
+                                        <label for="MotivoObjC_EquipoGpon">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjC_EquipoGpon" tabindex="-1"
                                             id="MotivoObjC_EquipoGpon" aria-hidden="true">
@@ -2973,52 +3367,82 @@
                             </div>
                         </div>
 
-                        <!-- TRANSFERIDA -->
+                        <!-- ANULACION -->
                         <div class="PostventaCambioGponHidden" id="AnuladaCambioGpon">
                             <div class="form-group-container">
                                 <div class="from-group-container">
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoAnulada_Gpon">Motivo Anulación</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="MotivoAnulada_Gpon" tabindex="-1"
+                                            id="MotivoAnulada_Gpon" aria-hidden="true">
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option value="CASA CERRADA">CASA CERRADA </option>
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                                CONDICIONES DE INSTALACION </option>
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
+                                            </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            </option>
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                                TECNICAS (DISTANCIA NO PERMITIDA)
+                                            </option>
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                                REGISTRADA CON EXCEDENTE DE CARACTERES
+                                            </option>
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            </option>
+                                            <option value="FALTA POSTERIA">FALTA POSTERIA
+                                            </option>
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                                EN
+                                                CENTRAL CONCENTRADOR O SHELTER
+                                            </option>
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
+                                            </option>
+                                            <option value="NO HAY RED"> NO HAY RED </option>
+                                            <option value="RED SATURADA">
+                                                RED SATURADA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenAdicionDth">
+                                        Orden </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="OrdenAdicionDth"
+                                            placeholder="N° Orden" name="OrdenAdicionDth" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTranfC_EquipoGpon" name="TrabajadoTranfC_EquipoGpon" />
-                                            <label class="form-check-label" for="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Gpon"
+                                                name="TrabajadoAnulada_Gpon" />
+                                            <label class="form-check-label">
                                                 Trabajado
                                             </label>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-3">
-                                    <label for="OrdenC_EquiposTranfGpon">
-                                        Orden </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="OrdenC_EquiposTranfGpon"
-                                            placeholder="N° Orden" name="OrdenC_EquiposTranfGpon" />
-                                    </div>
-                                </div>
-
                                 <div class="form-group col-md-12">
-                                    <label for="MotivoTranfC_EquipoGpon">Motivo Transferido</label>
+                                    <label for="ComentarioAnulada_Gpon">
+                                        Comentarios
+                                    </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MotivoTranfC_EquipoGpon"
-                                            name="MotivoTranfC_EquipoGpon" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ComentarioTranfC_EquipoGpon">Comentarios</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ComentarioTranfC_EquipoGpon"
-                                            name="ComentarioTranfC_EquipoGpon" />
+                                        <input type="text" class="form-control" id="ComentarioAnulada_Gpon"
+                                            name="ComentarioAnulada_Gpon" placeholder="Ingresa comentarios del caso" />
                                     </div>
                                 </div>
                             </div>
@@ -3035,6 +3459,7 @@
                                 <option selected="selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
+                                <option value="ANULACION">ANULACION</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
                             </select>
                         </div>
@@ -3120,8 +3545,8 @@
                         <div class="PostventaCambioAdslHidden" id="ObjetadaCambioAdsl">
                             <div class="">
                                 <div class="form-group-container">
-                                    <div class="form-group col-md-3">
-                                        <label for="MotivoC_EquipoObjAdsl">MOTIVO OBJETADO</label>
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoC_EquipoObjAdsl">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoC_EquipoObjAdsl" tabindex="-1"
                                             id="MotivoC_EquipoObjAdsl" aria-hidden="true">
@@ -3197,52 +3622,83 @@
                             </div>
                         </div>
 
-                        <!-- TRANSFERIDA -->
+                        <!-- ANULACIONES -->
                         <div class="PostventaCambioAdslHidden" id="AnuladaCambioAdsl">
                             <div class="form-group-container">
                                 <div class="from-group-container">
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoAnulada_Adsl">Motivo Anulación</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="MotivoAnulada_Adsl" tabindex="-1"
+                                            id="MotivoAnulada_Adsl" aria-hidden="true">
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option value="CASA CERRADA">CASA CERRADA </option>
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                                CONDICIONES DE INSTALACION </option>
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
+                                            </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            </option>
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                                TECNICAS (DISTANCIA NO PERMITIDA)
+                                            </option>
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                                REGISTRADA CON EXCEDENTE DE CARACTERES
+                                            </option>
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            </option>
+                                            <option value="FALTA POSTERIA">FALTA POSTERIA
+                                            </option>
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                                EN
+                                                CENTRAL CONCENTRADOR O SHELTER
+                                            </option>
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
+                                            </option>
+                                            <option value="NO HAY RED"> NO HAY RED </option>
+                                            <option value="RED SATURADA">
+                                                RED SATURADA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenAnuladaAdsl">
+                                        Orden
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="OrdenAnuladaAdsl"
+                                            name="OrdenAnuladaAdsl" placeholder="Ingresa N° Orden" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TranfC_EquipoAdsl"
-                                                name="TranfC_EquipoAdsl" />
-                                            <label class="form-check-label" for="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Adsl"
+                                                name="TrabajadoAnulada_Adsl" />
+                                            <label class="form-check-label">
                                                 Trabajado
                                             </label>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-3">
-                                    <label for="OrdenC_EquiposTranfAdsl">
-                                        Orden </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="OrdenC_EquiposTranfAdsl"
-                                            placeholder="N° Orden" name="OrdenC_EquiposTranfAdsl" />
-                                    </div>
-                                </div>
-
                                 <div class="form-group col-md-12">
-                                    <label for="MotivoTranfC_EquipoAdsl">Motivo Transferido</label>
+                                    <label for="ComentarioAnulada_Adsl">
+                                        Comentarios
+                                    </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MotivoTranfC_EquipoAdsl"
-                                            name="MotivoTranfC_EquipoAdsl" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ComentarioTransferidoC_EquipoAdsl">Comentarios</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ComentarioTransferidoC_EquipoAdsl"
-                                            name="ComentarioTransferidoC_EquipoAdsl" />
+                                        <input type="text" class="form-control" id="ComentarioAnulada_Adsl"
+                                            name="ComentarioAnulada_Adsl" placeholder="Ingresa comentarios del caso" />
                                     </div>
                                 </div>
                             </div>
@@ -3259,6 +3715,7 @@
                                 <option selected="selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
+                                <option value="ANULACION">ANULACION</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
                             </select>
                         </div>
@@ -3344,7 +3801,7 @@
                         <div class="PostventaCambioDthHidden" id="ObjetadaCambioDth">
                             <div class="">
                                 <div class="form-group-container">
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-4">
                                         <label for="MotivoObjC_EquipoDth">MOTIVO OBJETADO</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjC_EquipoDth" tabindex="-1"
@@ -3421,52 +3878,69 @@
                             </div>
                         </div>
 
-                        <!-- TRANSFERIDA -->
+                        <!-- ANULACION -->
                         <div class="PostventaCambioDthHidden" id="AnuladaCambioDth">
                             <div class="form-group-container">
                                 <div class="from-group-container">
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoAnulada_Dth">Motivo Anulación</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="MotivoAnulada_Dth" tabindex="-1"
+                                            id="MotivoAnulada_Dth" aria-hidden="true">
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option value="CASA CERRADA">CASA CERRADA </option>
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                                CONDICIONES DE INSTALACION </option>
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
+                                            </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            </option>
+                                            <option value="SOLICITUD MAL REGISTRADA"> SOLICITUD MAL REGISTRADA </option>
+                                            <option
+                                                value="SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA)">
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA) </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenAnulada_Dth">
+                                        Orden
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="OrdenAnulada_Dth"
+                                            name="OrdenAnulada_Dth" placeholder="Ingresa N° Orden" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTranfC_EquipoDth" name="TrabajadoTranfC_EquipoDth" />
-                                            <label class="form-check-label" for="flexCheckDefault">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Dth"
+                                                name="TrabajadoAnulada_Dth" />
+                                            <label class="form-check-label">
                                                 Trabajado
                                             </label>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-3">
-                                    <label for="OrdenC_EquiposTranfDth">
-                                        Orden </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="OrdenC_EquiposTranfDth"
-                                            placeholder="N° Orden" name="OrdenC_EquiposTranfDth" />
-                                    </div>
-                                </div>
-
                                 <div class="form-group col-md-12">
-                                    <label for="MotivoTransfC_EquipoDth">Motivo Transferido</label>
+                                    <label for="ComentarioAnulada_Dth">
+                                        Comentarios
+                                    </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="MotivoTransfC_EquipoDth"
-                                            name="MotivoTransfC_EquipoDth" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ComentarioTranfC_EquipoDth">Comentarios</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ComentarioTranfC_EquipoDth"
-                                            name="ComentarioTranfC_EquipoDth" />
+                                        <input type="text" class="form-control" id="ComentarioAnulada_Dth"
+                                            name="ComentarioAnulada_Dth" placeholder="Ingresa comentarios del caso" />
                                     </div>
                                 </div>
                             </div>
@@ -3712,6 +4186,7 @@
                                 <option selected="selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
+                                <option value="ANULACION">ANULACION</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
                             </select>
                         </div>
@@ -3795,18 +4270,7 @@
                                             name="SapMigracionHfc" />
                                     </div>
                                 </div>
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoMigracionHfc"
-                                                name="TrabajadoMigracionHfc" />
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Trabajado
-                                            </label>
-                                        </div>
-                                    </div>
 
-                                </div>
 
                                 <div class="form-group col-md-9">
                                     <label for="ObvsMigracionHfc">
@@ -3820,6 +4284,19 @@
                                             name="ObvsMigracionHfc" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoMigracionHfc"
+                                                name="TrabajadoMigracionHfc" />
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
                                 <div class="form-group col-md-12">
                                     <label for="RecibeMigracionHfc">
                                         Recibe
@@ -3919,8 +4396,8 @@
                         <div class="PostventaMigracionHfcHidden" id="ObjetadaMigracionHfc">
                             <div class="">
                                 <div class="form-group-container">
-                                    <div class="form-group col-md-3">
-                                        <label for="MotivoMigracionObj">MOTIVO OBJETADO</label>
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoMigracionObj">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoMigracionObj" tabindex="-1"
                                             id="MotivoMigracionObj" aria-hidden="true">
@@ -3970,8 +4447,6 @@
                                         </div>
                                     </div>
 
-
-
                                     <div class="form-group col-md-12">
                                         <label for="ObvsMigracionObjHfc">Observaciones</label>
                                         <div class="input-group">
@@ -3999,7 +4474,7 @@
                         </div>
 
                         <!-- TRANSFERIDA -->
-                        <div class="PostventaMigracionHfcHidden" id="AnuladaMigracionHfc">
+                        <div class="PostventaMigracionHfcHidden" id="TranferidaMigracionHfc">
                             <div class="form-group-container">
                                 <div class="form-group col-md-3">
                                     <label for="OrdenMigracionTranfHfc">
@@ -4049,6 +4524,104 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- ANULACION -->
+                        <div class="PostventaMigracionHfcHidden" id="AnuladaMigracionHfc">
+                            <div class="form-group-container">
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoAnulada_Hfc">Motivo Anulación</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="MotivoAnulada_Hfc" tabindex="-1"
+                                            id="MotivoAnulada_Hfc" aria-hidden="true">
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option value="CASA CERRADA">CASA CERRADA </option>
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                                CONDICIONES DE INSTALACION </option>
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
+                                            </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
+                                                SOLICITA INSTALACION CON FECHA POSTERIOR
+                                            </option>
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                                TECNICAS (DISTANCIA NO PERMITIDA)
+                                            </option>
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                                REGISTRADA CON EXCEDENTE DE CARACTERES
+                                            </option>
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            </option>
+                                            <option value="FALTA POSTERIA">FALTA POSTERIA
+                                            </option>
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                                EN CENTRAL CONCENTRADOR O SHELTER
+                                            </option>
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
+                                            </option>
+                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
+                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
+                                            </option>
+                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS
+                                            </option>
+                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
+                                                PERO NO ACTIVA
+                                            </option>
+                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL
+                                            </option>
+                                            <option value="NO HAY RED"> NO HAY RED </option>
+                                            <option value="RED SATURADA">
+                                                RED SATURADA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                            <option
+                                                value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenMigracionTranfHfc">
+                                        Orden </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="OrdenMigracionTranfHfc"
+                                            placeholder="N° Orden" name="OrdenMigracionTranfHfc" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Hfc"
+                                                name="TrabajadoAnulada_Hfc" />
+                                            <label class="form-check-label">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="ComentarioAnulada_Hfc">
+                                        Comentarios
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                            name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -4063,6 +4636,7 @@
                                 <option selected="selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
+                                <option value="ANULACION">ANULACION</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
                             </select>
                         </div>
@@ -4070,7 +4644,7 @@
                         <div class="PostventaReconexionHfcHidden" id="RealizaReconexionHfc">
                             <div class="form-group-container">
 
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-3" id="hiddenEquipoRetirar">
                                     <label for="EquipoModemRetiroHfc">
                                         Equipo a retirar
                                     </label>
@@ -4107,7 +4681,7 @@
                                 </div>
 
 
-                                <div class="form-group col-md-9">
+                                <div class="form-group col-md-12">
                                     <label for="ObvsRetiroHfc">
                                         Observaciones
                                     </label>
@@ -4119,7 +4693,7 @@
                                             placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
-                                <div class="form-group col-md-9">
+                                <div class="form-group col-md-12">
                                     <label for="RecibeRetiroHfc">
                                         Recibe
                                     </label>
@@ -4150,8 +4724,8 @@
                         <div class="PostventaReconexionHfcHidden" id="ObjetadaReconexionHfc">
                             <div class="">
                                 <div class="form-group-container">
-                                    <div class="form-group col-md-3">
-                                        <label for="MotivoObjRetiroHfc">MOTIVO OBJETADO</label>
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoObjRetiroHfc">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjRetiroHfc" tabindex="-1"
                                             id="MotivoObjRetiroHfc" aria-hidden="true">
@@ -4228,7 +4802,7 @@
                         </div>
 
                         <!-- TRANSFERIDA -->
-                        <div class="PostventaReconexionHfcHidden" id="AnuladaReconexionHfc">
+                        <!-- <div class="PostventaReconexionHfcHidden" id="AnuladaReconexionHfc">
                             <div class="form-group-container">
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
@@ -4276,7 +4850,106 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> -->
+
+                        <!-- ANULACION -->
+                        <div class="PostventaReconexionHfcHidden" id="AnuladaReconexionHfc">
+                            <div class="form-group-container">
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoAnulada_Hfc">Motivo Anulación</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="MotivoAnulada_Hfc" tabindex="-1"
+                                            id="MotivoAnulada_Hfc" aria-hidden="true">
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option value="CASA CERRADA">CASA CERRADA </option>
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                                CONDICIONES DE INSTALACION </option>
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
+                                            </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
+                                                SOLICITA INSTALACION CON FECHA POSTERIOR
+                                            </option>
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                                TECNICAS (DISTANCIA NO PERMITIDA)
+                                            </option>
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                                REGISTRADA CON EXCEDENTE DE CARACTERES
+                                            </option>
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            </option>
+                                            <option value="FALTA POSTERIA">FALTA POSTERIA
+                                            </option>
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                                EN CENTRAL CONCENTRADOR O SHELTER
+                                            </option>
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
+                                            </option>
+                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
+                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
+                                            </option>
+                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS
+                                            </option>
+                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
+                                                PERO NO ACTIVA
+                                            </option>
+                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL
+                                            </option>
+                                            <option value="NO HAY RED"> NO HAY RED </option>
+                                            <option value="RED SATURADA">
+                                                RED SATURADA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                            <option
+                                                value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenMigracionTranfHfc">
+                                        Orden </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="OrdenMigracionTranfHfc"
+                                            placeholder="N° Orden" name="OrdenMigracionTranfHfc" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Hfc"
+                                                name="TrabajadoAnulada_Hfc" />
+                                            <label class="form-check-label">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="ComentarioAnulada_Hfc">
+                                        Comentarios
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                            name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
 
@@ -4291,6 +4964,8 @@
                                 <option selected="selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
+                                <option value="ANULACION">ANULACION</option>
+
                                 <!-- <option value="TRANSFERIDA">TRANSFERIDA</option> -->
                             </select>
                         </div>
@@ -4332,7 +5007,7 @@
                                     </div>
 
                                 </div>
-                                <div class="form-group col-md-9">
+                                <div class="form-group col-md-12">
                                     <label for="ObvsCambioCobre">
                                         Observaciones
                                     </label>
@@ -4344,7 +5019,7 @@
                                             name="ObvsCambioCobre" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
-                                <div class="form-group col-md-9">
+                                <div class="form-group col-md-12">
                                     <label for="RecibeHfc">
                                         Recibe
                                     </label>
@@ -4364,8 +5039,8 @@
                         <div class="PostventaCambioNumeroCobreHidden" id="ObjetadaCambioNumeroCobre">
                             <div class="">
                                 <div class="form-group-container">
-                                    <div class="form-group col-md-3">
-                                        <label for="MotivoObjCambioCobre">MOTIVO OBJETADO</label>
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoObjCambioCobre">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjCambioCobre" tabindex="-1"
                                             id="MotivoObjCambioCobre" aria-hidden="true">
@@ -4440,7 +5115,7 @@
                         </div>
 
                         <!-- TRANSFERIDA -->
-                        <div class="PostventaCambioNumeroCobreHidden" id="AnuladaCambioNumeroCobre">
+                        <!-- <div class="PostventaCambioNumeroCobreHidden" id="AnuladaCambioNumeroCobre">
                             <div class="form-group-container">
 
                                 <div class="form-group col-md-3">
@@ -4485,6 +5160,90 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioCambioCobre"
                                             name="ComentarioCambioCobre" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <!-- ANULACION -->
+                        <div class="PostventaCambioNumeroCobreHidden" id="AnuladaCambioNumeroCobre">
+                            <div class="form-group-container">
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoAnulada_Cobre">Motivo Anulación</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="MotivoAnulada_Cobre" tabindex="-1"
+                                            id="MotivoAnulada_Cobre" aria-hidden="true">
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option value="CASA CERRADA">CASA CERRADA </option>
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                                CONDICIONES DE INSTALACION </option>
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
+                                            </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            </option>
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                                TECNICAS (DISTANCIA NO PERMITIDA)
+                                            </option>
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                                REGISTRADA CON EXCEDENTE DE CARACTERES
+                                            </option>
+                                            <option value="FALTA POSTERIA">FALTA POSTERIA
+                                            </option>
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                                EN
+                                                CENTRAL CONCENTRADOR O SHELTER
+                                            </option>
+                                            <option value="NO HAY NUMERACION EN CONCENTRADOR">NO HAY NUMERACION EN
+                                                CONCENTRADOR
+                                            </option>
+                                            <option value="NO HAY RED"> NO HAY RED </option>
+                                            <option value="RED SATURADA">
+                                                RED SATURADA </option>
+                                            <option value="SOLICITUD MAL REGISTRADA">SOLICITUD MAL REGISTRADA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenAnuladaCobre">
+                                        Orden
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="OrdenAnuladaCobre"
+                                            name="OrdenAnuladaCobre" placeholder="Ingresa N° Orden" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Cobre"
+                                                name="TrabajadoAnulada_Cobre" />
+                                            <label class="form-check-label">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="ComentarioAnulada_Cobre">
+                                        Comentarios
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ComentarioAnulada_Cobre"
+                                            name="ComentarioAnulada_Cobre" placeholder="Ingresa comentarios del caso" />
                                     </div>
                                 </div>
                             </div>

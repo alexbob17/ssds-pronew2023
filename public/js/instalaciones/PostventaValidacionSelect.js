@@ -283,7 +283,7 @@ function mostrarElementos() {
     case "ADICION|DTH":
       //  MUESTRA EL DIV CORRESPONDIENTE
 
-      PostventaAdicionGpon.style.display = "block";
+      PostventaAdicionDth.style.display = "block";
 
       // RESET VALUES SELECT
       for (let i = 0; i < tiposActividad.length; i++) {
@@ -524,7 +524,7 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaAdicionHfc"),
       document.getElementById("ObjetadaAdicionHfc"),
-      //   document.getElementById("AnuladaAdicionHfc"),
+      document.getElementById("AnuladaAdicionHfc"),
     ],
   },
   {
@@ -532,7 +532,15 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaAdicionGpon"),
       document.getElementById("ObjetadaAdicionGpon"),
-      //   document.getElementById("AnuladaAdicionGpon"),
+      document.getElementById("AnuladaAdicionGpon"),
+    ],
+  },
+  {
+    select: document.querySelector("select[name='TipoActividadAdicionDth']"),
+    forms: [
+      document.getElementById("RealizadaAdicionDth"),
+      document.getElementById("ObjetadaAdicionDth"),
+      document.getElementById("AnuladaAdicionDth"),
     ],
   },
   {
@@ -540,7 +548,7 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaCambioHfc"),
       document.getElementById("ObjetadaCambioHfc"),
-      //   document.getElementById("AnuladaCambioHfc"),
+      document.getElementById("AnuladaCambioHfc"),
     ],
   },
   {
@@ -548,7 +556,7 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaCambioGpon"),
       document.getElementById("ObjetadaCambioGpon"),
-      //   document.getElementById("AnuladaCambioGpon"),
+      document.getElementById("AnuladaCambioGpon"),
     ],
   },
   {
@@ -556,7 +564,7 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaCambioAdsl"),
       document.getElementById("ObjetadaCambioAdsl"),
-      //   document.getElementById("AnuladaCambioAdsl"),
+      document.getElementById("AnuladaCambioAdsl"),
     ],
   },
   {
@@ -572,7 +580,7 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaCambioDth"),
       document.getElementById("ObjetadaCambioDth"),
-      //   document.getElementById("AnuladaCambioDth"),
+      document.getElementById("AnuladaCambioDth"),
     ],
   },
   {
@@ -581,6 +589,7 @@ const formTypes = [
       document.getElementById("RealizadaMigracionHfc"),
       document.getElementById("ObjetadaMigracionHfc"),
       document.getElementById("AnuladaMigracionHfc"),
+      document.getElementById("TranferidaMigracionHfc"),
     ],
   },
   {
@@ -930,8 +939,10 @@ fetch("../Json/Localizaciones.json")
 
 const selectHide_TipoOrden = document.getElementById("select_orden");
 const EquipoModemRetiroHfc = document.getElementById("EquipoModemRetiroHfc");
+const hiddenEquipoRetirar = document.getElementById("hiddenEquipoRetirar");
 
 EquipoModemRetiroHfc.disabled = true;
+hiddenEquipoRetirar.style.display = "none";
 
 // DISABLE POR TIPO ORDEN EN CAMBIO DE EQUIPO
 
@@ -942,16 +953,22 @@ selectHide_TipoOrden.addEventListener("change", () => {
   switch (value) {
     case "RECONEXION":
       EquipoModemRetiroHfc.disabled = true;
+      hiddenEquipoRetirar.style.display = "none";
+
       break;
     case "RETIRO":
       EquipoModemRetiroHfc.disabled = true;
+      hiddenEquipoRetirar.style.display = "none";
 
       break;
     case "RETIRO EQUIPOS":
       EquipoModemRetiroHfc.disabled = false;
+      hiddenEquipoRetirar.style.display = "block";
 
       break;
     default:
+      EquipoModemRetiroHfc.disabled = true;
+      hiddenEquipoRetirar.style.display = "none";
       break;
   }
 });
