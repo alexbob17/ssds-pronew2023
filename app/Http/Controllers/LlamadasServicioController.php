@@ -8,12 +8,13 @@ use SSD\Models\InstalacionAdslRealizada;
 
 use SSD\Models\InstalacionAdslObjetada;
 
+use SSD\Models\InstalacionAdslAnulada;
+
 use SSD\Models\InstalacionCobreRealizada;
 
 use SSD\Models\InstalacionCobreObjetada;
 
 use SSD\Models\InstalacionCobreAnulada;
-
 
 use SSD\Models\InstalacionDthRealizada;
 
@@ -26,6 +27,8 @@ use SSD\Models\InstalacionGponRealizada;
 use SSD\Models\InstalacionGponObjetada;
 
 use SSD\Models\InstalacionGponTransferida;
+
+use SSD\Models\InstalacionGponAnulada;
 
 use SSD\Models\InstalacionHfcRealizada;
 
@@ -50,7 +53,7 @@ class LlamadasServicioController extends Controller
 		];		
 		
 		return view('llamadashome/postventa')
-			->with('page_title', 'Postventas - Servicio')
+			->with('page_title', 'Postventas - Registro')
 			->with('navigation', 'Postventas');
 	}
 
@@ -62,7 +65,7 @@ class LlamadasServicioController extends Controller
 		];		
 		
 		return view('llamadashome/instalaciones')
-			->with('page_title', 'Instalaciones - Servicio')
+			->with('page_title', 'Instalaciones - Registro')
 			->with('navigation', 'Instalaciones');
 
 			
@@ -136,7 +139,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
                 }elseif ($data['tipo_actividad'] == 'OBJETADA') {
 					
@@ -181,7 +184,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
                 }elseif ($data['tipo_actividad'] == 'TRANSFERIDA') {
@@ -228,7 +231,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
                 }
@@ -293,7 +296,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
                 }elseif ($data['tipo_actividadGpon'] == 'OBJETADA') {
 					
@@ -339,7 +342,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
                 }elseif ($data['tipo_actividadGpon'] == 'TRANSFERIDA') {
@@ -386,10 +389,57 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
-                }	
+                }elseif ($data['tipo_actividadGpon'] == 'ANULACION') {
+					
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'tipo_actividadGpon',
+						'MotivoAnulada_Gpon',
+						'OrdenInternet_Gpon',
+						'OrdenTv_Gpon',
+						'OrdenLinea_Gpon',
+						'TrabajadoAnulada_Gpon',
+						'ComentarioAnulada_Gpon',
+
+					];
+	
+					$data = [];
+	
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoAnulada_Gpon' && $request->has('TrabajadoAnulada_Gpon')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoAnulada_Gpon') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+					// dd($data);
+
+					$dataGponAnulada= new InstalacionGponAnulada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataGponAnulada->save();
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO GPON TRANSFERIDO COMPLETADO";
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Registro')
+                        ->with('navigation', 'Instalaciones');
+					
+                }		
                 break;
             case 'COBRE':
 				$selectedFields = [
@@ -440,7 +490,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
                 }
 				elseif ($data['tipo_actividadCobre'] == 'OBJETADA') {
@@ -484,7 +534,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
                 }elseif ($data['tipo_actividadCobre'] == 'ANULACION') {
@@ -496,10 +546,10 @@ class LlamadasServicioController extends Controller
 						'motivo_llamada',
 						'select_orden',
 						'dpto_colonia',
-						'MotivoAnulada_Cobre',
-						'OrdenAnuladaCobre',
-						'TrabajadoAnulada_Cobre',
-						'ComentarioAnulada_Cobre',
+						'MotivoAnulada_Adsl',
+						'OrdenAnuladaAdsl',
+						'TrabajadoAnulada_Adsl',
+						'ComentarioAnulada_Adsl',
 					];
 	
 					$data = [];
@@ -507,20 +557,20 @@ class LlamadasServicioController extends Controller
 					// Iteramos por los campos seleccionados del formulario
 					foreach ($selectedFields as $fieldName) {
 						$value = $request->input($fieldName);
-						if ($fieldName === 'TrabajadoAnulada_Cobre' && $request->has('TrabajadoAnulada_Cobre')) {
+						if ($fieldName === 'TrabajadoAnulada_Adsl' && $request->has('TrabajadoAnulada_Adsl')) {
 							$data[$fieldName] = 'TRABAJADO';
-						} elseif ($fieldName === 'TrabajadoAnulada_Cobre') {
+						} elseif ($fieldName === 'TrabajadoAnulada_Adsl') {
 							$data[$fieldName] = 'PENDIENTE';
 						} else {
 							$data[$fieldName] = $value;
 						}
 					}
-					// dd($data);
+					dd($data);
 
-					$dataCobreAnulada = new InstalacionCobreAnulada($data);
+					$dataAdslAnulada = new InstalacionAdslAnulada($data);
 
                     // Guardamos la instancia en la base de datos
-                    $dataCobreAnulada->save();
+                    $dataAdslAnulada->save();
 
 					$message = "¡EXITO!";
 					$messages = "REGISTRO COBRE ANULACION COMPLETADO";
@@ -529,7 +579,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 						
 					
@@ -593,7 +643,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
                 }elseif ($data['tipo_actividadDth'] == 'OBJETADA') {
 					
@@ -636,7 +686,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
                 }elseif ($data['tipo_actividadDth'] == 'ANULACION') {
@@ -682,7 +732,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 						
 					
@@ -735,7 +785,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
                 } elseif ($data['tipo_actividadAdsl'] == 'OBJETADA') {
 					
@@ -778,7 +828,51 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Servicio')
+                        ->with('page_title', 'Instalaciones - Registro')
+                        ->with('navigation', 'Instalaciones');
+					
+                }elseif ($data['tipo_actividadAdsl'] == 'ANULACION') {
+					
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'tipo_actividadAdsl',
+						'MotivoAnulada_Adsl',
+						'OrdenAnuladaAdsl',
+						'TrabajadoAnulada_Adsl',
+						'ComentarioAnulada_Adsl',
+					];
+	
+					$data = [];
+	
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoAnulada_Adsl' && $request->has('TrabajadoAnulada_Adsl')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoAnulada_Adsl') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+					// dd($data);
+
+					$dataAdslAnulada = new InstalacionAdslAnulada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataAdslAnulada->save();
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO ADSL ANULADO COMPLETADO";
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
                 }

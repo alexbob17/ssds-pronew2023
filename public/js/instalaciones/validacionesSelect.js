@@ -460,7 +460,7 @@ fetch("../Json/Localizaciones.json")
   .then((response) => response.json())
   .then((datos) => {
     var select_dpto = document.getElementById("dpto_colonia");
-    select_dpto.innerHTML = "<option value=''>Seleccione una opción</option>";
+    select_dpto.innerHTML = "<option value=''>SELECCIONE UNA OPCION</option>";
     for (var i = 0; i < datos.length; i++) {
       var option = document.createElement("option");
       option.value = datos[i].DEPTO + datos[i].COLONIA;
@@ -485,6 +485,7 @@ const formTypes = [
     forms: [
       document.getElementById("formGpon_Realizada"),
       document.getElementById("formGpon_Objetada"),
+      document.getElementById("formGpon_Anulada"),
       document.getElementById("formGpon_Transferida"),
     ],
   },
@@ -493,7 +494,7 @@ const formTypes = [
     forms: [
       document.getElementById("formAdsl_Realizada"),
       document.getElementById("formAdsl_Objetada"),
-      // document.getElementById("formAdsl_Transferida"),
+      document.getElementById("formAdsl_Anulada"),
     ],
   },
   {

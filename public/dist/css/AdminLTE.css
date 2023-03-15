@@ -2142,6 +2142,10 @@ a:focus {
 }
 .box-header.with-border {
   border-bottom: 1px solid #f4f4f4;
+  text-align: center !important;
+  background-image: radial-gradient(circle, #3e69d6, #2d51af) !important;
+  color: white !important;
+  /* border-radius: 5px; */
 }
 .collapsed-box .box-header.with-border {
   border-bottom: none;

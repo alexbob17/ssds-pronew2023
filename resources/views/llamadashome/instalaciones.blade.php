@@ -14,7 +14,7 @@
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
             <form action="{{ route('registro_llamadas.store') }}" method="POST" id="form1" class="formulario box-body"
-                style="border-bottom: 3px solid #3e69d6;">
+                style="border-bottom: 3px solid #3e69d6;padding-top:15px">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                 <input type="hidden" name="selected_fields" id="selected-fields">
@@ -68,7 +68,7 @@
                         <label for="motivo_llamada">Motivo Llamada</label>
                         <input type="text" class="form-control" placeholder="INSTALACION" value="INSTALACION"
                             readonly="true" id="motivo_llamada" name="motivo_llamada"
-                            style="color: white; background: #3e69d6; text-align: center;" />
+                            style="color: #3E69D6; background: #fbfbfb; text-align: center;" />
                     </div>
                     <div class="form-group col-md-2" id="tec_input">
                         <label for="tecnologia">Tecnologia</label>
@@ -138,7 +138,7 @@
                         <div class="form-group-container">
                             <div class="TipoActividad_Hidden" style="margin-top: 2.5rem;">
                                 <div class="form-group col-md-3">
-                                    <label for="tipo_actividad">TIPO ACTIVIDAD</label>
+                                    <label for="tipo_actividad">Tipo Actividad</label>
                                     <select class="form-control tipo_actividad" style="width: 100%;"
                                         name="tipo_actividad" tabindex="-1" id="tipo_actividad" aria-hidden="true">
                                         <option selected=" selected">SELECCIONE UNA OPCION</option>
@@ -366,7 +366,7 @@
                             <div class="from-group-container">
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjetada_Hfc">MOTIVO OBJETADO</label>
+                                        <label for="MotivoObjetada_Hfc">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjetada_Hfc" tabindex="-1"
                                             id="MotivoObjetada_Hfc" aria-hidden="true">
@@ -462,6 +462,78 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        <!-- ACTIVIDAD ANULADA GPON -->
+                        <div class="form-group-container FormHfc_Hidden" id="formHfc_Anulada">
+                            <div class="form-group-container">
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <label for="MotivoAnulada_Gpon">Motivo Anulación</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="MotivoAnulada_Gpon" tabindex="-1"
+                                            id="MotivoAnulada_Gpon" aria-hidden="true">
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option value="CASA CERRADA">CASA CERRADA </option>
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                                CONDICIONES DE INSTALACION </option>
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
+                                            </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            </option>
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                                TECNICAS (DISTANCIA NO PERMITIDA)
+                                            </option>
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                                REGISTRADA CON EXCEDENTE DE CARACTERES
+                                            </option>
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            </option>
+                                            <option value="FALTA POSTERIA">FALTA POSTERIA
+                                            </option>
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                                EN
+                                                CENTRAL CONCENTRADOR O SHELTER
+                                            </option>
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
+                                            </option>
+                                            <option value="NO HAY RED"> NO HAY RED </option>
+                                            <option value="RED SATURADA">
+                                                RED SATURADA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Gpon"
+                                                name="TrabajadoAnulada_Gpon" />
+                                            <label class="form-check-label">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="ComentarioAnulada_Gpon">
+                                        Comentarios
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ComentarioAnulada_Gpon"
+                                            name="ComentarioAnulada_Gpon" placeholder="Ingresa comentarios del caso" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- FORMULARIO #3 ADSL -->
@@ -473,6 +545,7 @@
                             <option selected="selected">SELECCIONE UNA OPCION</option>
                             <option value="REALIZADA">REALIZADA</option>
                             <option value="OBJETADA">OBJETADA</option>
+                            <option value="ANULACION">ANULACION</option>
                             <option value="TRANSFERIDA">TRANSFERIDA</option>
                         </select>
                     </div>
@@ -574,11 +647,11 @@
                     <div id="formAdsl_Objetada" class="form-group-container FormAdsl_Hidden">
                         <div class="form-group-container">
                             <div class="form-group col-md-3">
-                                <label for="MotivoObjetada_Adsl">MOTIVO OBJETADA</label>
+                                <label for="MotivoObjetada_Adsl">Motivo Objetado</label>
                                 <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                     name="MotivoObjetada_Adsl" tabindex="-1" id="MotivoObjetada_Adsl"
                                     aria-hidden="true">
-                                    <option selected="selected">SELECCIONE UNA OPCION</option>
+                                    <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                     <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                     <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                     <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -693,6 +766,89 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- ACTIVIDAD ANULADA ADSL -->
+                    <div class="form-group-container FormAdsl_Hidden" id="formAdsl_Anulada">
+                        <div class="form-group-container">
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <label for="MotivoAnulada_Adsl">Motivo Anulación</label>
+                                    <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                                        name="MotivoAnulada_Adsl" tabindex="-1" id="MotivoAnulada_Adsl"
+                                        aria-hidden="true">
+                                        <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                        <option value="CASA CERRADA">CASA CERRADA </option>
+                                        <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            CONDICIONES DE INSTALACION </option>
+                                        <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                        </option>
+                                        <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
+                                        </option>
+                                        <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                        </option>
+                                        <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                            TECNICAS (DISTANCIA NO PERMITIDA)
+                                        </option>
+                                        <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                            REGISTRADA CON EXCEDENTE DE CARACTERES
+                                        </option>
+                                        <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                        </option>
+                                        <option value="FALTA POSTERIA">FALTA POSTERIA
+                                        </option>
+                                        <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM EN
+                                            CENTRAL CONCENTRADOR O SHELTER
+                                        </option>
+                                        <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
+                                        </option>
+                                        <option value="NO HAY RED"> NO HAY RED </option>
+                                        <option value="RED SATURADA">
+                                            RED SATURADA </option>
+                                        <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="OrdenAnuladaAdsl">
+                                    Orden
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-ticket"></i>
+                                    </div>
+                                    <input type="number" class="form-control" id="OrdenAnuladaAdsl"
+                                        name="OrdenAnuladaAdsl" placeholder="Ingresa N° Orden" />
+                                </div>
+                            </div>
+
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Adsl"
+                                            name="TrabajadoAnulada_Adsl" />
+                                        <label class="form-check-label">
+                                            Trabajado
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="ComentarioAnulada_Adsl">
+                                    Comentarios
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ComentarioAnulada_Adsl"
+                                        name="ComentarioAnulada_Adsl" placeholder="Ingresa comentarios del caso" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
                 <!-- FORMULARIO #4 DTH -->
                 <div id="form4" class="form-group-container">
@@ -891,14 +1047,14 @@
 
                         <!-- ACTIVIDAD OBJETADA DTH -->
                         <div class="FormDth_Hidden" id="formDth_Objetada">
-                            <div class="from-group-container">
+                            <div class="form-group-container">
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoObjetada_Dth">MOTIVO OBJETADO</label>
+                                        <label for="MotivoObjetada_Dth">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjetada_Dth" tabindex="-1"
                                             id="MotivoObjetada_Dth" aria-hidden="true">
-                                            <option selected="selected">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -962,10 +1118,10 @@
 
                         <!-- ACTIVIDAD ANULADA DTH -->
                         <div class="FormDth_Hidden" id="formDth_Anulada">
-                            <div class="from-group-container">
+                            <div class="form-group-container">
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
-                                        <label for="MotivoAnulada_Dth">MOTIVO ANULACION</label>
+                                        <label for="MotivoAnulada_Dth">Motivo Anulación</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoAnulada_Dth" tabindex="-1"
                                             id="MotivoAnulada_Dth" aria-hidden="true">
@@ -1071,7 +1227,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-3">
+                            <div class="form-group col-md-4">
                                 <label for="GeoreferenciaCobre">Georeferencia</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
@@ -1146,7 +1302,7 @@
                                 <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                     name="MotivoObjetada_Cobre" tabindex="-1" id="MotivoObjetada_Cobre"
                                     aria-hidden="true">
-                                    <option selected="selected">SELECCIONE UNA OPCION</option>
+                                    <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                     <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                     <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                     <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -1192,8 +1348,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
 
                             <div class="form-group col-md-12">
                                 <label for="ComentariosCobre_Objetados">
@@ -1267,11 +1421,11 @@
                     </div>
 
                     <!-- ACTIVIDAD ANULADA COBRE -->
-                    <div class="FormCobre_Hidden" id="formCobre_Anulada">
-                        <div class="from-group-container">
+                    <div class="form-group-container FormCobre_Hidden" id="formCobre_Anulada">
+                        <div class="form-group-container">
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
-                                    <label for="MotivoAnulada_Cobre">MOTIVO ANULACION</label>
+                                    <label for="MotivoAnulada_Cobre">Motivo Anulación</label>
                                     <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                         name="MotivoAnulada_Cobre" tabindex="-1" id="MotivoAnulada_Cobre"
                                         aria-hidden="true">
@@ -1396,6 +1550,7 @@
                                 <option selected=" selected">SELECCIONE UNA OPCION</option>
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
+                                <option value="ANULACION">ANULACION</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
                             </select>
                         </div>
@@ -1607,7 +1762,7 @@
                     <div class="form-group-container FormGpon_Hidden" id="formGpon_Objetada">
                         <div class="form-group-container">
                             <div class="form-group col-md-3">
-                                <label for="MotivoObjetado_Gpon">MOTIVO OBJETADO</label>
+                                <label for="MotivoObjetado_Gpon">Motivo Objetado</label>
                                 <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                     name="MotivoObjetado_Gpon" tabindex="-1" id="MotivoObjetado_Gpon"
                                     aria-hidden="true">
@@ -1674,6 +1829,18 @@
                     <div class="form-group-container FormGpon_Hidden" id="formGpon_Transferida">
                         <div class="form-group-container">
 
+
+
+                            <div class="form-group col-md-9">
+                                <label for="MotivoTransferidoGpon">Motivo Transferido</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="MotivoTransferidoGpon"
+                                        name="MotivoTransferidoGpon" placeholder="Ingresa motivo transferido" />
+                                </div>
+                            </div>
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
@@ -1683,17 +1850,6 @@
                                             Trabajado
                                         </label>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-12">
-                                <label for="MotivoTransferidoGpon">Motivo Transferido</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-edit"></i>
-                                    </div>
-                                    <input type="text" class="form-control" id="MotivoTransferidoGpon"
-                                        name="MotivoTransferidoGpon" placeholder="Ingresa motivo transferido" />
                                 </div>
                             </div>
 
@@ -1709,6 +1865,77 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- ACTIVIDAD ANULADA GPON -->
+                    <div class="form-group-container FormGpon_Hidden" id="formGpon_Anulada">
+                        <div class="form-group-container">
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <label for="MotivoAnulada_Gpon">Motivo Anulación</label>
+                                    <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                                        name="MotivoAnulada_Gpon" tabindex="-1" id="MotivoAnulada_Gpon"
+                                        aria-hidden="true">
+                                        <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                        <option value="CASA CERRADA">CASA CERRADA </option>
+                                        <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            CONDICIONES DE INSTALACION </option>
+                                        <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                        </option>
+                                        <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
+                                        </option>
+                                        <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                        </option>
+                                        <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                            TECNICAS (DISTANCIA NO PERMITIDA)
+                                        </option>
+                                        <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                            REGISTRADA CON EXCEDENTE DE CARACTERES
+                                        </option>
+                                        <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                        </option>
+                                        <option value="FALTA POSTERIA">FALTA POSTERIA
+                                        </option>
+                                        <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM EN
+                                            CENTRAL CONCENTRADOR O SHELTER
+                                        </option>
+                                        <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
+                                        </option>
+                                        <option value="NO HAY RED"> NO HAY RED </option>
+                                        <option value="RED SATURADA">
+                                            RED SATURADA </option>
+                                        <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <div class="from-group-container">
+                                <div class="form-group col-md-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Gpon"
+                                            name="TrabajadoAnulada_Gpon" />
+                                        <label class="form-check-label">
+                                            Trabajado
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="ComentarioAnulada_Gpon">
+                                    Comentarios
+                                </label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-edit"></i>
+                                    </div>
+                                    <input type="text" class="form-control" id="ComentarioAnulada_Gpon"
+                                        name="ComentarioAnulada_Gpon" placeholder="Ingresa comentarios del caso" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="box-footer" id="btn-submitForm"

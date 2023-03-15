@@ -20,7 +20,7 @@
             <!-- FORMULARIO #1 POSTVENTAS -->
 
 
-            <form action="" method="post" id="form1" style="border-bottom:3px solid rgb(62, 105, 214)">
+            <form action="" method="post" id="form1" style="border-bottom:3px solid rgb(62, 105, 214);padding-top:15px">
                 <div class="form-group-container">
                     <div class="form-group col-md-3">
                         <label for="codigo_tecnico">Código Técnico</label>
@@ -69,7 +69,7 @@
                         <label for="motivo_llamada">Motivo Llamada</label>
                         <input type="text" class="form-control" placeholder="POSTVENTA" value="POSTVENTA"
                             readonly="true" id="motivo_llamada" name="motivo_llamada"
-                            style="color: white; background: #3e69d6; text-align: center;" />
+                            style="color: #3e69d6; background: white; text-align: center;" />
                     </div>
                     <div class="form-group col-md-3" id="select_ordenhide">
                         <label for="Select_Postventa">TIPO POSTVENTA</label>

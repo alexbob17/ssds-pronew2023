@@ -12,8 +12,9 @@
         </div>
         @endif
         <!-- general form elements -->
-        <div class="box" style="border-top-color:#205295">
-            <div class="box-header with-border">
+        <div class="box" style="">
+            <div class="box-header with-border"
+                style="background:white!important;color:black!important;border-radius:5px">
                 <h3 class="box-title" style="    display: inline-block;
 				font-size: 19px;
 				margin: 0;
