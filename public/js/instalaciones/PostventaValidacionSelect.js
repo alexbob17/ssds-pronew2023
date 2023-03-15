@@ -149,7 +149,7 @@ function mostrarElementos() {
   });
 
   switch (selectPostventa.value + "|" + selectTecnologia.value) {
-    case "POSTVENTA TRASLADO|HFC":
+    case "TRASLADO|HFC":
       //  MUESTRA EL DIV CORRESPONDIENTE
       postventaTrasladosHfc.style.display = "block";
 
@@ -168,7 +168,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-    case "POSTVENTA TRASLADO|GPON":
+    case "TRASLADO|GPON":
       //  MUESTRA EL DIV CORRESPONDIENTE
       postventaTrasladosGpon.style.display = "block";
       for (let i = 0; i < tiposActividad.length; i++) {
@@ -185,7 +185,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-    case "POSTVENTA TRASLADO|ADSL":
+    case "TRASLADO|ADSL":
       //  MUESTRA EL DIV CORRESPONDIENTE
       postventaTrasladosAdsl.style.display = "block";
 
@@ -204,7 +204,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-    case "POSTVENTA TRASLADO|COBRE":
+    case "TRASLADO|COBRE":
       postventaTrasladosCobre.style.display = "block";
 
       //RESET VALUE SELECT
@@ -222,7 +222,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-    case "POSTVENTA TRASLADO|DTH":
+    case "TRASLADO|DTH":
       //  MUESTRA EL DIV CORRESPONDIENTE
 
       postventaTrasladosDth.style.display = "block";
@@ -242,7 +242,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-    case "POSTVENTA ADICION|HFC":
+    case "ADICION|HFC":
       PostventaAdicionHfc.style.display = "block";
 
       //RESET VALUE SELECT
@@ -260,7 +260,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-    case "POSTVENTA ADICION|GPON":
+    case "ADICION|GPON":
       //  MUESTRA EL DIV CORRESPONDIENTE
 
       PostventaAdicionGpon.style.display = "block";
@@ -280,7 +280,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-    case "POSTVENTA ADICION|DTH":
+    case "ADICION|DTH":
       //  MUESTRA EL DIV CORRESPONDIENTE
 
       PostventaAdicionGpon.style.display = "block";
@@ -300,7 +300,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-    case "POSTVENTA CAMBIO DE EQUIPO|HFC":
+    case "CAMBIO DE EQUIPO|HFC":
       //  MUESTRA EL DIV CORRESPONDIENTE
       PostventaCambioHfc.style.display = "block";
 
@@ -319,8 +319,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-
-    case "POSTVENTA CAMBIO DE EQUIPO|GPON":
+    case "CAMBIO DE EQUIPO|GPON":
       //  MUESTRA EL DIV CORRESPONDIENTE
       PostventaCambioGpon.style.display = "block";
 
@@ -339,7 +338,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-    case "POSTVENTA CAMBIO DE EQUIPO|ADSL":
+    case "CAMBIO DE EQUIPO|ADSL":
       //  MUESTRA EL DIV CORRESPONDIENTE
       PostventaCambioAdsl.style.display = "block";
 
@@ -358,7 +357,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-    case "POSTVENTA CAMBIO DE EQUIPO|COBRE":
+    case "CAMBIO DE EQUIPO|COBRE":
       //  MUESTRA EL DIV CORRESPONDIENTE
       PostventaCambioCobre.style.display = "block";
 
@@ -377,7 +376,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-    case "POSTVENTA CAMBIO DE EQUIPO|DTH":
+    case "CAMBIO DE EQUIPO|DTH":
       //  MUESTRA EL DIV CORRESPONDIENTE
       PostventaCambioDth.style.display = "block";
 
@@ -396,7 +395,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-    case "POSTVENTA MIGRACION|HFC":
+    case "MIGRACION|HFC":
       //  MUESTRA EL DIV CORRESPONDIENTE
       PostventaMigracionHfc.style.display = "block";
 
@@ -415,8 +414,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaCambioNumero);
 
       break;
-
-    case "POSTVENTA RECONEXION / RETIRO|HFC":
+    case "RECONEXION / RETIRO|HFC":
       //  MUESTRA EL DIV CORRESPONDIENTE
       PostventaReconexionHfc.style.display = "block";
 
@@ -434,7 +432,7 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaReconexion);
 
       break;
-    case "POSTVENTA CAMBIO NUMERO COBRE|COBRE":
+    case "CAMBIO NUMERO COBRE|COBRE":
       //  MUESTRA EL DIV CORRESPONDIENTE
       PostventaCambioNumeroCobre.style.display = "block";
 
@@ -485,6 +483,7 @@ const formTypes = [
       document.getElementById("RealizadaTrasladoHfc"),
       document.getElementById("ObjetadaTrasladoHfc"),
       document.getElementById("AnuladaTrasladoHfc"),
+      document.getElementById("TransferidoTrasladoHfc"),
     ],
   },
   {
@@ -493,6 +492,7 @@ const formTypes = [
       document.getElementById("RealizadaTrasladoGpon"),
       document.getElementById("ObjetadaTrasladoGpon"),
       document.getElementById("AnuladaTrasladoGpon"),
+      document.getElementById("TransferidoTrasladoGpon"),
     ],
   },
   {
@@ -500,7 +500,7 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaTrasladoAdsl"),
       document.getElementById("ObjetadaTrasladoAdsl"),
-      //   document.getElementById("AnuladaTrasladoAdsl"),
+      document.getElementById("AnuladaTrasladoAdsl"),
     ],
   },
   {
@@ -508,7 +508,7 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaTrasladoCobre"),
       document.getElementById("ObjetadaTrasladoCobre"),
-      //   document.getElementById("AnuladaTrasladoCobre"),
+      document.getElementById("AnuladaTrasladoCobre"),
     ],
   },
   {
@@ -516,7 +516,7 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaTrasladoDth"),
       document.getElementById("ObjetadaTrasladoDth"),
-      //   document.getElementById("AnuladaTrasladoDth"),
+      document.getElementById("AnuladaTrasladoDth"),
     ],
   },
   {
@@ -628,8 +628,10 @@ formTypes.forEach(({ select, forms }) => {
         selectedForm = forms[0];
       } else if (selectedOption === "OBJETADA") {
         selectedForm = forms[1];
-      } else if (selectedOption === "TRANSFERIDA") {
+      } else if (selectedOption === "ANULACION") {
         selectedForm = forms[2];
+      } else if (selectedOption === "TRANSFERIDA") {
+        selectedForm = forms[3];
       }
 
       if (selectedForm) {
@@ -673,7 +675,7 @@ const select_orden = document.getElementById("select_orden");
 // FUNCION PARA ACTUALIZAR LAS OPCIONES DE TIPO ORDEN
 function actualizarOpciones() {
   switch (selectPostventa.value + "|" + selectTecnologia.value) {
-    case "POSTVENTA TRASLADO|HFC":
+    case "TRASLADO|HFC":
       select_orden.innerHTML = `
         <option value="">SELECCIONE</option>
         <option value="TRASLADO INDIVIDUAL">TRASLADO INDIVIDUAL</option>
@@ -682,7 +684,7 @@ function actualizarOpciones() {
       `;
       break;
 
-    case "POSTVENTA TRASLADO|GPON":
+    case "TRASLADO|GPON":
       select_orden.innerHTML = `
         <option value="">SELECCIONE</option>
         <option value="TRASLADO INDIVIDUAL">TRASLADO INDIVIDUAL</option>
@@ -690,25 +692,25 @@ function actualizarOpciones() {
         <option value="TRASLADO TRIPLE">TRASLADO TRIPLE</option>
       `;
       break;
-    case "POSTVENTA TRASLADO|ADSL":
+    case "TRASLADO|ADSL":
       select_orden.innerHTML = `
         <option value="">SELECCIONE</option>
         <option value="TRASLADO">TRASLADO</option>
       `;
       break;
-    case "POSTVENTA TRASLADO|COBRE":
+    case "TRASLADO|COBRE":
       select_orden.innerHTML = `
           <option value="">SELECCIONE</option>
           <option value="TRASLADO">TRASLADO</option>
         `;
       break;
-    case "POSTVENTA TRASLADO|DTH":
+    case "TRASLADO|DTH":
       select_orden.innerHTML = `
           <option value="">SELECCIONE</option>
           <option value="TRASLADO">TRASLADO</option>
         `;
       break;
-    case "POSTVENTA ADICION|HFC":
+    case "ADICION|HFC":
       select_orden.innerHTML = `
           <option value="">SELECCIONE</option>
           <option value="ADICION ANALOGAS">ADICION ANALOGAS</option>
@@ -717,21 +719,21 @@ function actualizarOpciones() {
 
         `;
       break;
-    case "POSTVENTA ADICION|GPON":
+    case "ADICION|GPON":
       select_orden.innerHTML = `
             <option value="">SELECCIONE</option>
             <option value="ADICION IPTV">ADICION IPTV</option>
   
           `;
       break;
-    case "POSTVENTA ADICION|DTH":
+    case "ADICION|DTH":
       select_orden.innerHTML = `
             <option value="">SELECCIONE</option>
             <option value="ADICION DTH">ADICION DTH</option>
   
           `;
       break;
-    case "POSTVENTA CAMBIO DE EQUIPO|HFC":
+    case "CAMBIO DE EQUIPO|HFC":
       select_orden.innerHTML = `
             <option value="">SELECCIONE</option>
             <option value="CAMBIO EQUIPO TV">CAMBIO EQUIPO TV</option>
@@ -739,7 +741,7 @@ function actualizarOpciones() {
   
           `;
       break;
-    case "POSTVENTA CAMBIO DE EQUIPO|GPON":
+    case "CAMBIO DE EQUIPO|GPON":
       select_orden.innerHTML = `
             <option value="">SELECCIONE</option>
              <option value="CAMBIO EQUIPO TV">CAMBIO EQUIPO TV</option>
@@ -747,7 +749,21 @@ function actualizarOpciones() {
   
           `;
       break;
-    case "POSTVENTA CAMBIO DE EQUIPO|DTH":
+    case "CAMBIO DE EQUIPO|DTH":
+      select_orden.innerHTML = `
+            <option value="">SELECCIONE</option>
+             <option value="CAMBIO EQUIPO TV">CAMBIO EQUIPO TV</option>
+  
+          `;
+      break;
+    case "CAMBIO DE EQUIPO|ADSL":
+      select_orden.innerHTML = `
+            <option value="">SELECCIONE</option>
+            <option value="CAMBIO EQUIPO INTERNET">CAMBIO EQUIPO INTERNET</option>
+  
+          `;
+      break;
+    case "CAMBIO DE EQUIPO|COBRE":
       select_orden.innerHTML = `
             <option value="">SELECCIONE</option>
              <option value="CAMBIO EQUIPO TV">CAMBIO EQUIPO TV</option>
@@ -755,23 +771,7 @@ function actualizarOpciones() {
   
           `;
       break;
-    case "POSTVENTA CAMBIO DE EQUIPO|ADSL":
-      select_orden.innerHTML = `
-            <option value="">SELECCIONE</option>
-             <option value="CAMBIO EQUIPO TV">CAMBIO EQUIPO TV</option>
-            <option value="CAMBIO EQUIPO INTERNET">CAMBIO EQUIPO INTERNET</option>
-  
-          `;
-      break;
-    case "POSTVENTA CAMBIO DE EQUIPO|COBRE":
-      select_orden.innerHTML = `
-            <option value="">SELECCIONE</option>
-             <option value="CAMBIO EQUIPO TV">CAMBIO EQUIPO TV</option>
-            <option value="CAMBIO EQUIPO INTERNET">CAMBIO EQUIPO INTERNET</option>
-  
-          `;
-      break;
-    case "POSTVENTA MIGRACION|HFC":
+    case "MIGRACION|HFC":
       select_orden.innerHTML = `
             <option value="">SELECCIONE</option>
              <option value="MIGRACION DTA">MIGRACION DTA</option>
@@ -779,14 +779,21 @@ function actualizarOpciones() {
             <option value="MIGRACION X PROYECTO">MIGRACION X PROYECTO</option>
           `;
       break;
-    case "POSTVENTA RECONEXION / RETIRO|HFC":
+    case "RECONEXION / RETIRO|HFC":
       select_orden.innerHTML = `
             <option value="">SELECCIONE</option>
              <option value="RECONEXION">RECONEXION</option>
-            <option value="RETIRO">RETIRO</option>
+            <option value="RETIRO">RETIRO A COMETIDO</option>
             <option value="RETIRO EQUIPOS">RETIRO EQUIPOS</option>
           `;
       break;
+    case "CAMBIO NUMERO COBRE|COBRE":
+      select_orden.innerHTML = `
+            <option value="">SELECCIONE</option>
+             <option value="CAMBIO NUMERO">CAMBIO NUMERO</option>
+          `;
+      break;
+
     // AQUI PODRIAS AGREGAR MAS CASOS PARA DIFERENTES COMBINACIONES DE VALORES
     default:
       select_orden.innerHTML = `<option value="">SELECCIONE</option>`;
@@ -801,7 +808,7 @@ const postventaSelect = document.getElementById("Select_Postventa");
 const tecnologiaSelect = document.getElementById("tecnologia");
 
 postventaSelect.addEventListener("change", function () {
-  if (postventaSelect.value === "POSTVENTA ADICION") {
+  if (postventaSelect.value === "ADICION") {
     const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
     const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
     const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
@@ -818,7 +825,7 @@ postventaSelect.addEventListener("change", function () {
     elementsToHide.forEach((element) => {
       element.style.display = "none";
     });
-  } else if (postventaSelect.value === "POSTVENTA MIGRACION") {
+  } else if (postventaSelect.value === "MIGRACION") {
     const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
     const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
     const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
@@ -835,7 +842,7 @@ postventaSelect.addEventListener("change", function () {
     elementsToHide.forEach((element) => {
       element.style.display = "none";
     });
-  } else if (postventaSelect.value === "POSTVENTA RECONEXION / RETIRO") {
+  } else if (postventaSelect.value === "RECONEXION / RETIRO") {
     const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
     const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
     const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
@@ -852,7 +859,7 @@ postventaSelect.addEventListener("change", function () {
     elementsToHide.forEach((element) => {
       element.style.display = "none";
     });
-  } else if (postventaSelect.value === "POSTVENTA CAMBIO NUMERO COBRE") {
+  } else if (postventaSelect.value === "CAMBIO NUMERO COBRE") {
     const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
     const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
     const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
@@ -865,6 +872,23 @@ postventaSelect.addEventListener("change", function () {
     hfcOption.style.display = "none";
     gponOption.style.display = "none";
     dthOption.style.display = "none";
+
+    elementsToHide.forEach((element) => {
+      element.style.display = "none";
+    });
+  } else if (postventaSelect.value === "CAMBIO DE EQUIPO") {
+    const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
+    const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
+    const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
+    const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
+    const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
+    tecnologiaSelect.value = "SELECCIONE";
+
+    adslOption.style.display = "block";
+    cobreOption.style.display = "none";
+    hfcOption.style.display = "block";
+    gponOption.style.display = "block";
+    dthOption.style.display = "block";
 
     elementsToHide.forEach((element) => {
       element.style.display = "none";
@@ -903,3 +927,31 @@ fetch("../Json/Localizaciones.json")
       select_dpto.add(option);
     }
   });
+
+const selectHide_TipoOrden = document.getElementById("select_orden");
+const EquipoModemRetiroHfc = document.getElementById("EquipoModemRetiroHfc");
+
+EquipoModemRetiroHfc.disabled = true;
+
+// DISABLE POR TIPO ORDEN EN CAMBIO DE EQUIPO
+
+selectHide_TipoOrden.addEventListener("change", () => {
+  const value = selectHide_TipoOrden.value;
+  // selectHide_TipoOrdenGpon.style.display = "none";
+
+  switch (value) {
+    case "RECONEXION":
+      EquipoModemRetiroHfc.disabled = true;
+      break;
+    case "RETIRO":
+      EquipoModemRetiroHfc.disabled = true;
+
+      break;
+    case "RETIRO EQUIPOS":
+      EquipoModemRetiroHfc.disabled = false;
+
+      break;
+    default:
+      break;
+  }
+});

@@ -122,7 +122,6 @@ public function LeerTecnicos()
 public function update(Request $request, $id)
 {
     // Actualizar los datos en el archivo JSON
-    // ...
 
     // Redirigir de vuelta a la vista de registro
     return redirect()->route('registro_tecnico.index');

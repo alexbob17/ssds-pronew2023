@@ -477,6 +477,7 @@ const formTypes = [
     forms: [
       document.getElementById("formHfc_Realizada"),
       document.getElementById("formHfc_Objetada"),
+      document.getElementById("formHfc_Anulada"),
       document.getElementById("formHfc_Transferida"),
     ],
   },

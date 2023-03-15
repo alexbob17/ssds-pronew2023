@@ -36,6 +36,8 @@ use SSD\Models\InstalacionHfcObjetada;
 
 use SSD\Models\InstalacionHfcTransferida;
 
+use SSD\Models\InstalacionHfcAnulada;
+
 
 use SSD\Http\Requests;
 
@@ -225,6 +227,53 @@ class LlamadasServicioController extends Controller
 
                     // Guardamos la instancia en la base de datos
                     $dataHfcTransferida->save();
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO GPON TRANSFERIDO COMPLETADO";
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Registro')
+                        ->with('navigation', 'Instalaciones');
+					
+                }elseif ($data['tipo_actividad'] == 'ANULACION') {
+					
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'tipo_actividad',
+						'MotivoAnulada_Hfc',
+						'orden_internet_hfc',
+						'orden_tv_hfc',
+						'orden_linea_hfc',
+						'TrabajadoAnulada_Hfc',
+						'ComentarioAnulada_Hfc',
+
+					];
+	
+					$data = [];
+	
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoAnulada_Hfc' && $request->has('TrabajadoAnulada_Hfc')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoAnulada_Hfc') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+					// dd($data);
+
+					$dataHfcAnulada= new InstalacionHfcAnulada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataHfcAnulada->save();
 
 					$message = "¡EXITO!";
 					$messages = "REGISTRO GPON TRANSFERIDO COMPLETADO";
