@@ -93,7 +93,6 @@ const selectPostventa = document.querySelector(
   "select[name='Select_Postventa']"
 );
 
-// OCULTAR LOS CAMPOS DE CADA ACTIVIDAD AL CAMBIAR DE TECNOLOGIA
 const selectTecnologia = document.querySelector("select[name='tecnologia']");
 
 function ocultarElementos(elementos) {
@@ -147,6 +146,8 @@ function mostrarElementos() {
   elementsToHide.forEach((element) => {
     element.style.display = "none";
   });
+
+  // DESHABILITA EL SELECT DE TECNOLOGIA HASTA QUE SE SELECCIONE UNA OPCION DEL PRIMERO
 
   switch (selectPostventa.value + "|" + selectTecnologia.value) {
     case "TRASLADO|HFC":
@@ -816,110 +817,156 @@ selectTecnologia.addEventListener("change", actualizarOpciones);
 const postventaSelect = document.getElementById("Select_Postventa");
 const tecnologiaSelect = document.getElementById("tecnologia");
 
-postventaSelect.addEventListener("change", function () {
-  if (postventaSelect.value === "ADICION") {
-    const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
-    const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
-    const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
-    const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
-    const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
-    tecnologiaSelect.value = "SELECCIONE";
+document.addEventListener("DOMContentLoaded", function () {
+  const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
+  const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
+  const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
+  const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
+  const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
+  tecnologiaSelect.value = "SELECCIONE";
 
-    adslOption.style.display = "none";
-    cobreOption.style.display = "none";
-    hfcOption.style.display = "block";
-    gponOption.style.display = "block";
-    dthOption.style.display = "block";
+  adslOption.style.display = "none";
+  cobreOption.style.display = "none";
+  hfcOption.style.display = "none";
+  gponOption.style.display = "none";
+  dthOption.style.display = "none";
 
-    elementsToHide.forEach((element) => {
-      element.style.display = "none";
-    });
-  } else if (postventaSelect.value === "MIGRACION") {
-    const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
-    const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
-    const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
-    const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
-    const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
-    tecnologiaSelect.value = "SELECCIONE";
+  postventaSelect.addEventListener("change", function () {
+    if (postventaSelect.value === "ADICION") {
+      const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
+      const cobreOption = tecnologiaSelect.querySelector(
+        'option[value="COBRE"]'
+      );
+      const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
+      const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
+      const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
+      tecnologiaSelect.value = "SELECCIONE";
 
-    adslOption.style.display = "none";
-    cobreOption.style.display = "none";
-    hfcOption.style.display = "block";
-    gponOption.style.display = "none";
-    dthOption.style.display = "none";
+      adslOption.style.display = "none";
+      cobreOption.style.display = "none";
+      hfcOption.style.display = "block";
+      gponOption.style.display = "block";
+      dthOption.style.display = "block";
 
-    elementsToHide.forEach((element) => {
-      element.style.display = "none";
-    });
-  } else if (postventaSelect.value === "RECONEXION / RETIRO") {
-    const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
-    const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
-    const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
-    const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
-    const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
-    tecnologiaSelect.value = "SELECCIONE";
+      elementsToHide.forEach((element) => {
+        element.style.display = "none";
+      });
+    } else if (postventaSelect.value === "MIGRACION") {
+      const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
+      const cobreOption = tecnologiaSelect.querySelector(
+        'option[value="COBRE"]'
+      );
+      const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
+      const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
+      const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
+      tecnologiaSelect.value = "SELECCIONE";
 
-    adslOption.style.display = "none";
-    cobreOption.style.display = "none";
-    hfcOption.style.display = "block";
-    gponOption.style.display = "none";
-    dthOption.style.display = "none";
+      adslOption.style.display = "none";
+      cobreOption.style.display = "none";
+      hfcOption.style.display = "block";
+      gponOption.style.display = "none";
+      dthOption.style.display = "none";
 
-    elementsToHide.forEach((element) => {
-      element.style.display = "none";
-    });
-  } else if (postventaSelect.value === "CAMBIO NUMERO COBRE") {
-    const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
-    const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
-    const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
-    const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
-    const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
-    tecnologiaSelect.value = "SELECCIONE";
+      elementsToHide.forEach((element) => {
+        element.style.display = "none";
+      });
+    } else if (postventaSelect.value === "RECONEXION / RETIRO") {
+      const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
+      const cobreOption = tecnologiaSelect.querySelector(
+        'option[value="COBRE"]'
+      );
+      const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
+      const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
+      const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
+      tecnologiaSelect.value = "SELECCIONE";
 
-    adslOption.style.display = "none";
-    cobreOption.style.display = "block";
-    hfcOption.style.display = "none";
-    gponOption.style.display = "none";
-    dthOption.style.display = "none";
+      adslOption.style.display = "none";
+      cobreOption.style.display = "none";
+      hfcOption.style.display = "block";
+      gponOption.style.display = "none";
+      dthOption.style.display = "none";
 
-    elementsToHide.forEach((element) => {
-      element.style.display = "none";
-    });
-  } else if (postventaSelect.value === "CAMBIO DE EQUIPO") {
-    const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
-    const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
-    const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
-    const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
-    const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
-    tecnologiaSelect.value = "SELECCIONE";
+      elementsToHide.forEach((element) => {
+        element.style.display = "none";
+      });
+    } else if (postventaSelect.value === "CAMBIO NUMERO COBRE") {
+      const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
+      const cobreOption = tecnologiaSelect.querySelector(
+        'option[value="COBRE"]'
+      );
+      const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
+      const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
+      const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
+      tecnologiaSelect.value = "SELECCIONE";
 
-    adslOption.style.display = "block";
-    cobreOption.style.display = "none";
-    hfcOption.style.display = "block";
-    gponOption.style.display = "block";
-    dthOption.style.display = "block";
+      adslOption.style.display = "none";
+      cobreOption.style.display = "block";
+      hfcOption.style.display = "none";
+      gponOption.style.display = "none";
+      dthOption.style.display = "none";
 
-    elementsToHide.forEach((element) => {
-      element.style.display = "none";
-    });
-  } else {
-    const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
-    const cobreOption = tecnologiaSelect.querySelector('option[value="COBRE"]');
-    const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
-    const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
-    const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
-    tecnologiaSelect.value = "SELECCIONE";
+      elementsToHide.forEach((element) => {
+        element.style.display = "none";
+      });
+    } else if (postventaSelect.value === "CAMBIO DE EQUIPO") {
+      const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
+      const cobreOption = tecnologiaSelect.querySelector(
+        'option[value="COBRE"]'
+      );
+      const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
+      const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
+      const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
+      tecnologiaSelect.value = "SELECCIONE";
 
-    adslOption.style.display = "block";
-    cobreOption.style.display = "block";
-    hfcOption.style.display = "block";
-    gponOption.style.display = "block";
-    dthOption.style.display = "block";
+      adslOption.style.display = "block";
+      cobreOption.style.display = "none";
+      hfcOption.style.display = "block";
+      gponOption.style.display = "block";
+      dthOption.style.display = "block";
 
-    elementsToHide.forEach((element) => {
-      element.style.display = "none";
-    });
-  }
+      elementsToHide.forEach((element) => {
+        element.style.display = "none";
+      });
+    } else if (postventaSelect.value === "TRASLADO") {
+      const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
+      const cobreOption = tecnologiaSelect.querySelector(
+        'option[value="COBRE"]'
+      );
+      const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
+      const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
+      const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
+      tecnologiaSelect.value = "SELECCIONE";
+
+      adslOption.style.display = "block";
+      cobreOption.style.display = "block";
+      hfcOption.style.display = "block";
+      gponOption.style.display = "block";
+      dthOption.style.display = "block";
+
+      elementsToHide.forEach((element) => {
+        element.style.display = "none";
+      });
+    } else {
+      const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
+      const cobreOption = tecnologiaSelect.querySelector(
+        'option[value="COBRE"]'
+      );
+      const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
+      const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
+      const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
+      tecnologiaSelect.value = "SELECCIONE";
+
+      adslOption.style.display = "none";
+      cobreOption.style.display = "none";
+      hfcOption.style.display = "none";
+      gponOption.style.display = "none";
+      dthOption.style.display = "none";
+
+      elementsToHide.forEach((element) => {
+        element.style.display = "none";
+      });
+    }
+  });
 });
 
 // FETCH LOCALIZACIONES

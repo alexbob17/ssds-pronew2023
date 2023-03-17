@@ -40,6 +40,10 @@
                         </li>
                     </ul>
                 </li>
+
+            </ul>
+            </li>
+
             </ul>
         </div>
         @endif
