@@ -20,3 +20,14 @@ select3.addEventListener("change", function () {
     redirectToPage(page);
   }
 });
+
+// Agrega la opción "SELECCIONE UNA OPCIÓN" al cargar la página
+const defaultOption = document.createElement("option");
+defaultOption.value = "";
+defaultOption.text = "SELECCIONE UNA OPCIÓN";
+select3.add(defaultOption);
+
+// Reinicia el select a la opción predeterminada después de redireccionar
+select3.addEventListener("blur", function () {
+  select3.selectedIndex = 0;
+});

@@ -793,7 +793,7 @@ function actualizarOpciones() {
       select_orden.innerHTML = `
             <option value="">SELECCIONE</option>
              <option value="RECONEXION">RECONEXION</option>
-            <option value="RETIRO">RETIRO A COMETIDO</option>
+            <option value="RETIRO">RETIRO ACOMETIDO</option>
             <option value="RETIRO EQUIPOS">RETIRO EQUIPOS</option>
           `;
       break;

@@ -2015,8 +2015,8 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc5"
-                                            name="equipostvAdicionHfc5" placeholder="Equipo Tv 4" />
+                                        <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc4"
+                                            name="equipostvAdicionHfc4" placeholder="Equipo Tv 4" />
                                     </div>
 
                                     <div class="input-group">
@@ -2035,7 +2035,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="NOrdenAdicionHfc"
+                                        <input type="number" class="form-control" id="NOrdenAdicionHfc"
                                             placeholder="N° Orden" name="NOrdenAdicionHfc" />
                                     </div>
                                 </div>
@@ -2384,7 +2384,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="NOrdenAdicionGpon"
+                                        <input type="number" class="form-control" id="NOrdenAdicionGpon"
                                             placeholder="N° Orden" name="NOrdenAdicionGpon" />
                                     </div>
                                 </div>
@@ -2433,7 +2433,7 @@
                         <div class="PostventaAdicionGponHidden" id="ObjetadaAdicionGpon">
                             <div class="">
                                 <div class="form-group-container">
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-4">
                                         <label for="MotivoAdicionObjGpon">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoAdicionObjGpon" tabindex="-1"
@@ -2467,7 +2467,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="NOrdenAdicionObjGpon"
+                                            <input type="number" class="form-control" id="NOrdenAdicionObjGpon"
                                                 placeholder="N° Orden" name="NOrdenAdicionObjGpon" />
                                         </div>
                                     </div>
@@ -2713,7 +2713,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="NOrdenAdicionDth"
+                                        <input type="number" class="form-control" id="NOrdenAdicionDth"
                                             placeholder="N° Orden" name="NOrdenAdicionDth" />
                                     </div>
                                 </div>
@@ -2739,8 +2739,8 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObvsAdicionDths"
-                                            name="ObvsAdicionDths" placeholder="Ingresa las observaciones del caso" />
+                                        <input type="text" class="form-control" id="ObvsAdicionDth"
+                                            name="ObvsAdicionDth" placeholder="Ingresa las observaciones del caso" />
                                     </div>
                                 </div>
                                 <div class=" col-md-9" style="padding-top:8px">
@@ -2764,7 +2764,7 @@
                         <div class="PostventaAdicionDthHidden" id="ObjetadaAdicionDth">
                             <div class="">
                                 <div class="form-group-container">
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-4">
                                         <label for="MotivoObjAdicionDth">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjAdicionDth" tabindex="-1"
@@ -2798,7 +2798,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="NOrdenAdicionObjDth"
+                                            <input type="number" class="form-control" id="NOrdenAdicionObjDth"
                                                 placeholder="N° Orden" name="NOrdenAdicionObjDth" />
                                         </div>
                                     </div>
@@ -3250,7 +3250,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="NOrdenEquipoGpon"
+                                        <input type="number" class="form-control" id="NOrdenEquipoGpon"
                                             placeholder="N° Orden" name="NOrdenEquipoGpon" />
                                     </div>
                                 </div>
@@ -3333,7 +3333,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="NOrdenObjEquipoGpon"
+                                            <input type="number" class="form-control" id="NOrdenObjEquipoGpon"
                                                 placeholder="N° Orden" name="NOrdenObjEquipoGpon" />
                                         </div>
                                     </div>

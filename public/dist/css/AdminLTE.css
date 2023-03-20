@@ -18,7 +18,52 @@ body {
   /* overflow-x: hidden; */
   overflow-y:thin;;
 }
+/* Dropdown Button */
+.dropbtn {
+  background-color:transparent;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
 
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 280px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      right: 1px;
+}
+
+.user-footer{
+  display: flex !important;
+  justify-content: space-between !important;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
 .span_check{
   position: absolute;
   right: 10px; /* ajusta esto para posicionar el icono en la derecha */
@@ -434,11 +479,16 @@ body::-webkit-scrollbar-track {
   color: #f4f4f4;
   padding: 15px 0;
   font-size: 18px;
+  height: 55px !important;
   font-weight: 600;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   /* box-shadow: 1px 1px 5px 1px #52aeeb; */
+}
+
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio]{
+  margin-top: -1rem;
 }
 
 textarea {

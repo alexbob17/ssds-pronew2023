@@ -17,29 +17,33 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 <!-- Messages: style can be found in dropdown.less-->
-                <!-- User Account: style can be found in dropdown.less -->
-                <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="{{ asset('dist/img/user-160x160.png') }}" class="user-image" alt="User Image" />
-                        <span class="hidden-xs">{{{ Auth::user()->username }}}</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="user-header">
-                            <p>{{{ Auth::user()->first_name }}}
-                                {{{ Auth::user()->last_name }}}<small>{{{ Auth::user()->organizational_area }}}</small>
-                            </p>
-                        </li>
+
+
+                <div class="dropdown">
+                    <button class="dropbtn"> <span class="hidden-xs">{{{ Auth::user()->username }}} <a href="#"
+                                class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="{{ asset('dist/img/user-160x160.png') }}" class="user-image" alt="User Image"
+                                    style="width:20px" />
+                            </a></span>
+                    </button>
+
+                    <div class="dropdown-content">
+                        <p style="display: flex;flex-direction: column;align-items: center;padding: 10px;">
+                            {{{ Auth::user()->first_name }}}
+                            {{{ Auth::user()->last_name }}}<small>{{{ Auth::user()->organizational_area }}}</small>
+                        </p>
                         <li class="user-footer">
                             <div class="pull-left">
                                 {!! link_to('cambiar_contrasena', 'Cambiar Contraseña', [ 'class' => 'btn-xs btn-flat
                                 text-muted']) !!}
                             </div>
                             <div class="pull-right">
-                                {!! link_to('logout','Cerrar Sesión', ['class' => 'btn btn-warning btn-flat']) !!}
+                                {!! link_to('logout','Cerrar Sesión', ['class' => 'btn-xs btn-flat
+                                text-muted']) !!}
                             </div>
                         </li>
-                    </ul>
-                </li>
+                    </div>
+                </div>
 
             </ul>
             </li>

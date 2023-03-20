@@ -18,6 +18,9 @@
     <!-- iCheck -->
     <link href="{{ asset('/plugins/iCheck/square/orange.css') }}" rel="stylesheet" type="text/css" />
 
+    <link rel="icon" type="image/x-icon" href="{{ asset('../public/img/img/logo.ico') }}">
+    <link rel="icon" type="image/png" href="{{ asset('../public/img/logo.ico') }}">
+
 </head>
 
 <body class="hold-transition login-page" style="display: flex;
@@ -55,14 +58,14 @@
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
-                <div class="col-xs-8">
+                <div class="col-xs-8" style="">
                     <div class="checkbox icheck" style="padding:20px">
                         <label>
                             <input type="checkbox" checked="checked" name="remember"> Mantener la sesión
                         </label>
                     </div>
                 </div><!-- /.col -->
-                <div class="">
+                <div class="" style="height: 55px !important;">
                     {!! Form::submit('Ingresar', ['class' => 'btn-block btn-login']) !!}
                 </div><!-- /.col -->
             </div>
