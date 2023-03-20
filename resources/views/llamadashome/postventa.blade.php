@@ -1072,7 +1072,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="NOrdenTrasladosAdsl"
+                                        <input type="number" class="form-control" id="NOrdenTrasladosAdsl"
                                             placeholder="N° Orden" name="NOrdenTrasladosAdsl" />
                                     </div>
                                 </div>
@@ -1178,7 +1178,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="OrdenObjTrasladoAdsl"
+                                            <input type="number" class="form-control" id="OrdenObjTrasladoAdsl"
                                                 placeholder="N° Orden" name="OrdenObjTrasladoAdsl" />
                                         </div>
                                     </div>
@@ -1321,7 +1321,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="NOrdenTrasladosAnulAdsl"
+                                        <input type="number" class="form-control" id="NOrdenTrasladosAnulAdsl"
                                             placeholder="N° Orden" name="NOrdenTrasladosAnulAdsl" />
                                     </div>
                                 </div>
@@ -1329,8 +1329,8 @@
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Hfc"
-                                                name="TrabajadoAnulada_Hfc" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Adsl"
+                                                name="TrabajadoAnulada_Adsl" />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -1380,7 +1380,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="OrdenTrasladoCobre"
+                                        <input type="number" class="form-control" id="OrdenTrasladoCobre"
                                             placeholder="N° Orden" name="OrdenTrasladoCobre" />
                                     </div>
                                 </div>
@@ -1480,14 +1480,14 @@
                                     </div>
 
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenTrasladoObjCobre">
+                                        <label for="OrdenTrasladoObjCobres">
                                             Orden </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="OrdenTrasladoObjCobre"
-                                                placeholder="N° Orden" name="OrdenTrasladoObjCobre" />
+                                            <input type="number" class="form-control" id="OrdenTrasladoObjCobres"
+                                                placeholder="N° Orden" name="OrdenTrasladoObjCobres" />
                                         </div>
                                     </div>
 
@@ -1692,7 +1692,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="OrdenTrasladoDth"
+                                        <input type="number" class="form-control" id="OrdenTrasladoDth"
                                             placeholder="N° Orden" name="OrdenTrasladoDth" />
                                     </div>
                                 </div>
@@ -1799,7 +1799,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="OrdenTrasladoObjDth"
+                                            <input type="number" class="form-control" id="OrdenTrasladoObjDth"
                                                 placeholder="N° Orden" name="OrdenTrasladoObjDth" />
                                         </div>
                                     </div>

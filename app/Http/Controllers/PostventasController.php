@@ -44,8 +44,19 @@ use SSD\Models\PostventaAdicionHfc_Anulada;
 use SSD\Models\PostventaAdicionHfc_Objetado;
 use SSD\Models\PostventaAdicionHfc_Realizado;
 
+use SSD\Models\PostventaTrasladoDth_Anulada;
+use SSD\Models\PostventaTrasladoDth_Objetado;
+use SSD\Models\PostventaTrasladoDth_Realizado;
 
 
+use SSD\Models\PostventaTrasladoCobre_Anulada;
+use SSD\Models\PostventaTrasladoCobre_Objetado;
+use SSD\Models\PostventaTrasladoCobre_Realizado;
+
+
+use SSD\Models\Postventas\PostventaTrasladoAdsl_Anulada;
+use SSD\Models\Postventas\PostventaTrasladoAdsl_Realizado;
+use SSD\Models\Postventas\PostventaTrasladoAdsl_Objetado;
 
 
 
@@ -74,6 +85,503 @@ class PostventasController extends Controller
 
         // Evaluamos la tecnología seleccionada
         switch ($key) {
+			case 'TRASLADO|ADSL':
+				$selectedFields = [
+					'codigo_tecnico',
+					'telefono',
+					'tecnico',
+					'motivo_llamada',
+					'Select_Postventa',
+					'select_orden',
+					'dpto_colonia',
+					'TipoActividadTrasladoAdsl',
+					'NOrdenTrasladosAdsl',
+					'GeorefTrasladoAdsl',
+					'MaterialesTrasladoAdsl',
+					'TrabajadoTrasladoAdsl',
+					'ObvsTrasladoAdsl',
+					'RecibeTrasladoAdsl',
+					'username_creacion',
+					'username_atencion',
+				];
+		
+                $data = [];
+
+                // Iteramos por los campos seleccionados del formulario
+				foreach ($selectedFields as $fieldName) {
+					$value = $request->input($fieldName);
+					if ($fieldName === 'TrabajadoTrasladoAdsl' && $request->has('TrabajadoTrasladoAdsl')) {
+						$data[$fieldName] = 'TRABAJADO';
+					} elseif ($fieldName === 'TrabajadoTrasladoAdsl') {
+						$data[$fieldName] = 'PENDIENTE';
+					} else {
+						$data[$fieldName] = $value;
+					}
+				}
+
+				
+				// dd($data);
+
+				// Agregamos el usuario actual como creador y atendedor del registro
+				$data['username_creacion'] = Auth::user()->username;
+				$data['username_atencion'] = Auth::user()->username;
+
+
+                // Evaluamos si la tecnología ADSL fue realizada u objetada
+                if ($data['TipoActividadTrasladoAdsl'] == 'REALIZADA') {
+                    // Incluimos los datos adicionales para la tecnología ADSL realizada
+                    $dataTrasladoAdslRealizada = new PostventaTrasladoAdsl_Realizado($data);
+
+                    // // Guardamos la instancia en la base de datos
+                    $dataTrasladoAdslRealizada->save();
+
+					
+					$message = "¡EXITO!";
+					$messages = "REGISTRO REALIZADO COMPLETO";
+					return view('llamadashome/postventa')
+						->with('message', $message)
+						->with('messages', $messages)
+						->with('page_title', 'Postventas - Registro')
+						->with('navigation', 'postventa');
+
+						
+                }elseif($data['TipoActividadTrasladoAdsl'] == 'OBJETADA'){
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'Select_Postventa',
+						'select_orden',
+						'dpto_colonia',
+						'TipoActividadTrasladoAdsl',
+						'MotivoObjTrasladoAdsl',
+						'OrdenObjTrasladoAdsl',
+						'TrabajadoTrasladoObjAdsl',
+						'ObvsTrasladoObjAdsl',
+						'ComentariosTrasladosObjAdsl',
+						'username_creacion',
+						'username_atencion',
+					];
+
+					$data = [];
+
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoTrasladoObjAdsl' && $request->has('TrabajadoTrasladoObjAdsl')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoTrasladoObjAdsl') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
+					$dataTrasladoAdslObj = new PostventaTrasladoAdsl_Objetado($data);
+
+					// Guardamos la instancia en la base de datos
+					$dataTrasladoAdslObj->save();
+
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO OBJETADO COMPLETO";
+					return view('llamadashome/postventa')
+						->with('message', $message)
+						->with('messages', $messages)
+						->with('page_title', 'Postventas - Registro')
+						->with('navigation', 'Postventas');
+
+				
+				}elseif($data['TipoActividadTrasladoAdsl'] == 'ANULACION'){
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'Select_Postventa',
+						'select_orden',
+						'dpto_colonia',
+						'TipoActividadTrasladoAdsl',
+						'MotivoTrasladoAnulada_Adsl',
+						'NOrdenTrasladosAnulAdsl',
+						'TrabajadoAnulada_Adsl',
+						'ComentarioTrasladoAnulada_Adsl',
+						'username_creacion',
+						'username_atencion',
+					];
+
+					$data = [];
+
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoAnulada_Adsl' && $request->has('TrabajadoAnulada_Adsl')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoAnulada_Adsl') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+
+
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
+					$dataTrasladoAdslAnulada = new PostventaTrasladoAdsl_Anulada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataTrasladoAdslAnulada->save();
+
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO ANULACION COMPLETO";
+					return view('llamadashome/postventa')
+						->with('message', $message)
+						->with('messages', $messages)
+						->with('page_title', 'Postventas - Registro')
+						->with('navigation', 'postventa');
+
+				}
+                break;
+			case 'TRASLADO|COBRE':
+				$selectedFields = [
+					'codigo_tecnico',
+					'telefono',
+					'tecnico',
+					'motivo_llamada',
+					'Select_Postventa',
+					'select_orden',
+					'dpto_colonia',
+					'TipoActividadTrasladoCobre',
+					'OrdenTrasladoCobre',
+					'GeorefTrasladoCobre',
+					'MaterialesTrasladoCobre',
+					'TrabajadoTrasladoCobre',
+					'ObvsTrasladoCobre',
+					'username_creacion',
+					'username_atencion',
+				];
+		
+                $data = [];
+
+                // Iteramos por los campos seleccionados del formulario
+				foreach ($selectedFields as $fieldName) {
+					$value = $request->input($fieldName);
+					if ($fieldName === 'TrabajadoTrasladoCobre' && $request->has('TrabajadoTrasladoCobre')) {
+						$data[$fieldName] = 'TRABAJADO';
+					} elseif ($fieldName === 'TrabajadoTrasladoCobre') {
+						$data[$fieldName] = 'PENDIENTE';
+					} else {
+						$data[$fieldName] = $value;
+					}
+				}
+
+				
+				// dd($data);
+
+				// Agregamos el usuario actual como creador y atendedor del registro
+				$data['username_creacion'] = Auth::user()->username;
+				$data['username_atencion'] = Auth::user()->username;
+
+
+                // Evaluamos si la tecnología ADSL fue realizada u objetada
+                if ($data['TipoActividadTrasladoCobre'] == 'REALIZADA') {
+                    // Incluimos los datos adicionales para la tecnología ADSL realizada
+                    $dataTrasladoCobreRealizada = new PostventaTrasladoCobre_Realizado($data);
+
+                    // // Guardamos la instancia en la base de datos
+                    $dataTrasladoCobreRealizada->save();
+
+					
+					$message = "¡EXITO!";
+					$messages = "REGISTRO REALIZADO COMPLETO";
+					return view('llamadashome/postventa')
+						->with('message', $message)
+						->with('messages', $messages)
+						->with('page_title', 'Postventas - Registro')
+						->with('navigation', 'postventa');
+
+						
+                }elseif($data['TipoActividadTrasladoCobre'] == 'OBJETADA'){
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'Select_Postventa',
+						'select_orden',
+						'dpto_colonia',
+						'TipoActividadTrasladoCobre',
+						'MotivoObjTrasladoCobre',
+						'OrdenTrasladoObjCobres',
+						'TrabajadoTrasladoObjCobre',
+						'ObsObjTrasladoCobre',
+						'ComentariosObjTrasladoCobre',
+						'username_creacion',
+						'username_atencion',
+					];
+
+					$data = [];
+
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoTrasladoObjCobre' && $request->has('TrabajadoTrasladoObjCobre')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoTrasladoObjCobre') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
+					$dataTrasladoCobreObj = new PostventaTrasladoCobre_Objetado($data);
+
+					// Guardamos la instancia en la base de datos
+					$dataTrasladoCobreObj->save();
+
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO OBJETADO COMPLETO";
+					return view('llamadashome/postventa')
+						->with('message', $message)
+						->with('messages', $messages)
+						->with('page_title', 'Postventas - Registro')
+						->with('navigation', 'Postventas');
+
+				
+				}elseif($data['TipoActividadTrasladoCobre'] == 'ANULACION'){
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'Select_Postventa',
+						'select_orden',
+						'dpto_colonia',
+						'TipoActividadTrasladoCobre',
+						'MotivoTrasladoAnulada_Cobre',
+						'OrdenTrasladosCobre',
+						'TrabajadoAnulada_Cobre',
+						'ComentarioTrasladoAnulada_Cobre',
+						'username_creacion',
+						'username_atencion',
+					];
+
+					$data = [];
+
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoAnulada_Cobre' && $request->has('TrabajadoAnulada_Cobre')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoAnulada_Cobre') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+
+
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
+					$dataTrasladoCobreAnulada = new PostventaTrasladoCobre_Anulada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataTrasladoCobreAnulada->save();
+
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO ANULACION COMPLETO";
+					return view('llamadashome/postventa')
+						->with('message', $message)
+						->with('messages', $messages)
+						->with('page_title', 'Postventas - Registro')
+						->with('navigation', 'postventa');
+
+				}
+                break;
+			case 'TRASLADO|DTH':
+				$selectedFields = [
+					'codigo_tecnico',
+					'telefono',
+					'tecnico',
+					'motivo_llamada',
+					'Select_Postventa',
+					'select_orden',
+					'dpto_colonia',
+					'TipoActividadTrasladoDth',
+					'OrdenTrasladoDth',
+					'GeorefTrasladoDth',
+					'MaterialesTrasladoDth',
+					'TrabajadoTrasladoDth',
+					'ObvsTrasladoDth',
+					'RecibeTrasladoDth',
+					'username_creacion',
+					'username_atencion',
+				];
+		
+                $data = [];
+
+                // Iteramos por los campos seleccionados del formulario
+				foreach ($selectedFields as $fieldName) {
+					$value = $request->input($fieldName);
+					if ($fieldName === 'TrabajadoTrasladoDth' && $request->has('TrabajadoTrasladoDth')) {
+						$data[$fieldName] = 'TRABAJADO';
+					} elseif ($fieldName === 'TrabajadoTrasladoDth') {
+						$data[$fieldName] = 'PENDIENTE';
+					} else {
+						$data[$fieldName] = $value;
+					}
+				}
+
+				
+				// dd($data);
+
+				// Agregamos el usuario actual como creador y atendedor del registro
+				$data['username_creacion'] = Auth::user()->username;
+				$data['username_atencion'] = Auth::user()->username;
+
+
+                // Evaluamos si la tecnología ADSL fue realizada u objetada
+                if ($data['TipoActividadTrasladoDth'] == 'REALIZADA') {
+                    // Incluimos los datos adicionales para la tecnología ADSL realizada
+                    $dataTrasladoDthRealizada = new PostventaTrasladoDth_Realizado($data);
+
+                    // // Guardamos la instancia en la base de datos
+                    $dataTrasladoDthRealizada->save();
+
+					
+					$message = "¡EXITO!";
+					$messages = "REGISTRO REALIZADO COMPLETO";
+					return view('llamadashome/postventa')
+						->with('message', $message)
+						->with('messages', $messages)
+						->with('page_title', 'Postventas - Registro')
+						->with('navigation', 'postventa');
+
+						
+                }elseif($data['TipoActividadTrasladoDth'] == 'OBJETADA'){
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'Select_Postventa',
+						'select_orden',
+						'dpto_colonia',
+						'TipoActividadTrasladoDth',
+						'MotivoObjTrasladoDth',
+						'OrdenTrasladoObjDth',
+						'TrabajadoTrasladoObj_Dth',
+						'ObvsTrasladoObjDth',
+						'ComentariosTrasladoObjDth',
+						'username_creacion',
+						'username_atencion',
+					];
+
+					$data = [];
+
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoTrasladoObj_Dth' && $request->has('TrabajadoTrasladoObj_Dth')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoTrasladoObj_Dth') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
+					$dataTrasladoDthObj = new PostventaTrasladoDth_Objetado($data);
+
+					// Guardamos la instancia en la base de datos
+					$dataTrasladoDthObj->save();
+
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO OBJETADO COMPLETO";
+					return view('llamadashome/postventa')
+						->with('message', $message)
+						->with('messages', $messages)
+						->with('page_title', 'Postventas - Registro')
+						->with('navigation', 'Postventas');
+
+				
+				}elseif($data['TipoActividadTrasladoDth'] == 'ANULACION'){
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'Select_Postventa',
+						'select_orden',
+						'dpto_colonia',
+						'TipoActividadTrasladoDth',
+						'MotivoTrasladoAnulada_Dth',
+						'OrdenTrasladosDth',
+						'TrabajadoTrasladoAnulada_Hfc',
+						'ComentariosTrasladoObjDth',
+						'username_creacion',
+						'username_atencion',
+					];
+
+					$data = [];
+
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TipoActividadTrasladoDth' && $request->has('TipoActividadTrasladoDth')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TipoActividadTrasladoDth') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+
+
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
+					$dataTrasladoDthAnulada = new PostventaTrasladoDth_Anulada($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataTrasladoDthAnulada->save();
+
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO ANULACION COMPLETO";
+					return view('llamadashome/postventa')
+						->with('message', $message)
+						->with('messages', $messages)
+						->with('page_title', 'Postventas - Registro')
+						->with('navigation', 'postventa');
+
+				}
+                break;
 			case 'ADICION|HFC':
 				$selectedFields = [
 					'codigo_tecnico',
