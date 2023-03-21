@@ -4,39 +4,39 @@ namespace SSD\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use SSD\Models\InstalacionAdslRealizada;
+use SSD\Models\Instalaciones\InstalacionAdslRealizada;
 
-use SSD\Models\InstalacionAdslObjetada;
+use SSD\Models\Instalaciones\InstalacionAdslObjetada;
 
-use SSD\Models\InstalacionAdslAnulada;
+use SSD\Models\Instalaciones\InstalacionAdslAnulada;
 
-use SSD\Models\InstalacionCobreRealizada;
+use SSD\Models\Instalaciones\InstalacionCobreRealizada;
 
-use SSD\Models\InstalacionCobreObjetada;
+use SSD\Models\Instalaciones\InstalacionCobreObjetada;
 
-use SSD\Models\InstalacionCobreAnulada;
+use SSD\Models\Instalaciones\InstalacionCobreAnulada;
 
-use SSD\Models\InstalacionDthRealizada;
+use SSD\Models\Instalaciones\InstalacionDthRealizada;
 
-use SSD\Models\InstalacionDthObjetada;
+use SSD\Models\Instalaciones\InstalacionDthObjetada;
 
-use SSD\Models\InstalacionDthAnulada;
+use SSD\Models\Instalaciones\InstalacionDthAnulada;
 
-use SSD\Models\InstalacionGponRealizada;
+use SSD\Models\Instalaciones\InstalacionGponRealizada;
 
-use SSD\Models\InstalacionGponObjetada;
+use SSD\Models\Instalaciones\InstalacionGponObjetada;
 
-use SSD\Models\InstalacionGponTransferida;
+use SSD\Models\Instalaciones\InstalacionGponTransferida;
 
-use SSD\Models\InstalacionGponAnulada;
+use SSD\Models\Instalaciones\InstalacionGponAnulada;
 
-use SSD\Models\InstalacionHfcRealizada;
+use SSD\Models\Instalaciones\InstalacionHfcRealizada;
 
-use SSD\Models\InstalacionHfcObjetada;
+use SSD\Models\Instalaciones\InstalacionHfcObjetada;
 
-use SSD\Models\InstalacionHfcTransferida;
+use SSD\Models\Instalaciones\InstalacionHfcTransferida;
 
-use SSD\Models\InstalacionHfcAnulada;
+use SSD\Models\Instalaciones\InstalacionHfcAnulada;
 
 
 use SSD\Http\Requests;
@@ -481,7 +481,7 @@ class LlamadasServicioController extends Controller
                     $dataGponAnulada->save();
 
 					$message = "¡EXITO!";
-					$messages = "REGISTRO GPON TRANSFERIDO COMPLETADO";
+					$messages = "REGISTRO GPON ANULADO COMPLETADO";
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)

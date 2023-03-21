@@ -29,7 +29,7 @@
                             </div>
                             <input type="text" class="form-control effect-8" placeholder="N° Codigo Tecnico"
                                 id="codigo_tecnico" name="codigo_tecnico"
-                                oninput="this.value = this.value.toUpperCase()" />
+                                oninput="this.value = this.value.toUpperCase()" required />
                         </div>
                     </div>
 
@@ -48,7 +48,7 @@
                                     <i class="fa fa-phone-square"></i>
                                 </div>
                                 <input type="text" placeholder="Numero" class="form-control" id="telefono"
-                                    name="telefono" readonly="true" />
+                                    name="telefono" readonly="true" required />
                             </div>
                         </div>
                         <div class="form-group col-md-5">
@@ -58,7 +58,7 @@
                                     <i class="fa fa-user"></i>
                                 </div>
                                 <input type="text" placeholder="Nombre Tecnico" class="form-control" id="tecnico"
-                                    name="tecnico" readonly="true" />
+                                    name="tecnico" readonly="true" required />
                             </div>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                     <div class="form-group col-md-2" id="tec_input">
                         <label for="tecnologia">Tecnologia</label>
                         <select class="form-control" style="width: 100%;" name="tecnologia" tabindex="-1"
-                            id="tecnologia" aria-hidden="true">
+                            id="tecnologia" aria-hidden="true" required>
                             <option selected="selected">SELECCIONE</option>
                             <option value="HFC">HFC</option>
                             <option value="GPON">GPON</option>
@@ -85,14 +85,14 @@
                     <div class="form-group col-md-3" id="select_ordenhide">
                         <label for="select_orden">Tipo Orden</label>
                         <select class="form-control" id="select_orden" style="width: 100%;" name="select_orden"
-                            tabindex="-1" aria-hidden="true">
+                            tabindex="-1" aria-hidden="true" required>
                             <option value="">SELECCIONE UNA OPCION</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="dpto_colonia">DPTO / COLONIA</label>
                         <select class="form-control select2 select2-hidden-accessible" id="dpto_colonia"
-                            style="width: 100%;" name="dpto_colonia" tabindex="-1" aria-hidden="true">
+                            style="width: 100%;" name="dpto_colonia" tabindex="-1" aria-hidden="true" required>
                             <option value="">SELECCIONE UNA OPCION</option>
                         </select>
                     </div>
@@ -371,7 +371,7 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjetada_Hfc" tabindex="-1"
                                             id="MotivoObjetada_Hfc" aria-hidden="true">
-                                            <option>SELECCIONE UNA OPCION</option>
+                                            <option value="">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -1782,7 +1782,7 @@
                                 <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                     name="MotivoObjetado_Gpon" tabindex="-1" id="MotivoObjetado_Gpon"
                                     aria-hidden="true">
-                                    <option selected="selected">SELECCIONE UNA OPCION</option>
+                                    <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                     <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                     <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                     <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP

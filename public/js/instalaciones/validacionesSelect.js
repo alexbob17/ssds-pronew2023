@@ -596,11 +596,13 @@ function resetValues() {
   const orden_tv_hfc = document.getElementById("orden_tv_hfc");
   const orden_internet_hfc = document.getElementById("orden_internet_hfc");
   const orden_linea_hfc = document.getElementById("orden_linea_hfc");
+  const hideVoip_Hfc = document.getElementById("numeroVoip_hfc");
 
   EquipoModem_Hfc.value = "";
   orden_internet_hfc.value = "";
   orden_tv_hfc.value = "";
   orden_linea_hfc.value = "";
+  hideVoip_Hfc.value = "";
 
   equipotvHfc.forEach((equipotv) => {
     equipotv.value = "";
@@ -616,6 +618,8 @@ const optionTransferidaHfc = document.querySelector(
 
 selectHide_TipoOrden.addEventListener("change", () => {
   const value = selectHide_TipoOrden.value;
+  const tipo_actividad = document.getElementById("tipo_actividad");
+
   switch (value) {
     case "INSTALACION DE CLARO HOGAR":
       for (let i = 0; i < TipoActividad_Hidden.length; i++) {
@@ -761,6 +765,20 @@ selectHide_TipoOrden.addEventListener("change", () => {
         optionTransferidaHfc.style.display = "none";
       }
 
+      if (tipo_actividad.value === "TRANSFERIDA") {
+        formHfc_Transferida.style.display = "none";
+        btn_save.style.display = "none";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
+      }
+
       resetValues();
 
       break;
@@ -778,6 +796,20 @@ selectHide_TipoOrden.addEventListener("change", () => {
 
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "none";
+      }
+
+      if (tipo_actividad.value === "TRANSFERIDA") {
+        formHfc_Transferida.style.display = "none";
+        btn_save.style.display = "none";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
       }
 
       resetValues();
@@ -798,6 +830,20 @@ selectHide_TipoOrden.addEventListener("change", () => {
         optionTransferidaHfc.style.display = "none";
       }
 
+      if (tipo_actividad.value === "TRANSFERIDA") {
+        formHfc_Transferida.style.display = "none";
+        btn_save.style.display = "none";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
+      }
+
       resetValues();
 
       break;
@@ -815,6 +861,20 @@ selectHide_TipoOrden.addEventListener("change", () => {
 
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "none";
+      }
+
+      if (tipo_actividad.value === "TRANSFERIDA") {
+        formHfc_Transferida.style.display = "none";
+        btn_save.style.display = "none";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
       }
 
       resetValues();
@@ -837,6 +897,20 @@ selectHide_TipoOrden.addEventListener("change", () => {
         optionTransferidaHfc.style.display = "none";
       }
 
+      if (tipo_actividad.value === "TRANSFERIDA") {
+        formHfc_Transferida.style.display = "none";
+        btn_save.style.display = "none";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
+      }
+
       resetValues();
 
       break;
@@ -854,6 +928,21 @@ selectHide_TipoOrden.addEventListener("change", () => {
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "none";
       }
+
+      if (tipo_actividad.value === "TRANSFERIDA") {
+        formHfc_Transferida.style.display = "none";
+        btn_save.style.display = "none";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
+      }
+
       resetValues();
 
     case "REACTIVACION -LINEA INDIVIDUAL":
@@ -869,6 +958,19 @@ selectHide_TipoOrden.addEventListener("change", () => {
       }
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "none";
+      }
+      if (tipo_actividad.value === "TRANSFERIDA") {
+        formHfc_Transferida.style.display = "none";
+        btn_save.style.display = "none";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
       }
 
       resetValues();

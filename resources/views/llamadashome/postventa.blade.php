@@ -326,10 +326,10 @@
 
                                 <div class="form-group-container">
                                     <div class="form-group col-md-4">
-                                        <label for="MotivioObjTrasladoHfc">Motivo Objetado</label>
+                                        <label for="MotivoObjTrasladoHfc">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivioObjTrasladoHfc" tabindex="-1"
-                                            id="MotivioObjTrasladoHfc" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoObjTrasladoHfc" tabindex="-1"
+                                            id="MotivoObjTrasladoHfc" aria-hidden="true">
                                             <option selected="selected">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
@@ -663,7 +663,7 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value=""
-                                                id="TrabajadoTrasladoObjGpon" name="TrabajadoTrasladoObj" />
+                                                id="TrabajadoTrasladoGpon" name="TrabajadoTrasladoGpon" />
                                             <label class="form-check-label" for="">
                                                 Trabajado
                                             </label>
@@ -930,8 +930,6 @@
                                             name="ComentTrasladoTransGpon" />
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
 
@@ -5226,7 +5224,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenAnuladaCambioCobre"
-                                            name="OrdenAnuladaCambioCobre" placeholder="Ingresa N° Orden" />
+                                            name="OrdenAnuladaCambioCobre" step="any" pattern="^[0-9]+([.][0-9]+)?$"
+                                            placeholder="Ingresa N° Orden" />
                                     </div>
                                 </div>
 
@@ -5380,6 +5379,8 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script> -->
 <script src="{{asset('/js/instalaciones/ValoresTecnico.js')}}" type="text/javascript"></script>
 <script src="{{asset('/js/instalaciones/PostventaValidacionSelect.js')}}" type="text/javascript"></script>
+<script src="{{asset('/js/postventas/ValidacionFormularioPostventa.js')}}" type="text/javascript"></script>
+
 
 
 

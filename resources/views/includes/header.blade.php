@@ -29,8 +29,9 @@
 
                     <div class="dropdown-content">
                         <p style="display: flex;flex-direction: column;align-items: center;padding: 10px;">
-                            {{{ Auth::user()->first_name }}}
-                            {{{ Auth::user()->last_name }}}<small>{{{ Auth::user()->organizational_area }}}</small>
+                            <span style="font-size:16px;font-weigth:500;color:#3e69d6">{{{ Auth::user()->first_name }}}
+                                {{{ Auth::user()->last_name }}}</span>
+                            <small>{{{ Auth::user()->organizational_area }}}</small>
                         </p>
                         <li class="user-footer">
                             <div class="pull-left">
