@@ -16,6 +16,7 @@ class PostventaTrasladoCobre_Objetado extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadTrasladoCobre',
         'MotivoObjTrasladoCobre',
         'OrdenTrasladoObjCobres',

@@ -16,6 +16,7 @@ class PostventaCambioNumeroCobreRealizada extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadCambioNumeroCobre',
         'NumeroCobreCambio',
         'OrdenCambioCobre',

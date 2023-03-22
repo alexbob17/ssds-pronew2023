@@ -16,6 +16,7 @@ class PostventaAdicionDth_Realizado extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadAdicionDth',
         'equipostvAdicionDth1',
         'equipostvAdicionDth2',

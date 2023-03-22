@@ -21,6 +21,7 @@ class CrearTablaPostventaAdicionGponAnulada extends Migration
             $table->string('Select_Postventa');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('TipoActividadAdicionGpon');
             $table->string('MotivoAdicionAnulada_Gpon');
             $table->integer('NOrdenAdicionAnuladaGpon');

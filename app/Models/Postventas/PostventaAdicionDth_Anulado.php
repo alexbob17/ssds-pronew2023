@@ -16,6 +16,7 @@ class PostventaAdicionDth_Anulado extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadAdicionDth',
         'MotivoAdicionAnulada_Dth',
         'OrdenAdicionAnulada_Dth',

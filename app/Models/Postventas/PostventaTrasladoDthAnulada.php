@@ -16,6 +16,7 @@ class PostventaTrasladoDth_Anulada extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadTrasladoDth',
         'MotivoTrasladoAnulada_Dth',
         'OrdenTrasladosDth',

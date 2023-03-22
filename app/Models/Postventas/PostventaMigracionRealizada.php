@@ -16,6 +16,7 @@ class PostventaMigracionRealizada extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadMigracionHfc',
 	    'equipotvmigracion1',
 		'equipotvmigracion2',

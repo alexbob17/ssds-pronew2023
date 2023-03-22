@@ -16,6 +16,7 @@ class PostventaAdicionDth_Objetado extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadAdicionDth',
         'MotivoObjAdicionDth',
         'NOrdenAdicionObjDth',

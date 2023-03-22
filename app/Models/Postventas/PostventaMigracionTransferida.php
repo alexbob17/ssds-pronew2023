@@ -16,6 +16,7 @@ class PostventaMigracionTransferida extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadMigracionHfc',
 	    'OrdenMigracionTranfHfc',
 		'TrabajadoMigracionTransHfc',

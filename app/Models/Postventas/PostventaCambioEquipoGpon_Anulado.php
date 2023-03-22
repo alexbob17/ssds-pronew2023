@@ -16,6 +16,7 @@ class PostventaCambioEquipoGpon_Anulado extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadCambioGpon',
         'MotivoAnuladaObj_Gpon',
         'OrdenEquipoAnuladaGpon',

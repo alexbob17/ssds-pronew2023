@@ -21,6 +21,7 @@ class CrearTablaPostventaCambioEquipoAdslAnulado extends Migration
             $table->string('Select_Postventa');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('TipoActividadCambioAdsl');
             $table->string('MotivoEquipoAnulada_Adsl');
             $table->integer('OrdenAnuladaEquipoAdsl');

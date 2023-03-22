@@ -21,6 +21,7 @@ class CrearTablaPostventaTrasladoAdslAnulada extends Migration
             $table->string('Select_Postventa');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('TipoActividadTrasladoAdsl');
             $table->string('MotivoTrasladoAnulada_Adsl');
             $table->integer('NOrdenTrasladosAnulAdsl');

@@ -16,6 +16,7 @@ class PostventaCambioEquipoGpon_Objetado extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadCambioGpon',
         'MotivoObjEquipoGpon',
         'NOrdenObjEquipoGpon',

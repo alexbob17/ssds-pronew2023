@@ -16,6 +16,7 @@ class PostventaTrasladoHfc_Anulado extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadTrasladoHfc',
         'OrdenTvAnulTraslHfc',
         'OrdenInterAnulTraslHfc',

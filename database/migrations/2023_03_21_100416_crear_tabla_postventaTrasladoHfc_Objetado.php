@@ -20,6 +20,7 @@ class CrearTablaPostventaTrasladoHfcObjetado extends Migration
             $table->string('motivo_llamada');
             $table->string('Select_Postventa');
             $table->string('select_orden');
+            $table->string('tecnologia');
             $table->string('dpto_colonia');
             $table->string('TipoActividadTrasladoHfc');
             $table->integer('OrdenTvObjetadoTrasladoHfc')->nullable();

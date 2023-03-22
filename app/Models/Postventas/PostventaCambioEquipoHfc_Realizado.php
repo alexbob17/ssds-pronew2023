@@ -16,6 +16,7 @@ class PostventaCambioEquipoHfc_Realizado extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadCambioHfc',
         'InstalacionEquipoHfc',
         'DesinstalarEquipoHfc',

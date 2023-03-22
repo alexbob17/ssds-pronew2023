@@ -17,6 +17,7 @@ class PostventaTrasladoAdsl_Anulada extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadTrasladoAdsl',
         'MotivoTrasladoAnulada_Adsl',
         'NOrdenTrasladosAnulAdsl',

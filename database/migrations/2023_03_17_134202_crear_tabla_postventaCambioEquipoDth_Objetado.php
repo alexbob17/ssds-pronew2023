@@ -21,6 +21,7 @@ class CrearTablaPostventaCambioEquipoDthObjetado extends Migration
             $table->string('Select_Postventa');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('TipoActividadCambioDth');
             $table->string('MotivoObjEquipoDth');
             $table->integer('OrdenEquipoObjDth');

@@ -16,6 +16,7 @@ class PostventaCambioEquipoDthAnulada extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadCambioDth',
         'MotivoEquipoAnulada_Dth',
         'OrdenEquipoAnulada_Dth',

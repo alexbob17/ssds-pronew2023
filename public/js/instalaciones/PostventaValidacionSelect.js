@@ -1001,21 +1001,25 @@ selectHide_TipoOrden.addEventListener("change", () => {
     case "RECONEXION":
       EquipoModemRetiroHfc.disabled = true;
       hiddenEquipoRetirar.style.display = "none";
+      EquipoModemRetiroHfc.value = "";
 
       break;
     case "RETIRO":
       EquipoModemRetiroHfc.disabled = true;
       hiddenEquipoRetirar.style.display = "none";
+      EquipoModemRetiroHfc.value = "";
 
       break;
     case "RETIRO EQUIPOS":
       EquipoModemRetiroHfc.disabled = false;
       hiddenEquipoRetirar.style.display = "block";
+      EquipoModemRetiroHfc.value = "";
 
       break;
     default:
       EquipoModemRetiroHfc.disabled = true;
       hiddenEquipoRetirar.style.display = "none";
+      EquipoModemRetiroHfc.value = "";
       break;
   }
 });

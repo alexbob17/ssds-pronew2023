@@ -21,6 +21,7 @@ class CrearTablaPostventaAdicionDthRealizado extends Migration
             $table->string('Select_Postventa');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('TipoActividadAdicionDth');
             $table->string('equipostvAdicionDth1')->nullable();
             $table->string('equipostvAdicionDth2')->nullable();

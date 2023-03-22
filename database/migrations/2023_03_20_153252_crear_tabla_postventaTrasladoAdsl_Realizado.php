@@ -21,6 +21,7 @@ class CrearTablaPostventaTrasladoAdslRealizado extends Migration
             $table->string('Select_Postventa');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('TipoActividadTrasladoAdsl');
             $table->integer('NOrdenTrasladosAdsl');
             $table->string('GeorefTrasladoAdsl');

@@ -17,6 +17,7 @@ class PostventaTrasladoDth_Realizado extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadTrasladoDth',
         'OrdenTrasladoDth',
         'GeorefTrasladoDth',

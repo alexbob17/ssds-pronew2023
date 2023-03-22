@@ -16,6 +16,7 @@ class PostventaTrasladoHfc_Transferido extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadTrasladoHfc',
         'OrdenTvTransferidoHfc',
         'OrdenInternetTransferidoHfc',

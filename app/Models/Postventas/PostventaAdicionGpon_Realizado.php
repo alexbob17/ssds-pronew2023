@@ -16,6 +16,7 @@ class PostventaAdicionGpon_Realizado extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadAdicionGpon',
         'equipostvAdicionGpon1',
         'equipostvAdicionGpon2',

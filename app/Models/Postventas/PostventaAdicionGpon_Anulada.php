@@ -16,6 +16,7 @@ class PostventaAdicionGpon_Anulada extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadAdicionGpon',
         'MotivoAdicionAnulada_Gpon',
         'NOrdenAdicionAnuladaGpon',

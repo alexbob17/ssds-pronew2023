@@ -21,6 +21,7 @@ class CrearTablaPostventaAdicionHfcAnulada extends Migration
             $table->string('Select_Postventa');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('TipoActividadAdicionHfc');
             $table->string('MotivoAdicionAnulada_Hfc');
             $table->integer('NOrdenAdicionAnuladaHfc');

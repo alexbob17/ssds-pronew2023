@@ -92,6 +92,7 @@ class PostventasController extends Controller
 
 		$key = $Select_Postventa . '|' . $tecnologia;
 
+
         // Evaluamos la tecnología seleccionada
         switch ($key) {
 			case 'TRASLADO|HFC':
@@ -103,6 +104,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadTrasladoHfc',
 					'OrdenTvTrasladoHfc',
 					'OrdenInternetTrasladoHfc',
@@ -167,6 +169,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadTrasladoHfc',
 						'OrdenTvObjetadoTrasladoHfc',
 						'OrdenIntObjTrasladoHfc',
@@ -221,6 +224,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadTrasladoHfc',
 						'OrdenTvAnulTraslHfc',
 						'OrdenInterAnulTraslHfc',
@@ -275,6 +279,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadTrasladoHfc',
 						'OrdenTvTransferidoHfc',
 						'OrdenInternetTransferidoHfc',
@@ -330,6 +335,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadTrasladoGpon',
 					'OrdenTvTrasladoGpon',
 					'OrdenInternetTrasladoGpon',
@@ -394,6 +400,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadTrasladoGpon',
 						'OrdenTvTrasladoObjGpon',
 						'OrdenInterObjTraslGpon',
@@ -448,6 +455,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadTrasladoGpon',
 						'OrdenTvTraslAnuladoGpon',
 						'OrdenIntTrasladoAnulGpon',
@@ -502,6 +510,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadTrasladoGpon',
 						'OrdenTvTrasladoTransGpon',
 						'OrdenIntTransladoGpon',
@@ -558,6 +567,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadTrasladoAdsl',
 					'NOrdenTrasladosAdsl',
 					'GeorefTrasladoAdsl',
@@ -618,6 +628,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadTrasladoAdsl',
 						'MotivoObjTrasladoAdsl',
 						'OrdenObjTrasladoAdsl',
@@ -670,6 +681,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadTrasladoAdsl',
 						'MotivoTrasladoAnulada_Adsl',
 						'NOrdenTrasladosAnulAdsl',
@@ -724,6 +736,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadTrasladoCobre',
 					'OrdenTrasladoCobre',
 					'GeorefTrasladoCobre',
@@ -783,6 +796,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadTrasladoCobre',
 						'MotivoObjTrasladoCobre',
 						'OrdenTrasladoObjCobres',
@@ -835,6 +849,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadTrasladoCobre',
 						'MotivoTrasladoAnulada_Cobre',
 						'OrdenTrasladosCobre',
@@ -889,6 +904,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadTrasladoDth',
 					'OrdenTrasladoDth',
 					'GeorefTrasladoDth',
@@ -949,6 +965,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadTrasladoDth',
 						'MotivoObjTrasladoDth',
 						'OrdenTrasladoObjDth',
@@ -1001,6 +1018,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadTrasladoDth',
 						'MotivoTrasladoAnulada_Dth',
 						'OrdenTrasladosDth',
@@ -1055,6 +1073,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadAdicionHfc',
 					'equipostvAdicionHfc1',
 					'equipostvAdicionHfc2',
@@ -1118,6 +1137,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadAdicionHfc',
 						'MotivoObjAdicionHfc',
 						'OrdenAdicionObjHfc',
@@ -1170,6 +1190,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadAdicionHfc',
 						'MotivoAdicionAnulada_Hfc',
 						'NOrdenAdicionAnuladaHfc',
@@ -1225,6 +1246,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadAdicionGpon',
 					'equipostvAdicionGpon1',
 					'equipostvAdicionGpon2',
@@ -1288,6 +1310,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadAdicionGpon',
 						'MotivoAdicionObjGpon',
 						'NOrdenAdicionObjGpon',
@@ -1340,6 +1363,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadAdicionGpon',
 						'MotivoAdicionAnulada_Gpon',
 						'NOrdenAdicionAnuladaGpon',
@@ -1395,6 +1419,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadAdicionDth',
 					'equipostvAdicionDth1',
 					'equipostvAdicionDth2',
@@ -1458,6 +1483,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadAdicionDth',
 						'MotivoObjAdicionDth',
 						'NOrdenAdicionObjDth',
@@ -1510,6 +1536,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadAdicionDth',
 						'MotivoAdicionAnulada_Dth',
 						'OrdenAdicionAnulada_Dth',
@@ -1565,6 +1592,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadCambioHfc',
 					'InstalacionEquipoHfc',
 					'DesinstalarEquipoHfc',
@@ -1625,6 +1653,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadCambioHfc',
 						'MotivoEquipoObjHfc',
 						'NordenObjEquipoHfc',
@@ -1677,6 +1706,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadCambioHfc',
 						'MotivoEquipoAnulada_Hfc',
 						'OrdenAnuladaEquipoHfc',
@@ -1732,6 +1762,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadCambioGpon',
 					'InstalacionEquipoGpon',
 					'DesinstalarEquipoGpon',
@@ -1792,6 +1823,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadCambioGpon',
 						'MotivoObjEquipoGpon',
 						'NOrdenObjEquipoGpon',
@@ -1844,6 +1876,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadCambioGpon',
 						'MotivoAnuladaObj_Gpon',
 						'OrdenEquipoAnuladaGpon',
@@ -1898,6 +1931,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadCambioAdsl',
 					'InstalacionEquipoAdsl',
 					'DesinstalarEquipoAdsl',
@@ -1958,6 +1992,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadCambioAdsl',
 						'MotivoEquipoObjAdsl',
 						'OrdenEquipoObjAdsl',
@@ -2010,6 +2045,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadCambioAdsl',
 						'MotivoEquipoAnulada_Adsl',
 						'OrdenAnuladaEquipoAdsl',
@@ -2064,6 +2100,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadCambioDth',
 					'MotivoObjEquipoDth',
 					'OrdenEquipoObjDth',
@@ -2124,6 +2161,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadCambioDth',
 						'MotivoObjEquipoDth',
 						'OrdenEquipoObjDth',
@@ -2176,6 +2214,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadCambioDth',
 						'MotivoEquipoAnulada_Dth',
 						'OrdenEquipoAnulada_Dth',
@@ -2230,6 +2269,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadMigracionHfc',
 					'equipotvmigracion1',
 					'equipotvmigracion2',
@@ -2300,6 +2340,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadMigracionHfc',
 						'MotivoMigracionObjHfc',
 						'OrdenMigracionHfcObj',
@@ -2351,6 +2392,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadMigracionHfc',
 						'MotivoMigracionAnulada_Hfc',
 						'NOrdenMigracionAnuladaHfc',
@@ -2403,6 +2445,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadMigracionHfc',
 						'OrdenMigracionTranfHfc',
 						'TrabajadoMigracionTransHfc',
@@ -2458,6 +2501,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadReconexionHfc',
 					'EquipoModemRetiroHfc',
 					'OrdenRetiroHfc',
@@ -2517,6 +2561,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadReconexionHfc',
 						'MotivoObjRetiroHfc',
 						'OrdenRetiroObjHfc',
@@ -2569,6 +2614,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadReconexionHfc',
 						'MotivoRetiroAnulada_Hfc',
 						'OrdenRetiroAnulacionHfc',
@@ -2625,6 +2671,7 @@ class PostventasController extends Controller
 					'Select_Postventa',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'TipoActividadCambioNumeroCobre',
 					'NumeroCobreCambio',
 					'OrdenCambioCobre',
@@ -2683,6 +2730,7 @@ class PostventasController extends Controller
 						'Select_Postventa',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'TipoActividadCambioNumeroCobre',
 						'MotivoObjCambioCobre',
 						'OrdenObjCambioCobre',
@@ -2725,56 +2773,57 @@ class PostventasController extends Controller
 
 				
 				}elseif($data['TipoActividadCambioNumeroCobre'] == 'ANULACION'){
-					$selectedFields = [
-						'codigo_tecnico',
-						'telefono',
-						'tecnico',
-						'motivo_llamada',
-						'Select_Postventa',
-						'select_orden',
-						'dpto_colonia',
-						'TipoActividadCambioNumeroCobre',
-						'MotivoAnuladaCambioCobre',
-						'OrdenAnuladaCambioCobre',
-						'TrabajadoAnuladaCambioCobre',
-						'ObvsObjCambioCobre',
-						'ComentariosCambioCobre'
-					];
+						$selectedFields = [
+							'codigo_tecnico',
+							'telefono',
+							'tecnico',
+							'motivo_llamada',
+							'Select_Postventa',
+							'select_orden',
+							'dpto_colonia',
+							'tecnologia',
+							'TipoActividadCambioNumeroCobre',
+							'MotivoAnuladaCambioCobre',
+							'OrdenAnuladaCambioCobre',
+							'TrabajadoAnuladaCambioCobre',
+							'ObvsObjCambioCobre',
+							'ComentarioAnuladaCambioCobre'
+						];
 
 					$data = [];
 
-					// Iteramos por los campos seleccionados del formulario
-					foreach ($selectedFields as $fieldName) {
-						$value = $request->input($fieldName);
-						if ($fieldName === 'TrabajadoAnuladaCambioCobre' && $request->has('TrabajadoAnuladaCambioCobre')) {
-							$data[$fieldName] = 'TRABAJADO';
-						} elseif ($fieldName === 'TrabajadoAnuladaCambioCobre') {
-							$data[$fieldName] = 'PENDIENTE';
-						} else {
-							$data[$fieldName] = $value;
+						// Iteramos por los campos seleccionados del formulario
+						foreach ($selectedFields as $fieldName) {
+							$value = $request->input($fieldName);
+							if ($fieldName === 'TrabajadoAnuladaCambioCobre' && $request->has('TrabajadoAnuladaCambioCobre')) {
+								$data[$fieldName] = 'TRABAJADO';
+							} elseif ($fieldName === 'TrabajadoAnuladaCambioCobre') {
+								$data[$fieldName] = 'PENDIENTE';
+							} else {
+								$data[$fieldName] = $value;
+							}
 						}
-					}
 
-				// dd($data);
-
-
-					// Agregamos el usuario actual como creador y atendedor del registro
-					$data['username_creacion'] = Auth::user()->username;
-					$data['username_atencion'] = Auth::user()->username;
-
-					$dataCambioCobreAnulada = new PostventaCambioNumeroCobreAnulada($data);
-
-					// Guardamos la instancia en la base de datos
-					$dataCambioCobreAnulada->save();
+						// dd($data);
 
 
-					$message = "¡EXITO!";
-					$messages = "REGISTRO ANULADO COMPLETO";
-					return view('llamadashome/postventa')
-						->with('message', $message)
-						->with('messages', $messages)
-						->with('page_title', 'Postventas - Registro')
-						->with('navigation', 'postventa');
+						// Agregamos el usuario actual como creador y atendedor del registro
+						$data['username_creacion'] = Auth::user()->username;
+						$data['username_atencion'] = Auth::user()->username;
+
+						$dataCambioCobreAnulada = new PostventaCambioNumeroCobreAnulada($data);
+
+						// Guardamos la instancia en la base de datos
+						$dataCambioCobreAnulada->save();
+
+
+						$message = "¡EXITO!";
+						$messages = "REGISTRO ANULADO COMPLETO";
+						return view('llamadashome/postventa')
+							->with('message', $message)
+							->with('messages', $messages)
+							->with('page_title', 'Postventas - Registro')
+							->with('navigation', 'postventa');
 
 				}
 				

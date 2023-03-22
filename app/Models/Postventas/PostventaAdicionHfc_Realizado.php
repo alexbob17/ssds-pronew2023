@@ -16,6 +16,7 @@ class PostventaAdicionHfc_Realizado extends Model
         'Select_Postventa',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'TipoActividadAdicionHfc',
         'equipostvAdicionHfc1',
         'equipostvAdicionHfc2',
