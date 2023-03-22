@@ -161,7 +161,8 @@
                                         <i class="fa fa-square"></i>
                                     </div>
                                     <input type="text" class="form-control equipotvHfc" id="equipostv1"
-                                        name="equipostv1" placeholder="Equipo Tv 1" />
+                                        name="equipostv1" placeholder="Equipo Tv 1"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
 
                                 <div class="input-group">
@@ -169,7 +170,8 @@
                                         <i class="fa fa-square"></i>
                                     </div>
                                     <input type="text" class="form-control equipotvHfc" id="equipostv2"
-                                        name="equipostv2" placeholder="Equipo Tv 2" />
+                                        name="equipostv2" placeholder="Equipo Tv 2"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
 
                                 <div class="input-group">
@@ -177,7 +179,8 @@
                                         <i class="fa fa-square"></i>
                                     </div>
                                     <input type="text" class="form-control equipotvHfc" id="equipostv3"
-                                        name="equipostv3" placeholder="Equipo Tv 3" />
+                                        name="equipostv3" placeholder="Equipo Tv 3"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
 
                                 <div class="input-group">
@@ -185,7 +188,8 @@
                                         <i class="fa fa-square"></i>
                                     </div>
                                     <input type="text" class="form-control equipotvHfc" id="equipostv4"
-                                        name="equipostv4" placeholder="Equipo Tv 4" />
+                                        name="equipostv4" placeholder="Equipo Tv 4"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
 
                                 <div class="input-group">
@@ -193,7 +197,8 @@
                                         <i class="fa fa-square"></i>
                                     </div>
                                     <input type="text" class="form-control equipotvHfc" id="equipostv5"
-                                        name="equipostv5" placeholder="Equipo Tv 5" />
+                                        name="equipostv5" placeholder="Equipo Tv 5"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
@@ -214,7 +219,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="text" placeholder="Ingresa SAP" class="form-control" id="sapHfc"
-                                        name="sapHfc" />
+                                        name="sapHfc" oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
 
@@ -227,7 +232,8 @@
                                         <i class="fa fa-rss"></i>
                                     </div>
                                     <input type="text" class="form-control" id="EquipoModem_Hfc" name="EquipoModem_Hfc"
-                                        placeholder="Ingresa Equipo Modem" />
+                                        placeholder="Ingresa Equipo Modem"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
 
@@ -279,7 +285,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso" />
+                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -292,7 +299,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc" />
+                                            class="form-control" id="RecibeHfc" name="RecibeHfc"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -314,7 +322,8 @@
                                                         <i class="fa fa-square"></i>
                                                     </div>
                                                     <input type="text" class="form-control" id="NodoHfc" name="NodoHfc"
-                                                        placeholder="Ingresa Nodo" />
+                                                        placeholder="Ingresa Nodo"
+                                                        oninput="this.value = this.value.toUpperCase()" />
                                                 </div>
                                             </div>
 
@@ -353,7 +362,8 @@
                                                         <i class="fa fa-edit"></i>
                                                     </div>
                                                     <input type="text" class="form-control" id="MaterialesHfc"
-                                                        name="MaterialesHfc" placeholder="Comentarios..." />
+                                                        name="MaterialesHfc" placeholder="Comentarios..."
+                                                        oninput="this.value = this.value.toUpperCase()" />
                                                 </div>
                                             </div>
                                         </div>
@@ -416,7 +426,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ComentariosObjetados_Hfc"
-                                            name="ComentariosObjetados_Hfc" placeholder="Comentarios del caso" />
+                                            name="ComentariosObjetados_Hfc" placeholder="Comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -434,7 +445,8 @@
                                         <i class="fa fa-exclamation-triangle"></i>
                                     </div>
                                     <input type="text" class="form-control" id="MotivoTransferidoHfc"
-                                        name="MotivoTransferidoHfc" placeholder="Ingresa motivo transferido" />
+                                        name="MotivoTransferidoHfc" placeholder="Ingresa motivo transferido"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
 
@@ -459,7 +471,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosTransferida_Hfc"
-                                        name="ComentariosTransferida_Hfc" placeholder="Comentarios del caso" />
+                                        name="ComentariosTransferida_Hfc" placeholder="Comentarios del caso"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                         </div>
@@ -545,7 +558,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                            name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso" />
+                                            name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -624,13 +638,9 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="Obvservaciones_Adsl"
-                                            name="Obvservaciones_Adsl" placeholder="Observaciones del caso" />
+                                            name="Obvservaciones_Adsl" placeholder="Observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
 
-                                        <span class="span_check checkValid" id="checkValid1"><i
-                                                class="fa-solid fa-circle-check"></i></span>
-
-                                        <span class="span_error checkError" id="checkError1"><i
-                                                class="fa-sharp fa-solid fa-circle-exclamation"></i></span>
                                     </div>
                                 </div>
 
@@ -641,7 +651,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" placeholder="Ingresa quien recibe"
-                                            id="Recibe_Adsl" name="Recibe_Adsl" />
+                                            id="Recibe_Adsl" name="Recibe_Adsl"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -652,7 +663,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="Materiales_Adsl"
-                                            name="Materiales_Adsl" placeholder="Comentarios..." />
+                                            name="Materiales_Adsl" placeholder="Comentarios..."
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -723,7 +735,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosObjetada_Adsl"
-                                        name="ComentariosObjetada_Adsl" placeholder="Comentarios del caso" />
+                                        name="ComentariosObjetada_Adsl" placeholder="Comentarios del caso"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                         </div>
@@ -764,7 +777,7 @@
                                         <i class="fa fa-exclamation-triangle"></i>
                                     </div>
                                     <input type="text" class="form-control" id="MotivoTransferidoAdsl"
-                                        name="MotivoTransferidoAdsl" />
+                                        name="MotivoTransferidoAdsl" oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
 
@@ -777,7 +790,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosAdsl_Transferidos"
-                                        name="ComentariosAdsl_Transferidos" />
+                                        name="ComentariosAdsl_Transferidos"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                         </div>
@@ -858,7 +872,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentarioAnulada_Adsl"
-                                        name="ComentarioAnulada_Adsl" placeholder="Ingresa comentarios del caso" />
+                                        name="ComentarioAnulada_Adsl" placeholder="Ingresa comentarios del caso"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                         </div>
@@ -930,7 +945,7 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa SAP" class="form-control" id="sap_dth"
-                                            name="sap_dth" />
+                                            name="sap_dth" oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -1035,7 +1050,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObservacionesDth"
-                                            name="ObservacionesDth" placeholder="Ingresa las observaciones del caso" />
+                                            name="ObservacionesDth" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -1045,7 +1061,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe" class=" form-control"
-                                            id="RecibeDth" name="RecibeDth" />
+                                            id="RecibeDth" name="RecibeDth"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -1055,7 +1072,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="MaterialesDth" name="MaterialesDth"
-                                            placeholder="Comentarios..." />
+                                            placeholder="Comentarios..."
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -1126,7 +1144,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioObjetado_Dth"
-                                            name="ComentarioObjetado_Dth" placeholder="Ingresa comentarios del caso" />
+                                            name="ComentarioObjetado_Dth" placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -1194,7 +1213,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioAnulada_Dth"
-                                            name="ComentarioAnulada_Dth" placeholder="Ingresa comentarios del caso" />
+                                            name="ComentarioAnulada_Dth" placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -1261,7 +1281,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="text" placeholder="Ingresa Sap" class="form-control" id="sap_cobre"
-                                        name="sap_cobre" />
+                                        name="sap_cobre" oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
 
@@ -1283,7 +1303,8 @@
                                         <i class="fa fa-eye"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ObservacionesCobre"
-                                        name="ObservacionesCobre" placeholder="Ingresa las observaciones del caso" />
+                                        name="ObservacionesCobre" placeholder="Ingresa las observaciones del caso"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -1293,7 +1314,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Ingresa quien recibe el caso"
-                                        id="RecibeCobre" name="RecibeCobre" />
+                                        id="RecibeCobre" name="RecibeCobre"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -1303,7 +1325,7 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="MaterialesCobre" name="MaterialesCobre"
-                                        placeholder="Comentarios..." />
+                                        placeholder="Comentarios..." oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                         </div>
@@ -1374,7 +1396,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosCobre_Objetados"
-                                        name="ComentariosCobre_Objetados" placeholder="Ingresa comentarios del caso" />
+                                        name="ComentariosCobre_Objetados" placeholder="Ingresa comentarios del caso"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                         </div>
@@ -1417,7 +1440,7 @@
                                         <i class="fa fa-exclamation-triangle"></i>
                                     </div>
                                     <input type="text" class="form-control" id="MotivoTransferidoCobre"
-                                        name="MotivoTransferidoCobre" />
+                                        name="MotivoTransferidoCobre" oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
 
@@ -1430,7 +1453,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosTransferida_Cobre"
-                                        name="ComentariosTransferida_Cobre" />
+                                        name="ComentariosTransferida_Cobre"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                         </div>
@@ -1513,7 +1537,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentarioAnulada_Cobre"
-                                        name="ComentarioAnulada_Cobre" placeholder="Ingresa comentarios del caso" />
+                                        name="ComentarioAnulada_Cobre" placeholder="Ingresa comentarios del caso"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                         </div>
@@ -1582,7 +1607,8 @@
                                         <i class="fa fa-square"></i>
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipotv1Gpon"
-                                        name="equipotv1Gpon" placeholder="Equipo Tv 1" />
+                                        name="equipotv1Gpon" placeholder="Equipo Tv 1"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
 
                                 <div class="input-group">
@@ -1590,7 +1616,8 @@
                                         <i class="fa fa-square"></i>
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipotv2Gpon"
-                                        name="equipotv2Gpon" placeholder="Equipo Tv 2" />
+                                        name="equipotv2Gpon" placeholder="Equipo Tv 2"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
 
                                 <div class="input-group">
@@ -1598,14 +1625,16 @@
                                         <i class="fa fa-square"></i>
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipostv3Gpon"
-                                        name="equipostv3Gpon" placeholder="Equipo Tv 3" />
+                                        name="equipostv3Gpon" placeholder="Equipo Tv 3"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="fa fa-square"></i>
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipostv4Gpon"
-                                        name="equipostv4Gpon" placeholder="Equipo Tv 4" />
+                                        name="equipostv4Gpon" placeholder="Equipo Tv 4"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
 
                                 <div class="input-group">
@@ -1613,7 +1642,8 @@
                                         <i class="fa fa-square"></i>
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipostv5Gpon"
-                                        name="equipostv5Gpon" placeholder="Equipo Tv 5" />
+                                        name="equipostv5Gpon" placeholder="Equipo Tv 5"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
 
@@ -1626,7 +1656,8 @@
                                         <i class="fa fa-rss"></i>
                                     </div>
                                     <input type="text" class="form-control" id="EqModenGpon"
-                                        placeholder="N° Equipo Modem" name="EqModenGpon" />
+                                        placeholder="N° Equipo Modem" name="EqModenGpon"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
 
@@ -1648,7 +1679,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="text" class="form-control" id="SapGpon" placeholder="Ingrese SAP"
-                                        name="SapGpon" />
+                                        name="SapGpon" oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
 
@@ -1694,7 +1725,8 @@
                                         <i class="fa fa-eye"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ObservacionesGpon"
-                                        name="ObservacionesGpon" placeholder="Ingresa las observaciones del caso" />
+                                        name="ObservacionesGpon" placeholder="Ingresa las observaciones del caso"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -1704,7 +1736,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="RecibeGpon" name="RecibeGpon"
-                                        placeholder="Ingresa quien recibe el caso" />
+                                        placeholder="Ingresa quien recibe el caso"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                         </div>
@@ -1725,7 +1758,8 @@
                                                     <i class="fa fa-square"></i>
                                                 </div>
                                                 <input type="text" class="form-control" id="NodoGpon" name="NodoGpon"
-                                                    placeholder="Ingresa N° Nodo" />
+                                                    placeholder="Ingresa N° Nodo"
+                                                    oninput="this.value = this.value.toUpperCase()" />
                                             </div>
                                         </div>
 
@@ -1764,7 +1798,8 @@
                                                     <i class="fa fa-edit"></i>
                                                 </div>
                                                 <input type="text" class="form-control" id="MaterialesRedGpon"
-                                                    name="MaterialesRedGpon" placeholder="Comentarios..." />
+                                                    name="MaterialesRedGpon" placeholder="Comentarios..."
+                                                    oninput="this.value = this.value.toUpperCase()" />
                                             </div>
                                         </div>
                                     </div>
@@ -1823,7 +1858,8 @@
                                         <i class="fa fa-eye"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ObsGpon_Objetada"
-                                        name="ObsGpon_Objetada" placeholder="Ingresa las observaciones del caso" />
+                                        name="ObsGpon_Objetada" placeholder="Ingresa las observaciones del caso"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
 
@@ -1834,7 +1870,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosGpon_Objetada"
-                                        name="ComentariosGpon_Objetada" placeholder="Comentarios..." />
+                                        name="ComentariosGpon_Objetada" placeholder="Comentarios..."
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                         </div>
@@ -1851,7 +1888,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="MotivoTransferidoGpon"
-                                        name="MotivoTransferidoGpon" placeholder="Ingresa motivo transferido" />
+                                        name="MotivoTransferidoGpon" placeholder="Ingresa motivo transferido"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                             <div class="from-group-container">
@@ -1873,7 +1911,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
-                                        name="ComentarioTransferido_Gpon" placeholder="Ingresa comentarios del caso" />
+                                        name="ComentarioTransferido_Gpon" placeholder="Ingresa comentarios del caso"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                         </div>
@@ -1943,7 +1982,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentarioAnulada_Gpon"
-                                        name="ComentarioAnulada_Gpon" placeholder="Ingresa comentarios del caso" />
+                                        name="ComentarioAnulada_Gpon" placeholder="Ingresa comentarios del caso"
+                                        oninput="this.value = this.value.toUpperCase()" />
                                 </div>
                             </div>
                         </div>

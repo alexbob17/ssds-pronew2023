@@ -15,6 +15,7 @@ class InstalacionGponObjetada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividadGpon',
         'OrdenInternet_Gpon',
         'OrdenTv_Gpon',
@@ -22,5 +23,7 @@ class InstalacionGponObjetada extends Model
         'MotivoObjetado_Gpon',
         'TrabajadoGpon_Objetado',
         'ComentarioTransferido_Gpon',
+        'username_creacion',
+		'username_atencion',
     ];
 }

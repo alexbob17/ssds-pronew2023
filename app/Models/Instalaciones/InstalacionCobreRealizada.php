@@ -16,6 +16,7 @@ class InstalacionCobreRealizada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividadCobre',
         'OrdenLineaCobre',
         'NumeroCobre',
@@ -25,5 +26,7 @@ class InstalacionCobreRealizada extends Model
         'ObservacionesCobre',
         'RecibeCobre',
         'MaterialesCobre',
+        'username_creacion',
+		'username_atencion',
     ];
 }

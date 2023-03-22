@@ -15,6 +15,7 @@ class InstalacionGponAnulada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividadGpon',
         'MotivoAnulada_Gpon',
 		'OrdenInternet_Gpon',
@@ -22,6 +23,8 @@ class InstalacionGponAnulada extends Model
         'OrdenLinea_Gpon',
 		'TrabajadoAnulada_Gpon',
 	    'ComentarioAnulada_Gpon',
+        'username_creacion',
+		'username_atencion',
     ];
 
 }

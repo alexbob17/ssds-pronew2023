@@ -15,10 +15,13 @@ class InstalacionCobreAnulada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
-        'tipo_actividadDth',
+        'tecnologia',
+        'tipo_actividadCobre',
         'MotivoAnulada_Cobre',
         'OrdenAnuladaCobre',
         'TrabajadoAnulada_Cobre',
         'ComentarioAnulada_Cobre',
+        'username_creacion',
+		'username_atencion',
     ];
 }

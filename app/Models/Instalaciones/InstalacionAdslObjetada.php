@@ -16,11 +16,14 @@ class InstalacionAdslObjetada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividadAdsl',
         'MotivoObjetada_Adsl',
 		'OrdenAdsl_Objetada',
 		'TrabajadoAdslObjetado',
 	    'ComentariosObjetada_Adsl',
+        'username_creacion',
+		'username_atencion',
     ];
     
 }

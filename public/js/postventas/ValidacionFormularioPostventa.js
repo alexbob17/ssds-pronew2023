@@ -23,6 +23,42 @@ form.addEventListener("submit", function (event) {
         "TipoActividadMigracionHfc"
       ).value;
 
+      const equipotvmigracion1 =
+        document.getElementById("equipotvmigracion1").value;
+      const equipotvmigracion2 =
+        document.getElementById("equipotvmigracion2").value;
+      const equipotvmigracion3 =
+        document.getElementById("equipotvmigracion3").value;
+      const equipotvmigracion4 =
+        document.getElementById("equipotvmigracion4").value;
+      const equipotvmigracion5 =
+        document.getElementById("equipotvmigracion5").value;
+      const NOrdenMigracionHfc =
+        document.getElementById("NOrdenMigracionHfc").value;
+      const SyrengMigracionHfc =
+        document.getElementById("SyrengMigracionHfc").value;
+      const SapMigracionHfc = document.getElementById("SapMigracionHfc").value;
+      const ObvsMigracionHfc =
+        document.getElementById("ObvsMigracionHfc").value;
+      const TrabajadoMigracionHfc = document.getElementById(
+        "TrabajadoMigracionHfc"
+      ).value;
+      const RecibeMigracionHfc =
+        document.getElementById("RecibeMigracionHfc").value;
+      const NodoMigracionHfc =
+        document.getElementById("NodoMigracionHfc").value;
+      const TapMigracionRealizadaHfc = document.getElementById(
+        "TapMigracionRealizadaHfc"
+      ).value;
+      const PosicionMigracionHfc = document.getElementById(
+        "PosicionMigracionHfc"
+      ).value;
+      const GeorefMigracionHfc =
+        document.getElementById("GeorefMigracionHfc").value;
+      const MaterialesMigracionHfc = document.getElementById(
+        "MaterialesMigracionHfc"
+      ).value;
+
       if (TipoActividadMigracionHfc === "REALIZADA") {
         if (
           codigo_tecnico === "" ||
@@ -34,11 +70,17 @@ form.addEventListener("submit", function (event) {
           dpto_colonia === "" ||
           tecnologia === "" ||
           TipoActividadMigracionHfc === "" ||
-          OrdenRetiroHfc === "" ||
-          TrabajadoRetiroHfc === "" ||
-          ObvsRetiroHfc === "" ||
-          RecibeRetiroHfc === "" ||
-          MaterialesRetiroHfc === ""
+          NOrdenMigracionHfc === "" ||
+          SyrengMigracionHfc === "" ||
+          SapMigracionHfc === "" ||
+          ObvsMigracionHfc === "" ||
+          TrabajadoMigracionHfc === "" ||
+          RecibeMigracionHfc === "" ||
+          NodoMigracionHfc === "" ||
+          TapMigracionRealizadaHfc === "" ||
+          PosicionMigracionHfc === "" ||
+          GeorefMigracionHfc === "" ||
+          MaterialesMigracionHfc === ""
         ) {
           Swal.fire({
             icon: "error",
@@ -49,11 +91,11 @@ form.addEventListener("submit", function (event) {
           event.preventDefault();
           return false;
         }
-        if (parseInt(OrdenRetiroHfc.length) !== 8) {
-          // checkError.style.display = "block";
+
+        if (!/^\d{8}$/.test(NOrdenMigracionHfc)) {
           Swal.fire({
             icon: "error",
-            title: "El N° de orden debe tener 8 digitos",
+            title: "El N° de orden debe tener 8 digitos validos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -61,27 +103,49 @@ form.addEventListener("submit", function (event) {
           return false;
         }
 
-        let errorMensaje = "";
+        // VALIDAR POR EQUIPO DE TV
 
-        switch (select_orden) {
-          case "RETIRO EQUIPOS":
-            if (EquipoModemRetiroHfc === "") {
-              errorMensaje = "Debes ingresar el N° Equipo";
-            }
+        let errorMensajeTv = "";
+
+        switch (Select_Postventa) {
+          case "MIGRACION":
             if (
-              EquipoModemRetiroHfc !== "" &&
-              parseInt(EquipoModemRetiroHfc.length) !== 12
+              equipotvmigracion1 === "" &&
+              equipotvmigracion2 === "" &&
+              equipotvmigracion3 === "" &&
+              equipotvmigracion4 === "" &&
+              equipotvmigracion5 === ""
             ) {
-              errorMensaje = "Debes ingresar 12 digitos en N° Equipo";
+              errorMensajeTv = "Debes ingresar al menos un Equipo TV";
+            }
+            if (!/^[a-zA-Z0-9]{10}$/.test(equipotvmigracion1)) {
+              errorMensajeTv =
+                "Debes ingresar 10 caracteres alfanuméricos en Equipo Tv 1.";
+            }
+            if (!/^[a-zA-Z0-9]{10}$/.test(equipotvmigracion2)) {
+              errorMensajeTv =
+                "Debes ingresar 10 caracteres alfanuméricos en Equipo Tv 2.";
+            }
+            if (!/^[a-zA-Z0-9]{10}$/.test(equipotvmigracion3)) {
+              errorMensajeTv =
+                "Debes ingresar 10 caracteres alfanuméricos en Equipo Tv 3.";
+            }
+            if (!/^[a-zA-Z0-9]{10}$/.test(equipotvmigracion4)) {
+              errorMensajeTv =
+                "Debes ingresar 10 caracteres alfanuméricos en Equipo Tv 4.";
+            }
+            if (!/^[a-zA-Z0-9]{10}$/.test(equipotvmigracion5)) {
+              errorMensajeTv =
+                "Debes ingresar 10 caracteres alfanuméricos en Equipo Tv 5.";
             }
 
             break;
         }
 
-        if (errorMensaje !== "") {
+        if (errorMensajeTv !== "") {
           Swal.fire({
             icon: "error",
-            title: errorMensaje,
+            title: errorMensajeTv,
             showConfirmButton: false,
             timer: 1900,
           });
@@ -89,21 +153,24 @@ form.addEventListener("submit", function (event) {
           return false;
         }
       } else if (TipoActividadMigracionHfc === "OBJETADA") {
-        const MotivoObjRetiroHfc =
-          document.getElementById("MotivoObjRetiroHfc").value;
-
-        const OrdenRetiroObjHfc =
-          document.getElementById("OrdenRetiroObjHfc").value;
-
-        const TrabajadoObjRetiroHfc = document.getElementById(
-          "TrabajadoObjRetiroHfc"
+        const MotivoMigracionObjHfc = document.getElementById(
+          "MotivoMigracionObjHfc"
         ).value;
 
-        const ObvsObjRetiroHfc =
-          document.getElementById("ObvsObjRetiroHfc").value;
+        const OrdenMigracionHfcObj = document.getElementById(
+          "OrdenMigracionHfcObj"
+        ).value;
 
-        const ComentariosRetiroObjHfc = document.getElementById(
-          "ComentariosRetiroObjHfc"
+        const TrabajadoMigracionObjHfc = document.getElementById(
+          "TrabajadoMigracionObjHfc"
+        ).value;
+
+        const ObvsMigracionObjHfc = document.getElementById(
+          "ObvsMigracionObjHfc"
+        ).value;
+
+        const ComentsMigracionObjHfc = document.getElementById(
+          "ComentsMigracionObjHfc"
         ).value;
         if (
           codigo_tecnico === "" ||
@@ -115,11 +182,11 @@ form.addEventListener("submit", function (event) {
           dpto_colonia === "" ||
           tecnologia === "" ||
           TipoActividadMigracionHfc === "" ||
-          MotivoObjRetiroHfc === "" ||
-          OrdenRetiroObjHfc === "" ||
-          TrabajadoObjRetiroHfc === "" ||
-          ObvsObjRetiroHfc === "" ||
-          ComentariosRetiroObjHfc === ""
+          MotivoMigracionObjHfc === "" ||
+          OrdenMigracionHfcObj === "" ||
+          TrabajadoMigracionObjHfc === "" ||
+          ObvsMigracionObjHfc === "" ||
+          ComentsMigracionObjHfc === ""
         ) {
           Swal.fire({
             icon: "error",
@@ -131,7 +198,7 @@ form.addEventListener("submit", function (event) {
           return false;
         }
 
-        if (parseInt(OrdenRetiroObjHfc.length) !== 8) {
+        if (parseInt(OrdenMigracionHfcObj.length) !== 8) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",

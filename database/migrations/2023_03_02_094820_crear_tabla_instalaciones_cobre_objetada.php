@@ -20,11 +20,14 @@ class CrearTablaInstalacionesCobreObjetada extends Migration
             $table->string('motivo_llamada');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('tipo_actividadCobre');
             $table->string('MotivoObjetada_Cobre');
             $table->integer('OrdenCobre_Objetada');
             $table->string('TrabajadoCobre_Objetado');
             $table->string('ComentariosCobre_Objetados');
+            $table->string('username_creacion')->references('username')->on('users');
+            $table->string('username_atencion')->references('username')->on('users')->nullable();
             $table->timestamps();
         });
     }

@@ -21,6 +21,7 @@ class CrearTablaInstalacionesGponObjetada extends Migration
             $table->string('motivo_llamada');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('tipo_actividadGpon');
             $table->integer('OrdenInternet_Gpon')->nullable();
             $table->integer('OrdenTv_Gpon')->nullable();
@@ -29,6 +30,8 @@ class CrearTablaInstalacionesGponObjetada extends Migration
             $table->string('TrabajadoGpon_Objetado');
             $table->string('ObsGpon_Objetada');
             $table->string('ComentariosGpon_Objetada');
+            $table->string('username_creacion')->references('username')->on('users');
+            $table->string('username_atencion')->references('username')->on('users')->nullable();
             $table->timestamps();
         });
 

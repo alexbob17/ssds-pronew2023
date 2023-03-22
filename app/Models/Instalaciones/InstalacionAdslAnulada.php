@@ -15,10 +15,13 @@ class InstalacionAdslAnulada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividadAdsl',
         'MotivoAnulada_Adsl',
 		'OrdenAnuladaAdsl',
 		'TrabajadoAnulada_Adsl',
 	    'ComentarioAnulada_Adsl',
+        'username_creacion',
+		'username_atencion',
     ];
 }

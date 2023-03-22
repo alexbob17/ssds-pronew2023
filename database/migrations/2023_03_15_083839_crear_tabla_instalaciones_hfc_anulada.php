@@ -20,6 +20,7 @@ class CrearTablaInstalacionesHfcAnulada extends Migration
             $table->string('motivo_llamada');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('tipo_actividad');
             $table->string('MotivoAnulada_Hfc');
             $table->integer('orden_internet_hfc')->nullable();
@@ -27,6 +28,8 @@ class CrearTablaInstalacionesHfcAnulada extends Migration
             $table->integer('orden_linea_hfc')->nullable();
             $table->string('TrabajadoAnulada_Hfc');
             $table->string('ComentarioAnulada_Hfc');
+            $table->string('username_creacion')->references('username')->on('users');
+            $table->string('username_atencion')->references('username')->on('users')->nullable();
             $table->timestamps();
         });
     }

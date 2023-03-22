@@ -15,11 +15,14 @@ class InstalacionCobreObjetada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividadCobre',
         'MotivoObjetada_Cobre',
         'OrdenCobre_Objetada',
         'TrabajadoCobre_Objetado',
         'ComentariosCobre_Objetados',
+        'username_creacion',
+		'username_atencion',
 
     ];
 }

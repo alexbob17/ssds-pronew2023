@@ -20,6 +20,7 @@ class CrearTablaInstalacionesGponTransferida extends Migration
             $table->string('motivo_llamada');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('tipo_actividadGpon');
             $table->integer('OrdenInternet_Gpon')->nullable();
             $table->integer('OrdenTv_Gpon')->nullable();
@@ -27,6 +28,8 @@ class CrearTablaInstalacionesGponTransferida extends Migration
             $table->string('MotivoTransferidoGpon');
             $table->string('TrabajadoTransferido_Gpon');
             $table->string('ComentarioTransferido_Gpon');
+            $table->string('username_creacion')->references('username')->on('users');
+            $table->string('username_atencion')->references('username')->on('users')->nullable();
             $table->timestamps();
         });
     }

@@ -13,7 +13,7 @@ class CrearTablaInstalacionesDthAnulada extends Migration
      */
     public function up()
     {
-        Schema::create('instalacioncobre_anulada', function (Blueprint $table) {
+        Schema::create('instalacionDth_Anulada', function (Blueprint $table) {
             $table->increments('id');
             $table->string('codigo_tecnico');
             $table->string('telefono');
@@ -21,13 +21,18 @@ class CrearTablaInstalacionesDthAnulada extends Migration
             $table->string('motivo_llamada');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('tipo_actividadDth');
-            $table->string('MotivoAnulada_Cobre');
-            $table->integer('OrdenAnuladaCobre');
-            $table->string('TrabajadoAnulada_Cobre');
-            $table->string('ComentarioAnulada_Cobre');
+            $table->string('MotivoAnulada_Dth');
+            $table->integer('OrdenAnulada_Dth');
+            $table->string('TrabajadoAnulada_Dth');
+            $table->string('ComentarioAnulada_Dth');
+            $table->string('username_creacion')->references('username')->on('users');
+            $table->string('username_atencion')->references('username')->on('users')->nullable();
             $table->timestamps();
         });
+
+    
     }
 
     /**
@@ -37,6 +42,6 @@ class CrearTablaInstalacionesDthAnulada extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('instalacioncobre_anulada');
+        Schema::dropIfExists('instalacionDth_Anulada');
     }
 }

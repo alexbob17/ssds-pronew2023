@@ -20,6 +20,7 @@ class CrearTablaInstalacionesRealizadas extends Migration
             $table->string('motivo_llamada');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('tipo_actividadAdsl');
             $table->integer('orden_internet_adsl');
             $table->string('Georeferencia_Adsl');
@@ -27,6 +28,8 @@ class CrearTablaInstalacionesRealizadas extends Migration
             $table->string('Obvservaciones_Adsl');
             $table->string('Recibe_Adsl');
             $table->string('Materiales_Adsl');
+            $table->string('username_creacion')->references('username')->on('users');
+            $table->string('username_atencion')->references('username')->on('users')->nullable();
             $table->timestamps();
         });
     }

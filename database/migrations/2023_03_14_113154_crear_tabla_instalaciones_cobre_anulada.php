@@ -20,11 +20,14 @@ class CrearTablaInstalacionesCobreAnulada extends Migration
             $table->string('motivo_llamada');
             $table->string('select_orden');
             $table->string('dpto_colonia');
-            $table->string('tipo_actividadDth');
+            $table->string('tecnologia');
+            $table->string('tipo_actividadCobre');
             $table->string('MotivoAnulada_Cobre');
             $table->integer('OrdenAnuladaCobre');
             $table->string('TrabajadoAnulada_Cobre');
             $table->string('ComentarioAnulada_Cobre');
+            $table->string('username_creacion')->references('username')->on('users');
+            $table->string('username_atencion')->references('username')->on('users')->nullable();
             $table->timestamps();
         });
     }

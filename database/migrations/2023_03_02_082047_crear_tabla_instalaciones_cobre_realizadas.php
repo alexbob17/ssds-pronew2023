@@ -20,6 +20,7 @@ class CrearTablaInstalacionesCobreRealizadas extends Migration
             $table->string('motivo_llamada');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('tipo_actividadCobre');
             $table->integer('OrdenLineaCobre');
             $table->integer('NumeroCobre');
@@ -29,6 +30,8 @@ class CrearTablaInstalacionesCobreRealizadas extends Migration
             $table->string('ObservacionesCobre');
             $table->string('RecibeCobre');
             $table->string('MaterialesCobre');
+            $table->string('username_creacion')->references('username')->on('users');
+            $table->string('username_atencion')->references('username')->on('users')->nullable();
             $table->timestamps();
         });
     }

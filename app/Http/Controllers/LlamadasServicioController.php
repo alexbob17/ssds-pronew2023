@@ -4,6 +4,9 @@ namespace SSD\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
+
 use SSD\Models\Instalaciones\InstalacionAdslRealizada;
 
 use SSD\Models\Instalaciones\InstalacionAdslObjetada;
@@ -88,6 +91,7 @@ class LlamadasServicioController extends Controller
 					'motivo_llamada',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'tipo_actividad',
 					'orden_tv_hfc',
 					'orden_internet_hfc',
@@ -109,6 +113,8 @@ class LlamadasServicioController extends Controller
 					'TapHfc',
 					'PosicionHfc',
 					'MaterialesHfc',
+					'username_creacion',
+					'username_atencion',
                 ];
 
                 $data = [];
@@ -152,6 +158,7 @@ class LlamadasServicioController extends Controller
 						'motivo_llamada',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'tipo_actividad',
 						'orden_tv_hfc',
 						'orden_internet_hfc',
@@ -159,6 +166,8 @@ class LlamadasServicioController extends Controller
 						'MotivoObjetada_Hfc',
 						'TrabajadoObjetadaHfc',
 						'ComentariosObjetados_Hfc',
+						'username_creacion',
+						'username_atencion',
 					];
 	
 					$data = [];
@@ -198,6 +207,7 @@ class LlamadasServicioController extends Controller
 						'motivo_llamada',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'tipo_actividad',
 						'orden_tv_hfc',
 						'orden_internet_hfc',
@@ -205,6 +215,8 @@ class LlamadasServicioController extends Controller
 						'TrabajadoTransferido_Hfc',
 						'MotivoTransferidoHfc',
 						'ComentariosTransferida_Hfc',
+						'username_creacion',
+						'username_atencion',
 
 					];
 	
@@ -245,6 +257,7 @@ class LlamadasServicioController extends Controller
 						'motivo_llamada',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'tipo_actividad',
 						'MotivoAnulada_Hfc',
 						'orden_internet_hfc',
@@ -252,6 +265,8 @@ class LlamadasServicioController extends Controller
 						'orden_linea_hfc',
 						'TrabajadoAnulada_Hfc',
 						'ComentarioAnulada_Hfc',
+						'username_creacion',
+						'username_atencion',
 
 					];
 	
@@ -296,6 +311,7 @@ class LlamadasServicioController extends Controller
 					'OrdenInternet_Gpon',
 					'OrdenTv_Gpon',
 					'OrdenLinea_Gpon',
+					'tecnologia',
 					'tipo_actividadGpon',
 					'equipotv1Gpon',
 					'equipotv2Gpon',
@@ -313,6 +329,8 @@ class LlamadasServicioController extends Controller
 					'CajaGpon',
 					'PuertoGpon',
 					'MaterialesRedGpon',
+					'username_creacion',
+					'username_atencion',
                 ];
 
                 $data = [];
@@ -356,6 +374,7 @@ class LlamadasServicioController extends Controller
 						'motivo_llamada',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'tipo_actividadGpon',
 						'OrdenInternet_Gpon',
 						'OrdenTv_Gpon',
@@ -364,6 +383,8 @@ class LlamadasServicioController extends Controller
 						'TrabajadoGpon_Objetado',
 						'ObsGpon_Objetada',
 						'ComentariosGpon_Objetada',
+						'username_creacion',
+						'username_atencion',
 					];
 	
 					$data = [];
@@ -403,6 +424,7 @@ class LlamadasServicioController extends Controller
 						'motivo_llamada',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'tipo_actividadGpon',
 						'OrdenInternet_Gpon',
 						'OrdenTv_Gpon',
@@ -410,6 +432,8 @@ class LlamadasServicioController extends Controller
 						'MotivoTransferidoGpon',
 						'TrabajadoTransferido_Gpon',
 						'ComentarioTransferido_Gpon',
+						'username_creacion',
+						'username_atencion',
 
 					];
 	
@@ -450,6 +474,7 @@ class LlamadasServicioController extends Controller
 						'motivo_llamada',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'tipo_actividadGpon',
 						'MotivoAnulada_Gpon',
 						'OrdenInternet_Gpon',
@@ -457,6 +482,8 @@ class LlamadasServicioController extends Controller
 						'OrdenLinea_Gpon',
 						'TrabajadoAnulada_Gpon',
 						'ComentarioAnulada_Gpon',
+						'username_creacion',
+						'username_atencion',
 
 					];
 	
@@ -498,6 +525,7 @@ class LlamadasServicioController extends Controller
 					'motivo_llamada',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'tipo_actividadCobre',
 					'OrdenLineaCobre',
 					'NumeroCobre',
@@ -507,6 +535,8 @@ class LlamadasServicioController extends Controller
 					'ObservacionesCobre',
 					'RecibeCobre',
 					'MaterialesCobre',
+					'username_creacion',
+					'username_atencion',
                 ];
 
                 $data = [];
@@ -551,11 +581,14 @@ class LlamadasServicioController extends Controller
 						'motivo_llamada',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'tipo_actividadCobre',
 						'MotivoObjetada_Cobre',
 						'OrdenCobre_Objetada',
 						'TrabajadoCobre_Objetado',
 						'ComentariosCobre_Objetados',
+						'username_creacion',
+						'username_atencion',
 					];
 	
 					$data = [];
@@ -595,10 +628,14 @@ class LlamadasServicioController extends Controller
 						'motivo_llamada',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
+						'tipo_actividadCobre',
 						'MotivoAnulada_Adsl',
 						'OrdenAnuladaAdsl',
 						'TrabajadoAnulada_Adsl',
 						'ComentarioAnulada_Adsl',
+						'username_creacion',
+						'username_atencion',
 					];
 	
 					$data = [];
@@ -642,6 +679,7 @@ class LlamadasServicioController extends Controller
 					'motivo_llamada',
 					'select_orden',
 					'dpto_colonia',
+					'tecnologia',
 					'tipo_actividadDth',
 					'ordenTv_Dth',
 					'SyrengDth',
@@ -660,7 +698,9 @@ class LlamadasServicioController extends Controller
 					'StbDth5',
 					'ObservacionesDth',
 					'RecibeDth',
-					'MaterialesDth'
+					'MaterialesDth',
+					'username_creacion',
+					'username_atencion',
                 ];
 
                 $data = [];
@@ -703,11 +743,14 @@ class LlamadasServicioController extends Controller
 						'motivo_llamada',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'tipo_actividadDth',
 						'MotivoObjetada_Dth',
 						'TrabajadoObj_Dth',
 						'OrdenObj_Dth',
 						'ComentarioObjetado_Dth',
+						'username_creacion',
+						'username_atencion',
 					];
 	
 					$data = [];
@@ -747,11 +790,14 @@ class LlamadasServicioController extends Controller
 						'motivo_llamada',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'tipo_actividadDth',
 						'MotivoAnulada_Dth',
 						'OrdenAnulada_Dth',
 						'TrabajadoAnulada_Dth',
 						'ComentarioAnulada_Dth',
+						'username_creacion',
+						'username_atencion',
 					];
 	
 					$data = [];
@@ -768,6 +814,10 @@ class LlamadasServicioController extends Controller
 						}
 					}
 					// dd($data);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
 
 					$dataDthAnulada = new InstalacionDthAnulada($data);
 
@@ -795,13 +845,16 @@ class LlamadasServicioController extends Controller
                     'motivo_llamada',
                     'select_orden',
                     'dpto_colonia',
+					'tecnologia',
                     'tipo_actividadAdsl',
                     'orden_internet_adsl',
                     'Georeferencia_Adsl',
                     'TrabajadoAdsl',
                     'Obvservaciones_Adsl',
                     'Recibe_Adsl',
-                    'Materiales_Adsl'
+                    'Materiales_Adsl',
+					'username_creacion',
+					'username_atencion',
                 ];
 
                 $data = [];
@@ -845,11 +898,14 @@ class LlamadasServicioController extends Controller
 						'motivo_llamada',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'tipo_actividadAdsl',
 						'MotivoObjetada_Adsl',
 						'OrdenAdsl_Objetada',
 						'TrabajadoAdslObjetado',
 						'ComentariosObjetada_Adsl',
+						'username_creacion',
+						'username_atencion',
 					];
 	
 					$data = [];
@@ -889,11 +945,14 @@ class LlamadasServicioController extends Controller
 						'motivo_llamada',
 						'select_orden',
 						'dpto_colonia',
+						'tecnologia',
 						'tipo_actividadAdsl',
 						'MotivoAnulada_Adsl',
 						'OrdenAnuladaAdsl',
 						'TrabajadoAnulada_Adsl',
 						'ComentarioAnulada_Adsl',
+						'username_creacion',
+						'username_atencion',
 					];
 	
 					$data = [];

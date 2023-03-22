@@ -16,6 +16,7 @@ class InstalacionHfcRealizada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividad',
         'orden_tv_hfc',
         'orden_internet_hfc',
@@ -37,5 +38,7 @@ class InstalacionHfcRealizada extends Model
         'TapHfc',
         'PosicionHfc',
         'MaterialesHfc',
+        'username_creacion',
+		'username_atencion',
     ];
 }

@@ -22,7 +22,8 @@ class CrearTablaInstalacionesGponRealizada extends Migration
             $table->string('dpto_colonia');
             $table->integer('OrdenInternet_Gpon')->nullable();
             $table->integer('OrdenTv_Gpon')->nullable();;
-            $table->integer('OrdenLinea_Gpon')->nullable();;
+            $table->integer('OrdenLinea_Gpon')->nullable();
+            $table->string('tecnologia');
             $table->string('tipo_actividadGpon');
             $table->string('equipotv1Gpon')->nullable();;
             $table->string('equipotv2Gpon')->nullable();;
@@ -40,6 +41,8 @@ class CrearTablaInstalacionesGponRealizada extends Migration
             $table->integer('CajaGpon');
             $table->integer('PuertoGpon');
             $table->string('MaterialesRedGpon');
+            $table->string('username_creacion')->references('username')->on('users');
+            $table->string('username_atencion')->references('username')->on('users')->nullable();
             $table->timestamps();
         });
     }

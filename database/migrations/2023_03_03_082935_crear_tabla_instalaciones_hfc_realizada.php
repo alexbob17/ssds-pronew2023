@@ -20,6 +20,7 @@ class CrearTablaInstalacionesHfcRealizada extends Migration
             $table->string('motivo_llamada');
             $table->string('select_orden');
             $table->string('dpto_colonia');
+            $table->string('tecnologia');
             $table->string('tipo_actividad');
             $table->integer('orden_tv_hfc')->nullable();
             $table->integer('orden_internet_hfc')->nullable();
@@ -41,6 +42,8 @@ class CrearTablaInstalacionesHfcRealizada extends Migration
             $table->string('TapHfc');
             $table->string('PosicionHfc');
             $table->string('MaterialesHfc');
+            $table->string('username_creacion')->references('username')->on('users');
+            $table->string('username_atencion')->references('username')->on('users')->nullable();
             $table->timestamps();
         });
     }

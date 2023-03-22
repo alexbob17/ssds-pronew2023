@@ -15,10 +15,13 @@ class InstalacionDthObjetada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividadDth',
         'MotivoObjetada_Dth',
         'TrabajadoObj_Dth',
         'OrdenObj_Dth',
         'ComentarioObjetado_Dth',
+        'username_creacion',
+		'username_atencion',
     ];
 }

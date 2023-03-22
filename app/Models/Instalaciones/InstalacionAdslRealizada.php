@@ -16,6 +16,7 @@ class InstalacionAdslRealizada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividadAdsl',
         'orden_internet_adsl',
         'Georeferencia_Adsl',
@@ -23,5 +24,7 @@ class InstalacionAdslRealizada extends Model
         'Obvservaciones_Adsl',
         'Recibe_Adsl',
         'Materiales_Adsl',
+        'username_creacion',
+		'username_atencion',
     ];
 }

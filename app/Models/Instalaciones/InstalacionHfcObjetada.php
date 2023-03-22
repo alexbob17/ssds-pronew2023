@@ -16,6 +16,7 @@ class InstalacionHfcObjetada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividad',
         'orden_tv_hfc',
         'orden_internet_hfc',
@@ -23,5 +24,7 @@ class InstalacionHfcObjetada extends Model
         'MotivoObjetada_Hfc',
         'TrabajadoObjetadaHfc',
         'ComentariosObjetados_Hfc',
+        'username_creacion',
+		'username_atencion',
     ];
 }

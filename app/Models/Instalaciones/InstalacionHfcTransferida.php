@@ -15,6 +15,7 @@ class InstalacionHfcTransferida extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividad',
         'orden_tv_hfc',
         'orden_internet_hfc',
@@ -22,5 +23,7 @@ class InstalacionHfcTransferida extends Model
         'TrabajadoTransferido_Hfc',
         'MotivoTransferidoHfc',
         'ComentariosTransferida_Hfc',
+        'username_creacion',
+		'username_atencion',
     ];
 }

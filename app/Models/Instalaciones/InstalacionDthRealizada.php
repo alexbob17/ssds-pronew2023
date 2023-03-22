@@ -15,6 +15,7 @@ class InstalacionDthRealizada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividadDth',
         'ordenTv_Dth',
         'SyrengDth',
@@ -34,5 +35,7 @@ class InstalacionDthRealizada extends Model
         'ObservacionesDth',
         'RecibeDth',
         'MaterialesDth',
+        'username_creacion',
+		'username_atencion',
     ];
 }

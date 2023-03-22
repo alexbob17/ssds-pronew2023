@@ -18,6 +18,7 @@ class Instalacionhfc extends Model
         'orden_tv',
         'orden_internet',
         'orden_linea',
+        'tecnologia',
         'motivo_actividad',
         'syreng',
         'sap',
@@ -34,6 +35,8 @@ class Instalacionhfc extends Model
         'periodo_atencion',
         'username_creacion',
         'username_atencion',
+        'username_creacion',
+		'username_atencion',
     ];
     public function userCreacion()
     {

@@ -381,20 +381,20 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un Equipo TV";
             }
-            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 1.";
+            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 1.";
             }
-            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 2.";
+            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 2.";
             }
-            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 3 .";
+            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 3 .";
             }
-            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 4.";
+            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 4.";
             }
-            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 5.";
+            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 5.";
             }
 
             break;
@@ -408,20 +408,20 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un Equipo TV";
             }
-            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 1.";
+            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 1.";
             }
-            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 2.";
+            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 2.";
             }
-            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 3.";
+            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 3.";
             }
-            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 4.";
+            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 4.";
             }
-            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 5.";
+            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 5.";
             }
 
             break;
@@ -437,20 +437,20 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un Equipo TV";
             }
-            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 1.";
+            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 1.";
             }
-            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 2.";
+            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 2.";
             }
-            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 3.";
+            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 3.";
             }
-            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 4.";
+            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 4.";
             }
-            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 5.";
+            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 5.";
             }
 
             break;
@@ -464,20 +464,20 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un Equipo TV";
             }
-            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 1.";
+            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 1.";
             }
-            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 2.";
+            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 2.";
             }
-            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 3.";
+            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 3.";
             }
-            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 4.";
+            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 4.";
             }
-            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 5.";
+            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 5.";
             }
 
             break;
@@ -495,20 +495,20 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un Equipo TV";
             }
-            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 1.";
+            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 1.";
             }
-            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 2.";
+            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 2.";
             }
-            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 3.";
+            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 3.";
             }
-            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 4.";
+            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 4.";
             }
-            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 5.";
+            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 5.";
             }
             break;
 
@@ -522,20 +522,20 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un Equipo TV";
             }
-            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 1.";
+            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 1.";
             }
-            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 2.";
+            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 2.";
             }
-            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 3.";
+            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 3.";
             }
-            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 4.";
+            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 4.";
             }
-            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 5.";
+            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 5.";
             }
             break;
           case "REACTIVACION -DOBLE - INTERNET + LINEA":
@@ -548,20 +548,20 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un Equipo TV";
             }
-            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 1.";
+            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 1.";
             }
-            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 2.";
+            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 2.";
             }
-            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 3.";
+            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 3.";
             }
-            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 4.";
+            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 4.";
             }
-            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 5.";
+            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 5.";
             }
             break;
           case "REACTIVACION -TV - BASICO INDIVIDUAL":
@@ -574,20 +574,20 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un Equipo TV";
             }
-            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 1.";
+            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 1.";
             }
-            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 2.";
+            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 2.";
             }
-            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 3.";
+            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 3.";
             }
-            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 4.";
+            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 4.";
             }
-            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 5.";
+            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 5.";
             }
             break;
           case "REACTIVACION -TV - DIGITAL INDIVIDUAL":
@@ -600,20 +600,20 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un Equipo TV";
             }
-            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 1.";
+            if (equipostv1 !== "" && parseInt(equipostv1.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 1.";
             }
-            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 2.";
+            if (equipostv2 !== "" && parseInt(equipostv2.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 2.";
             }
-            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 3.";
+            if (equipostv3 !== "" && parseInt(equipostv3.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 3.";
             }
-            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 4.";
+            if (equipostv4 !== "" && parseInt(equipostv4.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 4.";
             }
-            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv 5.";
+            if (equipostv5 !== "" && parseInt(equipostv5.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 5.";
             }
 
             break;
@@ -2966,6 +2966,9 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           // checkError1.style.display = "block";
 
+          const Smarcard = document.getElementById("SmarcardDth1");
+          Smarcard.required = true;
+
           Swal.fire({
             icon: "error",
             title: "LOS CAMPOS NO PUEDEN IR VACIOS",
@@ -3011,20 +3014,43 @@ form.addEventListener("submit", function (event) {
           return false;
         }
 
-        if (SmarcardDth1 !== "" && parseInt(SmarcardDth1.length) !== 10) {
-          Swal.fire({
-            icon: "error",
-            title: "Smarcard 1 debe tener 10 digitos",
-            showConfirmButton: false,
-            timer: 1900,
-          });
-          event.preventDefault();
-          return false;
+        let errorMensajeSmarcard = "";
+
+        switch (tecnologia.value) {
+          case "DTH":
+            if (
+              SmarcardDth1 === "" &&
+              SmarcardDth2 === "" &&
+              SmarcardDth3 === "" &&
+              SmarcardDth4 === "" &&
+              SmarcardDth5 === ""
+            ) {
+              errorMensajeSmarcard = "Debes ingresar al menos un SMARCARD";
+            }
+            if (SmarcardDth1 !== "" && parseInt(SmarcardDth1.length) !== 10) {
+              errorMensajeSmarcard = "Debes ingresar 10 digitos en SMARCARD 1.";
+            }
+            if (SmarcardDth2 !== "" && parseInt(SmarcardDth2.length) !== 10) {
+              errorMensajeSmarcard = "Debes ingresar 10 digitos en SMARCARD 2.";
+            }
+            if (SmarcardDth3 !== "" && parseInt(SmarcardDth3.length) !== 10) {
+              errorMensajeSmarcard =
+                "Debes ingresar 10 digitos en SMARCARD 3 .";
+            }
+            if (SmarcardDth4 !== "" && parseInt(SmarcardDth4.length) !== 10) {
+              errorMensajeSmarcard = "Debes ingresar 10 digitos en SMARCARD 4.";
+            }
+            if (SmarcardDth5 !== "" && parseInt(SmarcardDth5.length) !== 10) {
+              errorMensajeSmarcard = "Debes ingresar 10 digitos en SMARCARD 5.";
+            }
+
+            break;
         }
-        if (SmarcardDth2 !== "" && parseInt(SmarcardDth2.length) !== 10) {
+
+        if (errorMensajeSmarcard !== "") {
           Swal.fire({
             icon: "error",
-            title: "Smarcard 2 debe tener 10 digitos",
+            title: errorMensajeSmarcard,
             showConfirmButton: false,
             timer: 1900,
           });
@@ -3032,86 +3058,42 @@ form.addEventListener("submit", function (event) {
           return false;
         }
 
-        if (SmarcardDth3 !== "" && parseInt(SmarcardDth3.length) !== 10) {
-          Swal.fire({
-            icon: "error",
-            title: "Smarcard 3 debe tener 10 digitos",
-            showConfirmButton: false,
-            timer: 1900,
-          });
-          event.preventDefault();
-          return false;
-        }
-        if (SmarcardDth4 !== "" && parseInt(SmarcardDth4.length) !== 10) {
-          Swal.fire({
-            icon: "error",
-            title: "Smarcard 4 debe tener 10 digitos",
-            showConfirmButton: false,
-            timer: 1900,
-          });
-          event.preventDefault();
-          return false;
+        let errorMensajeStb = "";
+
+        switch (tecnologia.value) {
+          case "DTH":
+            if (
+              StbDth1 === "" &&
+              StbDth2 === "" &&
+              StbDth3 === "" &&
+              StbDth4 === "" &&
+              StbDth5 === ""
+            ) {
+              errorMensajeStb = "Debes ingresar al menos un STB";
+            }
+            if (StbDth1 !== "" && parseInt(StbDth1.length) !== 10) {
+              errorMensajeStb = "Debes ingresar 12 digitos en STB 1.";
+            }
+            if (StbDth2 !== "" && parseInt(StbDth2.length) !== 12) {
+              errorMensajeStb = "Debes ingresar 12 digitos en STB 2.";
+            }
+            if (StbDth3 !== "" && parseInt(StbDth3.length) !== 12) {
+              errorMensajeStb = "Debes ingresar 12 digitos en STB 3 .";
+            }
+            if (StbDth4 !== "" && parseInt(StbDth4.length) !== 12) {
+              errorMensajeStb = "Debes ingresar 12 digitos en STB 4.";
+            }
+            if (StbDth5 !== "" && parseInt(StbDth5.length) !== 12) {
+              errorMensajeStb = "Debes ingresar 12 digitos en STB 5.";
+            }
+
+            break;
         }
 
-        if (SmarcardDth5 !== "" && parseInt(SmarcardDth5.length) !== 10) {
+        if (errorMensajeStb !== "") {
           Swal.fire({
             icon: "error",
-            title: "Smarcard 5 debe tener 10 digitos",
-            showConfirmButton: false,
-            timer: 1900,
-          });
-          event.preventDefault();
-          return false;
-        }
-
-        if (StbDth1 !== "" && parseInt(StbDth1.length) !== 12) {
-          Swal.fire({
-            icon: "error",
-            title: "STB 1 debe tener 12 digitos",
-            showConfirmButton: false,
-            timer: 1900,
-          });
-          event.preventDefault();
-          return false;
-        }
-
-        if (StbDth2 !== "" && parseInt(StbDth2.length) !== 12) {
-          Swal.fire({
-            icon: "error",
-            title: "STB 2 debe tener 12 digitos",
-            showConfirmButton: false,
-            timer: 1900,
-          });
-          event.preventDefault();
-          return false;
-        }
-
-        if (StbDth3 !== "" && parseInt(StbDth3.length) !== 12) {
-          Swal.fire({
-            icon: "error",
-            title: "STB 3 debe tener 12 digitos",
-            showConfirmButton: false,
-            timer: 1900,
-          });
-          event.preventDefault();
-          return false;
-        }
-
-        if (StbDth4 !== "" && parseInt(StbDth4.length) !== 12) {
-          Swal.fire({
-            icon: "error",
-            title: "STB 4 debe tener 12 digitos",
-            showConfirmButton: false,
-            timer: 1900,
-          });
-          event.preventDefault();
-          return false;
-        }
-
-        if (StbDth5 !== "" && parseInt(StbDth5.length) !== 12) {
-          Swal.fire({
-            icon: "error",
-            title: "STB 5 debe tener 12 digitos",
+            title: errorMensajeStb,
             showConfirmButton: false,
             timer: 1900,
           });

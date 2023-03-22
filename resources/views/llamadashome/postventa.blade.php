@@ -189,7 +189,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObservacionesTrasladoHfc"
                                             name="ObservacionesTrasladoHfc"
-                                            placeholder="Ingresa las observaciones del caso" />
+                                            placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -214,7 +215,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfcRealizado" name="RecibeHfcRealizado" />
+                                            class="form-control" id="RecibeHfcRealizado" name="RecibeHfcRealizado"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -238,7 +240,8 @@
                                                         <i class="fa fa-square"></i>
                                                     </div>
                                                     <input type="text" class="form-control" id="NodoTrasladoHfc"
-                                                        name="NodoTrasladoHfc" placeholder="Ingresa Nodo" />
+                                                        name="NodoTrasladoHfc" placeholder="Ingresa Nodo"
+                                                        oninput="this.value = this.value.toUpperCase()" />
                                                 </div>
                                             </div>
 
@@ -277,7 +280,8 @@
                                                         <i class="fa fa-edit"></i>
                                                     </div>
                                                     <input type="text" class="form-control" id="MaterialesTrasladoHfc"
-                                                        name="MaterialesTrasladoHfc" placeholder="Comentarios..." />
+                                                        name="MaterialesTrasladoHfc" placeholder="Comentarios..."
+                                                        oninput="this.value = this.value.toUpperCase()" />
                                                 </div>
                                             </div>
                                         </div>
@@ -372,7 +376,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsObjTrasladoHfc"
                                                 name="ObvsObjTrasladoHfc"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -383,7 +388,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosObjTrasladoHfc"
-                                                name="ComentariosObjTrasladoHfc" placeholder="Comentarios..." />
+                                                name="ComentariosObjTrasladoHfc" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -439,7 +445,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="MotivoTransTrasladoHfc"
-                                                name="MotivoTransTrasladoHfc" />
+                                                name="MotivoTransTrasladoHfc"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -447,7 +454,8 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox"
-                                                    id="TrabajadoTransTrasladoHfc" name="TrabajadoTransTrasladoHfc" />
+                                                    id="TrabajadoTransTrasladoHfc" name="TrabajadoTransTrasladoHfc"
+                                                    oninput="this.value = this.value.toUpperCase()" />
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                     Trabajado
                                                 </label>
@@ -463,7 +471,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentarioTrasladoTransHfc"
-                                                name="ComentarioTrasladoTransHfc" />
+                                                name="ComentarioTrasladoTransHfc"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -568,7 +577,8 @@
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
                                                 id="TrabajadoAnuladaTraslado_Hfc" name="TrabajadoAnuladaTraslado_Hfc" />
-                                            <label class="form-check-label">
+                                            <label class="form-check-label"
+                                                oninput="this.value = this.value.toUpperCase()">
                                                 Trabajado
                                             </label>
                                         </div>
@@ -584,8 +594,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ComenAnuladaTraslado_Hfc"
-                                            name="ComenAnuladaTraslado_Hfc"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            name="ComenAnuladaTraslado_Hfc" placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -642,7 +652,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control OrdenGpon" id="OrdenLineaTrasladoGpon"
-                                            name="OrdenLineaTrasladoGpon" />
+                                            name="OrdenLineaTrasladoGpon"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -656,7 +667,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsTrasladoGpon"
-                                            name="ObvsTrasladoGpon" placeholder="Ingresa las observaciones del caso" />
+                                            name="ObvsTrasladoGpon" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
@@ -680,7 +692,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeTrasladoGpon" name="RecibeTrasladoGpon" />
+                                            class="form-control" id="RecibeTrasladoGpon" name="RecibeTrasladoGpon"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -702,7 +715,8 @@
                                                         <i class="fa fa-square"></i>
                                                     </div>
                                                     <input type="text" class="form-control" id="NodoTrasladoGpon"
-                                                        name="NodoTrasladoGpon" placeholder="Ingresa Nodo" />
+                                                        name="NodoTrasladoGpon" placeholder="Ingresa Nodo"
+                                                        oninput="this.value = this.value.toUpperCase()" />
                                                 </div>
                                             </div>
 
@@ -741,7 +755,8 @@
                                                         <i class="fa fa-edit"></i>
                                                     </div>
                                                     <input type="text" class="form-control" id="MaterialesTrasladoGpon"
-                                                        name="MaterialesTrasladoGpon" placeholder="Comentarios..." />
+                                                        name="MaterialesTrasladoGpon" placeholder="Comentarios..."
+                                                        oninput="this.value = this.value.toUpperCase()" />
                                                 </div>
                                             </div>
                                         </div>
@@ -837,7 +852,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsTrasladoObjGpon"
                                                 name="ObvsTrasladoObjGpon"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -848,7 +864,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentTrasladoObjGpon"
-                                                name="ComentTrasladoObjGpon" placeholder="Comentarios..." />
+                                                name="ComentTrasladoObjGpon" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -927,7 +944,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ComentTrasladoTransGpon"
-                                            name="ComentTrasladoTransGpon" />
+                                            name="ComentTrasladoTransGpon"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -1036,7 +1054,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioTrasladoAnulada_Gpon"
                                             name="ComentarioTrasladoAnulada_Gpon"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -1082,7 +1101,8 @@
                                             <i class="fa fa-map-marker"></i>
                                         </div>
                                         <input type="text" class="form-control" id="GeorefTrasladoAdsl"
-                                            name="GeorefTrasladoAdsl" placeholder="Latitud,Longitud" />
+                                            name="GeorefTrasladoAdsl" placeholder="Latitud,Longitud"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -1094,7 +1114,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="MaterialesTrasladoAdsl"
-                                            name="MaterialesTrasladoAdsl" placeholder="Comentarios..." />
+                                            name="MaterialesTrasladoAdsl" placeholder="Comentarios..."
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
@@ -1119,7 +1140,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsTrasladoAdsl"
-                                            name="ObvsTrasladoAdsl" placeholder="Ingresa las observaciones del caso" />
+                                            name="ObvsTrasladoAdsl" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -1131,7 +1153,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeTrasladoAdsl" name="RecibeTrasladoAdsl" />
+                                            class="form-control" id="RecibeTrasladoAdsl" name="RecibeTrasladoAdsl"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -1201,7 +1224,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsTrasladoObjAdsl"
                                                 name="ObvsTrasladoObjAdsl"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -1212,7 +1236,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosTrasladosObjAdsl"
-                                                name="ComentariosTrasladosObjAdsl" placeholder="Comentarios..." />
+                                                name="ComentariosTrasladosObjAdsl" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -1346,7 +1371,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioTrasladoAnulada_Adsl"
                                             name="ComentarioTrasladoAnulada_Adsl"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -1390,7 +1416,8 @@
                                             <i class="fa fa-map-marker"></i>
                                         </div>
                                         <input type="text" class="form-control" id="GeorefTrasladoCobre"
-                                            name="GeorefTrasladoCobre" placeholder="Latitud,Longitud" />
+                                            name="GeorefTrasladoCobre" placeholder="Latitud,Longitud"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -1402,7 +1429,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="MaterialesTrasladoCobre"
-                                            name="MaterialesTrasladoCobre" placeholder="Comentarios..." />
+                                            name="MaterialesTrasladoCobre" placeholder="Comentarios..."
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
@@ -1427,7 +1455,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsTrasladoCobre"
-                                            name="ObvsTrasladoCobre" placeholder="Ingresa las observaciones del caso" />
+                                            name="ObvsTrasladoCobre" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -1439,7 +1468,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeTrasladoCobre" name="RecibeTrasladoCobre" />
+                                            class="form-control" id="RecibeTrasladoCobre" name="RecibeTrasladoCobre"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -1510,7 +1540,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObsObjTrasladoCobre"
                                                 name="ObsObjTrasladoCobre"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -1521,7 +1552,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosObjTrasladoCobre"
-                                                name="ComentariosObjTrasladoCobre" placeholder="Comentarios..." />
+                                                name="ComentariosObjTrasladoCobre" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -1658,7 +1690,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioTrasladoAnulada_Cobre"
                                             name="ComentarioTrasladoAnulada_Cobre"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -1702,7 +1735,8 @@
                                             <i class="fa fa-map-marker"></i>
                                         </div>
                                         <input type="text" class="form-control" id="GeorefTrasladoDth"
-                                            name="GeorefTrasladoDth" placeholder="Latitud,Longitud" />
+                                            name="GeorefTrasladoDth" placeholder="Latitud,Longitud"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -1714,7 +1748,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="MaterialesTrasladoDth"
-                                            name="MaterialesTrasladoDth" placeholder="Comentarios..." />
+                                            name="MaterialesTrasladoDth" placeholder="Comentarios..."
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
@@ -1739,7 +1774,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsTrasladoDth"
-                                            name="ObvsTrasladoDth" placeholder="Ingresa las observaciones del caso" />
+                                            name="ObvsTrasladoDth" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -1751,7 +1787,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeTrasladoDth" name="RecibeTrasladoDth" />
+                                            class="form-control" id="RecibeTrasladoDth" name="RecibeTrasladoDth"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -1822,7 +1859,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsTrasladoObjDth"
                                                 name="ObvsTrasladoObjDth"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -1833,7 +1871,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosTrasladoObjDth"
-                                                name="ComentariosTrasladoObjDth" placeholder="Comentarios..." />
+                                                name="ComentariosTrasladoObjDth" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -1954,7 +1993,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioTrasladoAnulada_Hfc"
                                             name="ComentarioTrasladoAnulada_Hfc"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -1990,7 +2030,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc1"
-                                            name="equipostvAdicionHfc1" placeholder="Equipo Tv 1" />
+                                            name="equipostvAdicionHfc1" placeholder="Equipo Tv 1"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -1998,7 +2039,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc2"
-                                            name="equipostvAdicionHfc2" placeholder="Equipo Tv 2" />
+                                            name="equipostvAdicionHfc2" placeholder="Equipo Tv 2"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -2006,7 +2048,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc3"
-                                            name="equipostvAdicionHfc3" placeholder="Equipo Tv 3" />
+                                            name="equipostvAdicionHfc3" placeholder="Equipo Tv 3"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -2014,7 +2057,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc4"
-                                            name="equipostvAdicionHfc4" placeholder="Equipo Tv 4" />
+                                            name="equipostvAdicionHfc4" placeholder="Equipo Tv 4"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -2022,7 +2066,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc5"
-                                            name="equipostvAdicionHfc5" placeholder="Equipo Tv 5" />
+                                            name="equipostvAdicionHfc5" placeholder="Equipo Tv 5"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -2057,7 +2102,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="obvsAdicionHfc"
-                                            name="obvsAdicionHfc" placeholder="Ingresa las observaciones del caso" />
+                                            name="obvsAdicionHfc" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -2071,7 +2117,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeAdicionHfc" name="RecibeAdicionHfc" />
+                                            class="form-control" id="RecibeAdicionHfc" name="RecibeAdicionHfc"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -2141,7 +2188,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsAdicionObjHfc"
                                                 name="ObvsAdicionObjHfc"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -2152,7 +2200,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosObjAdicionHfc"
-                                                name="ComentariosObjAdicionHfc" placeholder="Comentarios..." />
+                                                name="ComentariosObjAdicionHfc" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -2304,7 +2353,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioAdicionAnulada_Hfc"
                                             name="ComentarioAdicionAnulada_Hfc"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -2337,7 +2387,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon1"
-                                            name="equipostvAdicionGpon1" placeholder="Equipo Tv 1" />
+                                            name="equipostvAdicionGpon1" placeholder="Equipo Tv 1"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -2345,7 +2396,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon2"
-                                            name="equipostvAdicionGpon2" placeholder="Equipo Tv 2" />
+                                            name="equipostvAdicionGpon2" placeholder="Equipo Tv 2"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -2353,7 +2405,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon3"
-                                            name="equipostvAdicionGpon3" placeholder="Equipo Tv 3" />
+                                            name="equipostvAdicionGpon3" placeholder="Equipo Tv 3"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -2361,7 +2414,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon4"
-                                            name="equipostvAdicionGpon4" placeholder="Equipo Tv 4" />
+                                            name="equipostvAdicionGpon4" placeholder="Equipo Tv 4"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -2369,7 +2423,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon5"
-                                            name="equipostvAdicionGpon5" placeholder="Equipo Tv 5" />
+                                            name="equipostvAdicionGpon5" placeholder="Equipo Tv 5"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -2405,7 +2460,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsAdicionGpon"
-                                            name="ObvsAdicionGpon" placeholder="Ingresa las observaciones del caso" />
+                                            name="ObvsAdicionGpon" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9" style="padding-top:10px">
@@ -2417,7 +2473,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeAdicionGpon" name="RecibeAdicionGpon" />
+                                            class="form-control" id="RecibeAdicionGpon" name="RecibeAdicionGpon"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -2490,7 +2547,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsAdicionObjGpon"
                                                 name="ObvsAdicionObjGpon"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -2501,7 +2559,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosAdicionObjGpon"
-                                                name="ComentariosAdicionObjGpon" placeholder="Comentarios..." />
+                                                name="ComentariosAdicionObjGpon" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -2637,7 +2696,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioAdicionAnulada_Gpon"
                                             name="ComentarioAdicionAnulada_Gpon"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -2669,7 +2729,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth1"
-                                            name="equipostvAdicionDth1" placeholder="Equipo Tv 1" />
+                                            name="equipostvAdicionDth1" placeholder="Equipo Tv 1"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -2677,7 +2738,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth2"
-                                            name="equipostvAdicionDth2" placeholder="Equipo Tv 2" />
+                                            name="equipostvAdicionDth2" placeholder="Equipo Tv 2"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -2685,7 +2747,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth3"
-                                            name="equipostvAdicionDth3" placeholder="Equipo Tv 3" />
+                                            name="equipostvAdicionDth3" placeholder="Equipo Tv 3"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -2693,7 +2756,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth4"
-                                            name="equipostvAdicionDth4" placeholder="Equipo Tv 4" />
+                                            name="equipostvAdicionDth4" placeholder="Equipo Tv 4"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -2701,7 +2765,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth5"
-                                            name="equipostvAdicionDth5" placeholder="Equipo Tv 5" />
+                                            name="equipostvAdicionDth5" placeholder="Equipo Tv 5"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
@@ -2738,7 +2803,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsAdicionDth"
-                                            name="ObvsAdicionDth" placeholder="Ingresa las observaciones del caso" />
+                                            name="ObvsAdicionDth" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class=" col-md-9" style="padding-top:8px">
@@ -2750,7 +2816,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeAdicionDth" name="RecibeAdicionDth" />
+                                            class="form-control" id="RecibeAdicionDth" name="RecibeAdicionDth"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -2821,7 +2888,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsAdicionObjDth"
                                                 name="ObvsAdicionObjDth"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -2832,7 +2900,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosAdicionObjDth"
-                                                name="ComentariosAdicionObjDth" placeholder="Comentarios..." />
+                                                name="ComentariosAdicionObjDth" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -2952,7 +3021,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioAdicionAnulada_Dth"
                                             name="ComentarioAdicionAnulada_Dth"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -2987,7 +3057,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="InstalacionEquipoHfc"
-                                            name="InstalacionEquipoHfc" placeholder="N° Equipo Instalar" />
+                                            name="InstalacionEquipoHfc" placeholder="N° Equipo Instalar"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" id="hideEquipoTv">
@@ -2997,7 +3068,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="DesinstalarEquipoHfc"
-                                            name="DesinstalarEquipoHfc" placeholder="N° Equipo Desinstalar" />
+                                            name="DesinstalarEquipoHfc" placeholder="N° Equipo Desinstalar"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -3022,7 +3094,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsEquipoHfc" name="ObvsEquipoHfc"
-                                            placeholder="Ingresa las observaciones del caso" />
+                                            placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -3034,7 +3107,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeEquipoHfc" name="RecibeEquipoHfc" />
+                                            class="form-control" id="RecibeEquipoHfc" name="RecibeEquipoHfc"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
@@ -3115,8 +3189,8 @@
                                                 <i class="fa fa-eye"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ObvsObjEquipoHfc"
-                                                name="ObvsObjEquipoHfc"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                name="ObvsObjEquipoHfc" placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -3127,7 +3201,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentsEquipoObjHfc"
-                                                name="ComentsEquipoObjHfc" placeholder="Comentarios..." />
+                                                name="ComentsEquipoObjHfc" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -3196,8 +3271,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioAnuladaEquipoHfc"
-                                            name="ComentarioAnuladaEquipoHfc"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            name="ComentarioAnuladaEquipoHfc" placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -3228,7 +3303,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="InstalacionEquipoGpon"
-                                            name="InstalacionEquipoGpon" placeholder="N° Equipo Instalar" />
+                                            name="InstalacionEquipoGpon" placeholder="N° Equipo Instalar"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" id="hideEquipoTv">
@@ -3238,7 +3314,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="DesinstalarEquipoGpon"
-                                            name="DesinstalarEquipoGpon" placeholder="N° Equipo Desinstalar" />
+                                            name="DesinstalarEquipoGpon" placeholder="N° Equipo Desinstalar"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
@@ -3262,7 +3339,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsEquipoGpon"
-                                            name="ObvsEquipoGpon" placeholder="Ingresa las observaciones del caso" />
+                                            name="ObvsEquipoGpon" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -3274,7 +3352,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeEquipoGpon" name="RecibeEquipoGpon" />
+                                            class="form-control" id="RecibeEquipoGpon" name="RecibeEquipoGpon"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
@@ -3340,7 +3419,8 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoObjEquipoGpon" name="TrabajadoObjEquipoGpon" />
+                                                    id="TrabajadoObjEquipoGpon" name="TrabajadoObjEquipoGpon"
+                                                    oninput="this.value = this.value.toUpperCase()" />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -3356,7 +3436,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsEquipoObjGpon"
                                                 name="ObvsEquipoObjGpon"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -3367,7 +3448,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentsEquipoObjGpon"
-                                                name="ComentsEquipoObjGpon" placeholder="Comentarios..." />
+                                                name="ComentsEquipoObjGpon" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -3450,7 +3532,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioEquipoAnulada_Gpon"
                                             name="ComentarioEquipoAnulada_Gpon"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -3481,7 +3564,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="InstalacionEquipoAdsl"
-                                            name="InstalacionEquipoAdsl" placeholder="N° Equipo Instalar" />
+                                            name="InstalacionEquipoAdsl" placeholder="N° Equipo Instalar"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" id="hideEquipoTv">
@@ -3491,7 +3575,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="DesinstalarEquipoAdsl"
-                                            name="DesinstalarEquipoAdsl" placeholder="N° Equipo Instalar" />
+                                            name="DesinstalarEquipoAdsl" placeholder="N° Equipo Desinstalar"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -3516,7 +3601,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsEquipoAdsl"
-                                            name="ObvsEquipoAdsl" placeholder="Ingresa las observaciones del caso" />
+                                            name="ObvsEquipoAdsl" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -3528,7 +3614,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeEquipoAdsl" name="RecibeEquipoAdsl" />
+                                            class="form-control" id="RecibeEquipoAdsl" name="RecibeEquipoAdsl"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
@@ -3610,7 +3697,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsEquipoObjAdsl"
                                                 name="ObvsEquipoObjAdsl"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -3621,7 +3709,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentsEquipoObjAdsl"
-                                                name="ComentsEquipoObjAdsl" placeholder="Comentarios..." />
+                                                name="ComentsEquipoObjAdsl" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -3704,8 +3793,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ComentsEquipoAnulada_Adsl"
-                                            name="ComentsEquipoAnulada_Adsl"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            name="ComentsEquipoAnulada_Adsl" placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -3736,7 +3825,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="InstalacionEquipoDth"
-                                            name="InstalacionEquipoDth" placeholder="N° Equipo Instalar" />
+                                            name="InstalacionEquipoDth" placeholder="N° Equipo Instalar"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" id="hideEquipoTv">
@@ -3746,7 +3836,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="DesinstalarEquipoDth"
-                                            name="DesinstalarEquipoDth" placeholder="N° Equipo Instalar" />
+                                            name="DesinstalarEquipoDth" placeholder="N° Equipo Desinstalar"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -3771,7 +3862,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsEquipoDth" name="ObvsEquipoDth"
-                                            placeholder="Ingresa las observaciones del caso" />
+                                            placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -3783,7 +3875,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeEquipoDth" name="RecibeEquipoDth" />
+                                            class="form-control" id="RecibeEquipoDth" name="RecibeEquipoDth"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
@@ -3864,8 +3957,8 @@
                                                 <i class="fa fa-eye"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ObvsEquipoObjDth"
-                                                name="ObvsEquipoObjDth"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                name="ObvsEquipoObjDth" placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -3876,7 +3969,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentsEquipoObjDth"
-                                                name="ComentsEquipoObjDth" placeholder="Comentarios..." />
+                                                name="ComentsEquipoObjDth" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -3946,7 +4040,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioEquipoAnulada_Dth"
                                             name="ComentarioEquipoAnulada_Dth"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -3976,7 +4071,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc"
                                             id="EquipoTvC_EquipoInstalarCobre" name="EquipoTvC_EquipoInstalarCobre"
-                                            placeholder="N° Equipo Instalar" />
+                                            placeholder="N° Equipo Instalar"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" id="hideEquipoTv">
@@ -3987,8 +4083,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc"
                                             id="EquipoTvC_EquipoDesinstalarCobre"
-                                            name="EquipoTvC_EquipoDesinstalarCobre"
-                                            placeholder="N° Equipo Desinstalar" />
+                                            name="EquipoTvC_EquipoDesinstalarCobre" placeholder="N° Equipo Desinstalar"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -4013,7 +4109,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsC_EquipoCobre"
-                                            name="ObvsC_EquipoCobre" placeholder="Ingresa las observaciones del caso" />
+                                            name="ObvsC_EquipoCobre" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -4025,7 +4122,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeC_EquipoCobre" name="RecibeC_EquipoCobre" />
+                                            class="form-control" id="RecibeC_EquipoCobre" name="RecibeC_EquipoCobre"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
@@ -4106,7 +4204,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsObjC_EquipoCobre"
                                                 name="ObvsObjC_EquipoCobre"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -4117,7 +4216,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosObjC_EquipoCobre"
-                                                name="ComentariosObjC_EquipoCobre" placeholder="Comentarios..." />
+                                                name="ComentariosObjC_EquipoCobre" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -4157,7 +4257,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="MotivoAnulC_EquipoCobre"
-                                            name="MotivoAnulC_EquipoCobre" />
+                                            name="MotivoAnulC_EquipoCobre"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -4168,7 +4269,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ComentariosAnulC_EquipoCobre"
-                                            name="ComentariosAnulC_EquipoCobre" />
+                                            name="ComentariosAnulC_EquipoCobre"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -4202,7 +4304,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipotvmigracion1"
-                                            name="equipotvmigracion1" placeholder="Equipo Tv 1" />
+                                            name="equipotvmigracion1" placeholder="Equipo Tv 1"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -4210,7 +4313,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipotvmigracion2"
-                                            name="equipotvmigracion2" placeholder="Equipo Tv 2" />
+                                            name="equipotvmigracion2" placeholder="Equipo Tv 2"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -4218,7 +4322,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipotvmigracion3"
-                                            name="equipotvmigracion3" placeholder="Equipo Tv 3" />
+                                            name="equipotvmigracion3" placeholder="Equipo Tv 3"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -4226,7 +4331,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipotvmigracion4"
-                                            name="equipotvmigracion4" placeholder="Equipo Tv 4" />
+                                            name="equipotvmigracion4" placeholder="Equipo Tv 4"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
 
                                     <div class="input-group">
@@ -4234,7 +4340,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipotvmigracion5"
-                                            name="equipotvmigracion5" placeholder="Equipo Tv 5" />
+                                            name="equipotvmigracion5" placeholder="Equipo Tv 5"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -4269,7 +4376,7 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="SapMigracionHfc"
-                                            name="SapMigracionHfc" />
+                                            name="SapMigracionHfc" oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -4283,7 +4390,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsMigracionHfc"
-                                            name="ObvsMigracionHfc" placeholder="Ingresa las observaciones del caso" />
+                                            name="ObvsMigracionHfc" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
@@ -4308,7 +4416,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeMigracionHfc" name="RecibeMigracionHfc" />
+                                            class="form-control" id="RecibeMigracionHfc" name="RecibeMigracionHfc"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -4330,7 +4439,8 @@
                                                             <i class="fa fa-square"></i>
                                                         </div>
                                                         <input type="text" class="form-control" id="NodoMigracionHfc"
-                                                            name="NodoMigracionHfc" placeholder="Ingresa Nodo" />
+                                                            name="NodoMigracionHfc" placeholder="Ingresa Nodo"
+                                                            oninput="this.value = this.value.toUpperCase()" />
                                                     </div>
                                                 </div>
 
@@ -4370,7 +4480,8 @@
                                                             <i class="fa fa-map-marker"></i>
                                                         </div>
                                                         <input type="text" class="form-control" id="GeorefMigracionHfc"
-                                                            name="GeorefMigracionHfc" />
+                                                            name="GeorefMigracionHfc"
+                                                            oninput="this.value = this.value.toUpperCase()" />
                                                     </div>
                                                 </div>
 
@@ -4384,7 +4495,8 @@
                                                         </div>
                                                         <input type="text" class="form-control"
                                                             id="MaterialesMigracionHfc" name="MaterialesMigracionHfc"
-                                                            placeholder="Comentarios..." />
+                                                            placeholder="Comentarios..."
+                                                            oninput="this.value = this.value.toUpperCase()" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -4404,7 +4516,7 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoMigracionObjHfc" tabindex="-1"
                                             id="MotivoMigracionObjHfc" aria-hidden="true">
-                                            <option selected="selected">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -4458,7 +4570,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsMigracionObjHfc"
                                                 name="ObvsMigracionObjHfc"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -4469,7 +4582,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentsMigracionObjHfc"
-                                                name="Come" placeholder="Comentarios..." />
+                                                name="Come" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -4502,8 +4616,6 @@
                                     </div>
                                 </div>
 
-
-
                                 <div class="form-group col-md-12">
                                     <label for="MotivoTransMigracionHfc">Motivo Transferido</label>
                                     <div class="input-group">
@@ -4511,7 +4623,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="MotivoTransMigracionHfc"
-                                            name="MotivoTransMigracionHfc" />
+                                            name="MotivoTransMigracionHfc" placeholder="Ingresa motivo transferido"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -4522,7 +4635,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ComentsMigracionTransHfc"
-                                            name="ComentsMigracionTransHfc" />
+                                            name="ComentsMigracionTransHfc" placeholder="Comentarios..."
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -4621,7 +4735,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioMigracionAnulada_Hfc"
                                             name="ComentarioMigracionAnulada_Hfc"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -4658,7 +4773,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="EquipoModemRetiroHfc"
-                                            placeholder="N° Equipo" name="EquipoModemRetiroHfc" />
+                                            placeholder="N° Equipo" name="EquipoModemRetiroHfc"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
@@ -4695,7 +4811,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsRetiroHfc" name="ObvsRetiroHfc"
-                                            placeholder="Ingresa las observaciones del caso" />
+                                            placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -4707,7 +4824,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeRetiroHfc" name="RecibeRetiroHfc" />
+                                            class="form-control" id="RecibeRetiroHfc" name="RecibeRetiroHfc"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -4719,7 +4837,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="MaterialesRetiroHfc"
-                                            name="MaterialesRetiroHfc" placeholder="Comentarios..." />
+                                            name="MaterialesRetiroHfc" placeholder="Comentarios..."
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -4787,8 +4906,8 @@
                                                 <i class="fa fa-eye"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ObvsObjRetiroHfc"
-                                                name="ObvsObjRetiroHfc"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                name="ObvsObjRetiroHfc" placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -4799,7 +4918,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosRetiroObjHfc"
-                                                name="ComentariosRetiroObjHfc" placeholder="Comentarios..." />
+                                                name="ComentariosRetiroObjHfc" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -4949,8 +5069,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ComentsRetiroAnulada_Hfc"
-                                            name="ComentsRetiroAnulada_Hfc"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            name="ComentsRetiroAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -5022,7 +5142,8 @@
                                             <i class="fa fa-eye"></i>
                                         </div>
                                         <input type="text" class="form-control" id="ObvsCambioCobre"
-                                            name="ObvsCambioCobre" placeholder="Ingresa las observaciones del caso" />
+                                            name="ObvsCambioCobre" placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -5034,7 +5155,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeCambioCobre" name="RecibeCambioCobre" />
+                                            class="form-control" id="RecibeCambioCobre" name="RecibeCambioCobre"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -5102,7 +5224,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsObjCambioCobre"
                                                 name="ObvsObjCambioCobre"
-                                                placeholder="Ingresa las observaciones del caso" />
+                                                placeholder="Ingresa las observaciones del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
@@ -5113,7 +5236,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosCambioCobre"
-                                                name="ComentariosCambioCobre" placeholder="Comentarios..." />
+                                                name="ComentariosCambioCobre" placeholder="Comentarios..."
+                                                oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
                                 </div>
@@ -5251,7 +5375,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioAnuladaCambioCobre"
                                             name="ComentarioAnuladaCambioCobre"
-                                            placeholder="Ingresa comentarios del caso" />
+                                            placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>

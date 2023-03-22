@@ -15,10 +15,13 @@ class InstalacionDthAnulada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividadDth',
         'MotivoAnulada_Dth',
         'OrdenAnulada_Dth',
         'TrabajadoAnulada_Dth',
         'ComentarioAnulada_Dth',
+        'username_creacion',
+		'username_atencion',
     ];
 }

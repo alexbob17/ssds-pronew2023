@@ -15,6 +15,7 @@ class InstalacionHfcAnulada extends Model
         'motivo_llamada',
         'select_orden',
         'dpto_colonia',
+        'tecnologia',
         'tipo_actividad',
         'MotivoAnulada_Hfc',
 		'orden_internet_hfc',
@@ -22,5 +23,7 @@ class InstalacionHfcAnulada extends Model
         'orden_linea_hfc',
 		'TrabajadoAnulada_Hfc',
 	    'ComentarioAnulada_Hfc',
+        'username_creacion',
+		'username_atencion',
     ];
 }

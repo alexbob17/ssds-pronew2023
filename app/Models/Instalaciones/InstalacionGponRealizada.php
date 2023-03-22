@@ -19,6 +19,7 @@ class InstalacionGponRealizada extends Model
         'OrdenInternet_Gpon',
         'OrdenTv_Gpon',
         'OrdenLinea_Gpon',
+        'tecnologia',
         'tipo_actividadGpon',
         'equipotv1Gpon',
         'equipotv2Gpon',
@@ -36,6 +37,8 @@ class InstalacionGponRealizada extends Model
         'CajaGpon',
         'PuertoGpon',
         'MaterialesRedGpon',
+        'username_creacion',
+		'username_atencion',
     
     ];
 }
