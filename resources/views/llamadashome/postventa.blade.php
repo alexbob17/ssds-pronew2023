@@ -2493,7 +2493,7 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoAdicionObjGpon" tabindex="-1"
                                             id="MotivoAdicionObjGpon" aria-hidden="true">
-                                            <option selected="selected">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -2834,7 +2834,7 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjAdicionDth" tabindex="-1"
                                             id="MotivoObjAdicionDth" aria-hidden="true">
-                                            <option selected="selected">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -3136,7 +3136,7 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoEquipoObjHfc" tabindex="-1"
                                             id="MotivoEquipoObjHfc" aria-hidden="true">
-                                            <option selected="selected">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -3376,12 +3376,12 @@
                         <div class="PostventaCambioGponHidden" id="ObjetadaCambioGpon">
                             <div class="">
                                 <div class="form-group-container">
-                                    <div class="form-group col-md-3">
+                                    <div class="form-group col-md-4">
                                         <label for="MotivoObjEquipoGpon">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjEquipoGpon" tabindex="-1"
                                             id="MotivoObjEquipoGpon" aria-hidden="true">
-                                            <option selected="selected">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -3643,7 +3643,7 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoEquipoObjAdsl" tabindex="-1"
                                             id="MotivoEquipoObjAdsl" aria-hidden="true">
-                                            <option selected="selected">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP

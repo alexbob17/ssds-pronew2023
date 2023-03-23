@@ -1886,6 +1886,7 @@ class PostventasController extends Controller
 						'username_atencion',
 					];
 
+					
 					$data = [];
 
 					// Iteramos por los campos seleccionados del formulario

@@ -6,7 +6,6 @@ const tecnico = document.getElementById("tecnico");
 // Obtener el elemento select del primer formulario
 const motivo_llamada = document.getElementById("motivo_llamadaform1");
 
-// Escuchar el evento "change" del select del primer formulario
 motivo_llamada.addEventListener("change", function () {
   // Obtener el valor seleccionado del select
   const selectedOption =
@@ -25,12 +24,8 @@ motivo_llamada.addEventListener("change", function () {
     localStorage.setItem("telefono", telefono.value);
     localStorage.setItem("tecnico", tecnico.value);
   }
+
+  window.addEventListener("beforeunload", function () {
+    localStorage.clear();
+  });
 });
-
-// const btn_busqueda = document.getElementById("btn_busqueda");
-
-// btn_busqueda.addEventListener("click", function () {
-//   localStorage.setItem("codigo_tecnico", codigo_tecnico.value);
-//   localStorage.setItem("telefono", telefono.value);
-//   localStorage.setItem("tecnico", tecnico.value);
-// });
