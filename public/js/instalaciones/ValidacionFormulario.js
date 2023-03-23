@@ -223,8 +223,11 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensaje = "Debes ingresar el N° Internet.";
             }
-            if (orden_tv_hfc !== "" && parseInt(orden_tv_hfc.length) !== 8) {
-              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
+            if (
+              orden_internet_hfc !== "" &&
+              parseInt(orden_internet_hfc.length) !== 8
+            ) {
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
             break;
           case "REACTIVACION -DOBLE - TV + INTERNET":
@@ -233,7 +236,7 @@ form.addEventListener("submit", function (event) {
               orden_tv_hfc.trim() === "" &&
               orden_linea_hfc.trim() === ""
             ) {
-              errorMensaje = "Debes ingresar el N° TV / N° Internet.";
+              errorMensaje = "Debes ingresar el N° Orden TV / N° Internet.";
             }
             if (orden_tv_hfc !== "" && parseInt(orden_tv_hfc.length) !== 8) {
               errorMensaje = "El N° Orden TV debe tener 8 dígitos.";
@@ -242,7 +245,7 @@ form.addEventListener("submit", function (event) {
               orden_internet_hfc !== "" &&
               parseInt(orden_internet_hfc.length) !== 8
             ) {
-              errorMensaje = "El N° Orden TV debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
             break;
 
@@ -285,7 +288,7 @@ form.addEventListener("submit", function (event) {
               orden_internet_hfc !== "" &&
               parseInt(orden_internet_hfc.length) !== 8
             ) {
-              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (
@@ -341,7 +344,6 @@ form.addEventListener("submit", function (event) {
 
             break;
         }
-
         if (errorMensaje !== "") {
           Swal.fire({
             icon: "error",
@@ -988,8 +990,12 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeObjetada = "Debes ingresar el N° Internet.";
             }
-            if (orden_tv_hfc !== "" && parseInt(orden_tv_hfc.length) !== 8) {
-              errorMensajeObjetada = "El N° Orden Tv debe tener 8 dígitos.";
+            if (
+              orden_internet_hfc !== "" &&
+              parseInt(orden_internet_hfc.length) !== 8
+            ) {
+              errorMensajeObjetada =
+                "El N° Orden Internet debe tener 8 dígitos.";
             }
             break;
           case "REACTIVACION -DOBLE - TV + INTERNET":
@@ -998,7 +1004,8 @@ form.addEventListener("submit", function (event) {
               orden_tv_hfc.trim() === "" &&
               orden_linea_hfc.trim() === ""
             ) {
-              errorMensajeObjetada = "Debes ingresar el N° TV / N° Internet.";
+              errorMensajeObjetada =
+                "Debes ingresar el N° Orden TV / N° Internet.";
             }
             if (orden_tv_hfc !== "" && parseInt(orden_tv_hfc.length) !== 8) {
               errorMensajeObjetada = "El N° Orden TV debe tener 8 dígitos.";
@@ -1007,7 +1014,8 @@ form.addEventListener("submit", function (event) {
               orden_internet_hfc !== "" &&
               parseInt(orden_internet_hfc.length) !== 8
             ) {
-              errorMensajeObjetada = "El N° Orden TV debe tener 8 dígitos.";
+              errorMensajeObjetada =
+                "El N° Orden Internet debe tener 8 dígitos.";
             }
             break;
 
@@ -1051,7 +1059,8 @@ form.addEventListener("submit", function (event) {
               orden_internet_hfc !== "" &&
               parseInt(orden_internet_hfc.length) !== 8
             ) {
-              errorMensajeObjetada = "El N° Orden Linea debe tener 8 dígitos.";
+              errorMensajeObjetada =
+                "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (
@@ -1285,8 +1294,12 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTransferida = "Debes ingresar el N° Internet.";
             }
-            if (orden_tv_hfc !== "" && parseInt(orden_tv_hfc.length) !== 8) {
-              errorMensajeTransferida = "El N° Orden Tv debe tener 8 dígitos.";
+            if (
+              orden_internet_hfc !== "" &&
+              parseInt(orden_internet_hfc.length) !== 8
+            ) {
+              errorMensajeTransferida =
+                "El N° Orden Internet debe tener 8 dígitos.";
             }
             break;
           case "REACTIVACION -DOBLE - TV + INTERNET":
@@ -1296,7 +1309,7 @@ form.addEventListener("submit", function (event) {
               orden_linea_hfc.trim() === ""
             ) {
               errorMensajeTransferida =
-                "Debes ingresar el N° TV / N° Internet.";
+                "Debes ingresar el N° Orden TV / N° Internet.";
             }
             if (orden_tv_hfc !== "" && parseInt(orden_tv_hfc.length) !== 8) {
               errorMensajeTransferida = "El N° Orden TV debe tener 8 dígitos.";
@@ -1305,7 +1318,8 @@ form.addEventListener("submit", function (event) {
               orden_internet_hfc !== "" &&
               parseInt(orden_internet_hfc.length) !== 8
             ) {
-              errorMensajeTransferida = "El N° Orden TV debe tener 8 dígitos.";
+              errorMensajeTransferida =
+                "El N° Orden Internet debe tener 8 dígitos.";
             }
             break;
 
@@ -1351,7 +1365,7 @@ form.addEventListener("submit", function (event) {
               parseInt(orden_internet_hfc.length) !== 8
             ) {
               errorMensajeTransferida =
-                "El N° Orden Linea debe tener 8 dígitos.";
+                "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (
@@ -1586,8 +1600,12 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeHfcAnulada = "Debes ingresar el N° Internet.";
             }
-            if (orden_tv_hfc !== "" && parseInt(orden_tv_hfc.length) !== 8) {
-              errorMensajeHfcAnulada = "El N° Orden Tv debe tener 8 dígitos.";
+            if (
+              orden_internet_hfc !== "" &&
+              parseInt(orden_internet_hfc.length) !== 8
+            ) {
+              errorMensajeHfcAnulada =
+                "El N° Orden Internet debe tener 8 dígitos.";
             }
             break;
           case "REACTIVACION -DOBLE - TV + INTERNET":
@@ -1596,7 +1614,8 @@ form.addEventListener("submit", function (event) {
               orden_tv_hfc.trim() === "" &&
               orden_linea_hfc.trim() === ""
             ) {
-              errorMensajeHfcAnulada = "Debes ingresar el N° TV / N° Internet.";
+              errorMensajeHfcAnulada =
+                "Debes ingresar el N° Orden TV / N° Internet.";
             }
             if (orden_tv_hfc !== "" && parseInt(orden_tv_hfc.length) !== 8) {
               errorMensajeHfcAnulada = "El N° Orden TV debe tener 8 dígitos.";
@@ -1605,7 +1624,8 @@ form.addEventListener("submit", function (event) {
               orden_internet_hfc !== "" &&
               parseInt(orden_internet_hfc.length) !== 8
             ) {
-              errorMensajeHfcAnulada = "El N° Orden TV debe tener 8 dígitos.";
+              errorMensajeHfcAnulada =
+                "El N° Orden Internet debe tener 8 dígitos.";
             }
             break;
 
@@ -1651,7 +1671,7 @@ form.addEventListener("submit", function (event) {
               parseInt(orden_internet_hfc.length) !== 8
             ) {
               errorMensajeHfcAnulada =
-                "El N° Orden Linea debe tener 8 dígitos.";
+                "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (
@@ -1808,19 +1828,18 @@ form.addEventListener("submit", function (event) {
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensaje =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
             }
 
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
             }
 
             break;
@@ -1836,12 +1855,11 @@ form.addEventListener("submit", function (event) {
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensaje =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
             }
 
             break;
@@ -1857,15 +1875,14 @@ form.addEventListener("submit", function (event) {
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensaje =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
             }
             break;
           case "DOBLE - IPTV + LINEA":
@@ -1878,14 +1895,14 @@ form.addEventListener("submit", function (event) {
             }
 
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
             }
 
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
             }
             break;
           case "INTERNET INDIVIDUAL":
@@ -1894,14 +1911,13 @@ form.addEventListener("submit", function (event) {
               OrdenTv_Gpon.trim() === "" &&
               OrdenLinea_Gpon.trim() === ""
             ) {
-              errorMensaje = "Debes ingresar el N° Internet";
+              errorMensaje = "Debes ingresar el N° Orden Internet";
             }
             if (
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensaje =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             break;
@@ -1911,13 +1927,13 @@ form.addEventListener("submit", function (event) {
               OrdenTv_Gpon.trim() === "" &&
               OrdenLinea_Gpon.trim() === ""
             ) {
-              errorMensaje = "Debes ingresar el N° Linea.";
+              errorMensaje = "Debes ingresar el N° Orden Linea.";
             }
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
             }
             break;
           case "IPTV INDIVIDUAL":
@@ -1926,10 +1942,10 @@ form.addEventListener("submit", function (event) {
               OrdenTv_Gpon.trim() === "" &&
               OrdenLinea_Gpon.trim() === ""
             ) {
-              errorMensaje = "Debes ingresar el N° IPTV.";
+              errorMensaje = "Debes ingresar el N° Orden IPTV.";
             }
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
             }
             break;
         }
@@ -1968,20 +1984,20 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un equipo";
             }
-            if (equipotv1Gpon !== "" && parseInt(equipotv1Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv1.";
+            if (equipotv1Gpon !== "" && parseInt(equipotv1Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv1.";
             }
-            if (equipotv2Gpon !== "" && parseInt(equipotv2Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv2.";
+            if (equipotv2Gpon !== "" && parseInt(equipotv2Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv2.";
             }
-            if (equipotv3Gpon !== "" && parseInt(equipotv3Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv3.";
+            if (equipotv3Gpon !== "" && parseInt(equipotv3Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv3.";
             }
-            if (equipotv4Gpon !== "" && parseInt(equipotv4Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv4.";
+            if (equipotv4Gpon !== "" && parseInt(equipotv4Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv4.";
             }
-            if (equipotv5Gpon !== "" && parseInt(equipotv5Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv5.";
+            if (equipotv5Gpon !== "" && parseInt(equipotv5Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv5.";
             }
 
             break;
@@ -1995,20 +2011,20 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un equipo";
             }
-            if (equipotv1Gpon !== "" && parseInt(equipotv1Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv1.";
+            if (equipotv1Gpon !== "" && parseInt(equipotv1Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv1.";
             }
-            if (equipotv2Gpon !== "" && parseInt(equipotv2Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv2.";
+            if (equipotv2Gpon !== "" && parseInt(equipotv2Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv2.";
             }
-            if (equipotv3Gpon !== "" && parseInt(equipotv3Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv3.";
+            if (equipotv3Gpon !== "" && parseInt(equipotv3Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv3.";
             }
-            if (equipotv4Gpon !== "" && parseInt(equipotv4Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv4.";
+            if (equipotv4Gpon !== "" && parseInt(equipotv4Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv4.";
             }
-            if (equipotv5Gpon !== "" && parseInt(equipotv5Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv5.";
+            if (equipotv5Gpon !== "" && parseInt(equipotv5Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv5.";
             }
             break;
           case "DOBLE - INTERNET + LINEA":
@@ -2023,20 +2039,20 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un equipo";
             }
-            if (equipotv1Gpon !== "" && parseInt(equipotv1Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv1.";
+            if (equipotv1Gpon !== "" && parseInt(equipotv1Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv1.";
             }
-            if (equipotv2Gpon !== "" && parseInt(equipotv2Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv2.";
+            if (equipotv2Gpon !== "" && parseInt(equipotv2Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv2.";
             }
-            if (equipotv3Gpon !== "" && parseInt(equipotv3Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv3.";
+            if (equipotv3Gpon !== "" && parseInt(equipotv3Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv3.";
             }
-            if (equipotv4Gpon !== "" && parseInt(equipotv4Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv4.";
+            if (equipotv4Gpon !== "" && parseInt(equipotv4Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv4.";
             }
-            if (equipotv5Gpon !== "" && parseInt(equipotv5Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv5.";
+            if (equipotv5Gpon !== "" && parseInt(equipotv5Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv5.";
             }
             break;
           case "INTERNET INDIVIDUAL":
@@ -2053,20 +2069,20 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un equipo";
             }
-            if (equipotv1Gpon !== "" && parseInt(equipotv1Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv1.";
+            if (equipotv1Gpon !== "" && parseInt(equipotv1Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv1.";
             }
-            if (equipotv2Gpon !== "" && parseInt(equipotv2Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv2.";
+            if (equipotv2Gpon !== "" && parseInt(equipotv2Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv2.";
             }
-            if (equipotv3Gpon !== "" && parseInt(equipotv3Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv3.";
+            if (equipotv3Gpon !== "" && parseInt(equipotv3Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv3.";
             }
-            if (equipotv4Gpon !== "" && parseInt(equipotv4Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv4.";
+            if (equipotv4Gpon !== "" && parseInt(equipotv4Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv4.";
             }
-            if (equipotv5Gpon !== "" && parseInt(equipotv5Gpon.length) !== 10) {
-              errorMensajeTv = "Debes ingresar 10 digitos en Equipo Tv5.";
+            if (equipotv5Gpon !== "" && parseInt(equipotv5Gpon.length) !== 12) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv5.";
             }
             break;
         }
@@ -2085,24 +2101,24 @@ form.addEventListener("submit", function (event) {
         switch (select_orden) {
           case "INSTALACION DE CLARO HOGAR":
             if (EqModenGpon === "") {
-              errorMensaje3 = "Debes ingresar el Equipo Modem";
+              errorMensaje3 = "Debes ingresar el N° Equipo Modem";
             }
             if (EqModenGpon !== "" && parseInt(EqModenGpon.length) !== 16) {
-              errorMensaje3 = "Debes ingresar 16 digitos Equipo Modem.";
+              errorMensaje3 = "Debes ingresar 16 digitos N° Equipo Modem.";
             }
             if (NumeroGpon === "") {
-              errorMensaje3 = "Debes ingresar el Numero Gpon";
+              errorMensaje3 = "Debes ingresar el  N° Gpon";
             }
             if (NumeroGpon !== "" && parseInt(NumeroGpon.length) !== 8) {
-              errorMensaje3 = "Debes ingresar 8 digitos Numero Gpon.";
+              errorMensaje3 = "Debes ingresar 8 digitos  N° Gpon.";
             }
             break;
           case "DOBLE - INTERNET + IPTV":
             if (EqModenGpon === "") {
-              errorMensaje3 = "Debes ingresar el Equipo Modem";
+              errorMensaje3 = "Debes ingresar el  N° Equipo Modem";
             }
             if (EqModenGpon !== "" && parseInt(EqModenGpon.length) !== 16) {
-              errorMensaje3 = "Debes ingresar 16 digitos Equipo Modem.";
+              errorMensaje3 = "Debes ingresar 16 digitos N° Equipo Modem.";
             }
 
             break;
@@ -2111,21 +2127,21 @@ form.addEventListener("submit", function (event) {
               errorMensaje3 = "Debes ingresar el Equipo Modem";
             }
             if (EqModenGpon !== "" && parseInt(EqModenGpon.length) !== 16) {
-              errorMensaje3 = "Debes ingresar 16 digitos Equipo Modem.";
+              errorMensaje3 = "Debes ingresar 16 digitos  N° Equipo Modem.";
             }
             if (NumeroGpon === "") {
-              errorMensaje3 = "Debes ingresar el Numero Gpon";
+              errorMensaje3 = "Debes ingresar el  N° Gpon";
             }
             if (NumeroGpon !== "" && parseInt(NumeroGpon.length) !== 8) {
-              errorMensaje3 = "Debes ingresar 8 digitos Numero Gpon.";
+              errorMensaje3 = "Debes ingresar 8 digitos  N° Gpon.";
             }
             break;
           case "DOBLE - IPTV + LINEA":
             if (NumeroGpon === "") {
-              errorMensaje3 = "Debes ingresar el Numero Gpon";
+              errorMensaje3 = "Debes ingresar el N° Gpon";
             }
             if (NumeroGpon !== "" && parseInt(NumeroGpon.length) !== 8) {
-              errorMensaje3 = "Debes ingresar 8 digitos Numero Gpon.";
+              errorMensaje3 = "Debes ingresar 8 digitos N° Gpon.";
             }
             break;
           case "INTERNET INDIVIDUAL":
@@ -2133,17 +2149,17 @@ form.addEventListener("submit", function (event) {
               errorMensaje3 = "Debes ingresar el Equipo Modem";
             }
             if (EqModenGpon !== "" && parseInt(EqModenGpon.length) !== 16) {
-              errorMensaje3 = "Debes ingresar 16 digitos Equipo Modem.";
+              errorMensaje3 = "Debes ingresar 16 digitos N° Equipo Modem.";
             }
             break;
           case "LINEA INDIVIDUAL":
             break;
           case "IPTV INDIVIDUAL":
             if (NumeroGpon === "") {
-              errorMensaje3 = "Debes ingresar el Numero Gpon";
+              errorMensaje3 = "Debes ingresar el N° Gpon";
             }
             if (NumeroGpon !== "" && parseInt(NumeroGpon.length) !== 8) {
-              errorMensaje3 = "Debes ingresar 8 digitos Numero Gpon.";
+              errorMensaje3 = "Debes ingresar 8 digitos N° Gpon.";
             }
             break;
         }
@@ -2214,19 +2230,18 @@ form.addEventListener("submit", function (event) {
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensaje =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
             }
 
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
             }
 
             break;
@@ -2242,12 +2257,11 @@ form.addEventListener("submit", function (event) {
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensaje =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
             }
 
             break;
@@ -2263,15 +2277,14 @@ form.addEventListener("submit", function (event) {
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensaje =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
             }
             break;
           case "DOBLE - IPTV + LINEA":
@@ -2284,14 +2297,14 @@ form.addEventListener("submit", function (event) {
             }
 
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
             }
 
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
             }
             break;
           case "INTERNET INDIVIDUAL":
@@ -2300,14 +2313,13 @@ form.addEventListener("submit", function (event) {
               OrdenTv_Gpon.trim() === "" &&
               OrdenLinea_Gpon.trim() === ""
             ) {
-              errorMensaje = "Debes ingresar el N° Internet";
+              errorMensaje = "Debes ingresar el N° Orden Internet";
             }
             if (
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensaje =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             break;
@@ -2317,13 +2329,13 @@ form.addEventListener("submit", function (event) {
               OrdenTv_Gpon.trim() === "" &&
               OrdenLinea_Gpon.trim() === ""
             ) {
-              errorMensaje = "Debes ingresar el N° Linea.";
+              errorMensaje = "Debes ingresar el N° Orden Linea.";
             }
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
             }
             break;
           case "IPTV INDIVIDUAL":
@@ -2332,10 +2344,10 @@ form.addEventListener("submit", function (event) {
               OrdenTv_Gpon.trim() === "" &&
               OrdenLinea_Gpon.trim() === ""
             ) {
-              errorMensaje = "Debes ingresar el N° IPTV.";
+              errorMensaje = "Debes ingresar el N° Orden IPTV.";
             }
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
             }
             break;
         }
@@ -2401,19 +2413,18 @@ form.addEventListener("submit", function (event) {
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensaje =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
             }
 
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
             }
 
             break;
@@ -2429,12 +2440,11 @@ form.addEventListener("submit", function (event) {
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensaje =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
             }
 
             break;
@@ -2450,15 +2460,14 @@ form.addEventListener("submit", function (event) {
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensaje =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
             }
             break;
           case "DOBLE - IPTV + LINEA":
@@ -2471,14 +2480,14 @@ form.addEventListener("submit", function (event) {
             }
 
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
             }
 
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
             }
             break;
           case "INTERNET INDIVIDUAL":
@@ -2487,14 +2496,13 @@ form.addEventListener("submit", function (event) {
               OrdenTv_Gpon.trim() === "" &&
               OrdenLinea_Gpon.trim() === ""
             ) {
-              errorMensaje = "Debes ingresar el N° Internet";
+              errorMensaje = "Debes ingresar el N° Orden Internet";
             }
             if (
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensaje =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             break;
@@ -2504,13 +2512,13 @@ form.addEventListener("submit", function (event) {
               OrdenTv_Gpon.trim() === "" &&
               OrdenLinea_Gpon.trim() === ""
             ) {
-              errorMensaje = "Debes ingresar el N° Linea.";
+              errorMensaje = "Debes ingresar el N° Orden Linea.";
             }
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensaje = "El número de orden Linea debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
             }
             break;
           case "IPTV INDIVIDUAL":
@@ -2519,10 +2527,10 @@ form.addEventListener("submit", function (event) {
               OrdenTv_Gpon.trim() === "" &&
               OrdenLinea_Gpon.trim() === ""
             ) {
-              errorMensaje = "Debes ingresar el N° IPTV.";
+              errorMensaje = "Debes ingresar el N° Orden IPTV.";
             }
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
             }
             break;
         }
@@ -2587,20 +2595,18 @@ form.addEventListener("submit", function (event) {
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensajeGpon =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensajeGpon = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensajeGpon = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensajeGpon = "El N° Orden Tv debe tener 8 dígitos.";
             }
 
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensajeGpon =
-                "El número de orden Linea debe tener 8 dígitos.";
+              errorMensajeGpon = "El N° Orden Linea debe tener 8 dígitos.";
             }
 
             break;
@@ -2616,12 +2622,11 @@ form.addEventListener("submit", function (event) {
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensajeGpon =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensajeGpon = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensajeGpon = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensajeGpon = "El N° Orden Tv debe tener 8 dígitos.";
             }
 
             break;
@@ -2637,16 +2642,14 @@ form.addEventListener("submit", function (event) {
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensajeGpon =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensajeGpon = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensajeGpon =
-                "El número de orden Linea debe tener 8 dígitos.";
+              errorMensajeGpon = "El N° Orden Linea debe tener 8 dígitos.";
             }
             break;
           case "DOBLE - IPTV + LINEA":
@@ -2659,15 +2662,14 @@ form.addEventListener("submit", function (event) {
             }
 
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensajeGpon = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensajeGpon = "El N° Orden Tv debe tener 8 dígitos.";
             }
 
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensajeGpon =
-                "El número de orden Linea debe tener 8 dígitos.";
+              errorMensajeGpon = "El N° Orden Linea debe tener 8 dígitos.";
             }
             break;
           case "INTERNET INDIVIDUAL":
@@ -2676,14 +2678,13 @@ form.addEventListener("submit", function (event) {
               OrdenTv_Gpon.trim() === "" &&
               OrdenLinea_Gpon.trim() === ""
             ) {
-              errorMensajeGpon = "Debes ingresar el N° Internet";
+              errorMensajeGpon = "Debes ingresar el N° Orden Internet";
             }
             if (
               OrdenInternet_Gpon !== "" &&
               parseInt(OrdenInternet_Gpon.length) !== 8
             ) {
-              errorMensajeGpon =
-                "El número de orden de internet debe tener 8 dígitos.";
+              errorMensajeGpon = "El N° Orden Internet debe tener 8 dígitos.";
             }
 
             break;
@@ -2693,26 +2694,25 @@ form.addEventListener("submit", function (event) {
               OrdenTv_Gpon.trim() === "" &&
               OrdenLinea_Gpon.trim() === ""
             ) {
-              errorMensajeGpon = "Debes ingresar el N° Linea.";
+              errorMensajeGpon = "Debes ingresar el N° Orden Linea.";
             }
             if (
               OrdenLinea_Gpon !== "" &&
               parseInt(OrdenLinea_Gpon.length) !== 8
             ) {
-              errorMensajeGpon =
-                "El número de orden Linea debe tener 8 dígitos.";
+              errorMensajeGpon = "El N° Orden Linea debe tener 8 dígitos.";
             }
             break;
           case "IPTV INDIVIDUAL":
             if (
               OrdenInternet_Gpon.trim() === "" &&
-              c.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
               OrdenLinea_Gpon.trim() === ""
             ) {
-              errorMensajeGpon = "Debes ingresar el N° IPTV.";
+              errorMensajeGpon = "Debes ingresar el N° Orden IPTV.";
             }
             if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensajeGpon = "El número de orden Tv debe tener 8 dígitos.";
+              errorMensajeGpon = "El N° Orden Tv debe tener 8 dígitos.";
             }
             break;
         }
@@ -2783,7 +2783,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "Orden Linea debe tener 8 digitos",
+            title: "N° Orden Linea debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -2794,7 +2794,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "Orden Linea debe tener 8 digitos",
+            title: "N° Cobre debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -2855,7 +2855,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "Orden Linea debe tener 8 digitos",
+            title: "N° Orden Linea debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -2966,9 +2966,6 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           // checkError1.style.display = "block";
 
-          const Smarcard = document.getElementById("SmarcardDth1");
-          Smarcard.required = true;
-
           Swal.fire({
             icon: "error",
             title: "LOS CAMPOS NO PUEDEN IR VACIOS",
@@ -2983,7 +2980,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "Orden Tv debe tener 8 digitos",
+            title: "N° Orden Tv debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -2994,7 +2991,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "Syreng debe tener 8 digitos",
+            title: "N° Syreng debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -3025,23 +3022,27 @@ form.addEventListener("submit", function (event) {
               SmarcardDth4 === "" &&
               SmarcardDth5 === ""
             ) {
-              errorMensajeSmarcard = "Debes ingresar al menos un SMARCARD";
+              errorMensajeSmarcard = "Debes ingresar al menos un N° SMARCARD";
             }
             if (SmarcardDth1 !== "" && parseInt(SmarcardDth1.length) !== 10) {
-              errorMensajeSmarcard = "Debes ingresar 10 digitos en SMARCARD 1.";
+              errorMensajeSmarcard =
+                "Debes ingresar 10 digitos en N° SMARCARD 1.";
             }
             if (SmarcardDth2 !== "" && parseInt(SmarcardDth2.length) !== 10) {
-              errorMensajeSmarcard = "Debes ingresar 10 digitos en SMARCARD 2.";
+              errorMensajeSmarcard =
+                "Debes ingresar 10 digitos en N° SMARCARD 2.";
             }
             if (SmarcardDth3 !== "" && parseInt(SmarcardDth3.length) !== 10) {
               errorMensajeSmarcard =
-                "Debes ingresar 10 digitos en SMARCARD 3 .";
+                "Debes ingresar 10 digitos en N° SMARCARD 3 .";
             }
             if (SmarcardDth4 !== "" && parseInt(SmarcardDth4.length) !== 10) {
-              errorMensajeSmarcard = "Debes ingresar 10 digitos en SMARCARD 4.";
+              errorMensajeSmarcard =
+                "Debes ingresar 10 digitos en N° SMARCARD 4.";
             }
             if (SmarcardDth5 !== "" && parseInt(SmarcardDth5.length) !== 10) {
-              errorMensajeSmarcard = "Debes ingresar 10 digitos en SMARCARD 5.";
+              errorMensajeSmarcard =
+                "Debes ingresar 10 digitos en N° SMARCARD 5.";
             }
 
             break;
@@ -3069,22 +3070,22 @@ form.addEventListener("submit", function (event) {
               StbDth4 === "" &&
               StbDth5 === ""
             ) {
-              errorMensajeStb = "Debes ingresar al menos un STB";
+              errorMensajeStb = "Debes ingresar al menos un N° STB";
             }
-            if (StbDth1 !== "" && parseInt(StbDth1.length) !== 10) {
-              errorMensajeStb = "Debes ingresar 12 digitos en STB 1.";
+            if (StbDth1 !== "" && parseInt(StbDth1.length) !== 12) {
+              errorMensajeStb = "Debes ingresar 12 digitos en N° STB 1.";
             }
             if (StbDth2 !== "" && parseInt(StbDth2.length) !== 12) {
-              errorMensajeStb = "Debes ingresar 12 digitos en STB 2.";
+              errorMensajeStb = "Debes ingresar 12 digitos en N° STB 2.";
             }
             if (StbDth3 !== "" && parseInt(StbDth3.length) !== 12) {
-              errorMensajeStb = "Debes ingresar 12 digitos en STB 3 .";
+              errorMensajeStb = "Debes ingresar 12 digitos en N° STB 3 .";
             }
             if (StbDth4 !== "" && parseInt(StbDth4.length) !== 12) {
-              errorMensajeStb = "Debes ingresar 12 digitos en STB 4.";
+              errorMensajeStb = "Debes ingresar 12 digitos en N° STB 4.";
             }
             if (StbDth5 !== "" && parseInt(StbDth5.length) !== 12) {
-              errorMensajeStb = "Debes ingresar 12 digitos en STB 5.";
+              errorMensajeStb = "Debes ingresar 12 digitos en N° STB 5.";
             }
 
             break;
@@ -3239,7 +3240,7 @@ form.addEventListener("submit", function (event) {
         if (parseInt(orden_internetAdsl.length) !== 8) {
           Swal.fire({
             icon: "error",
-            title: "N Orden debe tener 8 digitos",
+            title: "N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -3302,7 +3303,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "Orden internet debe tener 8 digitos",
+            title: "N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -3348,11 +3349,12 @@ form.addEventListener("submit", function (event) {
           event.preventDefault();
           return false;
         }
+
         if (parseInt(OrdenAnuladaAdsl.length) !== 8) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "N° Orden Internet debe tener 8 digitos",
+            title: "N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -3464,7 +3466,7 @@ document.addEventListener("DOMContentLoaded", function () {
         orden_tv_hfc.required = true;
         orden_linea_hfc.required = true;
       } else if (
-        select_orden.value === " REACTIVACION -DOBLE - INTERNET + LINEA"
+        select_orden.value === "REACTIVACION -DOBLE - INTERNET + LINEA"
       ) {
         orden_internet_hfc.required = true;
         orden_tv_hfc.required = false;

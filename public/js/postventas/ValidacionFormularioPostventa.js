@@ -1,4 +1,6 @@
 const form = document.getElementById("form1");
+const regexCoordenadas =
+  /^[-]?[0-9]{1,2}[.]?[0-9]*[,][-]?[0-9]{1,3}[.]?[0-9]*$/;
 
 form.addEventListener("submit", function (event) {
   const codigo_tecnico = document.getElementById("codigo_tecnico").value;
@@ -18,6 +20,183 @@ form.addEventListener("submit", function (event) {
   const selectTecnologia = document.querySelector("select[name='tecnologia']");
 
   switch (selectPostventa.value + "|" + selectTecnologia.value) {
+    case "CAMBIO DE EQUIPO|DTH":
+      const TipoActividadCambioDth = document.getElementById(
+        "TipoActividadCambioDth"
+      ).value;
+      const InstalacionEquipoDth = document.getElementById(
+        "InstalacionEquipoDth"
+      ).value;
+      const DesinstalarEquipoDth = document.getElementById(
+        "DesinstalarEquipoDth"
+      ).value;
+      const OrdenEquipoDth = document.getElementById("OrdenEquipoDth").value;
+      const ObvsEquipoDth = document.getElementById("ObvsEquipoDth").value;
+      const RecibeEquipoDth = document.getElementById("RecibeEquipoDth").value;
+      const TrabajadoEquipoDth =
+        document.getElementById("TrabajadoEquipoDth").value;
+
+      if (TipoActividadCambioDth === "REALIZADA") {
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadCambioDth === "" ||
+          InstalacionEquipoDth === "" ||
+          DesinstalarEquipoDth === "" ||
+          OrdenEquipoDth === "" ||
+          ObvsEquipoDth === "" ||
+          RecibeEquipoDth === "" ||
+          TrabajadoEquipoDth === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        if (parseInt(OrdenEquipoDth.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° de orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        if (parseInt(InstalacionEquipoDth.length) !== 12) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "N° Equipo a Instalar debe tener 12 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        if (parseInt(DesinstalarEquipoDth.length) !== 12) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° Equipo a Desinstalar debe tener 12 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadCambioDth === "OBJETADA") {
+        const MotivoObjEquipoDth =
+          document.getElementById("MotivoObjEquipoDth").value;
+        const OrdenEquipoObjDth =
+          document.getElementById("OrdenEquipoObjDth").value;
+        const TrabajadoEquipoObjDth = document.getElementById(
+          "TrabajadoEquipoObjDth"
+        ).value;
+        const ObvsEquipoObjDth =
+          document.getElementById("ObvsEquipoObjDth").value;
+        const ComentsEquipoObjDth = document.getElementById(
+          "ComentsEquipoObjDth"
+        ).value;
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadCambioDth === "" ||
+          MotivoObjEquipoDth === "" ||
+          OrdenEquipoObjDth === "" ||
+          TrabajadoEquipoObjDth === "" ||
+          ObvsEquipoObjDth === "" ||
+          ComentsEquipoObjDth === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        if (parseInt(OrdenEquipoObjDth.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° Orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadCambioDth === "ANULACION") {
+        const MotivoEquipoAnulada_Dth = document.getElementById(
+          "MotivoEquipoAnulada_Dth"
+        ).value;
+        const OrdenEquipoAnulada_Dth = document.getElementById(
+          "OrdenEquipoAnulada_Dth"
+        ).value;
+        const TrabajadoEquipoAnulada_Dth = document.getElementById(
+          "TrabajadoEquipoAnulada_Dth"
+        ).value;
+        const ComentarioEquipoAnulada_Dth = document.getElementById(
+          "ComentarioEquipoAnulada_Dth"
+        ).value;
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadCambioDth === "" ||
+          MotivoEquipoAnulada_Dth === "" ||
+          OrdenEquipoAnulada_Dth === "" ||
+          TrabajadoEquipoAnulada_Dth === "" ||
+          ComentarioEquipoAnulada_Dth === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        if (parseInt(OrdenEquipoAnulada_Dth.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° Orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      }
+      break;
     case "MIGRACION|HFC":
       const TipoActividadMigracionHfc = document.getElementById(
         "TipoActividadMigracionHfc"
@@ -92,6 +271,30 @@ form.addEventListener("submit", function (event) {
           return false;
         }
 
+        if (!/^\d{8}$/.test(SyrengMigracionHfc)) {
+          Swal.fire({
+            icon: "error",
+            title: "El N° Syreng debe tener 8 digitos validos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        if (!regexCoordenadas.test(GeorefMigracionHfc)) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title:
+              "Las coordenadas deben estar en el formato latitud, longitud",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
         if (!/^\d{8}$/.test(NOrdenMigracionHfc)) {
           Swal.fire({
             icon: "error",
@@ -118,27 +321,36 @@ form.addEventListener("submit", function (event) {
             ) {
               errorMensajeTv = "Debes ingresar al menos un Equipo TV";
             }
-            if (!/^[a-zA-Z0-9]{10}$/.test(equipotvmigracion1)) {
-              errorMensajeTv =
-                "Debes ingresar 10 caracteres alfanuméricos en Equipo Tv 1.";
+            if (
+              equipotvmigracion1 !== "" &&
+              parseInt(equipotvmigracion1.length) !== 12
+            ) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 1.";
             }
-            if (!/^[a-zA-Z0-9]{10}$/.test(equipotvmigracion2)) {
-              errorMensajeTv =
-                "Debes ingresar 10 caracteres alfanuméricos en Equipo Tv 2.";
+            if (
+              equipotvmigracion2 !== "" &&
+              parseInt(equipotvmigracion2.length) !== 12
+            ) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 2.";
             }
-            if (!/^[a-zA-Z0-9]{10}$/.test(equipotvmigracion3)) {
-              errorMensajeTv =
-                "Debes ingresar 10 caracteres alfanuméricos en Equipo Tv 3.";
+            if (
+              equipotvmigracion3 !== "" &&
+              parseInt(equipotvmigracion3.length) !== 12
+            ) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 3 .";
             }
-            if (!/^[a-zA-Z0-9]{10}$/.test(equipotvmigracion4)) {
-              errorMensajeTv =
-                "Debes ingresar 10 caracteres alfanuméricos en Equipo Tv 4.";
+            if (
+              equipotvmigracion4 !== "" &&
+              parseInt(equipotvmigracion4.length) !== 12
+            ) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 4.";
             }
-            if (!/^[a-zA-Z0-9]{10}$/.test(equipotvmigracion5)) {
-              errorMensajeTv =
-                "Debes ingresar 10 caracteres alfanuméricos en Equipo Tv 5.";
+            if (
+              equipotvmigracion5 !== "" &&
+              parseInt(equipotvmigracion5.length) !== 12
+            ) {
+              errorMensajeTv = "Debes ingresar 12 digitos en Equipo Tv 5.";
             }
-
             break;
         }
 

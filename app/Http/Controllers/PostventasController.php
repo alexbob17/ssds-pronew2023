@@ -2102,11 +2102,12 @@ class PostventasController extends Controller
 					'dpto_colonia',
 					'tecnologia',
 					'TipoActividadCambioDth',
-					'MotivoObjEquipoDth',
-					'OrdenEquipoObjDth',
-					'TrabajadoEquipoObjDth',
-					'ObvsEquipoObjDth',
-					'ComentsEquipoObjDth',
+					'InstalacionEquipoDth',
+					'DesinstalarEquipoDth',
+					'OrdenEquipoDth',
+					'ObvsEquipoDth',
+					'RecibeEquipoDth',
+					'TrabajadoEquipoDth',
 					'username_creacion',
 					'username_atencion',
 
@@ -2117,9 +2118,9 @@ class PostventasController extends Controller
                 // Iteramos por los campos seleccionados del formulario
 				foreach ($selectedFields as $fieldName) {
 					$value = $request->input($fieldName);
-					if ($fieldName === 'TrabajadoEquipoObjDth' && $request->has('TrabajadoEquipoObjDth')) {
+					if ($fieldName === 'TrabajadoEquipoDth' && $request->has('TrabajadoEquipoDth')) {
 						$data[$fieldName] = 'TRABAJADO';
-					} elseif ($fieldName === 'TrabajadoEquipoObjDth') {
+					} elseif ($fieldName === 'TrabajadoEquipoDth') {
 						$data[$fieldName] = 'PENDIENTE';
 					} else {
 						$data[$fieldName] = $value;

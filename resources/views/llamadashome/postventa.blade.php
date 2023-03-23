@@ -3904,7 +3904,7 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjEquipoDth" tabindex="-1"
                                             id="MotivoObjEquipoDth" aria-hidden="true">
-                                            <option selected="selected">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                             <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -4365,7 +4365,7 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="SyrengMigracionHfc"
-                                            name="SyrengMigracionHfc" />
+                                            name="SyrengMigracionHfc" placeholder="Ingresa N° SYRENG" />
                                     </div>
                                 </div>
 
@@ -4376,7 +4376,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="SapMigracionHfc"
-                                            name="SapMigracionHfc" oninput="this.value = this.value.toUpperCase()" />
+                                            name="SapMigracionHfc" oninput="this.value = this.value.toUpperCase()"
+                                            placeholder="Ingresa SAP" />
                                     </div>
                                 </div>
 
@@ -4481,7 +4482,8 @@
                                                         </div>
                                                         <input type="text" class="form-control" id="GeorefMigracionHfc"
                                                             name="GeorefMigracionHfc"
-                                                            oninput="this.value = this.value.toUpperCase()" />
+                                                            oninput="this.value = this.value.toUpperCase()"
+                                                            placeholder="Latitud, Longitud" />
                                                     </div>
                                                 </div>
 

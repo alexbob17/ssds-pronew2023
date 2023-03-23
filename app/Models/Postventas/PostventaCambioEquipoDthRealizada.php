@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PostventaCambioEquipoDthRealizada extends Model
 {
-    protected $table = 'postventaCambioEquipoDth_Objetado';
+    protected $table = 'postventaCambioEquipoDth_Realizado';
     
     protected $fillable = [
         'codigo_tecnico',
@@ -18,11 +18,12 @@ class PostventaCambioEquipoDthRealizada extends Model
         'dpto_colonia',
         'tecnologia',
         'TipoActividadCambioDth',
-        'MotivoObjEquipoDth',
-        'OrdenEquipoObjDth',
-        'TrabajadoEquipoObjDth',
-        'ObvsEquipoObjDth',
-        'ComentsEquipoObjDth',
+        'InstalacionEquipoDth',
+        'DesinstalarEquipoDth',
+        'OrdenEquipoDth',
+        'ObvsEquipoDth',
+        'RecibeEquipoDth',
+        'TrabajadoEquipoDth',
         'username_creacion',
 		'username_atencion',
     ];

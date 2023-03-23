@@ -803,9 +803,9 @@
                             <div class="from-group-container">
                                 <div class="form-group col-md-4">
                                     <label for="MotivoAnulada_Adsl">Motivo Anulación</label>
-                                    <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
-                                        name="MotivoAnulada_Adsl" tabindex="-1" id="MotivoAnulada_Adsl"
-                                        aria-hidden="true">
+                                    <select class="form-control select2 select2-hidden-accessible validar"
+                                        style="width: 100%;" name="MotivoAnulada_Adsl" tabindex="-1"
+                                        id="MotivoAnulada_Adsl" aria-hidden="true">
                                         <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                         <option value="CASA CERRADA">CASA CERRADA </option>
                                         <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
@@ -842,11 +842,11 @@
                                 <label for="OrdenAnuladaAdsl">
                                     Orden
                                 </label>
-                                <div class="input-group">
+                                <div class="input-group validar">
                                     <div class="input-group-addon">
                                         <i class="fa fa-ticket"></i>
                                     </div>
-                                    <input type="number" class="form-control" id="OrdenAnuladaAdsl"
+                                    <input type="number" class="form-control validar" id="OrdenAnuladaAdsl"
                                         name="OrdenAnuladaAdsl" placeholder="Ingresa N° Orden" />
                                 </div>
                             </div>
@@ -854,8 +854,8 @@
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Adsl"
-                                            name="TrabajadoAnulada_Adsl" />
+                                        <input class="form-check-input validar" type="checkbox"
+                                            id="TrabajadoAnulada_Adsl" name="TrabajadoAnulada_Adsl" />
                                         <label class="form-check-label">
                                             Trabajado
                                         </label>
@@ -871,7 +871,7 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-edit"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="ComentarioAnulada_Adsl"
+                                    <input type="text" class="form-control validar" id="ComentarioAnulada_Adsl"
                                         name="ComentarioAnulada_Adsl" placeholder="Ingresa comentarios del caso"
                                         oninput="this.value = this.value.toUpperCase()" />
                                 </div>

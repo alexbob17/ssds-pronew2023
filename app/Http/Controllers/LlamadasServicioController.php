@@ -132,6 +132,9 @@ class LlamadasServicioController extends Controller
 				}
 				// dd($data);
 
+				// Agregamos el usuario actual como creador y atendedor del registro
+				$data['username_creacion'] = Auth::user()->username;
+				$data['username_atencion'] = Auth::user()->username;
 				
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['tipo_actividad'] == 'REALIZADA') {
@@ -185,6 +188,10 @@ class LlamadasServicioController extends Controller
 					}
 					// dd($data);
 
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
 					$dataHfcObjetada = new InstalacionHfcObjetada($data);
 
                     // Guardamos la instancia en la base de datos
@@ -234,6 +241,9 @@ class LlamadasServicioController extends Controller
 						}
 					}
 					// dd($data);
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
 
 					$dataHfcTransferida= new InstalacionHfcTransferida($data);
 
@@ -284,6 +294,9 @@ class LlamadasServicioController extends Controller
 						}
 					}
 					// dd($data);
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
 
 					$dataHfcAnulada= new InstalacionHfcAnulada($data);
 
@@ -348,6 +361,10 @@ class LlamadasServicioController extends Controller
 				}
 				// dd($data);
 
+				// Agregamos el usuario actual como creador y atendedor del registro
+				$data['username_creacion'] = Auth::user()->username;
+				$data['username_atencion'] = Auth::user()->username;
+
 				
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['tipo_actividadGpon'] == 'REALIZADA') {
@@ -402,6 +419,10 @@ class LlamadasServicioController extends Controller
 					}
 					// dd($data);
 
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
 					$dataGponObjetada = new InstalacionGponObjetada($data);
 
                     // Guardamos la instancia en la base de datos
@@ -452,6 +473,10 @@ class LlamadasServicioController extends Controller
 					}
 					// dd($data);
 
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
 					$dataGponTransferida= new InstalacionGponTransferida($data);
 
                     // Guardamos la instancia en la base de datos
@@ -501,6 +526,10 @@ class LlamadasServicioController extends Controller
 						}
 					}
 					// dd($data);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
 
 					$dataGponAnulada= new InstalacionGponAnulada($data);
 
@@ -554,6 +583,10 @@ class LlamadasServicioController extends Controller
 				}
 				// dd($data);
 
+				// Agregamos el usuario actual como creador y atendedor del registro
+				$data['username_creacion'] = Auth::user()->username;
+				$data['username_atencion'] = Auth::user()->username;
+
 				
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['tipo_actividadCobre'] == 'REALIZADA') {
@@ -606,6 +639,10 @@ class LlamadasServicioController extends Controller
 					}
 					// dd($data);
 
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
 					$dataCobreObjetada = new InstalacionCobreObjetada($data);
 
                     // Guardamos la instancia en la base de datos
@@ -651,7 +688,11 @@ class LlamadasServicioController extends Controller
 							$data[$fieldName] = $value;
 						}
 					}
-					dd($data);
+					// dd($data);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
 
 					$dataAdslAnulada = new InstalacionAdslAnulada($data);
 
@@ -717,6 +758,10 @@ class LlamadasServicioController extends Controller
 					}
 				}
 				// dd($data);
+
+				// Agregamos el usuario actual como creador y atendedor del registro
+				$data['username_creacion'] = Auth::user()->username;
+				$data['username_atencion'] = Auth::user()->username;
 				
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['tipo_actividadDth'] == 'REALIZADA') {
@@ -767,6 +812,10 @@ class LlamadasServicioController extends Controller
 						}
 					}
 					// dd($data);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
 
 					$dataDthObjetada = new InstalacionDthObjetada($data);
 
@@ -872,6 +921,10 @@ class LlamadasServicioController extends Controller
 				}
 				// dd($data);
 
+				// Agregamos el usuario actual como creador y atendedor del registro
+				$data['username_creacion'] = Auth::user()->username;
+				$data['username_atencion'] = Auth::user()->username;
+
 				
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['tipo_actividadAdsl'] == 'REALIZADA') {
@@ -922,6 +975,10 @@ class LlamadasServicioController extends Controller
 						}
 					}
 					// dd($data);
+					
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
 
 					$dataAdslObjetada = new InstalacionAdslObjetada($data);
 
@@ -969,6 +1026,11 @@ class LlamadasServicioController extends Controller
 						}
 					}
 					// dd($data);
+
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
 
 					$dataAdslAnulada = new InstalacionAdslAnulada($data);
 
