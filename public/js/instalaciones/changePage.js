@@ -7,6 +7,7 @@ const input_orden = document.getElementById("select_ordenhide");
 const pages = {
   POSTVENTA: "postventa",
   INSTALACION: "instalaciones",
+  REPARACIONES: "reparaciones",
 };
 
 function redirectToPage(page) {

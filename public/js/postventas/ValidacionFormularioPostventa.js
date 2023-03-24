@@ -20,6 +20,1287 @@ form.addEventListener("submit", function (event) {
   const selectTecnologia = document.querySelector("select[name='tecnologia']");
 
   switch (selectPostventa.value + "|" + selectTecnologia.value) {
+    case "TRASLADO|HFC":
+      const TipoActividadTrasladoHfc = document.getElementById(
+        "TipoActividadTrasladoHfc"
+      ).value;
+
+      if (TipoActividadTrasladoHfc === "REALIZADA") {
+        const OrdenTvTrasladoHfc =
+          document.getElementById("OrdenTvTrasladoHfc").value;
+        const OrdenInternetTrasladoHfc = document.getElementById(
+          "OrdenInternetTrasladoHfc"
+        ).value;
+        const OrdenLineaTrasladoHfc = document.getElementById(
+          "OrdenLineaTrasladoHfc"
+        ).value;
+        const ObservacionesTrasladoHfc = document.getElementById(
+          "ObservacionesTrasladoHfc"
+        ).value;
+        const TrabajadoTrasladoHfc = document.getElementById(
+          "TrabajadoTrasladoHfc"
+        ).value;
+        const RecibeHfcRealizado =
+          document.getElementById("RecibeHfcRealizado").value;
+        const NodoTrasladoHfc =
+          document.getElementById("NodoTrasladoHfc").value;
+        const TapTrasladoHfc = document.getElementById("TapTrasladoHfc").value;
+        const PosicionTrasladoHfc = document.getElementById(
+          "PosicionTrasladoHfc"
+        ).value;
+        const MaterialesTrasladoHfc = document.getElementById(
+          "MaterialesTrasladoHfc"
+        ).value;
+
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoHfc === "" ||
+          // OrdenTvTraslAnuladoGpon === "" ||
+          // OrdenIntTrasladoAnulGpon === "" ||
+          // OrdenLineaTraslAnulGpon === "" ||
+          ObservacionesTrasladoHfc === "" ||
+          TrabajadoTrasladoHfc === "" ||
+          RecibeHfcRealizado === "" ||
+          NodoTrasladoHfc === "" ||
+          TapTrasladoHfc === "" ||
+          PosicionTrasladoHfc === "" ||
+          MaterialesTrasladoHfc === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        let errorMensaje = "";
+
+        switch (Select_Postventa) {
+          case "TRASLADO":
+            if (
+              OrdenTvTrasladoHfc === "" &&
+              OrdenInternetTrasladoHfc === "" &&
+              OrdenLineaTrasladoHfc === ""
+            ) {
+              errorMensaje = "Debes ingresar al menos un N° Orden";
+            }
+            if (
+              OrdenTvTrasladoHfc !== "" &&
+              parseInt(OrdenTvTrasladoHfc.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Tv";
+            }
+            if (
+              OrdenInternetTrasladoHfc !== "" &&
+              parseInt(OrdenInternetTrasladoHfc.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Internet";
+            }
+            if (
+              OrdenLineaTrasladoHfc !== "" &&
+              parseInt(OrdenLineaTrasladoHfc.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Linea";
+            }
+
+            break;
+        }
+
+        if (errorMensaje !== "") {
+          Swal.fire({
+            icon: "error",
+            title: errorMensaje,
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadTrasladoHfc === "OBJETADA") {
+        const OrdenTvTrasladoHfc =
+          document.getElementById("OrdenTvTrasladoHfc").value;
+        const OrdenInternetTrasladoHfc = document.getElementById(
+          "OrdenInternetTrasladoHfc"
+        ).value;
+        const OrdenLineaObjetadoTrasladoHfc = document.getElementById(
+          "OrdenLineaObjetadoTrasladoHfc"
+        ).value;
+        const MotivoObjTrasladoHfc = document.getElementById(
+          "MotivoObjTrasladoHfc"
+        ).value;
+        const TrabajadoObjTrasladoHfc = document.getElementById(
+          "TrabajadoObjTrasladoHfc"
+        ).value;
+        const ObvsObjTrasladoHfc =
+          document.getElementById("ObvsObjTrasladoHfc").value;
+        const ComentariosObjTrasladoHfc = document.getElementById(
+          "ComentariosObjTrasladoHfc"
+        ).value;
+
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoHfc === "" ||
+          // OrdenTvTraslAnuladoGpon === "" ||
+          // OrdenIntTrasladoAnulGpon === "" ||
+          // OrdenLineaTraslAnulGpon === "" ||
+          MotivoObjTrasladoHfc === "" ||
+          TrabajadoObjTrasladoHfc === "" ||
+          ObvsObjTrasladoHfc === "" ||
+          ComentariosObjTrasladoHfc === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        let errorMensaje = "";
+
+        switch (Select_Postventa) {
+          case "TRASLADO":
+            if (
+              OrdenTvTrasladoHfc === "" &&
+              OrdenInternetTrasladoHfc === "" &&
+              OrdenLineaObjetadoTrasladoHfc === ""
+            ) {
+              errorMensaje = "Debes ingresar al menos un N° Orden";
+            }
+            if (
+              OrdenTvTrasladoHfc !== "" &&
+              parseInt(OrdenTvTrasladoHfc.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Tv";
+            }
+            if (
+              OrdenInternetTrasladoHfc !== "" &&
+              parseInt(OrdenInternetTrasladoHfc.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Internet";
+            }
+            if (
+              OrdenLineaTrasladoHfc !== "" &&
+              parseInt(OrdenLineaTrasladoHfc.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Linea";
+            }
+
+            break;
+        }
+
+        if (errorMensaje !== "") {
+          Swal.fire({
+            icon: "error",
+            title: errorMensaje,
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadTrasladoHfc === "ANULACION") {
+        const OrdenTvAnulTraslHfc = document.getElementById(
+          "OrdenTvAnulTraslHfc"
+        ).value;
+        const OrdenInterAnulTraslHfc = document.getElementById(
+          "OrdenInterAnulTraslHfc"
+        ).value;
+        const OrdenLineaAnulTraslHfc = document.getElementById(
+          "OrdenLineaAnulTraslHfc"
+        ).value;
+        const MotivoAnuladaTraslado_Hfc = document.getElementById(
+          "MotivoAnuladaTraslado_Hfc"
+        ).value;
+        const TrabajadoAnuladaTraslado_Hfc = document.getElementById(
+          "TrabajadoAnuladaTraslado_Hfc"
+        ).value;
+        const ComenAnuladaTraslado_Hfc = document.getElementById(
+          "ComenAnuladaTraslado_Hfc"
+        ).value;
+
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoHfc === "" ||
+          // OrdenTvTraslAnuladoGpon === "" ||
+          // OrdenIntTrasladoAnulGpon === "" ||
+          // OrdenLineaTraslAnulGpon === "" ||
+          MotivoAnuladaTraslado_Hfc === "" ||
+          TrabajadoAnuladaTraslado_Hfc === "" ||
+          ComenAnuladaTraslado_Hfc === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        let errorMensaje = "";
+
+        switch (Select_Postventa) {
+          case "TRASLADO":
+            if (
+              OrdenTvAnulTraslHfc === "" &&
+              OrdenInterAnulTraslHfc === "" &&
+              OrdenLineaAnulTraslHfc === ""
+            ) {
+              errorMensaje = "Debes ingresar al menos un N° Orden";
+            }
+            if (
+              OrdenTvAnulTraslHfc !== "" &&
+              parseInt(OrdenTvAnulTraslHfc.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Tv";
+            }
+            if (
+              OrdenInterAnulTraslHfc !== "" &&
+              parseInt(OrdenInterAnulTraslHfc.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Internet";
+            }
+            if (
+              OrdenLineaAnulTraslHfc !== "" &&
+              parseInt(OrdenLineaAnulTraslHfc.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Linea";
+            }
+
+            break;
+        }
+
+        if (errorMensaje !== "") {
+          Swal.fire({
+            icon: "error",
+            title: errorMensaje,
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadTrasladoHfc === "TRANSFERIDA") {
+        const OrdenTvTransferidoHfc = document.getElementById(
+          "OrdenTvTransferidoHfc"
+        ).value;
+        const OrdenInternetTransferidoHfc = document.getElementById(
+          "OrdenInternetTransferidoHfc"
+        ).value;
+        const OrdenLineaTransferidoHfc = document.getElementById(
+          "OrdenLineaTransferidoHfc"
+        ).value;
+        const MotivoTransTrasladoHfc = document.getElementById(
+          "MotivoTransTrasladoHfc"
+        ).value;
+        const TrabajadoTransTrasladoHfc = document.getElementById(
+          "TrabajadoTransTrasladoHfc"
+        ).value;
+        const ComentarioTrasladoTransHfc = document.getElementById(
+          "ComentarioTrasladoTransHfc"
+        ).value;
+
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoHfc === "" ||
+          // OrdenTvTraslAnuladoGpon === "" ||
+          // OrdenIntTrasladoAnulGpon === "" ||
+          // OrdenLineaTraslAnulGpon === "" ||
+          MotivoTransTrasladoHfc === "" ||
+          TrabajadoTransTrasladoHfc === "" ||
+          ComentarioTrasladoTransHfc === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        let errorMensaje = "";
+
+        switch (Select_Postventa) {
+          case "TRASLADO":
+            if (
+              OrdenTvTransferidoHfc === "" &&
+              OrdenInternetTransferidoHfc === "" &&
+              OrdenLineaTransferidoHfc === ""
+            ) {
+              errorMensaje = "Debes ingresar al menos un N° Orden";
+            }
+            if (
+              OrdenTvTransferidoHfc !== "" &&
+              parseInt(OrdenTvTransferidoHfc.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Tv";
+            }
+            if (
+              OrdenInternetTransferidoHfc !== "" &&
+              parseInt(OrdenInternetTransferidoHfc.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Internet";
+            }
+            if (
+              OrdenLineaTransferidoHfc !== "" &&
+              parseInt(OrdenLineaTransferidoHfc.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Linea";
+            }
+
+            break;
+        }
+
+        if (errorMensaje !== "") {
+          Swal.fire({
+            icon: "error",
+            title: errorMensaje,
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      }
+      break;
+    case "TRASLADO|GPON":
+      const TipoActividadTrasladoGpon = document.getElementById(
+        "TipoActividadTrasladoGpon"
+      ).value;
+
+      if (TipoActividadTrasladoGpon === "REALIZADA") {
+        const OrdenTvTraslAnuladoGpon = document.getElementById(
+          "OrdenTvTraslAnuladoGpon"
+        ).value;
+        const OrdenTvTrasladoGpon = document.getElementById(
+          "OrdenTvTrasladoGpon"
+        ).value;
+        const OrdenInternetTrasladoGpon = document.getElementById(
+          "OrdenInternetTrasladoGpon"
+        ).value;
+        const OrdenLineaTrasladoGpon = document.getElementById(
+          "OrdenLineaTrasladoGpon"
+        ).value;
+        const ObvsTrasladoGpon =
+          document.getElementById("ObvsTrasladoGpon").value;
+        const RecibeTrasladoGpon =
+          document.getElementById("RecibeTrasladoGpon").value;
+        const NodoTrasladoGpon =
+          document.getElementById("NodoTrasladoGpon").value;
+        const TapTrasladoGpon =
+          document.getElementById("TapTrasladoGpon").value;
+        const PosicionTrasladoGpon = document.getElementById(
+          "PosicionTrasladoGpon"
+        ).value;
+        const MaterialesTrasladoGpon = document.getElementById(
+          "MaterialesTrasladoGpon"
+        ).value;
+
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoGpon === "" ||
+          // OrdenTvTraslAnuladoGpon === "" ||
+          // OrdenIntTrasladoAnulGpon === "" ||
+          // OrdenLineaTraslAnulGpon === "" ||
+          ObvsTrasladoGpon === "" ||
+          RecibeTrasladoGpon === "" ||
+          NodoTrasladoGpon === "" ||
+          TapTrasladoGpon === "" ||
+          PosicionTrasladoGpon === "" ||
+          MaterialesTrasladoGpon === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        let errorMensaje = "";
+
+        switch (Select_Postventa) {
+          case "TRASLADO":
+            if (
+              OrdenTvTrasladoGpon === "" &&
+              OrdenInternetTrasladoGpon === "" &&
+              OrdenLineaTrasladoGpon === ""
+            ) {
+              errorMensaje = "Debes ingresar al menos un N° Orden";
+            }
+            if (
+              OrdenTvTrasladoGpon !== "" &&
+              parseInt(OrdenTvTrasladoGpon.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Tv";
+            }
+            if (
+              OrdenInternetTrasladoGpon !== "" &&
+              parseInt(OrdenInternetTrasladoGpon.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Internet";
+            }
+            if (
+              OrdenLineaTrasladoGpon !== "" &&
+              parseInt(OrdenLineaTrasladoGpon.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Linea";
+            }
+
+            break;
+        }
+
+        if (errorMensaje !== "") {
+          Swal.fire({
+            icon: "error",
+            title: errorMensaje,
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadTrasladoGpon === "OBJETADA") {
+        const OrdenTvTrasladoObjGpon = document.getElementById(
+          "OrdenTvTrasladoObjGpon"
+        ).value;
+        const OrdenInterObjTraslGpon = document.getElementById(
+          "OrdenInterObjTraslGpon"
+        ).value;
+        const OrdenLineaTraslObjGpon = document.getElementById(
+          "OrdenLineaTraslObjGpon"
+        ).value;
+        const MotivoObjTrasladoGpon = document.getElementById(
+          "MotivoObjTrasladoGpon"
+        ).value;
+        const TrabajadoTrasladoObjGpon = document.getElementById(
+          "TrabajadoTrasladoObjGpon"
+        ).value;
+        const ObvsTrasladoObjGpon = document.getElementById(
+          "ObvsTrasladoObjGpon"
+        ).value;
+        const ComentTrasladoObjGpon = document.getElementById(
+          "ComentTrasladoObjGpon"
+        ).value;
+
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoGpon === "" ||
+          // OrdenTvTraslAnuladoGpon === "" ||
+          // OrdenIntTrasladoAnulGpon === "" ||
+          // OrdenLineaTraslAnulGpon === "" ||
+          MotivoObjTrasladoGpon === "" ||
+          TrabajadoTrasladoObjGpon === "" ||
+          ObvsTrasladoObjGpon === "" ||
+          ComentTrasladoObjGpon === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        let errorMensaje = "";
+
+        switch (Select_Postventa) {
+          case "TRASLADO":
+            if (
+              OrdenTvTrasladoObjGpon === "" &&
+              OrdenInterObjTraslGpon === "" &&
+              OrdenLineaTraslObjGpon === ""
+            ) {
+              errorMensaje = "Debes ingresar al menos un N° Orden";
+            }
+            if (
+              OrdenTvTrasladoObjGpon !== "" &&
+              parseInt(OrdenTvTrasladoObjGpon.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Tv";
+            }
+            if (
+              OrdenInterObjTraslGpon !== "" &&
+              parseInt(OrdenInterObjTraslGpon.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Internet";
+            }
+            if (
+              OrdenLineaTraslObjGpon !== "" &&
+              parseInt(OrdenLineaTraslObjGpon.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Linea";
+            }
+
+            break;
+        }
+
+        if (errorMensaje !== "") {
+          Swal.fire({
+            icon: "error",
+            title: errorMensaje,
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadTrasladoGpon === "ANULACION") {
+        const OrdenTvTraslAnuladoGpon = document.getElementById(
+          "OrdenTvTraslAnuladoGpon"
+        ).value;
+        const OrdenIntTrasladoAnulGpon = document.getElementById(
+          "OrdenIntTrasladoAnulGpon"
+        ).value;
+        const OrdenLineaTraslAnulGpon = document.getElementById(
+          "OrdenLineaTraslAnulGpon"
+        ).value;
+        const MotivoTrasladoAnulada_Gpon = document.getElementById(
+          "MotivoTrasladoAnulada_Gpon"
+        ).value;
+        const TrabajadoAnuladaTraslado_gpon = document.getElementById(
+          "TrabajadoAnuladaTraslado_gpon"
+        ).value;
+        const ComentarioTrasladoAnulada_Gpon = document.getElementById(
+          "ComentarioTrasladoAnulada_Gpon"
+        ).value;
+
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoGpon === "" ||
+          // OrdenTvTraslAnuladoGpon === "" ||
+          // OrdenIntTrasladoAnulGpon === "" ||
+          // OrdenLineaTraslAnulGpon === "" ||
+          MotivoTrasladoAnulada_Gpon === "" ||
+          TrabajadoAnuladaTraslado_gpon === "" ||
+          ComentarioTrasladoAnulada_Gpon === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        let errorMensaje = "";
+
+        switch (Select_Postventa) {
+          case "TRASLADO":
+            if (
+              OrdenTvTraslAnuladoGpon === "" &&
+              OrdenIntTrasladoAnulGpon === "" &&
+              OrdenLineaTraslAnulGpon === ""
+            ) {
+              errorMensaje = "Debes ingresar al menos un N° Orden";
+            }
+            if (
+              OrdenTvTraslAnuladoGpon !== "" &&
+              parseInt(OrdenTvTraslAnuladoGpon.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Tv";
+            }
+            if (
+              OrdenIntTrasladoAnulGpon !== "" &&
+              parseInt(OrdenIntTrasladoAnulGpon.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Internet";
+            }
+            if (
+              OrdenLineaTraslAnulGpon !== "" &&
+              parseInt(OrdenLineaTraslAnulGpon.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Linea";
+            }
+
+            break;
+        }
+
+        if (errorMensaje !== "") {
+          Swal.fire({
+            icon: "error",
+            title: errorMensaje,
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadTrasladoGpon === "TRANSFERIDA") {
+        const OrdenTvTrasladoTransGpon = document.getElementById(
+          "OrdenTvTrasladoTransGpon"
+        ).value;
+        const OrdenIntTransladoGpon = document.getElementById(
+          "OrdenIntTransladoGpon"
+        ).value;
+        const OrdenLineaTrasladoTransGpon = document.getElementById(
+          "OrdenLineaTrasladoTransGpon"
+        ).value;
+        const MotivoTransTrasladoGpon = document.getElementById(
+          "MotivoTransTrasladoGpon"
+        ).value;
+        const TrabajadoTraslTransGpon = document.getElementById(
+          "TrabajadoTraslTransGpon"
+        ).value;
+        const ComentTrasladoTransGpon = document.getElementById(
+          "ComentTrasladoTransGpon"
+        ).value;
+
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoGpon === "" ||
+          // OrdenTvTraslAnuladoGpon === "" ||
+          // OrdenIntTrasladoAnulGpon === "" ||
+          // OrdenLineaTraslAnulGpon === "" ||
+          MotivoTransTrasladoGpon === "" ||
+          TrabajadoTraslTransGpon === "" ||
+          ComentTrasladoTransGpon === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        let errorMensaje = "";
+
+        switch (Select_Postventa) {
+          case "TRASLADO":
+            if (
+              OrdenTvTrasladoTransGpon === "" &&
+              OrdenIntTransladoGpon === "" &&
+              OrdenLineaTrasladoTransGpon === ""
+            ) {
+              errorMensaje = "Debes ingresar al menos un N° Orden";
+            }
+            if (
+              OrdenTvTrasladoTransGpon !== "" &&
+              parseInt(OrdenTvTrasladoTransGpon.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Tv";
+            }
+            if (
+              OrdenIntTransladoGpon !== "" &&
+              parseInt(OrdenIntTransladoGpon.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Internet";
+            }
+            if (
+              OrdenLineaTrasladoTransGpon !== "" &&
+              parseInt(OrdenLineaTrasladoTransGpon.length) !== 8
+            ) {
+              errorMensaje = "Debes ingresar 8 digitos en N° Orden Linea";
+            }
+
+            break;
+        }
+
+        if (errorMensaje !== "") {
+          Swal.fire({
+            icon: "error",
+            title: errorMensaje,
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      }
+      break;
+    case "TRASLADO|ADSL":
+      const TipoActividadTrasladoAdsl = document.getElementById(
+        "TipoActividadTrasladoAdsl"
+      ).value;
+
+      const NOrdenTrasladosAdsl = document.getElementById(
+        "NOrdenTrasladosAdsl"
+      ).value;
+
+      const GeorefTrasladoAdsl =
+        document.getElementById("GeorefTrasladoAdsl").value;
+      const MaterialesTrasladoAdsl = document.getElementById(
+        "MaterialesTrasladoAdsl"
+      ).value;
+      const TrabajadoTrasladoAdsl = document.getElementById(
+        "TrabajadoTrasladoAdsl"
+      ).value;
+      const ObvsTrasladoAdsl =
+        document.getElementById("ObvsTrasladoAdsl").value;
+      const RecibeTrasladoAdsl =
+        document.getElementById("RecibeTrasladoAdsl").value;
+
+      if (TipoActividadTrasladoAdsl === "REALIZADA") {
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoAdsl === "" ||
+          NOrdenTrasladosAdsl === "" ||
+          GeorefTrasladoAdsl === "" ||
+          MaterialesTrasladoAdsl === "" ||
+          TrabajadoTrasladoAdsl === "" ||
+          ObvsTrasladoAdsl === "" ||
+          RecibeTrasladoAdsl === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        if (parseInt(NOrdenTrasladosAdsl.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° de orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        if (!regexCoordenadas.test(GeorefTrasladoAdsl)) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title:
+              "Las coordenadas deben estar en el formato latitud, longitud",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadTrasladoAdsl === "OBJETADA") {
+        const MotivoObjTrasladoAdsl = document.getElementById(
+          "MotivoObjTrasladoAdsl"
+        ).value;
+        const OrdenObjTrasladoAdsl = document.getElementById(
+          "OrdenObjTrasladoAdsl"
+        ).value;
+        const TrabajadoTrasladoObjAdsl = document.getElementById(
+          "TrabajadoTrasladoObjAdsl"
+        ).value;
+        const ObvsTrasladoObjAdsl = document.getElementById(
+          "ObvsTrasladoObjAdsl"
+        ).value;
+        const ComentariosTrasladosObjAdsl = document.getElementById(
+          "ComentariosTrasladosObjAdsl"
+        ).value;
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoAdsl === "" ||
+          MotivoObjTrasladoAdsl === "" ||
+          OrdenObjTrasladoAdsl === "" ||
+          TrabajadoTrasladoObjAdsl === "" ||
+          ObvsTrasladoObjAdsl === "" ||
+          ComentariosTrasladosObjAdsl === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        if (parseInt(OrdenObjTrasladoAdsl.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° Orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadTrasladoAdsl === "ANULACION") {
+        const MotivoTrasladoAnulada_Adsl = document.getElementById(
+          "MotivoTrasladoAnulada_Adsl"
+        ).value;
+        const NOrdenTrasladosAnulAdsl = document.getElementById(
+          "NOrdenTrasladosAnulAdsl"
+        ).value;
+        const TrabajadoAnulada_Adsl = document.getElementById(
+          "TrabajadoAnulada_Adsl"
+        ).value;
+        const ComentarioTrasladoAnulada_Adsl = document.getElementById(
+          "ComentarioTrasladoAnulada_Adsl"
+        ).value;
+
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoAdsl === "" ||
+          MotivoTrasladoAnulada_Adsl === "" ||
+          NOrdenTrasladosAnulAdsl === "" ||
+          TrabajadoAnulada_Adsl === "" ||
+          ComentarioTrasladoAnulada_Adsl === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        if (parseInt(NOrdenTrasladosAnulAdsl.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° Orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      }
+      break;
+    case "TRASLADO|COBRE":
+      const TipoActividadTrasladoCobre = document.getElementById(
+        "TipoActividadTrasladoCobre"
+      ).value;
+
+      const OrdenTrasladoCobre =
+        document.getElementById("OrdenTrasladoCobre").value;
+      const GeorefTrasladoCobre = document.getElementById(
+        "GeorefTrasladoCobre"
+      ).value;
+      const MaterialesTrasladoCobre = document.getElementById(
+        "MaterialesTrasladoCobre"
+      ).value;
+      const TrabajadoTrasladoCobre = document.getElementById(
+        "TrabajadoTrasladoCobre"
+      ).value;
+      const ObvsTrasladoCobre =
+        document.getElementById("ObvsTrasladoCobre").value;
+      const RecibeTrasladoCobre = document.getElementById(
+        "RecibeTrasladoCobre"
+      ).value;
+
+      if (TipoActividadTrasladoCobre === "REALIZADA") {
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoCobre === "" ||
+          OrdenTrasladoCobre === "" ||
+          GeorefTrasladoCobre === "" ||
+          MaterialesTrasladoCobre === "" ||
+          TrabajadoTrasladoCobre === "" ||
+          ObvsTrasladoCobre === "" ||
+          RecibeTrasladoCobre === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        if (parseInt(OrdenTrasladoCobre.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° de orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        if (!regexCoordenadas.test(GeorefTrasladoCobre)) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title:
+              "Las coordenadas deben estar en el formato latitud, longitud",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadTrasladoCobre === "OBJETADA") {
+        const MotivoObjTrasladoCobre = document.getElementById(
+          "MotivoObjTrasladoCobre"
+        ).value;
+        const OrdenTrasladoObjCobres = document.getElementById(
+          "OrdenTrasladoObjCobres"
+        ).value;
+        const TrabajadoTrasladoObjCobre = document.getElementById(
+          "TrabajadoTrasladoObjCobre"
+        ).value;
+        const ObsObjTrasladoCobre = document.getElementById(
+          "ObsObjTrasladoCobre"
+        ).value;
+        const ComentariosObjTrasladoCobre = document.getElementById(
+          "ComentariosObjTrasladoCobre"
+        ).value;
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoCobre === "" ||
+          MotivoObjTrasladoCobre === "" ||
+          OrdenTrasladoObjCobres === "" ||
+          TrabajadoTrasladoObjCobre === "" ||
+          ObsObjTrasladoCobre === "" ||
+          ComentariosObjTrasladoCobre === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        if (parseInt(OrdenTrasladoObjCobres.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° Orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadTrasladoCobre === "ANULACION") {
+        const MotivoTrasladoAnulada_Cobre = document.getElementById(
+          "MotivoTrasladoAnulada_Cobre"
+        ).value;
+        const OrdenTrasladosCobre = document.getElementById(
+          "OrdenTrasladosCobre"
+        ).value;
+        const TrabajadoAnulada_Cobre = document.getElementById(
+          "TrabajadoAnulada_Cobre"
+        ).value;
+        const ComentarioTrasladoAnulada_Cobre = document.getElementById(
+          "ComentarioTrasladoAnulada_Cobre"
+        ).value;
+
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoCobre === "" ||
+          MotivoTrasladoAnulada_Cobre === "" ||
+          OrdenTrasladosCobre === "" ||
+          TrabajadoAnulada_Cobre === "" ||
+          ComentarioTrasladoAnulada_Cobre === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        if (parseInt(OrdenTrasladosCobre.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° Orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      }
+      break;
+    case "TRASLADO|DTH":
+      const TipoActividadTrasladoDth = document.getElementById(
+        "TipoActividadTrasladoDth"
+      ).value;
+      const OrdenTrasladoDth =
+        document.getElementById("OrdenTrasladoDth").value;
+      const GeorefTrasladoDth =
+        document.getElementById("GeorefTrasladoDth").value;
+      const MaterialesTrasladoDth = document.getElementById(
+        "MaterialesTrasladoDth"
+      ).value;
+      const TrabajadoTrasladoDth = document.getElementById(
+        "TrabajadoTrasladoDth"
+      ).value;
+      const RecibeTrasladoDth =
+        document.getElementById("RecibeTrasladoDth").value;
+      const ObvsTrasladoDth = document.getElementById("ObvsTrasladoDth").value;
+      if (TipoActividadTrasladoDth === "REALIZADA") {
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoDth === "" ||
+          OrdenTrasladoDth === "" ||
+          GeorefTrasladoDth === "" ||
+          MaterialesTrasladoDth === "" ||
+          TrabajadoTrasladoDth === "" ||
+          ObvsTrasladoDth === "" ||
+          RecibeTrasladoDth === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        if (parseInt(OrdenTrasladoDth.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° de orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        if (!regexCoordenadas.test(GeorefTrasladoDth)) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title:
+              "Las coordenadas deben estar en el formato latitud, longitud",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadTrasladoDth === "OBJETADA") {
+        const MotivoObjTrasladoDth = document.getElementById(
+          "MotivoObjTrasladoDth"
+        ).value;
+        const OrdenTrasladoObjDth = document.getElementById(
+          "OrdenTrasladoObjDth"
+        ).value;
+        const TrabajadoTrasladoObj_Dth = document.getElementById(
+          "TrabajadoTrasladoObj_Dth"
+        ).value;
+        const ObvsTrasladoObjDth =
+          document.getElementById("ObvsTrasladoObjDth").value;
+        const ComentariosTrasladoObjDth = document.getElementById(
+          "ComentariosTrasladoObjDth"
+        ).value;
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoDth === "" ||
+          MotivoObjTrasladoDth === "" ||
+          OrdenTrasladoObjDth === "" ||
+          TrabajadoTrasladoObj_Dth === "" ||
+          ObvsTrasladoObjDth === "" ||
+          ComentariosTrasladoObjDth === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        if (parseInt(OrdenTrasladoObjDth.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° Orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadTrasladoDth === "ANULACION") {
+        const OrdenTrasladosDth =
+          document.getElementById("OrdenTrasladosDth").value;
+        const MotivoTrasladoAnulada_Dth = document.getElementById(
+          "MotivoTrasladoAnulada_Dth"
+        ).value;
+        const TrabajadoTrasladoAnulada_Dth = document.getElementById(
+          "TrabajadoTrasladoAnulada_Dth"
+        ).value;
+        const ComentarioTrasladoAnulada_Dth = document.getElementById(
+          "ComentarioTrasladoAnulada_Dth"
+        ).value;
+
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadTrasladoDth === "" ||
+          MotivoTrasladoAnulada_Dth === "" ||
+          OrdenTrasladosDth === "" ||
+          TrabajadoTrasladoAnulada_Dth === "" ||
+          ComentarioTrasladoAnulada_Dth === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        if (parseInt(OrdenTrasladosDth.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° Orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      }
+      break;
     case "ADICION|HFC":
       const TipoActividadAdicionHfc = document.getElementById(
         "TipoActividadAdicionHfc"

@@ -25,8 +25,8 @@ class CrearTablaPostventaTrasladoDthAnulada extends Migration
             $table->string('TipoActividadTrasladoDth');
             $table->string('MotivoTrasladoAnulada_Dth');
             $table->integer('OrdenTrasladosDth');
-            $table->string('TrabajadoTrasladoAnulada_Hfc');
-            $table->string('ComentarioTrasladoAnulada_Hfc');
+            $table->string('TrabajadoTrasladoAnulada_Dth');
+            $table->string('ComentarioTrasladoAnulada_Dth');
             $table->string('username_creacion')->references('username')->on('users');
             $table->string('username_atencion')->references('username')->on('users')->nullable();
             $table->timestamps();

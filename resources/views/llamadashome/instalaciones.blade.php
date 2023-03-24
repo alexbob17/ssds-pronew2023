@@ -382,24 +382,22 @@
                                             style="width: 100%;" name="MotivoObjetada_Hfc" tabindex="-1"
                                             id="MotivoObjetada_Hfc" aria-hidden="true">
                                             <option value="">SELECCIONE UNA OPCION</option>
-                                            <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                             </option>
                                             <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
                                             </option>
-                                            <option value="NO SE LOCALIZA AL CLIENTE">NO SE LOCALIZA AL CLIENTE
-                                            </option>
-                                            <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
+                                            <option value="SYREM INEXISTENTE"> SYREM
                                                 INEXISTENTE </option>
                                             <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
                                                 OPEN </option>
-                                            <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
-                                            <option value="RED NO HABILITADA">RED NO HABILITADA </option>
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                                INCOMPLETOS / ERRADOS </option>
                                             <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
                                             <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
                                             </option>
-                                            <option value="VANDALISMO"> VANDALISMO </option>
+                                            <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
+                                            <option value="OTROS"> OTROS </option>
                                         </select>
                                     </div>
                                 </div>
@@ -680,24 +678,22 @@
                                     name="MotivoObjetada_Adsl" tabindex="-1" id="MotivoObjetada_Adsl"
                                     aria-hidden="true">
                                     <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                    <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                     <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                     <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                     </option>
                                     <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
                                     </option>
-                                    <option value="NO SE LOCALIZA AL CLIENTE">NO SE LOCALIZA AL CLIENTE
-                                    </option>
-                                    <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
+                                    <option value="SYREM INEXISTENTE"> SYREM
                                         INEXISTENTE </option>
                                     <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
                                         OPEN </option>
-                                    <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
-                                    <option value="RED NO HABILITADA">RED NO HABILITADA </option>
+                                    <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                        INCOMPLETOS / ERRADOS </option>
                                     <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
                                     <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
                                     </option>
-                                    <option value="VANDALISMO"> VANDALISMO </option>
+                                    <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
+                                    <option value="OTROS"> OTROS </option>
                                 </select>
                             </div>
                             <div class="form-group col-md-3">
@@ -1089,24 +1085,22 @@
                                             style="width: 100%;" name="MotivoObjetada_Dth" tabindex="-1"
                                             id="MotivoObjetada_Dth" aria-hidden="true">
                                             <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                             </option>
                                             <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
                                             </option>
-                                            <option value="NO SE LOCALIZA AL CLIENTE">NO SE LOCALIZA AL CLIENTE
-                                            </option>
-                                            <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
+                                            <option value="SYREM INEXISTENTE"> SYREM
                                                 INEXISTENTE </option>
                                             <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
                                                 OPEN </option>
-                                            <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
-                                            <option value="RED NO HABILITADA">RED NO HABILITADA </option>
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                                INCOMPLETOS / ERRADOS </option>
                                             <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
                                             <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
                                             </option>
-                                            <option value="VANDALISMO"> VANDALISMO </option>
+                                            <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
+                                            <option value="OTROS"> OTROS </option>
                                         </select>
                                     </div>
                                 </div>
@@ -1341,24 +1335,22 @@
                                     name="MotivoObjetada_Cobre" tabindex="-1" id="MotivoObjetada_Cobre"
                                     aria-hidden="true">
                                     <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                    <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                     <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                     <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                     </option>
                                     <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
                                     </option>
-                                    <option value="NO SE LOCALIZA AL CLIENTE">NO SE LOCALIZA AL CLIENTE
-                                    </option>
-                                    <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
+                                    <option value="SYREM INEXISTENTE"> SYREM
                                         INEXISTENTE </option>
                                     <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
                                         OPEN </option>
-                                    <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
-                                    <option value="RED NO HABILITADA">RED NO HABILITADA </option>
+                                    <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                        INCOMPLETOS / ERRADOS </option>
                                     <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
                                     <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
                                     </option>
-                                    <option value="VANDALISMO"> VANDALISMO </option>
+                                    <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
+                                    <option value="OTROS"> OTROS </option>
                                 </select>
                             </div>
 
@@ -1818,24 +1810,22 @@
                                     name="MotivoObjetado_Gpon" tabindex="-1" id="MotivoObjetado_Gpon"
                                     aria-hidden="true">
                                     <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                    <option value="ANULACIÓN POR COD DE TEC">ANULACIÓN POR COD DE TEC </option>
                                     <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                     <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                     </option>
                                     <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
                                     </option>
-                                    <option value="NO SE LOCALIZA AL CLIENTE">NO SE LOCALIZA AL CLIENTE
-                                    </option>
-                                    <option value="NUMERO DE GESTION SYREM INEXISTENTE"> NUMERO DE GESTION SYREM
+                                    <option value="SYREM INEXISTENTE"> SYREM
                                         INEXISTENTE </option>
                                     <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
                                         OPEN </option>
-                                    <option value="RED EN CONSTRUCCION">RED EN CONSTRUCCION </option>
-                                    <option value="RED NO HABILITADA">RED NO HABILITADA </option>
+                                    <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                        INCOMPLETOS / ERRADOS </option>
                                     <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
                                     <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
                                     </option>
-                                    <option value="VANDALISMO"> VANDALISMO </option>
+                                    <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
+                                    <option value="OTROS"> OTROS </option>
                                 </select>
                             </div>
 

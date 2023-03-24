@@ -4,7 +4,7 @@ namespace SSD\Models\Postventas;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PostventaTrasladoDth_Anulada extends Model
+class PostventaTrasladoDthAnulada extends Model
 {
     protected $table = 'postventaTrasladoDth_Anulada';
     
@@ -20,8 +20,8 @@ class PostventaTrasladoDth_Anulada extends Model
         'TipoActividadTrasladoDth',
         'MotivoTrasladoAnulada_Dth',
         'OrdenTrasladosDth',
-        'TrabajadoTrasladoAnulada_Hfc',
-        'ComentarioTrasladoAnulada_Hfc',
+        'TrabajadoTrasladoAnulada_Dth',
+        'ComentarioTrasladoAnulada_Dth',
         'username_creacion',
 		'username_atencion',
     ];

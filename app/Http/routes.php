@@ -39,15 +39,18 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/llamadashome/instalaciones', 'LlamadasServicioController@showInstalaciones');
 
+	Route::get('/llamadashome/reparaciones', 'LlamadasServicioController@showReparaciones');
+
 	Route::get('/llamadashome/registro', 'RegistroController@showRegistro');
+	
 	Route::get('/tecnicos/registro', 'RegistroTecnicoController@showTecnicos');
-
-	Route::post('/tecnicos/registro', 'RegistroTecnicoController@store')->name('registro_tecnico.store');
-
+	
 	Route::get('/tecnicos/registro', 'RegistroTecnicoController@LeerTecnicos')->name('mostrar_tecnicos');
 
-	Route::delete('/tecnicos/registro/{codigo_tecnico}','RegistroTecnicoController@LeerTecnicos')->name('tecnicos_delete');
 
+	// Route::delete('/tecnicos/registro/{codigo_tecnico}','RegistroTecnicoController@LeerTecnicos')->name('tecnicos_delete');
+
+	Route::post('/tecnicos/registro', 'RegistroTecnicoController@store')->name('registro_tecnico.store');
 
 	Route::post('/llamadashome/instalaciones', 'LlamadasServicioController@store')->name('registro_llamadas.store');
 	

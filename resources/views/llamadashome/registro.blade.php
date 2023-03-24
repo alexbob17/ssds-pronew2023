@@ -73,8 +73,8 @@
                                 <option selected="selected">SELECCIONE UNA OPCION</option>
                                 <option value="INSTALACION">INSTALACION</option>
                                 <option value="POSTVENTA">POSTVENTA</option>
-                                <option value="ADSL">REPARACIONES</option>
-                                <option value="COBRE">CONSULTAS</option>
+                                <option value="REPARACIONES">REPARACIONES</option>
+                                <option value="CONSULTAS">CONSULTAS</option>
                                 <option value="ANULACIONES">ANULACIONES</option>
                                 <option value="REACTIVACION">REACTIVACION</option>
                             </select>
@@ -134,7 +134,7 @@
             <!-- User definided -->
             <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script>
             <script src="{{asset('/js/registro/ValidacionTecnico.js')}}" type="text/javascript"> </script>
-            <script src="{{asset('/js/instalaciones/registro.js')}}" type="text/javascript"> </script>
+            <script src="{{asset('/js/instalaciones/LocalStorageTecnico.js')}}" type="text/javascript"> </script>
 
             <script src="{{asset('/js/instalaciones/changePage.js')}}" type="text/javascript"> </script>
 

@@ -43,7 +43,7 @@ use SSD\Models\Postventas\PostventaAdicionHfc_Anulada;
 use SSD\Models\Postventas\PostventaAdicionHfc_Objetado;
 use SSD\Models\Postventas\PostventaAdicionHfc_Realizado;
 
-use SSD\Models\Postventas\PostventaTrasladoDth_Anulada;
+use SSD\Models\Postventas\PostventaTrasladoDthAnulada;
 use SSD\Models\Postventas\PostventaTrasladoDth_Objetado;
 use SSD\Models\Postventas\PostventaTrasladoDth_Realizado;
 
@@ -743,6 +743,7 @@ class PostventasController extends Controller
 					'MaterialesTrasladoCobre',
 					'TrabajadoTrasladoCobre',
 					'ObvsTrasladoCobre',
+					'RecibeTrasladoCobre',
 					'username_creacion',
 					'username_atencion',
 				];
@@ -1022,8 +1023,8 @@ class PostventasController extends Controller
 						'TipoActividadTrasladoDth',
 						'MotivoTrasladoAnulada_Dth',
 						'OrdenTrasladosDth',
-						'TrabajadoTrasladoAnulada_Hfc',
-						'ComentariosTrasladoObjDth',
+						'TrabajadoTrasladoAnulada_Dth',
+						'ComentarioTrasladoAnulada_Dth',
 						'username_creacion',
 						'username_atencion',
 					];
@@ -1033,9 +1034,9 @@ class PostventasController extends Controller
 					// Iteramos por los campos seleccionados del formulario
 					foreach ($selectedFields as $fieldName) {
 						$value = $request->input($fieldName);
-						if ($fieldName === 'TipoActividadTrasladoDth' && $request->has('TipoActividadTrasladoDth')) {
+						if ($fieldName === 'TrabajadoTrasladoAnulada_Dth' && $request->has('TrabajadoTrasladoAnulada_Dth')) {
 							$data[$fieldName] = 'TRABAJADO';
-						} elseif ($fieldName === 'TipoActividadTrasladoDth') {
+						} elseif ($fieldName === 'TrabajadoTrasladoAnulada_Dth') {
 							$data[$fieldName] = 'PENDIENTE';
 						} else {
 							$data[$fieldName] = $value;
@@ -1048,7 +1049,7 @@ class PostventasController extends Controller
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
 
-					$dataTrasladoDthAnulada = new PostventaTrasladoDth_Anulada($data);
+					$dataTrasladoDthAnulada = new PostventaTrasladoDthAnulada($data);
 
                     // Guardamos la instancia en la base de datos
                     $dataTrasladoDthAnulada->save();
@@ -2512,6 +2513,7 @@ class PostventasController extends Controller
 					'RecibeRetiroHfc',
 					'MaterialesRetiroHfc',
                 ];
+
 
 		
                 $data = [];

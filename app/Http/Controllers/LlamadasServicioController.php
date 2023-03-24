@@ -71,10 +71,20 @@ class LlamadasServicioController extends Controller
 		
 		return view('llamadashome/instalaciones')
 			->with('page_title', 'Instalaciones - Registro')
-			->with('navigation', 'Instalaciones');
-
-			
+			->with('navigation', 'Instalaciones');	
 	}
+
+	public function showReparaciones()
+	{		
+		$breadcrumb = [
+				['name' => 'Reparaciones - Saturado' ]
+		];		
+		
+		return view('llamadashome/reparaciones')
+			->with('page_title', 'Reparaciones - Registro')
+			->with('navigation', 'Reparaciones');	
+	}
+	
 	
 
 	public function store(Request $request)
