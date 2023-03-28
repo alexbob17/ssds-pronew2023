@@ -1021,6 +1021,7 @@ class LlamadasServicioController extends Controller
 						'username_creacion',
 						'username_atencion',
 					];
+
 	
 					$data = [];
 	
@@ -1045,15 +1046,34 @@ class LlamadasServicioController extends Controller
 					$dataAdslAnulada = new InstalacionAdslAnulada($data);
 
                     // Guardamos la instancia en la base de datos
-                    $dataAdslAnulada->save();
-
-					$message = "¡EXITO!";
-					$messages = "REGISTRO ADSL ANULADO COMPLETADO";
-                    return view('llamadashome/instalaciones')
-						->with('message', $message)
-						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Registro')
-                        ->with('navigation', 'Instalaciones');
+					try {
+						// Guardamos la instancia en la base de datos
+						$dataAdslAnulada->save();
+					
+						$message = "¡Éxito!";
+						$messages = "Registro ADSL Anulado Completado";
+						$success = true;
+					
+						return view('llamadashome/instalaciones')
+							->with('message', $message)
+							->with('messages', $messages)
+							->with('success', $success)
+							->with('page_title', 'Instalaciones - Registro')
+							->with('navigation', 'Instalaciones');
+					} catch (\Exception $e) {
+						// En caso de error, mostrar mensaje de error
+						$message = "Error";
+						$messages = "No se pudo guardar el registro de ADSL anulado";
+						$success = false;
+					
+						return view('llamadashome/instalaciones')
+							->with('message', $message)
+							->with('messages', $messages)
+							->with('success', $success)
+							->with('page_title', 'Instalaciones - Registro')
+							->with('navigation', 'Instalaciones');
+					}
+					
 					
                 }
 

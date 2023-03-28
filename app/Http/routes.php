@@ -23,7 +23,7 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(['middleware' => ['web']], function () { 
 	
 	
 	Route::get ('/', 'DashboardController@index');
@@ -35,36 +35,28 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get ('/logout', 'Auth\AuthController@logout');
 
 	// Nuevos Modulos
-	Route::get('/llamadashome/postventa', 'LlamadasServicioController@showPostVentas');
 
-	Route::get('/llamadashome/instalaciones', 'LlamadasServicioController@showInstalaciones');
+	Route::get('/llamadashome/instalaciones', 'LlamadasServicioController@showInstalaciones')->middleware('auth');
 
-	Route::get('/llamadashome/reparaciones', 'LlamadasServicioController@showReparaciones');
+	Route::get('/llamadashome/postventa', 'LlamadasServicioController@showPostVentas')->middleware('auth');
 
-	Route::get('/llamadashome/registro', 'RegistroController@showRegistro');
+
+	Route::get('/llamadashome/reparaciones', 'LlamadasServicioController@showReparaciones')->middleware('auth');
+
+	Route::get('/llamadashome/registro', 'RegistroController@showRegistro')->middleware('auth');;
 	
-	Route::get('/tecnicos/registro', 'RegistroTecnicoController@showTecnicos');
+	Route::get('/tecnicos/registro', 'RegistroTecnicoController@showTecnicos')->middleware('auth');
 	
-	Route::get('/tecnicos/registro', 'RegistroTecnicoController@LeerTecnicos')->name('mostrar_tecnicos');
+	Route::get('/tecnicos/registro', 'RegistroTecnicoController@LeerTecnicos')->name('mostrar_tecnicos')->middleware('auth');
 
 
 	// Route::delete('/tecnicos/registro/{codigo_tecnico}','RegistroTecnicoController@LeerTecnicos')->name('tecnicos_delete');
 
-	Route::post('/tecnicos/registro', 'RegistroTecnicoController@store')->name('registro_tecnico.store');
+	Route::post('/tecnicos/registro', 'RegistroTecnicoController@store')->name('registro_tecnico.store')->middleware('auth');
 
-	Route::post('/llamadashome/instalaciones', 'LlamadasServicioController@store')->name('registro_llamadas.store');
+	Route::post('/llamadashome/instalaciones', 'LlamadasServicioController@store')->name('registro_llamadas.store')->middleware('auth');
 	
-	Route::post('/llamadashome/postventa', 'PostventasController@store')->name('registro_postventa.store');
-
-
-
-
-
-
-
-
-
-
+	Route::post('/llamadashome/postventa', 'PostventasController@store')->name('registro_postventa.store')->middleware('auth');
 
 
 	
@@ -75,8 +67,8 @@ Route::group(['middleware' => ['web']], function () {
 			'usuarios'			=> 'UsuariosController',
 			'nodos'				=> 'NodosSaturadosController',
 			'reclamos'			=> 'ReclamosTecnicaController',
-			'llamadasservicio' => 'LlamadasServicioController',
-
+			'llamadashome'		=> 'LlamadasServicioController',
+			'llamadashome' 		=> 'RegistroController',
 
 	]);
 });

@@ -640,11 +640,12 @@ form.addEventListener("submit", function (event) {
         switch (select_orden) {
           case "INSTALACION DE CLARO HOGAR":
             if (EquipoModem_Hfc === "") {
-              errorMensaje3 = "Debes ingresar el Equipo Modem";
+              errorMensaje3 = "Debes ingresar el N° Equipo Modem";
             }
             if (
               EquipoModem_Hfc !== "" &&
-              parseInt(EquipoModem_Hfc.length) !== 16
+              !/^[0-9]+$/.test(EquipoModem_Hfc) &&
+              EquipoModem_Hfc.length !== 16
             ) {
               errorMensaje3 = "Debes ingresar 16 digitos en Equipo Modem.";
             }
@@ -663,7 +664,7 @@ form.addEventListener("submit", function (event) {
             break;
           case "DOBLE - TV + INTERNET":
             if (EquipoModem_Hfc === "") {
-              errorMensaje3 = "Debes ingresar el Equipo Modem";
+              errorMensaje3 = "Debes ingresar el N° Equipo Modem";
             }
             if (
               EquipoModem_Hfc !== "" &&
@@ -677,7 +678,7 @@ form.addEventListener("submit", function (event) {
             break;
           case "DOBLE - INTERNET + LINEA":
             if (EquipoModem_Hfc === "") {
-              errorMensaje3 = "Debes ingresar el Equipo Modem";
+              errorMensaje3 = "Debes ingresar el N° Equipo Modem";
             }
             if (
               EquipoModem_Hfc !== "" &&
@@ -720,7 +721,7 @@ form.addEventListener("submit", function (event) {
             break;
           case "INTERNET INDIVIDUAL":
             if (EquipoModem_Hfc === "") {
-              errorMensaje3 = "Debes ingresar el Equipo Modem";
+              errorMensaje3 = "Debes ingresar el N° Equipo Modem";
             }
             if (sapHfc === "") {
               errorMensaje3 = "Debes ingresar el SAP";
@@ -748,7 +749,7 @@ form.addEventListener("submit", function (event) {
             break;
           case "REACTIVACION -DOBLE - TV + INTERNET":
             if (EquipoModem_Hfc === "") {
-              errorMensaje3 = "Debes ingresar el Equipo Modem";
+              errorMensaje3 = "Debes ingresar el N° Equipo Modem";
             }
             if (
               EquipoModem_Hfc !== "" &&
@@ -759,7 +760,7 @@ form.addEventListener("submit", function (event) {
             break;
           case "REACTIVACION - INSTALACION DE CLARO HOGAR":
             if (EquipoModem_Hfc === "") {
-              errorMensaje3 = "Debes ingresar el Equipo Modem";
+              errorMensaje3 = "Debes ingresar el N° Equipo Modem";
             }
             if (
               EquipoModem_Hfc !== "" &&

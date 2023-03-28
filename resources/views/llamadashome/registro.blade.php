@@ -89,7 +89,18 @@
 
 
 
-
+            @if(isset($message))
+            <script>
+            Swal.fire({
+                icon: "success",
+                title: "{{$message}}",
+                text: "{{$messages}}",
+                showConfirmButton: false,
+                timer: 1800,
+            });
+            // window.location = window.location;
+            </script>
+            @endif
 
             @endsection @section('styles')
 

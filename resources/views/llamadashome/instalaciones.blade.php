@@ -14,11 +14,10 @@
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
             <form action="{{ route('registro_llamadas.store') }}" method="POST" id="form1" class="formulario box-body"
-                style="border-bottom: 3px solid #3e69d6;padding-top:15px">
+                style="border-bottom: 3px solid #3e69d6; padding-top: 15px;">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-                <input type="hidden" name="selected_fields" id="selected-fields">
-
+                <input type="hidden" name="selected_fields" id="selected-fields" />
 
                 <div class="form-group-container">
                     <div class="form-group col-md-3">
@@ -29,7 +28,7 @@
                             </div>
                             <input type="text" class="form-control effect-8" placeholder="N° Codigo Tecnico"
                                 id="codigo_tecnico" name="codigo_tecnico"
-                                oninput="this.value = this.value.toUpperCase()" required />
+                                oninput="this.value = this.value.toUpperCase()" required autocomplete="off" />
                         </div>
                     </div>
 
@@ -48,7 +47,7 @@
                                     <i class="fa fa-phone-square"></i>
                                 </div>
                                 <input type="text" placeholder="Numero" class="form-control" id="telefono"
-                                    name="telefono" readonly="true" required />
+                                    name="telefono" readonly="true" required autocomplete="off" />
                             </div>
                         </div>
                         <div class="form-group col-md-5">
@@ -58,7 +57,7 @@
                                     <i class="fa fa-user"></i>
                                 </div>
                                 <input type="text" placeholder="Nombre Tecnico" class="form-control" id="tecnico"
-                                    name="tecnico" readonly="true" required />
+                                    name="tecnico" readonly="true" required autocomplete="off" />
                             </div>
                         </div>
                     </div>
@@ -68,13 +67,13 @@
                         <label for="motivo_llamada">Motivo Llamada</label>
                         <input type="text" class="form-control" placeholder="INSTALACION" value="INSTALACION"
                             readonly="true" id="motivo_llamada" name="motivo_llamada"
-                            style="color: #3E69D6; background: #fbfbfb; text-align: center;" />
+                            style="color: #3e69d6; background: #fbfbfb; text-align: center;" />
                     </div>
                     <div class="form-group col-md-2" id="tec_input">
                         <label for="tecnologia">Tecnologia</label>
                         <select class="form-control" style="width: 100%;" name="tecnologia" tabindex="-1"
                             id="tecnologia" aria-hidden="true" required>
-                            <option selected="selected">SELECCIONE</option>
+                            <option value="">SELECCIONE</option>
                             <option value="HFC">HFC</option>
                             <option value="GPON">GPON</option>
                             <option value="ADSL">ADSL</option>
@@ -111,7 +110,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control OrdenHfc" id="orden_tv_hfc"
-                                        name="orden_tv_hfc" disabled placeholder="N° Orden Tv" />
+                                        name="orden_tv_hfc" disabled placeholder="N° Orden Tv" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
@@ -121,7 +120,8 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control OrdenHfc" id="orden_internet_hfc"
-                                        name="orden_internet_hfc" disabled placeholder="N° Orden Internet" />
+                                        name="orden_internet_hfc" disabled placeholder="N° Orden Internet"
+                                        autocomplete="off" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
@@ -131,7 +131,8 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control OrdenHfc" id="orden_linea_hfc"
-                                        name="orden_linea_hfc" disabled placeholder="N° Orden Linea" />
+                                        name="orden_linea_hfc" disabled placeholder="N° Orden Linea"
+                                        autocomplete="off" />
                                 </div>
                             </div>
                         </div>
@@ -162,7 +163,7 @@
                                     </div>
                                     <input type="text" class="form-control equipotvHfc" id="equipostv1"
                                         name="equipostv1" placeholder="Equipo Tv 1"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
 
                                 <div class="input-group">
@@ -171,7 +172,7 @@
                                     </div>
                                     <input type="text" class="form-control equipotvHfc" id="equipostv2"
                                         name="equipostv2" placeholder="Equipo Tv 2"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
 
                                 <div class="input-group">
@@ -180,7 +181,7 @@
                                     </div>
                                     <input type="text" class="form-control equipotvHfc" id="equipostv3"
                                         name="equipostv3" placeholder="Equipo Tv 3"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
 
                                 <div class="input-group">
@@ -189,7 +190,7 @@
                                     </div>
                                     <input type="text" class="form-control equipotvHfc" id="equipostv4"
                                         name="equipostv4" placeholder="Equipo Tv 4"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
 
                                 <div class="input-group">
@@ -198,7 +199,7 @@
                                     </div>
                                     <input type="text" class="form-control equipotvHfc" id="equipostv5"
                                         name="equipostv5" placeholder="Equipo Tv 5"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
@@ -208,7 +209,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="syrengHfc"
-                                        placeholder="Ingresa SYRENG" name="syrengHfc" />
+                                        placeholder="Ingresa SYRENG" name="syrengHfc" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -219,7 +220,8 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="text" placeholder="Ingresa SAP" class="form-control" id="sapHfc"
-                                        name="sapHfc" oninput="this.value = this.value.toUpperCase()" />
+                                        name="sapHfc" oninput="this.value = this.value.toUpperCase()"
+                                        autocomplete="off" />
                                 </div>
                             </div>
 
@@ -233,7 +235,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="EquipoModem_Hfc" name="EquipoModem_Hfc"
                                         placeholder="Ingresa Equipo Modem"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -246,7 +248,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="numeroVoip_hfc" name="numeroVoip_hfc"
-                                        placeholder="Ingresa Numero Voip" />
+                                        placeholder="Ingresa Numero Voip" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
@@ -258,7 +260,7 @@
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                     <input type="text" class="form-control" id="GeorefHfc" name="GeorefHfc"
-                                        placeholder="Latitud, Longitud" />
+                                        placeholder="Latitud, Longitud" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="from-group col-md-3">
@@ -286,7 +288,7 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObservacionesHfc"
                                             name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -300,7 +302,7 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeHfc" name="RecibeHfc"
-                                            oninput="this.value = this.value.toUpperCase()" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
@@ -323,7 +325,8 @@
                                                     </div>
                                                     <input type="text" class="form-control" id="NodoHfc" name="NodoHfc"
                                                         placeholder="Ingresa Nodo"
-                                                        oninput="this.value = this.value.toUpperCase()" />
+                                                        oninput="this.value = this.value.toUpperCase()"
+                                                        autocomplete="off" />
                                                 </div>
                                             </div>
 
@@ -336,7 +339,7 @@
                                                         <i class="fa fa-square"></i>
                                                     </div>
                                                     <input type="number" class="form-control" id="TapHfc" name="TapHfc"
-                                                        placeholder="Ingresa TAP" />
+                                                        placeholder="Ingresa TAP" autocomplete="off" />
                                                 </div>
                                             </div>
 
@@ -349,7 +352,8 @@
                                                         <i class="fa fa-square"></i>
                                                     </div>
                                                     <input type="number" class="form-control" id="PosicionHfc"
-                                                        name="PosicionHfc" placeholder="Ingresa Posicion" />
+                                                        name="PosicionHfc" placeholder="Ingresa Posicion"
+                                                        autocomplete="off" />
                                                 </div>
                                             </div>
 
@@ -363,7 +367,8 @@
                                                     </div>
                                                     <input type="text" class="form-control" id="MaterialesHfc"
                                                         name="MaterialesHfc" placeholder="Comentarios..."
-                                                        oninput="this.value = this.value.toUpperCase()" />
+                                                        oninput="this.value = this.value.toUpperCase()"
+                                                        autocomplete="off" />
                                                 </div>
                                             </div>
                                         </div>
@@ -387,8 +392,7 @@
                                             </option>
                                             <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
                                             </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM
-                                                INEXISTENTE </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
                                             <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
                                                 OPEN </option>
                                             <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
@@ -401,7 +405,6 @@
                                         </select>
                                     </div>
                                 </div>
-
 
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
@@ -425,7 +428,7 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentariosObjetados_Hfc"
                                             name="ComentariosObjetados_Hfc" placeholder="Comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
@@ -440,11 +443,11 @@
                                 </label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
-                                        <i class="fa fa-exclamation-triangle"></i>
+                                        <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="MotivoTransferidoHfc"
                                         name="MotivoTransferidoHfc" placeholder="Ingresa motivo transferido"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -470,11 +473,10 @@
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosTransferida_Hfc"
                                         name="ComentariosTransferida_Hfc" placeholder="Comentarios del caso"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
-
 
                         <!-- ACTIVIDAD ANULADA HFC -->
                         <div class="form-group-container FormHfc_Hidden" id="formHfc_Anulada">
@@ -491,46 +493,34 @@
                                                 CONDICIONES DE INSTALACION </option>
                                             <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
-                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
                                             <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
                                             </option>
                                             <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
-                                                SOLICITA INSTALACION CON FECHA POSTERIOR
-                                            </option>
+                                                SOLICITA INSTALACION CON FECHA POSTERIOR </option>
                                             <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
-                                                TECNICAS (DISTANCIA NO PERMITIDA)
-                                            </option>
+                                                TECNICAS (DISTANCIA NO PERMITIDA) </option>
                                             <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
-                                                REGISTRADA CON EXCEDENTE DE CARACTERES
-                                            </option>
+                                                REGISTRADA CON EXCEDENTE DE CARACTERES </option>
                                             <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
                                             </option>
-                                            <option value="FALTA POSTERIA">FALTA POSTERIA
-                                            </option>
+                                            <option value="FALTA POSTERIA">FALTA POSTERIA </option>
                                             <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
-                                                EN CENTRAL CONCENTRADOR O SHELTER
-                                            </option>
-                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
-                                            </option>
+                                                EN CENTRAL CONCENTRADOR O SHELTER </option>
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
                                             <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
                                                 EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
                                             </option>
-                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS
-                                            </option>
+                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS </option>
                                             <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
-                                                PERO NO ACTIVA
-                                            </option>
-                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL
-                                            </option>
+                                                PERO NO ACTIVA </option>
+                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL </option>
                                             <option value="NO HAY RED"> NO HAY RED </option>
-                                            <option value="RED SATURADA">
-                                                RED SATURADA </option>
+                                            <option value="RED SATURADA"> RED SATURADA </option>
                                             <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
                                             <option
                                                 value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
                                                 SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
-
                                         </select>
                                     </div>
                                 </div>
@@ -557,7 +547,7 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
                                             name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
@@ -591,16 +581,10 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="orden_internet_adsl"
-                                        name="orden_internet_adsl" placeholder="Ingresa N° Orden" />
-                                    <span class="span_check checkValid validar" id="checkValid"><i
-                                            class="fa-solid fa-circle-check"></i></span>
-
-                                    <span class="span_error checkError validar" id="checkError"><i
-                                            class="fa-sharp fa-solid fa-circle-exclamation"></i></span>
+                                        name="orden_internet_adsl" placeholder="Ingresa N° Orden" autocomplete="off" />
                                 </div>
                                 <!-- <span class="span_error_mensaje" id="ErrorOrdenInternetAdsl">Debes de ingresar 8
                                     digitos</span> -->
-
                             </div>
 
                             <div class="form-group col-md-3">
@@ -610,23 +594,18 @@
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                     <input type="text" class="form-control" id="Georeferencia_Adsl"
-                                        name="Georeferencia_Adsl" placeholder="Latitud, Longitud" />
-
-
+                                        name="Georeferencia_Adsl" placeholder="Latitud, Longitud" autocomplete="off" />
                                 </div>
                             </div>
 
-
                             <div class="form-group col-md-3">
-                                <div class="form-check" style="display:flex;padding-top: 21px;">
+                                <div class="form-check" style="display: flex; padding-top: 21px;">
                                     <input class="form-check-input" type="checkbox" value="" id="TrabajadoAdsl"
                                         name="TrabajadoAdsl" />
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Trabajado
                                     </label>
                                 </div>
-
-
                             </div>
                             <div class="form-group-container">
                                 <div class="form-group col-md-12">
@@ -637,8 +616,7 @@
                                         </div>
                                         <input type="text" class="form-control" id="Obvservaciones_Adsl"
                                             name="Obvservaciones_Adsl" placeholder="Observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
-
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -650,7 +628,7 @@
                                         </div>
                                         <input type="text" class="form-control" placeholder="Ingresa quien recibe"
                                             id="Recibe_Adsl" name="Recibe_Adsl"
-                                            oninput="this.value = this.value.toUpperCase()" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -662,7 +640,7 @@
                                         </div>
                                         <input type="text" class="form-control" id="Materiales_Adsl"
                                             name="Materiales_Adsl" placeholder="Comentarios..."
-                                            oninput="this.value = this.value.toUpperCase()" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
@@ -681,17 +659,14 @@
                                     <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                     <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                     </option>
-                                    <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                    <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP </option>
+                                    <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
+                                    <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO OPEN
                                     </option>
-                                    <option value="SYREM INEXISTENTE"> SYREM
-                                        INEXISTENTE </option>
-                                    <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
-                                        OPEN </option>
-                                    <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
-                                        INCOMPLETOS / ERRADOS </option>
+                                    <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS INCOMPLETOS /
+                                        ERRADOS </option>
                                     <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                    <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
-                                    </option>
+                                    <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA </option>
                                     <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                     <option value="OTROS"> OTROS </option>
                                 </select>
@@ -705,7 +680,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="OrdenAdsl_Objetada"
-                                        name="OrdenAdsl_Objetada" placeholder="Ingresa N° Orden" />
+                                        name="OrdenAdsl_Objetada" placeholder="Ingresa N° Orden" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -721,7 +696,6 @@
                                 </div>
                             </div>
 
-
                             <div class="form-group col-md-12">
                                 <label for="ComentariosObjetada_Adsl">
                                     Comentarios
@@ -732,7 +706,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosObjetada_Adsl"
                                         name="ComentariosObjetada_Adsl" placeholder="Comentarios del caso"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
@@ -750,7 +724,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="OrdenAdsl_Transferida"
-                                        name="OrdenAdsl_Transferida" />
+                                        name="OrdenAdsl_Transferida" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -773,7 +747,8 @@
                                         <i class="fa fa-exclamation-triangle"></i>
                                     </div>
                                     <input type="text" class="form-control" id="MotivoTransferidoAdsl"
-                                        name="MotivoTransferidoAdsl" oninput="this.value = this.value.toUpperCase()" />
+                                        name="MotivoTransferidoAdsl" oninput="this.value = this.value.toUpperCase()"
+                                        autocomplete="off" />
                                 </div>
                             </div>
 
@@ -787,7 +762,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosAdsl_Transferidos"
                                         name="ComentariosAdsl_Transferidos"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
@@ -808,28 +783,21 @@
                                             CONDICIONES DE INSTALACION </option>
                                         <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
                                         </option>
-                                        <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
-                                        </option>
+                                        <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
                                         <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
                                         </option>
                                         <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
-                                            TECNICAS (DISTANCIA NO PERMITIDA)
-                                        </option>
+                                            TECNICAS (DISTANCIA NO PERMITIDA) </option>
                                         <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
-                                            REGISTRADA CON EXCEDENTE DE CARACTERES
-                                        </option>
+                                            REGISTRADA CON EXCEDENTE DE CARACTERES </option>
                                         <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
                                         </option>
-                                        <option value="FALTA POSTERIA">FALTA POSTERIA
-                                        </option>
+                                        <option value="FALTA POSTERIA">FALTA POSTERIA </option>
                                         <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM EN
-                                            CENTRAL CONCENTRADOR O SHELTER
-                                        </option>
-                                        <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
-                                        </option>
+                                            CENTRAL CONCENTRADOR O SHELTER </option>
+                                        <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
                                         <option value="NO HAY RED"> NO HAY RED </option>
-                                        <option value="RED SATURADA">
-                                            RED SATURADA </option>
+                                        <option value="RED SATURADA"> RED SATURADA </option>
                                         <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
                                     </select>
                                 </div>
@@ -843,7 +811,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control validar" id="OrdenAnuladaAdsl"
-                                        name="OrdenAnuladaAdsl" placeholder="Ingresa N° Orden" />
+                                        name="OrdenAnuladaAdsl" placeholder="Ingresa N° Orden" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -869,13 +837,11 @@
                                     </div>
                                     <input type="text" class="form-control validar" id="ComentarioAnulada_Adsl"
                                         name="ComentarioAnulada_Adsl" placeholder="Ingresa comentarios del caso"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
                 <!-- FORMULARIO #4 DTH -->
                 <div id="form4" class="form-group-container">
@@ -889,7 +855,6 @@
                                 <option value="OBJETADA">OBJETADA</option>
                                 <option value="ANULACION">ANULACION</option>
                                 <option value="TRANSFERIDA">TRANSFERIDA</option>
-
                             </select>
                         </div>
 
@@ -908,7 +873,7 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" placeholder="Ingresa N° Orden Tv" class="form-control"
-                                            id="ordenTv_Dth" name="ordenTv_Dth" />
+                                            id="ordenTv_Dth" name="ordenTv_Dth" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -919,7 +884,7 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" placeholder="Ingresa N° Syreng" class="form-control"
-                                            id="SyrengDth" name="SyrengDth" />
+                                            id="SyrengDth" name="SyrengDth" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -930,7 +895,8 @@
                                             <i class="fa fa-map-marker"></i>
                                         </div>
                                         <input type="text" class="form-control" id="GeoreferenciaDth"
-                                            name="GeoreferenciaDth" placeholder="Latidud, Longitud" />
+                                            name="GeoreferenciaDth" placeholder="Latidud, Longitud"
+                                            autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -941,7 +907,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa SAP" class="form-control" id="sap_dth"
-                                            name="sap_dth" oninput="this.value = this.value.toUpperCase()" />
+                                            name="sap_dth" oninput="this.value = this.value.toUpperCase()"
+                                            autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -964,35 +931,35 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" class="form-control" id="SmarcardDth1" name="SmarcardDth1"
-                                            placeholder="Smarcard 1" />
+                                            placeholder="Smarcard 1" autocomplete="off" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" class="form-control" id="SmarcardDth2" name="SmarcardDth2"
-                                            placeholder="Smarcard 2" />
+                                            placeholder="Smarcard 2" autocomplete="off" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" class="form-control" id="SmarcardDth3" name="SmarcardDth3"
-                                            placeholder="Smarcard 3" />
+                                            placeholder="Smarcard 3" autocomplete="off" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" class="form-control" id="SmarcardDth4" name="SmarcardDth4"
-                                            placeholder="Smarcard 4" />
+                                            placeholder="Smarcard 4" autocomplete="off" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" class="form-control" id="SmarcardDth5" name="SmarcardDth5"
-                                            placeholder="Smarcard 5" />
+                                            placeholder="Smarcard 5" autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
@@ -1005,35 +972,35 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" placeholder="STB 1" class="form-control" id="StbDth1"
-                                            name="StbDth1" />
+                                            name="StbDth1" autocomplete="off" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" placeholder="STB 2" class="form-control" id="StbDth2"
-                                            name="StbDth2" />
+                                            name="StbDth2" autocomplete="off" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" placeholder="STB 3" class="form-control" id="StbDth3"
-                                            name="StbDth3" />
+                                            name="StbDth3" autocomplete="off" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" placeholder="STB 4" class="form-control" id="StbDth4"
-                                            name="StbDth4" />
+                                            name="StbDth4" autocomplete="off" />
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" placeholder="STB 5" class="form-control" id="StbDth5"
-                                            name="StbDth5" />
+                                            name="StbDth5" autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
@@ -1047,7 +1014,7 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObservacionesDth"
                                             name="ObservacionesDth" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -1056,9 +1023,9 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" placeholder="Ingresa quien recibe" class=" form-control"
+                                        <input type="text" placeholder="Ingresa quien recibe" class="form-control"
                                             id="RecibeDth" name="RecibeDth"
-                                            oninput="this.value = this.value.toUpperCase()" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -1068,8 +1035,8 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" class="form-control" id="MaterialesDth" name="MaterialesDth"
-                                            placeholder="Comentarios..."
-                                            oninput="this.value = this.value.toUpperCase()" />
+                                            placeholder="Comentarios..." oninput="this.value = this.value.toUpperCase()"
+                                            autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
@@ -1090,8 +1057,7 @@
                                             </option>
                                             <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
                                             </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM
-                                                INEXISTENTE </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
                                             <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
                                                 OPEN </option>
                                             <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
@@ -1113,7 +1079,7 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenObj_Dth" name="OrdenObj_Dth"
-                                            placeholder="Ingresa N° Orden" />
+                                            placeholder="Ingresa N° Orden" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -1139,7 +1105,7 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioObjetado_Dth"
                                             name="ComentarioObjetado_Dth" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
@@ -1160,8 +1126,7 @@
                                                 CONDICIONES DE INSTALACION </option>
                                             <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
-                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
                                             <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
                                             </option>
                                             <option value="SOLICITUD MAL REGISTRADA"> SOLICITUD MAL REGISTRADA </option>
@@ -1170,7 +1135,6 @@
                                                 SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA) </option>
                                             <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
                                         </select>
-
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
@@ -1182,7 +1146,7 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenAnulada_Dth"
-                                            name="OrdenAnulada_Dth" placeholder="Ingresa N° Orden" />
+                                            name="OrdenAnulada_Dth" placeholder="Ingresa N° Orden" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -1208,13 +1172,11 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioAnulada_Dth"
                                             name="ComentarioAnulada_Dth" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                 <!-- FORMULARIO #5 COBRE-->
@@ -1242,7 +1204,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="OrdenLineaCobre"
-                                        name="OrdenLineaCobre" placeholder="Ingrese N° Orden" />
+                                        name="OrdenLineaCobre" placeholder="Ingrese N° Orden" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
@@ -1253,7 +1215,7 @@
                                         <i class="fa fa-phone-square"></i>
                                     </div>
                                     <input type="number" placeholder="Ingresa Numero Cobre" class="form-control"
-                                        id="NumeroCobre" name="NumeroCobre" />
+                                        id="NumeroCobre" name="NumeroCobre" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1264,7 +1226,7 @@
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                     <input type="text" class="form-control" id="GeoreferenciaCobre"
-                                        name="GeoreferenciaCobre" placeholder="Latitud, Longitud" />
+                                        name="GeoreferenciaCobre" placeholder="Latitud, Longitud" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1275,7 +1237,8 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="text" placeholder="Ingresa Sap" class="form-control" id="sap_cobre"
-                                        name="sap_cobre" oninput="this.value = this.value.toUpperCase()" />
+                                        name="sap_cobre" oninput="this.value = this.value.toUpperCase()"
+                                        autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1298,7 +1261,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="ObservacionesCobre"
                                         name="ObservacionesCobre" placeholder="Ingresa las observaciones del caso"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -1309,7 +1272,7 @@
                                     </div>
                                     <input type="text" class="form-control" placeholder="Ingresa quien recibe el caso"
                                         id="RecibeCobre" name="RecibeCobre"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -1319,7 +1282,8 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="MaterialesCobre" name="MaterialesCobre"
-                                        placeholder="Comentarios..." oninput="this.value = this.value.toUpperCase()" />
+                                        placeholder="Comentarios..." oninput="this.value = this.value.toUpperCase()"
+                                        autocomplete="off" />
                                 </div>
                             </div>
                         </div>
@@ -1338,17 +1302,14 @@
                                     <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                     <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                     </option>
-                                    <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                    <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP </option>
+                                    <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
+                                    <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO OPEN
                                     </option>
-                                    <option value="SYREM INEXISTENTE"> SYREM
-                                        INEXISTENTE </option>
-                                    <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
-                                        OPEN </option>
-                                    <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
-                                        INCOMPLETOS / ERRADOS </option>
+                                    <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS INCOMPLETOS /
+                                        ERRADOS </option>
                                     <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                    <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
-                                    </option>
+                                    <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA </option>
                                     <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                     <option value="OTROS"> OTROS </option>
                                 </select>
@@ -1363,7 +1324,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="OrdenCobre_Objetada"
-                                        name="OrdenCobre_Objetada" placeholder="Ingresa N° Orden" />
+                                        name="OrdenCobre_Objetada" placeholder="Ingresa N° Orden" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1389,7 +1350,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosCobre_Objetados"
                                         name="ComentariosCobre_Objetados" placeholder="Ingresa comentarios del caso"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
@@ -1408,7 +1369,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="OrdenTransferidad_Cobre"
-                                        name="OrdenTransferidad_Cobre" />
+                                        name="OrdenTransferidad_Cobre" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1432,7 +1393,8 @@
                                         <i class="fa fa-exclamation-triangle"></i>
                                     </div>
                                     <input type="text" class="form-control" id="MotivoTransferidoCobre"
-                                        name="MotivoTransferidoCobre" oninput="this.value = this.value.toUpperCase()" />
+                                        name="MotivoTransferidoCobre" oninput="this.value = this.value.toUpperCase()"
+                                        autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1446,7 +1408,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosTransferida_Cobre"
                                         name="ComentariosTransferida_Cobre"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
@@ -1467,32 +1429,23 @@
                                             CONDICIONES DE INSTALACION </option>
                                         <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
                                         </option>
-                                        <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
-                                        </option>
+                                        <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
                                         <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
                                         </option>
                                         <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
-                                            TECNICAS (DISTANCIA NO PERMITIDA)
-                                        </option>
+                                            TECNICAS (DISTANCIA NO PERMITIDA) </option>
                                         <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
-                                            REGISTRADA CON EXCEDENTE DE CARACTERES
-                                        </option>
-                                        <option value="FALTA POSTERIA">FALTA POSTERIA
-                                        </option>
+                                            REGISTRADA CON EXCEDENTE DE CARACTERES </option>
+                                        <option value="FALTA POSTERIA">FALTA POSTERIA </option>
                                         <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM EN
-                                            CENTRAL CONCENTRADOR O SHELTER
-                                        </option>
+                                            CENTRAL CONCENTRADOR O SHELTER </option>
                                         <option value="NO HAY NUMERACION EN CONCENTRADOR">NO HAY NUMERACION EN
-                                            CONCENTRADOR
-                                        </option>
+                                            CONCENTRADOR </option>
                                         <option value="NO HAY RED"> NO HAY RED </option>
-                                        <option value="RED SATURADA">
-                                            RED SATURADA </option>
+                                        <option value="RED SATURADA"> RED SATURADA </option>
                                         <option value="SOLICITUD MAL REGISTRADA">SOLICITUD MAL REGISTRADA </option>
                                         <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
-
                                     </select>
-
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
@@ -1504,7 +1457,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="OrdenAnuladaCobre"
-                                        name="OrdenAnuladaCobre" placeholder="Ingresa N° Orden" />
+                                        name="OrdenAnuladaCobre" placeholder="Ingresa N° Orden" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1530,12 +1483,11 @@
                                     </div>
                                     <input type="text" class="form-control" id="ComentarioAnulada_Cobre"
                                         name="ComentarioAnulada_Cobre" placeholder="Ingresa comentarios del caso"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <!-- FORMULARIO #6 GPON-->
                 <div id="form6" class="form-group-container">
@@ -1550,7 +1502,8 @@
                                     <i class="fa fa-ticket"></i>
                                 </div>
                                 <input type="number" class="form-control OrdenGpon" id="OrdenInternet_Gpon"
-                                    name="OrdenInternet_Gpon" placeholder="N° Orden Internet" disabled />
+                                    name="OrdenInternet_Gpon" placeholder="N° Orden Internet" disabled
+                                    autocomplete="off" />
                             </div>
                         </div>
                         <div class="form-group col-md-3">
@@ -1560,7 +1513,7 @@
                                     <i class="fa fa-ticket"></i>
                                 </div>
                                 <input type="number" class="form-control OrdenGpon" id="OrdenTv_Gpon"
-                                    name="OrdenTv_Gpon" placeholder="N° Orden Gpon" disabled />
+                                    name="OrdenTv_Gpon" placeholder="N° Orden Gpon" disabled autocomplete="off" />
                             </div>
                         </div>
 
@@ -1571,7 +1524,7 @@
                                     <i class="fa fa-ticket"></i>
                                 </div>
                                 <input type="number" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
-                                    name="OrdenLinea_Gpon" placeholder="N° Orden Linea" disabled />
+                                    name="OrdenLinea_Gpon" placeholder="N° Orden Linea" disabled autocomplete="off" />
                             </div>
                         </div>
                     </div>
@@ -1600,7 +1553,7 @@
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipotv1Gpon"
                                         name="equipotv1Gpon" placeholder="Equipo Tv 1"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
 
                                 <div class="input-group">
@@ -1609,7 +1562,7 @@
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipotv2Gpon"
                                         name="equipotv2Gpon" placeholder="Equipo Tv 2"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
 
                                 <div class="input-group">
@@ -1618,7 +1571,7 @@
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipostv3Gpon"
                                         name="equipostv3Gpon" placeholder="Equipo Tv 3"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-addon">
@@ -1626,7 +1579,7 @@
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipostv4Gpon"
                                         name="equipostv4Gpon" placeholder="Equipo Tv 4"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
 
                                 <div class="input-group">
@@ -1635,7 +1588,7 @@
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipostv5Gpon"
                                         name="equipostv5Gpon" placeholder="Equipo Tv 5"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1649,7 +1602,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="EqModenGpon"
                                         placeholder="N° Equipo Modem" name="EqModenGpon"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1660,7 +1613,7 @@
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                     <input type="text" class="form-control" id="GeoreferenciaGpon"
-                                        name="GeoreferenciaGpon" placeholder="Latitud,Longitud" />
+                                        name="GeoreferenciaGpon" placeholder="Latitud,Longitud" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1671,7 +1624,8 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="text" class="form-control" id="SapGpon" placeholder="Ingrese SAP"
-                                        name="SapGpon" oninput="this.value = this.value.toUpperCase()" />
+                                        name="SapGpon" oninput="this.value = this.value.toUpperCase()"
+                                        autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1682,7 +1636,7 @@
                                         <i class="fa fa-square"></i>
                                     </div>
                                     <input type="number" class="form-control" id="NumeroGpon"
-                                        placeholder="Ingresa N° Gpon" name="NumeroGpon" />
+                                        placeholder="Ingresa N° Gpon" name="NumeroGpon" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1718,7 +1672,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="ObservacionesGpon"
                                         name="ObservacionesGpon" placeholder="Ingresa las observaciones del caso"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -1729,7 +1683,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="RecibeGpon" name="RecibeGpon"
                                         placeholder="Ingresa quien recibe el caso"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
@@ -1751,7 +1705,8 @@
                                                 </div>
                                                 <input type="text" class="form-control" id="NodoGpon" name="NodoGpon"
                                                     placeholder="Ingresa N° Nodo"
-                                                    oninput="this.value = this.value.toUpperCase()" />
+                                                    oninput="this.value = this.value.toUpperCase()"
+                                                    autocomplete="off" />
                                             </div>
                                         </div>
 
@@ -1764,7 +1719,7 @@
                                                     <i class="fa fa-square"></i>
                                                 </div>
                                                 <input type="number" class="form-control" id="CajaGpon" name="CajaGpon"
-                                                    placeholder="Ingresa N° Caja" />
+                                                    placeholder="Ingresa N° Caja" autocomplete="off" />
                                             </div>
                                         </div>
 
@@ -1777,7 +1732,7 @@
                                                     <i class="fa fa-square"></i>
                                                 </div>
                                                 <input type="number" class="form-control" id="PuertoGpon"
-                                                    name="PuertoGpon" placeholder="Ingresa Puerto" />
+                                                    name="PuertoGpon" placeholder="Ingresa Puerto" autocomplete="off" />
                                             </div>
                                         </div>
 
@@ -1791,7 +1746,8 @@
                                                 </div>
                                                 <input type="text" class="form-control" id="MaterialesRedGpon"
                                                     name="MaterialesRedGpon" placeholder="Comentarios..."
-                                                    oninput="this.value = this.value.toUpperCase()" />
+                                                    oninput="this.value = this.value.toUpperCase()"
+                                                    autocomplete="off" />
                                             </div>
                                         </div>
                                     </div>
@@ -1813,17 +1769,14 @@
                                     <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                     <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                     </option>
-                                    <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                    <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP </option>
+                                    <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
+                                    <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO OPEN
                                     </option>
-                                    <option value="SYREM INEXISTENTE"> SYREM
-                                        INEXISTENTE </option>
-                                    <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
-                                        OPEN </option>
-                                    <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
-                                        INCOMPLETOS / ERRADOS </option>
+                                    <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS INCOMPLETOS /
+                                        ERRADOS </option>
                                     <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                    <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
-                                    </option>
+                                    <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA </option>
                                     <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                     <option value="OTROS"> OTROS </option>
                                 </select>
@@ -1849,7 +1802,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="ObsGpon_Objetada"
                                         name="ObsGpon_Objetada" placeholder="Ingresa las observaciones del caso"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1861,12 +1814,11 @@
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosGpon_Objetada"
                                         name="ComentariosGpon_Objetada" placeholder="Comentarios..."
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                     <!-- TIPO ACTIVIDAD TRANSFERIDA GPON -->
                     <div class="form-group-container FormGpon_Hidden" id="formGpon_Transferida">
@@ -1879,7 +1831,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="MotivoTransferidoGpon"
                                         name="MotivoTransferidoGpon" placeholder="Ingresa motivo transferido"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                             <div class="from-group-container">
@@ -1902,7 +1854,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
                                         name="ComentarioTransferido_Gpon" placeholder="Ingresa comentarios del caso"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
@@ -1923,33 +1875,25 @@
                                             CONDICIONES DE INSTALACION </option>
                                         <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
                                         </option>
-                                        <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
-                                        </option>
+                                        <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
                                         <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
                                         </option>
                                         <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
-                                            TECNICAS (DISTANCIA NO PERMITIDA)
-                                        </option>
+                                            TECNICAS (DISTANCIA NO PERMITIDA) </option>
                                         <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
-                                            REGISTRADA CON EXCEDENTE DE CARACTERES
-                                        </option>
+                                            REGISTRADA CON EXCEDENTE DE CARACTERES </option>
                                         <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
                                         </option>
-                                        <option value="FALTA POSTERIA">FALTA POSTERIA
-                                        </option>
+                                        <option value="FALTA POSTERIA">FALTA POSTERIA </option>
                                         <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM EN
-                                            CENTRAL CONCENTRADOR O SHELTER
-                                        </option>
-                                        <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
-                                        </option>
+                                            CENTRAL CONCENTRADOR O SHELTER </option>
+                                        <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
                                         <option value="NO HAY RED"> NO HAY RED </option>
-                                        <option value="RED SATURADA">
-                                            RED SATURADA </option>
+                                        <option value="RED SATURADA"> RED SATURADA </option>
                                         <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
                                     </select>
                                 </div>
                             </div>
-
 
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
@@ -1973,27 +1917,22 @@
                                     </div>
                                     <input type="text" class="form-control" id="ComentarioAnulada_Gpon"
                                         name="ComentarioAnulada_Gpon" placeholder="Ingresa comentarios del caso"
-                                        oninput="this.value = this.value.toUpperCase()" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="box-footer" id="btn-submitForm"
                     style="text-align: center; display: flex; justify-content: center;">
-                    <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-floppy-disk"
-                            style="padding-right:8px"></i>GUARDAR
-                        REGISTRO</button>
+                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"
+                            style="padding-right: 8px;"></i>GUARDAR REGISTRO</button>
                 </div>
-
             </form>
         </div>
     </div>
 </div>
-
-
 
 @if(isset($message))
 <script>
@@ -2004,36 +1943,33 @@ Swal.fire({
     showConfirmButton: false,
     timer: 1800,
 });
-
 // window.location = window.location;
 </script>
 @endif
 
+<script>
+window.onload = function() {
+    document.getElementById("tecnologia").value = "";
+    document.getElementById("select_orden").value = "";
+};
+</script>
+
 @endsection @section('styles')
-
-
 
 <!-- SweetAlert -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
 
-
-
-
-
-
-
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("form1");
-    const selectedFieldsInput = document.querySelector('#selected-fields');
+    const selectedFieldsInput = document.querySelector("#selected-fields");
     const inputs = form.querySelectorAll('input[type="text"], input[type="number"], input[type="checkbox"]');
-
 
     let selectedFields = [];
 
-    inputs.forEach(input => {
-        input.addEventListener('change', () => {
+    inputs.forEach((input) => {
+        input.addEventListener("change", () => {
             if (input.checked) {
                 selectedFields.push(input.name);
             } else {
@@ -2049,161 +1985,143 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var checkbox = document.getElementById('TrabajadoAdsl');
+document.addEventListener("DOMContentLoaded", function() {
+    var checkbox = document.getElementById("TrabajadoAdsl");
     actualizarTextoCheckbox(checkbox);
 
-    checkbox.addEventListener('change', function() {
+    checkbox.addEventListener("change", function() {
         actualizarTextoCheckbox(checkbox);
     });
 
     function actualizarTextoCheckbox(checkbox) {
         if (checkbox.checked) {
-            checkbox.value = 'TRABAJADO';
+            checkbox.value = "TRABAJADO";
         } else {
-            checkbox.value = 'PENDIENTE';
+            checkbox.value = "PENDIENTE";
         }
     }
 
-    var checkboxAdslObjetado = document.getElementById('TrabajadoAdslObjetado');
+    var checkboxAdslObjetado = document.getElementById("TrabajadoAdslObjetado");
     actualizarTextoCheckbox(checkboxAdslObjetado);
 
-
-    checkboxAdslObjetado.addEventListener('change', function() {
+    checkboxAdslObjetado.addEventListener("change", function() {
         actualizarTextoCheckbox(checkboxAdslObjetado);
-    })
+    });
 
     function actualizarTextoCheckbox(checkbox) {
         if (checkbox.checked) {
-            checkbox.value = 'TRABAJADO';
+            checkbox.value = "TRABAJADO";
         } else {
-            checkbox.value = 'PENDIENTE';
+            checkbox.value = "PENDIENTE";
         }
     }
 
-    var checkboxCobre = document.getElementById('TrabajadoCobre');
+    var checkboxCobre = document.getElementById("TrabajadoCobre");
     actualizarTextoCheckbox(checkboxCobre);
 
-
-    checkboxCobre.addEventListener('change', function() {
+    checkboxCobre.addEventListener("change", function() {
         actualizarTextoCheckbox(checkboxCobre);
-    })
+    });
 
     function actualizarTextoCheckbox(checkbox) {
         if (checkbox.checked) {
-            checkbox.value = 'TRABAJADO';
+            checkbox.value = "TRABAJADO";
         } else {
-            checkbox.value = 'PENDIENTE';
+            checkbox.value = "PENDIENTE";
         }
     }
 
-
-    var checkboxCobreObjetado = document.getElementById('TrabajadoCobre_Objetado');
+    var checkboxCobreObjetado = document.getElementById("TrabajadoCobre_Objetado");
     actualizarTextoCheckbox(checkboxCobreObjetado);
 
-
-    checkboxCobreObjetado.addEventListener('change', function() {
+    checkboxCobreObjetado.addEventListener("change", function() {
         actualizarTextoCheckbox(checkboxCobreObjetado);
-    })
+    });
 
     function actualizarTextoCheckbox(checkbox) {
         if (checkbox.checked) {
-            checkbox.value = 'TRABAJADO';
+            checkbox.value = "TRABAJADO";
         } else {
-            checkbox.value = 'PENDIENTE';
+            checkbox.value = "PENDIENTE";
         }
     }
 
-    var checkboxDth = document.getElementById('TrabajadoDth');
+    var checkboxDth = document.getElementById("TrabajadoDth");
     actualizarTextoCheckbox(checkboxDth);
 
-
-    checkboxDth.addEventListener('change', function() {
+    checkboxDth.addEventListener("change", function() {
         actualizarTextoCheckbox(checkboxDth);
-    })
+    });
 
     function actualizarTextoCheckbox(checkbox) {
         if (checkbox.checked) {
-            checkbox.value = 'TRABAJADO';
+            checkbox.value = "TRABAJADO";
         } else {
-            checkbox.value = 'PENDIENTE';
+            checkbox.value = "PENDIENTE";
         }
     }
 
-    var checkboxGpon = document.getElementById('TrabajadoGpon');
+    var checkboxGpon = document.getElementById("TrabajadoGpon");
     actualizarTextoCheckbox(checkboxGpon);
 
-
-    checkboxGpon.addEventListener('change', function() {
+    checkboxGpon.addEventListener("change", function() {
         actualizarTextoCheckbox(checkboxGpon);
-    })
+    });
 
     function actualizarTextoCheckbox(checkbox) {
         if (checkbox.checked) {
-            checkbox.value = 'TRABAJADO';
+            checkbox.value = "TRABAJADO";
         } else {
-            checkbox.value = 'PENDIENTE';
+            checkbox.value = "PENDIENTE";
         }
     }
 
-    var checkboxGponObjetado = document.getElementById('TrabajadoGpon_Objetado');
+    var checkboxGponObjetado = document.getElementById("TrabajadoGpon_Objetado");
     actualizarTextoCheckbox(checkboxGponObjetado);
 
-
-    checkboxGponObjetado.addEventListener('change', function() {
+    checkboxGponObjetado.addEventListener("change", function() {
         actualizarTextoCheckbox(checkboxGponObjetado);
-    })
+    });
 
     function actualizarTextoCheckbox(checkbox) {
         if (checkbox.checked) {
-            checkbox.value = 'TRABAJADO';
+            checkbox.value = "TRABAJADO";
         } else {
-            checkbox.value = 'PENDIENTE';
+            checkbox.value = "PENDIENTE";
         }
     }
 
-
-    var checkboxGponTransferido = document.getElementById('TrabajadoTransferido_Gpon');
+    var checkboxGponTransferido = document.getElementById("TrabajadoTransferido_Gpon");
     actualizarTextoCheckbox(checkboxGponTransferido);
 
-
-    checkboxGponTransferido.addEventListener('change', function() {
+    checkboxGponTransferido.addEventListener("change", function() {
         actualizarTextoCheckbox(checkboxGponTransferido);
-    })
+    });
 
     function actualizarTextoCheckbox(checkbox) {
         if (checkbox.checked) {
-            checkbox.value = 'TRABAJADO';
+            checkbox.value = "TRABAJADO";
         } else {
-            checkbox.value = 'PENDIENTE';
+            checkbox.value = "PENDIENTE";
         }
     }
 
-    var checkboxGponTrabajadoHfc = document.getElementById('TrabajadoHfc');
+    var checkboxGponTrabajadoHfc = document.getElementById("TrabajadoHfc");
     actualizarTextoCheckbox(checkboxGponTrabajadoHfc);
 
-
-    checkboxGponTrabajadoHfc.addEventListener('change', function() {
+    checkboxGponTrabajadoHfc.addEventListener("change", function() {
         actualizarTextoCheckbox(checkboxGponTrabajadoHfc);
-    })
+    });
 
     function actualizarTextoCheckbox(checkbox) {
         if (checkbox.checked) {
-            checkbox.value = 'TRABAJADO';
+            checkbox.value = "TRABAJADO";
         } else {
-            checkbox.value = 'PENDIENTE';
+            checkbox.value = "PENDIENTE";
         }
     }
-
-
 });
 </script>
-
-
-
-
-
-
 
 <!-- Select2 -->
 <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
@@ -2214,29 +2132,24 @@ document.addEventListener('DOMContentLoaded', function() {
 @endsection @section('scripts')
 <!-- datepicker -->
 <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/plugins/datepicker/locales/bootstrap-datepicker.es.js') }}" type="text/javascript">
-</script>
+<script src="{{ asset('/plugins/datepicker/locales/bootstrap-datepicker.es.js') }}" type="text/javascript"></script>
 <!-- Select2 -->
 <script src="{{ asset('/plugins/select2/select2.full.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/select2/i18n/es.js') }}" type="text/javascript"></script>
 <!-- InputMask -->
 <script src="{{ asset('/plugins/input-mask/inputmask.js') }}" type="text/javascript"></script>
-<script src="{{ asset('/plugins/input-mask/inputmask.date.extensions.js') }}" type="text/javascript">
-</script>
-<script src="{{ asset('/plugins/input-mask/inputmask.regex.extensions.js') }}" type="text/javascript">
-</script>
+<script src="{{ asset('/plugins/input-mask/inputmask.date.extensions.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/plugins/input-mask/inputmask.regex.extensions.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/input-mask/jquery.inputmask.js') }}" type="text/javascript"></script>
 <!-- boostrap-fileinput -->
-<script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput.min.js') }}" type="text/javascript">
-</script>
-<script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput_locale_es.js') }}" type="text/javascript">
-</script>
+<script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput_locale_es.js') }}" type="text/javascript"></script>
 <!-- User definided -->
 <!-- <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script> -->
 <script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
 <script src="{{asset('/js/registro/ValidacionTecnico.js')}}" type="text/javascript"></script>
 <script src="{{asset('/js/instalaciones/ValoresTecnico.js')}}" type="text/javascript"></script>
 
-<script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"> </script>
+<script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script>
 
 @endsection

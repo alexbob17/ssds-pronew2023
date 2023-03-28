@@ -5,10 +5,10 @@ $(function () {
 
 // OBTENEMOS LOS FORMS GENERALES A OCULTAR DE POSVENTA TRASLADOS
 const reparacionesHfc = document.getElementById("reparacionesHfc");
-// const reparacionesGpon = document.getElementById("reparacionesGpon");
-// const reparacionesDth = document.getElementById("reparacionesDth");
-// const reparacionesAdsl = document.getElementById("reparacionesAdsl");
-// const reparacionesCobre = document.getElementById("reparacionesCobre");
+const reparacionesGpon = document.getElementById("reparacionesGpon");
+const reparacionesDth = document.getElementById("reparacionesDth");
+const reparacionesAdsl = document.getElementById("reparacionesAdsl");
+const reparacionesCobre = document.getElementById("reparacionesCobre");
 
 // OBTENEMOS EL BOTON DEL FORM Y LO OCULTAMOS
 const btn_submit = document.getElementById("btn-submitForm");
@@ -17,10 +17,10 @@ btn_submit.style.display = "none";
 // FORMS GENERALES A OCULTAR
 const elementsToHide = [
   reparacionesHfc,
-  //   reparacionesGpon,
-  //   reparacionesDth,
-  //   reparacionesAdsl,
-  //   reparacionesCobre,
+  reparacionesGpon,
+  reparacionesDth,
+  reparacionesAdsl,
+  reparacionesCobre,
   btn_submit,
 ];
 
@@ -28,10 +28,10 @@ const elementsToHide = [
 
 const tiposActividad = [
   "TipoActividadReparacionHfc",
-  //   "TipoActividadReparacionGpon",
-  //   "TipoActividadReparacionAdsl",
-  //   "TipoActividadReparacionCobre",
-  //   "TipoActividadReparacionDth",
+  "TipoActividadReparacionGpon",
+  "TipoActividadReparacionAdsl",
+  "TipoActividadReparacionCobre",
+  "TipoActividadReparacionDth",
 ];
 
 // OBTENEMOS EL SELECT POSTVENTA
@@ -50,10 +50,10 @@ function ocultarElementos(elementos) {
 // POSTVENTAS TRASLADOS
 const elementosReparaciones = [
   ...document.querySelectorAll(".ReparacionHiddenHfc"),
-  //   ...document.querySelectorAll(".ReparacionHiddenGpon"),
-  //   ...document.querySelectorAll(".ReparacionHiddenDth"),
-  //   ...document.querySelectorAll(".ReparacionHiddenAdsl"),
-  //   ...document.querySelectorAll(".ReparacionHiddenCobre"),
+  ...document.querySelectorAll(".ReparacionHiddenGpon"),
+  ...document.querySelectorAll(".ReparacionHiddenDth"),
+  ...document.querySelectorAll(".ReparacionHiddenAdsl"),
+  ...document.querySelectorAll(".ReparacionHiddenCobre"),
 ];
 
 function mostrarElementos() {
@@ -70,13 +70,69 @@ function mostrarElementos() {
       reparacionesHfc.style.display = "block";
 
       //RESET VALUE SELECT
-      //   for (let i = 0; i < tiposActividad.length; i++) {
-      //     const elemento = document.getElementById(tiposActividad[i]);
-      //     elemento.value = "SELECCIONE UNA OPCION";
-      //   }
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
 
       //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
       //   ocultarElementos(elementosReparaciones);
+
+      break;
+    case "GPON":
+      //  MUESTRA EL DIV CORRESPONDIENTE
+      reparacionesGpon.style.display = "block";
+
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
+
+      //   OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosReparaciones);
+
+      break;
+    case "DTH":
+      //  MUESTRA EL DIV CORRESPONDIENTE
+      reparacionesDth.style.display = "block";
+
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
+
+      //   OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosReparaciones);
+
+      break;
+    case "ADSL":
+      //  MUESTRA EL DIV CORRESPONDIENTE
+      reparacionesAdsl.style.display = "block";
+
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
+
+      //   OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosReparaciones);
+
+      break;
+    case "COBRE":
+      //  MUESTRA EL DIV CORRESPONDIENTE
+      reparacionesCobre.style.display = "block";
+
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
+
+      //   OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosReparaciones);
 
       break;
     default:
@@ -105,8 +161,52 @@ const formTypes = [
     forms: [
       document.getElementById("RealizadaReparacionHfc"),
       document.getElementById("ObjetadaReparacionHfc"),
-      document.getElementById("AnuladaReparacionHfc"),
+      //   document.getElementById("AnuladaReparacionHfc"),
       document.getElementById("TransferidoReparacionHfc"),
+    ],
+  },
+  {
+    select: document.querySelector(
+      "select[name='TipoActividadReparacionGpon']"
+    ),
+    forms: [
+      document.getElementById("RealizadaReparacionGpon"),
+      document.getElementById("ObjetadaReparacionGpon"),
+      //   document.getElementById("AnuladaReparacionGpon"),
+      document.getElementById("TransferidoReparacionGpon"),
+    ],
+  },
+  {
+    select: document.querySelector("select[name='TipoActividadReparacionDth']"),
+    forms: [
+      document.getElementById("RealizadaReparacionDth"),
+      document.getElementById("ObjetadaReparacionDth"),
+      //   document.getElementById("AnuladaReparacionGpon"),
+      document.getElementById("TransferidoReparacionDth"),
+    ],
+  },
+
+  {
+    select: document.querySelector(
+      "select[name='TipoActividadReparacionAdsl']"
+    ),
+    forms: [
+      document.getElementById("RealizadaReparacionAdsl"),
+      document.getElementById("ObjetadaReparacionAdsl"),
+      //   document.getElementById("AnuladaReparacionGpon"),
+      document.getElementById("TransferidoReparacionAdsl"),
+    ],
+  },
+
+  {
+    select: document.querySelector(
+      "select[name='TipoActividadReparacionCobre']"
+    ),
+    forms: [
+      document.getElementById("RealizadaReparacionCobre"),
+      document.getElementById("ObjetadaReparacionCobre"),
+      document.getElementById("TransferidoReparacionCobre"),
+      // document.getElementById("AnuladaReparacionCobre"),
     ],
   },
 ];
@@ -136,10 +236,8 @@ formTypes.forEach(({ select, forms }) => {
         selectedForm = forms[0];
       } else if (selectedOption === "OBJETADA") {
         selectedForm = forms[1];
-      } else if (selectedOption === "ANULACION") {
-        selectedForm = forms[2];
       } else if (selectedOption === "TRANSFERIDA") {
-        selectedForm = forms[3];
+        selectedForm = forms[2];
       }
 
       if (selectedForm) {
@@ -152,3 +250,18 @@ formTypes.forEach(({ select, forms }) => {
     }
   });
 });
+
+// FETCH LOCALIZACIONES
+
+fetch("../Json/Localizaciones.json")
+  .then((response) => response.json())
+  .then((datos) => {
+    var select_dpto = document.getElementById("dpto_colonia");
+    select_dpto.innerHTML = "<option value=''>SELECCIONE UNA OPCION</option>";
+    for (var i = 0; i < datos.length; i++) {
+      var option = document.createElement("option");
+      option.value = datos[i].DEPTO + datos[i].COLONIA;
+      option.text = datos[i].DEPTO + datos[i].COLONIA;
+      select_dpto.add(option);
+    }
+  });

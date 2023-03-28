@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const form4 = document.getElementById("form4");
   const form5 = document.getElementById("form5");
   const form6 = document.getElementById("form6");
-
   form2.style.display = "none";
   form3.style.display = "none";
   form4.style.display = "none";
@@ -309,43 +308,43 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  select_orden.addEventListener("change", function () {
-    switch (select_orden.value) {
-      case "SELECCIONA UNA OPCION":
-        form2.style.display = "none";
-        form3.style.display = "none";
-        form4.style.display = "none";
-        form5.style.display = "none";
-        form6.style.display = "none";
-        btn_save.style.display = "none";
+// document.addEventListener("DOMContentLoaded", function () {
+//   select_orden.addEventListener("change", function () {
+//     switch (select_orden.value) {
+//       case "SELECCIONA UNA OPCION":
+//         form2.style.display = "none";
+//         form3.style.display = "none";
+//         form4.style.display = "none";
+//         form5.style.display = "none";
+//         form6.style.display = "none";
+//         btn_save.style.display = "none";
 
-        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
-          TipoActividad_Hidden[i].style.display = "none";
-        }
+//         for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+//           TipoActividad_Hidden[i].style.display = "none";
+//         }
 
-        for (let i = 0; i < FormHfc_Hidden.length; i++) {
-          FormHfc_Hidden[i].style.display = "none";
-        }
+//         for (let i = 0; i < FormHfc_Hidden.length; i++) {
+//           FormHfc_Hidden[i].style.display = "none";
+//         }
 
-        for (let i = 0; i < FormGpon_Hidden.length; i++) {
-          FormGpon_Hidden[i].style.display = "none";
-        }
-        for (let i = 0; i < FormAdsl_Hidden.length; i++) {
-          FormAdsl_Hidden[i].style.display = "none";
-        }
+//         for (let i = 0; i < FormGpon_Hidden.length; i++) {
+//           FormGpon_Hidden[i].style.display = "none";
+//         }
+//         for (let i = 0; i < FormAdsl_Hidden.length; i++) {
+//           FormAdsl_Hidden[i].style.display = "none";
+//         }
 
-        for (let i = 0; i < FormCobre_Hidden.length; i++) {
-          FormCobre_Hidden[i].style.display = "none";
-        }
+//         for (let i = 0; i < FormCobre_Hidden.length; i++) {
+//           FormCobre_Hidden[i].style.display = "none";
+//         }
 
-        for (let i = 0; i < FormDth_Hidden.length; i++) {
-          FormDth_Hidden[i].style.display = "none";
-        }
-        break;
-    }
-  });
-});
+//         for (let i = 0; i < FormDth_Hidden.length; i++) {
+//           FormDth_Hidden[i].style.display = "none";
+//         }
+//         break;
+//     }
+//   });
+// });
 
 const select1 = document.getElementById("tecnologia");
 const select2 = document.getElementById("select_orden");
@@ -398,9 +397,9 @@ select1.addEventListener("change", function () {
     `;
   } else {
     select2.innerHTML = `
-    <option value="">SELECCIONA UNA OPCION</option>
-    
-    `;
+    <option value="">SELECCIONA UNA OPCION</option>`;
+    select1.innerHTML = `
+    <option value="">SELECCIONA UNA OPCION</option>`;
   }
 });
 

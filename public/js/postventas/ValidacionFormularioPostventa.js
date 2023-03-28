@@ -828,7 +828,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "El N° de orden debe tener 8 digitos",
+            title: "El N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -1006,7 +1006,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "El N° de orden debe tener 8 digitos",
+            title: "El N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -1179,7 +1179,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "El N° de orden debe tener 8 digitos",
+            title: "El N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -1415,7 +1415,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "El N° de orden debe tener 8 digitos",
+            title: "El N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -1642,7 +1642,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "El N° de orden debe tener 8 digitos",
+            title: "El N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -1870,7 +1870,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "El N° de orden debe tener 8 digitos",
+            title: "El N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -2027,7 +2027,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "El N° de orden debe tener 8 digitos",
+            title: "El N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -2207,7 +2207,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "El N° de orden debe tener 8 digitos",
+            title: "El N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -2388,7 +2388,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "El N° de orden debe tener 8 digitos",
+            title: "El N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -2797,7 +2797,7 @@ form.addEventListener("submit", function (event) {
         if (!/^\d{8}$/.test(NOrdenMigracionHfc)) {
           Swal.fire({
             icon: "error",
-            title: "El N° de orden debe tener 8 digitos validos",
+            title: "El N° Orden debe tener 8 digitos validos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -3065,7 +3065,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "El N° de orden debe tener 8 digitos",
+            title: "El N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -3249,7 +3249,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "El N° de orden debe tener 8 digitos",
+            title: "El N° Orden debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
@@ -3260,7 +3260,7 @@ form.addEventListener("submit", function (event) {
           // checkError.style.display = "block";
           Swal.fire({
             icon: "error",
-            title: "El N° de cobre debe tener 8 digitos",
+            title: "El N° Cobre debe tener 8 digitos",
             showConfirmButton: false,
             timer: 1900,
           });
