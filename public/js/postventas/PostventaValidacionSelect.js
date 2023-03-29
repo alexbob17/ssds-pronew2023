@@ -808,6 +808,8 @@ function actualizarOpciones() {
 
     // AQUI PODRIAS AGREGAR MAS CASOS PARA DIFERENTES COMBINACIONES DE VALORES
     default:
+    // select_orden.value = "";
+
     // selectPostventa.value = "";
     // select_orden.innerHTML = `<option value="">SELECCIONE</option>`;
     // selectTecnologia.innerHTML = `<option value="">SELECCIONE</option>`;
@@ -828,7 +830,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
   const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
 
-  // tecnologiaSelect.value = "";
   // postventaSelect.value = "";
 
   adslOption.style.display = "none";
@@ -960,7 +961,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const hfcOption = tecnologiaSelect.querySelector('option[value="HFC"]');
       const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
       const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
-      tecnologiaSelect.value = "";
+
+      // tecnologiaSelect.value = "";
+      // postventaSelect.value = "";
+      // select_orden.value = "";
 
       adslOption.style.display = "none";
       cobreOption.style.display = "none";

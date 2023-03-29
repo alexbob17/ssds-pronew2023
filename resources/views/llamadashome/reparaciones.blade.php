@@ -121,99 +121,87 @@
 
                         <!-- INPUTS HFC REALIZADA -->
 
-
                         <div class="form-group-container box-warning ReparacionHiddenHfc" id="RealizadaReparacionHfc">
                             <h4
-                                style="color: #3e69d6;margin-bottom: 1.3rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
+                                style="color: #3e69d6;margin-bottom: 1.5rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
                                 Reparacion Servicios Efectiva hfc</h4>
 
-                            <div class="form-group-container" style="border-top: 1px solid #d4d1d1">
-                                <div class="form-group col-md-3" style="margin-top:2rem">
-                                    <label for="OrdenObjCambioCobre"> Codigo Open</label>
+                            <div class="form-group-container" style="border-top: 1px solid
+                                #d4d1d1;padding-top:2.5rem">
+                                <div class="form-group col-md-3">
+                                    <label for="CodigoCausaHfc"> Codigo Causa</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Ingresa Codigo Open" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="CodigoCausaHfc"
+                                            placeholder="Codigo Causa" name="CodigoCausaHfc" />
                                     </div>
                                 </div>
-                                <div class="form-group col-md-2" style="margin-top: 4.5rem; width: auto;">
-                                    <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
-                                            aria-hidden="true"></i></button>
-                                    <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
-                                            aria-hidden="true"></i></button>
+                                <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
+                                    <button type="button" id="btnSearchCausa" class="btn btn btn-info"><i
+                                            class="fa fa-search" aria-hidden="true"></i></button>
+                                    <button type="button" id="btnDeleteCausa" class="btn btn-danger"><i
+                                            class="fa fa-trash" aria-hidden="true"></i></button>
                                 </div>
-                            </div>
 
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Causa Daño </label>
+                                <div class="form-group col-md-3">
+                                    <label for="CodigoTipoDañoHfc"> Tipo Daño</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-file-o"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Causa Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Tipo Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Tipo Daño" name="OrdenObjCambioCobre" />
+                                        <input type="text" class="form-control" id="CodigoTipoDañoHfc" readonly="true"
+                                            placeholder="Tipo Daño" name="CodigoTipoDañoHfc" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación</label>
+                                    <label for="CodigoUbicacionDañoHfc"> Ubicación Daño</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-map-marker"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación" name="OrdenObjCambioCobre" />
+                                        <input type="text" class="form-control" id="CodigoUbicacionDañoHfc"
+                                            readonly="true" placeholder="Ubicación Daño"
+                                            name="CodigoUbicacionDañoHfc" />
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group-container">
                                 <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
+                                    <label for="DescripcionCausaDañoHfc"> Descripción</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-pencil-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
+                                        <input type="text" class="form-control" id="DescripcionCausaDañoHfc"
                                             readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                            name="DescripcionCausaDañoHfc" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
+                                    <label for="DescripcionTipoDañoHfc"> Descripción</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-pencil-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
+                                        <input type="text" class="form-control" id="DescripcionTipoDañoHfc"
                                             readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                            name="DescripcionTipoDañoHfc" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
+                                    <label for="DescripcionUbicacionHfc"> Descripción</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-pencil-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
+                                        <input type="text" class="form-control" id="DescripcionUbicacionHfc"
                                             readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                            name="DescripcionUbicacionHfc" />
                                     </div>
                                 </div>
                             </div>
@@ -358,157 +346,61 @@
 
                         <div class="form-group-container ReparacionHiddenHfc" id="TransferidoReparacionHfc">
                             <h4
-                                style="color: #3e69d6;margin-bottom: 1.3rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
-                                REPARACION DE SERVICIOS TRANSFERENCIA HFC</h4>
-                            <div class="form-group-container" style="border-top: 1px solid #d4d1d1">
-                                <div class="form-group col-md-3" style="margin-top:2rem">
-                                    <label for="OrdenObjCambioCobre"> Codigo Open</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Ingresa Codigo Open" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-2" style="margin-top: 4.5rem; width: auto;">
-                                    <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
-                                            aria-hidden="true"></i></button>
-                                    <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
-                                            aria-hidden="true"></i></button>
-                                </div>
-                            </div>
-
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Causa Daño </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Causa Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Tipo Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Tipo Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-map-marker"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                            </div>
+                                style="color: #3e69d6;margin-bottom: 1.5rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
+                                REPARACION DE SERVICIOS TRANSFERENCIA hfc</h4>
 
                             <div class="form-group-container" style="margin-top: 2rem; border-top: 1px solid #d5d2d2;">
-                                <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="syrengHfc">SYRENG</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="syrengHfc"
-                                            placeholder="Ingresa SYRENG" name="syrengHfc" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
-                                        Observaciones
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-eye"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
-                                    </div>
-                                </div>
 
-                                <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
-                                        Recibe
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
+                                <div class="form-group-container" style="padding-top:2rem">
+                                    <div class="form-group col-md-3">
+                                        <label for="OrdenObjCambioCobre"> Orden </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-ticket"></i>
+                                            </div>
+                                            <input type="number" class="form-control" id="OrdenObjCambioCobre"
+                                                placeholder="N° Orden" name="OrdenObjCambioCobre" />
                                         </div>
-                                        <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc"
-                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
-                                </div>
 
-                                <div class="from-group col-md-3">
-                                    <div class="from-group-container">
-                                        <div class="form-group col-md-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                    name="TrabajadoHfc" />
-                                                <label class="form-check-label" for="TrabajadoHfc">
-                                                    Trabajado
-                                                </label>
+                                    <div class="form-group col-md-12">
+                                        <label for="ComentarioAnulada_Hfc">
+                                            Observaciones
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-edit"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-9">
+                                        <label for="ComentarioAnulada_Hfc">
+                                            Comentarios
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-edit"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
+                                        </div>
+                                    </div>
+
+                                    <div class="from-group col-md-3">
+                                        <div class="from-group-container">
+                                            <div class="form-group col-md-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
+                                                        name="TrabajadoHfc" />
+                                                    <label class="form-check-label" for="TrabajadoHfc">
+                                                        Trabajado
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -516,80 +408,6 @@
                             </div>
                         </div>
 
-                        <!-- ACTIVIDAD ANULADA HFC -->
-                        <div class="form-group-container ReparacionHiddenHfc" id="AnuladaReparacionHfc">
-                            <div class="form-group-container">
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-4">
-                                        <label for="MotivoAnulada_Hfc">Motivo Anulación</label>
-                                        <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoAnulada_Hfc" tabindex="-1"
-                                            id="MotivoAnulada_Hfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
-                                                CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
-                                            </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
-                                            </option>
-                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
-                                                SOLICITA INSTALACION CON FECHA POSTERIOR </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
-                                                TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
-                                                REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
-                                            </option>
-                                            <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
-                                                EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
-                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
-                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
-                                            </option>
-                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS </option>
-                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
-                                                PERO NO ACTIVA </option>
-                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL </option>
-                                            <option value="NO HAY RED"> NO HAY RED </option>
-                                            <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
-                                            <option
-                                                value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
-                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Hfc"
-                                                name="TrabajadoAnulada_Hfc" />
-                                            <label class="form-check-label">
-                                                Trabajado
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ComentarioAnulada_Hfc">
-                                        Comentarios
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                            name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- FORMULARIO GPON -->
@@ -616,41 +434,29 @@
 
                         <div class="form-group-container box-warning ReparacionHiddenGpon" id="RealizadaReparacionGpon">
                             <h4
-                                style="color: #3e69d6;margin-bottom: 1.3rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
-                                Reparacion Servicios Efectiva gpon</h4>
+                                style="color: #3e69d6;margin-bottom: 1.5rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
+                                Reparacion Servicios Efectiva Gpon</h4>
 
-                            <div class="form-group-container" style="border-top: 1px solid #d4d1d1">
-                                <div class="form-group col-md-3" style="margin-top:2rem">
-                                    <label for="OrdenObjCambioCobre"> Codigo Open</label>
+                            <div class="form-group-container" style="border-top: 1px solid
+                                #d4d1d1;padding-top:2.5rem">
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenObjCambioCobre"> Codigo Causa</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Ingresa Codigo Open" name="OrdenObjCambioCobre" />
+                                            placeholder="Codigo Causa" name="OrdenObjCambioCobre" />
                                     </div>
                                 </div>
-                                <div class="form-group col-md-2" style="margin-top: 4.5rem; width: auto;">
+                                <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
                                     <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
                                             aria-hidden="true"></i></button>
                                     <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
                                             aria-hidden="true"></i></button>
                                 </div>
-                            </div>
 
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Causa Daño </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Causa Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="OrdenObjCambioCobre"> Tipo Daño</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -661,13 +467,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación</label>
+                                    <label for="OrdenObjCambioCobre"> Ubicación Daño</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-map-marker"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación" name="OrdenObjCambioCobre" />
+                                            readonly="true" placeholder="Ubicación Daño" name="OrdenObjCambioCobre" />
                                     </div>
                                 </div>
                             </div>
@@ -851,157 +657,61 @@
 
                         <div class="form-group-container ReparacionHiddenGpon" id="TransferidoReparacionGpon">
                             <h4
-                                style="color: #3e69d6;margin-bottom: 1.3rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
+                                style="color: #3e69d6;margin-bottom: 1.5rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
                                 REPARACION DE SERVICIOS TRANSFERENCIA GPON</h4>
-                            <div class="form-group-container" style="border-top: 1px solid #d4d1d1">
-                                <div class="form-group col-md-3" style="margin-top:2rem">
-                                    <label for="OrdenObjCambioCobre"> Codigo Open</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Ingresa Codigo Open" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-2" style="margin-top: 4.5rem; width: auto;">
-                                    <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
-                                            aria-hidden="true"></i></button>
-                                    <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
-                                            aria-hidden="true"></i></button>
-                                </div>
-                            </div>
-
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Causa Daño </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Causa Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Tipo Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Tipo Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-map-marker"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="form-group-container" style="margin-top: 2rem; border-top: 1px solid #d5d2d2;">
-                                <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="syrengHfc">SYRENG</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="syrengHfc"
-                                            placeholder="Ingresa SYRENG" name="syrengHfc" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
-                                        Observaciones
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-eye"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
-                                    </div>
-                                </div>
 
-                                <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
-                                        Recibe
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
+                                <div class="form-group-container" style="padding-top:2rem">
+                                    <div class="form-group col-md-3">
+                                        <label for="OrdenObjCambioCobre"> Orden </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-ticket"></i>
+                                            </div>
+                                            <input type="number" class="form-control" id="OrdenObjCambioCobre"
+                                                placeholder="N° Orden" name="OrdenObjCambioCobre" />
                                         </div>
-                                        <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc"
-                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
-                                </div>
 
-                                <div class="from-group col-md-3">
-                                    <div class="from-group-container">
-                                        <div class="form-group col-md-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                    name="TrabajadoHfc" />
-                                                <label class="form-check-label" for="TrabajadoHfc">
-                                                    Trabajado
-                                                </label>
+                                    <div class="form-group col-md-12">
+                                        <label for="ComentarioAnulada_Hfc">
+                                            Observaciones
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-edit"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-9">
+                                        <label for="ComentarioAnulada_Hfc">
+                                            Comentarios
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-edit"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
+                                        </div>
+                                    </div>
+
+                                    <div class="from-group col-md-3">
+                                        <div class="from-group-container">
+                                            <div class="form-group col-md-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
+                                                        name="TrabajadoHfc" />
+                                                    <label class="form-check-label" for="TrabajadoHfc">
+                                                        Trabajado
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1009,80 +719,7 @@
                             </div>
                         </div>
 
-                        <!-- ACTIVIDAD ANULADA GPON -->
-                        <div class="form-group-container ReparacionHiddenGpon" id="AnuladaReparacionGpon">
-                            <div class="form-group-container">
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-4">
-                                        <label for="MotivoAnulada_Hfc">Motivo Anulación</label>
-                                        <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoAnulada_Hfc" tabindex="-1"
-                                            id="MotivoAnulada_Hfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
-                                                CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
-                                            </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
-                                            </option>
-                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
-                                                SOLICITA INSTALACION CON FECHA POSTERIOR </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
-                                                TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
-                                                REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
-                                            </option>
-                                            <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
-                                                EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
-                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
-                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
-                                            </option>
-                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS </option>
-                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
-                                                PERO NO ACTIVA </option>
-                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL </option>
-                                            <option value="NO HAY RED"> NO HAY RED </option>
-                                            <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
-                                            <option
-                                                value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
-                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
-                                        </select>
-                                    </div>
-                                </div>
 
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Hfc"
-                                                name="TrabajadoAnulada_Hfc" />
-                                            <label class="form-check-label">
-                                                Trabajado
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ComentarioAnulada_Hfc">
-                                        Comentarios
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                            name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- FORMULARIO DTH -->
@@ -1109,41 +746,29 @@
 
                         <div class="form-group-container box-warning ReparacionHiddenDth" id="RealizadaReparacionDth">
                             <h4
-                                style="color: #3e69d6;margin-bottom: 1.3rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
+                                style="color: #3e69d6;margin-bottom: 1.5rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
                                 Reparacion Servicios Efectiva DTH</h4>
 
-                            <div class="form-group-container" style="border-top: 1px solid #d4d1d1">
-                                <div class="form-group col-md-3" style="margin-top:2rem">
-                                    <label for="OrdenObjCambioCobre"> Codigo Open</label>
+                            <div class="form-group-container" style="border-top: 1px solid
+                                #d4d1d1;padding-top:2.5rem">
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenObjCambioCobre"> Codigo Causa</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Ingresa Codigo Open" name="OrdenObjCambioCobre" />
+                                            placeholder="Codigo Causa" name="OrdenObjCambioCobre" />
                                     </div>
                                 </div>
-                                <div class="form-group col-md-2" style="margin-top: 4.5rem; width: auto;">
+                                <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
                                     <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
                                             aria-hidden="true"></i></button>
                                     <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
                                             aria-hidden="true"></i></button>
                                 </div>
-                            </div>
 
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Causa Daño </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Causa Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="OrdenObjCambioCobre"> Tipo Daño</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -1154,13 +779,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación</label>
+                                    <label for="OrdenObjCambioCobre"> Ubicación Daño</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-map-marker"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación" name="OrdenObjCambioCobre" />
+                                            readonly="true" placeholder="Ubicación Daño" name="OrdenObjCambioCobre" />
                                     </div>
                                 </div>
                             </div>
@@ -1343,157 +968,61 @@
 
                         <div class="form-group-container ReparacionHiddenDth" id="TransferidoReparacionDth">
                             <h4
-                                style="color: #3e69d6;margin-bottom: 1.3rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
+                                style="color: #3e69d6;margin-bottom: 1.5rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
                                 REPARACION DE SERVICIOS TRANSFERENCIA DTH</h4>
-                            <div class="form-group-container" style="border-top: 1px solid #d4d1d1">
-                                <div class="form-group col-md-3" style="margin-top:2rem">
-                                    <label for="OrdenObjCambioCobre"> Codigo Open</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Ingresa Codigo Open" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-2" style="margin-top: 4.5rem; width: auto;">
-                                    <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
-                                            aria-hidden="true"></i></button>
-                                    <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
-                                            aria-hidden="true"></i></button>
-                                </div>
-                            </div>
-
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Causa Daño </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Causa Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Tipo Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Tipo Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-map-marker"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="form-group-container" style="margin-top: 2rem; border-top: 1px solid #d5d2d2;">
-                                <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="syrengHfc">SYRENG</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="syrengHfc"
-                                            placeholder="Ingresa SYRENG" name="syrengHfc" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
-                                        Observaciones
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-eye"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
-                                    </div>
-                                </div>
 
-                                <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
-                                        Recibe
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
+                                <div class="form-group-container" style="padding-top:2rem">
+                                    <div class="form-group col-md-3">
+                                        <label for="OrdenObjCambioCobre"> Orden </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-ticket"></i>
+                                            </div>
+                                            <input type="number" class="form-control" id="OrdenObjCambioCobre"
+                                                placeholder="N° Orden" name="OrdenObjCambioCobre" />
                                         </div>
-                                        <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc"
-                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
-                                </div>
 
-                                <div class="from-group col-md-3">
-                                    <div class="from-group-container">
-                                        <div class="form-group col-md-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                    name="TrabajadoHfc" />
-                                                <label class="form-check-label" for="TrabajadoHfc">
-                                                    Trabajado
-                                                </label>
+                                    <div class="form-group col-md-12">
+                                        <label for="ComentarioAnulada_Hfc">
+                                            Observaciones
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-edit"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-9">
+                                        <label for="ComentarioAnulada_Hfc">
+                                            Comentarios
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-edit"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
+                                        </div>
+                                    </div>
+
+                                    <div class="from-group col-md-3">
+                                        <div class="from-group-container">
+                                            <div class="form-group col-md-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
+                                                        name="TrabajadoHfc" />
+                                                    <label class="form-check-label" for="TrabajadoHfc">
+                                                        Trabajado
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1501,80 +1030,7 @@
                             </div>
                         </div>
 
-                        <!-- ACTIVIDAD ANULADA DTH -->
-                        <div class="form-group-container ReparacionHiddenDth" id="AnuladaReparacionDth">
-                            <div class="form-group-container">
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-4">
-                                        <label for="MotivoAnulada_Hfc">Motivo Anulación</label>
-                                        <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoAnulada_Hfc" tabindex="-1"
-                                            id="MotivoAnulada_Hfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
-                                                CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
-                                            </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
-                                            </option>
-                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
-                                                SOLICITA INSTALACION CON FECHA POSTERIOR </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
-                                                TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
-                                                REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
-                                            </option>
-                                            <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
-                                                EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
-                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
-                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
-                                            </option>
-                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS </option>
-                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
-                                                PERO NO ACTIVA </option>
-                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL </option>
-                                            <option value="NO HAY RED"> NO HAY RED </option>
-                                            <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
-                                            <option
-                                                value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
-                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
-                                        </select>
-                                    </div>
-                                </div>
 
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Hfc"
-                                                name="TrabajadoAnulada_Hfc" />
-                                            <label class="form-check-label">
-                                                Trabajado
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ComentarioAnulada_Hfc">
-                                        Comentarios
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                            name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- FORMULARIO ADSL-->
@@ -1601,41 +1057,29 @@
 
                         <div class="form-group-container box-warning ReparacionHiddenAdsl" id="RealizadaReparacionAdsl">
                             <h4
-                                style="color: #3e69d6;margin-bottom: 1.3rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
-                                Reparacion Servicios Efectiva adsl</h4>
+                                style="color: #3e69d6;margin-bottom: 1.5rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
+                                Reparacion Servicios Efectiva Adsl</h4>
 
-                            <div class="form-group-container" style="border-top: 1px solid #d4d1d1">
-                                <div class="form-group col-md-3" style="margin-top:2rem">
-                                    <label for="OrdenObjCambioCobre"> Codigo Open</label>
+                            <div class="form-group-container" style="border-top: 1px solid
+                                #d4d1d1;padding-top:2.5rem">
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenObjCambioCobre"> Codigo Causa</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Ingresa Codigo Open" name="OrdenObjCambioCobre" />
+                                            placeholder="Codigo Causa" name="OrdenObjCambioCobre" />
                                     </div>
                                 </div>
-                                <div class="form-group col-md-2" style="margin-top: 4.5rem; width: auto;">
+                                <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
                                     <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
                                             aria-hidden="true"></i></button>
                                     <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
                                             aria-hidden="true"></i></button>
                                 </div>
-                            </div>
 
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Causa Daño </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Causa Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="OrdenObjCambioCobre"> Tipo Daño</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -1646,13 +1090,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación</label>
+                                    <label for="OrdenObjCambioCobre"> Ubicación Daño</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-map-marker"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación" name="OrdenObjCambioCobre" />
+                                            readonly="true" placeholder="Ubicación Daño" name="OrdenObjCambioCobre" />
                                     </div>
                                 </div>
                             </div>
@@ -1835,234 +1279,63 @@
 
                         <div class="form-group-container ReparacionHiddenAdsl" id="TransferidoReparacionAdsl">
                             <h4
-                                style="color: #3e69d6;margin-bottom: 1.3rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
-                                REPARACION DE SERVICIOS TRANSFERENCIA adsl</h4>
-                            <div class="form-group-container" style="border-top: 1px solid #d4d1d1">
-                                <div class="form-group col-md-3" style="margin-top:2rem">
-                                    <label for="OrdenObjCambioCobre"> Codigo Open</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Ingresa Codigo Open" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-2" style="margin-top: 4.5rem; width: auto;">
-                                    <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
-                                            aria-hidden="true"></i></button>
-                                    <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
-                                            aria-hidden="true"></i></button>
-                                </div>
-                            </div>
-
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Causa Daño </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Causa Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Tipo Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Tipo Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-map-marker"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                            </div>
+                                style="color: #3e69d6;margin-bottom: 1.5rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
+                                REPARACION DE SERVICIOS TRANSFERENCIA Adsl</h4>
 
                             <div class="form-group-container" style="margin-top: 2rem; border-top: 1px solid #d5d2d2;">
-                                <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="syrengHfc">SYRENG</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="syrengHfc"
-                                            placeholder="Ingresa SYRENG" name="syrengHfc" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
-                                        Observaciones
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-eye"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
-                                    </div>
-                                </div>
 
-                                <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
-                                        Recibe
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
+                                <div class="form-group-container" style="padding-top:2rem">
+                                    <div class="form-group col-md-3">
+                                        <label for="OrdenObjCambioCobre"> Orden </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-ticket"></i>
+                                            </div>
+                                            <input type="number" class="form-control" id="OrdenObjCambioCobre"
+                                                placeholder="N° Orden" name="OrdenObjCambioCobre" />
                                         </div>
-                                        <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc"
-                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
-                                </div>
 
-                                <div class="from-group col-md-3">
-                                    <div class="from-group-container">
-                                        <div class="form-group col-md-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                    name="TrabajadoHfc" />
-                                                <label class="form-check-label" for="TrabajadoHfc">
-                                                    Trabajado
-                                                </label>
+                                    <div class="form-group col-md-12">
+                                        <label for="ComentarioAnulada_Hfc">
+                                            Observaciones
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-edit"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-9">
+                                        <label for="ComentarioAnulada_Hfc">
+                                            Comentarios
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-edit"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
+                                        </div>
+                                    </div>
+
+                                    <div class="from-group col-md-3">
+                                        <div class="from-group-container">
+                                            <div class="form-group col-md-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
+                                                        name="TrabajadoHfc" />
+                                                    <label class="form-check-label" for="TrabajadoHfc">
+                                                        Trabajado
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- ACTIVIDAD ANULADA ADSL -->
-                        <div class="form-group-container ReparacionHiddenAdsl" id="AnuladaReparacionAdsl">
-                            <div class="form-group-container">
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-4">
-                                        <label for="MotivoAnulada_Hfc">Motivo Anulación</label>
-                                        <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoAnulada_Hfc" tabindex="-1"
-                                            id="MotivoAnulada_Hfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
-                                                CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
-                                            </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
-                                            </option>
-                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
-                                                SOLICITA INSTALACION CON FECHA POSTERIOR </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
-                                                TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
-                                                REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
-                                            </option>
-                                            <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
-                                                EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
-                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
-                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
-                                            </option>
-                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS </option>
-                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
-                                                PERO NO ACTIVA </option>
-                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL </option>
-                                            <option value="NO HAY RED"> NO HAY RED </option>
-                                            <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
-                                            <option
-                                                value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
-                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Hfc"
-                                                name="TrabajadoAnulada_Hfc" />
-                                            <label class="form-check-label">
-                                                Trabajado
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ComentarioAnulada_Hfc">
-                                        Comentarios
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                            name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
                             </div>
@@ -2089,46 +1362,34 @@
                             </div>
                         </div>
 
-                        <!-- INPUTS ADSL REALIZADA -->
+                        <!-- INPUTS COBRE REALIZADA -->
 
                         <div class="form-group-container box-warning ReparacionHiddenCobre"
                             id="RealizadaReparacionCobre">
                             <h4
-                                style="color: #3e69d6;margin-bottom: 1.3rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
-                                Reparacion Servicios Efectiva cobre</h4>
+                                style="color: #3e69d6;margin-bottom: 1.5rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
+                                Reparacion Servicios Efectiva COBRE</h4>
 
-                            <div class="form-group-container" style="border-top: 1px solid #d4d1d1">
-                                <div class="form-group col-md-3" style="margin-top:2rem">
-                                    <label for="OrdenObjCambioCobre"> Codigo Open</label>
+                            <div class="form-group-container" style="border-top: 1px solid
+                                #d4d1d1;padding-top:2.5rem">
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenObjCambioCobre"> Codigo Causa</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Ingresa Codigo Open" name="OrdenObjCambioCobre" />
+                                            placeholder="Codigo Causa" name="OrdenObjCambioCobre" />
                                     </div>
                                 </div>
-                                <div class="form-group col-md-2" style="margin-top: 4.5rem; width: auto;">
+                                <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
                                     <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
                                             aria-hidden="true"></i></button>
                                     <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
                                             aria-hidden="true"></i></button>
                                 </div>
-                            </div>
 
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Causa Daño </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Causa Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
+                                <div class="form-group col-md-3">
                                     <label for="OrdenObjCambioCobre"> Tipo Daño</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -2139,13 +1400,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación</label>
+                                    <label for="OrdenObjCambioCobre"> Ubicación Daño</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-map-marker"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación" name="OrdenObjCambioCobre" />
+                                            readonly="true" placeholder="Ubicación Daño" name="OrdenObjCambioCobre" />
                                     </div>
                                 </div>
                             </div>
@@ -2252,7 +1513,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- INPUTS ADSL OBJETADA -->
+                        <!-- INPUTS COBRE OBJETADA -->
 
                         <div class="form-group-container ReparacionHiddenCobre" id="ObjetadaReparacionCobre">
                             <h4
@@ -2324,161 +1585,65 @@
                             </div>
                         </div>
 
-                        <!-- INPUTS ADSL TRANSFERIDA -->
+                        <!-- INPUTS COBRE TRANSFERIDA -->
 
                         <div class="form-group-container ReparacionHiddenCobre" id="TransferidoReparacionCobre">
                             <h4
-                                style="color: #3e69d6;margin-bottom: 1.3rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
-                                REPARACION DE SERVICIOS TRANSFERENCIA cobre</h4>
-                            <div class="form-group-container" style="border-top: 1px solid #d4d1d1">
-                                <div class="form-group col-md-3" style="margin-top:2rem">
-                                    <label for="OrdenObjCambioCobre"> Codigo Open</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Ingresa Codigo Open" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-2" style="margin-top: 4.5rem; width: auto;">
-                                    <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
-                                            aria-hidden="true"></i></button>
-                                    <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
-                                            aria-hidden="true"></i></button>
-                                </div>
-                            </div>
-
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Causa Daño </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Causa Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Tipo Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Tipo Daño" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-map-marker"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                            </div>
+                                style="color: #3e69d6;margin-bottom: 1.5rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
+                                REPARACION DE SERVICIOS TRANSFERENCIA COBRE</h4>
 
                             <div class="form-group-container" style="margin-top: 2rem; border-top: 1px solid #d5d2d2;">
-                                <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="syrengHfc">SYRENG</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="syrengHfc"
-                                            placeholder="Ingresa SYRENG" name="syrengHfc" />
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
-                                        Observaciones
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-eye"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
-                                    </div>
-                                </div>
 
-                                <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
-                                        Recibe
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
+                                <div class="form-group-container" style="padding-top:2rem">
+                                    <div class="form-group col-md-3">
+                                        <label for="OrdenObjCambioCobre"> Orden </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-ticket"></i>
+                                            </div>
+                                            <input type="number" class="form-control" id="OrdenObjCambioCobre"
+                                                placeholder="N° Orden" name="OrdenObjCambioCobre" />
                                         </div>
-                                        <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc"
-                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
-                                </div>
 
-                                <div class="from-group col-md-3">
-                                    <div class="from-group-container">
-                                        <div class="form-group col-md-3">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                    name="TrabajadoHfc" />
-                                                <label class="form-check-label" for="TrabajadoHfc">
-                                                    Trabajado
-                                                </label>
+                                    <div class="form-group col-md-12">
+                                        <label for="ComentarioAnulada_Hfc">
+                                            Observaciones
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-edit"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-9">
+                                        <label for="ComentarioAnulada_Hfc">
+                                            Comentarios
+                                        </label>
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="fa fa-edit"></i>
+                                            </div>
+                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
+                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                                oninput="this.value = this.value.toUpperCase()" />
+                                        </div>
+                                    </div>
+
+                                    <div class="from-group col-md-3">
+                                        <div class="from-group-container">
+                                            <div class="form-group col-md-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
+                                                        name="TrabajadoHfc" />
+                                                    <label class="form-check-label" for="TrabajadoHfc">
+                                                        Trabajado
+                                                    </label>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -2486,80 +1651,6 @@
                             </div>
                         </div>
 
-                        <!-- ACTIVIDAD ANULADA ADSL -->
-                        <div class="form-group-container ReparacionHiddenCobre" id="AnuladaReparacionCobre">
-                            <div class="form-group-container">
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-4">
-                                        <label for="MotivoAnulada_Hfc">Motivo Anulación</label>
-                                        <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoAnulada_Hfc" tabindex="-1"
-                                            id="MotivoAnulada_Hfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
-                                                CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
-                                            </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
-                                            </option>
-                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
-                                                SOLICITA INSTALACION CON FECHA POSTERIOR </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
-                                                TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
-                                                REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
-                                            </option>
-                                            <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
-                                                EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
-                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
-                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
-                                            </option>
-                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS </option>
-                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
-                                                PERO NO ACTIVA </option>
-                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL </option>
-                                            <option value="NO HAY RED"> NO HAY RED </option>
-                                            <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
-                                            <option
-                                                value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
-                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Hfc"
-                                                name="TrabajadoAnulada_Hfc" />
-                                            <label class="form-check-label">
-                                                Trabajado
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ComentarioAnulada_Hfc">
-                                        Comentarios
-                                    </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                            name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -2666,6 +1757,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <script src="{{asset('/js/registro/ValidacionTecnico.js')}}" type="text/javascript"></script>
 <script src="{{asset('/js/instalaciones/ValoresTecnico.js')}}" type="text/javascript"></script>
 
-<script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script>
+<!-- <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script> -->
+<script src="{{asset('/js/reparaciones/fetchReparaciones.js')}}" type="text/javascript"></script>
+
 
 @endsection

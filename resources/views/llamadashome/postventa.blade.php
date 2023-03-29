@@ -5175,12 +5175,11 @@ Swal.fire({
 
 
 <script>
-window.addEventListener("beforeunload", function() {
-    document.getElementById("tecnologia").value = "";
-    document.getElementById("select_orden").value = "";
-    document.getElementById("Select_Postventa").value = "";
+window.addEventListener("Document", function() {
+    window.location.href = window.location.href;
 });
 </script>
+
 
 
 @endif @endsection @section('styles')
