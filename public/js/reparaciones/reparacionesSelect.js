@@ -346,6 +346,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       ResetValueHfc();
+      ResetValueGeneralGpon();
     } else if (tecnologia.value === "GPON") {
       const TvOption = select_orden.querySelector('option[value="TV"]');
       const LineaOption = select_orden.querySelector('option[value="LINEA"]');
@@ -369,6 +370,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       ResetValueHfc();
+      ResetValueGeneralGpon();
     } else if (tecnologia.value === "ADSL") {
       const TvOption = select_orden.querySelector('option[value="TV"]');
       const LineaOption = select_orden.querySelector('option[value="LINEA"]');
@@ -392,6 +394,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       ResetValueHfc();
+      ResetValueGeneralGpon();
     } else if (tecnologia.value === "DTH") {
       const TvOption = select_orden.querySelector('option[value="TV"]');
       const LineaOption = select_orden.querySelector('option[value="LINEA"]');
@@ -415,6 +418,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       ResetValueHfc();
+      ResetValueGeneralGpon();
     } else if (tecnologia.value === "COBRE") {
       const TvOption = select_orden.querySelector('option[value="TV"]');
       const LineaOption = select_orden.querySelector('option[value="LINEA"]');
@@ -438,6 +442,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       ResetValueHfc();
+      ResetValueGeneralGpon();
     } else {
       const TvOption = select_orden.querySelector('option[value="TV"]');
       const LineaOption = select_orden.querySelector('option[value="LINEA"]');
@@ -461,6 +466,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       ResetValueHfc();
+      ResetValueGeneralGpon();
     }
   });
 });
@@ -506,4 +512,49 @@ function ResetValueHfc() {
   DescripcionCausaDañoHfc.value = "";
   DescripcionTipoDañoHfc.value = "";
   DescripcionUbicacionHfc.value = "";
+}
+
+function ResetValueGeneralGpon() {
+  //   GPON
+  const CodigoCausaGpon = document.getElementById("CodigoCausaGpon");
+
+  const CodigoTipoDañoGpon = document.getElementById("CodigoTipoDañoGpon");
+  const CodigoUbicacionDañoGpon = document.getElementById(
+    "CodigoUbicacionDañoGpon"
+  );
+
+  const DescripcionCausaDañoGpon = document.getElementById(
+    "DescripcionCausaDañoGpon"
+  );
+  const DescripcionTipoDañoGpon = document.getElementById(
+    "DescripcionTipoDañoGpon"
+  );
+  const DescripcionUbicacionGpon = document.getElementById(
+    "DescripcionUbicacionGpon"
+  );
+
+  CodigoCausaGpon.removeAttribute("readonly");
+
+  CodigoCausaGpon.value = "";
+
+  const optionDefaultGpon = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
+  CodigoTipoDañoGpon.innerHTML = optionDefaultGpon;
+
+  const optionDefaultUbiDañoGpon = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
+  CodigoUbicacionDañoGpon.innerHTML = optionDefaultUbiDañoGpon;
+
+  const optionDefaultDesDañoGpon = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
+  DescripcionCausaDañoGpon.innerHTML = optionDefaultDesDañoGpon;
+
+  const optionDefaultDesTipoDañoGpon = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
+  DescripcionTipoDañoGpon.innerHTML = optionDefaultDesTipoDañoGpon;
+
+  const optionDefaultDescUbicacionGpon = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
+  DescripcionUbicacionGpon.innerHTML = optionDefaultDescUbicacionGpon;
+
+  CodigoTipoDañoGpon.value = "";
+  CodigoUbicacionDañoGpon.value = "";
+  DescripcionCausaDañoGpon.value = "";
+  DescripcionTipoDañoGpon.value = "";
+  DescripcionUbicacionGpon.value = "";
 }

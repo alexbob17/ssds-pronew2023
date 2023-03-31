@@ -468,6 +468,8 @@
                                 </div>
 
 
+
+
                                 <div class="TipoActividad_Hidden">
                                     <div class="form-group col-md-3">
                                         <label for="CodigoUbicacionDañoGpon">Ubicación Daño</label>
@@ -478,6 +480,8 @@
                                         </select>
                                     </div>
                                 </div>
+
+
 
 
                             </div>
@@ -1760,6 +1764,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script> -->
 <script src="{{asset('/js/reparaciones/fetchReparaciones.js')}}" type="text/javascript"></script>
+<script src="{{asset('/js/reparaciones/fecthrepacionesgpon.js')}}" type="text/javascript"></script>
+
 
 
 @endsection
