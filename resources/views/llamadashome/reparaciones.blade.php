@@ -73,7 +73,7 @@
                         <label for="tecnologia">Tecnologia</label>
                         <select class="form-control" style="width: 100%;" name="tecnologia" tabindex="-1"
                             id="tecnologia" aria-hidden="true" required>
-                            <option selected="selected">SELECCIONE</option>
+                            <option selected="selected" value="">SELECCIONE</option>
                             <option value="HFC">HFC</option>
                             <option value="GPON">GPON</option>
                             <option value="ADSL">ADSL</option>
@@ -145,63 +145,62 @@
                                             class="fa fa-trash" aria-hidden="true"></i></button>
                                 </div>
 
-                                <div class="form-group col-md-3">
-                                    <label for="CodigoTipoDañoHfc"> Tipo Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="CodigoTipoDañoHfc" readonly="true"
-                                            placeholder="Tipo Daño" name="CodigoTipoDañoHfc" />
+
+
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="CodigoTipoDañoHfc">Tipo Daño</label>
+                                        <select class="form-control " style="width: 100%;" name="CodigoTipoDañoHfc"
+                                            tabindex="-1" id="CodigoTipoDañoHfc" aria-hidden="true">
+                                            <option select value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="CodigoUbicacionDañoHfc"> Ubicación Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-map-marker"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="CodigoUbicacionDañoHfc"
-                                            readonly="true" placeholder="Ubicación Daño"
-                                            name="CodigoUbicacionDañoHfc" />
+
+
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-3">
+                                        <label for="CodigoUbicacionDañoHfc">Ubicación Daño</label>
+                                        <select class="form-control " style="width: 100%;" name="CodigoUbicacionDañoHfc"
+                                            tabindex="-1" id="CodigoUbicacionDañoHfc" aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
+
+
                             </div>
 
                             <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="DescripcionCausaDañoHfc"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="DescripcionCausaDañoHfc"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="DescripcionCausaDañoHfc" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionCausaDañoHfc">Descripción</label>
+                                        <select class="form-control " style="width: 100%;"
+                                            name="DescripcionCausaDañoHfc" tabindex="-1" id="DescripcionCausaDañoHfc"
+                                            aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-4">
-                                    <label for="DescripcionTipoDañoHfc"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="DescripcionTipoDañoHfc"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="DescripcionTipoDañoHfc" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionTipoDañoHfc">Descripción</label>
+                                        <select class="form-control " style="width: 100%;" name="DescripcionTipoDañoHfc"
+                                            tabindex="-1" id="DescripcionTipoDañoHfc" aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-4">
-                                    <label for="DescripcionUbicacionHfc"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="DescripcionUbicacionHfc"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="DescripcionUbicacionHfc" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionUbicacionHfc">Descripción</label>
+                                        <select class="form-control " style="width: 100%;"
+                                            name="DescripcionUbicacionHfc" tabindex="-1" id="DescripcionUbicacionHfc"
+                                            aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -440,78 +439,80 @@
                             <div class="form-group-container" style="border-top: 1px solid
                                 #d4d1d1;padding-top:2.5rem">
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenObjCambioCobre"> Codigo Causa</label>
+                                    <label for="CodigoCausaGpon"> Codigo Causa</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Codigo Causa" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="CodigoCausaGpon"
+                                            placeholder="Codigo Causa" name="CodigoCausaGpon" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
-                                    <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
-                                            aria-hidden="true"></i></button>
-                                    <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
-                                            aria-hidden="true"></i></button>
+                                    <button type="button" id="btnSearchCausaGpon" class="btn btn btn-info"><i
+                                            class="fa fa-search" aria-hidden="true"></i></button>
+                                    <button type="button" id="btnDeleteCausaGpon" class="btn btn-danger"><i
+                                            class="fa fa-trash" aria-hidden="true"></i></button>
                                 </div>
 
-                                <div class="form-group col-md-3">
-                                    <label for="OrdenObjCambioCobre"> Tipo Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Tipo Daño" name="OrdenObjCambioCobre" />
+
+
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="CodigoTipoDañoGpon">Tipo Daño</label>
+                                        <select class="form-control " style="width: 100%;" name="CodigoTipoDañoGpon"
+                                            tabindex="-1" id="CodigoTipoDañoGpon" aria-hidden="true">
+                                            <option select value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-map-marker"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación Daño" name="OrdenObjCambioCobre" />
+
+
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-3">
+                                        <label for="CodigoUbicacionDañoGpon">Ubicación Daño</label>
+                                        <select class="form-control " style="width: 100%;"
+                                            name="CodigoUbicacionDañoGpon" tabindex="-1" id="CodigoUbicacionDañoGpon"
+                                            aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
+
+
                             </div>
 
                             <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionCausaDañoGpon">Descripción</label>
+                                        <select class="form-control " style="width: 100%;"
+                                            name="DescripcionCausaDañoGpon" tabindex="-1" id="DescripcionCausaDañoGpon"
+                                            aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionTipoDañoGpon">Descripción</label>
+                                        <select class="form-control " style="width: 100%;"
+                                            name="DescripcionTipoDañoGpon" tabindex="-1" id="DescripcionTipoDañoGpon"
+                                            aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionUbicacionGpon">Descripción</label>
+                                        <select class="form-control " style="width: 100%;"
+                                            name="DescripcionUbicacionGpon" tabindex="-1" id="DescripcionUbicacionGpon"
+                                            aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
