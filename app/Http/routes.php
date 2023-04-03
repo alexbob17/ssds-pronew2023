@@ -58,6 +58,9 @@ Route::group(['middleware' => ['web']], function () {
 	
 	Route::post('/llamadashome/postventa', 'PostventasController@store')->name('registro_postventa.store')->middleware('auth');
 
+	Route::post('/llamadashome/reparaciones', 'ReparacionesController@store')->name('registro_reparaciones.store')->middleware('auth');
+
+
 
 	
 	Route::controllers([

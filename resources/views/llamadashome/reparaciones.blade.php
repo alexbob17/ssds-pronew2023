@@ -13,8 +13,8 @@
                 <h3 class="box-title">Datos del Caso</h3>
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
-            <form action="" method="POST" id="form1" class="formulario box-body"
-                style="border-bottom: 3px solid #3e69d6; padding-top: 15px;">
+            <form action="{{ route('registro_reparaciones.store') }}" method="POST" id="form1"
+                class="formulario box-body" style="border-bottom: 3px solid #3e69d6; padding-top: 15px;">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                 <input type="hidden" name="selected_fields" id="selected-fields" />
@@ -207,13 +207,13 @@
 
                             <div class="form-group-container" style="margin-top: 2rem; border-top: 1px solid #d5d2d2;">
                                 <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
+                                    <label for="OrdenHfc"> Orden </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="OrdenHfc" placeholder="N° Orden"
+                                            name="OrdenHfc" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" style="margin-top: 1.5rem;">
@@ -258,9 +258,9 @@
                                     <div class="from-group-container">
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                    name="TrabajadoHfc" />
-                                                <label class="form-check-label" for="TrabajadoHfc">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="TrabajadoHfcRealizado" name="TrabajadoHfcRealizado" />
+                                                <label class="form-check-label" for="TrabajadoHfcRealizado">
                                                     Trabajado
                                                 </label>
                                             </div>
@@ -303,13 +303,13 @@
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
+                                    <label for="OrdenObjHfc"> Orden </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="OrdenObjHfc"
+                                            placeholder="N° Orden" name="OrdenObjHfc" />
                                     </div>
                                 </div>
 
@@ -352,40 +352,40 @@
 
                                 <div class="form-group-container" style="padding-top:2rem">
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenObjCambioCobre"> Orden </label>
+                                        <label for="OrdenTransfHfc"> Orden </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                                placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                            <input type="number" class="form-control" id="OrdenTransfHfc"
+                                                placeholder="N° Orden" name="OrdenTransfHfc" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentarioAnulada_Hfc">
+                                        <label for="ObvsTransfHfc">
                                             Observaciones
                                         </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                            <input type="text" class="form-control" id="ObvsTransfHfc"
+                                                name="ObvsTransfHfc" placeholder="Ingresa comentarios del caso"
                                                 oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-9">
-                                        <label for="ComentarioAnulada_Hfc">
+                                        <label for="ComentarioTransfHfc">
                                             Comentarios
                                         </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                            <input type="text" class="form-control" id="ComentarioTransfHfc"
+                                                name="ComentarioTransfHfc" placeholder="Ingresa comentarios del caso"
                                                 oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
@@ -394,9 +394,9 @@
                                         <div class="from-group-container">
                                             <div class="form-group col-md-3">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                        name="TrabajadoHfc" />
-                                                    <label class="form-check-label" for="TrabajadoHfc">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        id="TrabajadoTransfHfc" name="TrabajadoTransfHfc" />
+                                                    <label class="form-check-label" for="TrabajadoTransfHfc">
                                                         Trabajado
                                                     </label>
                                                 </div>
@@ -523,41 +523,41 @@
 
                             <div class="form-group-container" style="margin-top: 2rem; border-top: 1px solid #d5d2d2;">
                                 <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
+                                    <label for="OrdenRealizadoGpon"> Orden </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="OrdenRealizadoGpon"
+                                            placeholder="N° Orden" name="OrdenRealizadoGpon" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="syrengHfc">SYRENG</label>
+                                    <label for="syrengGpon">SYRENG</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="syrengHfc"
-                                            placeholder="Ingresa SYRENG" name="syrengHfc" />
+                                        <input type="number" class="form-control" id="syrengGpon"
+                                            placeholder="Ingresa SYRENG" name="syrengGpon" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObservacionesGpon">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso"
+                                        <input type="text" class="form-control" id="ObservacionesGpon"
+                                            name="ObservacionesGpon" placeholder="Ingresa las observaciones del caso"
                                             oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeGpon">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -565,7 +565,7 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc"
+                                            class="form-control" id="RecibeGpon" name="RecibeGpon"
                                             oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
@@ -574,9 +574,9 @@
                                     <div class="from-group-container">
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                    name="TrabajadoHfc" />
-                                                <label class="form-check-label" for="TrabajadoHfc">
+                                                <input class="form-check-input" type="checkbox" id="TrabajadoGpon"
+                                                    name="TrabajadoGpon" />
+                                                <label class="form-check-label" for="TrabajadoGpon">
                                                     Trabajado
                                                 </label>
                                             </div>
@@ -595,10 +595,10 @@
                             <div class="from-group-container" style="border-top:1px solid #d8d1d1">
                                 <div class="from-group-container" style="margin-top:1.5rem">
                                     <div class="form-group col-md-4">
-                                        <label for="MotivoObjetada_Hfc">Motivo Objetado</label>
+                                        <label for="MotivoObjetada_Gpon">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetada_Hfc" tabindex="-1"
-                                            id="MotivoObjetada_Hfc" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoObjetada_Gpon" tabindex="-1"
+                                            id="MotivoObjetada_Gpon" aria-hidden="true">
                                             <option value="">SELECCIONE UNA OPCION</option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -620,21 +620,21 @@
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
+                                    <label for="OrdenObjGpon"> Orden </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="OrdenObjGpon"
+                                            placeholder="N° Orden" name="OrdenObjGpon" />
                                     </div>
                                 </div>
 
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaHfc"
-                                                name="TrabajadoObjetadaHfc" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaGpon"
+                                                name="TrabajadoObjetadaGpon" />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -643,15 +643,15 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentariosObjetados_Hfc">
+                                    <label for="ComentariosObjGpon">
                                         Comentarios
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentariosObjetados_Hfc"
-                                            name="ComentariosObjetados_Hfc" placeholder="Comentarios del caso"
+                                        <input type="text" class="form-control" id="ComentariosObjGpon"
+                                            name="ComentariosObjGpon" placeholder="Comentarios del caso"
                                             oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
@@ -669,40 +669,40 @@
 
                                 <div class="form-group-container" style="padding-top:2rem">
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenObjCambioCobre"> Orden </label>
+                                        <label for="OrdenTransGpon"> Orden </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                                placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                            <input type="number" class="form-control" id="OrdenTransGpon"
+                                                placeholder="N° Orden" name="OrdenTransGpon" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentarioAnulada_Hfc">
+                                        <label for="ObvsTransfGpon">
                                             Observaciones
                                         </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                            <input type="text" class="form-control" id="ObvsTransfGpon"
+                                                name="ObvsTransfGpon" placeholder="Ingresa comentarios del caso"
                                                 oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-9">
-                                        <label for="ComentarioAnulada_Hfc">
+                                        <label for="ComentarioTransfGpon">
                                             Comentarios
                                         </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                            <input type="text" class="form-control" id="ComentarioTransfGpon"
+                                                name="ComentarioTransfGpon" placeholder="Ingresa comentarios del caso"
                                                 oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
@@ -711,9 +711,9 @@
                                         <div class="from-group-container">
                                             <div class="form-group col-md-3">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                        name="TrabajadoHfc" />
-                                                    <label class="form-check-label" for="TrabajadoHfc">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        id="TrabajadoTransfGpon" name="TrabajadoTransfGpon" />
+                                                    <label class="form-check-label" for="TrabajadoTransfGpon">
                                                         Trabajado
                                                     </label>
                                                 </div>
@@ -757,119 +757,119 @@
                             <div class="form-group-container" style="border-top: 1px solid
                                 #d4d1d1;padding-top:2.5rem">
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenObjCambioCobre"> Codigo Causa</label>
+                                    <label for="CodigoCausaDth"> Codigo Causa</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Codigo Causa" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="CodigoCausaDth"
+                                            placeholder="Codigo Causa" name="CodigoCausaDth" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
-                                    <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
-                                            aria-hidden="true"></i></button>
-                                    <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
-                                            aria-hidden="true"></i></button>
+                                    <button type="button" id="btnSearchCausaDth" class="btn btn btn-info"><i
+                                            class="fa fa-search" aria-hidden="true"></i></button>
+                                    <button type="button" id="btnDeleteCausaDth" class="btn btn-danger"><i
+                                            class="fa fa-trash" aria-hidden="true"></i></button>
                                 </div>
 
-                                <div class="form-group col-md-3">
-                                    <label for="OrdenObjCambioCobre"> Tipo Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Tipo Daño" name="OrdenObjCambioCobre" />
+
+
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="CodigoTipoDañoDth">Tipo Daño</label>
+                                        <select class="form-control " style="width: 100%;" name="CodigoTipoDañoDth"
+                                            tabindex="-1" id="CodigoTipoDañoDth" aria-hidden="true">
+                                            <option select value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-map-marker"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación Daño" name="OrdenObjCambioCobre" />
+
+
+
+
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-3">
+                                        <label for="CodigoUbicacionDañoDth">Ubicación Daño</label>
+                                        <select class="form-control " style="width: 100%;" name="CodigoUbicacionDañoDth"
+                                            tabindex="-1" id="CodigoUbicacionDañoDth" aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionCausaDth">Descripción</label>
+                                        <select class="form-control " style="width: 100%;" name="DescripcionCausaDth"
+                                            tabindex="-1" id="DescripcionCausaDth" aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionTipoDañoDth">Descripción</label>
+                                        <select class="form-control " style="width: 100%;" name="DescripcionTipoDañoDth"
+                                            tabindex="-1" id="DescripcionTipoDañoDth" aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionUbicacionDañoDth">Descripción</label>
+                                        <select class="form-control " style="width: 100%;"
+                                            name="DescripcionUbicacionDañoDth" tabindex="-1"
+                                            id="DescripcionUbicacionDañoDth" aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
 
+
                             <div class="form-group-container" style="margin-top: 2rem; border-top: 1px solid #d5d2d2;">
                                 <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
+                                    <label for="OrdenDthRealizada"> Orden </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="OrdenDthRealizada"
+                                            placeholder="N° Orden" name="OrdenDthRealizada" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="syrengHfc">SYRENG</label>
+                                    <label for="syrengDthRealizado">SYRENG</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="syrengHfc"
-                                            placeholder="Ingresa SYRENG" name="syrengHfc" />
+                                        <input type="number" class="form-control" id="syrengDthRealizado"
+                                            placeholder="Ingresa SYRENG" name="syrengDthRealizado" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObservacionesDth">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso"
+                                        <input type="text" class="form-control" id="ObservacionesDth"
+                                            name="ObservacionesDth" placeholder="Ingresa las observaciones del caso"
                                             oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeDth">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -877,7 +877,7 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc"
+                                            class="form-control" id="RecibeDth" name="RecibeDth"
                                             oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
@@ -886,9 +886,9 @@
                                     <div class="from-group-container">
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                    name="TrabajadoHfc" />
-                                                <label class="form-check-label" for="TrabajadoHfc">
+                                                <input class="form-check-input" type="checkbox" id="TrabajadoDth"
+                                                    name="TrabajadoDth" />
+                                                <label class="form-check-label" for="TrabajadoDth">
                                                     Trabajado
                                                 </label>
                                             </div>
@@ -906,10 +906,10 @@
                             <div class="from-group-container" style="border-top:1px solid #d8d1d1">
                                 <div class="from-group-container" style="margin-top:1.5rem">
                                     <div class="form-group col-md-4">
-                                        <label for="MotivoObjetada_Hfc">Motivo Objetado</label>
+                                        <label for="MotivoObjetada_Dth">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetada_Hfc" tabindex="-1"
-                                            id="MotivoObjetada_Hfc" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoObjetada_Dth" tabindex="-1"
+                                            id="MotivoObjetada_Dth" aria-hidden="true">
                                             <option value="">SELECCIONE UNA OPCION</option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -931,21 +931,21 @@
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
+                                    <label for="OrdenObjDth"> Orden </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="OrdenObjDth"
+                                            placeholder="N° Orden" name="OrdenObjDth" />
                                     </div>
                                 </div>
 
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaHfc"
-                                                name="TrabajadoObjetadaHfc" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaDth"
+                                                name="TrabajadoObjetadaDth" />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -954,15 +954,15 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentariosObjetados_Hfc">
+                                    <label for="ComentariosObjetadosDth">
                                         Comentarios
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentariosObjetados_Hfc"
-                                            name="ComentariosObjetados_Hfc" placeholder="Comentarios del caso"
+                                        <input type="text" class="form-control" id="ComentariosObjetadosDth"
+                                            name="ComentariosObjetadosDth" placeholder="Comentarios del caso"
                                             oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
@@ -980,40 +980,41 @@
 
                                 <div class="form-group-container" style="padding-top:2rem">
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenObjCambioCobre"> Orden </label>
+                                        <label for="OrdenTransferidoDth"> Orden </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                                placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                            <input type="number" class="form-control" id="OrdenTransferidoDth"
+                                                placeholder="N° Orden" name="OrdenTransferidoDth" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentarioAnulada_Hfc">
+                                        <label for="ObvsTransferidoDth">
                                             Observaciones
                                         </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                            <input type="text" class="form-control" id="ObvsTransferidoDth"
+                                                name="ObvsTransferidoDth" placeholder="Ingresa comentarios del caso"
                                                 oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-9">
-                                        <label for="ComentarioAnulada_Hfc">
+                                        <label for="ComentarioTransferidoDth">
                                             Comentarios
                                         </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                            <input type="text" class="form-control" id="ComentarioTransferidoDth"
+                                                name="ComentarioTransferidoDth"
+                                                placeholder="Ingresa comentarios del caso"
                                                 oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
@@ -1022,9 +1023,9 @@
                                         <div class="from-group-container">
                                             <div class="form-group col-md-3">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                        name="TrabajadoHfc" />
-                                                    <label class="form-check-label" for="TrabajadoHfc">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        id="TrabajadoTransferidoDth" name="TrabajadoTransferidoDth" />
+                                                    <label class="form-check-label" for="TrabajadoTransferidoDth">
                                                         Trabajado
                                                     </label>
                                                 </div>
@@ -1068,119 +1069,120 @@
                             <div class="form-group-container" style="border-top: 1px solid
                                 #d4d1d1;padding-top:2.5rem">
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenObjCambioCobre"> Codigo Causa</label>
+                                    <label for="CodigoCausaAdsl"> Codigo Causa</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Codigo Causa" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="CodigoCausaAdsl"
+                                            placeholder="Codigo Causa" name="CodigoCausaAdsl" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
-                                    <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
-                                            aria-hidden="true"></i></button>
-                                    <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
-                                            aria-hidden="true"></i></button>
+                                    <button type="button" id="btnSearchCausaAdsl" class="btn btn btn-info"><i
+                                            class="fa fa-search" aria-hidden="true"></i></button>
+                                    <button type="button" id="btnDeleteCausaAdsl" class="btn btn-danger"><i
+                                            class="fa fa-trash" aria-hidden="true"></i></button>
                                 </div>
 
-                                <div class="form-group col-md-3">
-                                    <label for="OrdenObjCambioCobre"> Tipo Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Tipo Daño" name="OrdenObjCambioCobre" />
+
+
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="CodigoTipoDañoAdsl">Tipo Daño</label>
+                                        <select class="form-control " style="width: 100%;" name="CodigoTipoDañoAdsl"
+                                            tabindex="-1" id="CodigoTipoDañoAdsl" aria-hidden="true">
+                                            <option select value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-map-marker"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación Daño" name="OrdenObjCambioCobre" />
+
+
+
+
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-3">
+                                        <label for="CodigoUbicacionDañoAdsl">Ubicación Daño</label>
+                                        <select class="form-control " style="width: 100%;"
+                                            name="CodigoUbicacionDañoAdsl" tabindex="-1" id="CodigoUbicacionDañoAdsl"
+                                            aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionCausaAdsl">Descripción</label>
+                                        <select class="form-control " style="width: 100%;" name="DescripcionCausaAdsl"
+                                            tabindex="-1" id="DescripcionCausaAdsl" aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionTipoDañoAdsl">Descripción</label>
+                                        <select class="form-control " style="width: 100%;"
+                                            name="DescripcionTipoDañoAdsl" tabindex="-1" id="DescripcionTipoDañoAdsl"
+                                            aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionUbicacionDañoAdsl">Descripción</label>
+                                        <select class="form-control " style="width: 100%;"
+                                            name="DescripcionUbicacionDañoAdsl" tabindex="-1"
+                                            id="DescripcionUbicacionDañoAdsl" aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group-container" style="margin-top: 2rem; border-top: 1px solid #d5d2d2;">
                                 <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
+                                    <label for="OrdenAdslRealizado"> Orden </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="OrdenAdslRealizado"
+                                            placeholder="N° Orden" name="OrdenAdslRealizado" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="syrengHfc">SYRENG</label>
+                                    <label for="syrengAdsl">SYRENG</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="syrengHfc"
-                                            placeholder="Ingresa SYRENG" name="syrengHfc" />
+                                        <input type="number" class="form-control" id="syrengAdsl"
+                                            placeholder="Ingresa SYRENG" name="syrengAdsl" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObservacionesAdsl">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso"
+                                        <input type="text" class="form-control" id="ObservacionesAdsl"
+                                            name="ObservacionesAdsl" placeholder="Ingresa las observaciones del caso"
                                             oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeAdsl">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -1188,7 +1190,7 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc"
+                                            class="form-control" id="RecibeAdsl" name="RecibeAdsl"
                                             oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
@@ -1197,9 +1199,9 @@
                                     <div class="from-group-container">
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                    name="TrabajadoHfc" />
-                                                <label class="form-check-label" for="TrabajadoHfc">
+                                                <input class="form-check-input" type="checkbox" id="TrabajadoAdsl"
+                                                    name="TrabajadoAdsl" />
+                                                <label class="form-check-label" for="TrabajadoAdsl">
                                                     Trabajado
                                                 </label>
                                             </div>
@@ -1217,10 +1219,10 @@
                             <div class="from-group-container" style="border-top:1px solid #d8d1d1">
                                 <div class="from-group-container" style="margin-top:1.5rem">
                                     <div class="form-group col-md-4">
-                                        <label for="MotivoObjetada_Hfc">Motivo Objetado</label>
+                                        <label for="MotivoObjetada_Adsl">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetada_Hfc" tabindex="-1"
-                                            id="MotivoObjetada_Hfc" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoObjetada_Adsl" tabindex="-1"
+                                            id="MotivoObjetada_Adsl" aria-hidden="true">
                                             <option value="">SELECCIONE UNA OPCION</option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -1242,21 +1244,21 @@
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
+                                    <label for="OrdenObjAdsl"> Orden </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="OrdenObjAdsl"
+                                            placeholder="N° Orden" name="OrdenObjAdsl" />
                                     </div>
                                 </div>
 
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaHfc"
-                                                name="TrabajadoObjetadaHfc" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaAdsl"
+                                                name="TrabajadoObjetadaAdsl" />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -1265,15 +1267,15 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentariosObjetados_Hfc">
+                                    <label for="ComentsObjAdsl">
                                         Comentarios
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentariosObjetados_Hfc"
-                                            name="ComentariosObjetados_Hfc" placeholder="Comentarios del caso"
+                                        <input type="text" class="form-control" id="ComentsObjAdsl"
+                                            name="ComentsObjAdsl" placeholder="Comentarios del caso"
                                             oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
@@ -1291,40 +1293,40 @@
 
                                 <div class="form-group-container" style="padding-top:2rem">
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenObjCambioCobre"> Orden </label>
+                                        <label for="OrdenTransferidoAdsl"> Orden </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                                placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                            <input type="number" class="form-control" id="OrdenTransferidoAdsl"
+                                                placeholder="N° Orden" name="OrdenTransferidoAdsl" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentarioAnulada_Hfc">
+                                        <label for="ObvsAdslTransferido">
                                             Observaciones
                                         </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                            <input type="text" class="form-control" id="ObvsAdslTransferido"
+                                                name="ObvsAdslTransferido" placeholder="Ingresa comentarios del caso"
                                                 oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-9">
-                                        <label for="ComentarioAnulada_Hfc">
+                                        <label for="ComentsTransferidoAdsl">
                                             Comentarios
                                         </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                            <input type="text" class="form-control" id="ComentsTransferidoAdsl"
+                                                name="ComentsTransferidoAdsl" placeholder="Ingresa comentarios del caso"
                                                 oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
@@ -1333,9 +1335,9 @@
                                         <div class="from-group-container">
                                             <div class="form-group col-md-3">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                        name="TrabajadoHfc" />
-                                                    <label class="form-check-label" for="TrabajadoHfc">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        id="TrabajadoTransferidoAdsl" name="TrabajadoTransferidoAdsl" />
+                                                    <label class="form-check-label" for="TrabajadoTransferidoAdsl">
                                                         Trabajado
                                                     </label>
                                                 </div>
@@ -1373,124 +1375,122 @@
                             id="RealizadaReparacionCobre">
                             <h4
                                 style="color: #3e69d6;margin-bottom: 1.5rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
-                                Reparacion Servicios Efectiva COBRE</h4>
+                                Reparacion Servicios Efectiva Cobre</h4>
 
                             <div class="form-group-container" style="border-top: 1px solid
                                 #d4d1d1;padding-top:2.5rem">
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenObjCambioCobre"> Codigo Causa</label>
+                                    <label for="CodigoCausaCobre"> Codigo Causa</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="Codigo Causa" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="CodigoCausaCobre"
+                                            placeholder="Codigo Causa" name="CodigoCausaCobre" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
-                                    <button type="button" id="" class="btn btn btn-info"><i class="fa fa-search"
-                                            aria-hidden="true"></i></button>
-                                    <button type="button" id="" class="btn btn-danger"><i class="fa fa-trash"
-                                            aria-hidden="true"></i></button>
+                                    <button type="button" id="btnSearchCausaCobre" class="btn btn btn-info"><i
+                                            class="fa fa-search" aria-hidden="true"></i></button>
+                                    <button type="button" id="btnDeleteCausaCobre" class="btn btn-danger"><i
+                                            class="fa fa-trash" aria-hidden="true"></i></button>
                                 </div>
 
-                                <div class="form-group col-md-3">
-                                    <label for="OrdenObjCambioCobre"> Tipo Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-file-o"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Tipo Daño" name="OrdenObjCambioCobre" />
+
+
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="CodigoTipoDañoCobre">Tipo Daño</label>
+                                        <select class="form-control " style="width: 100%;" name="CodigoTipoDañoCobre"
+                                            tabindex="-1" id="CodigoTipoDañoCobre" aria-hidden="true">
+                                            <option select value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Ubicación Daño</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-map-marker"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Ubicación Daño" name="OrdenObjCambioCobre" />
+
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-3">
+                                        <label for="CodigoUbicacionDañoCobre">Ubicación Daño</label>
+                                        <select class="form-control " style="width: 100%;"
+                                            name="CodigoUbicacionDañoCobre" tabindex="-1" id="CodigoUbicacionDañoCobre"
+                                            aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group-container">
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionCausaCobre">Descripción</label>
+                                        <select class="form-control " style="width: 100%;" name="DescripcionCausaCobre"
+                                            tabindex="-1" id="DescripcionCausaCobre" aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionTipoDañoCobre">Descripción</label>
+                                        <select class="form-control " style="width: 100%;"
+                                            name="DescripcionTipoDañoCobre" tabindex="-1" id="DescripcionTipoDañoCobre"
+                                            aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-4">
-                                    <label for="OrdenObjCambioCobre"> Descripción</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-pencil-square"></i>
-                                        </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            readonly="true" placeholder="Descripción del daño"
-                                            name="OrdenObjCambioCobre" />
+                                <div class="TipoActividad_Hidden">
+                                    <div class="form-group col-md-4">
+                                        <label for="DescripcionUbicacionDañoCobre">Descripción</label>
+                                        <select class="form-control " style="width: 100%;"
+                                            name="DescripcionUbicacionDañoCobre" tabindex="-1"
+                                            id="DescripcionUbicacionDañoCobre" aria-hidden="true">
+                                            <option value="">SELECCIONE UNA OPCION</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group-container" style="margin-top: 2rem; border-top: 1px solid #d5d2d2;">
                                 <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
+                                    <label for="OrdenReparacionCobre"> Orden </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="OrdenReparacionCobre"
+                                            placeholder="N° Orden" name="OrdenReparacionCobre" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" style="margin-top: 1.5rem;">
-                                    <label for="syrengHfc">SYRENG</label>
+                                    <label for="syrengReparacionCobre">SYRENG</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="syrengHfc"
-                                            placeholder="Ingresa SYRENG" name="syrengHfc" />
+                                        <input type="number" class="form-control" id="syrengReparacionCobre"
+                                            placeholder="Ingresa SYRENG" name="syrengReparacionCobre" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="ObservacionesHfc">
+                                    <label for="ObservacionesCobre">
                                         Observaciones
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-eye"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ObservacionesHfc"
-                                            name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso"
+                                        <input type="text" class="form-control" id="ObservacionesCobre"
+                                            name="ObservacionesCobre" placeholder="Ingresa las observaciones del caso"
                                             oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
                                 <div class="form-group col-md-9">
-                                    <label for="RecibeHfc">
+                                    <label for="RecibeCobre">
                                         Recibe
                                     </label>
                                     <div class="input-group">
@@ -1498,7 +1498,7 @@
                                             <i class="fa fa-edit"></i>
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
-                                            class="form-control" id="RecibeHfc" name="RecibeHfc"
+                                            class="form-control" id="RecibeCobre" name="RecibeCobre"
                                             oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
@@ -1507,9 +1507,9 @@
                                     <div class="from-group-container">
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                    name="TrabajadoHfc" />
-                                                <label class="form-check-label" for="TrabajadoHfc">
+                                                <input class="form-check-input" type="checkbox" id="TrabajadoCobre"
+                                                    name="TrabajadoCobre" />
+                                                <label class="form-check-label" for="TrabajadoCobre">
                                                     Trabajado
                                                 </label>
                                             </div>
@@ -1527,10 +1527,10 @@
                             <div class="from-group-container" style="border-top:1px solid #d8d1d1">
                                 <div class="from-group-container" style="margin-top:1.5rem">
                                     <div class="form-group col-md-4">
-                                        <label for="MotivoObjetada_Hfc">Motivo Objetado</label>
+                                        <label for="MotivoObjetada_Cobre">Motivo Objetado</label>
                                         <select class="form-control select2 select2-hidden-accessible"
-                                            style="width: 100%;" name="MotivoObjetada_Hfc" tabindex="-1"
-                                            id="MotivoObjetada_Hfc" aria-hidden="true">
+                                            style="width: 100%;" name="MotivoObjetada_Cobre" tabindex="-1"
+                                            id="MotivoObjetada_Cobre" aria-hidden="true">
                                             <option value="">SELECCIONE UNA OPCION</option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
@@ -1552,21 +1552,21 @@
                                 </div>
 
                                 <div class="form-group col-md-3">
-                                    <label for="OrdenObjCambioCobre"> Orden </label>
+                                    <label for="OrdenObjReparacionCobre"> Orden </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                            placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                        <input type="number" class="form-control" id="OrdenObjReparacionCobre"
+                                            placeholder="N° Orden" name="OrdenObjReparacionCobre" />
                                     </div>
                                 </div>
 
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaHfc"
-                                                name="TrabajadoObjetadaHfc" />
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaCobre"
+                                                name="TrabajadoObjetadaCobre" />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -1575,15 +1575,15 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label for="ComentariosObjetados_Hfc">
+                                    <label for="ComentariosObjetados_Cobre">
                                         Comentarios
                                     </label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-edit"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="ComentariosObjetados_Hfc"
-                                            name="ComentariosObjetados_Hfc" placeholder="Comentarios del caso"
+                                        <input type="text" class="form-control" id="ComentariosObjetados_Cobre"
+                                            name="ComentariosObjetados_Cobre" placeholder="Comentarios del caso"
                                             oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
@@ -1601,40 +1601,41 @@
 
                                 <div class="form-group-container" style="padding-top:2rem">
                                     <div class="form-group col-md-3">
-                                        <label for="OrdenObjCambioCobre"> Orden </label>
+                                        <label for="OrdenTransfCobre"> Orden </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-ticket"></i>
                                             </div>
-                                            <input type="number" class="form-control" id="OrdenObjCambioCobre"
-                                                placeholder="N° Orden" name="OrdenObjCambioCobre" />
+                                            <input type="number" class="form-control" id="OrdenTransfCobre"
+                                                placeholder="N° Orden" name="OrdenTransfCobre" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-12">
-                                        <label for="ComentarioAnulada_Hfc">
+                                        <label for="ObvsCobreTransferido">
                                             Observaciones
                                         </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                            <input type="text" class="form-control" id="ObvsCobreTransferido"
+                                                name="ObvsCobreTransferido" placeholder="Ingresa comentarios del caso"
                                                 oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
 
                                     <div class="form-group col-md-9">
-                                        <label for="ComentarioAnulada_Hfc">
+                                        <label for="ComentarioCobreTransferido">
                                             Comentarios
                                         </label>
                                         <div class="input-group">
                                             <div class="input-group-addon">
                                                 <i class="fa fa-edit"></i>
                                             </div>
-                                            <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
-                                                name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                            <input type="text" class="form-control" id="ComentarioCobreTransferido"
+                                                name="ComentarioCobreTransferido"
+                                                placeholder="Ingresa comentarios del caso"
                                                 oninput="this.value = this.value.toUpperCase()" />
                                         </div>
                                     </div>
@@ -1643,9 +1644,10 @@
                                         <div class="from-group-container">
                                             <div class="form-group col-md-3">
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                        name="TrabajadoHfc" />
-                                                    <label class="form-check-label" for="TrabajadoHfc">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        id="TrabajadoCobreTransferido"
+                                                        name="TrabajadoCobreTransferido" />
+                                                    <label class="form-check-label" for="TrabajadoCobreTransferido">
                                                         Trabajado
                                                     </label>
                                                 </div>
@@ -1765,6 +1767,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <!-- <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script> -->
 <script src="{{asset('/js/reparaciones/fetchReparaciones.js')}}" type="text/javascript"></script>
 <script src="{{asset('/js/reparaciones/fecthrepacionesgpon.js')}}" type="text/javascript"></script>
+<script src="{{asset('/js/reparaciones/ValidacionFormDaño.js')}}" type="text/javascript"></script>
+
 
 
 
