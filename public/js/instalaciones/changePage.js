@@ -8,6 +8,8 @@ const pages = {
   POSTVENTA: "postventa",
   INSTALACION: "instalaciones",
   REPARACIONES: "reparaciones",
+  CONSULTAS: "consultas",
+  AGENDAMIENTOS: "agendamientos",
 };
 
 function redirectToPage(page) {

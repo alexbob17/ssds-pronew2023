@@ -18,8 +18,6 @@ class repacionesCobre_Realizado extends Model
         'dpto_colonia',
         'TipoActividadReparacionCobre',
         'CodigoCausaCobre',
-        'CodigoTipoDañoCobre',
-        'CodigoUbicacionDañoCobre',
         'DescripcionCausaCobre',
         'DescripcionTipoDañoCobre',
         'DescripcionUbicacionDañoCobre',

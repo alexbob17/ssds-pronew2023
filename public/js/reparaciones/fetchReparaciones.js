@@ -11,12 +11,6 @@ function mostrarElementos() {
 
           const CodigoCausaHfc = document.getElementById("CodigoCausaHfc");
 
-          const CodigoTipoDañoHfc =
-            document.getElementById("CodigoTipoDañoHfc");
-          const CodigoUbicacionDañoHfc = document.getElementById(
-            "CodigoUbicacionDañoHfc"
-          );
-
           const DescripcionCausaDañoHfc = document.getElementById(
             "DescripcionCausaDañoHfc"
           );
@@ -82,32 +76,6 @@ function mostrarElementos() {
 
               for (var i = 0; i < datos.length; i++) {
                 if (datos[i].CODIGOCAUSA == codigoBuscado) {
-                  // CODIGO TIPO DAÑO
-                  const option1 = document.createElement("option");
-                  option1.value = datos[i].CODIGOTIPODAÑO;
-                  option1.text = datos[i].CODIGOTIPODAÑO;
-
-                  if (
-                    !CodigoTipoDañoHfc.querySelector(
-                      `option[value="${option1.value}"]`
-                    )
-                  ) {
-                    CodigoTipoDañoHfc.add(option1);
-                  }
-
-                  // CODIGO UBICACION DAÑO
-                  const optionUbicacion1 = document.createElement("option");
-                  optionUbicacion1.value = datos[i].CODIGOUBICACIONDAÑO;
-                  optionUbicacion1.text = datos[i].CODIGOUBICACIONDAÑO;
-
-                  if (
-                    !CodigoUbicacionDañoHfc.querySelector(
-                      `option[value="${optionUbicacion1.value}"]`
-                    )
-                  ) {
-                    CodigoUbicacionDañoHfc.add(optionUbicacion1);
-                  }
-
                   // DESCRIPCION CAUSA
                   const optionDescripcionCausa =
                     document.createElement("option");
@@ -163,12 +131,6 @@ function mostrarElementos() {
           const btnSearchCausa = document.getElementById("btnSearchCausa");
 
           const CodigoCausaHfc = document.getElementById("CodigoCausaHfc");
-
-          const CodigoTipoDañoHfc =
-            document.getElementById("CodigoTipoDañoHfc");
-          const CodigoUbicacionDañoHfc = document.getElementById(
-            "CodigoUbicacionDañoHfc"
-          );
 
           const DescripcionCausaDañoHfc = document.getElementById(
             "DescripcionCausaDañoHfc"
@@ -235,32 +197,6 @@ function mostrarElementos() {
 
               for (var i = 0; i < datos.length; i++) {
                 if (datos[i].CODIGOCAUSA == codigoBuscado) {
-                  // CODIGO TIPO DAÑO
-                  const option1 = document.createElement("option");
-                  option1.value = datos[i].CODIGOTIPODAÑO;
-                  option1.text = datos[i].CODIGOTIPODAÑO;
-
-                  if (
-                    !CodigoTipoDañoHfc.querySelector(
-                      `option[value="${option1.value}"]`
-                    )
-                  ) {
-                    CodigoTipoDañoHfc.add(option1);
-                  }
-
-                  // CODIGO UBICACION DAÑO
-                  const optionUbicacion1 = document.createElement("option");
-                  optionUbicacion1.value = datos[i].CODIGOUBICACIONDAÑO;
-                  optionUbicacion1.text = datos[i].CODIGOUBICACIONDAÑO;
-
-                  if (
-                    !CodigoUbicacionDañoHfc.querySelector(
-                      `option[value="${optionUbicacion1.value}"]`
-                    )
-                  ) {
-                    CodigoUbicacionDañoHfc.add(optionUbicacion1);
-                  }
-
                   // DESCRIPCION CAUSA
                   const optionDescripcionCausa =
                     document.createElement("option");
@@ -316,12 +252,6 @@ function mostrarElementos() {
           const btnSearchCausa = document.getElementById("btnSearchCausa");
 
           const CodigoCausaHfc = document.getElementById("CodigoCausaHfc");
-
-          const CodigoTipoDañoHfc =
-            document.getElementById("CodigoTipoDañoHfc");
-          const CodigoUbicacionDañoHfc = document.getElementById(
-            "CodigoUbicacionDañoHfc"
-          );
 
           const DescripcionCausaDañoHfc = document.getElementById(
             "DescripcionCausaDañoHfc"
@@ -388,32 +318,6 @@ function mostrarElementos() {
 
               for (var i = 0; i < datos.length; i++) {
                 if (datos[i].CODIGOCAUSA == codigoBuscado) {
-                  // CODIGO TIPO DAÑO
-                  const option1 = document.createElement("option");
-                  option1.value = datos[i].CODIGOTIPODAÑO;
-                  option1.text = datos[i].CODIGOTIPODAÑO;
-
-                  if (
-                    !CodigoTipoDañoHfc.querySelector(
-                      `option[value="${option1.value}"]`
-                    )
-                  ) {
-                    CodigoTipoDañoHfc.add(option1);
-                  }
-
-                  // CODIGO UBICACION DAÑO
-                  const optionUbicacion1 = document.createElement("option");
-                  optionUbicacion1.value = datos[i].CODIGOUBICACIONDAÑO;
-                  optionUbicacion1.text = datos[i].CODIGOUBICACIONDAÑO;
-
-                  if (
-                    !CodigoUbicacionDañoHfc.querySelector(
-                      `option[value="${optionUbicacion1.value}"]`
-                    )
-                  ) {
-                    CodigoUbicacionDañoHfc.add(optionUbicacion1);
-                  }
-
                   // DESCRIPCION CAUSA
                   const optionDescripcionCausa =
                     document.createElement("option");
@@ -470,12 +374,6 @@ function mostrarElementos() {
             document.getElementById("btnSearchCausaAdsl");
 
           const CodigoCausaAdsl = document.getElementById("CodigoCausaAdsl");
-
-          const CodigoTipoDañoAdsl =
-            document.getElementById("CodigoTipoDañoAdsl");
-          const CodigoUbicacionDañoAdsl = document.getElementById(
-            "CodigoUbicacionDañoAdsl"
-          );
 
           const DescripcionCausaAdsl = document.getElementById(
             "DescripcionCausaAdsl"
@@ -542,32 +440,6 @@ function mostrarElementos() {
 
               for (var i = 0; i < datos.length; i++) {
                 if (datos[i].CODIGOCAUSA == codigoBuscado) {
-                  // CODIGO TIPO DAÑO
-                  const option1 = document.createElement("option");
-                  option1.value = datos[i].CODIGOTIPODAÑO;
-                  option1.text = datos[i].CODIGOTIPODAÑO;
-
-                  if (
-                    !CodigoTipoDañoAdsl.querySelector(
-                      `option[value="${option1.value}"]`
-                    )
-                  ) {
-                    CodigoTipoDañoAdsl.add(option1);
-                  }
-
-                  // CODIGO UBICACION DAÑO
-                  const optionUbicacion1 = document.createElement("option");
-                  optionUbicacion1.value = datos[i].CODIGOUBICACIONDAÑO;
-                  optionUbicacion1.text = datos[i].CODIGOUBICACIONDAÑO;
-
-                  if (
-                    !CodigoUbicacionDañoAdsl.querySelector(
-                      `option[value="${optionUbicacion1.value}"]`
-                    )
-                  ) {
-                    CodigoUbicacionDañoAdsl.add(optionUbicacion1);
-                  }
-
                   // DESCRIPCION CAUSA
                   const optionDescripcionCausa =
                     document.createElement("option");
@@ -626,12 +498,12 @@ function mostrarElementos() {
 
           const CodigoCausaCobre = document.getElementById("CodigoCausaCobre");
 
-          const CodigoTipoDañoCobre = document.getElementById(
-            "CodigoTipoDañoCobre"
-          );
-          const CodigoUbicacionDañoCobre = document.getElementById(
-            "CodigoUbicacionDañoCobre"
-          );
+          // const CodigoTipoDañoCobre = document.getElementById(
+          //   "CodigoTipoDañoCobre"
+          // );
+          // const CodigoUbicacionDañoCobre = document.getElementById(
+          //   "CodigoUbicacionDañoCobre"
+          // );
 
           const DescripcionCausaCobre = document.getElementById(
             "DescripcionCausaCobre"
@@ -698,32 +570,6 @@ function mostrarElementos() {
 
               for (var i = 0; i < datos.length; i++) {
                 if (datos[i].CODIGOCAUSA == codigoBuscado) {
-                  // CODIGO TIPO DAÑO
-                  const option1 = document.createElement("option");
-                  option1.value = datos[i].CODIGOTIPODAÑO;
-                  option1.text = datos[i].CODIGOTIPODAÑO;
-
-                  if (
-                    !CodigoTipoDañoCobre.querySelector(
-                      `option[value="${option1.value}"]`
-                    )
-                  ) {
-                    CodigoTipoDañoCobre.add(option1);
-                  }
-
-                  // CODIGO UBICACION DAÑO
-                  const optionUbicacion1 = document.createElement("option");
-                  optionUbicacion1.value = datos[i].CODIGOUBICACIONDAÑO;
-                  optionUbicacion1.text = datos[i].CODIGOUBICACIONDAÑO;
-
-                  if (
-                    !CodigoUbicacionDañoCobre.querySelector(
-                      `option[value="${optionUbicacion1.value}"]`
-                    )
-                  ) {
-                    CodigoUbicacionDañoCobre.add(optionUbicacion1);
-                  }
-
                   // DESCRIPCION CAUSA
                   const optionDescripcionCausa =
                     document.createElement("option");
@@ -780,11 +626,11 @@ function mostrarElementos() {
 
           const CodigoCausaDth = document.getElementById("CodigoCausaDth");
 
-          const CodigoTipoDañoDth =
-            document.getElementById("CodigoTipoDañoDth");
-          const CodigoUbicacionDañoDth = document.getElementById(
-            "CodigoUbicacionDañoDth"
-          );
+          // const CodigoTipoDañoDth =
+          //   document.getElementById("CodigoTipoDañoDth");
+          // const CodigoUbicacionDañoDth = document.getElementById(
+          //   "CodigoUbicacionDañoDth"
+          // );
 
           const DescripcionCausaDth = document.getElementById(
             "DescripcionCausaDth"
@@ -851,32 +697,6 @@ function mostrarElementos() {
 
               for (var i = 0; i < datos.length; i++) {
                 if (datos[i].CODIGOCAUSA == codigoBuscado) {
-                  // CODIGO TIPO DAÑO
-                  const option1 = document.createElement("option");
-                  option1.value = datos[i].CODIGOTIPODAÑO;
-                  option1.text = datos[i].CODIGOTIPODAÑO;
-
-                  if (
-                    !CodigoTipoDañoDth.querySelector(
-                      `option[value="${option1.value}"]`
-                    )
-                  ) {
-                    CodigoTipoDañoDth.add(option1);
-                  }
-
-                  // CODIGO UBICACION DAÑO
-                  const optionUbicacion1 = document.createElement("option");
-                  optionUbicacion1.value = datos[i].CODIGOUBICACIONDAÑO;
-                  optionUbicacion1.text = datos[i].CODIGOUBICACIONDAÑO;
-
-                  if (
-                    !CodigoUbicacionDañoDth.querySelector(
-                      `option[value="${optionUbicacion1.value}"]`
-                    )
-                  ) {
-                    CodigoUbicacionDañoDth.add(optionUbicacion1);
-                  }
-
                   // DESCRIPCION CAUSA
                   const optionDescripcionCausa =
                     document.createElement("option");
@@ -924,9 +744,376 @@ function mostrarElementos() {
           }
         });
       break;
+    case "GPON|INTERNET":
+      fetch("../Json/codigoGponInternet.json")
+        .then((response) => response.json())
+        .then((datos) => {
+          const btnSearchCausaGpon =
+            document.getElementById("btnSearchCausaGpon");
+
+          const CodigoCausaGpon = document.getElementById("CodigoCausaGpon");
+
+          const DescripcionCausaDañoGpon = document.getElementById(
+            "DescripcionCausaDañoGpon"
+          );
+          const DescripcionTipoDañoGpon = document.getElementById(
+            "DescripcionTipoDañoGpon"
+          );
+          const DescripcionUbicacionGpon = document.getElementById(
+            "DescripcionUbicacionGpon"
+          );
+
+          btnSearchCausaGpon.addEventListener("click", function () {
+            buscarCodigoGponInternet();
+          });
+
+          CodigoCausaGpon.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+              buscarCodigoGponInternet();
+            }
+          });
+
+          function buscarCodigoGponInternet() {
+            if (!CodigoCausaGpon.value) {
+              Swal.fire({
+                icon: "error",
+                title: "Opss...",
+                text: "Debe ingresar un código",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+              return;
+            }
+
+            const codigoBuscado = parseInt(CodigoCausaGpon.value);
+
+            const codigoEncontrado = datos.find(
+              (d) => d.CODIGOCAUSA === codigoBuscado
+            );
+
+            const codigoEncontradoNull = datos.filter(
+              (d) => d.CODIGOCAUSA === codigoBuscado
+            );
+
+            if (codigoEncontradoNull.length === 0) {
+              Swal.fire({
+                icon: "error",
+                title: "Opss...",
+                text: "Código no encontrado",
+                showConfirmButton: false,
+                timer: 1800,
+              });
+              ResetValueGeneralGpon();
+
+              return;
+            }
+
+            if (codigoEncontrado) {
+              Swal.fire({
+                icon: "success",
+                title: "Código Encontrado",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+
+              for (var i = 0; i < datos.length; i++) {
+                if (datos[i].CODIGOCAUSA == codigoBuscado) {
+                  // DESCRIPCION CAUSA
+                  const optionDescripcionCausa =
+                    document.createElement("option");
+                  optionDescripcionCausa.value = datos[i].DESCRIPCIONCAUSA;
+                  optionDescripcionCausa.text = datos[i].DESCRIPCIONCAUSA;
+
+                  if (
+                    !DescripcionCausaDañoGpon.querySelector(
+                      `option[value="${optionDescripcionCausa.value}"]`
+                    )
+                  ) {
+                    DescripcionCausaDañoGpon.add(optionDescripcionCausa);
+                  }
+
+                  // DESCRIPCION TIPO DAÑO
+                  const optionTipoDaño = document.createElement("option");
+                  optionTipoDaño.value = datos[i].DESCRIPCIONTIPODAÑO;
+                  optionTipoDaño.text = datos[i].DESCRIPCIONTIPODAÑO;
+
+                  if (
+                    !DescripcionTipoDañoGpon.querySelector(
+                      `option[value="${optionTipoDaño.value}"]`
+                    )
+                  ) {
+                    DescripcionTipoDañoGpon.add(optionTipoDaño);
+                  }
+
+                  // DESCRIPCION UBICACION DAÑO
+                  const optionUbicacionDaño = document.createElement("option");
+                  optionUbicacionDaño.value = datos[i].DESCRIPCIONUBICACIONDAÑO;
+                  optionUbicacionDaño.text = datos[i].DESCRIPCIONUBICACIONDAÑO;
+
+                  if (
+                    !DescripcionUbicacionGpon.querySelector(
+                      `option[value="${optionUbicacionDaño.value}"]`
+                    )
+                  ) {
+                    DescripcionUbicacionGpon.add(optionUbicacionDaño);
+                  }
+
+                  CodigoCausaGpon.setAttribute("readonly", "readonly");
+                }
+              }
+            }
+          }
+        });
+
+      break;
+    case "GPON|LINEA":
+      fetch("../Json/codigoGponLinea.json")
+        .then((response) => response.json())
+        .then((datos) => {
+          const btnSearchCausaGpon =
+            document.getElementById("btnSearchCausaGpon");
+
+          const CodigoCausaGpon = document.getElementById("CodigoCausaGpon");
+
+          const DescripcionCausaDañoGpon = document.getElementById(
+            "DescripcionCausaDañoGpon"
+          );
+          const DescripcionTipoDañoGpon = document.getElementById(
+            "DescripcionTipoDañoGpon"
+          );
+          const DescripcionUbicacionGpon = document.getElementById(
+            "DescripcionUbicacionGpon"
+          );
+
+          btnSearchCausaGpon.addEventListener("click", function () {
+            buscarCodigoGponLinea();
+          });
+
+          CodigoCausaGpon.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+              buscarCodigoGponLinea();
+            }
+          });
+
+          function buscarCodigoGponLinea() {
+            if (!CodigoCausaGpon.value) {
+              Swal.fire({
+                icon: "error",
+                title: "Opss...",
+                text: "Debe ingresar un código",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+              return;
+            }
+
+            const codigoBuscado = parseInt(CodigoCausaGpon.value);
+
+            const codigoEncontrado = datos.find(
+              (d) => d.CODIGOCAUSA === codigoBuscado
+            );
+
+            const codigoEncontradoNull = datos.filter(
+              (d) => d.CODIGOCAUSA === codigoBuscado
+            );
+
+            if (codigoEncontradoNull.length === 0) {
+              Swal.fire({
+                icon: "error",
+                title: "Opss...",
+                text: "Código no encontrado",
+                showConfirmButton: false,
+                timer: 1800,
+              });
+              ResetValueGeneralGpon();
+
+              return;
+            }
+
+            if (codigoEncontrado) {
+              Swal.fire({
+                icon: "success",
+                title: "Código Encontrado",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+
+              for (var i = 0; i < datos.length; i++) {
+                if (datos[i].CODIGOCAUSA == codigoBuscado) {
+                  // DESCRIPCION CAUSA
+                  const optionDescripcionCausa =
+                    document.createElement("option");
+                  optionDescripcionCausa.value = datos[i].DESCRIPCIONCAUSA;
+                  optionDescripcionCausa.text = datos[i].DESCRIPCIONCAUSA;
+
+                  if (
+                    !DescripcionCausaDañoGpon.querySelector(
+                      `option[value="${optionDescripcionCausa.value}"]`
+                    )
+                  ) {
+                    DescripcionCausaDañoGpon.add(optionDescripcionCausa);
+                  }
+
+                  // DESCRIPCION TIPO DAÑO
+                  const optionTipoDaño = document.createElement("option");
+                  optionTipoDaño.value = datos[i].DESCRIPCIONTIPODAÑO;
+                  optionTipoDaño.text = datos[i].DESCRIPCIONTIPODAÑO;
+
+                  if (
+                    !DescripcionTipoDañoGpon.querySelector(
+                      `option[value="${optionTipoDaño.value}"]`
+                    )
+                  ) {
+                    DescripcionTipoDañoGpon.add(optionTipoDaño);
+                  }
+
+                  // DESCRIPCION UBICACION DAÑO
+                  const optionUbicacionDaño = document.createElement("option");
+                  optionUbicacionDaño.value = datos[i].DESCRIPCIONUBICACIONDAÑO;
+                  optionUbicacionDaño.text = datos[i].DESCRIPCIONUBICACIONDAÑO;
+
+                  if (
+                    !DescripcionUbicacionGpon.querySelector(
+                      `option[value="${optionUbicacionDaño.value}"]`
+                    )
+                  ) {
+                    DescripcionUbicacionGpon.add(optionUbicacionDaño);
+                  }
+
+                  CodigoCausaGpon.setAttribute("readonly", "readonly");
+                }
+              }
+            }
+          }
+        });
+
+      break;
+    case "GPON|TV":
+      fetch("../Json/codigoGponTv.json")
+        .then((response) => response.json())
+        .then((datos) => {
+          const btnSearchCausaGpon =
+            document.getElementById("btnSearchCausaGpon");
+
+          const CodigoCausaGpon = document.getElementById("CodigoCausaGpon");
+
+          const DescripcionCausaDañoGpon = document.getElementById(
+            "DescripcionCausaDañoGpon"
+          );
+          const DescripcionTipoDañoGpon = document.getElementById(
+            "DescripcionTipoDañoGpon"
+          );
+          const DescripcionUbicacionGpon = document.getElementById(
+            "DescripcionUbicacionGpon"
+          );
+
+          btnSearchCausaGpon.addEventListener("click", function () {
+            buscarCodigoGponIptv();
+          });
+
+          CodigoCausaGpon.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+              buscarCodigoGponIptv();
+            }
+          });
+
+          function buscarCodigoGponIptv() {
+            if (!CodigoCausaGpon.value) {
+              Swal.fire({
+                icon: "error",
+                title: "Opss...",
+                text: "Debe ingresar un código",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+              return;
+            }
+
+            const codigoBuscado = parseInt(CodigoCausaGpon.value);
+
+            const codigoEncontrado = datos.find(
+              (d) => d.CODIGOCAUSA === codigoBuscado
+            );
+
+            const codigoEncontradoNull = datos.filter(
+              (d) => d.CODIGOCAUSA === codigoBuscado
+            );
+
+            if (codigoEncontradoNull.length === 0) {
+              Swal.fire({
+                icon: "error",
+                title: "Opss...",
+                text: "Código no encontrado",
+                showConfirmButton: false,
+                timer: 1800,
+              });
+              ResetValueGeneralGpon();
+
+              return;
+            }
+
+            if (codigoEncontrado) {
+              Swal.fire({
+                icon: "success",
+                title: "Código Encontrado",
+                showConfirmButton: false,
+                timer: 2000,
+              });
+
+              for (var i = 0; i < datos.length; i++) {
+                if (datos[i].CODIGOCAUSA == codigoBuscado) {
+                  // DESCRIPCION CAUSA
+                  const optionDescripcionCausa =
+                    document.createElement("option");
+                  optionDescripcionCausa.value = datos[i].DESCRIPCIONCAUSA;
+                  optionDescripcionCausa.text = datos[i].DESCRIPCIONCAUSA;
+
+                  if (
+                    !DescripcionCausaDañoGpon.querySelector(
+                      `option[value="${optionDescripcionCausa.value}"]`
+                    )
+                  ) {
+                    DescripcionCausaDañoGpon.add(optionDescripcionCausa);
+                  }
+
+                  // DESCRIPCION TIPO DAÑO
+                  const optionTipoDaño = document.createElement("option");
+                  optionTipoDaño.value = datos[i].DESCRIPCIONTIPODAÑO;
+                  optionTipoDaño.text = datos[i].DESCRIPCIONTIPODAÑO;
+
+                  if (
+                    !DescripcionTipoDañoGpon.querySelector(
+                      `option[value="${optionTipoDaño.value}"]`
+                    )
+                  ) {
+                    DescripcionTipoDañoGpon.add(optionTipoDaño);
+                  }
+
+                  // DESCRIPCION UBICACION DAÑO
+                  const optionUbicacionDaño = document.createElement("option");
+                  optionUbicacionDaño.value = datos[i].DESCRIPCIONUBICACIONDAÑO;
+                  optionUbicacionDaño.text = datos[i].DESCRIPCIONUBICACIONDAÑO;
+
+                  if (
+                    !DescripcionUbicacionGpon.querySelector(
+                      `option[value="${optionUbicacionDaño.value}"]`
+                    )
+                  ) {
+                    DescripcionUbicacionGpon.add(optionUbicacionDaño);
+                  }
+
+                  CodigoCausaGpon.setAttribute("readonly", "readonly");
+                }
+              }
+            }
+          }
+        });
+
+      break;
     default:
       ResetValueGeneral();
       ResetValueGeneralAdsl();
+      ResetValueGeneralGpon();
       break;
   }
 }
@@ -955,31 +1142,13 @@ btnDeleteCausaDth.addEventListener("click", function () {
   ResetValueGeneralDth();
 });
 
-// function init() {
-//   const optionDefault = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-//   CodigoTipoDañoHfc.innerHTML = optionDefault;
-
-//   const optionDefaultUbiDaño = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-//   CodigoUbicacionDañoHfc.innerHTML = optionDefaultUbiDaño;
-
-//   const optionDefaultDesDaño = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-//   DescripcionCausaDañoHfc.innerHTML = optionDefaultDesDaño;
-
-//   const optionDefaultDesTipoDaño = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-//   DescripcionTipoDañoHfc.innerHTML = optionDefaultDesTipoDaño;
-
-//   const optionDefaultDescUbicacion = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-//   DescripcionUbicacionHfc.innerHTML = optionDefaultDescUbicacion;
-// }
-// document.addEventListener("DOMContentLoaded", init);
+const btnDeleteCausaGpon = document.getElementById("btnDeleteCausaGpon");
+btnDeleteCausaGpon.addEventListener("click", function () {
+  ResetValueGeneralGpon();
+});
 
 function ResetValueGeneral() {
   const CodigoCausaHfc = document.getElementById("CodigoCausaHfc");
-  const CodigoTipoDañoHfc = document.getElementById("CodigoTipoDañoHfc");
-  const CodigoUbicacionDañoHfc = document.getElementById(
-    "CodigoUbicacionDañoHfc"
-  );
-
   const DescripcionCausaDañoHfc = document.getElementById(
     "DescripcionCausaDañoHfc"
   );
@@ -993,12 +1162,6 @@ function ResetValueGeneral() {
 
   CodigoCausaHfc.removeAttribute("readonly");
 
-  const optionDefault = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-  CodigoTipoDañoHfc.innerHTML = optionDefault;
-
-  const optionDefaultUbiDaño = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-  CodigoUbicacionDañoHfc.innerHTML = optionDefaultUbiDaño;
-
   const optionDefaultDesDaño = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
   DescripcionCausaDañoHfc.innerHTML = optionDefaultDesDaño;
 
@@ -1008,8 +1171,6 @@ function ResetValueGeneral() {
   const optionDefaultDescUbicacion = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
   DescripcionUbicacionHfc.innerHTML = optionDefaultDescUbicacion;
 
-  CodigoTipoDañoHfc.value = "";
-  CodigoUbicacionDañoHfc.value = "";
   DescripcionCausaDañoHfc.value = "";
   DescripcionTipoDañoHfc.value = "";
   DescripcionUbicacionHfc.value = "";
@@ -1017,10 +1178,6 @@ function ResetValueGeneral() {
 
 function ResetValueGeneralAdsl() {
   const CodigoCausaAdsl = document.getElementById("CodigoCausaAdsl");
-  const CodigoTipoDañoAdsl = document.getElementById("CodigoTipoDañoAdsl");
-  const CodigoUbicacionDañoAdsl = document.getElementById(
-    "CodigoUbicacionDañoAdsl"
-  );
 
   const DescripcionCausaAdsl = document.getElementById("DescripcionCausaAdsl");
   const DescripcionTipoDañoAdsl = document.getElementById(
@@ -1033,12 +1190,6 @@ function ResetValueGeneralAdsl() {
 
   CodigoCausaAdsl.removeAttribute("readonly");
 
-  const optionDefault = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-  CodigoTipoDañoAdsl.innerHTML = optionDefault;
-
-  const optionDefaultUbiDaño = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-  CodigoUbicacionDañoAdsl.innerHTML = optionDefaultUbiDaño;
-
   const optionDefaultDesDaño = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
   DescripcionCausaAdsl.innerHTML = optionDefaultDesDaño;
 
@@ -1048,8 +1199,6 @@ function ResetValueGeneralAdsl() {
   const optionDefaultDescUbicacion = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
   DescripcionUbicacionDañoAdsl.innerHTML = optionDefaultDescUbicacion;
 
-  CodigoTipoDañoAdsl.value = "";
-  CodigoUbicacionDañoAdsl.value = "";
   DescripcionCausaAdsl.value = "";
   DescripcionTipoDañoAdsl.value = "";
   DescripcionUbicacionDañoAdsl.value = "";
@@ -1057,11 +1206,6 @@ function ResetValueGeneralAdsl() {
 
 function ResetValueGeneralCobre() {
   const CodigoCausaCobre = document.getElementById("CodigoCausaCobre");
-
-  const CodigoTipoDañoCobre = document.getElementById("CodigoTipoDañoCobre");
-  const CodigoUbicacionDañoCobre = document.getElementById(
-    "CodigoUbicacionDañoCobre"
-  );
 
   const DescripcionCausaCobre = document.getElementById(
     "DescripcionCausaCobre"
@@ -1075,12 +1219,6 @@ function ResetValueGeneralCobre() {
 
   CodigoCausaCobre.removeAttribute("readonly");
 
-  const optionDefault = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-  CodigoTipoDañoCobre.innerHTML = optionDefault;
-
-  const optionDefaultUbiDaño = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-  CodigoUbicacionDañoCobre.innerHTML = optionDefaultUbiDaño;
-
   const optionDefaultDesDaño = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
   DescripcionCausaCobre.innerHTML = optionDefaultDesDaño;
 
@@ -1090,8 +1228,6 @@ function ResetValueGeneralCobre() {
   const optionDefaultDescUbicacion = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
   DescripcionUbicacionDañoCobre.innerHTML = optionDefaultDescUbicacion;
 
-  CodigoTipoDañoCobre.value = "";
-  CodigoUbicacionDañoCobre.value = "";
   DescripcionCausaCobre.value = "";
   DescripcionTipoDañoCobre.value = "";
   DescripcionUbicacionDañoCobre.value = "";
@@ -1099,11 +1235,6 @@ function ResetValueGeneralCobre() {
 
 function ResetValueGeneralDth() {
   const CodigoCausaDth = document.getElementById("CodigoCausaDth");
-
-  const CodigoTipoDañoDth = document.getElementById("CodigoTipoDañoDth");
-  const CodigoUbicacionDañoDth = document.getElementById(
-    "CodigoUbicacionDañoDth"
-  );
 
   const DescripcionCausaDth = document.getElementById("DescripcionCausaDth");
   const DescripcionTipoDañoDth = document.getElementById(
@@ -1115,12 +1246,6 @@ function ResetValueGeneralDth() {
 
   CodigoCausaDth.removeAttribute("readonly");
 
-  const optionDefault = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-  CodigoTipoDañoDth.innerHTML = optionDefault;
-
-  const optionDefaultUbiDaño = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-  CodigoUbicacionDañoDth.innerHTML = optionDefaultUbiDaño;
-
   const optionDefaultDesDaño = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
   DescripcionCausaDth.innerHTML = optionDefaultDesDaño;
 
@@ -1130,11 +1255,41 @@ function ResetValueGeneralDth() {
   const optionDefaultDescUbicacion = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
   DescripcionUbicacionDañoDth.innerHTML = optionDefaultDescUbicacion;
 
-  CodigoTipoDañoDth.value = "";
-  CodigoUbicacionDañoDth.value = "";
   DescripcionCausaDth.value = "";
   DescripcionTipoDañoDth.value = "";
   DescripcionUbicacionDañoDth.value = "";
+}
+
+function ResetValueGeneralGpon() {
+  //   GPON
+  const CodigoCausaGpon = document.getElementById("CodigoCausaGpon");
+
+  const DescripcionCausaDañoGpon = document.getElementById(
+    "DescripcionCausaDañoGpon"
+  );
+  const DescripcionTipoDañoGpon = document.getElementById(
+    "DescripcionTipoDañoGpon"
+  );
+  const DescripcionUbicacionGpon = document.getElementById(
+    "DescripcionUbicacionGpon"
+  );
+
+  CodigoCausaGpon.removeAttribute("readonly");
+
+  //   CodigoCausaGpon.value = "";
+
+  const optionDefaultDesDañoGpon = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
+  DescripcionCausaDañoGpon.innerHTML = optionDefaultDesDañoGpon;
+
+  const optionDefaultDesTipoDañoGpon = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
+  DescripcionTipoDañoGpon.innerHTML = optionDefaultDesTipoDañoGpon;
+
+  const optionDefaultDescUbicacionGpon = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
+  DescripcionUbicacionGpon.innerHTML = optionDefaultDescUbicacionGpon;
+
+  DescripcionCausaDañoGpon.value = "";
+  DescripcionTipoDañoGpon.value = "";
+  DescripcionUbicacionGpon.value = "";
 }
 
 // document.addEventListener("DOMContentLoaded", function () {
@@ -1143,14 +1298,17 @@ select_orden.addEventListener("change", function () {
     ResetValueGeneral();
     ResetValueGeneralAdsl();
     ResetValueGeneralCobre();
+    ResetValueGeneralGpon();
   } else if (select_orden.value === "LINEA") {
     ResetValueGeneral();
     ResetValueGeneralAdsl();
     ResetValueGeneralCobre();
+    ResetValueGeneralGpon();
   } else if (select_orden.value === "INTERNET") {
     ResetValueGeneral();
     ResetValueGeneralAdsl();
     ResetValueGeneralCobre();
+    ResetValueGeneralGpon();
   }
 });
 // });

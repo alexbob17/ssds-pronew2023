@@ -62,8 +62,6 @@
                             </div>
                         </div>
 
-
-
                     </div>
                     <div class="form-group-container">
                         <div class="form-group col-md-3" id="view-container">
@@ -75,8 +73,10 @@
                                 <option value="POSTVENTA">POSTVENTA</option>
                                 <option value="REPARACIONES">REPARACIONES</option>
                                 <option value="CONSULTAS">CONSULTAS</option>
-                                <option value="ANULACIONES">ANULACIONES</option>
-                                <option value="REACTIVACION">REACTIVACION</option>
+                                <option value="AGENDAMIENTOS">AGENDAMIENTOS</option>
+
+                                <!-- <option value="ANULACIONES">ANULACIONES</option>
+                                <option value="REACTIVACION">REACTIVACION</option> -->
                             </select>
                         </div>
                     </div>

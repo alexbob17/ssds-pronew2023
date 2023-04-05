@@ -316,6 +316,13 @@
                                                                         Tecnicos'))
                                                                         !!}</li>
                                                                     @endrole
+                                                                    @role(['admin'])
+                                                                    <li>{!!
+                                                                        Html::decode(link_to('/administracion/motivos','<i
+                                                                            class="fa fa-commenting-o"></i>
+                                                                        Motivos'))
+                                                                        !!}</li>
+                                                                    @endrole
                                                                 </ul>
 
 

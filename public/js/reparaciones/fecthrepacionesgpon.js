@@ -41,10 +41,10 @@ function ResetValueGeneralGpon() {
   //   GPON
   const CodigoCausaGpon = document.getElementById("CodigoCausaGpon");
 
-  const CodigoTipoDañoGpon = document.getElementById("CodigoTipoDañoGpon");
-  const CodigoUbicacionDañoGpon = document.getElementById(
-    "CodigoUbicacionDañoGpon"
-  );
+  // const CodigoTipoDañoGpon = document.getElementById("CodigoTipoDañoGpon");
+  // const CodigoUbicacionDañoGpon = document.getElementById(
+  //   "CodigoUbicacionDañoGpon"
+  // );
 
   const DescripcionCausaDañoGpon = document.getElementById(
     "DescripcionCausaDañoGpon"
@@ -60,12 +60,6 @@ function ResetValueGeneralGpon() {
 
   //   CodigoCausaGpon.value = "";
 
-  const optionDefaultGpon = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-  CodigoTipoDañoGpon.innerHTML = optionDefaultGpon;
-
-  const optionDefaultUbiDañoGpon = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
-  CodigoUbicacionDañoGpon.innerHTML = optionDefaultUbiDañoGpon;
-
   const optionDefaultDesDañoGpon = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
   DescripcionCausaDañoGpon.innerHTML = optionDefaultDesDañoGpon;
 
@@ -75,8 +69,6 @@ function ResetValueGeneralGpon() {
   const optionDefaultDescUbicacionGpon = `<option value="" selected disabled>SELECCIONE UNA OPCION</option>`;
   DescripcionUbicacionGpon.innerHTML = optionDefaultDescUbicacionGpon;
 
-  CodigoTipoDañoGpon.value = "";
-  CodigoUbicacionDañoGpon.value = "";
   DescripcionCausaDañoGpon.value = "";
   DescripcionTipoDañoGpon.value = "";
   DescripcionUbicacionGpon.value = "";
@@ -90,10 +82,10 @@ function GponInternetFectch() {
 
       const CodigoCausaGpon = document.getElementById("CodigoCausaGpon");
 
-      const CodigoTipoDañoGpon = document.getElementById("CodigoTipoDañoGpon");
-      const CodigoUbicacionDañoGpon = document.getElementById(
-        "CodigoUbicacionDañoGpon"
-      );
+      // const CodigoTipoDañoGpon = document.getElementById("CodigoTipoDañoGpon");
+      // const CodigoUbicacionDañoGpon = document.getElementById(
+      //   "CodigoUbicacionDañoGpon"
+      // );
 
       const DescripcionCausaDañoGpon = document.getElementById(
         "DescripcionCausaDañoGpon"
@@ -148,9 +140,7 @@ function GponInternetFectch() {
           ResetValueGeneral();
 
           return;
-        }
-
-        if (codigoEncontrado) {
+        } else {
           Swal.fire({
             icon: "success",
             title: "Código Encontrado",
@@ -161,30 +151,6 @@ function GponInternetFectch() {
           for (var i = 0; i < datos.length; i++) {
             if (datos[i].CODIGOCAUSA == codigoBuscado) {
               // CODIGO TIPO DAÑO
-              const option1 = document.createElement("option");
-              option1.value = datos[i].CODIGOTIPODAÑO;
-              option1.text = datos[i].CODIGOTIPODAÑO;
-
-              if (
-                !CodigoTipoDañoGpon.querySelector(
-                  `option[value="${option1.value}"]`
-                )
-              ) {
-                CodigoTipoDañoGpon.add(option1);
-              }
-
-              // CODIGO UBICACION DAÑO
-              const optionUbicacion1 = document.createElement("option");
-              optionUbicacion1.value = datos[i].CODIGOUBICACIONDAÑO;
-              optionUbicacion1.text = datos[i].CODIGOUBICACIONDAÑO;
-
-              if (
-                !CodigoUbicacionDañoGpon.querySelector(
-                  `option[value="${optionUbicacion1.value}"]`
-                )
-              ) {
-                CodigoUbicacionDañoGpon.add(optionUbicacion1);
-              }
 
               // DESCRIPCION CAUSA
               const optionDescripcionCausa = document.createElement("option");
@@ -228,6 +194,7 @@ function GponInternetFectch() {
               CodigoCausaGpon.setAttribute("readonly", "readonly");
             }
           }
+          return;
         }
       }
     });
@@ -241,10 +208,10 @@ function GponTvFectch() {
 
       const CodigoCausaGpon = document.getElementById("CodigoCausaGpon");
 
-      const CodigoTipoDañoGpon = document.getElementById("CodigoTipoDañoGpon");
-      const CodigoUbicacionDañoGpon = document.getElementById(
-        "CodigoUbicacionDañoGpon"
-      );
+      // const CodigoTipoDañoGpon = document.getElementById("CodigoTipoDañoGpon");
+      // const CodigoUbicacionDañoGpon = document.getElementById(
+      //   "CodigoUbicacionDañoGpon"
+      // );
 
       const DescripcionCausaDañoGpon = document.getElementById(
         "DescripcionCausaDañoGpon"
@@ -299,9 +266,7 @@ function GponTvFectch() {
           ResetValueGeneral();
 
           return;
-        }
-
-        if (codigoEncontrado) {
+        } else {
           Swal.fire({
             icon: "success",
             title: "Código Encontrado",
@@ -312,30 +277,6 @@ function GponTvFectch() {
           for (var i = 0; i < datos.length; i++) {
             if (datos[i].CODIGOCAUSA == codigoBuscado) {
               // CODIGO TIPO DAÑO
-              const option1 = document.createElement("option");
-              option1.value = datos[i].CODIGOTIPODAÑO;
-              option1.text = datos[i].CODIGOTIPODAÑO;
-
-              if (
-                !CodigoTipoDañoGpon.querySelector(
-                  `option[value="${option1.value}"]`
-                )
-              ) {
-                CodigoTipoDañoGpon.add(option1);
-              }
-
-              // CODIGO UBICACION DAÑO
-              const optionUbicacion1 = document.createElement("option");
-              optionUbicacion1.value = datos[i].CODIGOUBICACIONDAÑO;
-              optionUbicacion1.text = datos[i].CODIGOUBICACIONDAÑO;
-
-              if (
-                !CodigoUbicacionDañoGpon.querySelector(
-                  `option[value="${optionUbicacion1.value}"]`
-                )
-              ) {
-                CodigoUbicacionDañoGpon.add(optionUbicacion1);
-              }
 
               // DESCRIPCION CAUSA
               const optionDescripcionCausa = document.createElement("option");
@@ -379,6 +320,7 @@ function GponTvFectch() {
               CodigoCausaGpon.setAttribute("readonly", "readonly");
             }
           }
+          return;
         }
       }
     });
@@ -391,11 +333,6 @@ function GponLineaFectch() {
       const btnSearchCausaGpon = document.getElementById("btnSearchCausaGpon");
 
       const CodigoCausaGpon = document.getElementById("CodigoCausaGpon");
-
-      const CodigoTipoDañoGpon = document.getElementById("CodigoTipoDañoGpon");
-      const CodigoUbicacionDañoGpon = document.getElementById(
-        "CodigoUbicacionDañoGpon"
-      );
 
       const DescripcionCausaDañoGpon = document.getElementById(
         "DescripcionCausaDañoGpon"
@@ -450,9 +387,7 @@ function GponLineaFectch() {
           ResetValueGeneral();
 
           return;
-        }
-
-        if (codigoEncontrado) {
+        } else {
           Swal.fire({
             icon: "success",
             title: "Código Encontrado",
@@ -463,30 +398,6 @@ function GponLineaFectch() {
           for (var i = 0; i < datos.length; i++) {
             if (datos[i].CODIGOCAUSA == codigoBuscado) {
               // CODIGO TIPO DAÑO
-              const option1 = document.createElement("option");
-              option1.value = datos[i].CODIGOTIPODAÑO;
-              option1.text = datos[i].CODIGOTIPODAÑO;
-
-              if (
-                !CodigoTipoDañoGpon.querySelector(
-                  `option[value="${option1.value}"]`
-                )
-              ) {
-                CodigoTipoDañoGpon.add(option1);
-              }
-
-              // CODIGO UBICACION DAÑO
-              const optionUbicacion1 = document.createElement("option");
-              optionUbicacion1.value = datos[i].CODIGOUBICACIONDAÑO;
-              optionUbicacion1.text = datos[i].CODIGOUBICACIONDAÑO;
-
-              if (
-                !CodigoUbicacionDañoGpon.querySelector(
-                  `option[value="${optionUbicacion1.value}"]`
-                )
-              ) {
-                CodigoUbicacionDañoGpon.add(optionUbicacion1);
-              }
 
               // DESCRIPCION CAUSA
               const optionDescripcionCausa = document.createElement("option");
@@ -530,6 +441,7 @@ function GponLineaFectch() {
               CodigoCausaGpon.setAttribute("readonly", "readonly");
             }
           }
+          return;
         }
       }
     });

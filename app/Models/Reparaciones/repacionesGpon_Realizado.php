@@ -18,8 +18,6 @@ class repacionesGpon_Realizado extends Model
         'dpto_colonia',
         'TipoActividadReparacionGpon',
         'CodigoCausaGpon',
-        'CodigoTipoDañoGpon',
-        'CodigoUbicacionDañoGpon',
         'DescripcionCausaDañoGpon',
         'DescripcionTipoDañoGpon',
         'DescripcionUbicacionGpon',

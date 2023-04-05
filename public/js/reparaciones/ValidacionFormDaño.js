@@ -36,11 +36,7 @@ form.addEventListener("submit", function (event) {
       ).value;
 
       const CodigoCausaHfc = document.getElementById("CodigoCausaHfc").value;
-      const CodigoTipoDañoHfc =
-        document.getElementById("CodigoTipoDañoHfc").value;
-      const CodigoUbicacionDañoHfc = document.getElementById(
-        "CodigoUbicacionDañoHfc"
-      ).value;
+
       const DescripcionCausaDañoHfc = document.getElementById(
         "DescripcionCausaDañoHfc"
       ).value;
@@ -68,8 +64,6 @@ form.addEventListener("submit", function (event) {
           dpto_colonia === "" ||
           TipoActividadReparacionHfc === "" ||
           CodigoCausaHfc === "" ||
-          CodigoTipoDañoHfc === "" ||
-          CodigoUbicacionDañoHfc === "" ||
           DescripcionCausaDañoHfc === "" ||
           DescripcionTipoDañoHfc === "" ||
           DescripcionUbicacionHfc === "" ||
@@ -212,11 +206,7 @@ form.addEventListener("submit", function (event) {
       ).value;
 
       const CodigoCausaGpon = document.getElementById("CodigoCausaGpon").value;
-      const CodigoTipoDañoGpon =
-        document.getElementById("CodigoTipoDañoGpon").value;
-      const CodigoUbicacionDañoGpon = document.getElementById(
-        "CodigoUbicacionDañoGpon"
-      ).value;
+
       const DescripcionCausaDañoGpon = document.getElementById(
         "DescripcionCausaDañoGpon"
       ).value;
@@ -243,8 +233,6 @@ form.addEventListener("submit", function (event) {
           dpto_colonia === "" ||
           TipoActividadReparacionGpon === "" ||
           CodigoCausaGpon === "" ||
-          CodigoTipoDañoGpon === "" ||
-          CodigoUbicacionDañoGpon === "" ||
           DescripcionCausaDañoGpon === "" ||
           DescripcionTipoDañoGpon === "" ||
           DescripcionUbicacionGpon === "" ||
@@ -388,11 +376,6 @@ form.addEventListener("submit", function (event) {
       ).value;
 
       const CodigoCausaDth = document.getElementById("CodigoCausaDth").value;
-      const CodigoTipoDañoDth =
-        document.getElementById("CodigoTipoDañoDth").value;
-      const CodigoUbicacionDañoDth = document.getElementById(
-        "CodigoUbicacionDañoDth"
-      ).value;
       const DescripcionCausaDth = document.getElementById(
         "DescripcionCausaDth"
       ).value;
@@ -420,8 +403,6 @@ form.addEventListener("submit", function (event) {
           dpto_colonia === "" ||
           TipoActividadReparacionDth === "" ||
           CodigoCausaDth === "" ||
-          CodigoTipoDañoDth === "" ||
-          CodigoUbicacionDañoDth === "" ||
           DescripcionCausaDth === "" ||
           DescripcionTipoDañoDth === "" ||
           DescripcionUbicacionDañoDth === "" ||
@@ -755,11 +736,11 @@ form.addEventListener("submit", function (event) {
       ).value;
 
       const CodigoCausaAdsl = document.getElementById("CodigoCausaAdsl").value;
-      const CodigoTipoDañoAdsl =
-        document.getElementById("CodigoTipoDañoAdsl").value;
-      const CodigoUbicacionDañoAdsl = document.getElementById(
-        "CodigoUbicacionDañoAdsl"
-      ).value;
+      // const CodigoTipoDañoAdsl =
+      //   document.getElementById("CodigoTipoDañoAdsl").value;
+      // const CodigoUbicacionDañoAdsl = document.getElementById(
+      //   "CodigoUbicacionDañoAdsl"
+      // ).value;
       const DescripcionCausaAdsl = document.getElementById(
         "DescripcionCausaAdsl"
       ).value;
@@ -786,8 +767,6 @@ form.addEventListener("submit", function (event) {
           dpto_colonia === "" ||
           TipoActividadReparacionAdsl === "" ||
           CodigoCausaAdsl === "" ||
-          CodigoTipoDañoAdsl === "" ||
-          CodigoUbicacionDañoAdsl === "" ||
           DescripcionCausaAdsl === "" ||
           DescripcionTipoDañoAdsl === "" ||
           DescripcionUbicacionDañoAdsl === "" ||

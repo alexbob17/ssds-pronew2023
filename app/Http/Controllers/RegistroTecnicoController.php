@@ -92,23 +92,62 @@ public function store(Request  $request)
 
 
 
+public function deleteRegistro(Request $request, $codigo)
+{
+
+    // dd($codigo);
+    // Leer el contenido del archivo JSON
+    $jsonString = file_get_contents(storage_path('app/public/Json/RegistroTecnico.json'));
+    $data = json_decode($jsonString, true);
+
+    // Buscar el registro que deseas eliminar en la matriz de datos resultante
+    foreach ($data as $key => $registro) {
+        if ($registro['CODIGO'] == $codigo) {
+            // Eliminar el registro de la matriz
+            unset($data[$key]);
+            break;
+        }
+    }
+
+    // Codificar la matriz de datos actualizada en formato JSON
+    $jsonUpdated = json_encode($data);
+
+    // Escribir el contenido actualizado en el archivo JSON
+    file_put_contents(storage_path('app/public/Json/RegistroTecnico.json'), $jsonUpdated);
+
+    // Redireccionar a la página de visualización de registros
+
+    if ($request->ajax()) {
+        return response()->json([
+            'success' => true,
+            'message' => 'El registro ha sido eliminado correctamente.'
+        ]);
+    } else {
+        return view('tecnicos/registro', compact('data'))
+            ->with('page_title', 'Registro - Tecnicos')
+            ->with('navigation', 'Tecnicos');
+    }
+}
+
 
 
 
 public function LeerTecnicos()
 {
-    $dataJ = Cache::remember('tecnicos', Carbon::now()->addMinutes(60), function () {
-        return json_decode(Storage::get('public/Json/RegistroTecnico.json'), true);
-    });
+    $dataJ = json_decode(Storage::get('public/Json/RegistroTecnico.json'), true);
 
     usort($dataJ, function($a, $b) {
         return strcmp($a['CODIGO'], $b['CODIGO']);
     });
 
-    $perPage = count($dataJ);
+    // $data = $dataJ;
+
+    $perPage = 10;
     $currentPage = request()->get('page', 1);
     $data= array_slice($dataJ, ($currentPage - 1) * $perPage, $perPage);
     $data= new LengthAwarePaginator($data, count($dataJ), $perPage, $currentPage);
+
+    $tecnicosIndexRoute = route('mostrar_tecnicos');
 
     return view('tecnicos/registro', compact('data'))
         ->with('page_title', 'Registro - Tecnicos')
@@ -117,41 +156,30 @@ public function LeerTecnicos()
 }
 
 
+// public function LeerTecnicos()
+// {
+//     $dataJ = json_decode(Storage::get('public/Json/RegistroTecnico.json'), true);
+
+//     usort($dataJ, function($a, $b) {
+//         return strcmp($a['CODIGO'], $b['CODIGO']);
+//     });
+
+//     $perPage = count($dataJ);
+//     $currentPage = request()->get('page', 1);
+//     $data= array_slice($dataJ, ($currentPage - 1) * $perPage, $perPage);
+//     $data= new LengthAwarePaginator($data, count($dataJ), $perPage, $currentPage);
+
+//     return view('tecnicos/registro', compact('data'))
+//         ->with('page_title', 'Registro - Tecnicos')
+//         ->with('navigation', 'Tecnicos')
+//         ->with('queryParams', ['page' => $data->currentPage()]);
+// }
 
 
-public function update(Request $request, $id)
-{
-    // Actualizar los datos en el archivo JSON
-
-    // Redirigir de vuelta a la vista de registro
-    return redirect()->route('registro_tecnico.index');
-}
 
 
-public function delete($codigo_tecnico)
-{
-    // Obtener los datos existentes del archivo
-    $fileData = json_decode(Storage::get('public/Json/RegistroTecnico.json'), true);
 
-    // Buscar el índice del registro que se quiere eliminar
-    $index = array_search($codigo_tecnico, array_column($fileData, 'CODIGO'));
 
-    // Si se encontró el registro, eliminarlo del array
-    if ($index !== false) {
-        array_splice($fileData, $index, 1);
-
-        // Guardar los datos actualizados en el archivo JSON
-        Storage::put('public/Json/RegistroTecnico.json', json_encode($fileData));
-    }
-
-    // Redirigir a la página de éxito
-    $message = "Técnico eliminado correctamente";
-    return redirect()->route('tecnicos.registro')
-        ->with('success', 'Registro eliminado exitosamente.')
-        ->with('message', $message)
-        ->with('page_title', 'Registro - Tecnicos')
-        ->with('navigation', 'Tecnicos');
-}
 
 
     

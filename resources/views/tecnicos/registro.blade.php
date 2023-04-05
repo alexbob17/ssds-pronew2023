@@ -17,7 +17,7 @@
             <form id="registro-tecnico-form" method="POST" action="{{ route('registro_tecnico.store') }}">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-                <div class="form-group-container">
+                <div class="form-group-container" style="padding-top:2rem">
                     <div class="form-group col-md-3">
                         <label for="codigo_tecnico">Código Técnico</label>
                         <div class="input-group">
@@ -37,7 +37,8 @@
                                 <div class="input-group-addon">
                                     <i class="fa fa-phone-square"></i>
                                 </div>
-                                <input type="text" class="form-control" id="telefono" name="telefono" />
+                                <input type="text" class="form-control" id="telefono" name="telefono"
+                                    placeholder="Numero" />
                             </div>
                         </div>
                         <div class="form-group col-md-3">
@@ -47,7 +48,7 @@
                                     <i class="fa fa-user"></i>
                                 </div>
                                 <input type="text" class="form-control" id="tecnico" name="tecnico"
-                                    oninput="this.value = this.value.toUpperCase()" />
+                                    oninput="this.value = this.value.toUpperCase()" placeholder="Nombre Tecnico" />
                             </div>
                         </div>
 
@@ -70,13 +71,14 @@
                             <div class="box-body">
                                 <div class="form-group-container">
                                     <table id="TableTecnico" data-toggle="table" data-search="true"
-                                        data-pagination="true" data-refresh="true" data-pagination="10"
-                                        data-search-align="left" data-toolbar="#toolbar" data-refresh="true">
-                                        <thead class="thead-dark">
+                                        data-pagination="true" data-pagination="10" data-search-align="left"
+                                        data-toolbar="#toolbar" data-refresh="true" data-sortable="true"
+                                        class="table table-striped table-bordered">
+                                        <thead class="" style="color: #337ab7;height: 45px;">
                                             <tr>
-                                                <th>Código Técnico</th>
-                                                <th>Técnico</th>
-                                                <th>Teléfono</th>
+                                                <th data-sortable="true">Código Técnico</th>
+                                                <th data-sortable="true">Técnico</th>
+                                                <th data-sortable="true">Teléfono</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
@@ -89,24 +91,21 @@
                                                 <td>{{ $registro['NOMBRE'] }}</td>
                                                 <td>{{ $registro['NUMERO'] }}</td>
                                                 <td>
+                                                    <form action="{{ route('tecnicos_delete', $registro['CODIGO']) }}"
+                                                        method="POST" id="delete-form"
+                                                        onsubmit="return confirmDelete()">
 
-                                                    <a href="#" class="btn" style="background:#ffff33;color:white"><i
-                                                            class="fa-solid fa-user-pen"></i></a>
 
-                                                    <a href="#" class="btn btn-danger"><i
-                                                            class="fa-solid fa-trash"></i></a>
-
-                                                    <!-- <form action="{{ route('tecnicos_delete', $registro['CODIGO']) }}"
-                                                        method="POST">
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
-                                                        <input type="hidden" name="_method" value="delete" />
+                                                        <input type="hidden" name="_method" value="DELETE">
 
                                                         <button type="submit" class="btn btn-danger"><i
                                                                 class="fa-solid fa-trash"></i></button>
-                                                    </form> -->
+                                                    </form>
+
                                                 </td>
                                             </tr>
+
                                             @endforeach
                                             @endif
                                         </tbody>
@@ -119,6 +118,72 @@
             </div>
         </div>
         <!-- /.box -->
+
+
+        <script>
+        function confirmDelete() {
+            Swal.fire({
+                title: '¿Estás seguro que deseas eliminar este registro?',
+                showCancelButton: true,
+                confirmButtonText: 'Sí',
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Cancelar',
+                icon: 'warning'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Procede con la eliminación
+                    $.ajax({
+                        method: 'DELETE',
+                        url: $('#delete-form').attr('action'),
+                        data: $('#delete-form').serialize(),
+                        success: function(response) {
+                            Swal.fire({
+                                title: 'Eliminado!',
+                                text: response.message,
+                                icon: 'success'
+                            }).then((result) => {
+                                window.location.href = "{{ route('mostrar_tecnicos') }}";
+                            });
+                        },
+                        error: function(xhr, status, error) {
+                            Swal.fire({
+                                title: 'Error!',
+                                text: 'No se pudo eliminar el registro.',
+                                icon: 'error'
+                            });
+                        }
+                    });
+                }
+            });
+
+            return false;
+        }
+        </script>
+
+        <!-- <script>
+        function confirmDelete() {
+            if (confirm('¿Estás seguro que deseas eliminar este registro?')) {
+                $.ajax({
+                    method: 'DELETE',
+                    url: $('#delete-form').attr('action'),
+                    data: $('#delete-form').serialize(),
+                    success: function(response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Eliminado!',
+                            text: response.message,
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        alert('No se pudo eliminar el registro.');
+                    }
+                });
+
+                return false;
+            }
+        }
+        </script> -->
 
 
 

@@ -62,6 +62,17 @@ class LlamadasServicioController extends Controller
 			->with('navigation', 'Postventas');
 	}
 
+	public function showMotivos()
+	{		
+		$breadcrumb = [
+				['name' => 'Postventas - Saturado' ]
+		];		
+		
+		return view('administracion/motivos')
+			->with('page_title', 'Motivos - Registro')
+			->with('navigation', 'Motivos');
+	}
+
 
 	public function showInstalaciones()
 	{		

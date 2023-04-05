@@ -18,8 +18,6 @@ class repacionesDth_Realizado extends Model
         'dpto_colonia',
         'TipoActividadReparacionDth',
         'CodigoCausaDth',
-        'CodigoTipoDañoDth',
-        'CodigoUbicacionDañoDth',
         'DescripcionCausaDth',
         'DescripcionTipoDañoDth',
         'DescripcionUbicacionDañoDth',

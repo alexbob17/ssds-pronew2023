@@ -40,7 +40,6 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/llamadashome/postventa', 'LlamadasServicioController@showPostVentas')->middleware('auth');
 
-
 	Route::get('/llamadashome/reparaciones', 'LlamadasServicioController@showReparaciones')->middleware('auth');
 
 	Route::get('/llamadashome/registro', 'RegistroController@showRegistro')->middleware('auth');;
@@ -49,8 +48,15 @@ Route::group(['middleware' => ['web']], function () {
 	
 	Route::get('/tecnicos/registro', 'RegistroTecnicoController@LeerTecnicos')->name('mostrar_tecnicos')->middleware('auth');
 
+	Route::get('/llamadashome/consultas', 'ConsultasController@showConsultas')->name('mostrar_consultas')->middleware('auth');
 
-	// Route::delete('/tecnicos/registro/{codigo_tecnico}','RegistroTecnicoController@LeerTecnicos')->name('tecnicos_delete');
+	Route::get('/administracion/motivos', 'LlamadasServicioController@showMotivos')->name('mostrar_motivos')->middleware('auth');
+
+
+
+	Route::delete('/tecnicos/registro/{CODIGO}','RegistroTecnicoController@deleteRegistro')->name('tecnicos_delete');
+
+
 
 	Route::post('/tecnicos/registro', 'RegistroTecnicoController@store')->name('registro_tecnico.store')->middleware('auth');
 
@@ -61,8 +67,6 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/llamadashome/reparaciones', 'ReparacionesController@store')->name('registro_reparaciones.store')->middleware('auth');
 
 
-
-	
 	Route::controllers([
 			'inconsistencias'	=> 'InconsistenciasController',
 			'penalizaciones'	=> 'PenalizacionesController',

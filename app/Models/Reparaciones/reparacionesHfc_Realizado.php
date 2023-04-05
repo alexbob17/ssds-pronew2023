@@ -18,8 +18,6 @@ class reparacionesHfc_Realizado extends Model
         'dpto_colonia',
         'TipoActividadReparacionHfc',
         'CodigoCausaHfc',
-        'CodigoTipoDañoHfc',
-        'CodigoUbicacionDañoHfc',
         'DescripcionCausaDañoHfc',
         'DescripcionTipoDañoHfc',
         'DescripcionUbicacionHfc',

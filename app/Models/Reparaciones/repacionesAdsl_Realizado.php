@@ -18,8 +18,6 @@ class repacionesAdsl_Realizado extends Model
         'dpto_colonia',
         'TipoActividadReparacionAdsl',
         'CodigoCausaAdsl',
-        'CodigoTipoDañoAdsl',
-        'CodigoUbicacionDañoAdsl',
         'DescripcionCausaAdsl',
         'DescripcionTipoDañoAdsl',
         'DescripcionUbicacionDañoAdsl',
