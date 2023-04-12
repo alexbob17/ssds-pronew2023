@@ -23,6 +23,9 @@ use Illuminate\Pagination\Paginator;
 
 use Carbon\Carbon;
 
+use PDO;
+
+
 
 
 
@@ -31,9 +34,20 @@ class RegistroTecnicoController extends Controller
 
 
 
+    public function showGuardar()
+	{		
+		$breadcrumb = [
+				['name' => 'Tecnicos - Registro' ]
+		];		
+		
+		return view('tecnicos/guardar')
+			->with('page_title', 'Registro - Tecnicos')
+			->with('navigation', 'Tecnicos');
+	}
+  
+
 
 public function store(Request  $request)
-
 {
     $codigo_tecnico = $request->input('codigo_tecnico');
     $tecnico = $request->input('tecnico');
@@ -60,7 +74,7 @@ public function store(Request  $request)
             $message = "El código del técnico ya existe";
             $fileData = json_decode(Storage::get('public/Json/RegistroTecnico.json'), true);
 
-            return view('tecnicos/registro',compact('fileData'))
+            return view('tecnicos/guardar')
                 ->with('error', 'Error al guardar el registro.')
                 ->with('message', $message)
                 ->with('page_title', 'Registro - Tecnicos')
@@ -71,7 +85,7 @@ public function store(Request  $request)
     // Agregar los nuevos datos al final del archivo
     $fileData[] = $data;
 
-    // Guardar los datos actualizados en el archivo JSON
+   // Guardar los datos actualizados en el archivo JSON
     Storage::put('public/Json/RegistroTecnico.json', json_encode($fileData));
 
     // Obtener los datos actualizados del archivo
@@ -83,11 +97,12 @@ public function store(Request  $request)
 
     // Redirigir a la página de éxito
     $message = "Técnico registrado correctamente";
-    return view('tecnicos/registro', compact('data'))
+    return view('tecnicos/guardar')
         ->with('success', 'Registro guardado exitosamente.')
         ->with('message', $message)
         ->with('page_title', 'Registro - Tecnicos')
         ->with('navigation', 'Tecnicos');
+        
 }
 
 
@@ -131,6 +146,60 @@ public function deleteRegistro(Request $request, $codigo)
 
 
 
+// public function LeerTecnicos(Request $request)
+// {
+//     // Configura la conexión a la base de datos
+//     $host = "localhost";
+//     $username = "ssd_admin";
+//     $password = "\$\$D@DM!N";
+//     $dbname = "ssddb";
+//     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
+
+
+//    // Crea la conexión
+//     try {
+//         $pdo = new PDO($dsn, $username, $password);
+//     } catch (PDOException $e) {
+//         die("No se pudo conectar a la base de datos: " . $e->getMessage());
+//     }
+
+//     // Obtener los datos de la tabla Tecnicos
+//     $page = $request->query('page', 1);
+//     $perPage = 10;
+//     $offset = ($page - 1) * $perPage;
+//     $sql = "SELECT * FROM Tecnicos ORDER BY CODIGO LIMIT :perPage OFFSET :offset";
+//     $statement = $pdo->prepare($sql);
+//     $statement->bindValue(':perPage', $perPage, PDO::PARAM_INT);
+//     $statement->bindValue(':offset', $offset, PDO::PARAM_INT);
+//     $statement->execute();
+//     $results = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+//     // Obtener el número total de filas en la tabla Tecnicos
+//     $sqlCount = "SELECT COUNT(*) AS count FROM Tecnicos";
+//     $statementCount = $pdo->prepare($sqlCount);
+//     $statementCount->execute();
+//     $count = $statementCount->fetchColumn();
+
+//     // Crear la paginación
+//     $data = new LengthAwarePaginator(
+//         $results,
+//         $count,
+//         $perPage,
+//         $page,
+//         ['path' => $request->url(), 'query' => $request->query()]
+//     );
+
+//     return view('tecnicos/registro', compact('data'))
+//         ->with('page_title', 'Registro - Tecnicos')
+//         ->with('navigation', 'Tecnicos')
+//         ->with('queryParams', $request->query());
+
+
+// }
+
+
+
+
 
 public function LeerTecnicos()
 {
@@ -139,41 +208,27 @@ public function LeerTecnicos()
     usort($dataJ, function($a, $b) {
         return strcmp($a['CODIGO'], $b['CODIGO']);
     });
-
-    // $data = $dataJ;
-
+    
     $perPage = 10;
     $currentPage = request()->get('page', 1);
-    $data= array_slice($dataJ, ($currentPage - 1) * $perPage, $perPage);
-    $data= new LengthAwarePaginator($data, count($dataJ), $perPage, $currentPage);
-
-    $tecnicosIndexRoute = route('mostrar_tecnicos');
-
+    $offset = ($currentPage - 1) * $perPage;
+    $results = array_slice($dataJ, $offset, $perPage);
+    $count = count($dataJ);
+    
+    $data = new LengthAwarePaginator(
+        $results,
+        $count,
+        $perPage,
+        $currentPage,
+        ['path' => request()->url(), 'query' => request()->query()]
+    );
+    
     return view('tecnicos/registro', compact('data'))
-        ->with('page_title', 'Registro - Tecnicos')
+        ->with('page_title', 'Tecnicos')
         ->with('navigation', 'Tecnicos')
         ->with('queryParams', ['page' => $data->currentPage()]);
+    
 }
-
-
-// public function LeerTecnicos()
-// {
-//     $dataJ = json_decode(Storage::get('public/Json/RegistroTecnico.json'), true);
-
-//     usort($dataJ, function($a, $b) {
-//         return strcmp($a['CODIGO'], $b['CODIGO']);
-//     });
-
-//     $perPage = count($dataJ);
-//     $currentPage = request()->get('page', 1);
-//     $data= array_slice($dataJ, ($currentPage - 1) * $perPage, $perPage);
-//     $data= new LengthAwarePaginator($data, count($dataJ), $perPage, $currentPage);
-
-//     return view('tecnicos/registro', compact('data'))
-//         ->with('page_title', 'Registro - Tecnicos')
-//         ->with('navigation', 'Tecnicos')
-//         ->with('queryParams', ['page' => $data->currentPage()]);
-// }
 
 
 

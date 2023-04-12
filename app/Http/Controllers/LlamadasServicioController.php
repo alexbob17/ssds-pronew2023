@@ -95,6 +95,20 @@ class LlamadasServicioController extends Controller
 			->with('page_title', 'Reparaciones - Registro')
 			->with('navigation', 'Reparaciones');	
 	}
+
+	public function showAgendamientos()
+	{		
+		$breadcrumb = [
+				['name' => 'Agendamientos - Saturado' ]
+		];		
+		
+		return view('llamadashome/agendamientos')
+			->with('page_title', 'Agendamientos - Registro')
+			->with('navigation', 'Agendamientos');	
+	}
+	
+	
+
 	
 	
 

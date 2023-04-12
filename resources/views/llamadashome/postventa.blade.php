@@ -1,6 +1,17 @@
 @extends('app') @section('content')
 
-<div class="row">
+<head>
+    <script>
+    window.onload = function() {
+        document.getElementById("Select_Postventa").value = "";
+        document.getElementById("tecnologia").value = "";
+        document.getElementById("select_orden").value = "";
+        document.getElementById("dpto_colonia").value = "";
+    };
+    </script>
+</head>
+
+<body class="row">
     <div class="col-md-12">
         @if (session()->has('success_message'))
         <div class="alert alert-success alert-dismissable">
@@ -75,7 +86,7 @@
                         <label for="Select_Postventa">TIPO POSTVENTA</label>
                         <select class="form-control" id="Select_Postventa" style="width: 100%;" name="Select_Postventa"
                             tabindex="-1" aria-hidden="true" required>
-                            <option value="">SELECCIONE UNA OPCION</option>
+                            <option value="" selected="selected">SELECCIONE UNA OPCION</option>
                             <option value="TRASLADO">TRASLADO</option>
                             <option value="ADICION">ADICION</option>
                             <option value="CAMBIO DE EQUIPO">CAMBIO DE EQUIPO</option>
@@ -88,7 +99,7 @@
                         <label for="tecnologia">Tecnologia</label>
                         <select class="form-control" style="width: 100%;" name="tecnologia" tabindex="-1"
                             id="tecnologia" aria-hidden="true" required>
-                            <option value="">SELECCIONE</option>
+                            <option value="" selected="selected">SELECCIONE</option>
                             <option value="HFC">HFC</option>
                             <option value="GPON">GPON</option>
                             <option value="ADSL">ADSL</option>
@@ -101,14 +112,15 @@
                         <label for="select_orden">Tipo Orden</label>
                         <select class="form-control" id="select_orden" style="width: 100%;" name="select_orden"
                             tabindex="-1" aria-hidden="true" required>
-                            <option value="">SELECCIONE</option>
+                            <option value="" selected="selected">SELECCIONE</option>
+
                         </select>
                     </div>
                     <div class="form-group col-md-3">
                         <label for="dpto_colonia">DPTO / COLONIA</label>
                         <select class="form-control select2 select2-hidden-accessible" id="dpto_colonia"
                             style="width: 100%;" name="dpto_colonia" tabindex="-1" aria-hidden="true" required>
-                            <option value="">SELECCIONE UNA OPCION</option>
+                            <option value="" selected="selected">SELECCIONE UNA OPCION</option>
                         </select>
                     </div>
 
@@ -5157,7 +5169,7 @@
             </form>
         </div>
     </div>
-</div>
+</body>
 
 @if(isset($message))
 <script>
@@ -5173,12 +5185,16 @@ Swal.fire({
 </script>
 
 
-
 <script>
-window.addEventListener("Document", function() {
-    window.location.href = window.location.href;
-});
+function resetSelects() {
+    document.getElementById("Select_Postventa").value = "";
+    document.getElementById("Select_Postventa").innerHTML = "<option value=''>SELECCIONE UNA OPCION</option>";
+
+    document.getElementById("tecnologia").value = "";
+}
 </script>
+
+
 
 
 

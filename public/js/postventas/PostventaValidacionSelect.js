@@ -143,10 +143,10 @@ const elementosPostventaCambioNumero = [
 
 function mostrarElementos() {
   // OCULTANDO TODOS LOS ELEMENTOS
+
   elementsToHide.forEach((element) => {
     element.style.display = "none";
   });
-
   // DESHABILITA EL SELECT DE TECNOLOGIA HASTA QUE SE SELECCIONE UNA OPCION DEL PRIMERO
 
   switch (selectPostventa.value + "|" + selectTecnologia.value) {
@@ -465,10 +465,9 @@ function mostrarElementos() {
         element.style.display = "none";
       });
 
-      // selectTecnologia.value = "";
+      // selectTecnologia.value = "SELECCIONE";
       // select_orden.value = "";
       // selectPostventa.value = "";
-
       break;
   }
 }
@@ -808,11 +807,10 @@ function actualizarOpciones() {
 
     // AQUI PODRIAS AGREGAR MAS CASOS PARA DIFERENTES COMBINACIONES DE VALORES
     default:
-    // select_orden.value = "";
+      select_orden.value = "";
 
     // selectPostventa.value = "";
     // select_orden.innerHTML = `<option value="">SELECCIONE</option>`;
-    // selectTecnologia.innerHTML = `<option value="">SELECCIONE</option>`;
   }
 }
 
@@ -830,7 +828,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
   const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
 
-  // postventaSelect.value = "";
+  // tecnologiaSelect.value = "";
+  postventaSelect.value = "";
 
   adslOption.style.display = "none";
   cobreOption.style.display = "none";
@@ -858,6 +857,12 @@ document.addEventListener("DOMContentLoaded", function () {
       elementsToHide.forEach((element) => {
         element.style.display = "none";
       });
+
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
     } else if (postventaSelect.value === "MIGRACION") {
       const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
       const cobreOption = tecnologiaSelect.querySelector(
@@ -877,6 +882,12 @@ document.addEventListener("DOMContentLoaded", function () {
       elementsToHide.forEach((element) => {
         element.style.display = "none";
       });
+
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
     } else if (postventaSelect.value === "RECONEXION / RETIRO") {
       const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
       const cobreOption = tecnologiaSelect.querySelector(
@@ -896,6 +907,12 @@ document.addEventListener("DOMContentLoaded", function () {
       elementsToHide.forEach((element) => {
         element.style.display = "none";
       });
+
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
     } else if (postventaSelect.value === "CAMBIO NUMERO COBRE") {
       const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
       const cobreOption = tecnologiaSelect.querySelector(
@@ -915,6 +932,12 @@ document.addEventListener("DOMContentLoaded", function () {
       elementsToHide.forEach((element) => {
         element.style.display = "none";
       });
+
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
     } else if (postventaSelect.value === "CAMBIO DE EQUIPO") {
       const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
       const cobreOption = tecnologiaSelect.querySelector(
@@ -934,6 +957,12 @@ document.addEventListener("DOMContentLoaded", function () {
       elementsToHide.forEach((element) => {
         element.style.display = "none";
       });
+
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
     } else if (postventaSelect.value === "TRASLADO") {
       const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
       const cobreOption = tecnologiaSelect.querySelector(
@@ -953,6 +982,12 @@ document.addEventListener("DOMContentLoaded", function () {
       elementsToHide.forEach((element) => {
         element.style.display = "none";
       });
+
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
     } else {
       const adslOption = tecnologiaSelect.querySelector('option[value="ADSL"]');
       const cobreOption = tecnologiaSelect.querySelector(
@@ -962,8 +997,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const gponOption = tecnologiaSelect.querySelector('option[value="GPON"]');
       const dthOption = tecnologiaSelect.querySelector('option[value="DTH"]');
 
-      // tecnologiaSelect.value = "";
-      // postventaSelect.value = "";
+      tecnologiaSelect.value = "";
+      postventaSelect.value = "";
       // select_orden.value = "";
 
       adslOption.style.display = "none";
@@ -975,6 +1010,12 @@ document.addEventListener("DOMContentLoaded", function () {
       elementsToHide.forEach((element) => {
         element.style.display = "none";
       });
+
+      //RESET VALUE SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
     }
   });
 });

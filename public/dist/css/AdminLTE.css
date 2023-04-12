@@ -2712,6 +2712,15 @@ a:focus {
   border-color: #3E69D6;
 
 }
+
+.btnGoback:hover{
+  cursor: pointer !important;
+  color: blue;
+}
+
+.fixed-table-body{
+  margin-bottom: 2rem !important;
+}
 /* .bootstrap-table .fixed-table-container .fixed-table-body{
   border-radius: 10px !important;
 } */
@@ -2727,6 +2736,22 @@ table.dataTable thead .sorting_desc:before,
 table.dataTable thead .sorting_desc_disabled:after,
 table.dataTable thead .sorting_desc_disabled:before {
   bottom: .5em !important;
+}
+
+.swal2-styled.swal2-confirm{
+  font-size: 1.3em;
+}
+
+.swal2-styled.swal2-cancel{
+  font-size: 1.3em;
+}
+
+.swal2-html-container{
+  font-size: 1.25em;
+}
+
+.swal2-styled.swal2-confirm{
+  background-color: #00a65a;
 }
 .btn-primary:hover,
 .btn-primary:active,

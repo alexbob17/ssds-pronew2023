@@ -77,6 +77,10 @@
                 <h1>{{{ $page_title }}}</h1>
                 <ol class="breadcrumb">
                     <li>{!! Html::decode(link_to('/','<i class="fa fa-dashboard"></i> Inicio')) !!}</li>
+                    @if(Request::is('tecnicos/guardar'))
+                    <li onclick="goBack()" class="btnGoback"><i class="fa fa-arrow-left"></i> Volver</li>
+                    @endif
+
                     @if (isset($breadcrumb))
                     @foreach ($breadcrumb as $url_link)
                     @if(isset($url_link['route']))
@@ -98,7 +102,11 @@
     <!-- jQuery 2.1.3 -->
 
 
-
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
     <!-- jQuery UI 1.11.4 -->
     <script src="{{ asset('/plugins/jQueryUI/jquery-ui-1.11.4.min.js') }}" type="text/javascript"></script>
 

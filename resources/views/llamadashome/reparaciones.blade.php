@@ -1743,6 +1743,13 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+<script>
+window.onload = function() {
+    document.getElementById("tecnologia").value = "";
+    document.getElementById("select_orden").value = "";
+};
+</script>
+
 <!-- Select2 -->
 <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
 <link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
@@ -1772,7 +1779,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script> -->
 <script src="{{asset('/js/reparaciones/fetchReparaciones.js')}}" type="text/javascript"></script>
-<script src="{{asset('/js/reparaciones/fecthrepacionesgpon.js')}}" type="text/javascript"></script>
+<!-- <script src="{{asset('/js/reparaciones/fecthrepacionesgpon.js')}}" type="text/javascript"></script> -->
 <script src="{{asset('/js/reparaciones/ValidacionFormDaño.js')}}" type="text/javascript"></script>
 
 

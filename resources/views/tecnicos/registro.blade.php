@@ -8,59 +8,9 @@
         </div>
         @endif
 
-        <div class="box box-warning">
-            <div class="box-header with-border">
-                <h3 class="box-title">Datos del Caso</h3>
-            </div>
-            <!-- FORMULARIO #REGISTRO TECNICO-->
 
-            <form id="registro-tecnico-form" method="POST" action="{{ route('registro_tecnico.store') }}">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-                <div class="form-group-container" style="padding-top:2rem">
-                    <div class="form-group col-md-3">
-                        <label for="codigo_tecnico">Código Técnico</label>
-                        <div class="input-group">
-                            <div class="input-group-addon">
-                                <i class="fa fa-square"></i>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Ingrese Codigo Tecnico"
-                                id="codigo_tecnico" name="codigo_tecnico"
-                                oninput="this.value = this.value.toUpperCase()" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="form-group col-md-2">
-                            <label for="telefono">Teléfono</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-phone-square"></i>
-                                </div>
-                                <input type="text" class="form-control" id="telefono" name="telefono"
-                                    placeholder="Numero" />
-                            </div>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="tecnico">Técnico</label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-user"></i>
-                                </div>
-                                <input type="text" class="form-control" id="tecnico" name="tecnico"
-                                    oninput="this.value = this.value.toUpperCase()" placeholder="Nombre Tecnico" />
-                            </div>
-                        </div>
-
-                        <div class="form-group col-md-3">
-                            <button type="submit" class="btn btn-primary" style="margin-top: 2.4rem;">Guardar
-                                Registro</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-
+        <!-- data-pagination="true" data-pagination="10" -->
         <div class="box box-warning">
             <div class="">
                 <div class="">
@@ -68,10 +18,16 @@
                         <div class="box-header">
                             <!-- /.box-header -->
                             <!-- form start -->
+
+
                             <div class="box-body">
-                                <div class="form-group-container">
-                                    <table id="TableTecnico" data-toggle="table" data-search="true"
-                                        data-pagination="true" data-pagination="10" data-search-align="left"
+                                <div class="form-group-container" style="position: relative;">
+                                    <a href="{{ route('Tecnico_guardar') }}" class="btn btn-primary"
+                                        style="right:0px;position: absolute;">
+                                        <i class="fa fa-user-plus"></i>
+                                    </a>
+
+                                    <table id="TableTecnico" data-search="true" data-search-align="left"
                                         data-toolbar="#toolbar" data-refresh="true" data-sortable="true"
                                         class="table table-striped table-bordered">
                                         <thead class="" style="color: #337ab7;height: 45px;">
@@ -95,14 +51,12 @@
                                                         method="POST" id="delete-form"
                                                         onsubmit="return confirmDelete()">
 
-
                                                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                                         <input type="hidden" name="_method" value="DELETE">
 
                                                         <button type="submit" class="btn btn-danger"><i
                                                                 class="fa-solid fa-trash"></i></button>
                                                     </form>
-
                                                 </td>
                                             </tr>
 
@@ -110,6 +64,7 @@
                                             @endif
                                         </tbody>
                                     </table>
+                                    {{ $data->links() }}
                                 </div>
                             </div>
                         </div>
@@ -128,6 +83,8 @@
                 confirmButtonText: 'Sí',
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
+                width: 350,
+                height: 250,
                 cancelButtonText: 'Cancelar',
                 icon: 'warning'
             }).then((result) => {
@@ -161,29 +118,7 @@
         }
         </script>
 
-        <!-- <script>
-        function confirmDelete() {
-            if (confirm('¿Estás seguro que deseas eliminar este registro?')) {
-                $.ajax({
-                    method: 'DELETE',
-                    url: $('#delete-form').attr('action'),
-                    data: $('#delete-form').serialize(),
-                    success: function(response) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Eliminado!',
-                            text: response.message,
-                        });
-                    },
-                    error: function(xhr, status, error) {
-                        alert('No se pudo eliminar el registro.');
-                    }
-                });
 
-                return false;
-            }
-        }
-        </script> -->
 
 
 
@@ -194,7 +129,7 @@
             icon: "success",
             title: "{{$message}}",
             showConfirmButton: false,
-            timer: 1800,
+            timer: 1500,
         });
 
         // window.location = window.location;
@@ -207,7 +142,7 @@
             showConfirmButton: false,
             timer: 2000,
         });
-        window.location = window.location;
+        // window.location = window.location;
         </script>
         @endif
         @endif
@@ -265,7 +200,7 @@
         </script>
         <!-- User definided -->
 
-        <script src="{{asset('/js/Tecnicos/RegistrarTecnico.js')}}" type="text/javascript"> </script>
+        <!-- <script src="{{asset('/js/Tecnicos/RegistrarTecnico.js')}}" type="text/javascript"> </script> -->
 
         @endsection
     </div>

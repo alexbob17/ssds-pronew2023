@@ -21,4 +21,5 @@ const btnReiniciar = document.getElementById("btn_reiniciar");
 
 btnReiniciar.addEventListener("click", function () {
   localStorage.clear();
+  window.location.href = window.location.href;
 });
