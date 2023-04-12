@@ -21,14 +21,28 @@
                         </a>
                         <ul class="treeview-menu">
                             @endif
+
+                            @role(['admin', 'operador'])
+                            <li>{!! Html::decode(link_to('/llamadashome/busqueda','<i class="fa fa-search"></i>
+                                Busqueda'))
+                                !!}</li>
+                            @endrole
+
                             @role(['admin', 'operador'])
                             <li>{!! Html::decode(link_to('/llamadashome/registro','<i class="fa fa-book"></i>
                                 Registro'))
                                 !!}</li>
                             @endrole
 
+                            @role(['admin', 'operador'])
+                            <li>{!! Html::decode(link_to('/llamadashome/reportes','<i class="fa fa-file-excel-o"></i>
+                                Reportes'))
+                                !!}</li>
+                            @endrole
+
                         </ul>
                     </li>
+
                     @endrole
                     <!-- @role(['admin','operador'])
                     @if(isset($navigation) && $navigation == 'postventastraslados')

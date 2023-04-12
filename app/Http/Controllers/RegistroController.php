@@ -19,7 +19,7 @@ class RegistroController extends Controller
        
         
         return view('llamadashome/registro')
-            ->with('page_title', 'Llamadas - Servicio')
+            ->with('page_title', 'Llamadas - Registro')
             ->with('navigation', 'Llamadas');
             
     }

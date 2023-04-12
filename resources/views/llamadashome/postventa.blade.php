@@ -11,7 +11,7 @@
     </script>
 </head>
 
-<body class="row">
+<div class="row">
     <div class="col-md-12">
         @if (session()->has('success_message'))
         <div class="alert alert-success alert-dismissable">
@@ -5169,7 +5169,7 @@
             </form>
         </div>
     </div>
-</body>
+</div>
 
 @if(isset($message))
 <script>

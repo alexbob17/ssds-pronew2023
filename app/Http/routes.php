@@ -77,6 +77,9 @@ Route::group(['middleware' => ['web']], function () {
 	Route::post('/llamadashome/consultas', 'ConsultasController@storeConsultas')->name('registro_consultas')->middleware('auth');
 
 	Route::get('/llamadashome/consultas', 'ConsultasController@BuscarConsulta')->name('consultas_buscar')->middleware('auth');
+	
+	Route::get('/llamadashome/busqueda', 'BusquedaController@showBusquedas')->name('busquedas_generales')->middleware('auth');
+
 
 
 

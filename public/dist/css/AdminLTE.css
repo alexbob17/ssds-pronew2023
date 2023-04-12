@@ -2713,6 +2713,23 @@ a:focus {
 
 }
 
+.btnTrabajado{
+  text-align: center;background: #00a65a;color: white;width: 100px;height: 35px;margin: 5px;border-radius: 5px;
+}
+
+.btnTrabajado:hover{
+  color: white;
+}
+
+
+.btnPendiente{
+  text-align: center;background: #dc0925;color: white;width: 100px;height: 35px;margin: 5px;border-radius: 5px;
+
+}
+.btnPendiente:hover{
+color: white;
+}
+
 .btnGoback:hover{
   cursor: pointer !important;
   color: blue;
@@ -2788,14 +2805,14 @@ table.dataTable thead .sorting_desc_disabled:before {
   background-color: #d73925;
 }
 .btn-warning {
-  background-color: #3E69D6 !important;
-  border-color: #234cb4 !important;
+  background-color: #e9c01b !important;
+  border-color: #e9c01b !important;
   color: white !important;
 }
 .btn-warning:hover,
 .btn-warning:active,
 .btn-warning.hover {
-  background-color: #234cb4 !important;
+  background-color: #d6b121 !important;
 }
 .btn-outline {
   border: 1px solid #fff;
