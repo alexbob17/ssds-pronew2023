@@ -20,6 +20,8 @@ class User extends Model implements AuthenticatableContract,
     	Authorizable::can insteadof EntrustUserTrait;
     }   
     
+
+    
     /**
      * The database table used by the model.
      *

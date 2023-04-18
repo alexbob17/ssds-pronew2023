@@ -422,7 +422,6 @@ class LlamadasServicioController extends Controller
 						'OrdenLinea_Gpon',
 						'MotivoObjetado_Gpon',
 						'TrabajadoGpon_Objetado',
-						'ObsGpon_Objetada',
 						'ComentariosGpon_Objetada',
 						'username_creacion',
 						'username_atencion',
@@ -691,10 +690,10 @@ class LlamadasServicioController extends Controller
 						'dpto_colonia',
 						'tecnologia',
 						'tipo_actividadCobre',
-						'MotivoAnulada_Adsl',
-						'OrdenAnuladaAdsl',
-						'TrabajadoAnulada_Adsl',
-						'ComentarioAnulada_Adsl',
+						'MotivoAnulada_Cobre',
+						'OrdenAnuladaCobre',
+						'TrabajadoAnulada_Cobre',
+						'ComentarioAnulada_Cobre',
 						'username_creacion',
 						'username_atencion',
 					];
@@ -704,9 +703,9 @@ class LlamadasServicioController extends Controller
 					// Iteramos por los campos seleccionados del formulario
 					foreach ($selectedFields as $fieldName) {
 						$value = $request->input($fieldName);
-						if ($fieldName === 'TrabajadoAnulada_Adsl' && $request->has('TrabajadoAnulada_Adsl')) {
+						if ($fieldName === 'TrabajadoAnulada_Cobre' && $request->has('TrabajadoAnulada_Cobre')) {
 							$data[$fieldName] = 'TRABAJADO';
-						} elseif ($fieldName === 'TrabajadoAnulada_Adsl') {
+						} elseif ($fieldName === 'TrabajadoAnulada_Cobre') {
 							$data[$fieldName] = 'PENDIENTE';
 						} else {
 							$data[$fieldName] = $value;
@@ -718,10 +717,10 @@ class LlamadasServicioController extends Controller
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
 
-					$dataAdslAnulada = new InstalacionAdslAnulada($data);
+					$dataCobreAnulada = new InstalacionCobreAnulada($data);
 
                     // Guardamos la instancia en la base de datos
-                    $dataAdslAnulada->save();
+                    $dataCobreAnulada->save();
 
 					$message = "¡EXITO!";
 					$messages = "REGISTRO COBRE ANULACION COMPLETADO";

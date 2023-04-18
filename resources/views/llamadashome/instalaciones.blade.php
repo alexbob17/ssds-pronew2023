@@ -1794,17 +1794,6 @@
                                 </div>
                             </div>
 
-                            <div class="form-group col-md-12">
-                                <label for="ObsGpon_Objetada">Observaciones</label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-eye"></i>
-                                    </div>
-                                    <input type="text" class="form-control" id="ObsGpon_Objetada"
-                                        name="ObsGpon_Objetada" placeholder="Ingresa las observaciones del caso"
-                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
-                                </div>
-                            </div>
 
                             <div class="form-group col-md-12">
                                 <label for="ComentariosGpon_Objetada">Comentarios</label>

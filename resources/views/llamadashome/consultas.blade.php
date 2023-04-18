@@ -153,7 +153,7 @@
                 <input type="hidden" name="btn_reiniciar" id="btn_reiniciar" />
 
 
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-3" style>
                     <label for="codigo_tecnico"></label>
                     <div class="input-group" style="padding-top: 5px;">
                         <div class="input-group-addon">
@@ -175,7 +175,7 @@
                 <table id="TableTecnico" data-toolbar="#toolbar" data-refresh="true" data-sortable="true"
                     class="table table-striped table-bordered">
                     <caption
-                        style="text-align: center;background: rgb(144,150,168);background: linear-gradient(90deg, rgba(144,150,168,1) 0%, rgba(111,142,168,1) 43%);;padding: 10px;font-size: 16px;font-weight: 500;color: #ffffff;">
+                        style="text-align: center;background: #17467d;opacity:0.9;padding: 10px;font-size: 16px;font-weight: 500;color: #ffffff;">
                         CONSULTAS HOY</caption>
                     <thead class="" style=" color: #337ab7;height: 45px;">
                         <th data-sortable=" true">COD</th>

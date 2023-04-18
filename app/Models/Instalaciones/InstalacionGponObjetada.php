@@ -22,7 +22,7 @@ class InstalacionGponObjetada extends Model
         'OrdenLinea_Gpon',
         'MotivoObjetado_Gpon',
         'TrabajadoGpon_Objetado',
-        'ComentarioTransferido_Gpon',
+        'ComentariosGpon_Objetada',
         'username_creacion',
 		'username_atencion',
     ];
