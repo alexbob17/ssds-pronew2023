@@ -4432,7 +4432,7 @@
                                         <div class="input-group-addon">
                                             <i class="fa fa-ticket"></i>
                                         </div>
-                                        <input type="text" class="form-control" id="OrdenMigracionTranfHfc"
+                                        <input type="number" class="form-control" id="OrdenMigracionTranfHfc"
                                             placeholder="N° Orden" name="OrdenMigracionTranfHfc" autocomplete="off" />
                                     </div>
                                 </div>

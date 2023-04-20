@@ -12,20 +12,22 @@ use Illuminate\Support\Facades\Auth;
 use SSD\Models\Postventas\PostventaCambioNumeroCobreRealizada;
 use SSD\Models\Postventas\PostventaCambioNumeroCobreObjetada;
 use SSD\Models\Postventas\PostventaCambioNumeroCobreAnulada;
+
 use SSD\Models\Postventas\PostventaRetiroHfcRealizada;
 use SSD\Models\Postventas\PostventaRetiroHfcObjetada;
 use SSD\Models\Postventas\PostventaRetiroHfcAnulada;
+
 use SSD\Models\Postventas\PostventaMigracionTransferida;
 use SSD\Models\Postventas\PostventaMigracionAnulada;
 use SSD\Models\Postventas\PostventaMigracionObjetada;
 use SSD\Models\Postventas\PostventaMigracionRealizada;
+
 use SSD\Models\Postventas\PostventaCambioEquipoDthAnulada;
 use SSD\Models\Postventas\PostventaCambioEquipoDthObjetado;
 use SSD\Models\Postventas\PostventaCambioEquipoDthRealizada;
 use SSD\Models\Postventas\PostventaCambioEquipoAdslAnulada;
 use SSD\Models\Postventas\PostventaCambioEquipoAdslObjetado;
 use SSD\Models\Postventas\PostventaCambioEquipoAdslRealizado;
-
 use SSD\Models\Postventas\PostventaCambioEquipoGpon_Anulado;
 use SSD\Models\Postventas\PostventaCambioEquipoGpon_Objetado;
 use SSD\Models\Postventas\PostventaCambioEquipoGpon_Realizado;

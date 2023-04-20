@@ -59,22 +59,38 @@
                         </div>
 
                         <div class="form-group col-md-3">
-                            <label for="tecnologia">TECNOLOGIA</label>
-                            <select class="form-control" style="width: 100%;" name="tecnologia" tabindex="-1"
-                                id="tecnologia" aria-hidden="true" required>
+                            <label for="tipo_postventa">TIPO POSTVENTA</label>
+                            <select class="form-control" style="width: 100%;" name="tipo_postventa" tabindex="-1"
+                                id="tipo_postventa" aria-hidden="true">
                                 <option value="" selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="TODOS">---TODAS LAS TECNOLOGIAS---</option>
-                                <option value="HFC">HFC</option>
-                                <option value="GPON">GPON</option>
-                                <option value="ADSL">ADSL</option>
-                                <option value="COBRE">COBRE</option>
-                                <option value="DTH">DTH</option>
+                                <option value="TRASLADO">TRASLADO</option>
+                                <option value="ADICION">ADICION</option>
+                                <option value="CAMBIO DE EQUIPO">CAMBIO DE EQUIPO</option>
+                                <option value="MIGRACION">MIGRACION</option>
+                                <option value="RECONEXION / RETIRO">RECONEXION / RETIRO</option>
+                                <option value="CAMBIO NUMERO COBRE">CAMBIO NUMERO COBRE</option>
                             </select>
                         </div>
+
+
                     </div>
                 </div>
 
                 <div class="form-group-container">
+
+                    <div class="form-group col-md-3">
+                        <label for="tecnologia">TECNOLOGIA</label>
+                        <select class="form-control" style="width: 100%;" name="tecnologia" tabindex="-1"
+                            id="tecnologia" aria-hidden="true" required>
+                            <option value="" selected="selected">SELECCIONE UNA OPCION</option>
+                            <option value="TODOS">---TODAS LAS TECNOLOGIAS---</option>
+                            <option value="HFC">HFC</option>
+                            <option value="GPON">GPON</option>
+                            <option value="ADSL">ADSL</option>
+                            <option value="COBRE">COBRE</option>
+                            <option value="DTH">DTH</option>
+                        </select>
+                    </div>
                     <div class="form-group col-md-3">
                         <label for="tipo_actividad">TIPO ACTIVIDAD</label>
                         <select class="form-control" style="width: 100%;" name="tipo_actividad" tabindex="-1"
@@ -85,20 +101,6 @@
                             <option value="TRANSFERIDA">TRANSFERIDA</option>
                             <option value="ANULADA">ANULADA</option>
                             <option value="PENDIENTES">PENDIENTES</option>
-
-                        </select>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="tipo_postventa">TIPO POSTVENTA</label>
-                        <select class="form-control" style="width: 100%;" name="tipo_postventa" tabindex="-1"
-                            id="tipo_postventa" aria-hidden="true">
-                            <option value="" selected="selected">SELECCIONE UNA OPCION</option>
-                            <option value="TRASLADO">TRASLADO</option>
-                            <option value="ADICION">ADICION</option>
-                            <option value="CAMBIO DE EQUIPO">CAMBIO DE EQUIPO</option>
-                            <option value="MIGRACION">MIGRACION</option>
-                            <option value="RECONEXION / RETIRO">RECONEXION / RETIRO</option>
-                            <option value="CAMBIO NUMERO COBRE">CAMBIO NUMERO COBRE</option>
                         </select>
                     </div>
 
@@ -113,12 +115,18 @@
                             @endforeach
                         </select>
                     </div>
+
+                    <div class="" id="btn-submit" style="margin-top:2.5rem">
+                        <button type="submit" class="btn btn-primary" style="margin-left:1.7rem;!important"><i
+                                class="fa-solid fa-floppy-disk" style="padding-right:10px;!important"></i>GENERAR
+                            REPORTE</button>
+                        <button type="button" id="btn_reiniciar" class="btn btn-danger"><i class="fa fa-trash"
+                                aria-hidden="true"></i></button>
+                    </div>
+
                 </div>
 
-                <div class="box-footer" id="btn-submit" style="display: flex; justify-content: center;">
-                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"
-                            style="padding-right: 8px;"></i>GENERAR REPORTE</button>
-                </div>
+
             </form>
 
 
@@ -898,9 +906,7 @@
                         font-size: 16px;
                         font-weight: 500;
                         color: #ffffff;
-                        opacity:0.9;
-
-                    ">
+                        opacity:0.9;">
                                 <div class="div_spaccing"></div>
                                 <div>REPORTES</div>
                             </caption>
@@ -1205,9 +1211,8 @@
                         font-size: 16px;
                         font-weight: 500;
                         color: #ffffff;
-                        opacity:0.9;
+                        opacity:0.9;">
 
-                    ">
                                 <div class="div_spaccing"></div>
                                 <div>REPORTES</div>
                             </caption>
@@ -1805,8 +1810,8 @@
                                 <td>{{ $resultado->N_OrdenTv}}</td>
                                 <td>{{ $resultado->N_OrdenInternet}}</td>
                                 <td>{{ $resultado->N_OrdenLinea}}</td>
-                                <td>{{ $resultado->ComentariosTransferida_Hfc}}</td>
-                                <td>{{ $resultado->TrabajadoTransferido_Hfc}}</td>
+                                <td>{{ $resultado->Comentarios}}</td>
+                                <td>{{ $resultado->Trabajado}}</td>
                                 <td>{{ $resultado->username_creacion }}</td>
                                 <td>{{ $resultado->created_at }}</td>
                             </tr>
@@ -2078,9 +2083,7 @@
                             <th data-sortable="true">Dpto / Colonia</th>
                             <th data-sortable="true">Tecnologia</th>
                             <th data-sortable="true">Tipo actividad</th>
-                            <th data-sortable="true">N Orden Tv</th>
-                            <th data-sortable="true">N Orden Internet</th>
-                            <th data-sortable="true">N Orden Linea</th>
+                            <th data-sortable="true">N Orden</th>
                             <th data-sortable="true">Comentarios</th>
                             <th data-sortable="true">Trabajado</th>
                             <th data-sortable="true">Usuario</th>
@@ -2107,6 +2110,1722 @@
                         </tbody>
                     </table>
                 </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'COBRE' && $tipo_actividad
+                ==='TRANSFERIDA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo Actividad</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionCobre}}</td>
+                                <td>{{ $resultado->OrdenTransfCobre}}</td>
+                                <td>{{ $resultado->ComentarioCobreTransferido}}</td>
+                                <td>{{ $resultado->TrabajadoCobreTransferido}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'COBRE' && $tipo_actividad === 'OBJETADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden </th>
+                            <th data-sortable="true">Motivo Objetada</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionCobre}}</td>
+                                <td>{{ $resultado->OrdenObjReparacionCobre}}</td>
+                                <td>{{ $resultado->MotivoObjetada_Cobre}}</td>
+                                <td>{{ $resultado->ComentariosObjetados_Cobre}}</td>
+                                <td>{{ $resultado->TrabajadoObjetadaCobre}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'COBRE' && $tipo_actividad === 'REALIZADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">Codigo Causa</th>
+                            <th data-sortable="true">Descripcion Causa</th>
+                            <th data-sortable="true">Descripcion Tipo Daño</th>
+                            <th data-sortable="true">Descripcion Ubicacion Daño</th>
+                            <th data-sortable="true">N Orden </th>
+                            <th data-sortable="true">Observaciones</th>
+                            <th data-sortable="true">Recibe</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionCobre}}</td>
+                                <td>{{ $resultado->CodigoCausaCobre}}</td>
+                                <td>{{ $resultado->DescripcionCausaCobre}}</td>
+                                <td>{{ $resultado->DescripcionTipoDañoCobre}}</td>
+                                <td>{{ $resultado->DescripcionUbicacionDañoCobre}}</td>
+                                <td>{{ $resultado->OrdenReparacionCobre}}</td>
+                                <td>{{ $resultado->ObservacionesCobre}}</td>
+                                <td>{{ $resultado->RecibeCobre}}</td>
+                                <td>{{ $resultado->TrabajadoCobre}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'COBRE' && $tipo_actividad ===
+                'PENDIENTES')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionCobre}}</td>
+                                <td>{{ $resultado->N_Orden}}</td>
+                                <td>{{ $resultado->Comentarios}}</td>
+                                <td>{{ $resultado->Trabajado}}</td>
+                                <td>{{ $resultado->username_creacion}}</td>
+                                <td>{{ $resultado->created_at}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'ADSL' && $tipo_actividad
+                ==='TRANSFERIDA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo Actividad</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionAdsl}}</td>
+                                <td>{{ $resultado->OrdenTransferidoAdsl}}</td>
+                                <td>{{ $resultado->ComentsTransferidoAdsl}}</td>
+                                <td>{{ $resultado->TrabajadoTransferidoAdsl}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'ADSL' && $tipo_actividad === 'OBJETADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden </th>
+                            <th data-sortable="true">Motivo Objetada</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionAdsl}}</td>
+                                <td>{{ $resultado->OrdenObjAdsl}}</td>
+                                <td>{{ $resultado->MotivoObjetada_Adsl}}</td>
+                                <td>{{ $resultado->ComentsObjAdsl}}</td>
+                                <td>{{ $resultado->TrabajadoObjetadaAdsl}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'ADSL' && $tipo_actividad === 'REALIZADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">Codigo Causa</th>
+                            <th data-sortable="true">Descripcion Causa</th>
+                            <th data-sortable="true">Descripcion Tipo Daño</th>
+                            <th data-sortable="true">Descripcion Ubicacion Daño</th>
+                            <th data-sortable="true">N Orden </th>
+                            <th data-sortable="true">Observaciones</th>
+                            <th data-sortable="true">Recibe</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionAdsl}}</td>
+                                <td>{{ $resultado->CodigoCausaAdsl}}</td>
+                                <td>{{ $resultado->DescripcionCausaAdsl}}</td>
+                                <td>{{ $resultado->DescripcionTipoDañoAdsl}}</td>
+                                <td>{{ $resultado->DescripcionUbicacionDañoAdsl}}</td>
+                                <td>{{ $resultado->OrdenAdslRealizado}}</td>
+                                <td>{{ $resultado->ObservacionesAdsl}}</td>
+                                <td>{{ $resultado->RecibeAdsl}}</td>
+                                <td>{{ $resultado->TrabajadoAdsl}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'ADSL' && $tipo_actividad ===
+                'PENDIENTES')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionAdsl}}</td>
+                                <td>{{ $resultado->N_Orden}}</td>
+                                <td>{{ $resultado->Comentarios}}</td>
+                                <td>{{ $resultado->Trabajado}}</td>
+                                <td>{{ $resultado->username_creacion}}</td>
+                                <td>{{ $resultado->created_at}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'GPON' && $tipo_actividad
+                ==='TRANSFERIDA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo Actividad</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionGpon}}</td>
+                                <td>{{ $resultado->OrdenTransGpon}}</td>
+                                <td>{{ $resultado->ComentarioTransfGpon}}</td>
+                                <td>{{ $resultado->TrabajadoTransfGpon}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'GPON' && $tipo_actividad === 'OBJETADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden </th>
+                            <th data-sortable="true">Motivo Objetada</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionGpon}}</td>
+                                <td>{{ $resultado->OrdenObjGpon}}</td>
+                                <td>{{ $resultado->MotivoObjetada_Gpon}}</td>
+                                <td>{{ $resultado->ComentariosObjGpon}}</td>
+                                <td>{{ $resultado->TrabajadoObjetadaGpon}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'GPON' && $tipo_actividad === 'REALIZADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">Codigo Causa</th>
+                            <th data-sortable="true">Descripcion Causa</th>
+                            <th data-sortable="true">Descripcion Tipo Daño</th>
+                            <th data-sortable="true">Descripcion Ubicacion Daño</th>
+                            <th data-sortable="true">N Orden </th>
+                            <th data-sortable="true">Observaciones</th>
+                            <th data-sortable="true">Recibe</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionGpon}}</td>
+                                <td>{{ $resultado->CodigoCausaGpon}}</td>
+                                <td>{{ $resultado->DescripcionCausaDañoGpon}}</td>
+                                <td>{{ $resultado->DescripcionTipoDañoGpon}}</td>
+                                <td>{{ $resultado->DescripcionUbicacionGpon}}</td>
+                                <td>{{ $resultado->OrdenRealizadoGpon}}</td>
+                                <td>{{ $resultado->ObservacionesGpon}}</td>
+                                <td>{{ $resultado->RecibeGpon}}</td>
+                                <td>{{ $resultado->TrabajadoGpon}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'GPON' && $tipo_actividad ===
+                'PENDIENTES')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionGpon}}</td>
+                                <td>{{ $resultado->N_Orden}}</td>
+                                <td>{{ $resultado->Comentarios}}</td>
+                                <td>{{ $resultado->Trabajado}}</td>
+                                <td>{{ $resultado->username_creacion}}</td>
+                                <td>{{ $resultado->created_at}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'HFC' && $tipo_actividad
+                ==='TRANSFERIDA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo Actividad</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionHfc}}</td>
+                                <td>{{ $resultado->OrdenTransfHfc}}</td>
+                                <td>{{ $resultado->ComentarioTransfHfc}}</td>
+                                <td>{{ $resultado->TrabajadoTransfHfc}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'HFC' && $tipo_actividad === 'OBJETADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden </th>
+                            <th data-sortable="true">Motivo Objetada</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionHfc}}</td>
+                                <td>{{ $resultado->OrdenObjHfc}}</td>
+                                <td>{{ $resultado->MotivoObjetada_Hfc}}</td>
+                                <td>{{ $resultado->ComentariosObjetados_Hfc}}</td>
+                                <td>{{ $resultado->TrabajadoObjetadaHfc}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'HFC' && $tipo_actividad === 'REALIZADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">Codigo Causa</th>
+                            <th data-sortable="true">Descripcion Causa</th>
+                            <th data-sortable="true">Descripcion Tipo Daño</th>
+                            <th data-sortable="true">Descripcion Ubicacion Daño</th>
+                            <th data-sortable="true">N Orden </th>
+                            <th data-sortable="true">Observaciones</th>
+                            <th data-sortable="true">Recibe</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionHfc}}</td>
+                                <td>{{ $resultado->CodigoCausaHfc}}</td>
+                                <td>{{ $resultado->DescripcionCausaDañoHfc}}</td>
+                                <td>{{ $resultado->DescripcionTipoDañoHfc}}</td>
+                                <td>{{ $resultado->DescripcionUbicacionHfc}}</td>
+                                <td>{{ $resultado->OrdenHfc}}</td>
+                                <td>{{ $resultado->ObservacionesHfc}}</td>
+                                <td>{{ $resultado->RecibeHfc}}</td>
+                                <td>{{ $resultado->TrabajadoHfcRealizado}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'HFC' && $tipo_actividad ===
+                'PENDIENTES')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReparacionHfc}}</td>
+                                <td>{{ $resultado->N_Orden}}</td>
+                                <td>{{ $resultado->Comentarios}}</td>
+                                <td>{{ $resultado->Trabajado}}</td>
+                                <td>{{ $resultado->username_creacion}}</td>
+                                <td>{{ $resultado->created_at}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'TODOS' && $tipo_actividad === 'REALIZADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden </th>
+                            <th data-sortable="true">Codigo Causa</th>
+                            <th data-sortable="true">Descripcion Causa</th>
+                            <th data-sortable="true">Descripcion Tipo Daño</th>
+                            <th data-sortable="true">Descripcion Ubicacion Daño</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Recibe</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->tipo_actividad}}</td>
+                                <td>{{ $resultado->N_Orden}}</td>
+                                <td>{{ $resultado->Codigo_Causa}}</td>
+                                <td>{{ $resultado->Descripcion_Causa}}</td>
+                                <td>{{ $resultado->Descripcion_Tipo_Daño}}</td>
+                                <td>{{ $resultado->Descripcion_Ubicacion_Daño}}</td>
+                                <td>{{ $resultado->Comentarios}}</td>
+                                <td>{{ $resultado->Recibe}}</td>
+                                <td>{{ $resultado->Trabajado}}</td>
+                                <td>{{ $resultado->username_creacion}}</td>
+                                <td>{{ $resultado->created_at}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'TODOS' && $tipo_actividad === 'OBJETADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                    text-align: center;
+                                    background:#17467d;
+                                    padding: 10px;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    color: #ffffff;
+                                    opacity:0.9;
+
+                                ">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden </th>
+                            <th data-sortable="true">Motivo Objetada</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->tipo_actividad}}</td>
+                                <td>{{ $resultado->N_Orden}}</td>
+                                <td>{{ $resultado->Motivo_Objetada}}</td>
+                                <td>{{ $resultado->Comentarios}}</td>
+                                <td>{{ $resultado->Trabajado}}</td>
+                                <td>{{ $resultado->username_creacion}}</td>
+                                <td>{{ $resultado->created_at}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'TODOS' && $tipo_actividad ===
+                'TRANSFERIDA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                text-align: center;
+                                background:#17467d;
+                                padding: 10px;
+                                font-size: 16px;
+                                font-weight: 500;
+                                color: #ffffff;
+                                opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->tipo_actividad}}</td>
+                                <td>{{ $resultado->N_Orden}}</td>
+                                <td>{{ $resultado->Comentarios}}</td>
+                                <td>{{ $resultado->Trabajado}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'TODOS' && $tipo_actividad ===
+                'PENDIENTES')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                            text-align: center;
+                            background:#17467d;
+                            padding: 10px;
+                            font-size: 16px;
+                            font-weight: 500;
+                            color: #ffffff;
+                            opacity:0.9;">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->tipo_actividad}}</td>
+                                <td>{{ $resultado->N_Orden}}</td>
+                                <td>{{ $resultado->Comentarios}}</td>
+                                <td>{{ $resultado->Trabajado}}</td>
+                                <td>{{ $resultado->username_creacion}}</td>
+                                <td>{{ $resultado->created_at}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'POSTVENTA' && $tipo_postventa==='CAMBIO NUMERO COBRE' && $tecnologia ===
+                'COBRE' && $tipo_actividad === 'ANULADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                    text-align: center;
+                                    background:#17467d;
+                                    padding: 10px;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    color: #ffffff;
+                                    opacity:0.9;
+
+                                ">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">Motivo Anulada</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadCambioNumeroCobre}}</td>
+                                <td>{{ $resultado->MotivoAnuladaCambioCobre}}</td>
+                                <td>{{ $resultado->OrdenAnuladaCambioCobre}}</td>
+                                <td>{{ $resultado->ComentarioAnuladaCambioCobre}}</td>
+                                <td>{{ $resultado->TrabajadoAnuladaCambioCobre}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'POSTVENTA' && $tipo_postventa==='CAMBIO NUMERO COBRE' && $tecnologia ===
+                'COBRE' && $tipo_actividad === 'OBJETADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                    text-align: center;
+                                    background:#17467d;
+                                    padding: 10px;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    color: #ffffff;
+                                    opacity:0.9;
+
+                                ">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">Motivo Anulada</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadCambioNumeroCobre}}</td>
+                                <td>{{ $resultado->MotivoObjCambioCobre}}</td>
+                                <td>{{ $resultado->OrdenObjCambioCobre}}</td>
+                                <td>{{ $resultado->ComentariosCambioCobre}}</td>
+                                <td>{{ $resultado->TrabajadoObjCambioCobre}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'POSTVENTA' && $tipo_postventa==='CAMBIO NUMERO COBRE' && $tecnologia ===
+                'COBRE' && $tipo_actividad === 'REALIZADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                    text-align: center;
+                                    background:#17467d;
+                                    padding: 10px;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    color: #ffffff;
+                                    opacity:0.9;
+
+                                ">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">Numero Cobre</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Recibe</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadCambioNumeroCobre}}</td>
+                                <td>{{ $resultado->NumeroCobreCambio}}</td>
+                                <td>{{ $resultado->OrdenCambioCobre}}</td>
+                                <td>{{ $resultado->ObvsCambioCobre}}</td>
+                                <td>{{ $resultado->RecibeCambioCobre}}</td>
+                                <td>{{ $resultado->TrabajadoCambioCobre}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'POSTVENTA' && $tipo_postventa==='CAMBIO NUMERO COBRE' && $tecnologia ===
+                'COBRE' && $tipo_actividad === 'PENDIENTES')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                    text-align: center;
+                                    background:#17467d;
+                                    padding: 10px;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    color: #ffffff;
+                                    opacity:0.9;
+
+                                ">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadCambioNumeroCobre}}</td>
+                                <td>{{ $resultado->N_Orden}}</td>
+                                <td>{{ $resultado->Comentarios}}</td>
+                                <td>{{ $resultado->Trabajado}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'POSTVENTA' && $tipo_postventa==='RECONEXION / RETIRO' && $tecnologia ===
+                'HFC' && $tipo_actividad === 'ANULADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                    text-align: center;
+                                    background:#17467d;
+                                    padding: 10px;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    color: #ffffff;
+                                    opacity:0.9;
+
+                                ">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">Motivo Anulada</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReconexionHfc}}</td>
+                                <td>{{ $resultado->MotivoRetiroAnulada_Hfc}}</td>
+                                <td>{{ $resultado->OrdenRetiroAnulacionHfc}}</td>
+                                <td>{{ $resultado->ComentsRetiroAnulada_Hfc}}</td>
+                                <td>{{ $resultado->TrabajadoRetiroAnulada_Hfc}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'POSTVENTA' && $tipo_postventa==='RECONEXION / RETIRO' && $tecnologia ===
+                'HFC' && $tipo_actividad === 'OBJETADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                    text-align: center;
+                                    background:#17467d;
+                                    padding: 10px;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    color: #ffffff;
+                                    opacity:0.9;
+
+                                ">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">Motivo Objetada</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReconexionHfc}}</td>
+                                <td>{{ $resultado->MotivoObjRetiroHfc}}</td>
+                                <td>{{ $resultado->OrdenRetiroObjHfc}}</td>
+                                <td>{{ $resultado->ComentariosRetiroObjHfc}}</td>
+                                <td>{{ $resultado->TrabajadoObjRetiroHfc}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'POSTVENTA' && $tipo_postventa==='RECONEXION / RETIRO' && $tecnologia ===
+                'HFC' && $tipo_actividad === 'TRANSFERIDA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                    text-align: center;
+                                    background:#17467d;
+                                    padding: 10px;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    color: #ffffff;
+                                    opacity:0.9;
+
+                                ">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">Motivo Objetada</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReconexionHfc}}</td>
+                                <td>{{ $resultado->MotivoObjRetiroHfc}}</td>
+                                <td>{{ $resultado->OrdenRetiroObjHfc}}</td>
+                                <td>{{ $resultado->ComentariosRetiroObjHfc}}</td>
+                                <td>{{ $resultado->TrabajadoObjRetiroHfc}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'POSTVENTA' && $tipo_postventa==='RECONEXION / RETIRO' && $tecnologia ===
+                'HFC' && $tipo_actividad === 'REALIZADA')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                    text-align: center;
+                                    background:#17467d;
+                                    padding: 10px;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    color: #ffffff;
+                                    opacity:0.9;
+
+                                ">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">Equipo Modem</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Recibe</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReconexionHfc}}</td>
+                                <td>{{ $resultado->EquipoModemRetiroHfc}}</td>
+                                <td>{{ $resultado->OrdenRetiroHfc}}</td>
+                                <td>{{ $resultado->ObvsRetiroHfc}}</td>
+                                <td>{{ $resultado->RecibeRetiroHfc}}</td>
+                                <td>{{ $resultado->TrabajadoRetiroHfc}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+                @elseif($llamada_motivo == 'POSTVENTA' && $tipo_postventa==='RECONEXION / RETIRO' && $tecnologia ===
+                'HFC' && $tipo_actividad === 'PENDIENTES')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                                    text-align: center;
+                                    background:#17467d;
+                                    padding: 10px;
+                                    font-size: 16px;
+                                    font-weight: 500;
+                                    color: #ffffff;
+                                    opacity:0.9;
+
+                                ">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Comentarios</th>
+                            <th data-sortable="true">Trabajado</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->TipoActividadReconexionHfc}}</td>
+                                <td>{{ $resultado->N_Orden}}</td>
+                                <td>{{ $resultado->Comentarios}}</td>
+                                <td>{{ $resultado->Trabajado}}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+
 
                 @endif
             </div>
@@ -2140,6 +3859,14 @@ $(function() {
     $(".bootstrap-table .search button i").removeClass("glyphicon-search").addClass(
         "fa-duotone fa-user-magnifying-glass");
 });
+</script>
+
+<script>
+const btn_reiniciar = document.getElementById("btn_reiniciar");
+btn_reiniciar.addEventListener("click", function() {
+    window.location.href = "{{ route('reporte.generar') }}";
+
+})
 </script>
 
 @if(isset($message))

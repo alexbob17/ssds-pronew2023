@@ -13,20 +13,27 @@ document.addEventListener("DOMContentLoaded", function () {
   motivo_llamada.addEventListener("change", function () {
     switch (motivo_llamada.value) {
       case "INSTALACION":
+        tecnologia.value = "";
         tecnologia.disabled = false;
         tipo_actividad.disabled = true;
         tipo_postventa.disabled = true;
         tipo_postventa.value = "";
+        tipo_actividad.value = "";
         break;
       case "POSTVENTA":
-        tecnologia.disabled = false;
+        tecnologia.disabled = true;
         tipo_postventa.disabled = false;
+        tecnologia.value = "";
+        tipo_actividad.value = "";
 
         break;
       case "REPARACIONES":
         tecnologia.disabled = false;
+        tipo_actividad.disabled = true;
         tipo_postventa.disabled = true;
         tipo_postventa.value = "";
+        tecnologia.value = "";
+        tipo_actividad.value = "";
 
         break;
       case "AGENDAMIENTOS":
@@ -34,6 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
         tipo_postventa.disabled = true;
         tipo_actividad.disabled = true;
         tipo_postventa.value = "";
+        tecnologia.value = "";
+        tipo_actividad.value = "";
 
         break;
       case "CONSULTAS":
@@ -41,12 +50,17 @@ document.addEventListener("DOMContentLoaded", function () {
         tipo_postventa.disabled = true;
         tipo_actividad.disabled = true;
         tipo_postventa.value = "";
+        tecnologia.value = "";
+        tipo_actividad.value = "";
 
         break;
       default:
         tecnologia.disabled = true;
+        tipo_actividad.disabled = true;
         tipo_postventa.disabled = true;
         tipo_postventa.value = "";
+        tecnologia.value = "";
+        tipo_actividad.value = "";
 
         break;
     }
@@ -71,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
   optionAnulada.style.display = "none";
   tecnologia.addEventListener("change", function () {
     if (motivo_llamada.value === "INSTALACION") {
-      if (tecnologia.value === "DTH") {
+      if (tecnologia.value === "COBRE") {
         tipo_actividad.disabled = false;
 
         optionRealizada.style.display = "block";
@@ -113,15 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
         optionObjetada.style.display = "block";
         optionTransferida.style.display = "block";
         optionAnulada.style.display = "block";
-      }
-    } else if (motivo_llamada.value === "POSTVENTA") {
-      if (tecnologia.value === "DTH") {
-        tipo_actividad.disabled = false;
-
-        optionRealizada.style.display = "block";
-        optionObjetada.style.display = "none";
-        optionTransferida.style.display = "none";
-        optionAnulada.style.display = "none";
       }
     } else if (motivo_llamada.value === "REPARACIONES") {
       if (tecnologia.value === "DTH") {
@@ -168,6 +173,107 @@ document.addEventListener("DOMContentLoaded", function () {
         optionAnulada.style.display = "none";
       }
     } else {
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const optionHfc = tecnologia.querySelector('option[value="HFC"]');
+  const optionGpon = tecnologia.querySelector('option[value="GPON"]');
+  const optionAdsl = tecnologia.querySelector('option[value="ADSL"]');
+  const optionCobre = tecnologia.querySelector('option[value="COBRE"]');
+  const optionDth = tecnologia.querySelector('option[value="DTH"]');
+  const optionTodos = tecnologia.querySelector('option[value="TODOS"]');
+
+  optionHfc.style.display = "none";
+  optionGpon.style.display = "none";
+  optionAdsl.style.display = "none";
+  optionCobre.style.display = "none";
+  optionDth.style.display = "none";
+  optionTodos.style.display = "none";
+
+  tipo_postventa.addEventListener("change", function () {
+    if (tipo_postventa.value === "TRASLADO") {
+    } else if (tipo_postventa.value === "CAMBIO NUMERO COBRE") {
+      tecnologia.disabled = false;
+      tecnologia.value = "";
+      tipo_actividad.value = "";
+
+      optionHfc.style.display = "none";
+      optionGpon.style.display = "none";
+      optionAdsl.style.display = "none";
+      optionCobre.style.display = "block";
+      optionDth.style.display = "none";
+      optionTodos.style.display = "none";
+    } else if (tipo_postventa.value === "RECONEXION / RETIRO") {
+      tecnologia.disabled = false;
+      tecnologia.value = "";
+      tipo_actividad.value = "";
+      optionHfc.style.display = "block";
+      optionGpon.style.display = "none";
+      optionAdsl.style.display = "none";
+      optionCobre.style.display = "none";
+      optionDth.style.display = "none";
+      optionTodos.style.display = "none";
+    } else if (tipo_postventa.value === "MIGRACION") {
+      tecnologia.disabled = false;
+      tecnologia.value = "";
+      tipo_actividad.value = "";
+      optionHfc.style.display = "block";
+      optionGpon.style.display = "none";
+      optionAdsl.style.display = "none";
+      optionCobre.style.display = "none";
+      optionDth.style.display = "none";
+      optionTodos.style.display = "none";
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const optionRealizada = tipo_actividad.querySelector(
+    'option[value="REALIZADA"]'
+  );
+  const optionObjetada = tipo_actividad.querySelector(
+    'option[value="OBJETADA"]'
+  );
+  const optionTransferida = tipo_actividad.querySelector(
+    'option[value="TRANSFERIDA"]'
+  );
+  const optionAnulada = tipo_actividad.querySelector('option[value="ANULADA"]');
+
+  optionRealizada.style.display = "none";
+  optionObjetada.style.display = "none";
+  optionTransferida.style.display = "none";
+  optionAnulada.style.display = "none";
+
+  tecnologia.addEventListener("change", function () {
+    if (
+      tipo_postventa.value === "CAMBIO NUMERO COBRE" &&
+      tecnologia.value === "COBRE"
+    ) {
+      tipo_actividad.disabled = false;
+      optionRealizada.style.display = "block";
+      optionObjetada.style.display = "block";
+      optionTransferida.style.display = "none";
+      optionAnulada.style.display = "block";
+    } else if (
+      tipo_postventa.value === "RECONEXION / RETIRO" &&
+      tecnologia.value === "HFC"
+    ) {
+      tipo_actividad.disabled = false;
+      optionRealizada.style.display = "block";
+      optionObjetada.style.display = "block";
+      optionTransferida.style.display = "none";
+      optionAnulada.style.display = "block";
+    } else if (
+      tipo_postventa.value === "MIGRACION" &&
+      tecnologia.value === "HFC"
+    ) {
+      tipo_actividad.disabled = false;
+      optionRealizada.style.display = "block";
+      optionObjetada.style.display = "block";
+      optionTransferida.style.display = "block";
+      optionAnulada.style.display = "block";
     }
   });
 });

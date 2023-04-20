@@ -80,7 +80,7 @@ Route::group(['middleware' => ['web']], function () {
 	
 	Route::get('/llamadashome/busqueda', 'BusquedaController@showBusquedas')->name('busquedas_generales')->middleware('auth');
 
-	Route::get('/llamadashome/reportes', 'ReportesController@showReporte')->name('generar_eporte')->middleware('auth');
+	// Route::get('/llamadashome/reportes', 'ReportesController@showReporte')->name('generar_reporte')->middleware('auth');
 
 	Route::get('/llamadashome/reportes', 'ReportesController@usersAll')->name('usuarios_all')->middleware('auth');
 
