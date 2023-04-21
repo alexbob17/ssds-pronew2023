@@ -83,6 +83,17 @@ use SSD\Models\Postventas\PostventaCambioEquipoHfc_Anulado;
 use SSD\Models\Postventas\PostventaCambioEquipoHfc_Objetado;
 use SSD\Models\Postventas\PostventaCambioEquipoHfc_Realizado;
 
+use SSD\Models\Postventas\PostventaAdicionDth_Anulado;
+use SSD\Models\Postventas\PostventaAdicionDth_Objetado;
+use SSD\Models\Postventas\PostventaAdicionDth_Realizado;
+
+use SSD\Models\Postventas\PostventaAdicionGpon_Anulada;
+use SSD\Models\Postventas\PostventaAdicionGpon_Objetado;
+use SSD\Models\Postventas\PostventaAdicionGpon_Realizado;
+
+use SSD\Models\Postventas\PostventaAdicionHfc_Anulada;
+use SSD\Models\Postventas\PostventaAdicionHfc_Objetado;
+use SSD\Models\Postventas\PostventaAdicionHfc_Realizado;
 
 use Illuminate\Http\Response;
 use Illuminate\Http\Request;
@@ -2169,7 +2180,627 @@ class ReportesController extends Controller
                     return $query->where('motivo_llamada', $llamada_motivo);
                 })->get();
             
-        }   else {
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'CAMBIO DE EQUIPO' && $tecnologia === 'GPON' && $tipo_actividad === 'ANULADA') {
+            $resultados = PostventaCambioEquipoGpon_Anulado::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'CAMBIO DE EQUIPO' && $tecnologia === 'GPON' && $tipo_actividad === 'OBJETADA') {
+            $resultados = PostventaCambioEquipoGpon_Objetado::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'CAMBIO DE EQUIPO' && $tecnologia === 'GPON' && $tipo_actividad === 'REALIZADA') {
+            $resultados = PostventaCambioEquipoGpon_Realizado::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'CAMBIO DE EQUIPO' && $tecnologia === 'GPON' && $tipo_actividad === 'PENDIENTES') {
+            $instalacion_cobre_realizada_pendiente = PostventaCambioEquipoGpon_Realizado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioGpon as Tipo_actividad','NOrdenEquipoGpon as N_Orden','ObvsEquipoGpon as Comentarios', 'TrabajadoEquipoGpon as Trabajado','username_creacion','created_at')
+            ->where('TrabajadoEquipoGpon', 'PENDIENTE')
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            });
+
+            $instalacion_cobre_objetada_pendiente = PostventaCambioEquipoGpon_Objetado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioGpon as Tipo_actividad','NOrdenObjEquipoGpon as N_Orden','ComentsEquipoObjGpon as Comentarios','TrabajadoObjEquipoGpon as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoObjEquipoGpon', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                });
+
+            $instalacion_cobre_anulada_pendiente = PostventaCambioEquipoGpon_Anulado::select('codigo_tecnico', 'tecnico', 'telefono','motivo_llamada', 'select_orden', 'dpto_colonia','tecnologia','TipoActividadCambioGpon as Tipo_actividad','OrdenEquipoAnuladaGpon as N_Orden','ComentarioEquipoAnulada_Gpon as Comentarios','TrabajadoEquipoAnulada_Gpon as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoEquipoAnulada_Gpon', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                });
+
+
+                
+            $resultados = $instalacion_cobre_realizada_pendiente->union($instalacion_cobre_anulada_pendiente)
+                ->union($instalacion_cobre_objetada_pendiente)
+                ->when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                    return $query->where('motivo_llamada', $llamada_motivo);
+                })->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'CAMBIO DE EQUIPO' && $tecnologia === 'HFC' && $tipo_actividad === 'ANULADA') {
+            $resultados = PostventaCambioEquipoHfc_Anulado::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'CAMBIO DE EQUIPO' && $tecnologia === 'HFC' && $tipo_actividad === 'OBJETADA') {
+            $resultados = PostventaCambioEquipoHfc_Objetado::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'CAMBIO DE EQUIPO' && $tecnologia === 'HFC' && $tipo_actividad === 'REALIZADA') {
+            $resultados = PostventaCambioEquipoHfc_Realizado::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'CAMBIO DE EQUIPO' && $tecnologia === 'HFC' && $tipo_actividad === 'PENDIENTES') {
+            $instalacion_cobre_realizada_pendiente = PostventaCambioEquipoHfc_Realizado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioHfc as Tipo_actividad','NOrdenEquipoHfc as N_Orden','ObvsEquipoHfc as Comentarios', 'TrabajadoEquipoHfc as Trabajado','username_creacion','created_at')
+            ->where('TrabajadoEquipoHfc', 'PENDIENTE')
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            });
+
+            $instalacion_cobre_objetada_pendiente = PostventaCambioEquipoHfc_Objetado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioHfc as Tipo_actividad','NordenObjEquipoHfc as N_Orden','ComentsEquipoObjHfc as Comentarios','TrabajadoObjEquipoHfc as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoObjEquipoHfc', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                });
+
+            $instalacion_cobre_anulada_pendiente = PostventaCambioEquipoHfc_Anulado::select('codigo_tecnico', 'tecnico', 'telefono','motivo_llamada', 'select_orden', 'dpto_colonia','tecnologia','TipoActividadCambioHfc as Tipo_actividad','OrdenAnuladaEquipoHfc as N_Orden','ComentarioAnuladaEquipoHfc as Comentarios','TrabajadoEquipoAnulada_Hfc as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoEquipoAnulada_Hfc', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                });
+
+
+                
+            $resultados = $instalacion_cobre_realizada_pendiente->union($instalacion_cobre_anulada_pendiente)
+                ->union($instalacion_cobre_objetada_pendiente)
+                ->when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                    return $query->where('motivo_llamada', $llamada_motivo);
+                })->get();
+            
+        }
+        else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'CAMBIO DE EQUIPO' && $tecnologia === 'TODOS' && $tipo_actividad === 'REALIZADA') {
+            $instalacion_hfc_realizada_todos = PostventaCambioEquipoHfc_Realizado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioHfc as tipo_actividad','NOrdenEquipoHfc as N_Orden','ObvsEquipoHfc as Comentarios','RecibeEquipoHfc as Recibe', 'TrabajadoEquipoHfc as Trabajado','username_creacion','created_at')
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            });
+
+            $instalacion_gpon_realizada_todos = PostventaCambioEquipoGpon_Realizado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioGpon as tipo_actividad ','NOrdenEquipoGpon as N_Orden','ObvsEquipoGpon as Comentarios','RecibeEquipoGpon as Recibe', 'TrabajadoEquipoGpon as Trabajado','username_creacion','created_at')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                });
+
+            $instalacion_dth_realizada_todos = PostventaCambioEquipoDthRealizada::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioDth as tipo_actividad ','OrdenEquipoDth as N_Orden','ObvsEquipoDth as Comentarios','RecibeEquipoDth as Recibe', 'TrabajadoEquipoDth as Trabajado','username_creacion','created_at')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                }); 
+            $instalacion_adsl_realizada_todos = PostventaCambioEquipoAdslRealizado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioAdsl as tipo_actividad ','OrdenEquipoAdsl as N_Orden','ObvsEquipoAdsl as Comentarios','RecibeEquipoAdsl as Recibe', 'TrabajadoEquipoAdsl as Trabajado','username_creacion','created_at')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                });    
+   
+
+            $resultados = $instalacion_hfc_realizada_todos->union($instalacion_gpon_realizada_todos)->union($instalacion_dth_realizada_todos)->union($instalacion_adsl_realizada_todos)
+                ->when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                    return $query->where('motivo_llamada', $llamada_motivo);
+                })
+                ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                })
+                ->get();
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'CAMBIO DE EQUIPO' && $tecnologia === 'TODOS' && $tipo_actividad === 'OBJETADA') {
+            $instalacion_hfc_realizada_todos = PostventaCambioEquipoHfc_Objetado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioHfc as tipo_actividad','NordenObjEquipoHfc as N_Orden','MotivoEquipoObjHfc as Motivo_Objetado','ComentsEquipoObjHfc as Comentarios', 'TrabajadoObjEquipoHfc as Trabajado','username_creacion','created_at')
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            });
+
+            $instalacion_gpon_realizada_todos = PostventaCambioEquipoGpon_Objetado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioGpon as tipo_actividad ','NOrdenObjEquipoGpon as N_Orden','MotivoObjEquipoGpon as Motivo_Objetado','ComentsEquipoObjGpon as Comentarios','TrabajadoObjEquipoGpon as Trabajado','username_creacion','created_at')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                });
+
+            $instalacion_dth_realizada_todos = PostventaCambioEquipoDthObjetado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioDth as tipo_actividad ','OrdenEquipoObjDth as N_Orden','MotivoObjEquipoDth as Motivo_Objetado','ComentsEquipoObjDth as Comentarios', 'TrabajadoEquipoObjDth as Trabajado','username_creacion','created_at')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                }); 
+            $instalacion_adsl_realizada_todos = PostventaCambioEquipoAdslObjetado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioAdsl as tipo_actividad ','OrdenEquipoObjAdsl as N_Orden','MotivoEquipoObjAdsl as Motivo_Objetado ','ComentsEquipoObjAdsl as Comentarios', 'TrabajadoEquipoObjAdsl as Trabajado','username_creacion','created_at')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                });    
+   
+
+            $resultados = $instalacion_hfc_realizada_todos->union($instalacion_gpon_realizada_todos)->union($instalacion_dth_realizada_todos)->union($instalacion_adsl_realizada_todos)
+                ->when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                    return $query->where('motivo_llamada', $llamada_motivo);
+                })
+                ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                })
+                ->get();
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'CAMBIO DE EQUIPO' && $tecnologia === 'TODOS' && $tipo_actividad === 'ANULADA') {
+            $instalacion_hfc_realizada_todos = PostventaCambioEquipoHfc_Anulado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioHfc as tipo_actividad','OrdenAnuladaEquipoHfc as N_Orden','MotivoEquipoAnulada_Hfc as Motivo_Anulada','ComentarioAnuladaEquipoHfc as Comentarios', 'TrabajadoEquipoAnulada_Hfc as Trabajado','username_creacion','created_at')
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            });
+
+            $instalacion_gpon_realizada_todos = PostventaCambioEquipoGpon_Anulado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioGpon as tipo_actividad ','OrdenEquipoAnuladaGpon as N_Orden','MotivoAnuladaObj_Gpon as Motivo_Anulada','ComentarioEquipoAnulada_Gpon as Comentarios','TrabajadoEquipoAnulada_Gpon as Trabajado','username_creacion','created_at')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                });
+
+            $instalacion_dth_realizada_todos = PostventaCambioEquipoDthAnulada::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioDth as tipo_actividad ','OrdenEquipoAnulada_Dth as N_Orden','MotivoEquipoAnulada_Dth as Motivo_Anulada','ComentarioEquipoAnulada_Dth as Comentarios', 'TrabajadoEquipoAnulada_Dth as Trabajado','username_creacion','created_at')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                }); 
+            $instalacion_adsl_realizada_todos = PostventaCambioEquipoAdslAnulada::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioAdsl as tipo_actividad ','OrdenAnuladaEquipoAdsl as N_Orden','MotivoEquipoAnulada_Adsl as Motivo_Anulada ','ComentsEquipoAnulada_Adsl as Comentarios', 'TrabajadoEquipoAnulada_Adsl as Trabajado','username_creacion','created_at')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                });    
+   
+
+            $resultados = $instalacion_hfc_realizada_todos->union($instalacion_gpon_realizada_todos)->union($instalacion_dth_realizada_todos)->union($instalacion_adsl_realizada_todos)
+                ->when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                    return $query->where('motivo_llamada', $llamada_motivo);
+                })
+                ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                })
+                ->get();
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'CAMBIO DE EQUIPO' && $tecnologia === 'TODOS' && $tipo_actividad === 'PENDIENTES') {
+            $instalacion_hfc_realizada_pendiente =  PostventaCambioEquipoHfc_Realizado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioHfc as tipo_actividad','NOrdenEquipoHfc as N_Orden','ObvsEquipoHfc as Comentarios', 'TrabajadoEquipoHfc as Trabajado','username_creacion','created_at')
+            ->where('TrabajadoEquipoHfc', 'PENDIENTE')
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+                    });
+
+            $instalacion_hfc_objetada_pendiente =  PostventaCambioEquipoHfc_Objetado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioHfc as tipo_actividad','NordenObjEquipoHfc as N_Orden','ComentsEquipoObjHfc as Comentarios', 'TrabajadoObjEquipoHfc as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoObjEquipoHfc', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                    });
+
+            $instalacion_hfc_transferida_pendiente = PostventaCambioEquipoHfc_Anulado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioHfc as tipo_actividad','OrdenAnuladaEquipoHfc as N_Orden','ComentarioAnuladaEquipoHfc as Comentarios', 'TrabajadoEquipoAnulada_Hfc as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoEquipoAnulada_Hfc', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                    });    
+
+            $instalacion_dth_realizada_pendiente = PostventaCambioEquipoDthRealizada::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioDth as tipo_actividad ','OrdenEquipoDth as N_Orden','ObvsEquipoDth as Comentarios', 'TrabajadoEquipoDth as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoEquipoDth', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                    });
+    
+            $instalacion_dth_objetada_pendiente = PostventaCambioEquipoDthObjetado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioDth as tipo_actividad ','OrdenEquipoObjDth as N_Orden','ComentsEquipoObjDth as Comentarios', 'TrabajadoEquipoObjDth as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoEquipoObjDth', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                        return $query->where('username_creacion', $selected_user);
+                    });
+
+            $instalacion_dth_transferida_pendiente = PostventaCambioEquipoDthAnulada::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioDth as tipo_actividad ','OrdenEquipoAnulada_Dth as N_Orden','ComentarioEquipoAnulada_Dth as Comentarios', 'TrabajadoEquipoAnulada_Dth as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoEquipoAnulada_Dth', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                            return $query->where('username_creacion', $selected_user);
+                    });
+    
+
+            $instalacion_adls_realizada_pendiente =PostventaCambioEquipoAdslRealizado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioAdsl as tipo_actividad ','OrdenEquipoAdsl as N_Orden','ObvsEquipoAdsl as Comentarios', 'TrabajadoEquipoAdsl as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoEquipoAdsl', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                        return $query->where('username_creacion', $selected_user);
+                    });
+        
+            $instalacion_adsl_objetada_pendiente = PostventaCambioEquipoAdslObjetado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioAdsl as tipo_actividad ','OrdenEquipoObjAdsl as N_Orden','ComentsEquipoObjAdsl as Comentarios', 'TrabajadoEquipoObjAdsl as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoEquipoObjAdsl', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                            return $query->where('username_creacion', $selected_user);
+                        });
+            $instalacion_adsl_transferida_pendiente = PostventaCambioEquipoAdslAnulada::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioAdsl as tipo_actividad ','OrdenAnuladaEquipoAdsl as N_Orden','ComentsEquipoAnulada_Adsl as Comentarios', 'TrabajadoEquipoAnulada_Adsl as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoEquipoAnulada_Adsl', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                            return $query->where('username_creacion', $selected_user);
+                        });
+
+            $instalacion_gpon_realizada_pendiente =  PostventaCambioEquipoGpon_Realizado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioGpon as tipo_actividad ','NOrdenEquipoGpon as N_Orden','ObvsEquipoGpon as Comentarios', 'TrabajadoEquipoGpon as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoEquipoGpon', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                            return $query->where('username_creacion', $selected_user);
+                        });
+            
+             $instalacion_gpon_objetada_pendiente =PostventaCambioEquipoGpon_Objetado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioGpon as tipo_actividad ','NOrdenObjEquipoGpon as N_Orden','ComentsEquipoObjGpon as Comentarios','TrabajadoObjEquipoGpon as Trabajado','username_creacion','created_at')
+                    ->where('TrabajadoObjEquipoGpon', 'PENDIENTE')
+                    ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                                return $query->where('username_creacion', $selected_user);
+                            });
+            
+            $instalacion_gpon_transferida_pendiente = PostventaCambioEquipoGpon_Anulado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadCambioGpon as tipo_actividad ','OrdenEquipoAnuladaGpon as N_Orden','ComentarioEquipoAnulada_Gpon as Comentarios','TrabajadoEquipoAnulada_Gpon as Trabajado','username_creacion','created_at')
+                    ->where('TrabajadoEquipoAnulada_Gpon', 'PENDIENTE')
+                    ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                                return $query->where('username_creacion', $selected_user);
+                            }); 
+
+            $resultados = $instalacion_hfc_realizada_pendiente->union($instalacion_hfc_objetada_pendiente)
+                ->union($instalacion_hfc_transferida_pendiente)->union($instalacion_dth_realizada_pendiente)->union($instalacion_dth_objetada_pendiente)->union($instalacion_dth_transferida_pendiente)->union($instalacion_adls_realizada_pendiente)
+                ->union($instalacion_adsl_objetada_pendiente)->union($instalacion_adsl_transferida_pendiente)->union($instalacion_gpon_realizada_pendiente)->union($instalacion_gpon_objetada_pendiente)
+                ->union($instalacion_gpon_transferida_pendiente)
+                ->when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                    return $query->where('motivo_llamada', $llamada_motivo);
+                })
+                ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                })
+                ->get();
+
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'ADICION' && $tecnologia === 'HFC' && $tipo_actividad === 'ANULADA') {
+            $resultados = PostventaAdicionHfc_Anulada::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'ADICION' && $tecnologia === 'HFC' && $tipo_actividad === 'OBJETADA') {
+            $resultados = PostventaAdicionHfc_Objetado::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'ADICION' && $tecnologia === 'HFC' && $tipo_actividad === 'REALIZADA') {
+            $resultados = PostventaAdicionHfc_Realizado::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'ADICION' && $tecnologia === 'HFC' && $tipo_actividad === 'PENDIENTES') {
+            $instalacion_cobre_realizada_pendiente = PostventaAdicionHfc_Realizado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadAdicionHfc as Tipo_actividad','NOrdenAdicionHfc as N_Orden','obvsAdicionHfc as Comentarios', 'TrabajadoAdicionHfc as Trabajado','username_creacion','created_at')
+            ->where('TrabajadoAdicionHfc', 'PENDIENTE')
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            });
+
+            $instalacion_cobre_objetada_pendiente = PostventaAdicionHfc_Objetado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadAdicionHfc as Tipo_actividad','OrdenAdicionObjHfc as N_Orden','ComentariosObjAdicionHfc as Comentarios','TrabajadoObjAdicionHfc as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoObjAdicionHfc', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                });
+
+            $instalacion_cobre_anulada_pendiente = PostventaAdicionHfc_Anulada::select('codigo_tecnico', 'tecnico', 'telefono','motivo_llamada', 'select_orden', 'dpto_colonia','tecnologia','TipoActividadAdicionHfc as Tipo_actividad','NOrdenAdicionAnuladaHfc as N_Orden','ComentarioAdicionAnulada_Hfc as Comentarios','TrabajadoAdicionAnulada_Hfc as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoAdicionAnulada_Hfc', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                });
+
+
+                
+            $resultados = $instalacion_cobre_realizada_pendiente->union($instalacion_cobre_anulada_pendiente)
+                ->union($instalacion_cobre_objetada_pendiente)
+                ->when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                    return $query->where('motivo_llamada', $llamada_motivo);
+                })->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'ADICION' && $tecnologia === 'GPON' && $tipo_actividad === 'ANULADA') {
+            $resultados = PostventaAdicionGpon_Anulada::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'ADICION' && $tecnologia === 'GPON' && $tipo_actividad === 'OBJETADA') {
+            $resultados = PostventaAdicionGpon_Objetado::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'ADICION' && $tecnologia === 'GPON' && $tipo_actividad === 'REALIZADA') {
+            $resultados = PostventaAdicionGpon_Realizado::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'ADICION' && $tecnologia === 'GPON' && $tipo_actividad === 'PENDIENTES') {
+            $instalacion_cobre_realizada_pendiente = PostventaAdicionGpon_Realizado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadAdicionGpon as Tipo_actividad','NOrdenAdicionGpon as N_Orden','ObvsAdicionGpon as Comentarios', 'TrabajadoAdicionGpon as Trabajado','username_creacion','created_at')
+            ->where('TrabajadoAdicionGpon', 'PENDIENTE')
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            });
+
+            $instalacion_cobre_objetada_pendiente = PostventaAdicionGpon_Objetado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadAdicionGpon as Tipo_actividad','NOrdenAdicionObjGpon as N_Orden','ComentariosAdicionObjGpon as Comentarios','TrabajadoAdicionObjGpon as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoAdicionObjGpon', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                });
+
+            $instalacion_cobre_anulada_pendiente = PostventaAdicionGpon_Anulada::select('codigo_tecnico', 'tecnico', 'telefono','motivo_llamada', 'select_orden', 'dpto_colonia','tecnologia','TipoActividadAdicionGpon as Tipo_actividad','NOrdenAdicionAnuladaGpon as N_Orden','ComentarioAdicionAnulada_Gpon as Comentarios','TrabajadoAdicionAnulada_Gpon as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoAdicionAnulada_Gpon', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                });
+
+
+                
+            $resultados = $instalacion_cobre_realizada_pendiente->union($instalacion_cobre_anulada_pendiente)
+                ->union($instalacion_cobre_objetada_pendiente)
+                ->when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                    return $query->where('motivo_llamada', $llamada_motivo);
+                })->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'ADICION' && $tecnologia === 'DTH' && $tipo_actividad === 'ANULADA') {
+            $resultados = PostventaAdicionDth_Anulado::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'ADICION' && $tecnologia === 'DTH' && $tipo_actividad === 'OBJETADA') {
+            $resultados = PostventaAdicionDth_Objetado::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'ADICION' && $tecnologia === 'DTH' && $tipo_actividad === 'REALIZADA') {
+            $resultados = PostventaAdicionDth_Realizado::when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
+        }else if ($llamada_motivo === 'POSTVENTA' && $tipo_postventa === 'ADICION' && $tecnologia === 'DTH' && $tipo_actividad === 'PENDIENTES') {
+            $instalacion_cobre_realizada_pendiente = PostventaAdicionDth_Realizado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadAdicionDth as Tipo_actividad','NOrdenAdicionDth as N_Orden','ObvsAdicionDth as Comentarios', 'TrabajadoAdicionDth as Trabajado','username_creacion','created_at')
+            ->where('TrabajadoAdicionDth', 'PENDIENTE')
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            });
+
+            $instalacion_cobre_objetada_pendiente = PostventaAdicionDth_Objetado::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'TipoActividadAdicionDth as Tipo_actividad','NOrdenAdicionObjDth as N_Orden','ComentariosAdicionObjDth as Comentarios','TrabajadoAdicionObjDth as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoAdicionObjDth', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                });
+
+            $instalacion_cobre_anulada_pendiente = PostventaAdicionDth_Anulado::select('codigo_tecnico', 'tecnico', 'telefono','motivo_llamada', 'select_orden', 'dpto_colonia','tecnologia','TipoActividadAdicionDth as Tipo_actividad','OrdenAdicionAnulada_Dth as N_Orden','ComentarioAdicionAnulada_Dth as Comentarios','TrabajadoAdicionAnulada_Dth as Trabajado','username_creacion','created_at')
+                ->where('TrabajadoAdicionAnulada_Dth', 'PENDIENTE')
+                ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                    return $query->where('username_creacion', $selected_user);
+                })->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                    return $query->whereDate('created_at', '>=', $fecha_inicio);
+                })
+                ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                    return $query->whereDate('created_at', '<=', $fecha_fin);
+                });
+
+
+                
+            $resultados = $instalacion_cobre_realizada_pendiente->union($instalacion_cobre_anulada_pendiente)
+                ->union($instalacion_cobre_objetada_pendiente)
+                ->when($llamada_motivo !== 'POSTVENTA', function ($query) use ($llamada_motivo) {
+                    return $query->where('motivo_llamada', $llamada_motivo);
+                })->get();
+            
+        }else {
             $resultados = collect(); // crear una colección vacía
 
             if (!isset($llamada_motivo)) {
