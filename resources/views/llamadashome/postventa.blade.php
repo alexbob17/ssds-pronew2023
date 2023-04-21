@@ -4415,7 +4415,7 @@
                                                 <i class="fa fa-edit"></i>
                                             </div>
                                             <input type="text" class="form-control" id="ComentsMigracionObjHfc"
-                                                name="Come" placeholder="Comentarios..."
+                                                name="ComentsMigracionObjHfc" placeholder="Comentarios..."
                                                 oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                         </div>
                                     </div>

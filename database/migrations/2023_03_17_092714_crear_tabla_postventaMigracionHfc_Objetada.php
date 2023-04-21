@@ -25,6 +25,7 @@ class CrearTablaPostventaMigracionHfcObjetada extends Migration
             $table->string('TipoActividadMigracionHfc');
             $table->integer('OrdenMigracionHfcObj');
             $table->string('MotivoMigracionObjHfc');
+            $table->string('ComentsMigracionObjHfc');
             $table->string('TrabajadoMigracionObjHfc');
             $table->string('ObvsMigracionObjHfc');
             $table->string('username_creacion')->references('username')->on('users');

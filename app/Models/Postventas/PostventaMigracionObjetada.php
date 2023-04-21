@@ -21,6 +21,7 @@ class PostventaMigracionObjetada extends Model
 	    'MotivoMigracionObjHfc',
 		'OrdenMigracionHfcObj',
 	    'TrabajadoMigracionObjHfc',
+        'ComentsMigracionObjHfc',
 		'ObvsMigracionObjHfc',
         'username_creacion',
 		'username_atencion',

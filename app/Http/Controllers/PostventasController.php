@@ -25,12 +25,15 @@ use SSD\Models\Postventas\PostventaMigracionRealizada;
 use SSD\Models\Postventas\PostventaCambioEquipoDthAnulada;
 use SSD\Models\Postventas\PostventaCambioEquipoDthObjetado;
 use SSD\Models\Postventas\PostventaCambioEquipoDthRealizada;
+
 use SSD\Models\Postventas\PostventaCambioEquipoAdslAnulada;
 use SSD\Models\Postventas\PostventaCambioEquipoAdslObjetado;
 use SSD\Models\Postventas\PostventaCambioEquipoAdslRealizado;
+
 use SSD\Models\Postventas\PostventaCambioEquipoGpon_Anulado;
 use SSD\Models\Postventas\PostventaCambioEquipoGpon_Objetado;
 use SSD\Models\Postventas\PostventaCambioEquipoGpon_Realizado;
+
 use SSD\Models\Postventas\PostventaCambioEquipoHfc_Anulado;
 use SSD\Models\Postventas\PostventaCambioEquipoHfc_Objetado;
 use SSD\Models\Postventas\PostventaCambioEquipoHfc_Realizado;
@@ -2350,6 +2353,7 @@ class PostventasController extends Controller
 						'MotivoMigracionObjHfc',
 						'OrdenMigracionHfcObj',
 						'TrabajadoMigracionObjHfc',
+						'ComentsMigracionObjHfc',
 						'ObvsMigracionObjHfc',
 						'username_creacion',
 						'username_atencion',

@@ -225,6 +225,16 @@ document.addEventListener("DOMContentLoaded", function () {
       optionCobre.style.display = "none";
       optionDth.style.display = "none";
       optionTodos.style.display = "none";
+    } else if (tipo_postventa.value === "CAMBIO DE EQUIPO") {
+      tecnologia.disabled = false;
+      tecnologia.value = "";
+      tipo_actividad.value = "";
+      optionHfc.style.display = "block";
+      optionGpon.style.display = "block";
+      optionAdsl.style.display = "block";
+      optionCobre.style.display = "none";
+      optionDth.style.display = "block";
+      optionTodos.style.display = "block";
     }
   });
 });
@@ -273,6 +283,51 @@ document.addEventListener("DOMContentLoaded", function () {
       optionRealizada.style.display = "block";
       optionObjetada.style.display = "block";
       optionTransferida.style.display = "block";
+      optionAnulada.style.display = "block";
+    } else if (
+      tipo_postventa.value === "CAMBIO DE EQUIPO" &&
+      tecnologia.value === "DTH"
+    ) {
+      tipo_actividad.disabled = false;
+      optionRealizada.style.display = "block";
+      optionObjetada.style.display = "block";
+      optionTransferida.style.display = "none";
+      optionAnulada.style.display = "block";
+    } else if (
+      tipo_postventa.value === "CAMBIO DE EQUIPO" &&
+      tecnologia.value === "ADSL"
+    ) {
+      tipo_actividad.disabled = false;
+      optionRealizada.style.display = "block";
+      optionObjetada.style.display = "block";
+      optionTransferida.style.display = "none";
+      optionAnulada.style.display = "block";
+    } else if (
+      tipo_postventa.value === "CAMBIO DE EQUIPO" &&
+      tecnologia.value === "GPON"
+    ) {
+      tipo_actividad.disabled = false;
+      optionRealizada.style.display = "block";
+      optionObjetada.style.display = "block";
+      optionTransferida.style.display = "none";
+      optionAnulada.style.display = "block";
+    } else if (
+      tipo_postventa.value === "CAMBIO DE EQUIPO" &&
+      tecnologia.value === "HFC"
+    ) {
+      tipo_actividad.disabled = false;
+      optionRealizada.style.display = "block";
+      optionObjetada.style.display = "block";
+      optionTransferida.style.display = "none";
+      optionAnulada.style.display = "block";
+    } else if (
+      tipo_postventa.value === "CAMBIO DE EQUIPO" &&
+      tecnologia.value === "TODOS"
+    ) {
+      tipo_actividad.disabled = false;
+      optionRealizada.style.display = "block";
+      optionObjetada.style.display = "block";
+      optionTransferida.style.display = "none";
       optionAnulada.style.display = "block";
     }
   });
