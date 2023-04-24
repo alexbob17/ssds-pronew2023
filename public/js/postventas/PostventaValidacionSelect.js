@@ -433,6 +433,24 @@ function mostrarElementos() {
       ocultarElementos(elementosPostventaReconexion);
 
       break;
+    case "RECONEXION / RETIRO|DTH":
+      //  MUESTRA EL DIV CORRESPONDIENTE
+      PostventaReconexionHfc.style.display = "block";
+
+      // RESET VALUES SELECT
+      for (let i = 0; i < tiposActividad.length; i++) {
+        const elemento = document.getElementById(tiposActividad[i]);
+        elemento.value = "SELECCIONE UNA OPCION";
+      }
+
+      //OCULTA LOS ELEMENTOS (REALIZADA/OBJETADA/TRANSFERIDA)
+      ocultarElementos(elementosPostventTraslado);
+      ocultarElementos(elementosPostventaAdicion);
+      ocultarElementos(elementosPostventaCambioEquipo);
+      ocultarElementos(elementosPostventaMigracion);
+      ocultarElementos(elementosPostventaReconexion);
+
+      break;
     case "CAMBIO NUMERO COBRE|COBRE":
       //  MUESTRA EL DIV CORRESPONDIENTE
       PostventaCambioNumeroCobre.style.display = "block";
@@ -678,6 +696,7 @@ removeOptionFromSelector("TipoActividadCambioAdsl", "TRANSFERIDA");
 removeOptionFromSelector("TipoActividadCambioCobre", "TRANSFERIDA");
 removeOptionFromSelector("TipoActividadCambioDth", "TRANSFERIDA");
 removeOptionFromSelector("TipoActividadReconexionHfc", "TRANSFERIDA");
+removeOptionFromSelector("TipoActividadReconexionHfc", "OBJETADA");
 
 // CAMBIAR TIPO DE ORDEN EN BASE TIPO POSTVENTA Y TECNOLOGIA
 
@@ -795,8 +814,16 @@ function actualizarOpciones() {
             <option value="">SELECCIONE</option>
              <option value="RECONEXION">RECONEXION</option>
             <option value="RETIRO">RETIRO ACOMETIDO</option>
-            <option value="RETIRO EQUIPOS">RETIRO EQUIPOS</option>
+            <option value="RETIRO EQUIPOS">RETIRO EQUIPOS STB</option>
+            <option value="RECONEXION">RETIRO CM</option>
           `;
+      break;
+    case "RECONEXION / RETIRO|DTH":
+      select_orden.innerHTML = `
+              <option value="">SELECCIONE</option>
+            <option value="RECONEXION">RETIRO STB</option>
+
+            `;
       break;
     case "CAMBIO NUMERO COBRE|COBRE":
       select_orden.innerHTML = `
@@ -902,7 +929,7 @@ document.addEventListener("DOMContentLoaded", function () {
       cobreOption.style.display = "none";
       hfcOption.style.display = "block";
       gponOption.style.display = "none";
-      dthOption.style.display = "none";
+      dthOption.style.display = "block";
 
       elementsToHide.forEach((element) => {
         element.style.display = "none";

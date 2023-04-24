@@ -41,6 +41,11 @@ use SSD\Models\Instalaciones\InstalacionHfcTransferida;
 
 use SSD\Models\Instalaciones\InstalacionHfcAnulada;
 
+use SSD\Models\Instalaciones\InstalacionesRefresh;
+
+use SSD\Models\Instalaciones\InstalacionesDthRefresh;
+
+
 
 use SSD\Http\Requests;
 
@@ -329,6 +334,59 @@ class LlamadasServicioController extends Controller
 
 					$message = "¡EXITO!";
 					$messages = "REGISTRO GPON TRANSFERIDO COMPLETADO";
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Registro')
+                        ->with('navigation', 'Instalaciones');
+					
+                }elseif ($data['tipo_actividad'] == 'REFRESH') {
+					
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'tecnologia',
+						'tipo_actividad',
+						'orden_tv_hfc',
+						'orden_internet_hfc',
+						'orden_linea_hfc',
+						'refreshSelect',
+						'TrabajadoRefresh',
+						'ComentarioRefresh_Hfc',
+						'username_creacion',
+						'username_atencion',
+
+					];
+	
+					$data = [];
+	
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoRefresh' && $request->has('TrabajadoRefresh')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoRefresh') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+					// dd($data);
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
+					$dataHfcRefresh= new InstalacionesRefresh($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataHfcRefresh->save();
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO REFRESH COMPLETADO";
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
@@ -906,6 +964,57 @@ class LlamadasServicioController extends Controller
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 						
+					
+                }elseif ($data['tipo_actividadDth'] == 'REFRESH') {
+					
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'tecnologia',
+						'tipo_actividadDth',
+						'NordenRefresh',
+						'refreshSelectDth',
+						'TrabajadoRefreshDth',
+						'ComentarioRefresh_Dth',
+						'username_creacion',
+						'username_atencion',
+
+					];
+	
+					$data = [];
+	
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoRefreshDth' && $request->has('TrabajadoRefreshDth')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoRefreshDth') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+					// dd($data);
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
+					$dataDthRefresh= new InstalacionesDthRefresh($data);
+
+                    // Guardamos la instancia en la base de datos
+                    $dataDthRefresh->save();
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO REFRESH COMPLETADO";
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+                        ->with('page_title', 'Instalaciones - Registro')
+                        ->with('navigation', 'Instalaciones');
 					
                 }
                 break;

@@ -5,6 +5,14 @@ const tecnico = document.getElementById("tecnico");
 
 // Obtener el elemento select del primer formulario
 const motivo_llamada = document.getElementById("motivo_llamadaform1");
+const btn_busqueda = document.getElementById("btn_busqueda");
+
+btn_busqueda.addEventListener("click", function () {
+  // Guardar los valores en el LocalStorage
+  localStorage.setItem("codigo_tecnico", codigo_tecnico.value);
+  localStorage.setItem("telefono", telefono.value);
+  localStorage.setItem("tecnico", tecnico.value);
+});
 
 motivo_llamada.addEventListener("change", function () {
   // Obtener el valor seleccionado del select
@@ -24,8 +32,26 @@ motivo_llamada.addEventListener("change", function () {
     localStorage.setItem("telefono", telefono.value);
     localStorage.setItem("tecnico", tecnico.value);
   }
+  if (selectedOption === "REPARACIONES") {
+    // Guardar los valores en el LocalStorage
+    localStorage.setItem("codigo_tecnico", codigo_tecnico.value);
+    localStorage.setItem("telefono", telefono.value);
+    localStorage.setItem("tecnico", tecnico.value);
+  }
+  if (selectedOption === "CONSULTAS") {
+    // Guardar los valores en el LocalStorage
+    localStorage.setItem("codigo_tecnico", codigo_tecnico.value);
+    localStorage.setItem("telefono", telefono.value);
+    localStorage.setItem("tecnico", tecnico.value);
+  }
+  if (selectedOption === "AGENDAMIENTOS") {
+    // Guardar los valores en el LocalStorage
+    localStorage.setItem("codigo_tecnico", codigo_tecnico.value);
+    localStorage.setItem("telefono", telefono.value);
+    localStorage.setItem("tecnico", tecnico.value);
+  }
 
-  window.addEventListener("beforeunload", function () {
-    localStorage.clear();
-  });
+  // window.addEventListener("beforeunload", function () {
+  //   localStorage.clear();
+  // });
 });

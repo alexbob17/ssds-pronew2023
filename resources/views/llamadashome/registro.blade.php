@@ -106,6 +106,8 @@
 
 
 
+
+
             <!-- Select2 -->
             <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
             <link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
@@ -146,7 +148,6 @@
             <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script>
             <script src="{{asset('/js/registro/ValidacionTecnico.js')}}" type="text/javascript"> </script>
             <script src="{{asset('/js/instalaciones/LocalStorageTecnico.js')}}" type="text/javascript"> </script>
-
             <script src="{{asset('/js/instalaciones/changePage.js')}}" type="text/javascript"> </script>
 
             @endsection

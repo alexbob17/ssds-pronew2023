@@ -147,6 +147,7 @@
                                         <option value="OBJETADA">OBJETADA</option>
                                         <option value="ANULACION">ANULACION</option>
                                         <option value="TRANSFERIDA" class="ocultar">TRANSFERIDA</option>
+                                        <option value="REFRESH" class="ocultaRefresh">REFRESH</option>
                                     </select>
                                 </div>
                             </div>
@@ -276,6 +277,8 @@
                                     </div>
                                 </div>
                             </div>
+
+
 
                             <div class="form-group-container">
                                 <div class="form-group col-md-12">
@@ -547,6 +550,51 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
                                             name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ACTIVIDAD REFREH HFC -->
+                        <div class="form-group-container FormHfc_Hidden" id="formHfc_Refresh">
+                            <div class="form-group-container">
+                                <div class="from-group col-md-3" id="HiddenrefreshSelect">
+                                    <div class="from-group-container">
+                                        <label for="refreshSelect">Tipo Refresh</label>
+                                        <select class="form-control " style="width: 100%;" name="refreshSelect"
+                                            tabindex="-1" id="refreshSelect" aria-hidden="true">
+                                            <option selected=" selected">SELECCIONE UNA OPCION</option>
+                                            <option value="STB">STB</option>
+                                            <option value="CABLE MODEM">CABLE MODEM</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoRefresh"
+                                                name="TrabajadoRefresh" />
+                                            <label class="form-check-label">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="ComentarioRefresh_Hfc">
+                                        Observaciones
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ComentarioRefresh_Hfc"
+                                            name="ComentarioRefresh_Hfc" placeholder="Ingresa comentarios del caso"
                                             oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
@@ -854,7 +902,8 @@
                                 <option value="REALIZADA">REALIZADA</option>
                                 <option value="OBJETADA">OBJETADA</option>
                                 <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option value="REFRESH">REFRESH</option>
+
                             </select>
                         </div>
 
@@ -1172,6 +1221,62 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioAnulada_Dth"
                                             name="ComentarioAnulada_Dth" placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ACTIVIDAD TRANSFERIDA DTH -->
+                        <div class="FormDth_Hidden" id="formDth_Transferida">
+                        </div>
+                        <!-- ACTIVIDAD REFRESH DTH -->
+                        <div class="FormDth_Hidden" id="formDth_Refresh">
+                            <div class="form-group-container">
+                                <div class="from-group col-md-3" id="HiddenrefreshSelect">
+                                    <div class="from-group-container">
+                                        <label for="refreshSelectDth">Tipo Refresh</label>
+                                        <select class="form-control " style="width: 100%;" name="refreshSelectDth"
+                                            tabindex="-1" id="refreshSelectDth" aria-hidden="true">
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option value="STB">STB</option>
+                                            <option value="CABLE MODEM">CABLE MODEM</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="NordenRefresh">N Orden</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="number" class="form-control" id="NordenRefresh"
+                                            name="NordenRefresh" placeholder="N° Orden " autocomplete="off" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoRefreshDth"
+                                                name="TrabajadoRefreshDth" />
+                                            <label class="form-check-label">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="ComentarioRefresh_Dth">
+                                        Observaciones
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ComentarioRefresh_Dth"
+                                            name="ComentarioRefresh_Dth" placeholder="Ingresa comentarios del caso"
                                             oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>

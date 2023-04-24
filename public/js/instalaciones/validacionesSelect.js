@@ -3,6 +3,17 @@ $(function () {
   $(".select2").select2();
 });
 
+// const optionHfc = tecnologia.querySelector('option[value="HFC"]');
+// const optionGpon = tecnologia.querySelector('option[value="GPON"]');
+// const optionAdsl = tecnologia.querySelector('option[value="ADSL"]');
+// const optionCobre = tecnologia.querySelector('option[value="COBRE"]');
+// const optionDth = tecnologia.querySelector('option[value="DTH"]');
+// optionHfc.style.display = "block";
+// optionGpon.style.display = "block";
+// optionAdsl.style.display = "block";
+// optionCobre.style.display = "block";
+// optionDth.style.display = "block";
+
 const select_orden = document.getElementById("select_orden");
 const btn_save = document.getElementById("btn-submitForm");
 btn_save.style.display = "none";
@@ -168,49 +179,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         break;
       case "DTH":
-        btn_save.style.display = "none";
-        form4.style.display = "block";
-        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
-        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
-        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
-        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
-        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
-
-        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
-          TipoActividad_Hidden[i].style.display = "none";
-        }
-
-        // DESHABILITA EL TIPO DE ORDEN AL CAMBIAR DE TECNOLOGIA
-
-        for (let i = 0; i < OrdenHfc.length; i++) {
-          OrdenHfc[i].disabled = true;
-        }
-
-        for (let i = 0; i < OrdenGpon.length; i++) {
-          OrdenGpon[i].disabled = true;
-        }
-
-        // TIPO ACTIVIDAD
-
-        for (let i = 0; i < FormHfc_Hidden.length; i++) {
-          FormHfc_Hidden[i].style.display = "none";
-        }
-
-        for (let i = 0; i < FormGpon_Hidden.length; i++) {
-          FormGpon_Hidden[i].style.display = "none";
-        }
-
-        for (let i = 0; i < FormAdsl_Hidden.length; i++) {
-          FormAdsl_Hidden[i].style.display = "none";
-        }
-
-        for (let i = 0; i < FormCobre_Hidden.length; i++) {
-          FormCobre_Hidden[i].style.display = "none";
-        }
-        for (let i = 0; i < FormDth_Hidden.length; i++) {
-          FormDth_Hidden[i].style.display = "none";
-        }
-
         break;
       case "COBRE":
         form5.style.display = "block";
@@ -354,7 +322,7 @@ const select2 = document.getElementById("select_orden");
 select1.addEventListener("change", function () {
   if (select1.value === "HFC") {
     select2.innerHTML = `
-    <option value="">SELECCIONA UNA OPCION</option>
+    <option value="">SELECCIONE UNA OPCION</option>
     <option value="INSTALACION DE CLARO HOGAR">INSTALACION DE CLARO HOGAR</option>
     <option value="DOBLE - TV + INTERNET">DOBLE - TV + INTERNET</option>
     <option value="DOBLE - INTERNET + LINEA">DOBLE - INTERNET + LINEA</option>
@@ -362,6 +330,7 @@ select1.addEventListener("change", function () {
     <option value="TV - DIGITAL INDIVIDUAL">TV - DIGITAL INDIVIDUAL</option>
     <option value="INTERNET INDIVIDUAL">INTERNET INDIVIDUAL</option>
     <option value="LINEA INDIVIDUAL">LINEA INDIVIDUAL</option>
+    <option value="REFRESH">REFRESH</option>
     <option value="REACTIVACION -DOBLE - TV + INTERNET">REACTIVACION -DOBLE - TV + INTERNET</option>
     <option value="REACTIVACION - INSTALACION DE CLARO HOGAR">REACTIVACION - INSTALACION DE CLARO HOGAR</option>
     <option value="REACTIVACION -DOBLE - INTERNET + LINEA"> REACTIVACION -DOBLE - INTERNET + LINEA</option>
@@ -371,7 +340,7 @@ select1.addEventListener("change", function () {
     `;
   } else if (select1.value === "GPON") {
     select2.innerHTML = `
-    <option value="">SELECCIONA UNA OPCION</option>
+    <option value="">SELECCIONE UNA OPCION</option>
     <option value="INSTALACION DE CLARO HOGAR">INSTALACION DE CLARO HOGAR</option>
     <option value="DOBLE - IPTV + LINEA"> DOBLE - IPTV + LINEA</option>
     <option value="DOBLE - INTERNET + IPTV">DOBLE - INTERNET + IPTV</option>
@@ -391,15 +360,17 @@ select1.addEventListener("change", function () {
     `;
   } else if (select1.value === "DTH") {
     select2.innerHTML = `
+    <option value="">SELECCIONE UNA OPCION</option>
     <option value="TV SATELITAL">TV SATELITAL</option>
     <option value="REACTIVACION">REACTIVACION</option>
+    <option value="REFRESH">REFRESH</option>
 
     `;
   } else {
     select2.innerHTML = `
-    <option value="">SELECCIONA UNA OPCION</option>`;
-    select1.innerHTML = `
-    <option value="">SELECCIONA UNA OPCION</option>`;
+    <option value="">SELECCIONE UNA OPCION</option>`;
+    // select1.innerHTML = `
+    // <option value="">SELECCIONA UNA OPCION</option>`;
   }
 });
 
@@ -421,6 +392,7 @@ select_orden.addEventListener("change", function () {
     "DOBLE - TV + INTERNET": [false, false, true],
     // "INTERNET INDIVIDUAL": [true, false, true],
     "LINEA INDIVIDUAL": [true, true, false],
+    REFRESH: [false, false, true],
     "REACTIVACION - INSTALACION DE CLARO HOGAR": [false, false, false],
     "REACTIVACION -DOBLE - TV + INTERNET": [false, false, true],
     "REACTIVACION -DOBLE - INTERNET + LINEA": [true, false, false],
@@ -478,6 +450,7 @@ const formTypes = [
       document.getElementById("formHfc_Objetada"),
       document.getElementById("formHfc_Anulada"),
       document.getElementById("formHfc_Transferida"),
+      document.getElementById("formHfc_Refresh"),
     ],
   },
   {
@@ -513,6 +486,8 @@ const formTypes = [
       document.getElementById("formDth_Realizada"),
       document.getElementById("formDth_Objetada"),
       document.getElementById("formDth_Anulada"),
+      document.getElementById("formDth_Transferida"),
+      document.getElementById("formDth_Refresh"),
     ],
   },
 ];
@@ -546,6 +521,8 @@ formTypes.forEach(({ select, forms }) => {
         selectedForm = forms[2];
       } else if (selectedOption === "TRANSFERIDA") {
         selectedForm = forms[3];
+      } else if (selectedOption === "REFRESH") {
+        selectedForm = forms[4];
       }
 
       if (selectedForm) {
@@ -585,6 +562,13 @@ const hideVoip_Hfc = document.getElementById("numeroVoip_hfc");
 const EquipoModem_Hfc = document.getElementById("EquipoModem_Hfc");
 const equipotvHfc = document.querySelectorAll(".equipotvHfc");
 const sapHfc = document.getElementById("sapHfc");
+const syrengHfc = document.getElementById("syrengHfc");
+const GeorefHfc = document.getElementById("GeorefHfc");
+const RecibeHfc = document.getElementById("RecibeHfc");
+const NodoHfc = document.getElementById("NodoHfc");
+const TapHfc = document.getElementById("TapHfc");
+const PosicionHfc = document.getElementById("PosicionHfc");
+const MaterialesHfc = document.getElementById("MaterialesHfc");
 
 //FUNCION RESET VALUES
 
@@ -602,12 +586,18 @@ function resetValues() {
   orden_tv_hfc.value = "";
   orden_linea_hfc.value = "";
   hideVoip_Hfc.value = "";
+  syrengHfc.value = "";
+  GeorefHfc.value = "";
+  RecibeHfc.value = "";
+  NodoHfc.value = "";
+  TapHfc.value = "";
+  PosicionHfc.value = "";
+  MaterialesHfc.value = "";
+  sapHfc.value = "";
 
   equipotvHfc.forEach((equipotv) => {
     equipotv.value = "";
   });
-
-  sapHfc.value = "";
 }
 
 // OCULTA FORM TRANSFERIDO SI ES REACTIVACION
@@ -615,9 +605,52 @@ const optionTransferidaHfc = document.querySelector(
   "select[name='tipo_actividad'] option.ocultar"
 );
 
+const optionTransferidaHfcRefresh = document.querySelector(
+  "select[name='tipo_actividad'] option.ocultaRefresh"
+);
+
+const inputsHiddenHfc = [
+  "syrengHfc",
+  "GeorefHfc",
+  "RecibeHfc",
+  "NodoHfc",
+  "TapHfc",
+  "PosicionHfc",
+  "MaterialesHfc",
+  "sapHfc",
+  "EquipoModem_Hfc",
+  "numeroVoip_hfc",
+];
+
+const inputsNoHiddenHfc = [
+  "syrengHfc",
+  "GeorefHfc",
+  "RecibeHfc",
+  "NodoHfc",
+  "TapHfc",
+  "PosicionHfc",
+  "MaterialesHfc",
+];
+
 selectHide_TipoOrden.addEventListener("change", () => {
   const value = selectHide_TipoOrden.value;
   const tipo_actividad = document.getElementById("tipo_actividad");
+
+  const OptionRealizada = tipo_actividad.querySelector(
+    'option[value="REALIZADA"]'
+  );
+  const OptionObj = tipo_actividad.querySelector('option[value="OBJETADA"]');
+
+  const OptionAnulada = tipo_actividad.querySelector(
+    'option[value="ANULACION"]'
+  );
+
+  const OptionRefresh = tipo_actividad.querySelector('option[value="REFRESH"]');
+
+  OptionObj.style.display = "block";
+  OptionAnulada.style.display = "block";
+  OptionRealizada.style.display = "block";
+  OptionRefresh.display = "none";
 
   switch (value) {
     case "INSTALACION DE CLARO HOGAR":
@@ -627,8 +660,25 @@ selectHide_TipoOrden.addEventListener("change", () => {
       hideVoip_Hfc.disabled = false;
       EquipoModem_Hfc.disabled = false;
       sapHfc.disabled = false;
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      MaterialesHfc.disabled = false;
 
-      resetValues();
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+
+      btn_save.style.display = "none";
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = false;
@@ -636,6 +686,12 @@ selectHide_TipoOrden.addEventListener("change", () => {
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "block"; // muestra el elemento
       }
+
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
+      }
+
+      resetValues();
 
       break;
     case "DOBLE - TV + INTERNET":
@@ -645,6 +701,15 @@ selectHide_TipoOrden.addEventListener("change", () => {
       }
       hideVoip_Hfc.disabled = true;
       sapHfc.disabled = false;
+      EquipoModem_Hfc.disabled = false;
+
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      MaterialesHfc.disabled = false;
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = false;
@@ -652,6 +717,21 @@ selectHide_TipoOrden.addEventListener("change", () => {
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "block"; // muestra el elemento
       }
+
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
+      }
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
+
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
 
       resetValues();
 
@@ -662,12 +742,36 @@ selectHide_TipoOrden.addEventListener("change", () => {
       }
       hideVoip_Hfc.disabled = false;
       sapHfc.disabled = false;
+      EquipoModem_Hfc.disabled = false;
+
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      MaterialesHfc.disabled = false;
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = true;
       }
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "block"; // muestra el elemento
+      }
+
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
+      }
+
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
       }
 
       resetValues();
@@ -680,6 +784,13 @@ selectHide_TipoOrden.addEventListener("change", () => {
       EquipoModem_Hfc.disabled = true;
       hideVoip_Hfc.disabled = true;
       sapHfc.disabled = false;
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      MaterialesHfc.disabled = false;
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = false;
@@ -687,6 +798,21 @@ selectHide_TipoOrden.addEventListener("change", () => {
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "block"; // muestra el elemento
       }
+
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
+      }
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
+
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
 
       resetValues();
 
@@ -699,6 +825,13 @@ selectHide_TipoOrden.addEventListener("change", () => {
       EquipoModem_Hfc.disabled = true;
       hideVoip_Hfc.disabled = true;
       sapHfc.disabled = false;
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      MaterialesHfc.disabled = false;
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = false;
@@ -706,6 +839,20 @@ selectHide_TipoOrden.addEventListener("change", () => {
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "block"; // muestra el elemento
       }
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
+      }
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
+
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
 
       resetValues();
 
@@ -715,9 +862,15 @@ selectHide_TipoOrden.addEventListener("change", () => {
         TipoActividad_Hidden[i].style.display = "block";
       }
       EquipoModem_Hfc.disabled = false;
-      hideVoip_Hfc.disabled = false;
       hideVoip_Hfc.disabled = true;
       sapHfc.disabled = false;
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      MaterialesHfc.disabled = false;
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = true;
@@ -725,6 +878,20 @@ selectHide_TipoOrden.addEventListener("change", () => {
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "block"; // muestra el elemento
       }
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
+      }
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
+
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
 
       resetValues();
 
@@ -736,6 +903,18 @@ selectHide_TipoOrden.addEventListener("change", () => {
       EquipoModem_Hfc.disabled = true;
       hideVoip_Hfc.disabled = false;
       sapHfc.disabled = false;
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      MaterialesHfc.disabled = false;
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = true;
@@ -744,6 +923,48 @@ selectHide_TipoOrden.addEventListener("change", () => {
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "block"; // muestra el elemento
       }
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
+      }
+
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
+
+      resetValues();
+
+      break;
+    case "REFRESH":
+      for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+        TipoActividad_Hidden[i].style.display = "block";
+      }
+
+      for (let i = 0; i < equipotvHfc.length; i++) {
+        equipotvHfc[i].disabled = true;
+      }
+
+      if (optionTransferidaHfc) {
+        optionTransferidaHfc.style.display = "none"; // muestra el elemento
+      }
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "block"; // muestra el elemento
+      }
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
+
+      btn_save.style.display = "none";
+
+      OptionRealizada.style.display = "none";
+      OptionObj.style.display = "none";
+      OptionAnulada.style.display = "none";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
+
       resetValues();
 
       break;
@@ -755,6 +976,18 @@ selectHide_TipoOrden.addEventListener("change", () => {
       hideVoip_Hfc.disabled = true;
       EquipoModem_Hfc.disabled = false;
       sapHfc.disabled = true;
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      MaterialesHfc.disabled = false;
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = false;
@@ -763,6 +996,16 @@ selectHide_TipoOrden.addEventListener("change", () => {
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "none";
       }
+
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
+      }
+
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
 
       if (tipo_actividad.value === "TRANSFERIDA") {
         formHfc_Transferida.style.display = "none";
@@ -788,6 +1031,24 @@ selectHide_TipoOrden.addEventListener("change", () => {
       hideVoip_Hfc.disabled = false;
       EquipoModem_Hfc.disabled = false;
       sapHfc.disabled = true;
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      MaterialesHfc.disabled = false;
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
+
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = false;
@@ -795,6 +1056,10 @@ selectHide_TipoOrden.addEventListener("change", () => {
 
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "none";
+      }
+
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
       }
 
       if (tipo_actividad.value === "TRANSFERIDA") {
@@ -821,6 +1086,19 @@ selectHide_TipoOrden.addEventListener("change", () => {
       }
       hideVoip_Hfc.disabled = false;
       sapHfc.disabled = true;
+      EquipoModem_Hfc.disabled = false;
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      MaterialesHfc.disabled = false;
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = true;
@@ -828,6 +1106,16 @@ selectHide_TipoOrden.addEventListener("change", () => {
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "none";
       }
+
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
+      }
+
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
 
       if (tipo_actividad.value === "TRANSFERIDA") {
         formHfc_Transferida.style.display = "none";
@@ -853,6 +1141,25 @@ selectHide_TipoOrden.addEventListener("change", () => {
       }
       EquipoModem_Hfc.disabled = true;
       hideVoip_Hfc.disabled = true;
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      sapHfc.disabled = true;
+      MaterialesHfc.disabled = false;
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
+
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = false;
@@ -860,6 +1167,9 @@ selectHide_TipoOrden.addEventListener("change", () => {
 
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "none";
+      }
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
       }
 
       if (tipo_actividad.value === "TRANSFERIDA") {
@@ -887,6 +1197,24 @@ selectHide_TipoOrden.addEventListener("change", () => {
       EquipoModem_Hfc.disabled = true;
       hideVoip_Hfc.disabled = true;
       sapHfc.disabled = true;
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      MaterialesHfc.disabled = false;
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
+
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = false;
@@ -894,6 +1222,9 @@ selectHide_TipoOrden.addEventListener("change", () => {
 
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "none";
+      }
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
       }
 
       if (tipo_actividad.value === "TRANSFERIDA") {
@@ -920,12 +1251,34 @@ selectHide_TipoOrden.addEventListener("change", () => {
       EquipoModem_Hfc.disabled = false;
       hideVoip_Hfc.disabled = true;
       sapHfc.disabled = true;
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      MaterialesHfc.disabled = false;
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
+
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = true;
       }
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "none";
+      }
+
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
       }
 
       if (tipo_actividad.value === "TRANSFERIDA") {
@@ -951,6 +1304,24 @@ selectHide_TipoOrden.addEventListener("change", () => {
       EquipoModem_Hfc.disabled = true;
       hideVoip_Hfc.disabled = false;
       sapHfc.disabled = true;
+      syrengHfc.disabled = false;
+      GeorefHfc.disabled = false;
+      RecibeHfc.disabled = false;
+      NodoHfc.disabled = false;
+      TapHfc.disabled = false;
+      PosicionHfc.disabled = false;
+      MaterialesHfc.disabled = false;
+
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
+
+      OptionRealizada.style.display = "block";
+      OptionObj.style.display = "block";
+      OptionAnulada.style.display = "block";
+      OptionRefresh.display = "none";
+      btn_save.style.display = "none";
 
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].disabled = true;
@@ -958,6 +1329,10 @@ selectHide_TipoOrden.addEventListener("change", () => {
       if (optionTransferidaHfc) {
         optionTransferidaHfc.style.display = "none";
       }
+      if (optionTransferidaHfcRefresh) {
+        optionTransferidaHfcRefresh.style.display = "none"; // muestra el elemento
+      }
+
       if (tipo_actividad.value === "TRANSFERIDA") {
         formHfc_Transferida.style.display = "none";
         btn_save.style.display = "none";
@@ -979,6 +1354,13 @@ selectHide_TipoOrden.addEventListener("change", () => {
       for (let i = 0; i < TipoActividad_Hidden.length; i++) {
         TipoActividad_Hidden[i].style.display = "block";
       }
+      tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormHfc_Hidden.length; i++) {
+        FormHfc_Hidden[i].style.display = "none";
+      }
+
+      btn_save.style.display = "none";
+
       resetValues();
 
       break;
@@ -1128,4 +1510,363 @@ selectHide_TipoOrden.addEventListener("change", () => {
 
       break;
   }
+});
+
+const selectHiddenTipoOrden = document.getElementById("select_orden");
+const DisabledRefreshSelect = document.getElementById("refreshSelect");
+const hiddenSelectRefresh = document.getElementById("HiddenrefreshSelect");
+
+DisabledRefreshSelect.disabled = true;
+hiddenSelectRefresh.style.display = "none";
+
+// DISABLE POR TIPO ORDEN EN CAMBIO DE EQUIPO
+
+selectHiddenTipoOrden.addEventListener("change", () => {
+  const value = selectHide_TipoOrden.value;
+  // selectHide_TipoOrdenGpon.style.display = "none";
+
+  switch (value) {
+    case "INSTALACION CLARO HOGAR":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+      break;
+    case "DOBLE - TV + INTERNET":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+      break;
+    case "DOBLE - INTERNET + LINEA":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+      break;
+    case "TV - DIGITAL INDIVIDUAL":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+      break;
+    case "TV - BASICO INDIVIDUAL":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+      break;
+    case "INTERNET INDIVIDUAL":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+      break;
+    case "LINEA INDIVIDUAL":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+      break;
+    case "REFRESH":
+      DisabledRefreshSelect.disabled = false;
+      hiddenSelectRefresh.style.display = "block";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+      break;
+    case "REACTIVACION - INSTALACION DE CLARO HOGAR":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+      break;
+    case "REACTIVACION -DOBLE - TV + INTERNET":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+      break;
+
+    case "REACTIVACION -DOBLE - INTERNET + LINEA":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+      break;
+
+    case "REACTIVACION -TV - BASICO INDIVIDUAL":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+      break;
+
+    case "REACTIVACION -TV - DIGITAL INDIVIDUAL":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+      break;
+    case "REACTIVACION -INTERNET INDIVIDUAL":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+    case "REACTIVACION -LINEA INDIVIDUAL":
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+    default:
+      DisabledRefreshSelect.disabled = true;
+      hiddenSelectRefresh.style.display = "none";
+      DisabledRefreshSelect.value = "SELECCIONE UNA OPCION";
+
+      break;
+  }
+});
+
+const TecnologiaChangeDTH = document.getElementById("tecnologia");
+const selectDthOrden = document.getElementById("select_orden");
+
+document.addEventListener("DOMContentLoaded", function () {
+  const OptionRealizada = tipo_actividadDth.querySelector(
+    'option[value="REALIZADA"]'
+  );
+  const OptionObj = tipo_actividadDth.querySelector('option[value="OBJETADA"]');
+
+  const OptionAnulada = tipo_actividadDth.querySelector(
+    'option[value="ANULACION"]'
+  );
+
+  const OptionRefresh = tipo_actividadDth.querySelector(
+    'option[value="REFRESH"]'
+  );
+
+  OptionObj.style.display = "block";
+  OptionAnulada.style.display = "block";
+  OptionRealizada.style.display = "block";
+  OptionRefresh.style.display = "none";
+
+  selectDthOrden.addEventListener("change", () => {
+    const value = selectDthOrden.value;
+    const tipo_actividadDth = document.getElementById("tipo_actividadDth");
+
+    switch (value) {
+      case "SELECCIONE UNA OPCION":
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "block";
+        }
+        for (let i = 0; i < FormDth_Hidden.length; i++) {
+          FormDth_Hidden[i].style.display = "none";
+        }
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+
+        btn_save.style.display = "none";
+
+        OptionRealizada.style.display = "block";
+        OptionObj.style.display = "block";
+        OptionAnulada.style.display = "block";
+        OptionRefresh.style.display = "none";
+        btn_save.style.display = "none";
+
+        resetValues();
+
+        break;
+      case "REFRESH":
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "block";
+        }
+
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+        for (let i = 0; i < FormDth_Hidden.length; i++) {
+          FormDth_Hidden[i].style.display = "none";
+        }
+
+        btn_save.style.display = "none";
+
+        OptionRealizada.style.display = "none";
+        OptionObj.style.display = "none";
+        OptionAnulada.style.display = "none";
+        OptionRefresh.style.display = "block";
+        btn_save.style.display = "none";
+
+        resetValues();
+
+        break;
+      case "TV SATELITAL":
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "block";
+        }
+        for (let i = 0; i < FormDth_Hidden.length; i++) {
+          FormDth_Hidden[i].style.display = "none";
+        }
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+
+        btn_save.style.display = "none";
+
+        OptionRealizada.style.display = "block";
+        OptionObj.style.display = "block";
+        OptionAnulada.style.display = "block";
+        OptionRefresh.style.display = "none";
+        btn_save.style.display = "none";
+
+        resetValues();
+
+        break;
+      case "REACTIVACION":
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "block";
+        }
+        for (let i = 0; i < FormDth_Hidden.length; i++) {
+          FormDth_Hidden[i].style.display = "none";
+        }
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+
+        btn_save.style.display = "none";
+
+        OptionRealizada.style.display = "block";
+        OptionObj.style.display = "block";
+        OptionAnulada.style.display = "block";
+        OptionRefresh.style.display = "none";
+        btn_save.style.display = "none";
+
+        resetValues();
+
+        break;
+      default:
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "block";
+        }
+        for (let i = 0; i < FormDth_Hidden.length; i++) {
+          FormDth_Hidden[i].style.display = "none";
+        }
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+
+        OptionObj.style.display = "block";
+        OptionAnulada.style.display = "block";
+        OptionRealizada.style.display = "block";
+        OptionRefresh.style.display = "none";
+
+        resetValues();
+
+        break;
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const selectOrden = document.getElementById("select_orden");
+  const tecnologiaDth = document.getElementById("tecnologia");
+
+  selectOrden.addEventListener("change", function () {
+    switch (tecnologiaDth.value + "|" + selectOrden.value) {
+      case "DTH|TV SATELITAL":
+        btn_save.style.display = "none";
+        form4.style.display = "block";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
+        // DESHABILITA EL TIPO DE ORDEN AL CAMBIAR DE TECNOLOGIA
+        for (let i = 0; i < OrdenHfc.length; i++) {
+          OrdenHfc[i].disabled = true;
+        }
+        for (let i = 0; i < OrdenGpon.length; i++) {
+          OrdenGpon[i].disabled = true;
+        }
+        // TIPO ACTIVIDAD
+        for (let i = 0; i < FormHfc_Hidden.length; i++) {
+          FormHfc_Hidden[i].style.display = "none";
+        }
+        for (let i = 0; i < FormGpon_Hidden.length; i++) {
+          FormGpon_Hidden[i].style.display = "none";
+        }
+        for (let i = 0; i < FormAdsl_Hidden.length; i++) {
+          FormAdsl_Hidden[i].style.display = "none";
+        }
+        for (let i = 0; i < FormCobre_Hidden.length; i++) {
+          FormCobre_Hidden[i].style.display = "none";
+        }
+        for (let i = 0; i < FormDth_Hidden.length; i++) {
+          FormDth_Hidden[i].style.display = "none";
+        }
+        break;
+      case "DTH|REACTIVACION":
+        btn_save.style.display = "none";
+        form4.style.display = "block";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
+        // DESHABILITA EL TIPO DE ORDEN AL CAMBIAR DE TECNOLOGIA
+        for (let i = 0; i < OrdenHfc.length; i++) {
+          OrdenHfc[i].disabled = true;
+        }
+        for (let i = 0; i < OrdenGpon.length; i++) {
+          OrdenGpon[i].disabled = true;
+        }
+        // TIPO ACTIVIDAD
+        for (let i = 0; i < FormHfc_Hidden.length; i++) {
+          FormHfc_Hidden[i].style.display = "none";
+        }
+        for (let i = 0; i < FormGpon_Hidden.length; i++) {
+          FormGpon_Hidden[i].style.display = "none";
+        }
+        for (let i = 0; i < FormAdsl_Hidden.length; i++) {
+          FormAdsl_Hidden[i].style.display = "none";
+        }
+        for (let i = 0; i < FormCobre_Hidden.length; i++) {
+          FormCobre_Hidden[i].style.display = "none";
+        }
+        for (let i = 0; i < FormDth_Hidden.length; i++) {
+          FormDth_Hidden[i].style.display = "none";
+        }
+        break;
+      case "DTH|REFRESH":
+        btn_save.style.display = "none";
+        form4.style.display = "block";
+        tipoActividad_ChangeName.value = "SELECCIONE UNA OPCION";
+        tipo_actividadAdsl.value = "SELECCIONE UNA OPCION";
+        tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+        tipo_actividadCobre.value = "SELECCIONE UNA OPCION";
+        tipo_actividadDth.value = "SELECCIONE UNA OPCION";
+        for (let i = 0; i < TipoActividad_Hidden.length; i++) {
+          TipoActividad_Hidden[i].style.display = "none";
+        }
+        // DESHABILITA EL TIPO DE ORDEN AL CAMBIAR DE TECNOLOGIA
+        for (let i = 0; i < OrdenHfc.length; i++) {
+          OrdenHfc[i].disabled = true;
+        }
+        for (let i = 0; i < OrdenGpon.length; i++) {
+          OrdenGpon[i].disabled = true;
+        }
+        // TIPO ACTIVIDAD
+        for (let i = 0; i < FormHfc_Hidden.length; i++) {
+          FormHfc_Hidden[i].style.display = "none";
+        }
+        for (let i = 0; i < FormGpon_Hidden.length; i++) {
+          FormGpon_Hidden[i].style.display = "none";
+        }
+        for (let i = 0; i < FormAdsl_Hidden.length; i++) {
+          FormAdsl_Hidden[i].style.display = "none";
+        }
+        for (let i = 0; i < FormCobre_Hidden.length; i++) {
+          FormCobre_Hidden[i].style.display = "none";
+        }
+        for (let i = 0; i < FormDth_Hidden.length; i++) {
+          FormDth_Hidden[i].style.display = "none";
+        }
+        break;
+      default:
+        break;
+    }
+  });
 });

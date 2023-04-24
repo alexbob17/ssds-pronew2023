@@ -13,35 +13,29 @@
                 <h3 class="box-title">Datos Busqueda</h3>
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
-            <form action="{{ route('registro_consultas') }}" method="POST" id="form1" class="formulario box-body"
+            <form action="{{ route('busqueda.generar') }}" method="GET" id="form1" class="formulario box-body"
                 style="padding-top: 15px;">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                 <input type="hidden" name="selected_fields" id="selected-fields" />
 
                 <div class="form-group-container">
-                    <div class="form-group col-md-3">
-                        <label for="codigo_tecnico">N° ORDEN</label>
+                    <div class="form-group col-md-4">
+                        <label for="NordenBusqueda">N° ORDEN</label>
                         <div class="input-group">
                             <div class="input-group-addon">
                                 <i class="fa fa-ticket"></i>
                             </div>
                             <input type="text" class="form-control effect-8" placeholder="Ingresa N° Orden"
-                                id="codigo_tecnico" name="codigo_tecnico"
+                                id="NordenBusqueda" name="NordenBusqueda"
                                 oninput="this.value = this.value.toUpperCase()" required autocomplete="off" />
                         </div>
                     </div>
 
-                    <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
-                        <button type="button" id="btn_busqueda" class="btn btn-primary"><i class="fa fa-search"
-                                aria-hidden="true"></i></button>
-                        <button type="button" id="btn_clean" class="btn btn-danger"><i class="fa fa-trash"
-                                aria-hidden="true"></i></button>
-                    </div>
 
                     <div class="form-group">
-                        <div class="form-group col-md-2">
-                            <label for="fecha_registro">FECHA </label>
+                        <!-- <div class="form-group col-md-3">
+                            <label for="fecha_registro">FECHA REGISTRO </label>
                             <div class="input-group">
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar-check-o"></i>
@@ -51,25 +45,31 @@
                                     data-date-format="yyyy-mm-dd" autocomplete="off">
                             </div>
                         </div>
-                        <div class="form-group col-md-3">
-                            <label for="TipoMotivoConsulta">TIPO ACTIVIDAD</label>
-                            <select class="form-control" style="width: 100%;" name="TipoMotivoConsulta" tabindex="-1"
-                                id="TipoMotivoConsulta" aria-hidden="true" required>
-                                <option value="">---TODOS---</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="TipoMotivoConsulta">USUARIOS</label>
-                            <select class="form-control" style="width: 100%;" name="TipoMotivoConsulta" tabindex="-1"
-                                id="TipoMotivoConsulta" aria-hidden="true" required>
+
+                        <div class="form-group col-md-4">
+                            <label for="userall">USUARIOS</label>
+                            <select class="form-control" style="width: 100%;" name="userall" tabindex="-1" id="userall"
+                                aria-hidden="true" required>
                                 <option value="">---TODOS LOS USUARIOS---</option>
                             </select>
+                        </div> -->
+
+
+                        <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
+                            <button type="submit" id="btn_busqueda" class="btn btn-primary"><i class="fa fa-search"
+                                    aria-hidden="true"></i></button>
+                            <button type="button" id="btn_clean" class="btn btn-danger"><i class="fa fa-trash"
+                                    aria-hidden="true"></i></button>
                         </div>
                     </div>
                 </div>
             </form>
-            <table id="TableTecnico" style="border-top: 1px solid #d4d1d1" data-toolbar="#toolbar" data-refresh="true"
-                data-sortable="true" class="table table-striped table-bordered">
+
+        </div>
+
+        <div class="box box-warning">
+            <table id="TableTecnico" style="" data-toolbar="#toolbar" data-refresh="true" data-sortable="true"
+                class="table table-striped table-bordered">
 
                 <thead class="" style=" color: #337ab7;height: 45px;">
                     <th data-sortable=" true">COD</th>
@@ -83,7 +83,6 @@
 
                 </thead>
                 <tbody>
-
                     <tr>
                         <td>5022</td>
                         <td>INTERNO_FELIX MACLEAN TALAVERA</td>
