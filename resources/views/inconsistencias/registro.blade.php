@@ -53,7 +53,7 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
-                {!! Form::submit('Guardar Caso', ['class' => 'btn btn-warning']) !!}
+                {!! Form::submit('Guardar Caso', ['class' => 'btn btn-primary']) !!}
             </div>
             {!! Form::close() !!}
         </div>

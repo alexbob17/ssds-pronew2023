@@ -355,7 +355,6 @@ class LlamadasServicioController extends Controller
 						'orden_internet_hfc',
 						'orden_linea_hfc',
 						'refreshSelect',
-						'TrabajadoRefresh',
 						'ComentarioRefresh_Hfc',
 						'username_creacion',
 						'username_atencion',
@@ -363,18 +362,10 @@ class LlamadasServicioController extends Controller
 					];
 	
 					$data = [];
+
+					$data = $request->only($selectedFields);
+
 	
-					// Iteramos por los campos seleccionados del formulario
-					foreach ($selectedFields as $fieldName) {
-						$value = $request->input($fieldName);
-						if ($fieldName === 'TrabajadoRefresh' && $request->has('TrabajadoRefresh')) {
-							$data[$fieldName] = 'TRABAJADO';
-						} elseif ($fieldName === 'TrabajadoRefresh') {
-							$data[$fieldName] = 'PENDIENTE';
-						} else {
-							$data[$fieldName] = $value;
-						}
-					}
 					// dd($data);
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -978,7 +969,6 @@ class LlamadasServicioController extends Controller
 						'tipo_actividadDth',
 						'NordenRefresh',
 						'refreshSelectDth',
-						'TrabajadoRefreshDth',
 						'ComentarioRefresh_Dth',
 						'username_creacion',
 						'username_atencion',
@@ -987,17 +977,8 @@ class LlamadasServicioController extends Controller
 	
 					$data = [];
 	
-					// Iteramos por los campos seleccionados del formulario
-					foreach ($selectedFields as $fieldName) {
-						$value = $request->input($fieldName);
-						if ($fieldName === 'TrabajadoRefreshDth' && $request->has('TrabajadoRefreshDth')) {
-							$data[$fieldName] = 'TRABAJADO';
-						} elseif ($fieldName === 'TrabajadoRefreshDth') {
-							$data[$fieldName] = 'PENDIENTE';
-						} else {
-							$data[$fieldName] = $value;
-						}
-					}
+					$data = $request->only($selectedFields);
+					
 					// dd($data);
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;

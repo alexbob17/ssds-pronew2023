@@ -19,7 +19,6 @@ class InstalacionesDthRefresh extends Model
         'tipo_actividadDth',
         'NordenRefresh',
         'refreshSelectDth',
-        'TrabajadoRefreshDth',
         'ComentarioRefresh_Dth',
         'username_creacion',
 		'username_atencion',

@@ -10,7 +10,7 @@
         <!-- general form elements -->
         <div class="box box-warning">
             <div class="box-header with-border">
-                <h3 class="box-title">Datos Busqueda</h3>
+                <!-- <h3 class="box-title">Datos Busqueda</h3> -->
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
             <form action="{{ route('busqueda.generar') }}" method="GET" id="form1" class="formulario box-body"
@@ -20,7 +20,7 @@
                 <input type="hidden" name="selected_fields" id="selected-fields" />
 
                 <div class="form-group-container">
-                    <div class="form-group col-md-4">
+                    <div class="form-group col-md-3">
                         <label for="NordenBusqueda">N° ORDEN</label>
                         <div class="input-group">
                             <div class="input-group-addon">
@@ -31,36 +31,17 @@
                                 oninput="this.value = this.value.toUpperCase()" required autocomplete="off" />
                         </div>
                     </div>
+                    <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
+                        <button type="submit" id="btn_busqueda" class="btn btn-primary"><i class="fa fa-search"
+                                aria-hidden="true"></i></button>
+                        <button type="button" id="btn_clean" class="btn btn-danger"><i class="fa fa-trash"
+                                aria-hidden="true"></i></button>
+                    </div>
 
 
                     <div class="form-group">
-                        <!-- <div class="form-group col-md-3">
-                            <label for="fecha_registro">FECHA REGISTRO </label>
-                            <div class="input-group">
-                                <div class="input-group-addon">
-                                    <i class="fa fa-calendar-check-o"></i>
-                                </div>
-                                <input class="form-control" name="fecha_registro" id="fecha_registro"
-                                    placeholder="Ingresa Fecha" type="text" data-provide="datepicker"
-                                    data-date-format="yyyy-mm-dd" autocomplete="off">
-                            </div>
-                        </div>
-
-                        <div class="form-group col-md-4">
-                            <label for="userall">USUARIOS</label>
-                            <select class="form-control" style="width: 100%;" name="userall" tabindex="-1" id="userall"
-                                aria-hidden="true" required>
-                                <option value="">---TODOS LOS USUARIOS---</option>
-                            </select>
-                        </div> -->
 
 
-                        <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
-                            <button type="submit" id="btn_busqueda" class="btn btn-primary"><i class="fa fa-search"
-                                    aria-hidden="true"></i></button>
-                            <button type="button" id="btn_clean" class="btn btn-danger"><i class="fa fa-trash"
-                                    aria-hidden="true"></i></button>
-                        </div>
                     </div>
                 </div>
             </form>
@@ -68,6 +49,7 @@
         </div>
 
         <div class="box box-warning">
+
             <table id="TableTecnico" style="" data-toolbar="#toolbar" data-refresh="true" data-sortable="true"
                 class="table table-striped table-bordered">
 
@@ -75,49 +57,73 @@
                     <th data-sortable=" true">COD</th>
                     <th data-sortable="true">TECNICO</th>
                     <th data-sortable="true">MOTIVO LLAMADA</th>
-                    <th data-sortable="true">USUARIO</th>
+                    <th data-sortable="true">TECNOLOGIA</th>
                     <th data-sortable="true">TIPO ACTIVIDAD</th>
                     <th data-sortable="true">N° ORDEN</th>
                     <th data-sortable="true">STATUS</th>
+                    <th data-sortable="true">USUARIO</th>
+                    <th data-sortable="true">FECHA</th>
                     <th>ACCIONES</th>
 
                 </thead>
                 <tbody>
+                    @foreach($resultados as $resultado)
                     <tr>
-                        <td>5022</td>
-                        <td>INTERNO_FELIX MACLEAN TALAVERA</td>
-                        <td>INSTALACION</td>
-                        <td>ALEJANDROUSER</td>
-                        <td>REALIZADA</td>
-                        <td>89278867</td>
-                        <td class="btn btnPendiente">PENDIENTE</td>
-                        <td><button class="btn btn-warning"><i class="fa fa-pencil-square-o"
-                                    aria-hidden="true"></i></button></td>
-                    </tr>
+                        <td>{{ $resultado->codigo_tecnico }}</td>
+                        <td>{{ $resultado->tecnico }}</td>
+                        <td>{{ $resultado->motivo_llamada }}</td>
+                        <td>{{$resultado->tecnologia}}</td>
+                        <td>
+                            @if(property_exists($resultado, 'tipo_actividad'))
+                            {{ $resultado->tipo_actividad }}
+                            @elseif(property_exists($resultado, 'tipo_actividadGpon'))
+                            {{ $resultado->tipo_actividadGpon }}
+                            @else
+                            @endif
+                        </td>
 
-                    <tr>
-                        <td>5022</td>
-                        <td>INTERNO_FELIX MACLEAN TALAVERA</td>
-                        <td>POSTVENTA</td>
-                        <td>USERPRUEBA</td>
-                        <td>OBJETADA</button></td>
-                        <td>12345678</td>
-                        <td class="btn btnTrabajado">TRABAJADO</td>
-                        <td><button class="btn btn-warning"><i class="fa fa-pencil-square-o"
-                                    aria-hidden="true"></i></button></td>
-                    </tr>
+                        <td>
+                            @if(property_exists($resultado, 'orden_tv_hfc') && $resultado->orden_tv_hfc == $NumeroOrden)
+                            {{ $resultado->orden_tv_hfc }}<br>
+                            @endif
+                            @if(property_exists($resultado, 'orden_internet_hfc') && $resultado->orden_internet_hfc ==
+                            $NumeroOrden)
+                            {{ $resultado->orden_internet_hfc }}<br>
+                            @endif
+                            @if(property_exists($resultado, 'orden_linea_hfc') && $resultado->orden_linea_hfc ==
+                            $NumeroOrden)
+                            {{ $resultado->orden_linea_hfc }}<br>
+                            @endif
+                            @if(property_exists($resultado, 'OrdenInternet_Gpon') && $resultado->OrdenInternet_Gpon ==
+                            $NumeroOrden)
+                            {{ $resultado->OrdenInternet_Gpon }}<br>
+                            @endif
+                            @if(property_exists($resultado, 'OrdenTv_Gpon') && $resultado->OrdenTv_Gpon == $NumeroOrden)
+                            {{ $resultado->OrdenTv_Gpon }}<br>
+                            @endif
+                            @if(property_exists($resultado, 'OrdenLinea_Gpon') && $resultado->OrdenLinea_Gpon ==
+                            $NumeroOrden)
+                            {{ $resultado->OrdenLinea_Gpon }}<br>
+                            @endif
+                        </td>
 
-                    <tr>
-                        <td>5022</td>
-                        <td>INTERNO_FELIX MACLEAN TALAVERA</td>
-                        <td>POSTVENTA</td>
-                        <td>USERPRUEBA</td>
-                        <td>OBJETADA</button></td>
-                        <td>12345678</td>
-                        <td class="btn btnTrabajado">TRABAJADO</td>
-                        <td><button class="btn btn-warning"><i class="fa fa-pencil-square-o"
+                        <td
+                            class="@if($resultado->estatus == 'TRABAJADO') btn btnTrabajado @elseif($resultado->estatus == 'PENDIENTE') btn btnPendiente @endif">
+                            {{$resultado->estatus}}</td>
+
+
+
+                        <td>{{ $resultado->username_creacion }}</td>
+                        <td>{{ $resultado->created_at }}</td>
+
+
+
+                        <td> <button class="btn btn-warning"><i class="fa fa-pencil-square-o"
                                     aria-hidden="true"></i></button></td>
+
                     </tr>
+                    @endforeach
+
                 </tbody>
             </table>
         </div>
@@ -148,7 +154,7 @@ $(function() {
 const btn_clean = document.getElementById("btn_clean");
 btn_clean.addEventListener("click", function() {
     localStorage.clear();
-    window.location.href = "{{ route('consultas_buscar') }}";
+    window.location.href = "{{ route('busqueda.generar') }}";
 });
 </script>
 
@@ -173,7 +179,7 @@ Swal.fire({
     showConfirmButton: false,
     timer: 1700,
 }).then(function() {
-    window.location.href = "{{ route('consultas_buscar') }}";
+    window.location.href = "{{ route('busqueda.generar') }}";
 });
 @endif
 </script>
@@ -259,6 +265,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <!-- boostrap-fileinput -->
 <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput_locale_es.js') }}" type="text/javascript"></script>
+<script src="{{asset('/js/busquedas/busqueda.js')}}" type="text/javascript"></script>
+
 <!-- User definided -->
 
 

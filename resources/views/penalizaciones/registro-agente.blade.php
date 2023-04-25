@@ -1,56 +1,60 @@
-@extends('app') 
+@extends('app')
 
 @section('content')
 <div class="row">
-	<div class="col-md-12">
-		@if (session()->has('error_message'))
-		<div class="col-md-12">
-		   	<div class="alert alert-danger alert-dismissable">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				<p>{{ session('error_message') }}</p>
-			</div>
-		</div>
-		@endif
-		@if (session()->has('success_message'))
-            <div class="alert alert-success alert-dismissable">
-             	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				<p>{{ session('success_message') }}</p>
-			</div>
-		@endif
-		<!-- general form elements -->
-		<div class="box box-warning">
-			<div class="box-header with-border">
-				<h3 class="box-title">Datos del Usuario</h3>
-			</div>
-			<!-- /.box-header -->
-			<!-- form start -->
-        	{!! Form::open(['url' => '/penalizaciones/registro-agente', 'autocomplete' => 'off', 'enctype' => 'multipart/form-data']) !!}
-				<div class="box-body">
-					<div class="form-group-container">
-						{!! Form::selection(6, 'nivel', $errors, $niveles, null, trans('penalizaciones/registro.nivel'), trans('penalizaciones/registro.ph_nivel')) !!}
-					</div>
-					<div class="form-group-container">
-						{!! Form::inputWithIcon('fa-file', 6, 'nombre', $errors, trans('penalizaciones/registro.nombre_agente')) !!}
-					</div>
-				</div>
-				<!-- /.box-body -->
-				<div class="box-footer">
-					{!! Form::submit('Actualizar', ['class' => 'btn btn-warning']) !!}
-				</div>
-			{!! Form::close() !!}
-		</div>
-		<!-- /.box -->
-	</div>
+    <div class="col-md-12">
+        @if (session()->has('error_message'))
+        <div class="col-md-12">
+            <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <p>{{ session('error_message') }}</p>
+            </div>
+        </div>
+        @endif
+        @if (session()->has('success_message'))
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <p>{{ session('success_message') }}</p>
+        </div>
+        @endif
+        <!-- general form elements -->
+        <div class="box box-warning">
+            <div class="box-header with-border">
+                <h3 class="box-title">Datos del Usuario</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            {!! Form::open(['url' => '/penalizaciones/registro-agente', 'autocomplete' => 'off', 'enctype' =>
+            'multipart/form-data']) !!}
+            <div class="box-body">
+                <div class="form-group-container">
+                    {!! Form::selection(6, 'nivel', $errors, $niveles, null, trans('penalizaciones/registro.nivel'),
+                    trans('penalizaciones/registro.ph_nivel')) !!}
+                </div>
+                <div class="form-group-container">
+                    {!! Form::inputWithIcon('fa-file', 6, 'nombre', $errors,
+                    trans('penalizaciones/registro.nombre_agente')) !!}
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                {!! Form::submit('Actualizar', ['class' => 'btn btn-primary']) !!}
+            </div>
+            {!! Form::close() !!}
+        </div>
+        <!-- /.box -->
+    </div>
 </div>
-@endsection 
+@endsection
 
 @section('styles')
 <!-- Select2 -->
 <link rel="stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css">
-<link rel="stylesheet" href="{{ asset('/plugins/bootstrap-fileinput/css/fileinput.min.css') }}" type="text/css" media="all"/>
+<link rel="stylesheet" href="{{ asset('/plugins/bootstrap-fileinput/css/fileinput.min.css') }}" type="text/css"
+    media="all" />
 <!-- User definided -->
 <link rel="stylesheet" href="{{ asset('/css/center-modal.css') }}">
-@endsection 
+@endsection
 
 @section('scripts')
 <!-- Select2 -->

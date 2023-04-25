@@ -1744,8 +1744,7 @@ form.addEventListener("submit", function (event) {
         }
       } else if (tipo_actividad === "REFRESH") {
         const refreshSelect = document.getElementById("refreshSelect").value;
-        const TrabajadoRefresh =
-          document.getElementById("TrabajadoRefresh").value;
+
         const ComentarioRefresh_Hfc = document.getElementById(
           "ComentarioRefresh_Hfc"
         ).value;
@@ -1762,7 +1761,7 @@ form.addEventListener("submit", function (event) {
             orden_internet_hfc === "" ||
             // orden_linea_hfc === "" ||
             refreshSelect === "",
-          TrabajadoRefresh === "" || ComentarioRefresh_Hfc === "")
+          ComentarioRefresh_Hfc === "")
         ) {
           Swal.fire({
             icon: "error",
@@ -3527,9 +3526,6 @@ form.addEventListener("submit", function (event) {
       } else if (tipo_actividadDth === "REFRESH") {
         const refreshSelectDth =
           document.getElementById("refreshSelectDth").value;
-        const TrabajadoRefreshDth = document.getElementById(
-          "TrabajadoRefreshDth"
-        ).value;
         const ComentarioRefresh_Dth = document.getElementById(
           "ComentarioRefresh_Dth"
         ).value;
@@ -3545,7 +3541,6 @@ form.addEventListener("submit", function (event) {
           tipo_actividadDth === "" ||
           refreshSelectDth === "" ||
           NordenRefresh === "" ||
-          TrabajadoRefreshDth === "" ||
           ComentarioRefresh_Dth === ""
         ) {
           Swal.fire({

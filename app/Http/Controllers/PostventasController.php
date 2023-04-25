@@ -2674,7 +2674,178 @@ class PostventasController extends Controller
 				
                 break;
 			
-            case 'CAMBIO NUMERO COBRE|COBRE':
+			case 'RECONEXION / RETIRO|DTH':
+					$selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'Select_Postventa',
+						'select_orden',
+						'dpto_colonia',
+						'tecnologia',
+						'TipoActividadReconexionHfc',
+						'EquipoModemRetiroHfc',
+						'OrdenRetiroHfc',
+						'TrabajadoRetiroHfc',
+						'ObvsRetiroHfc',
+						'RecibeRetiroHfc',
+						'MaterialesRetiroHfc',
+					];
+	
+	
+			
+					$data = [];
+	
+					// Iteramos por los campos seleccionados del formulario
+					foreach ($selectedFields as $fieldName) {
+						$value = $request->input($fieldName);
+						if ($fieldName === 'TrabajadoRetiroHfc' && $request->has('TrabajadoRetiroHfc')) {
+							$data[$fieldName] = 'TRABAJADO';
+						} elseif ($fieldName === 'TrabajadoRetiroHfc') {
+							$data[$fieldName] = 'PENDIENTE';
+						} else {
+							$data[$fieldName] = $value;
+						}
+					}
+	
+					
+					// dd($data);
+	
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+	
+	
+					// Evaluamos si la tecnología ADSL fue realizada u objetada
+					if ($data['TipoActividadReconexionHfc'] == 'REALIZADA') {
+						// Incluimos los datos adicionales para la tecnología ADSL realizada
+						$dataRetiroRealizada = new PostventaRetiroHfcRealizada($data);
+	
+						// Guardamos la instancia en la base de datos
+						$dataRetiroRealizada->save();
+	
+						
+						$message = "¡EXITO!";
+						$messages = "REGISTRO REALIZADO COMPLETO";
+						return view('llamadashome/postventa')
+							->with('message', $message)
+							->with('messages', $messages)
+							->with('page_title', 'Postventas - Registro')
+							->with('navigation', 'postventa');
+	
+							
+					}elseif($data['TipoActividadReconexionHfc'] == 'OBJETADA'){
+						$selectedFields = [
+							'codigo_tecnico',
+							'telefono',
+							'tecnico',
+							'motivo_llamada',
+							'Select_Postventa',
+							'select_orden',
+							'dpto_colonia',
+							'tecnologia',
+							'TipoActividadReconexionHfc',
+							'MotivoObjRetiroHfc',
+							'OrdenRetiroObjHfc',
+							'TrabajadoObjRetiroHfc',
+							'ObvsObjRetiroHfc',
+							'ComentariosRetiroObjHfc',
+							'username_creacion',
+							'username_atencion',
+						];
+	
+						$data = [];
+	
+						// Iteramos por los campos seleccionados del formulario
+						foreach ($selectedFields as $fieldName) {
+							$value = $request->input($fieldName);
+							if ($fieldName === 'TrabajadoObjRetiroHfc' && $request->has('TrabajadoObjRetiroHfc')) {
+								$data[$fieldName] = 'TRABAJADO';
+							} elseif ($fieldName === 'TrabajadoObjRetiroHfc') {
+								$data[$fieldName] = 'PENDIENTE';
+							} else {
+								$data[$fieldName] = $value;
+							}
+						}
+	
+						// Agregamos el usuario actual como creador y atendedor del registro
+						$data['username_creacion'] = Auth::user()->username;
+						$data['username_atencion'] = Auth::user()->username;
+	
+						$dataRetiroHfcObj = new PostventaRetiroHfcObjetada($data);
+	
+						// Guardamos la instancia en la base de datos
+						$dataRetiroHfcObj->save();
+	
+	
+						$message = "¡EXITO!";
+						$messages = "REGISTRO OBJETADO COMPLETO";
+						return view('llamadashome/postventa')
+							->with('message', $message)
+							->with('messages', $messages)
+							->with('page_title', 'Postventas - Registro')
+							->with('navigation', 'Postventas');
+	
+					
+					}elseif($data['TipoActividadReconexionHfc'] == 'ANULACION'){
+						$selectedFields = [
+							'codigo_tecnico',
+							'telefono',
+							'tecnico',
+							'motivo_llamada',
+							'Select_Postventa',
+							'select_orden',
+							'dpto_colonia',
+							'tecnologia',
+							'TipoActividadReconexionHfc',
+							'MotivoRetiroAnulada_Hfc',
+							'OrdenRetiroAnulacionHfc',
+							'TrabajadoRetiroAnulada_Hfc',
+							'ComentsRetiroAnulada_Hfc',
+							'username_creacion',
+							'username_atencion',
+						];
+	
+						$data = [];
+	
+						// Iteramos por los campos seleccionados del formulario
+						foreach ($selectedFields as $fieldName) {
+							$value = $request->input($fieldName);
+							if ($fieldName === 'TrabajadoRetiroAnulada_Hfc' && $request->has('TrabajadoRetiroAnulada_Hfc')) {
+								$data[$fieldName] = 'TRABAJADO';
+							} elseif ($fieldName === 'TrabajadoRetiroAnulada_Hfc') {
+								$data[$fieldName] = 'PENDIENTE';
+							} else {
+								$data[$fieldName] = $value;
+							}
+						}
+	
+	
+	
+						// Agregamos el usuario actual como creador y atendedor del registro
+						$data['username_creacion'] = Auth::user()->username;
+						$data['username_atencion'] = Auth::user()->username;
+	
+						$dataReconexionAnulada = new PostventaRetiroHfcAnulada($data);
+	
+						// Guardamos la instancia en la base de datos
+						$dataReconexionAnulada->save();
+	
+	
+						$message = "¡EXITO!";
+						$messages = "REGISTRO ANULADO COMPLETO";
+						return view('llamadashome/postventa')
+							->with('message', $message)
+							->with('messages', $messages)
+							->with('page_title', 'Postventas - Registro')
+							->with('navigation', 'postventa');
+	
+					}
+					
+					break;
+				
+			case 'CAMBIO NUMERO COBRE|COBRE':
 				$selectedFields = [
 					'codigo_tecnico',
 					'telefono',
@@ -2840,7 +3011,8 @@ class PostventasController extends Controller
 				}
 				
                 break;    
-			default:
+			
+				default:
             break;
         }
 

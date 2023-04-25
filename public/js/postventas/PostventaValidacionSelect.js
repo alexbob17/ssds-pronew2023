@@ -813,15 +813,15 @@ function actualizarOpciones() {
       select_orden.innerHTML = `
             <option value="">SELECCIONE</option>
              <option value="RECONEXION">RECONEXION</option>
-            <option value="RETIRO">RETIRO ACOMETIDO</option>
-            <option value="RETIRO EQUIPOS">RETIRO EQUIPOS STB</option>
-            <option value="RECONEXION">RETIRO CM</option>
+            <option value="RETIRO ACOMETIDO">RETIRO ACOMETIDO</option>
+            <option value="RETIRO EQUIPOS STB">RETIRO EQUIPOS STB</option>
+            <option value="RETIRO CM">RETIRO CM</option>
           `;
       break;
     case "RECONEXION / RETIRO|DTH":
       select_orden.innerHTML = `
               <option value="">SELECCIONE</option>
-            <option value="RECONEXION">RETIRO STB</option>
+            <option value="RETIRO STB">RETIRO STB</option>
 
             `;
       break;

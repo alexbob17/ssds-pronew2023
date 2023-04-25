@@ -101,6 +101,7 @@
                             <option value="TRANSFERIDA">TRANSFERIDA</option>
                             <option value="ANULADA">ANULADA</option>
                             <option value="PENDIENTES">PENDIENTES</option>
+                            <option value="REFRESH">REFRESH</option>
                         </select>
                     </div>
 
@@ -1512,6 +1513,65 @@
                     </table>
                 </div>
 
+                @elseif($llamada_motivo == 'INSTALACION' && $tecnologia === 'HFC' && $tipo_actividad === 'REFRESH')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                        text-align: center;
+                        background:#17467d;
+                        padding: 10px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: #ffffff;
+                        opacity:0.9;
+
+                        ">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden Tv</th>
+                            <th data-sortable="true">N Orden Internet</th>
+                            <th data-sortable="true">Tipo Refresh</th>
+                            <th data-sortable="true">Observaciones</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->tipo_actividad}}</td>
+                                <td>{{ $resultado->orden_tv_hfc}}</td>
+                                <td>{{ $resultado->orden_internet_hfc}}</td>
+                                <td>{{ $resultado->refreshSelect}}</td>
+                                <td>{{ $resultado->ComentarioRefresh_Hfc }}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
                 @elseif($llamada_motivo == 'INSTALACION' && $tecnologia === 'HFC' && $tipo_actividad === 'PENDIENTES')
 
                 <div class="table-responsive">
@@ -2110,6 +2170,65 @@
                         </tbody>
                     </table>
                 </div>
+
+
+                @elseif($llamada_motivo == 'INSTALACION' && $tecnologia === 'DTH' && $tipo_actividad === 'REFRESH')
+
+                <div class="table-responsive">
+                    <table id="TableInstalacionDthAnulada" data-toolbar="#toolbar" data-refresh="true"
+                        data-sortable="true" class="table">
+                        <div class="box-reportes" style="position: relative;">
+                            <caption style="
+                        text-align: center;
+                        background:#17467d;
+                        padding: 10px;
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: #ffffff;
+                        opacity:0.9;
+
+                        ">
+                                <div class="div_spaccing"></div>
+                                <div>REPORTES</div>
+                            </caption>
+                        </div>
+                        <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">Teléfono</th>
+                            <th data-sortable="true">Técnico</th>
+                            <th data-sortable="true">Motivo Llamada</th>
+                            <th data-sortable="true">Tipo Orden</th>
+                            <th data-sortable="true">Dpto / Colonia</th>
+                            <th data-sortable="true">Tecnologia</th>
+                            <th data-sortable="true">Tipo actividad</th>
+                            <th data-sortable="true">N Orden</th>
+                            <th data-sortable="true">Tipo Refresh</th>
+                            <th data-sortable="true">Observaciones</th>
+                            <th data-sortable="true">Usuario</th>
+                            <th data-sortable="true">Fecha</th>
+                        </thead>
+                        <tbody>
+                            @foreach($resultados as $resultado)
+                            <tr>
+                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->telefono }}</td>
+                                <td>{{ $resultado->tecnico }}</td>
+                                <td>{{ $resultado->motivo_llamada }}</td>
+                                <td>{{ $resultado->select_orden }}</td>
+                                <td>{{ $resultado->dpto_colonia }}</td>
+                                <td>{{ $resultado->tecnologia}}</td>
+                                <td>{{ $resultado->tipo_actividadDth}}</td>
+                                <td>{{ $resultado->NordenRefresh}}</td>
+                                <td>{{ $resultado->refreshSelectDth}}</td>
+                                <td>{{ $resultado->ComentarioRefresh_Dth }}</td>
+                                <td>{{ $resultado->username_creacion }}</td>
+                                <td>{{ $resultado->created_at }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
 
                 @elseif($llamada_motivo == 'REPARACIONES' && $tecnologia === 'COBRE' && $tipo_actividad
                 ==='TRANSFERIDA')

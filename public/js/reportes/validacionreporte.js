@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
         const optionCobre = tecnologia.querySelector('option[value="COBRE"]');
         const optionDth = tecnologia.querySelector('option[value="DTH"]');
         const optionTodos = tecnologia.querySelector('option[value="TODOS"]');
+        const optionRefresh = tipo_actividad.querySelector(
+          'option[value="REFRESH"]'
+        );
 
         optionHfc.style.display = "block";
         optionGpon.style.display = "block";
@@ -33,12 +36,15 @@ document.addEventListener("DOMContentLoaded", function () {
         optionCobre.style.display = "block";
         optionDth.style.display = "block";
         optionTodos.style.display = "block";
+        optionRefresh.style.display = "none";
+
         break;
       case "POSTVENTA":
         tecnologia.disabled = true;
         tipo_postventa.disabled = false;
         tecnologia.value = "";
         tipo_actividad.value = "";
+        optionRefresh.style.display = "none";
 
         break;
       case "REPARACIONES":
@@ -48,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tipo_postventa.value = "";
         tecnologia.value = "";
         tipo_actividad.value = "";
+        optionRefresh.style.display = "none";
 
         break;
       case "AGENDAMIENTOS":
@@ -57,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tipo_postventa.value = "";
         tecnologia.value = "";
         tipo_actividad.value = "";
+        optionRefresh.style.display = "none";
 
         break;
       case "CONSULTAS":
@@ -66,6 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tipo_postventa.value = "";
         tecnologia.value = "";
         tipo_actividad.value = "";
+        optionRefresh.style.display = "none";
 
         break;
       default:
@@ -75,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
         tipo_postventa.value = "";
         tecnologia.value = "";
         tipo_actividad.value = "";
+        optionRefresh.style.display = "none";
 
         break;
     }
@@ -93,98 +103,126 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   const optionAnulada = tipo_actividad.querySelector('option[value="ANULADA"]');
 
+  const optionRefresh = tipo_actividad.querySelector('option[value="REFRESH"]');
+
   optionRealizada.style.display = "none";
   optionObjetada.style.display = "none";
   optionTransferida.style.display = "none";
   optionAnulada.style.display = "none";
+  optionRefresh.style.display = "none";
+
   tecnologia.addEventListener("change", function () {
     if (motivo_llamada.value === "INSTALACION") {
       if (tecnologia.value === "COBRE") {
         tipo_actividad.disabled = false;
+        tipo_actividad.value = "";
 
         optionRealizada.style.display = "block";
         optionObjetada.style.display = "block";
         optionTransferida.style.display = "none";
         optionAnulada.style.display = "block";
-      } else if (tecnologia.value === "COBRE") {
+        optionRefresh.style.display = "none";
+      } else if (tecnologia.value === "DTH") {
         tipo_actividad.disabled = false;
+        tipo_actividad.value = "";
 
         optionRealizada.style.display = "block";
         optionObjetada.style.display = "block";
         optionTransferida.style.display = "none";
         optionAnulada.style.display = "block";
+        optionRefresh.style.display = "block";
       } else if (tecnologia.value === "ADSL") {
         tipo_actividad.disabled = false;
+        tipo_actividad.value = "";
 
         optionRealizada.style.display = "block";
         optionObjetada.style.display = "block";
         optionTransferida.style.display = "none";
         optionAnulada.style.display = "block";
+        optionRefresh.style.display = "none";
       } else if (tecnologia.value === "GPON") {
         tipo_actividad.disabled = false;
+        tipo_actividad.value = "";
 
         optionRealizada.style.display = "block";
         optionObjetada.style.display = "block";
         optionTransferida.style.display = "block";
         optionAnulada.style.display = "block";
+        optionRefresh.style.display = "none";
       } else if (tecnologia.value === "HFC") {
         tipo_actividad.disabled = false;
+        tipo_actividad.value = "";
 
         optionRealizada.style.display = "block";
         optionObjetada.style.display = "block";
         optionTransferida.style.display = "block";
         optionAnulada.style.display = "block";
+        optionRefresh.style.display = "block";
       } else if (tecnologia.value === "TODOS") {
         tipo_actividad.disabled = false;
+        tipo_actividad.value = "";
 
         optionRealizada.style.display = "block";
         optionObjetada.style.display = "block";
         optionTransferida.style.display = "block";
         optionAnulada.style.display = "block";
+        optionRefresh.style.display = "none";
       }
     } else if (motivo_llamada.value === "REPARACIONES") {
       if (tecnologia.value === "DTH") {
         tipo_actividad.disabled = false;
+        tipo_actividad.value = "";
 
         optionRealizada.style.display = "block";
         optionObjetada.style.display = "block";
         optionTransferida.style.display = "block";
         optionAnulada.style.display = "none";
+        optionRefresh.style.display = "none";
       } else if (tecnologia.value === "COBRE") {
         tipo_actividad.disabled = false;
+        tipo_actividad.value = "";
 
         optionRealizada.style.display = "block";
         optionObjetada.style.display = "block";
         optionTransferida.style.display = "block";
         optionAnulada.style.display = "none";
+        optionRefresh.style.display = "none";
       } else if (tecnologia.value === "ADSL") {
         tipo_actividad.disabled = false;
+        tipo_actividad.value = "";
 
         optionRealizada.style.display = "block";
         optionObjetada.style.display = "block";
         optionTransferida.style.display = "block";
         optionAnulada.style.display = "none";
+        optionRefresh.style.display = "none";
       } else if (tecnologia.value === "GPON") {
         tipo_actividad.disabled = false;
+        tipo_actividad.value = "";
 
         optionRealizada.style.display = "block";
         optionObjetada.style.display = "block";
         optionTransferida.style.display = "block";
         optionAnulada.style.display = "none";
+        optionRefresh.style.display = "none";
       } else if (tecnologia.value === "HFC") {
         tipo_actividad.disabled = false;
+        tipo_actividad.value = "";
 
         optionRealizada.style.display = "block";
         optionObjetada.style.display = "block";
         optionTransferida.style.display = "block";
         optionAnulada.style.display = "none";
+        optionRefresh.style.display = "none";
       } else if (tecnologia.value === "TODOS") {
         tipo_actividad.disabled = false;
-
+        tipo_actividad.value = "";
+        ("");
         optionRealizada.style.display = "block";
         optionObjetada.style.display = "block";
         optionTransferida.style.display = "block";
         optionAnulada.style.display = "none";
+        optionRefresh.style.display = "none";
       }
     } else {
     }
@@ -284,10 +322,13 @@ document.addEventListener("DOMContentLoaded", function () {
   );
   const optionAnulada = tipo_actividad.querySelector('option[value="ANULADA"]');
 
+  const optionRefresh = tipo_actividad.querySelector('option[value="REFRESH"]');
+
   optionRealizada.style.display = "none";
   optionObjetada.style.display = "none";
   optionTransferida.style.display = "none";
   optionAnulada.style.display = "none";
+  optionRefresh.style.display = "none";
 
   tecnologia.addEventListener("change", function () {
     if (

@@ -571,21 +571,9 @@
                                     </div>
                                 </div>
 
+                                <div class="from-group col-md-3"></div>
 
-
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoRefresh"
-                                                name="TrabajadoRefresh" />
-                                            <label class="form-check-label">
-                                                Trabajado
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-12" style="padding-top:2rem">
                                     <label for="ComentarioRefresh_Hfc">
                                         Observaciones
                                     </label>
@@ -1239,7 +1227,6 @@
                                             tabindex="-1" id="refreshSelectDth" aria-hidden="true">
                                             <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                             <option value="STB">STB</option>
-                                            <option value="CABLE MODEM">CABLE MODEM</option>
                                         </select>
                                     </div>
                                 </div>
@@ -1255,17 +1242,6 @@
                                     </div>
                                 </div>
 
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoRefreshDth"
-                                                name="TrabajadoRefreshDth" />
-                                            <label class="form-check-label">
-                                                Trabajado
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <div class="form-group col-md-12">
                                     <label for="ComentarioRefresh_Dth">

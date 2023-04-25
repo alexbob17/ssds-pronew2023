@@ -17,7 +17,7 @@
                 <div class="form-group-container">
                     {!! Form::selection(4, 'opcion_busqueda', $errors, $opciones_busqueda) !!}
                     {!! Form::inputWithIcon('fa-newspaper-o', 4, 'patron_busqueda', $errors) !!}
-                    {!! Form::button('Buscar', ['id' => 'buscar', 'class' => 'btn btn-warning', 'style' => 'margin-left:
+                    {!! Form::button('Buscar', ['id' => 'buscar', 'class' => 'btn btn-primary', 'style' => 'margin-left:
                     15px']) !!}
                 </div>
             </div>

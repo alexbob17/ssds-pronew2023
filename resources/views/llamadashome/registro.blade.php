@@ -45,7 +45,7 @@
                                         <i class="fa fa-phone-square"></i>
                                     </div>
                                     <input type="text" class="form-control" id="telefono" name="telefono"
-                                        readonly="true" />
+                                        readonly="true" placeholder="TELEFONO" />
                                 </div>
                             </div>
 
@@ -56,8 +56,8 @@
                                     <div class="input-group-addon">
                                         <i class="fa fa-user"></i>
                                     </div>
-                                    <input type="text" class="form-control" id="tecnico" name="tecnico"
-                                        readonly="true" />
+                                    <input type="text" class="form-control" id="tecnico" name="tecnico" readonly="true"
+                                        placeholder="NOMBRE TECNICO" />
                                 </div>
                             </div>
                         </div>

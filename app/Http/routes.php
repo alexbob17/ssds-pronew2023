@@ -84,6 +84,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/llamadashome/reportes', 'ReportesController@usersAll')->name('usuarios_all')->middleware('auth');
 
+
 	Route::get('/llamadashome/reportes',  'ReportesController@generarReporte')->name('reporte.generar')->middleware('auth');
 
 	Route::get('/llamadashome/busqueda',  'BusquedaController@generarBusqueda')->name('busqueda.generar')->middleware('auth');

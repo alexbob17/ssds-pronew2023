@@ -1,60 +1,74 @@
-@extends('app') 
+@extends('app')
 
 @section('content')
 <div class="row">
-	<div class="col-md-12">
-		@if (session()->has('success_message'))
-            <div class="alert alert-success alert-dismissable">
-             	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-				<p>{{ session('success_message') }}</p>
-			</div>
-		@endif
-		<!-- general form elements -->
-		<div class="box box-warning">
-			<div class="box-header with-border">
-				<h3 class="box-title">Datos del Caso</h3>
-			</div>
-			<!-- /.box-header -->
-			<!-- form start -->
-        	{!! Form::open(['url' => '/nodos/registro', 'autocomplete' => 'off', 'enctype' => 'multipart/form-data']) !!}
-				<div class="box-body">
-					<div class="form-group-container">					
-						{!! Form::inputWithIcon('fa-user', 6, 'nombre_cliente', $errors, trans('nodos/registro.nombre_cliente'), null, trans('nodos/registro.ph_nombre_cliente')) !!}
-						{!! Form::inputWithIcon('fa-square', 6, 'no_contrato', $errors, trans('nodos/registro.no_contrato'), null, trans('nodos/registro.ph_no_contrato')) !!}
-					</div>
-					<div class="form-group-container">					
-						{!! Form::inputWithIcon('fa-map-o', 6, 'ubicacion_geografica', $errors, trans('nodos/registro.ubicacion_geografica'), null, trans('nodos/registro.ph_ubicacion_geografica')) !!}
-						{!! Form::inputWithIcon('fa-map-o', 6, 'barrio', $errors, trans('nodos/registro.barrio'), null, trans('nodos/registro.ph_barrio')) !!}
-					</div>
-					<div class="form-group-container">					
-						{!! Form::inputWithIcon('fa-map-o', 6, 'direccion', $errors, trans('nodos/registro.direccion'), null, trans('nodos/registro.ph_direccion')) !!}
-						{!! Form::inputWithIcon('fa-square', 6, 'codigo_dano', $errors, trans('nodos/registro.codigo_dano'), null, trans('nodos/registro.ph_codigo_dano')) !!}
-					</div>
-					<div class="form-group-container">		
-						{!! Form::dateWithIcon(6, 'fecha_registro_dano', $errors, trans('nodos/registro.fecha_registro_dano')) !!}
-						{!! Form::inputWithIcon('fa-square', 6, 'nodo_saturado', $errors, trans('nodos/registro.nodo_saturado'), null, trans('nodos/registro.ph_nodo_saturado')) !!}
-					</div>
-					<div class="form-group-container">					
-						{!! Form::inputWithIcon('fa-square', 6, 'nomenclatura_nodo', $errors, trans('nodos/registro.nomenclatura_nodo'), null, trans('nodos/registro.ph_nomenclatura_nodo')) !!}
-						{!! Form::selection(6, 'estado_gestion', $errors, $estados, null, trans('nodos/registro.estado_gestion'), trans('nodos/registro.ph_estado_gestion')) !!}
-					</div>
-					<div class="form-group-container">
-						{!! Form::dateWithIcon(6, 'fecha_fin_afectacion', $errors, trans('nodos/registro.fecha_fin_afectacion')) !!}
-					</div>
-					<div class="form-group-container">
-						{!! Form::inputTextArea(12, 'comentarios', $errors, null, null, trans('nodos/registro.ph_comentarios'), 4) !!}
-					</div>
-				</div>
-				<!-- /.box-body -->
-				<div class="box-footer">
-					{!! Form::submit('Guardar Caso', ['class' => 'btn btn-warning']) !!}
-				</div>
-			{!! Form::close() !!}
-		</div>
-		<!-- /.box -->
-	</div>
+    <div class="col-md-12">
+        @if (session()->has('success_message'))
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <p>{{ session('success_message') }}</p>
+        </div>
+        @endif
+        <!-- general form elements -->
+        <div class="box box-warning">
+            <div class="box-header with-border">
+                <h3 class="box-title">Datos del Caso</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            {!! Form::open(['url' => '/nodos/registro', 'autocomplete' => 'off', 'enctype' => 'multipart/form-data'])
+            !!}
+            <div class="box-body">
+                <div class="form-group-container">
+                    {!! Form::inputWithIcon('fa-user', 6, 'nombre_cliente', $errors,
+                    trans('nodos/registro.nombre_cliente'), null, trans('nodos/registro.ph_nombre_cliente')) !!}
+                    {!! Form::inputWithIcon('fa-square', 6, 'no_contrato', $errors, trans('nodos/registro.no_contrato'),
+                    null, trans('nodos/registro.ph_no_contrato')) !!}
+                </div>
+                <div class="form-group-container">
+                    {!! Form::inputWithIcon('fa-map-o', 6, 'ubicacion_geografica', $errors,
+                    trans('nodos/registro.ubicacion_geografica'), null, trans('nodos/registro.ph_ubicacion_geografica'))
+                    !!}
+                    {!! Form::inputWithIcon('fa-map-o', 6, 'barrio', $errors, trans('nodos/registro.barrio'), null,
+                    trans('nodos/registro.ph_barrio')) !!}
+                </div>
+                <div class="form-group-container">
+                    {!! Form::inputWithIcon('fa-map-o', 6, 'direccion', $errors, trans('nodos/registro.direccion'),
+                    null, trans('nodos/registro.ph_direccion')) !!}
+                    {!! Form::inputWithIcon('fa-square', 6, 'codigo_dano', $errors, trans('nodos/registro.codigo_dano'),
+                    null, trans('nodos/registro.ph_codigo_dano')) !!}
+                </div>
+                <div class="form-group-container">
+                    {!! Form::dateWithIcon(6, 'fecha_registro_dano', $errors,
+                    trans('nodos/registro.fecha_registro_dano')) !!}
+                    {!! Form::inputWithIcon('fa-square', 6, 'nodo_saturado', $errors,
+                    trans('nodos/registro.nodo_saturado'), null, trans('nodos/registro.ph_nodo_saturado')) !!}
+                </div>
+                <div class="form-group-container">
+                    {!! Form::inputWithIcon('fa-square', 6, 'nomenclatura_nodo', $errors,
+                    trans('nodos/registro.nomenclatura_nodo'), null, trans('nodos/registro.ph_nomenclatura_nodo')) !!}
+                    {!! Form::selection(6, 'estado_gestion', $errors, $estados, null,
+                    trans('nodos/registro.estado_gestion'), trans('nodos/registro.ph_estado_gestion')) !!}
+                </div>
+                <div class="form-group-container">
+                    {!! Form::dateWithIcon(6, 'fecha_fin_afectacion', $errors,
+                    trans('nodos/registro.fecha_fin_afectacion')) !!}
+                </div>
+                <div class="form-group-container">
+                    {!! Form::inputTextArea(12, 'comentarios', $errors, null, null,
+                    trans('nodos/registro.ph_comentarios'), 4) !!}
+                </div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+                {!! Form::submit('Guardar Caso', ['class' => 'btn btn-primary']) !!}
+            </div>
+            {!! Form::close() !!}
+        </div>
+        <!-- /.box -->
+    </div>
 </div>
-@endsection 
+@endsection
 
 @section('styles')
 <!-- Select2 -->
@@ -63,9 +77,11 @@
 <!-- User definided -->
 <link rel="stylesheet" href="{{ asset('/css/center-modal.css') }}">
 <style>
-[type="submit"]:disabled { cursor: default; }
+[type="submit"]:disabled {
+    cursor: default;
+}
 </style>
-@endsection 
+@endsection
 
 @section('scripts')
 <!-- datepicker -->

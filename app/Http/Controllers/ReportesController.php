@@ -8,6 +8,8 @@ use SSD\Models\agendamientosRealizados;
 use SSD\Models\Instalaciones\InstalacionDthAnulada;
 use SSD\Models\Instalaciones\InstalacionDthObjetada;
 use SSD\Models\Instalaciones\InstalacionDthRealizada;
+use SSD\Models\Instalaciones\InstalacionesDthRefresh;
+
 
 use SSD\Models\Instalaciones\InstalacionCobreAnulada;
 use SSD\Models\Instalaciones\InstalacionCobreObjetada;
@@ -28,6 +30,7 @@ use SSD\Models\Instalaciones\InstalacionHfcRealizada;
 use SSD\Models\Instalaciones\InstalacionHfcObjetada;
 use SSD\Models\Instalaciones\InstalacionHfcTransferida;
 use SSD\Models\Instalaciones\InstalacionHfcAnulada;
+use SSD\Models\Instalaciones\InstalacionesRefresh;
 
 
 use SSD\Models\Reparaciones\repacionesDth_Transferido;
@@ -621,6 +624,21 @@ class ReportesController extends Controller
             })
             ->get();
             
+        }else if ($llamada_motivo === 'INSTALACION' && $tecnologia === 'HFC' && $tipo_actividad === 'REFRESH') {
+            $resultados = InstalacionesRefresh::when($llamada_motivo !== 'INSTALACION', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
         }else if ($llamada_motivo === 'INSTALACION' && $tecnologia === 'HFC' && $tipo_actividad === 'PENDIENTES') {
             $instalacion_hfc_realizada_pendiente = InstalacionHfcRealizada::select('codigo_tecnico', 'tecnico','telefono','motivo_llamada', 'select_orden','dpto_colonia','tecnologia', 'tipo_actividad','orden_tv_hfc as N_OrdenTv','orden_internet_hfc as N_OrdenInternet','orden_linea_hfc as N_OrdenLinea','ObservacionesHfc as Comentarios', 'TrabajadoHfc as Trabajado','username_creacion','created_at')
                 ->where('TrabajadoHfc', 'PENDIENTE')
@@ -1147,6 +1165,21 @@ class ReportesController extends Controller
                     return $query->where('motivo_llamada', $llamada_motivo);
                 })->get();
 
+        }else if ($llamada_motivo === 'INSTALACION' && $tecnologia === 'DTH' && $tipo_actividad === 'REFRESH') {
+            $resultados = InstalacionesDthRefresh::when($llamada_motivo !== 'INSTALACION', function ($query) use ($llamada_motivo) {
+                return $query->where('motivo_llamada', $llamada_motivo);
+            })
+            ->when($selected_user !== 'TODOS', function ($query) use ($selected_user) {
+                return $query->where('username_creacion', $selected_user);
+            })
+            ->when($fecha_inicio, function ($query) use ($fecha_inicio) {
+                return $query->whereDate('created_at', '>=', $fecha_inicio);
+            })
+            ->when($fecha_fin, function ($query) use ($fecha_fin) {
+                return $query->whereDate('created_at', '<=', $fecha_fin);
+            })
+            ->get();
+            
         }else if ($llamada_motivo === 'REPARACIONES' && $tecnologia === 'COBRE' && $tipo_actividad === 'TRANSFERIDA') {
             $resultados = repacionesCobre_Transferido::when($llamada_motivo !== 'REPARACIONES', function ($query) use ($llamada_motivo) {
                 return $query->where('motivo_llamada', $llamada_motivo);

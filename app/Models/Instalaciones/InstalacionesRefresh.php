@@ -21,7 +21,6 @@ class InstalacionesRefresh extends Model
         'orden_internet_hfc',
         'orden_linea_hfc',
         'refreshSelect',
-        'TrabajadoRefresh',
         'ComentarioRefresh_Hfc',
         'username_creacion',
 		'username_atencion',
