@@ -13,7 +13,7 @@
                 <!-- <h3 class="box-title">Datos Busqueda</h3> -->
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
-            <form action="{{ route('busqueda.generar') }}" method="GET" id="form1" class="formulario box-body"
+            <form action="{{ route('busqueda.generar') }}" method="POST" id="form1" class="formulario box-body"
                 style="padding-top: 15px;">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
@@ -136,29 +136,21 @@ btn_clean.addEventListener("click", function() {
 
 
 
-@if(isset($message))
+@if(session('success'))
 <script>
-@if($message == '¡EXITO!')
 Swal.fire({
     icon: "success",
-    title: "{{$message}}",
-    text: "{{$messages}}",
+    title: "{{ session('message') }}",
+    text: "{{ session('messages') }}",
     showConfirmButton: false,
     timer: 1800,
 });
-@else
-Swal.fire({
-    icon: "error",
-    title: "{{$message}}",
-    text: "{{$messages}}",
-    showConfirmButton: false,
-    timer: 1700,
-}).then(function() {
+setTimeout(function() {
     window.location.href = "{{ route('busqueda.generar') }}";
-});
-@endif
+}, 1000);
 </script>
 @endif
+
 
 @endsection @section('styles')
 
@@ -193,29 +185,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-    checkboxes.forEach(function(checkbox) {
-        actualizarTextoCheckbox(checkbox);
-
-        checkbox.addEventListener("change", function() {
-            actualizarTextoCheckbox(checkbox);
-        });
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-
-});
-</script>
 
 
 

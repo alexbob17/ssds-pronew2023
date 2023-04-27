@@ -87,10 +87,11 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/llamadashome/reportes',  'ReportesController@generarReporte')->name('reporte.generar')->middleware('auth');
 
-	Route::get('/llamadashome/busqueda',  'BusquedaController@generarBusqueda')->name('busqueda.generar')->middleware('auth');
+	Route::post('/llamadashome/busqueda',  'BusquedaController@generarBusqueda')->name('busqueda.generar')->middleware('auth');
 
 	Route::post('/llamadashome/editar/instalaciones', 'ActualizarDatos@editar')->name('mostrarEditar');
 
+	Route::put('/llamadashome/editar/instalaciones/{id}', 'ActualizarDatos@actualizar')->name('actualizarDatos');
 
 
 	// Route::get('/editar/{id}', 'TuControlador@editar')->name('editar');

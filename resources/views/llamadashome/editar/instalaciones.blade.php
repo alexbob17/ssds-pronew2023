@@ -1,4 +1,10 @@
 @extends('app') @section('content')
+
+<head>
+    <script src="{{asset('/js/actualizarDatos/instalacionesActualizar.js')}}" type="text/javascript"></script>
+
+</head>
+
 <div class="row">
     <div class="col-md-12">
         @if (session()->has('success_message'))
@@ -8,13 +14,13 @@
         </div>
         @endif
         <!-- general form elements -->
-        <div class="box box-warning">
-            <div class="box-header with-border">
-                <h3 class="box-title">Datos del Caso</h3>
+        <div class="box box-warning" style="border-top:none !important">
+            <div class="box-header with-border" style="background:#666 !important">
+                <h3 class="box-title">Editar Caso</h3>
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
-            <form action="{{ route('registro_llamadas.store') }}" method="POST" id="form1" class="formulario box-body"
-                style="border-bottom: 3px solid #3e69d6; padding-top: 15px;">
+            <form action="{{ route('actualizarDatos', $registro->id) }}" method="POST" id="form1"
+                class="formulario box-body" style="">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                 <input type="hidden" name="_method" value="PUT">
@@ -32,7 +38,7 @@
                             <input type="text" class="form-control effect-8" placeholder="N° Codigo Tecnico"
                                 id="codigo_tecnico" name="codigo_tecnico"
                                 oninput="this.value = this.value.toUpperCase()" required
-                                value="{{ $registro->codigo_tecnico}}" disabled />
+                                value="{{ $registro->codigo_tecnico}}" readonly="true" />
                         </div>
                     </div>
 
@@ -79,7 +85,7 @@
                         <label for="tecnologia">Tecnologia</label>
                         <select class="form-control" style="width: 100%;" name="tecnologia" tabindex="-1"
                             id="tecnologia" aria-hidden="true" required>
-                            <option value="{{ $registro->tecnologia}}">{{ $registro->tecnologia}}</option>
+                            <option value="HFC" selected>HFC</option>
                         </select>
                     </div>
                     <div class="form-group col-md-3" id="select_ordenhide">
@@ -97,8 +103,10 @@
                         </select>
                     </div>
 
-                    <!-- FORMULARIO #2 HFC -->
 
+
+                    @if ($registro->tecnologia === 'HFC')
+                    <!-- FORMULARIO #2 HFC -->
                     <div id="form2" class="form-group-container formulario">
                         <div class="form-group-container" style="margin-top: 2.5rem;">
                             <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
@@ -111,7 +119,7 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control OrdenHfc" id="orden_tv_hfc"
-                                        name="orden_tv_hfc" disabled placeholder="N° Orden Tv" autocomplete="off"
+                                        name="orden_tv_hfc" placeholder="N° Orden Tv" autocomplete="off"
                                         value="{{ $registro->orden_tv_hfc}}" />
                                 </div>
                             </div>
@@ -122,8 +130,8 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control OrdenHfc" id="orden_internet_hfc"
-                                        name="orden_internet_hfc" disabled placeholder="N° Orden Internet"
-                                        autocomplete="off" value="{{ $registro->orden_internet_hfc}}" />
+                                        name="orden_internet_hfc" placeholder="N° Orden Internet" autocomplete="off"
+                                        value="{{ $registro->orden_internet_hfc}}" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
@@ -133,25 +141,33 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control OrdenHfc" id="orden_linea_hfc"
-                                        name="orden_linea_hfc" disabled placeholder="N° Orden Linea" autocomplete="off"
+                                        name="orden_linea_hfc" placeholder="N° Orden Linea" autocomplete="off"
                                         value="{{ $registro->orden_linea_hfc}}" />
                                 </div>
                             </div>
                         </div>
+
+                        <input type="hidden" id="tipo_actividad_value" value="{{ $registro->tipo_actividad }}">
+
                         <div class="form-group-container">
                             <div class="TipoActividad_Hidden" style="margin-top: 2.5rem;">
                                 <div class="form-group col-md-3">
                                     <label for="tipo_actividad">Tipo Actividad</label>
                                     <select class="form-control tipo_actividad" style="width: 100%;"
                                         name="tipo_actividad" tabindex="-1" id="tipo_actividad" aria-hidden="true">
-                                        <option value="{{ $registro->tipo_actividad}}">{{ $registro->tipo_actividad}}
+                                        <option value="{{ $registro->tipo_actividad}}" selected>
+                                            {{ $registro->tipo_actividad}}
                                         </option>
+
                                     </select>
+
                                 </div>
                             </div>
                         </div>
 
                         <!-- INPUTS HFC REALIZADA -->
+
+                        @if ($registro->tipo_actividad === 'REALIZADA')
 
                         <div class="form-group-container box-warning FormHfc_Hidden" id="formHfc_Realizada">
                             <div class="form-group col-md-3" id="hideEquipoTv">
@@ -213,7 +229,8 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="syrengHfc"
-                                        placeholder="Ingresa SYRENG" name="syrengHfc" autocomplete="off" />
+                                        placeholder="Ingresa SYRENG" name="syrengHfc" value="{{ $registro->syrengHfc}}"
+                                        autocomplete="off" />
                                 </div>
                             </div>
 
@@ -224,8 +241,8 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="text" placeholder="Ingresa SAP" class="form-control" id="sapHfc"
-                                        name="sapHfc" oninput="this.value = this.value.toUpperCase()"
-                                        autocomplete="off" />
+                                        name="sapHfc" oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                        value="{{ $registro->sapHfc}}" />
                                 </div>
                             </div>
 
@@ -239,7 +256,8 @@
                                     </div>
                                     <input type="text" class="form-control" id="EquipoModem_Hfc" name="EquipoModem_Hfc"
                                         placeholder="Ingresa Equipo Modem"
-                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                        oninput="this.value = this.value.toUpperCase()"
+                                        value="{{ $registro->EquipoModem_Hfc}}" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -252,7 +270,8 @@
                                         <i class="fa fa-ticket"></i>
                                     </div>
                                     <input type="number" class="form-control" id="numeroVoip_hfc" name="numeroVoip_hfc"
-                                        placeholder="Ingresa Numero Voip" autocomplete="off" />
+                                        placeholder="Ingresa Numero Voip" value="{{ $registro->numeroVoip_hfc}}"
+                                        autocomplete="off" />
                                 </div>
                             </div>
                             <div class="form-group col-md-3">
@@ -264,7 +283,8 @@
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                     <input type="text" class="form-control" id="GeorefHfc" name="GeorefHfc"
-                                        placeholder="Latitud, Longitud" autocomplete="off" />
+                                        placeholder="Latitud, Longitud" autocomplete="off"
+                                        value="{{ $registro->GeorefHfc}}" />
                                 </div>
                             </div>
                             <div class="from-group col-md-3">
@@ -272,11 +292,13 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoHfc"
-                                                name="TrabajadoHfc" />
+                                                name="TrabajadoHfc" value="TRABAJADO"
+                                                {{ $registro->TrabajadoHfc === 'TRABAJADO' ? 'checked' : '' }}>
                                             <label class="form-check-label" for="TrabajadoHfc">
                                                 Trabajado
                                             </label>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -294,7 +316,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObservacionesHfc"
                                             name="ObservacionesHfc" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()"
+                                            value="{{ $registro->ObservacionesHfc}}" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -308,6 +331,7 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeHfc" name="RecibeHfc"
+                                            value="{{ $registro->RecibeHfc}}"
                                             oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
@@ -332,7 +356,7 @@
                                                     <input type="text" class="form-control" id="NodoHfc" name="NodoHfc"
                                                         placeholder="Ingresa Nodo"
                                                         oninput="this.value = this.value.toUpperCase()"
-                                                        autocomplete="off" />
+                                                        autocomplete="off" value="{{ $registro->NodoHfc}}" />
                                                 </div>
                                             </div>
 
@@ -345,7 +369,8 @@
                                                         <i class="fa fa-square"></i>
                                                     </div>
                                                     <input type="number" class="form-control" id="TapHfc" name="TapHfc"
-                                                        placeholder="Ingresa TAP" autocomplete="off" />
+                                                        placeholder="Ingresa TAP" autocomplete="off"
+                                                        value="{{ $registro->TapHfc}}" />
                                                 </div>
                                             </div>
 
@@ -359,7 +384,7 @@
                                                     </div>
                                                     <input type="number" class="form-control" id="PosicionHfc"
                                                         name="PosicionHfc" placeholder="Ingresa Posicion"
-                                                        autocomplete="off" />
+                                                        autocomplete="off" value="{{ $registro->PosicionHfc}}" />
                                                 </div>
                                             </div>
 
@@ -374,7 +399,7 @@
                                                     <input type="text" class="form-control" id="MaterialesHfc"
                                                         name="MaterialesHfc" placeholder="Comentarios..."
                                                         oninput="this.value = this.value.toUpperCase()"
-                                                        autocomplete="off" />
+                                                        autocomplete="off" value="{{ $registro->MaterialesHfc}}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -382,7 +407,11 @@
                                 </div>
                             </div>
                         </div>
+
+                        @endif
                         <!-- INPUTS HFC OBJETADA -->
+
+                        @if ($registro->tipo_actividad === 'OBJETADA')
 
                         <div class="form-group-container FormHfc_Hidden" id="formHfc_Objetada">
                             <div class="from-group-container">
@@ -392,22 +421,9 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjetada_Hfc" tabindex="-1"
                                             id="MotivoObjetada_Hfc" aria-hidden="true">
-                                            <option value="">SELECCIONE UNA OPCION</option>
-                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option value="{{ $registro->MotivoObjetada_Hfc}}">
+                                                {{ $registro->MotivoObjetada_Hfc}}
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
-                                            </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
-                                                OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
-                                                INCOMPLETOS / ERRADOS </option>
-                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
-                                            </option>
-                                            <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
-                                            <option value="OTROS"> OTROS </option>
                                         </select>
                                     </div>
                                 </div>
@@ -416,8 +432,9 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaHfc"
-                                                name="TrabajadoObjetadaHfc" />
-                                            <label class="form-check-label">
+                                                name="TrabajadoObjetadaHfc"
+                                                {{ $registro->TrabajadoObjetadaHfc === 'TRABAJADO' ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="TrabajadoObjetadaHfc">
                                                 Trabajado
                                             </label>
                                         </div>
@@ -434,13 +451,17 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentariosObjetados_Hfc"
                                             name="ComentariosObjetados_Hfc" placeholder="Comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()"
+                                            value="{{ $registro->ComentariosObjetados_Hfc}}" autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+                        @endif
                         <!-- INPUTS HFC TRANSFERIDA -->
+
+                        @if ($registro->tipo_actividad === 'TRANSFERIDA')
 
                         <div class="form-group-container FormHfc_Hidden" id="formHfc_Transferida">
                             <div class="form-group col-md-9">
@@ -484,6 +505,10 @@
                             </div>
                         </div>
 
+                        @endif
+
+
+                        @if ($registro->tipo_actividad === 'ANULADA')
                         <!-- ACTIVIDAD ANULADA HFC -->
                         <div class="form-group-container FormHfc_Hidden" id="formHfc_Anulada">
                             <div class="form-group-container">
@@ -559,6 +584,9 @@
                             </div>
                         </div>
 
+                        @endif
+
+                        @if ($registro->tipo_actividad === 'REFRESH')
                         <!-- ACTIVIDAD REFREH HFC -->
                         <div class="form-group-container FormHfc_Hidden" id="formHfc_Refresh">
                             <div class="form-group-container">
@@ -591,8 +619,12 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
+                    @endif
                 </div>
+
+                @if ($registro->tecnologia === 'ADSL')
                 <!-- FORMULARIO #3 ADSL -->
                 <div id="form3" class="form-group-container formulario">
                     <div class="form-group col-md-3">
@@ -753,58 +785,7 @@
 
                     <!-- TIPO ACTIVIDAD TRANSFERIDA (ADSL) -->
                     <div class="form-group-container FormAdsl_Hidden" id="formAdsl_Transferida">
-                        <div class="form-group-container">
-                            <div class="form-group col-md-3">
-                                <label for="OrdenAdsl_Transferida">
-                                    Orden
-                                </label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-ticket"></i>
-                                    </div>
-                                    <input type="number" class="form-control" id="OrdenAdsl_Transferida"
-                                        name="OrdenAdsl_Transferida" autocomplete="off" />
-                                </div>
-                            </div>
 
-                            <div class="form-group col-md-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="TrabajadoTransferido_Adsl" />
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Trabajado
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-12">
-                                <label for="MotivoTransferidoAdsl">
-                                    Motivo Transferido
-                                </label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-exclamation-triangle"></i>
-                                    </div>
-                                    <input type="text" class="form-control" id="MotivoTransferidoAdsl"
-                                        name="MotivoTransferidoAdsl" oninput="this.value = this.value.toUpperCase()"
-                                        autocomplete="off" />
-                                </div>
-                            </div>
-
-                            <div class="form-group col-md-12">
-                                <label for="ComentariosAdsl_Transferidos">
-                                    Comentarios
-                                </label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-edit"></i>
-                                    </div>
-                                    <input type="text" class="form-control" id="ComentariosAdsl_Transferidos"
-                                        name="ComentariosAdsl_Transferidos"
-                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- ACTIVIDAD ANULADA ADSL -->
@@ -882,6 +863,9 @@
                         </div>
                     </div>
                 </div>
+                @endif
+
+                @if ($registro->tecnologia === 'DTH')
                 <!-- FORMULARIO #4 DTH -->
                 <div id="form4" class="form-group-container">
                     <div class="form-group-container">
@@ -1263,6 +1247,9 @@
                         </div>
                     </div>
                 </div>
+                @endif
+
+                @if ($registro->tecnologia === 'COBRE')
                 <!-- FORMULARIO #5 COBRE-->
                 <div id="form5" class="form-group-container">
                     <div class="form-group col-md-3">
@@ -1573,6 +1560,9 @@
                         </div>
                     </div>
                 </div>
+                @endif
+
+                @if ($registro->tecnologia === 'GPON')
                 <!-- FORMULARIO #6 GPON-->
                 <div id="form6" class="form-group-container">
                     <div class="form-group-container">
@@ -1996,27 +1986,30 @@
                         </div>
                     </div>
                 </div>
+                @endif
 
                 <div class="box-footer" id="btn-submitForm"
                     style="text-align: center; display: flex; justify-content: center;">
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"
-                            style="padding-right: 8px;"></i>GUARDAR REGISTRO</button>
+                            style="padding-right: 8px;"></i>ACTUALIZAR REGISTRO</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-@if(isset($message))
+@if(session('success'))
 <script>
 Swal.fire({
     icon: "success",
-    title: "{{$message}}",
-    text: "{{$messages}}",
+    title: "{{ session('message') }}",
+    text: "{{ session('messages') }}",
     showConfirmButton: false,
     timer: 1800,
 });
-// window.location = window.location;
+setTimeout(function() {
+    window.location.href = "{{ route('busqueda.generar') }}";
+}, 2000);
 </script>
 @endif
 
@@ -2052,144 +2045,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    var checkbox = document.getElementById("TrabajadoAdsl");
-    actualizarTextoCheckbox(checkbox);
 
-    checkbox.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkbox);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxAdslObjetado = document.getElementById("TrabajadoAdslObjetado");
-    actualizarTextoCheckbox(checkboxAdslObjetado);
-
-    checkboxAdslObjetado.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxAdslObjetado);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxCobre = document.getElementById("TrabajadoCobre");
-    actualizarTextoCheckbox(checkboxCobre);
-
-    checkboxCobre.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxCobre);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxCobreObjetado = document.getElementById("TrabajadoCobre_Objetado");
-    actualizarTextoCheckbox(checkboxCobreObjetado);
-
-    checkboxCobreObjetado.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxCobreObjetado);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxDth = document.getElementById("TrabajadoDth");
-    actualizarTextoCheckbox(checkboxDth);
-
-    checkboxDth.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxDth);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxGpon = document.getElementById("TrabajadoGpon");
-    actualizarTextoCheckbox(checkboxGpon);
-
-    checkboxGpon.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxGpon);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxGponObjetado = document.getElementById("TrabajadoGpon_Objetado");
-    actualizarTextoCheckbox(checkboxGponObjetado);
-
-    checkboxGponObjetado.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxGponObjetado);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxGponTransferido = document.getElementById("TrabajadoTransferido_Gpon");
-    actualizarTextoCheckbox(checkboxGponTransferido);
-
-    checkboxGponTransferido.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxGponTransferido);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxGponTrabajadoHfc = document.getElementById("TrabajadoHfc");
-    actualizarTextoCheckbox(checkboxGponTrabajadoHfc);
-
-    checkboxGponTrabajadoHfc.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxGponTrabajadoHfc);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-});
-</script>
 
 <!-- Select2 -->
 <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
@@ -2212,9 +2068,9 @@ document.addEventListener("DOMContentLoaded", function() {
 <!-- boostrap-fileinput -->
 <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('/plugins/bootstrap-fileinput/js/fileinput_locale_es.js') }}" type="text/javascript"></script>
+
 <!-- User definided -->
 <!-- <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script> -->
-<script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
 <!-- <script src="{{asset('/js/registro/ValidacionTecnico.js')}}" type="text/javascript"></script> -->
 <!-- <script src="{{asset('/js/instalaciones/ValoresTecnico.js')}}" type="text/javascript"></script> -->
 

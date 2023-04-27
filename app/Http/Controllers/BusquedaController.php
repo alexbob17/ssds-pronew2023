@@ -28,10 +28,17 @@ class BusquedaController extends Controller
 		$breadcrumb = [
 				['name' => 'Busqueda - Saturado' ]
 		];		
+
+		$resultados = [];
+        $NumeroOrden = null;
 		
-		return view('llamadashome/busqueda')
-			->with('page_title', 'Busqueda - Registros')
-			->with('navigation', 'Busqueda - Registros');
+		return view('llamadashome/busqueda', [
+			'resultados' => $resultados,
+			'NumeroOrden' => $NumeroOrden,
+
+		])
+		->with('page_title', 'Busqueda - Registros')
+		->with('navigation', 'Busqueda - Registros');	
 	}
 
 	public function usersAll()

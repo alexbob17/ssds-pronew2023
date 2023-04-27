@@ -388,7 +388,7 @@ select_orden.addEventListener("change", function () {
   var options = {
     "INSTALACION DE CLARO HOGAR": [false, false, false],
     "DOBLE - INTERNET + LINEA": [false, true, false],
-    "DOBLE - TV + INTERNET": [false, true, true],
+    // "DOBLE - TV + INTERNET": [false, true, true],
     "DOBLE - TV + INTERNET": [false, false, true],
     // "INTERNET INDIVIDUAL": [true, false, true],
     "LINEA INDIVIDUAL": [true, true, false],
@@ -427,18 +427,18 @@ select_orden.addEventListener("change", function () {
 
 // FETCH LOCALIZACIONES
 
-// fetch("../Json/Localizaciones.json")
-//   .then((response) => response.json())
-//   .then((datos) => {
-//     var select_dpto = document.getElementById("dpto_colonia");
-//     select_dpto.innerHTML = "<option value=''>SELECCIONE UNA OPCION</option>";
-//     for (var i = 0; i < datos.length; i++) {
-//       var option = document.createElement("option");
-//       option.value = datos[i].DEPTO + datos[i].COLONIA;
-//       option.text = datos[i].DEPTO + datos[i].COLONIA;
-//       select_dpto.add(option);
-//     }
-//   });
+fetch("../Json/Localizaciones.json")
+  .then((response) => response.json())
+  .then((datos) => {
+    var select_dpto = document.getElementById("dpto_colonia");
+    select_dpto.innerHTML = "<option value=''>SELECCIONE UNA OPCION</option>";
+    for (var i = 0; i < datos.length; i++) {
+      var option = document.createElement("option");
+      option.value = datos[i].DEPTO + datos[i].COLONIA;
+      option.text = datos[i].DEPTO + datos[i].COLONIA;
+      select_dpto.add(option);
+    }
+  });
 
 // SELECCION TIPO ACTIVIDAD
 
