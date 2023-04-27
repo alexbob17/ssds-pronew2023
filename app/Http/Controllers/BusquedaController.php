@@ -52,7 +52,10 @@ class BusquedaController extends Controller
 
 	public function generarBusqueda(Request $request)
 	{
+
 		$NumeroOrden = $request->input('NordenBusqueda');
+		$resultados = [];
+
 	
 		if (!empty($NumeroOrden)) {
 			$columnas = [
@@ -75,20 +78,45 @@ class BusquedaController extends Controller
 				'instalaciongpon_realizada' => ['TrabajadoGpon'],
 				'instalaciongpon_transferida' => ['TrabajadoTransferido_Gpon'],
 			];
+
+			$tipo_actividad_properties = [
+				'instalacionhfc_realizada' => ['tipo_actividad'] ,
+				'instalacionhfc_objetada' => ['tipo_actividad'],
+				'instalacionhfc_anulada' => ['tipo_actividad'],
+				'instalacionhfc_transferida' => ['tipo_actividad'],
+				'instalaciongpon_anulada' => ['tipo_actividadGpon'],
+				'instalaciongpon_objetada' => ['tipo_actividadGpon'],
+				'instalaciongpon_realizada' => ['tipo_actividadGpon'],
+				'instalaciongpon_transferida' => ['tipo_actividadGpon'],
+			];
 			
 			$resultados = [];
+			
 			
 			foreach ($columnas as $tabla => $columnas_tabla) {
 				foreach ($columnas_tabla as $columna) {
 					$resultados_tabla = DB::table($tabla)
 						->where($columna, '=', $NumeroOrden)
 						->get();
-						
+	
 					$resultados = array_merge($resultados, $resultados_tabla);
 				}
 			}
+	
+			foreach ($resultados as $resultado) {
+				foreach ($status as $clave => $valores) {
+					foreach ($valores as $valor) {
+						if (property_exists($resultado, $valor)) {
+							$resultado->estatus = $resultado->{$valor};
+							$propiedad_actividad_tipo = $tipo_actividad_properties[$clave][0];
+							$resultado->actividad_tipo = $resultado->{$propiedad_actividad_tipo};
+							break;
+						}
+					}
+				}
+			}
 
-
+			
 			foreach ($resultados as $resultado) {
 				foreach ($status as $clave => $valores) {
 					foreach ($valores as $valor) {
@@ -98,6 +126,8 @@ class BusquedaController extends Controller
 						}
 					}
 				}
+				
+				$resultado->NumeroOrden = $NumeroOrden; // Se agrega la propiedad NumeroOrden al objeto $resultado	
 			}
 
 			
@@ -112,7 +142,7 @@ class BusquedaController extends Controller
 		return view('llamadashome/busqueda', [
 			'resultados' => $resultados,
 			'NumeroOrden' => $NumeroOrden,
-			
+
 		])
 		->with('page_title', 'Busqueda - Registros')
 		->with('navigation', 'Busqueda - Registros');			

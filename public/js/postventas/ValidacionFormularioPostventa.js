@@ -3204,6 +3204,122 @@ form.addEventListener("submit", function (event) {
         }
       }
       break;
+    case "RECONEXION / RETIRO|DTH":
+      const TipoActividadReconexionDth = document.getElementById(
+        "TipoActividadReconexionDth"
+      ).value;
+      const EquipoModemRetiroDth = document.getElementById(
+        "EquipoModemRetiroDth"
+      ).value;
+
+      const OrdenRetiroDth = document.getElementById("OrdenRetiroDth").value;
+      const TrabajadoRetiroDth =
+        document.getElementById("TrabajadoRetiroDth").value;
+      const ObvsRetiroDth = document.getElementById("ObvsRetiroDth").value;
+      const RecibeRetiroDth = document.getElementById("RecibeRetiroDth").value;
+      const MaterialesRetiroDth = document.getElementById(
+        "MaterialesRetiroDth"
+      ).value;
+
+      if (TipoActividadReconexionDth === "REALIZADA") {
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadReconexionDth === "" ||
+          EquipoModemRetiroDth === "" ||
+          OrdenRetiroDth === "" ||
+          TrabajadoRetiroDth === "" ||
+          ObvsRetiroDth === "" ||
+          RecibeRetiroDth === "" ||
+          MaterialesRetiroDth === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        if (parseInt(OrdenRetiroDth.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° Orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        if (parseInt(EquipoModemRetiroDth.length) !== 12) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° de equipo debe tener 12 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (TipoActividadReconexionDth === "ANULACION") {
+        const MotivoRetiroAnulada_Dth = document.getElementById(
+          "MotivoRetiroAnulada_Dth"
+        ).value;
+        const OrdenRetiroAnulacionDth = document.getElementById(
+          "OrdenRetiroAnulacionDth"
+        ).value;
+        const TrabajadoRetiroAnulada_Dth = document.getElementById(
+          "TrabajadoRetiroAnulada_Dth"
+        ).value;
+        const ComentsRetiroAnulada_Dth = document.getElementById(
+          "ComentsRetiroAnulada_Dth"
+        ).value;
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          Select_Postventa === "" ||
+          select_orden === "" ||
+          dpto_colonia === "" ||
+          tecnologia === "" ||
+          TipoActividadReconexionDth === "" ||
+          MotivoRetiroAnulada_Dth === "" ||
+          TrabajadoRetiroAnulada_Dth === "" ||
+          OrdenRetiroAnulacionDth === "" ||
+          ComentsRetiroAnulada_Dth === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+        if (parseInt(OrdenRetiroAnulacionDth.length) !== 8) {
+          // checkError.style.display = "block";
+          Swal.fire({
+            icon: "error",
+            title: "El N° Orden debe tener 8 digitos",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      }
+      break;
     case "CAMBIO NUMERO COBRE|COBRE":
       const TipoActividadCambioNumeroCobre = document.getElementById(
         "TipoActividadCambioNumeroCobre"

@@ -4875,6 +4875,190 @@
                     </div>
                 </div>
 
+                <!-- POSTVENTA RECONEXION RETIRO DTH-->
+                <div class="form-group-container">
+                    <div class="form-group-container" id="PostventaReconexionDth">
+                        <div class="form-group col-md-3">
+                            <label for="TipoActividadReconexionDth">Tipo Actividad</label>
+                            <select class="form-control tipo_actividad" style="width: 100%;"
+                                name="TipoActividadReconexionDth" id="TipoActividadReconexionDth" tabindex="-1"
+                                aria-hidden="true">
+                                <option selected="selected">SELECCIONE UNA OPCION</option>
+                                <option value="REALIZADA">REALIZADA</option>
+                                <option value="OBJETADA">OBJETADA</option>
+                                <option value="ANULACION">ANULACION</option>
+                            </select>
+                        </div>
+                        <!-- REALIZADA -->
+                        <div class="PostventaReconexionDthHidden" id="RealizaReconexionDth">
+                            <div class="form-group-container">
+                                <div class="form-group col-md-3">
+                                    <label for="EquipoModemRetiroDth">
+                                        Equipo a retirar
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="EquipoModemRetiroDth"
+                                            placeholder="N° Equipo" name="EquipoModemRetiroDth"
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenRetiroDth"> Orden </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="OrdenRetiroDth"
+                                            placeholder="N° Orden" name="OrdenRetiroDth" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="TrabajadoRetiroDth"
+                                                name="TrabajadoRetiroDth" />
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="ObvsRetiroDth">
+                                        Observaciones
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-eye"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ObvsRetiroDth" name="ObvsRetiroDth"
+                                            placeholder="Ingresa las observaciones del caso"
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="RecibeRetiroDth">
+                                        Recibe
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" placeholder="Ingresa quien recibe el caso"
+                                            class="form-control" id="RecibeRetiroDth" name="RecibeRetiroDth"
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="MaterialesRetiroDth">
+                                        Materiales
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="MaterialesRetiroDth"
+                                            name="MaterialesRetiroDth" placeholder="Comentarios..."
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="ObjetadaReconexionDth"></div>
+
+                        <!-- ANULACION -->
+                        <div class="PostventaReconexionDthHidden" id="AnuladaReconexionDth">
+                            <div class="form-group-container">
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-4">
+                                        <label for="MotivoRetiroAnulada_Dth">Motivo Anulación</label>
+                                        <select class="form-control select2 select2-hidden-accessible"
+                                            style="width: 100%;" name="MotivoRetiroAnulada_Dth" tabindex="-1"
+                                            id="MotivoRetiroAnulada_Dth" aria-hidden="true">
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option value="CASA CERRADA">CASA CERRADA </option>
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                                CONDICIONES DE INSTALACION </option>
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            </option>
+                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
+                                                SOLICITA INSTALACION CON FECHA POSTERIOR </option>
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                                TECNICAS (DISTANCIA NO PERMITIDA) </option>
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                                REGISTRADA CON EXCEDENTE DE CARACTERES </option>
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            </option>
+                                            <option value="FALTA POSTERIA">FALTA POSTERIA </option>
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                                EN CENTRAL CONCENTRADOR O SHELTER </option>
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
+                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
+                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
+                                            </option>
+                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS </option>
+                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
+                                                PERO NO ACTIVA </option>
+                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL </option>
+                                            <option value="NO HAY RED"> NO HAY RED </option>
+                                            <option value="RED SATURADA"> RED SATURADA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                            <option
+                                                value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    <label for="OrdenRetiroAnulacionDth"> Orden </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-ticket"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="OrdenRetiroAnulacionDth"
+                                            placeholder="N° Orden" name="OrdenRetiroAnulacionDth" autocomplete="off" />
+                                    </div>
+                                </div>
+
+                                <div class="from-group-container">
+                                    <div class="form-group col-md-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"
+                                                id="TrabajadoRetiroAnulada_Dth" name="TrabajadoRetiroAnulada_Dth" />
+                                            <label class="form-check-label">
+                                                Trabajado
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-12">
+                                    <label for="ComentsRetiroAnulada_Dth">
+                                        Comentarios
+                                    </label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-edit"></i>
+                                        </div>
+                                        <input type="text" class="form-control" id="ComentsRetiroAnulada_Dth"
+                                            name="ComentsRetiroAnulada_Dth" placeholder="Ingresa comentarios del caso"
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- POSTVENTA CAMBIO NUMERO DE COBRE -->
                 <div class="form-group-container">
                     <div class="form-group-container" id="PostventaCambioNumeroCobre">

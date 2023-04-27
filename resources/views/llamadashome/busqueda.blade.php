@@ -67,59 +67,34 @@
 
                 </thead>
                 <tbody>
+
                     @foreach($resultados as $resultado)
                     <tr>
                         <td>{{ $resultado->codigo_tecnico }}</td>
                         <td>{{ $resultado->tecnico }}</td>
                         <td>{{ $resultado->motivo_llamada }}</td>
                         <td>{{$resultado->tecnologia}}</td>
-                        <td>
-                            @if(property_exists($resultado, 'tipo_actividad'))
-                            {{ $resultado->tipo_actividad }}
-                            @elseif(property_exists($resultado, 'tipo_actividadGpon'))
-                            {{ $resultado->tipo_actividadGpon }}
-                            @else
-                            @endif
-                        </td>
-
-                        <td>
-                            @if(property_exists($resultado, 'orden_tv_hfc') && $resultado->orden_tv_hfc == $NumeroOrden)
-                            {{ $resultado->orden_tv_hfc }}<br>
-                            @endif
-                            @if(property_exists($resultado, 'orden_internet_hfc') && $resultado->orden_internet_hfc ==
-                            $NumeroOrden)
-                            {{ $resultado->orden_internet_hfc }}<br>
-                            @endif
-                            @if(property_exists($resultado, 'orden_linea_hfc') && $resultado->orden_linea_hfc ==
-                            $NumeroOrden)
-                            {{ $resultado->orden_linea_hfc }}<br>
-                            @endif
-                            @if(property_exists($resultado, 'OrdenInternet_Gpon') && $resultado->OrdenInternet_Gpon ==
-                            $NumeroOrden)
-                            {{ $resultado->OrdenInternet_Gpon }}<br>
-                            @endif
-                            @if(property_exists($resultado, 'OrdenTv_Gpon') && $resultado->OrdenTv_Gpon == $NumeroOrden)
-                            {{ $resultado->OrdenTv_Gpon }}<br>
-                            @endif
-                            @if(property_exists($resultado, 'OrdenLinea_Gpon') && $resultado->OrdenLinea_Gpon ==
-                            $NumeroOrden)
-                            {{ $resultado->OrdenLinea_Gpon }}<br>
-                            @endif
-                        </td>
-
+                        <td>{{ $resultado->actividad_tipo}}</td>
+                        <td>{{ $resultado->NumeroOrden }}</td>
                         <td
                             class="@if($resultado->estatus == 'TRABAJADO') btn btnTrabajado @elseif($resultado->estatus == 'PENDIENTE') btn btnPendiente @endif">
                             {{$resultado->estatus}}</td>
-
-
-
                         <td>{{ $resultado->username_creacion }}</td>
                         <td>{{ $resultado->created_at }}</td>
+                        <td>
+                            <form action="{{ route('mostrarEditar') }}" method="POST">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
+                                <input type="hidden" name="id" value="{{ $resultado->id }}">
+                                <input type="hidden" name="motivo_llamada" value="{{ $resultado->motivo_llamada }}">
+                                <input type="hidden" name="NumeroOrden" value="{{ $resultado->NumeroOrden }}">
+                                <input type="hidden" name="actividad_tipo" value="{{ $resultado->actividad_tipo }}">
+                                <input type="hidden" name="tecnologia" value="{{ $resultado->tecnologia }}">
+                                <button type="submit" class="btn btn-warning"><i class="fa fa-pencil-square-o"
+                                        aria-hidden="true"></i></button>
+                            </form>
+                        </td>
 
-
-                        <td> <button class="btn btn-warning"><i class="fa fa-pencil-square-o"
-                                    aria-hidden="true"></i></button></td>
 
                     </tr>
                     @endforeach

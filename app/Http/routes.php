@@ -89,9 +89,14 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/llamadashome/busqueda',  'BusquedaController@generarBusqueda')->name('busqueda.generar')->middleware('auth');
 
+	Route::post('/llamadashome/editar/instalaciones', 'ActualizarDatos@editar')->name('mostrarEditar');
 
 
 
+	// Route::get('/editar/{id}', 'TuControlador@editar')->name('editar');
+	// Route::get('/llamadashome/editar/instalaciones/{id}/{motivo_llamada}/{NumeroOrden}/{actividad_tipo}/{tecnologia}', 'ActualizarDatos@editar')->name('mostrarEditar');
+
+	
 
 
 

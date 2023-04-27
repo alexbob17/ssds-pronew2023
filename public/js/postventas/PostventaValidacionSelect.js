@@ -36,6 +36,10 @@ const PostventaReconexionHfc = document.getElementById(
   "PostventaReconexionHfc"
 );
 
+const PostventaReconexionDth = document.getElementById(
+  "PostventaReconexionDth"
+);
+
 // OBTENEMOS LOS FORMS GENERALES DE POSTVENTA CAMBIO NUMERO
 
 const PostventaCambioNumeroCobre = document.getElementById(
@@ -63,6 +67,7 @@ const elementsToHide = [
   PostventaCambioDth,
   PostventaMigracionHfc,
   PostventaReconexionHfc,
+  PostventaReconexionDth,
   PostventaCambioNumeroCobre,
   btn_submit,
 ];
@@ -85,6 +90,7 @@ const tiposActividad = [
   "TipoActividadCambioCobre",
   "TipoActividadMigracionHfc",
   "TipoActividadReconexionHfc",
+  "TipoActividadReconexionDth",
   "TipoActividadCambioNumeroCobre",
 ];
 
@@ -134,6 +140,7 @@ const elementosPostventaMigracion = [
 // POSTVENTA RECONEXION
 const elementosPostventaReconexion = [
   ...document.querySelectorAll(".PostventaReconexionHfcHidden"),
+  ...document.querySelectorAll(".PostventaReconexionDthHidden"),
 ];
 
 // POSTVENTA CAMBIO DE NUMERO
@@ -435,7 +442,7 @@ function mostrarElementos() {
       break;
     case "RECONEXION / RETIRO|DTH":
       //  MUESTRA EL DIV CORRESPONDIENTE
-      PostventaReconexionHfc.style.display = "block";
+      PostventaReconexionDth.style.display = "block";
 
       // RESET VALUES SELECT
       for (let i = 0; i < tiposActividad.length; i++) {
@@ -621,6 +628,14 @@ const formTypes = [
     ],
   },
   {
+    select: document.querySelector("select[name='TipoActividadReconexionDth']"),
+    forms: [
+      document.getElementById("RealizaReconexionDth"),
+      document.getElementById("ObjetadaReconexionDth"),
+      document.getElementById("AnuladaReconexionDth"),
+    ],
+  },
+  {
     select: document.querySelector(
       "select[name='TipoActividadCambioNumeroCobre']"
     ),
@@ -697,6 +712,7 @@ removeOptionFromSelector("TipoActividadCambioCobre", "TRANSFERIDA");
 removeOptionFromSelector("TipoActividadCambioDth", "TRANSFERIDA");
 removeOptionFromSelector("TipoActividadReconexionHfc", "TRANSFERIDA");
 removeOptionFromSelector("TipoActividadReconexionHfc", "OBJETADA");
+removeOptionFromSelector("TipoActividadReconexionDth", "OBJETADA");
 
 // CAMBIAR TIPO DE ORDEN EN BASE TIPO POSTVENTA Y TECNOLOGIA
 
@@ -1088,7 +1104,7 @@ selectHide_TipoOrden.addEventListener("change", () => {
       EquipoModemRetiroHfc.value = "";
 
       break;
-    case "RETIRO EQUIPOS":
+    case "RETIRO ACOMETIDO":
       EquipoModemRetiroHfc.disabled = false;
       hiddenEquipoRetirar.style.display = "block";
       EquipoModemRetiroHfc.value = "";
