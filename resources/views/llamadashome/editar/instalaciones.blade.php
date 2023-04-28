@@ -95,14 +95,34 @@
                         <label for="tecnologia">Tecnologia</label>
                         <select class="form-control" style="width: 100%;" name="tecnologia" tabindex="-1"
                             id="tecnologia" aria-hidden="true" required>
-                            <option value="HFC" selected>HFC</option>
+                            <option value="{{ $registro->tecnologia}}" selected>{{ $registro->tecnologia}}</option>
                         </select>
                     </div>
                     <div class="form-group col-md-3" id="select_ordenhide">
                         <label for="select_orden">Tipo Orden</label>
                         <select class="form-control" id="select_orden" style="width: 100%;" name="select_orden"
                             tabindex="-1" aria-hidden="true" required>
-                            <option value="{{ $registro->select_orden}}">{{ $registro->select_orden}}</option>
+                            @if($registro->tecnologia === 'HFC')
+                            <option value="{{ $registro->select_orden}}" selected>{{ $registro->select_orden}}</option>
+                            <option value="INSTALACION DE CLARO HOGAR">INSTALACION DE CLARO HOGAR</option>
+                            <option value="DOBLE - TV + INTERNET">DOBLE - TV + INTERNET</option>
+                            <option value="DOBLE - INTERNET + LINEA">DOBLE - INTERNET + LINEA</option>
+                            <option value="TV - BASICO INDIVIDUAL">TV - BASICO INDIVIDUAL</option>
+                            <option value="TV - DIGITAL INDIVIDUAL">TV - DIGITAL INDIVIDUAL</option>
+                            <option value="INTERNET INDIVIDUAL">INTERNET INDIVIDUAL</option>
+                            <option value="LINEA INDIVIDUAL">LINEA INDIVIDUAL</option>
+                            <option value="REACTIVACION -DOBLE - TV + INTERNET">REACTIVACION -DOBLE - TV + INTERNET
+                            </option>
+                            <option value="REACTIVACION - INSTALACION DE CLARO HOGAR">REACTIVACION - INSTALACION DE
+                                CLARO HOGAR</option>
+                            <option value="REACTIVACION -DOBLE - INTERNET + LINEA"> REACTIVACION -DOBLE - INTERNET +
+                                LINEA</option>
+                            <option value="REACTIVACION -TV - BASICO INDIVIDUAL">REACTIVACION -TV - BASICO INDIVIDUAL
+                            </option>
+                            <option value="REACTIVACION -TV - DIGITAL INDIVIDUAL">REACTIVACION -TV - DIGITAL INDIVIDUAL
+                            </option>
+                            <option value="REACTIVACION -LINEA INDIVIDUAL">REACTIVACION -LINEA INDIVIDUAL</option>
+                            @endif
                         </select>
                     </div>
                     <div class="form-group col-md-4">
@@ -1648,6 +1668,7 @@
                         </div>
                     </div>
 
+                    @if ($registro->tipo_actividadGpon === 'REALIZADA')
                     <!-- CAMBIO DE TIPO ACTIVIDAD REALIZADA GPON-->
                     <div class="form-group-container FormGpon_Hidden" id="formGpon_Realizada">
                         <div class="from-group-container">
@@ -1861,7 +1882,7 @@
                             </div>
                         </div>
                     </div>
-
+                    @endif
                     <!-- TIPO ACTIVIDAD OBJETADA GPON -->
 
                     <div class="form-group-container FormGpon_Hidden" id="formGpon_Objetada">

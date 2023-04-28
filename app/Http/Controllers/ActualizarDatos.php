@@ -9,12 +9,15 @@ use SSD\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
 use SSD\Models\Instalaciones\InstalacionHfcRealizada;
-
 use SSD\Models\Instalaciones\InstalacionHfcObjetada;
-
 use SSD\Models\Instalaciones\InstalacionHfcTransferida;
-
 use SSD\Models\Instalaciones\InstalacionHfcAnulada;
+
+
+use SSD\Models\Instalaciones\InstalacionGponAnulada;
+use SSD\Models\Instalaciones\InstalacionGponTransferida;
+use SSD\Models\Instalaciones\InstalacionGponObjetada;
+use SSD\Models\Instalaciones\InstalacionGponRealizada;
 
 class ActualizarDatos extends Controller
 {
@@ -74,6 +77,17 @@ class ActualizarDatos extends Controller
                 ->where('tipo_actividad', $actividad_tipo)
                 ->where('motivo_llamada', $motivo_llamada)
                 ->first();
+
+         $registro_tabla_5 = InstalacionGponRealizada::where(function($query) use ($NumeroOrden) {
+                $query->where('OrdenTv_Gpon', $NumeroOrden)
+                      ->orWhere('OrdenInternet_Gpon', $NumeroOrden)
+                      ->orWhere('OrdenLinea_Gpon', $NumeroOrden);
+            })
+                ->where('id', $id)
+                ->where('tecnologia', $tecnologia)
+                ->where('tipo_actividadGpon', $actividad_tipo)
+                ->where('motivo_llamada', $motivo_llamada)
+                ->first();    
     
 
             // Validar en qué tabla se encontró el registro
@@ -103,7 +117,13 @@ class ActualizarDatos extends Controller
                 ->with('page_title', 'Actualizar - Instalaciones')
                 ->with('navigation', 'Actualizar')
                 ->with('registro', $registro_tabla_4);
-            } else {
+            }elseif ($registro_tabla_5) {
+                // Si el registro está en la tabla_3, redirigir a la vista de edición de tabla_3
+                return view('llamadashome/editar/instalaciones')
+                ->with('page_title', 'Actualizar - Instalaciones')
+                ->with('navigation', 'Actualizar')
+                ->with('registro', $registro_tabla_5);
+            }  else {
                 // Si no se encontró el registro en ninguna de las tablas, redirigir a la vista de resultados
             return view('llamadashome/editar/instalaciones')
                 ->with('page_title', 'Actualizar - Instalaciones')
@@ -348,14 +368,240 @@ class ActualizarDatos extends Controller
                     ->withDelay(2);
                 } 
             break;
+            case"GPON":
+
+                if($tipo_actividad === "REALIZADA"){
+                    // Campos seleccionados del formulario
+                    $selectedFields = [
+                        'codigo_tecnico',
+                        'telefono',
+                        'tecnico',
+                        'motivo_llamada',
+                        'select_orden',
+                        'dpto_colonia',
+                        'OrdenInternet_Gpon',
+                        'OrdenTv_Gpon',
+                        'OrdenLinea_Gpon',
+                        'tecnologia',
+                        'tipo_actividadGpon',
+                        'equipotv1Gpon',
+                        'equipotv2Gpon',
+                        'equipostv3Gpon',
+                        'equipostv4Gpon',
+                        'equipostv5Gpon',
+                        'EqModenGpon',
+                        'GeoreferenciaGpon',
+                        'SapGpon',
+                        'NumeroGpon',
+                        'TrabajadoGpon',
+                        'ObservacionesGpon',
+                        'RecibeGpon',
+                        'NodoGpon',
+                        'CajaGpon',
+                        'PuertoGpon',
+                        'MaterialesRedGpon',
+                        'username_creacion',
+                        'username_atencion',
+                    ];
+
+                    $registro = InstalacionGponRealizada::findOrFail($id);
+
+                    // Iteramos por los campos seleccionados del formulario
+                    foreach ($selectedFields as $fieldName) {
+                        $value = $request->input($fieldName);
+                        if ($fieldName === 'TrabajadoGpon' && $request->has('TrabajadoGpon')) {
+                            $registro->$fieldName = 'TRABAJADO';
+                        } elseif ($fieldName === 'TrabajadoGpon') {
+                            $registro->$fieldName = 'PENDIENTE';
+                        } else {
+                            $registro->$fieldName = $value;
+                        }
+                    }
+                    
+                    // Agregamos el usuario actual como creador y atendedor del registro
+                    $registro->username_creacion = Auth::user()->username;
+                    $registro->username_atencion = Auth::user()->username;
+                    $registro->save();
+
+                    $message = "¡EXITO!";
+                    $messages = "REGISTRO GPON ACTUALIZADO";
+                    $resultados = [];
+                    $NumeroOrden = null;
+
+                    return redirect()->route('busqueda.generar', [
+                    'resultados' => $resultados,
+                    'NumeroOrden' => $NumeroOrden,
+                            ])
+                    ->with('success', true)
+                    ->with('message', $message)
+                    ->with('messages', $messages)
+                    ->withDelay(2);
+                    } 
+                if($tipo_actividad === "OBJETADA"){
+
+                    $selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'tecnologia',
+						'tipo_actividad',
+						'orden_tv_hfc',
+						'orden_internet_hfc',
+						'orden_linea_hfc',
+						'MotivoObjetada_Hfc',
+						'TrabajadoObjetadaHfc',
+						'ComentariosObjetados_Hfc',
+						'username_creacion',
+						'username_atencion',
+					];
+                    
+                    $registro = InstalacionHfcObjetada::findOrFail($id);
+
+                    // Iteramos por los campos seleccionados del formulario
+                    foreach ($selectedFields as $fieldName) {
+                        $value = $request->input($fieldName);
+                        if ($fieldName === 'TrabajadoObjetadaHfc' && $request->has('TrabajadoObjetadaHfc')) {
+                            $registro->$fieldName = 'TRABAJADO';
+                        } elseif ($fieldName === 'TrabajadoObjetadaHfc') {
+                            $registro->$fieldName = 'PENDIENTE';
+                        } else {
+                            $registro->$fieldName = $value;
+                        }
+                    }
+                    
+                    // Agregamos el usuario actual como creador y atendedor del registro
+                    $registro->username_creacion = Auth::user()->username;
+                    $registro->username_atencion = Auth::user()->username;
+                    $registro->save();
+
+                    $message = "¡EXITO!";
+                    $messages = "REGISTRO HFC OBJETADO ACTUALIZADO";
+                    $resultados = [];
+                    $NumeroOrden = null;
+
+                    return redirect()->route('busqueda.generar', [
+                    'resultados' => $resultados,
+                    'NumeroOrden' => $NumeroOrden,
+                            ])
+                    ->with('success', true)
+                    ->with('message', $message)
+                    ->with('messages', $messages)
+                    ->withDelay(2);
+                }if($tipo_actividad === "ANULACION"){
+
+                    $selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'tecnologia',
+						'tipo_actividad',
+						'MotivoAnulada_Hfc',
+						'orden_internet_hfc',
+						'orden_tv_hfc',
+						'orden_linea_hfc',
+						'TrabajadoAnulada_Hfc',
+						'ComentarioAnulada_Hfc',
+						'username_creacion',
+						'username_atencion',
+
+					];
+                    $registro = InstalacionHfcAnulada::findOrFail($id);
+
+                    // Iteramos por los campos seleccionados del formulario
+                    foreach ($selectedFields as $fieldName) {
+                        $value = $request->input($fieldName);
+                        if ($fieldName === 'TrabajadoAnulada_Hfc' && $request->has('TrabajadoAnulada_Hfc')) {
+                            $registro->$fieldName = 'TRABAJADO';
+                        } elseif ($fieldName === 'TrabajadoAnulada_Hfc') {
+                            $registro->$fieldName = 'PENDIENTE';
+                        } else {
+                            $registro->$fieldName = $value;
+                        }
+                    }
+                    
+                    // Agregamos el usuario actual como creador y atendedor del registro
+                    $registro->username_creacion = Auth::user()->username;
+                    $registro->username_atencion = Auth::user()->username;
+                    $registro->save();
+
+                    $message = "¡EXITO!";
+                    $messages = "REGISTRO HFC ANULADO ACTUALIZADO";
+                    $resultados = [];
+                    $NumeroOrden = null;
+
+                    return redirect()->route('busqueda.generar', [
+                    'resultados' => $resultados,
+                    'NumeroOrden' => $NumeroOrden,
+                            ])
+                    ->with('success', true)
+                    ->with('message', $message)
+                    ->with('messages', $messages)
+                    ->withDelay(2);
+                }if($tipo_actividad === "TRANSFERIDA"){
+
+                    $selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'select_orden',
+						'dpto_colonia',
+						'tecnologia',
+						'tipo_actividad',
+						'orden_tv_hfc',
+						'orden_internet_hfc',
+						'orden_linea_hfc',
+						'TrabajadoTransferido_Hfc',
+						'MotivoTransferidoHfc',
+						'ComentariosTransferida_Hfc',
+						'username_creacion',
+						'username_atencion',
+
+					];
+                    $registro = InstalacionHfcTransferida::findOrFail($id);
+
+                    // Iteramos por los campos seleccionados del formulario
+                    foreach ($selectedFields as $fieldName) {
+                        $value = $request->input($fieldName);
+                        if ($fieldName === 'TrabajadoTransferido_Hfc' && $request->has('TrabajadoTransferido_Hfc')) {
+                            $registro->$fieldName = 'TRABAJADO';
+                        } elseif ($fieldName === 'TrabajadoTransferido_Hfc') {
+                            $registro->$fieldName = 'PENDIENTE';
+                        } else {
+                            $registro->$fieldName = $value;
+                        }
+                    }
+                    
+                    // Agregamos el usuario actual como creador y atendedor del registro
+                    $registro->username_creacion = Auth::user()->username;
+                    $registro->username_atencion = Auth::user()->username;
+                    $registro->save();
+
+                    $message = "¡EXITO!";
+                    $messages = "REGISTRO HFC TRANSFERIDO ACTUALIZADO";
+                    $resultados = [];
+                    $NumeroOrden = null;
+
+                    return redirect()->route('busqueda.generar', [
+                    'resultados' => $resultados,
+                    'NumeroOrden' => $NumeroOrden,
+                            ])
+                    ->with('success', true)
+                    ->with('message', $message)
+                    ->with('messages', $messages)
+                    ->withDelay(2);
+                } 
+            break;
             } 
                 
             break;
         
     }
 
-    // Otras funciones del controlador...
-
-    
-    
 }
