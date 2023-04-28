@@ -1,4 +1,12 @@
 @extends('app') @section('content')
+
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- Resto del contenido de la sección head -->
+</head>
+
 <div class="row">
     <div class="col-md-12">
         @if (session()->has('success_message'))

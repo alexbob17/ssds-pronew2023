@@ -25,7 +25,7 @@
                                 </div>
                                 <input type="text" class="form-control" placeholder="Ingrese Codigo Tecnico"
                                     id="codigo_tecnico" name="codigo_tecnico"
-                                    oninput="this.value = this.value.toUpperCase()" />
+                                    oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                             </div>
                         </div>
 

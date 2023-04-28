@@ -2,8 +2,13 @@
 
 <head>
     <script src="{{asset('/js/actualizarDatos/instalacionesActualizar.js')}}" type="text/javascript"></script>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- Resto del contenido de la sección head -->
 
 </head>
+
 
 <div class="row">
     <div class="col-md-12">
@@ -15,7 +20,10 @@
         @endif
         <!-- general form elements -->
         <div class="box box-warning" style="border-top:none !important">
-            <div class="box-header with-border" style="background:#666 !important">
+            <div class="box-header with-border" style=" background: rgba(255, 255, 255, 0.15) !important;
+            border-bottom: 0.1px solid #337ab7;
+            color: #337ab7 !important;
+            border-top: 1px solid white;">
                 <h3 class="box-title">Editar Caso</h3>
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
@@ -38,15 +46,17 @@
                             <input type="text" class="form-control effect-8" placeholder="N° Codigo Tecnico"
                                 id="codigo_tecnico" name="codigo_tecnico"
                                 oninput="this.value = this.value.toUpperCase()" required
-                                value="{{ $registro->codigo_tecnico}}" readonly="true" />
+                                value="{{ $registro->codigo_tecnico}}" autocomplete="off" />
                         </div>
                     </div>
 
                     <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
                         <button type="button" id="btn_busqueda" class="btn btn-primary"><i class="fa fa-search"
                                 aria-hidden="true"></i></button>
-                        <button type="button" id="btn_reiniciar" class="btn btn-danger"><i class="fa fa-trash"
+                        <button type="button" id="btn_clean" class="btn btn-danger"><i class="fa fa-trash"
                                 aria-hidden="true"></i></button>
+
+                        <input type="hidden" id="btn_reiniciar">
                     </div>
 
                     <div class="form-group">
@@ -424,6 +434,21 @@
                                             <option value="{{ $registro->MotivoObjetada_Hfc}}">
                                                 {{ $registro->MotivoObjetada_Hfc}}
                                             </option>
+                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            </option>
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                                OPEN </option>
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                                INCOMPLETOS / ERRADOS </option>
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            </option>
+                                            <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
+                                            <option value="OTROS"> OTROS </option>
                                         </select>
                                     </div>
                                 </div>
@@ -474,7 +499,9 @@
                                     </div>
                                     <input type="text" class="form-control" id="MotivoTransferidoHfc"
                                         name="MotivoTransferidoHfc" placeholder="Ingresa motivo transferido"
-                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                        value="{{ $registro->MotivoTransferidoHfc}}" />
+
                                 </div>
                             </div>
 
@@ -482,7 +509,8 @@
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="TrabajadoTransferido_Hfc"
-                                            name="TrabajadoTransferido_Hfc" />
+                                            name="TrabajadoTransferido_Hfc"
+                                            {{ $registro->TrabajadoTransferido_Hfc === 'TRABAJADO' ? 'checked' : '' }} />
                                         <label class="form-check-label">
                                             Trabajado
                                         </label>
@@ -500,7 +528,8 @@
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosTransferida_Hfc"
                                         name="ComentariosTransferida_Hfc" placeholder="Comentarios del caso"
-                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                        value="{{ $registro->ComentariosTransferida_Hfc}}" />
                                 </div>
                             </div>
                         </div>
@@ -508,7 +537,7 @@
                         @endif
 
 
-                        @if ($registro->tipo_actividad === 'ANULADA')
+                        @if ($registro->tipo_actividad === 'ANULACION')
                         <!-- ACTIVIDAD ANULADA HFC -->
                         <div class="form-group-container FormHfc_Hidden" id="formHfc_Anulada">
                             <div class="form-group-container">
@@ -518,7 +547,8 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoAnulada_Hfc" tabindex="-1"
                                             id="MotivoAnulada_Hfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="{{ $registro->MotivoAnulada_Hfc}}">
+                                                {{ $registro->MotivoAnulada_Hfc}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
                                             <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
                                                 CONDICIONES DE INSTALACION </option>
@@ -560,7 +590,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Hfc"
-                                                name="TrabajadoAnulada_Hfc" />
+                                                name="TrabajadoAnulada_Hfc"
+                                                {{ $registro->TrabajadoAnulada_Hfc === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -578,7 +609,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioAnulada_Hfc"
                                             name="ComentarioAnulada_Hfc" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentarioAnulada_Hfc}}" />
                                     </div>
                                 </div>
                             </div>
@@ -2046,6 +2078,22 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const btn_clean = document.getElementById("btn_clean");
+    const tecnico = document.getElementById("tecnico");
+    const codigo_tecnico = document.getElementById("codigo_tecnico");
+    const telefono = document.getElementById("telefono");
+
+    btn_clean.addEventListener("click", function() {
+        tecnico.value = "";
+        codigo_tecnico.value = "";
+        telefono.value = "";
+    })
+})
+</script>
+
+
 
 <!-- Select2 -->
 <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
@@ -2071,7 +2119,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- User definided -->
 <!-- <script src="{{ asset('/js/qflows/registro.js?2.4.0') }}" type="text/javascript"></script> -->
-<!-- <script src="{{asset('/js/registro/ValidacionTecnico.js')}}" type="text/javascript"></script> -->
+<script src="{{asset('/js/actualizarDatos/ValidacionTecnico.js')}}" type="text/javascript"></script>
 <!-- <script src="{{asset('/js/instalaciones/ValoresTecnico.js')}}" type="text/javascript"></script> -->
 
 <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script>

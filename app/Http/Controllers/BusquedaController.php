@@ -104,6 +104,7 @@ class BusquedaController extends Controller
 				foreach ($columnas_tabla as $columna) {
 					$resultados_tabla = DB::table($tabla)
 						->where($columna, '=', $NumeroOrden)
+						->orderBy('updated_at', 'desc')
 						->get();
 	
 					$resultados = array_merge($resultados, $resultados_tabla);
@@ -122,7 +123,6 @@ class BusquedaController extends Controller
 					}
 				}
 			}
-
 			
 			foreach ($resultados as $resultado) {
 				foreach ($status as $clave => $valores) {
@@ -134,7 +134,7 @@ class BusquedaController extends Controller
 					}
 				}
 				
-				$resultado->NumeroOrden = $NumeroOrden; // Se agrega la propiedad NumeroOrden al objeto $resultado	
+				$resultado->NumeroOrden = $NumeroOrden; 
 			}
 
 			
