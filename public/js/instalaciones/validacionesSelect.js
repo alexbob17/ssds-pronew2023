@@ -963,7 +963,7 @@ selectHide_TipoOrden.addEventListener("change", () => {
       OptionObj.style.display = "none";
       OptionAnulada.style.display = "none";
       OptionRefresh.display = "none";
-      btn_save.style.display = "none";
+      // btn_save.style.display = "none";
 
       resetValues();
 
@@ -1359,7 +1359,7 @@ selectHide_TipoOrden.addEventListener("change", () => {
         FormHfc_Hidden[i].style.display = "none";
       }
 
-      btn_save.style.display = "none";
+      // btn_save.style.display = "none";
 
       resetValues();
 
@@ -1411,6 +1411,12 @@ selectHide_TipoOrden.addEventListener("change", () => {
         equipotvGpon[i].disabled = false;
       }
 
+      tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormGpon_Hidden.length; i++) {
+        FormGpon_Hidden[i].style.display = "none";
+      }
+
+      btn_save.style.display = "none";
       resetValuesGpon();
 
       break;
@@ -1425,6 +1431,13 @@ selectHide_TipoOrden.addEventListener("change", () => {
       for (let i = 0; i < equipotvGpon.length; i++) {
         equipotvGpon[i].disabled = false;
       }
+
+      tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormGpon_Hidden.length; i++) {
+        FormGpon_Hidden[i].style.display = "none";
+      }
+
+      btn_save.style.display = "none";
       resetValuesGpon();
 
       break;
@@ -1440,6 +1453,11 @@ selectHide_TipoOrden.addEventListener("change", () => {
         equipotvGpon[i].disabled = true;
       }
 
+      tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormGpon_Hidden.length; i++) {
+        FormGpon_Hidden[i].style.display = "none";
+      }
+      btn_save.style.display = "none";
       resetValuesGpon();
 
       break;
@@ -1454,6 +1472,12 @@ selectHide_TipoOrden.addEventListener("change", () => {
       for (let i = 0; i < equipotvGpon.length; i++) {
         equipotvGpon[i].disabled = false;
       }
+
+      tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormGpon_Hidden.length; i++) {
+        FormGpon_Hidden[i].style.display = "none";
+      }
+      btn_save.style.display = "none";
       resetValuesGpon();
 
       break;
@@ -1468,6 +1492,13 @@ selectHide_TipoOrden.addEventListener("change", () => {
       for (let i = 0; i < equipotvGpon.length; i++) {
         equipotvGpon[i].disabled = false;
       }
+
+      tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormGpon_Hidden.length; i++) {
+        FormGpon_Hidden[i].style.display = "none";
+      }
+
+      btn_save.style.display = "none";
       resetValuesGpon();
 
       break;
@@ -1483,6 +1514,11 @@ selectHide_TipoOrden.addEventListener("change", () => {
         equipotvGpon[i].disabled = true;
       }
 
+      tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormGpon_Hidden.length; i++) {
+        FormGpon_Hidden[i].style.display = "none";
+      }
+      btn_save.style.display = "none";
       resetValuesGpon();
 
       break;
@@ -1499,6 +1535,11 @@ selectHide_TipoOrden.addEventListener("change", () => {
         equipotvGpon[i].disabled = true;
       }
 
+      tipo_actividadGpon.value = "SELECCIONE UNA OPCION";
+      for (let i = 0; i < FormGpon_Hidden.length; i++) {
+        FormGpon_Hidden[i].style.display = "none";
+      }
+      btn_save.style.display = "none";
       resetValuesGpon();
 
       break;
@@ -1506,6 +1547,7 @@ selectHide_TipoOrden.addEventListener("change", () => {
       for (let i = 0; i < TipoActividad_Hidden.length; i++) {
         TipoActividad_Hidden[i].style.display = "block";
       }
+      btn_save.style.display = "none";
       resetValuesGpon();
 
       break;

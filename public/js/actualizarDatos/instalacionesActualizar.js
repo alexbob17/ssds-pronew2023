@@ -16,6 +16,7 @@ fetch("http://localhost/ssd-claroProd/public/Json/Localizaciones.json")
   });
 
 document.addEventListener("DOMContentLoaded", function () {
+  // HFC
   const hideVoip_Hfc = document.getElementById("numeroVoip_hfc");
   const EquipoModem_Hfc = document.getElementById("EquipoModem_Hfc");
   const equipotvHfc = document.querySelectorAll(".equipotvHfc");
@@ -637,6 +638,20 @@ document.addEventListener("DOMContentLoaded", function () {
       for (let i = 0; i < equipotvHfc.length; i++) {
         equipotvHfc[i].value = "";
       }
+    } else if (select_orden.value == "DOBLE - IPTV + LINEA") {
+      OrdenInternet_Gpon.disabled = true;
+      OrdenTv_Gpon.disabled = false;
+      OrdenLinea_Gpon.disabled = false;
+
+      for (let i = 0; i < equipotvGpon.length; i++) {
+        equipotvGpon[i].disabled = false;
+      }
+
+      EqModenGpon.disabled = true;
+      NumeroGpon.disabled = false;
+
+      OrdenInternet_Gpon.value = "";
+      EqModenGpon.value = "";
     } else if (
       select_orden.value == "REACTIVACION - INSTALACION DE CLARO HOGAR"
     ) {

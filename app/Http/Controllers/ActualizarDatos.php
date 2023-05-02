@@ -78,7 +78,7 @@ class ActualizarDatos extends Controller
                 ->where('motivo_llamada', $motivo_llamada)
                 ->first();
 
-         $registro_tabla_5 = InstalacionGponRealizada::where(function($query) use ($NumeroOrden) {
+        $registro_tabla_5 = InstalacionGponRealizada::where(function($query) use ($NumeroOrden) {
                 $query->where('OrdenTv_Gpon', $NumeroOrden)
                       ->orWhere('OrdenInternet_Gpon', $NumeroOrden)
                       ->orWhere('OrdenLinea_Gpon', $NumeroOrden);
@@ -87,7 +87,40 @@ class ActualizarDatos extends Controller
                 ->where('tecnologia', $tecnologia)
                 ->where('tipo_actividadGpon', $actividad_tipo)
                 ->where('motivo_llamada', $motivo_llamada)
-                ->first();    
+                ->first();  
+                
+        $registro_tabla_6 = InstalacionGponObjetada::where(function($query) use ($NumeroOrden) {
+                $query->where('OrdenTv_Gpon', $NumeroOrden)
+                      ->orWhere('OrdenInternet_Gpon', $NumeroOrden)
+                      ->orWhere('OrdenLinea_Gpon', $NumeroOrden);
+            })
+                ->where('id', $id)
+                ->where('tecnologia', $tecnologia)
+                ->where('tipo_actividadGpon', $actividad_tipo)
+                ->where('motivo_llamada', $motivo_llamada)
+                ->first(); 
+
+        $registro_tabla_7 = InstalacionGponTransferida::where(function($query) use ($NumeroOrden) {
+                    $query->where('OrdenTv_Gpon', $NumeroOrden)
+                        ->orWhere('OrdenInternet_Gpon', $NumeroOrden)
+                        ->orWhere('OrdenLinea_Gpon', $NumeroOrden);
+                })
+                    ->where('id', $id)
+                    ->where('tecnologia', $tecnologia)
+                    ->where('tipo_actividadGpon', $actividad_tipo)
+                    ->where('motivo_llamada', $motivo_llamada)
+                    ->first();
+
+        $registro_tabla_8 = InstalacionGponAnulada::where(function($query) use ($NumeroOrden) {
+                    $query->where('OrdenTv_Gpon', $NumeroOrden)
+                        ->orWhere('OrdenInternet_Gpon', $NumeroOrden)
+                        ->orWhere('OrdenLinea_Gpon', $NumeroOrden);
+                })
+                    ->where('id', $id)
+                    ->where('tecnologia', $tecnologia)
+                    ->where('tipo_actividadGpon', $actividad_tipo)
+                    ->where('motivo_llamada', $motivo_llamada)
+                    ->first();
     
 
             // Validar en qué tabla se encontró el registro
@@ -123,7 +156,26 @@ class ActualizarDatos extends Controller
                 ->with('page_title', 'Actualizar - Instalaciones')
                 ->with('navigation', 'Actualizar')
                 ->with('registro', $registro_tabla_5);
-            }  else {
+            }elseif ($registro_tabla_6) {
+                // Si el registro está en la tabla_3, redirigir a la vista de edición de tabla_3
+                return view('llamadashome/editar/instalaciones')
+                ->with('page_title', 'Actualizar - Instalaciones')
+                ->with('navigation', 'Actualizar')
+                ->with('registro', $registro_tabla_6);
+            }elseif ($registro_tabla_7) {
+                // Si el registro está en la tabla_3, redirigir a la vista de edición de tabla_3
+                return view('llamadashome/editar/instalaciones')
+                ->with('page_title', 'Actualizar - Instalaciones')
+                ->with('navigation', 'Actualizar')
+                ->with('registro', $registro_tabla_7);
+            }elseif ($registro_tabla_8) {
+                // Si el registro está en la tabla_3, redirigir a la vista de edición de tabla_3
+                return view('llamadashome/editar/instalaciones')
+                ->with('page_title', 'Actualizar - Instalaciones')
+                ->with('navigation', 'Actualizar')
+                ->with('registro', $registro_tabla_8);
+            }
+               else {
                 // Si no se encontró el registro en ninguna de las tablas, redirigir a la vista de resultados
             return view('llamadashome/editar/instalaciones')
                 ->with('page_title', 'Actualizar - Instalaciones')
@@ -135,9 +187,9 @@ class ActualizarDatos extends Controller
     {
         $tecnologia = $request->input("tecnologia");
         $tipo_actividad = $request->input("tipo_actividad");
+        $tipo_actividadGpon = $request->input("tipo_actividadGpon");
 
         
-
         switch($tecnologia){
             case"HFC":
 
@@ -367,10 +419,10 @@ class ActualizarDatos extends Controller
                     ->with('messages', $messages)
                     ->withDelay(2);
                 } 
-            break;
+             break;
             case"GPON":
 
-                if($tipo_actividad === "REALIZADA"){
+                if($tipo_actividadGpon === "REALIZADA"){
                     // Campos seleccionados del formulario
                     $selectedFields = [
                         'codigo_tecnico',
@@ -437,7 +489,7 @@ class ActualizarDatos extends Controller
                     ->with('messages', $messages)
                     ->withDelay(2);
                     } 
-                if($tipo_actividad === "OBJETADA"){
+                if($tipo_actividadGpon === "OBJETADA"){
 
                     $selectedFields = [
 						'codigo_tecnico',
@@ -447,25 +499,25 @@ class ActualizarDatos extends Controller
 						'select_orden',
 						'dpto_colonia',
 						'tecnologia',
-						'tipo_actividad',
-						'orden_tv_hfc',
-						'orden_internet_hfc',
-						'orden_linea_hfc',
-						'MotivoObjetada_Hfc',
-						'TrabajadoObjetadaHfc',
-						'ComentariosObjetados_Hfc',
+						'tipo_actividadGpon',
+						'OrdenInternet_Gpon',
+						'OrdenTv_Gpon',
+						'OrdenLinea_Gpon',
+						'MotivoObjetado_Gpon',
+						'TrabajadoGpon_Objetado',
+						'ComentariosGpon_Objetada',
 						'username_creacion',
 						'username_atencion',
 					];
                     
-                    $registro = InstalacionHfcObjetada::findOrFail($id);
+                    $registro = InstalacionGponObjetada::findOrFail($id);
 
                     // Iteramos por los campos seleccionados del formulario
                     foreach ($selectedFields as $fieldName) {
                         $value = $request->input($fieldName);
-                        if ($fieldName === 'TrabajadoObjetadaHfc' && $request->has('TrabajadoObjetadaHfc')) {
+                        if ($fieldName === 'TrabajadoGpon_Objetado' && $request->has('TrabajadoGpon_Objetado')) {
                             $registro->$fieldName = 'TRABAJADO';
-                        } elseif ($fieldName === 'TrabajadoObjetadaHfc') {
+                        } elseif ($fieldName === 'TrabajadoGpon_Objetado') {
                             $registro->$fieldName = 'PENDIENTE';
                         } else {
                             $registro->$fieldName = $value;
@@ -478,7 +530,7 @@ class ActualizarDatos extends Controller
                     $registro->save();
 
                     $message = "¡EXITO!";
-                    $messages = "REGISTRO HFC OBJETADO ACTUALIZADO";
+                    $messages = "REGISTRO GPON OBJETADO ACTUALIZADO";
                     $resultados = [];
                     $NumeroOrden = null;
 
@@ -490,7 +542,7 @@ class ActualizarDatos extends Controller
                     ->with('message', $message)
                     ->with('messages', $messages)
                     ->withDelay(2);
-                }if($tipo_actividad === "ANULACION"){
+                }if($tipo_actividadGpon === "ANULACION"){
 
                     $selectedFields = [
 						'codigo_tecnico',
@@ -500,25 +552,25 @@ class ActualizarDatos extends Controller
 						'select_orden',
 						'dpto_colonia',
 						'tecnologia',
-						'tipo_actividad',
-						'MotivoAnulada_Hfc',
-						'orden_internet_hfc',
-						'orden_tv_hfc',
-						'orden_linea_hfc',
-						'TrabajadoAnulada_Hfc',
-						'ComentarioAnulada_Hfc',
+						'tipo_actividadGpon',
+						'MotivoAnulada_Gpon',
+						'OrdenInternet_Gpon',
+						'OrdenTv_Gpon',
+						'OrdenLinea_Gpon',
+						'TrabajadoAnulada_Gpon',
+						'ComentarioAnulada_Gpon',
 						'username_creacion',
 						'username_atencion',
 
 					];
-                    $registro = InstalacionHfcAnulada::findOrFail($id);
+                    $registro = InstalacionGponAnulada::findOrFail($id);
 
                     // Iteramos por los campos seleccionados del formulario
                     foreach ($selectedFields as $fieldName) {
                         $value = $request->input($fieldName);
-                        if ($fieldName === 'TrabajadoAnulada_Hfc' && $request->has('TrabajadoAnulada_Hfc')) {
+                        if ($fieldName === 'TrabajadoAnulada_Gpon' && $request->has('TrabajadoAnulada_Gpon')) {
                             $registro->$fieldName = 'TRABAJADO';
-                        } elseif ($fieldName === 'TrabajadoAnulada_Hfc') {
+                        } elseif ($fieldName === 'TrabajadoAnulada_Gpon') {
                             $registro->$fieldName = 'PENDIENTE';
                         } else {
                             $registro->$fieldName = $value;
@@ -531,7 +583,7 @@ class ActualizarDatos extends Controller
                     $registro->save();
 
                     $message = "¡EXITO!";
-                    $messages = "REGISTRO HFC ANULADO ACTUALIZADO";
+                    $messages = "REGISTRO GPON ANULADO ACTUALIZADO";
                     $resultados = [];
                     $NumeroOrden = null;
 
@@ -543,7 +595,7 @@ class ActualizarDatos extends Controller
                     ->with('message', $message)
                     ->with('messages', $messages)
                     ->withDelay(2);
-                }if($tipo_actividad === "TRANSFERIDA"){
+                }if($tipo_actividadGpon === "TRANSFERIDA"){
 
                     $selectedFields = [
 						'codigo_tecnico',
@@ -553,25 +605,25 @@ class ActualizarDatos extends Controller
 						'select_orden',
 						'dpto_colonia',
 						'tecnologia',
-						'tipo_actividad',
-						'orden_tv_hfc',
-						'orden_internet_hfc',
-						'orden_linea_hfc',
-						'TrabajadoTransferido_Hfc',
-						'MotivoTransferidoHfc',
-						'ComentariosTransferida_Hfc',
+						'tipo_actividadGpon',
+						'OrdenInternet_Gpon',
+						'OrdenTv_Gpon',
+						'OrdenLinea_Gpon',
+						'MotivoTransferidoGpon',
+						'TrabajadoTransferido_Gpon',
+						'ComentarioTransferido_Gpon',
 						'username_creacion',
 						'username_atencion',
 
 					];
-                    $registro = InstalacionHfcTransferida::findOrFail($id);
+                    $registro = InstalacionGponTransferida::findOrFail($id);
 
                     // Iteramos por los campos seleccionados del formulario
                     foreach ($selectedFields as $fieldName) {
                         $value = $request->input($fieldName);
-                        if ($fieldName === 'TrabajadoTransferido_Hfc' && $request->has('TrabajadoTransferido_Hfc')) {
+                        if ($fieldName === 'TrabajadoTransferido_Gpon' && $request->has('TrabajadoTransferido_Gpon')) {
                             $registro->$fieldName = 'TRABAJADO';
-                        } elseif ($fieldName === 'TrabajadoTransferido_Hfc') {
+                        } elseif ($fieldName === 'TrabajadoTransferido_Gpon') {
                             $registro->$fieldName = 'PENDIENTE';
                         } else {
                             $registro->$fieldName = $value;
@@ -584,7 +636,7 @@ class ActualizarDatos extends Controller
                     $registro->save();
 
                     $message = "¡EXITO!";
-                    $messages = "REGISTRO HFC TRANSFERIDO ACTUALIZADO";
+                    $messages = "REGISTRO GPON TRANSFERIDO ACTUALIZADO";
                     $resultados = [];
                     $NumeroOrden = null;
 
@@ -597,10 +649,13 @@ class ActualizarDatos extends Controller
                     ->with('messages', $messages)
                     ->withDelay(2);
                 } 
+             break;
+
+            default:
             break;
             } 
                 
-            break;
+           
         
     }
 

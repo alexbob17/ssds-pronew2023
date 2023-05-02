@@ -14,7 +14,7 @@
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
             <form action="{{ route('registro_llamadas.store') }}" method="POST" id="form1" class="formulario box-body"
-                style="border-bottom: 3px solid #3e69d6; padding-top: 15px;">
+                style="border-bottom: 3px solid #3e69d6; padding-top: 15px;" novalidate>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                 <input type="hidden" name="selected_fields" id="selected-fields" />

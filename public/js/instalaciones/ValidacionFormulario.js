@@ -17,8 +17,9 @@ checkError.forEach(function (el) {
 
 // console.log("Orden Internet:", document.getElementById("OrdenLinea_Gpon"));
 
+// const selectElements = form.querySelectorAll("select");
+
 const form = document.getElementById("form1");
-const selectElements = form.querySelectorAll("select");
 
 form.addEventListener("submit", function (event) {
   // event.preventDefault();

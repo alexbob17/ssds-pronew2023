@@ -1,7 +1,55 @@
 @extends('app') @section('content')
 
 <head>
+
+    @if($registro->tecnologia === 'HFC' && $registro->tipo_actividad === 'REALIZADA')
     <script src="{{asset('/js/actualizarDatos/instalacionesActualizar.js')}}" type="text/javascript"></script>
+    <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script>
+
+    @endif
+
+    @if($registro->tecnologia === 'HFC' && $registro->tipo_actividad === 'OBJETADA')
+    <script src="{{asset('/js/actualizarDatos/instalacionesHfcObj.js')}}" type="text/javascript"></script>
+    <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script>
+
+    @endif
+
+    @if($registro->tecnologia === 'HFC' && $registro->tipo_actividad === 'TRANSFERIDA')
+    <script src="{{asset('/js/actualizarDatos/instalacionesHfcObj.js')}}" type="text/javascript"></script>
+    <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script>
+
+    @endif
+
+    @if($registro->tecnologia === 'HFC' && $registro->tipo_actividad === 'ANULACION')
+    <script src="{{asset('/js/actualizarDatos/instalacionesHfcObj.js')}}" type="text/javascript"></script>
+    <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script>
+
+    @endif
+
+    @if($registro->tecnologia === 'GPON' && $registro->tipo_actividadGpon === 'REALIZADA')
+    <script src="{{asset('/js/actualizarDatos/instalacionesGpon.js')}}" type="text/javascript"></script>
+    <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script>
+
+    @endif
+
+    @if($registro->tecnologia === 'GPON' && $registro->tipo_actividadGpon === 'OBJETADA' )
+    <script src="{{asset('/js/actualizarDatos/instalacionesGponObj.js')}}" type="text/javascript"></script>
+    <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script>
+
+    @endif
+
+    @if($registro->tecnologia === 'GPON' && $registro->tipo_actividadGpon === 'TRANSFERIDA' )
+    <script src="{{asset('/js/actualizarDatos/instalacionesGponObj.js')}}" type="text/javascript"></script>
+    <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script>
+
+    @endif
+
+    @if($registro->tecnologia === 'GPON' && $registro->tipo_actividadGpon === 'ANULACION' )
+    <script src="{{asset('/js/actualizarDatos/instalacionesGponObj.js')}}" type="text/javascript"></script>
+    <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script>
+
+    @endif
+
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -28,7 +76,7 @@
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
             <form action="{{ route('actualizarDatos', $registro->id) }}" method="POST" id="form1"
-                class="formulario box-body" style="">
+                class="formulario box-body" novalidate>
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                 <input type="hidden" name="_method" value="PUT">
@@ -122,6 +170,17 @@
                             <option value="REACTIVACION -TV - DIGITAL INDIVIDUAL">REACTIVACION -TV - DIGITAL INDIVIDUAL
                             </option>
                             <option value="REACTIVACION -LINEA INDIVIDUAL">REACTIVACION -LINEA INDIVIDUAL</option>
+                            @endif
+
+                            @if($registro->tecnologia === 'GPON')
+                            <option value="{{ $registro->select_orden}}" selected>{{ $registro->select_orden}}</option>
+                            <option value="INSTALACION DE CLARO HOGAR">INSTALACION DE CLARO HOGAR</option>
+                            <option value="DOBLE - IPTV + LINEA"> DOBLE - IPTV + LINEA</option>
+                            <option value="DOBLE - INTERNET + IPTV">DOBLE - INTERNET + IPTV</option>
+                            <option value="DOBLE - INTERNET + LINEA">DOBLE - INTERNET + LINEA</option>
+                            <option value="INTERNET INDIVIDUAL">INTERNET INDIVIDUAL</option>
+                            <option value="IPTV INDIVIDUAL">IPTV INDIVIDUAL</option>
+                            <option value="LINEA INDIVIDUAL">LINEA INDIVIDUAL</option>
                             @endif
                         </select>
                     </div>
@@ -1629,7 +1688,7 @@
                                 </div>
                                 <input type="number" class="form-control OrdenGpon" id="OrdenInternet_Gpon"
                                     name="OrdenInternet_Gpon" placeholder="N° Orden Internet" disabled
-                                    autocomplete="off" />
+                                    autocomplete="off" value="{{ $registro->OrdenInternet_Gpon}}" />
                             </div>
                         </div>
                         <div class="form-group col-md-3">
@@ -1639,7 +1698,8 @@
                                     <i class="fa fa-ticket"></i>
                                 </div>
                                 <input type="number" class="form-control OrdenGpon" id="OrdenTv_Gpon"
-                                    name="OrdenTv_Gpon" placeholder="N° Orden Gpon" disabled autocomplete="off" />
+                                    name="OrdenTv_Gpon" value="{{ $registro->OrdenTv_Gpon}}" placeholder="N° Orden Gpon"
+                                    disabled autocomplete="off" />
                             </div>
                         </div>
 
@@ -1650,7 +1710,8 @@
                                     <i class="fa fa-ticket"></i>
                                 </div>
                                 <input type="number" class="form-control OrdenGpon" id="OrdenLinea_Gpon"
-                                    name="OrdenLinea_Gpon" placeholder="N° Orden Linea" disabled autocomplete="off" />
+                                    name="OrdenLinea_Gpon" value="{{ $registro->OrdenLinea_Gpon}}"
+                                    placeholder="N° Orden Linea" disabled autocomplete="off" />
                             </div>
                         </div>
                     </div>
@@ -1659,11 +1720,9 @@
                             <label for="tipo_actividadGpon">Tipo Actividad</label>
                             <select class="form-control tipo_actividad" style="width: 100%;" name="tipo_actividadGpon"
                                 id="tipo_actividadGpon" tabindex="-1" aria-hidden="true">
-                                <option selected=" selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected value="{{ $registro->tipo_actividadGpon}}">
+                                    {{ $registro->tipo_actividadGpon}}</option>
+
                             </select>
                         </div>
                     </div>
@@ -1680,7 +1739,8 @@
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipotv1Gpon"
                                         name="equipotv1Gpon" placeholder="Equipo Tv 1"
-                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                        oninput="this.value = this.value.toUpperCase()"
+                                        value="{{ $registro->equipotv1Gpon}}" autocomplete="off" />
                                 </div>
 
                                 <div class="input-group">
@@ -1689,7 +1749,8 @@
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipotv2Gpon"
                                         name="equipotv2Gpon" placeholder="Equipo Tv 2"
-                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                        oninput="this.value = this.value.toUpperCase()"
+                                        value="{{ $registro->equipotv2Gpon}}" autocomplete="off" />
                                 </div>
 
                                 <div class="input-group">
@@ -1698,7 +1759,8 @@
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipostv3Gpon"
                                         name="equipostv3Gpon" placeholder="Equipo Tv 3"
-                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                        oninput="this.value = this.value.toUpperCase()"
+                                        value="{{ $registro->equipostv3Gpon}}" autocomplete="off" />
                                 </div>
                                 <div class="input-group">
                                     <div class="input-group-addon">
@@ -1706,7 +1768,8 @@
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipostv4Gpon"
                                         name="equipostv4Gpon" placeholder="Equipo Tv 4"
-                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                        oninput="this.value = this.value.toUpperCase()"
+                                        value="{{ $registro->equipostv4Gpon}}" autocomplete="off" />
                                 </div>
 
                                 <div class="input-group">
@@ -1715,7 +1778,8 @@
                                     </div>
                                     <input type="text" class="form-control equipotvGpon" id="equipostv5Gpon"
                                         name="equipostv5Gpon" placeholder="Equipo Tv 5"
-                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                        oninput="this.value = this.value.toUpperCase()"
+                                        value="{{ $registro->equipostv5Gpon}}" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1729,7 +1793,8 @@
                                     </div>
                                     <input type="text" class="form-control" id="EqModenGpon"
                                         placeholder="N° Equipo Modem" name="EqModenGpon"
-                                        oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                        oninput="this.value = this.value.toUpperCase()"
+                                        value="{{ $registro->EqModenGpon}}" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1740,7 +1805,8 @@
                                         <i class="fa fa-map-marker"></i>
                                     </div>
                                     <input type="text" class="form-control" id="GeoreferenciaGpon"
-                                        name="GeoreferenciaGpon" placeholder="Latitud,Longitud" autocomplete="off" />
+                                        name="GeoreferenciaGpon" value="{{ $registro->GeoreferenciaGpon}}"
+                                        placeholder="Latitud,Longitud" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1752,7 +1818,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="SapGpon" placeholder="Ingrese SAP"
                                         name="SapGpon" oninput="this.value = this.value.toUpperCase()"
-                                        autocomplete="off" />
+                                        autocomplete="off" value="{{ $registro->SapGpon}}" />
                                 </div>
                             </div>
 
@@ -1763,7 +1829,8 @@
                                         <i class="fa fa-square"></i>
                                     </div>
                                     <input type="number" class="form-control" id="NumeroGpon"
-                                        placeholder="Ingresa N° Gpon" name="NumeroGpon" autocomplete="off" />
+                                        value="{{ $registro->NumeroGpon}}" placeholder="Ingresa N° Gpon"
+                                        name="NumeroGpon" autocomplete="off" />
                                 </div>
                             </div>
 
@@ -1781,7 +1848,8 @@
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="TrabajadoGpon"
-                                            name="TrabajadoGpon" />
+                                            name="TrabajadoGpon"
+                                            {{ $registro->TrabajadoGpon === 'TRABAJADO' ? 'checked' : '' }} />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Trabajado
                                         </label>
@@ -1799,6 +1867,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="ObservacionesGpon"
                                         name="ObservacionesGpon" placeholder="Ingresa las observaciones del caso"
+                                        value="{{ $registro->ObservacionesGpon}}"
                                         oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
@@ -1809,7 +1878,7 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="RecibeGpon" name="RecibeGpon"
-                                        placeholder="Ingresa quien recibe el caso"
+                                        placeholder="Ingresa quien recibe el caso" value="{{ $registro->RecibeGpon}}"
                                         oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
@@ -1832,8 +1901,8 @@
                                                 </div>
                                                 <input type="text" class="form-control" id="NodoGpon" name="NodoGpon"
                                                     placeholder="Ingresa N° Nodo"
-                                                    oninput="this.value = this.value.toUpperCase()"
-                                                    autocomplete="off" />
+                                                    oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                    value="{{ $registro->NodoGpon}}" />
                                             </div>
                                         </div>
 
@@ -1846,7 +1915,8 @@
                                                     <i class="fa fa-square"></i>
                                                 </div>
                                                 <input type="number" class="form-control" id="CajaGpon" name="CajaGpon"
-                                                    placeholder="Ingresa N° Caja" autocomplete="off" />
+                                                    value="{{ $registro->CajaGpon}}" placeholder="Ingresa N° Caja"
+                                                    autocomplete="off" />
                                             </div>
                                         </div>
 
@@ -1859,7 +1929,8 @@
                                                     <i class="fa fa-square"></i>
                                                 </div>
                                                 <input type="number" class="form-control" id="PuertoGpon"
-                                                    name="PuertoGpon" placeholder="Ingresa Puerto" autocomplete="off" />
+                                                    name="PuertoGpon" value="{{ $registro->PuertoGpon}}"
+                                                    placeholder="Ingresa Puerto" autocomplete="off" />
                                             </div>
                                         </div>
 
@@ -1873,8 +1944,8 @@
                                                 </div>
                                                 <input type="text" class="form-control" id="MaterialesRedGpon"
                                                     name="MaterialesRedGpon" placeholder="Comentarios..."
-                                                    oninput="this.value = this.value.toUpperCase()"
-                                                    autocomplete="off" />
+                                                    oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                    value="{{ $registro->MaterialesRedGpon}}" />
                                             </div>
                                         </div>
                                     </div>
@@ -1885,6 +1956,8 @@
                     @endif
                     <!-- TIPO ACTIVIDAD OBJETADA GPON -->
 
+                    @if ($registro->tipo_actividadGpon === 'OBJETADA')
+
                     <div class="form-group-container FormGpon_Hidden" id="formGpon_Objetada">
                         <div class="form-group-container">
                             <div class="form-group col-md-4">
@@ -1892,7 +1965,8 @@
                                 <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                     name="MotivoObjetado_Gpon" tabindex="-1" id="MotivoObjetado_Gpon"
                                     aria-hidden="true">
-                                    <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                    <option selected="selected" value="{{ $registro->MotivoObjetado_Gpon}}">
+                                        {{ $registro->MotivoObjetado_Gpon}}</option>
                                     <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                     <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                     </option>
@@ -1912,8 +1986,9 @@
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="TrabajadoGpon_Objetado" name="TrabajadoGpon_Objetado" />
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoGpon_Objetado"
+                                            name="TrabajadoGpon_Objetado"
+                                            {{ $registro->TrabajadoGpon_Objetado === 'TRABAJADO' ? 'checked' : '' }}>
                                         <label class="form-check-label" for="">
                                             Trabajado
                                         </label>
@@ -1930,12 +2005,16 @@
                                     </div>
                                     <input type="text" class="form-control" id="ComentariosGpon_Objetada"
                                         name="ComentariosGpon_Objetada" placeholder="Comentarios..."
+                                        value="{{ $registro->ComentariosGpon_Objetada}}"
                                         oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endif
 
+
+                    @if ($registro->tipo_actividadGpon === 'TRANSFERIDA')
                     <!-- TIPO ACTIVIDAD TRANSFERIDA GPON -->
                     <div class="form-group-container FormGpon_Hidden" id="formGpon_Transferida">
                         <div class="form-group-container">
@@ -1947,6 +2026,7 @@
                                     </div>
                                     <input type="text" class="form-control" id="MotivoTransferidoGpon"
                                         name="MotivoTransferidoGpon" placeholder="Ingresa motivo transferido"
+                                        value="{{ $registro->MotivoTransferidoGpon}}"
                                         oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
@@ -1954,7 +2034,8 @@
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="TrabajadoTransferido_Gpon"
-                                            name="TrabajadoTransferido_Gpon" />
+                                            name="TrabajadoTransferido_Gpon"
+                                            {{ $registro->TrabajadoTransferido_Gpon === 'TRABAJADO' ? 'checked' : '' }} />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Trabajado
                                         </label>
@@ -1969,13 +2050,16 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentarioTransferido_Gpon"
+                                        value="{{ $registro->ComentarioTransferido_Gpon}}"
                                         name="ComentarioTransferido_Gpon" placeholder="Ingresa comentarios del caso"
                                         oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endif
 
+                    @if ($registro->tipo_actividadGpon === 'ANULACION')
                     <!-- ACTIVIDAD ANULADA GPON -->
                     <div class="form-group-container FormGpon_Hidden" id="formGpon_Anulada">
                         <div class="form-group-container">
@@ -1985,7 +2069,8 @@
                                     <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                         name="MotivoAnulada_Gpon" tabindex="-1" id="MotivoAnulada_Gpon"
                                         aria-hidden="true">
-                                        <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                        <option selected="selected" value="{{ $registro->MotivoAnulada_Gpon}}">
+                                            {{ $registro->MotivoAnulada_Gpon}}</option>
                                         <option value="CASA CERRADA">CASA CERRADA </option>
                                         <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
                                             CONDICIONES DE INSTALACION </option>
@@ -2015,7 +2100,8 @@
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Gpon"
-                                            name="TrabajadoAnulada_Gpon" />
+                                            name="TrabajadoAnulada_Gpon"
+                                            {{ $registro->TrabajadoAnulada_Gpon === 'TRABAJADO' ? 'checked' : '' }} />
                                         <label class="form-check-label">
                                             Trabajado
                                         </label>
@@ -2032,12 +2118,15 @@
                                         <i class="fa fa-edit"></i>
                                     </div>
                                     <input type="text" class="form-control" id="ComentarioAnulada_Gpon"
-                                        name="ComentarioAnulada_Gpon" placeholder="Ingresa comentarios del caso"
+                                        name="ComentarioAnulada_Gpon" value="{{ $registro->ComentarioAnulada_Gpon}}"
+                                        placeholder="Ingresa comentarios del caso"
                                         oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endif
+
                 </div>
                 @endif
 
@@ -2143,6 +2232,5 @@ document.addEventListener("DOMContentLoaded", function() {
 <script src="{{asset('/js/actualizarDatos/ValidacionTecnico.js')}}" type="text/javascript"></script>
 <!-- <script src="{{asset('/js/instalaciones/ValoresTecnico.js')}}" type="text/javascript"></script> -->
 
-<script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script>
 
 @endsection
