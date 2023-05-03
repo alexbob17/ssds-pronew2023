@@ -17,9 +17,8 @@ checkError.forEach(function (el) {
 
 // console.log("Orden Internet:", document.getElementById("OrdenLinea_Gpon"));
 
-// const selectElements = form.querySelectorAll("select");
-
 const form = document.getElementById("form1");
+// const selectElements = form.querySelectorAll("select");
 
 form.addEventListener("submit", function (event) {
   // event.preventDefault();
@@ -646,8 +645,7 @@ form.addEventListener("submit", function (event) {
             }
             if (
               EquipoModem_Hfc !== "" &&
-              !/^[0-9]+$/.test(EquipoModem_Hfc) &&
-              EquipoModem_Hfc.length !== 16
+              parseInt(EquipoModem_Hfc.length) !== 16
             ) {
               errorMensaje3 = "Debes ingresar 16 digitos en Equipo Modem.";
             }
@@ -1142,18 +1140,19 @@ form.addEventListener("submit", function (event) {
         ).value;
 
         if (
-          (codigo_tecnico === "" ||
-            telefono === "" ||
-            tecnico === "" ||
-            motivo_llamada === "" ||
-            dpto_colonia === "" ||
-            select_orden === "" ||
-            tipo_actividad === "" ||
-            // orden_tv_hfc === "" ||
-            // orden_internet_hfc === "" ||
-            // orden_linea_hfc === "" ||
-            MotivoTransferidoHfc === "",
-          TrabajadoTransferido_Hfc === "" || ComentariosTransferida_Hfc === "")
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          dpto_colonia === "" ||
+          select_orden === "" ||
+          tipo_actividad === "" ||
+          // orden_tv_hfc === "" ||
+          // orden_internet_hfc === "" ||
+          // orden_linea_hfc === "" ||
+          MotivoTransferidoHfc === "" ||
+          TrabajadoTransferido_Hfc === "" ||
+          ComentariosTransferida_Hfc === ""
         ) {
           Swal.fire({
             icon: "error",
@@ -2502,194 +2501,6 @@ form.addEventListener("submit", function (event) {
           event.preventDefault();
           return false;
         }
-      } else if (tipo_actividadGpon === "OBJETADA") {
-        const MotivoObjetado_Gpon = document.getElementById(
-          "MotivoObjetado_Gpon"
-        ).value;
-        const TrabajadoGpon_Objetado = document.getElementById(
-          "TrabajadoGpon_Objetado"
-        ).value;
-        const ObsGpon_Objetada =
-          document.getElementById("ObsGpon_Objetada").value;
-        const ComentariosGpon_Objetada = document.getElementById(
-          "ComentariosGpon_Objetada"
-        ).value;
-        if (
-          codigo_tecnico === "" ||
-          telefono === "" ||
-          tecnico === "" ||
-          motivo_llamada === "" ||
-          dpto_colonia === "" ||
-          select_orden === "" ||
-          tipo_actividadGpon === "" ||
-          // OrdenInternet_Gpon === "" ||
-          // OrdenTv_Gpon === "" ||
-          // OrdenLinea_Gpon === "" ||
-          MotivoObjetado_Gpon === "" ||
-          TrabajadoGpon_Objetado === "" ||
-          ObsGpon_Objetada === "" ||
-          ComentariosGpon_Objetada === ""
-        ) {
-          // checkError.style.display = "block";
-          // checkError1.style.display = "block";
-          Swal.fire({
-            icon: "error",
-            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
-            showConfirmButton: false,
-            timer: 1900,
-          });
-          event.preventDefault();
-          return false;
-        }
-
-        let errorMensaje = "";
-
-        // Validar si se seleccionó alguna opción válida
-        switch (select_orden) {
-          case "INSTALACION DE CLARO HOGAR":
-            if (
-              OrdenInternet_Gpon.trim() === "" &&
-              OrdenTv_Gpon.trim() === "" &&
-              OrdenLinea_Gpon.trim() === ""
-            ) {
-              errorMensaje = "Debes ingresar el N° de las 3 orden.";
-            }
-            if (
-              OrdenInternet_Gpon !== "" &&
-              parseInt(OrdenInternet_Gpon.length) !== 8
-            ) {
-              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
-            }
-
-            if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
-            }
-
-            if (
-              OrdenLinea_Gpon !== "" &&
-              parseInt(OrdenLinea_Gpon.length) !== 8
-            ) {
-              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
-            }
-
-            break;
-          case "DOBLE - INTERNET + IPTV":
-            if (
-              OrdenInternet_Gpon.trim() === "" &&
-              OrdenTv_Gpon.trim() === "" &&
-              OrdenLinea_Gpon.trim() === ""
-            ) {
-              errorMensaje = "Debes ingresar el N° Internet / N° IPTV.";
-            }
-            if (
-              OrdenInternet_Gpon !== "" &&
-              parseInt(OrdenInternet_Gpon.length) !== 8
-            ) {
-              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
-            }
-
-            if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
-            }
-
-            break;
-          case "DOBLE - INTERNET + LINEA":
-            if (
-              OrdenInternet_Gpon.trim() === "" &&
-              OrdenTv_Gpon.trim() === "" &&
-              OrdenLinea_Gpon.trim() === ""
-            ) {
-              errorMensaje = "Debes ingresar el N° Internet / N° Linea.";
-            }
-            if (
-              OrdenInternet_Gpon !== "" &&
-              parseInt(OrdenInternet_Gpon.length) !== 8
-            ) {
-              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
-            }
-
-            if (
-              OrdenLinea_Gpon !== "" &&
-              parseInt(OrdenLinea_Gpon.length) !== 8
-            ) {
-              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
-            }
-            break;
-          case "DOBLE - IPTV + LINEA":
-            if (
-              OrdenInternet_Gpon.trim() === "" &&
-              OrdenTv_Gpon.trim() === "" &&
-              OrdenLinea_Gpon.trim() === ""
-            ) {
-              errorMensaje = "Debes ingresar el N° IPTV / N° Linea.";
-            }
-
-            if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
-            }
-
-            if (
-              OrdenLinea_Gpon !== "" &&
-              parseInt(OrdenLinea_Gpon.length) !== 8
-            ) {
-              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
-            }
-            break;
-          case "INTERNET INDIVIDUAL":
-            if (
-              OrdenInternet_Gpon.trim() === "" &&
-              OrdenTv_Gpon.trim() === "" &&
-              OrdenLinea_Gpon.trim() === ""
-            ) {
-              errorMensaje = "Debes ingresar el N° Orden Internet";
-            }
-            if (
-              OrdenInternet_Gpon !== "" &&
-              parseInt(OrdenInternet_Gpon.length) !== 8
-            ) {
-              errorMensaje = "El N° Orden Internet debe tener 8 dígitos.";
-            }
-
-            break;
-          case "LINEA INDIVIDUAL":
-            if (
-              OrdenInternet_Gpon.trim() === "" &&
-              OrdenTv_Gpon.trim() === "" &&
-              OrdenLinea_Gpon.trim() === ""
-            ) {
-              errorMensaje = "Debes ingresar el N° Orden Linea.";
-            }
-            if (
-              OrdenLinea_Gpon !== "" &&
-              parseInt(OrdenLinea_Gpon.length) !== 8
-            ) {
-              errorMensaje = "El N° Orden Linea debe tener 8 dígitos.";
-            }
-            break;
-          case "IPTV INDIVIDUAL":
-            if (
-              OrdenInternet_Gpon.trim() === "" &&
-              OrdenTv_Gpon.trim() === "" &&
-              OrdenLinea_Gpon.trim() === ""
-            ) {
-              errorMensaje = "Debes ingresar el N° Orden IPTV.";
-            }
-            if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
-              errorMensaje = "El N° Orden Tv debe tener 8 dígitos.";
-            }
-            break;
-        }
-
-        if (errorMensaje !== "") {
-          Swal.fire({
-            icon: "error",
-            title: errorMensaje,
-            showConfirmButton: false,
-            timer: 1900,
-          });
-          event.preventDefault();
-          return false;
-        }
       } else if (tipo_actividadGpon === "TRANSFERIDA") {
         const TrabajadoTransferido_Gpon = document.getElementById(
           "TrabajadoTransferido_Gpon"
@@ -2896,6 +2707,189 @@ form.addEventListener("submit", function (event) {
           MotivoAnulada_Gpon === "" ||
           TrabajadoAnulada_Gpon === "" ||
           ComentarioAnulada_Gpon === ""
+        ) {
+          Swal.fire({
+            icon: "error",
+            title: "LOS CAMPOS NO PUEDEN IR VACIOS",
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+
+        let errorMensajeGpon = "";
+
+        // Validar si se seleccionó alguna opción válida
+        switch (select_orden) {
+          case "INSTALACION DE CLARO HOGAR":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensajeGpon = "Debes ingresar el N° de las 3 orden.";
+            }
+            if (
+              OrdenInternet_Gpon !== "" &&
+              parseInt(OrdenInternet_Gpon.length) !== 8
+            ) {
+              errorMensajeGpon = "El N° Orden Internet debe tener 8 dígitos.";
+            }
+
+            if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
+              errorMensajeGpon = "El N° Orden Tv debe tener 8 dígitos.";
+            }
+
+            if (
+              OrdenLinea_Gpon !== "" &&
+              parseInt(OrdenLinea_Gpon.length) !== 8
+            ) {
+              errorMensajeGpon = "El N° Orden Linea debe tener 8 dígitos.";
+            }
+
+            break;
+          case "DOBLE - INTERNET + IPTV":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensajeGpon = "Debes ingresar el N° Internet / N° IPTV.";
+            }
+            if (
+              OrdenInternet_Gpon !== "" &&
+              parseInt(OrdenInternet_Gpon.length) !== 8
+            ) {
+              errorMensajeGpon = "El N° Orden Internet debe tener 8 dígitos.";
+            }
+
+            if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
+              errorMensajeGpon = "El N° Orden Tv debe tener 8 dígitos.";
+            }
+
+            break;
+          case "DOBLE - INTERNET + LINEA":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensajeGpon = "Debes ingresar el N° Internet / N° Linea.";
+            }
+            if (
+              OrdenInternet_Gpon !== "" &&
+              parseInt(OrdenInternet_Gpon.length) !== 8
+            ) {
+              errorMensajeGpon = "El N° Orden Internet debe tener 8 dígitos.";
+            }
+
+            if (
+              OrdenLinea_Gpon !== "" &&
+              parseInt(OrdenLinea_Gpon.length) !== 8
+            ) {
+              errorMensajeGpon = "El N° Orden Linea debe tener 8 dígitos.";
+            }
+            break;
+          case "DOBLE - IPTV + LINEA":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensajeGpon = "Debes ingresar el N° IPTV / N° Linea.";
+            }
+
+            if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
+              errorMensajeGpon = "El N° Orden Tv debe tener 8 dígitos.";
+            }
+
+            if (
+              OrdenLinea_Gpon !== "" &&
+              parseInt(OrdenLinea_Gpon.length) !== 8
+            ) {
+              errorMensajeGpon = "El N° Orden Linea debe tener 8 dígitos.";
+            }
+            break;
+          case "INTERNET INDIVIDUAL":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensajeGpon = "Debes ingresar el N° Orden Internet";
+            }
+            if (
+              OrdenInternet_Gpon !== "" &&
+              parseInt(OrdenInternet_Gpon.length) !== 8
+            ) {
+              errorMensajeGpon = "El N° Orden Internet debe tener 8 dígitos.";
+            }
+
+            break;
+          case "LINEA INDIVIDUAL":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensajeGpon = "Debes ingresar el N° Orden Linea.";
+            }
+            if (
+              OrdenLinea_Gpon !== "" &&
+              parseInt(OrdenLinea_Gpon.length) !== 8
+            ) {
+              errorMensajeGpon = "El N° Orden Linea debe tener 8 dígitos.";
+            }
+            break;
+          case "IPTV INDIVIDUAL":
+            if (
+              OrdenInternet_Gpon.trim() === "" &&
+              OrdenTv_Gpon.trim() === "" &&
+              OrdenLinea_Gpon.trim() === ""
+            ) {
+              errorMensajeGpon = "Debes ingresar el N° Orden IPTV.";
+            }
+            if (OrdenTv_Gpon !== "" && parseInt(OrdenTv_Gpon.length) !== 8) {
+              errorMensajeGpon = "El N° Orden Tv debe tener 8 dígitos.";
+            }
+            break;
+        }
+
+        if (errorMensajeGpon !== "") {
+          Swal.fire({
+            icon: "error",
+            title: errorMensajeGpon,
+            showConfirmButton: false,
+            timer: 1900,
+          });
+          event.preventDefault();
+          return false;
+        }
+      } else if (tipo_actividadGpon === "OBJETADA") {
+        const MotivoObjetado_Gpon = document.getElementById(
+          "MotivoObjetado_Gpon"
+        ).value;
+        const TrabajadoGpon_Objetado = document.getElementById(
+          "TrabajadoGpon_Objetado"
+        ).value;
+        const ComentariosGpon_Objetada = document.getElementById(
+          "ComentariosGpon_Objetada"
+        ).value;
+        if (
+          codigo_tecnico === "" ||
+          telefono === "" ||
+          tecnico === "" ||
+          motivo_llamada === "" ||
+          dpto_colonia === "" ||
+          select_orden === "" ||
+          tipo_actividadGpon === "" ||
+          // OrdenInternet_Gpon === "" ||
+          // OrdenTv_Gpon === "" ||
+          // OrdenLinea_Gpon === "" ||
+          MotivoObjetado_Gpon === "" ||
+          TrabajadoGpon_Objetado === "" ||
+          ComentariosGpon_Objetada === ""
         ) {
           Swal.fire({
             icon: "error",
@@ -3744,41 +3738,71 @@ document.addEventListener("DOMContentLoaded", function () {
   const OrdenTv_Gpon = document.getElementById("OrdenTv_Gpon");
   const OrdenLinea_Gpon = document.getElementById("OrdenLinea_Gpon");
   const tecnologia = document.getElementById("tecnologia");
-
+  const orden_internet_hfc = document.getElementById("orden_internet_hfc");
+  const orden_tv_hfc = document.getElementById("orden_tv_hfc");
+  const orden_linea_hfc = document.getElementById("orden_linea_hfc");
+  console.log("CARGADO");
+  OrdenInternet_Gpon.required = false;
+  OrdenTv_Gpon.required = false;
+  OrdenLinea_Gpon.required = false;
   select_orden.addEventListener("change", function () {
     if (tecnologia.value === "GPON") {
       if (select_orden.value === "INSTALACION DE CLARO HOGAR") {
         OrdenInternet_Gpon.required = true;
         OrdenTv_Gpon.required = true;
         OrdenLinea_Gpon.required = true;
+        orden_internet_hfc.required = false;
+        orden_tv_hfc.required = false;
+        orden_linea_hfc.required = false;
       } else if (select_orden.value === "DOBLE - IPTV + LINEA") {
         OrdenInternet_Gpon.required = false;
         OrdenTv_Gpon.required = true;
         OrdenLinea_Gpon.required = true;
+        orden_internet_hfc.required = false;
+        orden_tv_hfc.required = false;
+        orden_linea_hfc.required = false;
       } else if (select_orden.value === "DOBLE - INTERNET + IPTV") {
         OrdenInternet_Gpon.required = true;
         OrdenTv_Gpon.required = true;
         OrdenLinea_Gpon.required = false;
+        orden_internet_hfc.required = false;
+        orden_tv_hfc.required = false;
+        orden_linea_hfc.required = false;
       } else if (select_orden.value === "DOBLE - INTERNET + LINEA") {
         OrdenInternet_Gpon.required = true;
         OrdenTv_Gpon.required = false;
         OrdenLinea_Gpon.required = true;
+        orden_internet_hfc.required = false;
+        orden_tv_hfc.required = false;
+        orden_linea_hfc.required = false;
       } else if (select_orden.value === "INTERNET INDIVIDUAL") {
         OrdenInternet_Gpon.required = true;
         OrdenTv_Gpon.required = false;
         OrdenLinea_Gpon.required = false;
+        orden_internet_hfc.required = false;
+        orden_tv_hfc.required = false;
+        orden_linea_hfc.required = false;
       } else if (select_orden.value === "IPTV INDIVIDUAL") {
         OrdenInternet_Gpon.required = false;
         OrdenTv_Gpon.required = true;
         OrdenLinea_Gpon.required = false;
+        orden_internet_hfc.required = false;
+        orden_tv_hfc.required = false;
+        orden_linea_hfc.required = false;
       } else if (select_orden.value === "LINEA INDIVIDUAL") {
         OrdenInternet_Gpon.required = false;
         OrdenTv_Gpon.required = false;
         OrdenLinea_Gpon.required = true;
+        orden_internet_hfc.required = false;
+        orden_tv_hfc.required = false;
+        orden_linea_hfc.required = false;
       } else {
         OrdenInternet_Gpon.required = false;
         OrdenTv_Gpon.required = false;
         OrdenLinea_Gpon.required = false;
+        orden_internet_hfc.required = false;
+        orden_tv_hfc.required = false;
+        orden_linea_hfc.required = false;
       }
     }
   });
@@ -3790,79 +3814,144 @@ document.addEventListener("DOMContentLoaded", function () {
   const orden_internet_hfc = document.getElementById("orden_internet_hfc");
   const orden_tv_hfc = document.getElementById("orden_tv_hfc");
   const orden_linea_hfc = document.getElementById("orden_linea_hfc");
+  const OrdenInternet_Gpon = document.getElementById("OrdenInternet_Gpon");
+  const OrdenTv_Gpon = document.getElementById("OrdenTv_Gpon");
+  const OrdenLinea_Gpon = document.getElementById("OrdenLinea_Gpon");
 
   const tecnologia = document.getElementById("tecnologia");
-
+  orden_internet_hfc.required = false;
+  orden_tv_hfc.required = false;
+  orden_linea_hfc.required = false;
   select_orden.addEventListener("change", function () {
     if (tecnologia.value === "HFC") {
       if (select_orden.value === "INSTALACION DE CLARO HOGAR") {
         orden_internet_hfc.required = true;
         orden_tv_hfc.required = true;
         orden_linea_hfc.required = true;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else if (select_orden.value === "DOBLE - TV + INTERNET") {
         orden_internet_hfc.required = true;
         orden_tv_hfc.required = true;
         orden_linea_hfc.required = false;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else if (select_orden.value === "DOBLE - INTERNET + LINEA") {
         orden_internet_hfc.required = true;
         orden_tv_hfc.required = false;
         orden_linea_hfc.required = true;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else if (select_orden.value === "TV - BASICO INDIVIDUAL") {
         orden_internet_hfc.required = false;
         orden_tv_hfc.required = true;
         orden_linea_hfc.required = false;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else if (select_orden.value === "TV - DIGITAL INDIVIDUAL") {
         orden_internet_hfc.required = false;
         orden_tv_hfc.required = true;
         orden_linea_hfc.required = false;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else if (select_orden.value === "INTERNET INDIVIDUAL") {
         orden_internet_hfc.required = true;
         orden_tv_hfc.required = false;
         orden_linea_hfc.required = false;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else if (select_orden.value === "LINEA INDIVIDUAL") {
         orden_internet_hfc.required = false;
         orden_tv_hfc.required = false;
         orden_linea_hfc.required = true;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else if (select_orden.value === "REFRESH") {
         orden_internet_hfc.required = true;
         orden_tv_hfc.required = true;
         orden_linea_hfc.required = false;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else if (select_orden.value === "REACTIVACION -DOBLE - TV + INTERNET") {
         orden_internet_hfc.required = true;
         orden_tv_hfc.required = true;
         orden_linea_hfc.required = false;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else if (
         select_orden.value === "REACTIVACION - INSTALACION DE CLARO HOGAR"
       ) {
         orden_internet_hfc.required = true;
         orden_tv_hfc.required = true;
         orden_linea_hfc.required = true;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else if (
         select_orden.value === "REACTIVACION -DOBLE - INTERNET + LINEA"
       ) {
         orden_internet_hfc.required = true;
         orden_tv_hfc.required = false;
         orden_linea_hfc.required = true;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else if (
         select_orden.value === "REACTIVACION -TV - BASICO INDIVIDUAL"
       ) {
         orden_internet_hfc.required = false;
         orden_tv_hfc.required = true;
         orden_linea_hfc.required = false;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else if (
         select_orden.value === "REACTIVACION -TV - DIGITAL INDIVIDUAL"
       ) {
         orden_internet_hfc.required = false;
         orden_tv_hfc.required = true;
         orden_linea_hfc.required = false;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else if (select_orden.value === "REACTIVACION -LINEA INDIVIDUAL") {
         orden_internet_hfc.required = false;
         orden_tv_hfc.required = false;
         orden_linea_hfc.required = true;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       } else {
         orden_internet_hfc.required = false;
         orden_tv_hfc.required = false;
         orden_linea_hfc.required = false;
+
+        OrdenInternet_Gpon.required = false;
+        OrdenTv_Gpon.required = false;
+        OrdenLinea_Gpon.required = false;
       }
     }
   });

@@ -1,4 +1,8 @@
 @extends('app') @section('content')
+
+<head>
+
+</head>
 <div class="row">
     <div class="col-md-12">
         @if (session()->has('success_message'))
@@ -14,7 +18,7 @@
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
             <form action="{{ route('registro_llamadas.store') }}" method="POST" id="form1" class="formulario box-body"
-                style="border-bottom: 3px solid #3e69d6; padding-top: 15px;" novalidate>
+                style="border-bottom: 3px solid #3e69d6; padding-top: 15px;">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                 <input type="hidden" name="selected_fields" id="selected-fields" />
@@ -636,7 +640,7 @@
 
                             <div class="form-group col-md-3">
                                 <div class="form-check" style="display: flex; padding-top: 21px;">
-                                    <input class="form-check-input" type="checkbox" value="" id="TrabajadoAdsl"
+                                    <input class="form-check-input" type="checkbox" id="TrabajadoAdsl"
                                         name="TrabajadoAdsl" />
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Trabajado
@@ -766,8 +770,7 @@
 
                             <div class="form-group col-md-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value=""
-                                        id="TrabajadoTransferido_Adsl" />
+                                    <input class="form-check-input" type="checkbox" id="TrabajadoTransferido_Adsl" />
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Trabajado
                                     </label>
@@ -951,7 +954,7 @@
 
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="TrabajadoDth"
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoDth"
                                             name="TrabajadoDth" />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Trabajado
@@ -1866,8 +1869,8 @@
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="TrabajadoGpon_Objetado" name="TrabajadoGpon_Objetado" />
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoGpon_Objetado"
+                                            name="TrabajadoGpon_Objetado" />
                                         <label class="form-check-label" for="">
                                             Trabajado
                                         </label>
@@ -2193,6 +2196,9 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 </script>
 
+
+
+
 <!-- Select2 -->
 <link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
 <link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
@@ -2219,7 +2225,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <script src="{{asset('/js/instalaciones/validacionesSelect.js')}}" type="text/javascript"></script>
 <script src="{{asset('/js/registro/ValidacionTecnico.js')}}" type="text/javascript"></script>
 <script src="{{asset('/js/instalaciones/ValoresTecnico.js')}}" type="text/javascript"></script>
-
 <script src="{{asset('/js/instalaciones/ValidacionFormulario.js')}}" type="text/javascript"></script>
+
+
 
 @endsection

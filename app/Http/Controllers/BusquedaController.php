@@ -16,6 +16,16 @@ use SSD\Models\Instalaciones\InstalacionHfcRealizada;
 use SSD\Models\Instalaciones\InstalacionHfcObjetada;
 use SSD\Models\Instalaciones\InstalacionHfcTransferida;
 use SSD\Models\Instalaciones\InstalacionHfcAnulada;
+
+
+use SSD\Models\Instalaciones\InstalacionDthRealizada;
+use SSD\Models\Instalaciones\InstalacionDthObjetada;
+use SSD\Models\Instalaciones\InstalacionDthAnulada;
+
+use SSD\Models\Instalaciones\InstalacionCobreRealizada;
+use SSD\Models\Instalaciones\InstalacionCobreObjetada;
+use SSD\Models\Instalaciones\InstalacionCobreAnulada;
+
 use Illuminate\Support\Facades\DB;
 use SSD\User;
 
@@ -74,6 +84,17 @@ class BusquedaController extends Controller
 				'instalaciongpon_objetada' => ['OrdenInternet_Gpon', 'OrdenTv_Gpon', 'OrdenLinea_Gpon'],
 				'instalaciongpon_realizada' => ['OrdenInternet_Gpon', 'OrdenTv_Gpon', 'OrdenLinea_Gpon'],
 				'instalaciongpon_transferida' => ['OrdenInternet_Gpon', 'OrdenTv_Gpon', 'OrdenLinea_Gpon'],
+				'instalaciondth_realizada' => ['ordenTv_Dth'],
+				'instalaciondth_objetada' => ['OrdenObj_Dth'],
+				'instalaciondth_anulada' => ['OrdenAnulada_Dth'],
+				'instalacioncobre_realizada' => ['OrdenLineaCobre'],
+				'instalacioncobre_objetado' => ['OrdenCobre_Objetada'],
+				'instalacioncobre_anulada' => ['OrdenAnuladaCobre'],
+				'instalacionadsl_realizada' => ['orden_internet_adsl'],
+				'instalacionadsl_objetada' => ['OrdenAdsl_Objetada'],
+				'instalacionadsl_anulada' => ['OrdenAnuladaAdsl'],
+
+
 			];
 			$status = [
 				'instalacionhfc_realizada' => ['TrabajadoHfc'] ,
@@ -84,6 +105,17 @@ class BusquedaController extends Controller
 				'instalaciongpon_objetada' => ['TrabajadoGpon_Objetado'],
 				'instalaciongpon_realizada' => ['TrabajadoGpon'],
 				'instalaciongpon_transferida' => ['TrabajadoTransferido_Gpon'],
+				'instalaciondth_realizada' => ['TrabajadoDth'],
+				'instalaciondth_objetada' => ['TrabajadoObj_Dth'],
+				'instalaciondth_anulada' => ['TrabajadoAnulada_Dth'],
+				'instalacioncobre_realizada' => ['TrabajadoCobre'],
+				'instalacioncobre_objetado' => ['TrabajadoCobre_Objetado'],
+				'instalacioncobre_anulada' => ['TrabajadoAnulada_Cobre'],
+				'instalacionadsl_realizada' => ['TrabajadoAdsl'],
+				'instalacionadsl_objetada' => ['TrabajadoAdslObjetado'],
+				'instalacionadsl_anulada' => ['TrabajadoAnulada_Adsl'],
+
+
 			];
 
 			$tipo_actividad_properties = [
@@ -95,6 +127,15 @@ class BusquedaController extends Controller
 				'instalaciongpon_objetada' => ['tipo_actividadGpon'],
 				'instalaciongpon_realizada' => ['tipo_actividadGpon'],
 				'instalaciongpon_transferida' => ['tipo_actividadGpon'],
+				'instalaciondth_realizada' => ['tipo_actividadDth'],
+				'instalaciondth_objetada' => ['tipo_actividadDth'],
+				'instalaciondth_anulada' => ['tipo_actividadDth'],
+				'instalacioncobre_realizada' => ['tipo_actividadCobre'],
+				'instalacioncobre_objetado' => ['tipo_actividadCobre'],
+				'instalacioncobre_anulada' => ['tipo_actividadCobre'],
+				'instalacionadsl_realizada' => ['tipo_actividadAdsl'],
+				'instalacionadsl_objetada' => ['tipo_actividadAdsl'],
+				'instalacionadsl_anulada' => ['tipo_actividadAdsl'],
 			];
 			
 			$resultados = [];
