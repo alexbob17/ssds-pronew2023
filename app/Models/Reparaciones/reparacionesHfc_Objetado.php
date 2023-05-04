@@ -19,7 +19,7 @@ class reparacionesHfc_Objetado extends Model
         'TipoActividadReparacionHfc',
         'MotivoObjetada_Hfc',
         'OrdenObjHfc',
-        'TrabajadoObjetadaHfc',
+        'TrabajadoReparacionesObjetadaHfc',
         'ComentariosObjetados_Hfc',
         'username_creacion',
 		'username_atencion',

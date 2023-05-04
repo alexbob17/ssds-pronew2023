@@ -76,6 +76,8 @@ class BusquedaController extends Controller
 	
 		if (!empty($NumeroOrden)) {
 			$columnas = [
+
+				// INSTALACIONES
 				'instalacionhfc_realizada' => ['orden_tv_hfc', 'orden_internet_hfc', 'orden_linea_hfc'] ,
 				'instalacionhfc_objetada' => ['orden_tv_hfc', 'orden_internet_hfc', 'orden_linea_hfc'],
 				'instalacionhfc_anulada' => ['orden_tv_hfc', 'orden_internet_hfc', 'orden_linea_hfc'],
@@ -94,9 +96,27 @@ class BusquedaController extends Controller
 				'instalacionadsl_objetada' => ['OrdenAdsl_Objetada'],
 				'instalacionadsl_anulada' => ['OrdenAnuladaAdsl'],
 
+				// REPARACIONES
+				'reparacioneshfc_realizado' => ['OrdenHfc'],
+				'reparacioneshfc_objetado' => ['OrdenObjHfc'],
+				'reparacioneshfc_transferido' => ['OrdenTransfHfc'],
+
+				'reparacionesgpon_realizado' => ['OrdenRealizadoGpon'],
+				'reparacionesgpon_objetado' => ['OrdenObjGpon'],
+				'reparacionesgpon_transferido' => ['OrdenTransGpon'],
+
+				'reparacionesdth_realizado' => ['OrdenDthRealizada'],
+				'reparacionesdth_objetado' => ['OrdenObjDth'],
+				'reparacionesdth_transferido' => ['OrdenTransferidoDth'],
+
+				'reparacionescobre_realizado' => ['OrdenReparacionCobre'],
+				'reparacionescobre_objetado' => ['OrdenObjReparacionCobre'],
+				'reparacionescobre_transferido' => ['OrdenTransfCobre'],
 
 			];
 			$status = [
+
+				// INSTALACIONES
 				'instalacionhfc_realizada' => ['TrabajadoHfc'] ,
 				'instalacionhfc_objetada' => ['TrabajadoObjetadaHfc'],
 				'instalacionhfc_anulada' => ['TrabajadoAnulada_Hfc'],
@@ -105,8 +125,6 @@ class BusquedaController extends Controller
 				'instalaciongpon_objetada' => ['TrabajadoGpon_Objetado'],
 				'instalaciongpon_realizada' => ['TrabajadoGpon'],
 				'instalaciongpon_transferida' => ['TrabajadoTransferido_Gpon'],
-				'instalaciondth_realizada' => ['TrabajadoDth'],
-				'instalaciondth_objetada' => ['TrabajadoObj_Dth'],
 				'instalaciondth_anulada' => ['TrabajadoAnulada_Dth'],
 				'instalacioncobre_realizada' => ['TrabajadoCobre'],
 				'instalacioncobre_objetado' => ['TrabajadoCobre_Objetado'],
@@ -115,10 +133,29 @@ class BusquedaController extends Controller
 				'instalacionadsl_objetada' => ['TrabajadoAdslObjetado'],
 				'instalacionadsl_anulada' => ['TrabajadoAnulada_Adsl'],
 
+				// REPARACIONES
+				'reparacioneshfc_realizado' => ['TrabajadoHfcRealizado'],
+				'reparacioneshfc_objetado' => ['TrabajadoReparacionesObjetadaHfc'],
+				'reparacioneshfc_transferido' => ['TrabajadoTransfHfc'],
+
+				'reparacionesgpon_realizado' => ['TrabajadoReparacionesGpon'],
+				'reparacionesgpon_objetado' => ['TrabajadoObjetadaGpon'],
+				'reparacionesgpon_transferido' => ['TrabajadoTransfGpon'],
+
+				'reparacionesdth_realizado' => ['TrabajadoDth'],
+				'reparacionesdth_objetado' => ['TrabajadoObjetadaDth'],
+				'reparacionesdth_transferido' => ['TrabajadoTransferidoDth'],
+
+				'reparacionescobre_realizado' => ['TrabajadoReparacionCobre'],
+				'reparacionescobre_objetado' => ['TrabajadoObjetadaCobre'],
+				'reparacionescobre_transferido' => ['TrabajadoCobreTransferido'],
+
 
 			];
 
 			$tipo_actividad_properties = [
+
+				// INSTALACIONES
 				'instalacionhfc_realizada' => ['tipo_actividad'] ,
 				'instalacionhfc_objetada' => ['tipo_actividad'],
 				'instalacionhfc_anulada' => ['tipo_actividad'],
@@ -136,6 +173,24 @@ class BusquedaController extends Controller
 				'instalacionadsl_realizada' => ['tipo_actividadAdsl'],
 				'instalacionadsl_objetada' => ['tipo_actividadAdsl'],
 				'instalacionadsl_anulada' => ['tipo_actividadAdsl'],
+
+				// REPARACIONES
+				'reparacioneshfc_realizado' => ['TipoActividadReparacionHfc'],
+				'reparacioneshfc_objetado' => ['TipoActividadReparacionHfc'],
+				'reparacioneshfc_transferido' => ['TipoActividadReparacionHfc'],
+
+				'reparacionesgpon_realizado' => ['TipoActividadReparacionGpon'],
+				'reparacionesgpon_objetado' => ['TipoActividadReparacionGpon'],
+				'reparacionesgpon_transferido' => ['TipoActividadReparacionGpon'],
+
+				'reparacionesdth_realizado' => ['TipoActividadReparacionDth'],
+				'reparacionesdth_objetado' => ['TipoActividadReparacionDth'],
+				'reparacionesdth_transferido' => ['TipoActividadReparacionDth'],
+
+				'reparacionescobre_realizado' => ['TipoActividadReparacionCobre'],
+				'reparacionescobre_objetado' => ['TipoActividadReparacionCobre'],
+				'reparacionescobre_transferido' => ['TipoActividadReparacionCobre'],
+
 			];
 			
 			$resultados = [];

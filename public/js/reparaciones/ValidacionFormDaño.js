@@ -109,8 +109,8 @@ form.addEventListener("submit", function (event) {
           document.getElementById("MotivoObjetada_Hfc").value;
 
         const OrdenObjHfc = document.getElementById("OrdenObjHfc").value;
-        const TrabajadoObjetadaHfc = document.getElementById(
-          "TrabajadoObjetadaHfc"
+        const TrabajadoReparacionesObjetadaHfc = document.getElementById(
+          "TrabajadoReparacionesObjetadaHfc"
         ).value;
 
         const ComentariosObjetados_Hfc = document.getElementById(
@@ -127,7 +127,7 @@ form.addEventListener("submit", function (event) {
           TipoActividadReparacionHfc === "" ||
           MotivoObjetada_Hfc === "" ||
           OrdenObjHfc === "" ||
-          TrabajadoObjetadaHfc === "" ||
+          TrabajadoReparacionesObjetadaHfc === "" ||
           ComentariosObjetados_Hfc === ""
         ) {
           Swal.fire({
@@ -222,7 +222,9 @@ form.addEventListener("submit", function (event) {
       const ObservacionesGpon =
         document.getElementById("ObservacionesGpon").value;
       const RecibeGpon = document.getElementById("RecibeGpon").value;
-      const TrabajadoGpon = document.getElementById("TrabajadoGpon").value;
+      const TrabajadoReparacionesGpon = document.getElementById(
+        "TrabajadoReparacionesGpon"
+      ).value;
 
       if (TipoActividadReparacionGpon === "REALIZADA") {
         if (
@@ -240,7 +242,7 @@ form.addEventListener("submit", function (event) {
           syrengGpon === "" ||
           ObservacionesGpon === "" ||
           RecibeGpon === "" ||
-          TrabajadoGpon === ""
+          TrabajadoReparacionesGpon === ""
         ) {
           Swal.fire({
             icon: "error",
@@ -550,12 +552,7 @@ form.addEventListener("submit", function (event) {
 
       const CodigoCausaCobre =
         document.getElementById("CodigoCausaCobre").value;
-      const CodigoTipoDañoCobre = document.getElementById(
-        "CodigoTipoDañoCobre"
-      ).value;
-      const CodigoUbicacionDañoCobre = document.getElementById(
-        "CodigoUbicacionDañoCobre"
-      ).value;
+
       const DescripcionCausaCobre = document.getElementById(
         "DescripcionCausaCobre"
       ).value;
@@ -574,7 +571,9 @@ form.addEventListener("submit", function (event) {
       const ObservacionesCobre =
         document.getElementById("ObservacionesCobre").value;
       const RecibeCobre = document.getElementById("RecibeCobre").value;
-      const TrabajadoCobre = document.getElementById("TrabajadoCobre").value;
+      const TrabajadoReparacionCobre = document.getElementById(
+        "TrabajadoReparacionCobre"
+      ).value;
 
       if (TipoActividadReparacionCobre === "REALIZADA") {
         if (
@@ -585,15 +584,13 @@ form.addEventListener("submit", function (event) {
           dpto_colonia === "" ||
           TipoActividadReparacionCobre === "" ||
           CodigoCausaCobre === "" ||
-          CodigoTipoDañoCobre === "" ||
-          CodigoUbicacionDañoCobre === "" ||
           DescripcionCausaCobre === "" ||
           DescripcionTipoDañoCobre === "" ||
           DescripcionUbicacionDañoCobre === "" ||
           OrdenReparacionCobre === "" ||
           syrengReparacionCobre === "" ||
           ObservacionesCobre === "" ||
-          TrabajadoCobre === "" ||
+          TrabajadoReparacionCobre === "" ||
           RecibeCobre === ""
         ) {
           Swal.fire({

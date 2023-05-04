@@ -91,7 +91,19 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::post('/llamadashome/editar/instalaciones', 'ActualizarDatos@editar')->name('mostrarEditar');
 
+	Route::post('/llamadashome/editar/reparaciones', 'ActualizarDatos@editar')->name('mostrarEditarReparaciones');
+
+
+	// ACTUALIZAR
+
 	Route::put('/llamadashome/editar/instalaciones/{id}', 'ActualizarDatos@actualizar')->name('actualizarDatos');
+
+	Route::put('/llamadashome/editar/reparaciones/{id}', 'ActualizarDatos@actualizarReparaciones')->name('actualizarDatosReparaciones');
+
+
+	
+
+
 
 
 	// Route::get('/editar/{id}', 'TuControlador@editar')->name('editar');

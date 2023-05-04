@@ -130,7 +130,7 @@ class ReparacionesController extends Controller
                         'TipoActividadReparacionHfc',
                         'MotivoObjetada_Hfc',
                         'OrdenObjHfc',
-                        'TrabajadoObjetadaHfc',
+                        'TrabajadoReparacionesObjetadaHfc',
                         'ComentariosObjetados_Hfc',
                         'username_creacion',
                         'username_atencion',
@@ -141,9 +141,9 @@ class ReparacionesController extends Controller
 					// Iteramos por los campos seleccionados del formulario
 					foreach ($selectedFields as $fieldName) {
 						$value = $request->input($fieldName);
-						if ($fieldName === 'TrabajadoObjetadaHfc' && $request->has('TrabajadoObjetadaHfc')) {
+						if ($fieldName === 'TrabajadoReparacionesObjetadaHfc' && $request->has('TrabajadoReparacionesObjetadaHfc')) {
 							$data[$fieldName] = 'TRABAJADO';
-						} elseif ($fieldName === 'TrabajadoObjetadaHfc') {
+						} elseif ($fieldName === 'TrabajadoReparacionesObjetadaHfc') {
 							$data[$fieldName] = 'PENDIENTE';
 						} else {
 							$data[$fieldName] = $value;
@@ -241,7 +241,7 @@ class ReparacionesController extends Controller
                     'syrengGpon',
                     'ObservacionesGpon',
                     'RecibeGpon',
-                    'TrabajadoGpon',
+                    'TrabajadoReparacionesGpon',
                     'username_creacion',
                     'username_atencion',
 				];
@@ -251,9 +251,9 @@ class ReparacionesController extends Controller
                 // Iteramos por los campos seleccionados del formulario
 				foreach ($selectedFields as $fieldName) {
 					$value = $request->input($fieldName);
-					if ($fieldName === 'TrabajadoGpon' && $request->has('TrabajadoGpon')) {
+					if ($fieldName === 'TrabajadoReparacionesGpon' && $request->has('TrabajadoReparacionesGpon')) {
 						$data[$fieldName] = 'TRABAJADO';
-					} elseif ($fieldName === 'TrabajadoGpon') {
+					} elseif ($fieldName === 'TrabajadoReparacionesGpon') {
 						$data[$fieldName] = 'PENDIENTE';
 					} else {
 						$data[$fieldName] = $value;
@@ -576,7 +576,7 @@ class ReparacionesController extends Controller
                     'syrengReparacionCobre',
                     'ObservacionesCobre',
                     'RecibeCobre',
-                    'TrabajadoCobre',
+                    'TrabajadoReparacionCobre',
                     'username_creacion',
                     'username_atencion',
 				];
@@ -586,9 +586,9 @@ class ReparacionesController extends Controller
                 // Iteramos por los campos seleccionados del formulario
 				foreach ($selectedFields as $fieldName) {
 					$value = $request->input($fieldName);
-					if ($fieldName === 'TrabajadoCobre' && $request->has('TrabajadoCobre')) {
+					if ($fieldName === 'TrabajadoReparacionCobre' && $request->has('TrabajadoReparacionCobre')) {
 						$data[$fieldName] = 'TRABAJADO';
-					} elseif ($fieldName === 'TrabajadoCobre') {
+					} elseif ($fieldName === 'TrabajadoReparacionCobre') {
 						$data[$fieldName] = 'PENDIENTE';
 					} else {
 						$data[$fieldName] = $value;

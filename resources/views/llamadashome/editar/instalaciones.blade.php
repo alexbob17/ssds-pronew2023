@@ -889,7 +889,7 @@
                                         style="width: 100%;" name="MotivoAnulada_Adsl" tabindex="-1"
                                         id="MotivoAnulada_Adsl" aria-hidden="true">
                                         <option selected="selected" value="{{ $registro->MotivoAnulada_Adsl}}">
-                                            {{ $registro->MotivoAnulada_Adsl}}/option>
+                                            {{ $registro->MotivoAnulada_Adsl}}</option>
                                         <option value="CASA CERRADA">CASA CERRADA </option>
                                         <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
                                             CONDICIONES DE INSTALACION </option>

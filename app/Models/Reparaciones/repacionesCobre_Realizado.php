@@ -25,7 +25,7 @@ class repacionesCobre_Realizado extends Model
         'syrengReparacionCobre',
         'ObservacionesCobre',
         'RecibeCobre',
-        'TrabajadoCobre',
+        'TrabajadoReparacionCobre',
         'username_creacion',
 		'username_atencion',
     ];
