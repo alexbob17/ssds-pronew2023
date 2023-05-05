@@ -6,26 +6,6 @@ use Illuminate\Http\Request;
 
 use SSD\Http\Requests;
 
-use SSD\Models\Instalaciones\InstalacionGponAnulada;
-use SSD\Models\Instalaciones\InstalacionGponTransferida;
-use SSD\Models\Instalaciones\InstalacionGponObjetada;
-use SSD\Models\Instalaciones\InstalacionGponRealizada;
-
-
-use SSD\Models\Instalaciones\InstalacionHfcRealizada;
-use SSD\Models\Instalaciones\InstalacionHfcObjetada;
-use SSD\Models\Instalaciones\InstalacionHfcTransferida;
-use SSD\Models\Instalaciones\InstalacionHfcAnulada;
-
-
-use SSD\Models\Instalaciones\InstalacionDthRealizada;
-use SSD\Models\Instalaciones\InstalacionDthObjetada;
-use SSD\Models\Instalaciones\InstalacionDthAnulada;
-
-use SSD\Models\Instalaciones\InstalacionCobreRealizada;
-use SSD\Models\Instalaciones\InstalacionCobreObjetada;
-use SSD\Models\Instalaciones\InstalacionCobreAnulada;
-
 use Illuminate\Support\Facades\DB;
 use SSD\User;
 
@@ -100,18 +80,29 @@ class BusquedaController extends Controller
 				'reparacioneshfc_realizado' => ['OrdenHfc'],
 				'reparacioneshfc_objetado' => ['OrdenObjHfc'],
 				'reparacioneshfc_transferido' => ['OrdenTransfHfc'],
-
 				'reparacionesgpon_realizado' => ['OrdenRealizadoGpon'],
 				'reparacionesgpon_objetado' => ['OrdenObjGpon'],
 				'reparacionesgpon_transferido' => ['OrdenTransGpon'],
-
 				'reparacionesdth_realizado' => ['OrdenDthRealizada'],
 				'reparacionesdth_objetado' => ['OrdenObjDth'],
 				'reparacionesdth_transferido' => ['OrdenTransferidoDth'],
-
 				'reparacionescobre_realizado' => ['OrdenReparacionCobre'],
 				'reparacionescobre_objetado' => ['OrdenObjReparacionCobre'],
 				'reparacionescobre_transferido' => ['OrdenTransfCobre'],
+				'reparacionesadsl_realizado' => ['OrdenAdslRealizado'],
+				'reparacionesadsl_objetado' => ['OrdenObjAdsl'],
+				'reparacionesadsl_transferido' => ['OrdenTransferidoAdsl'],
+				
+
+				// POSTVENTAS
+				'postventacambiocobre_realizada' => ['OrdenCambioCobre'],
+				'postventacambiocobre_objetada' => ['OrdenObjCambioCobre'],
+				'postventacambiocobre_anulada' => ['OrdenAnuladaCambioCobre'],
+				
+				'postventaretirodth_anulada' =>['OrdenRetiroAnulacionDth'],
+				'postventaretirodth_realizada' =>['OrdenRetiroDth'],
+
+				
 
 			];
 			$status = [
@@ -137,19 +128,28 @@ class BusquedaController extends Controller
 				'reparacioneshfc_realizado' => ['TrabajadoHfcRealizado'],
 				'reparacioneshfc_objetado' => ['TrabajadoReparacionesObjetadaHfc'],
 				'reparacioneshfc_transferido' => ['TrabajadoTransfHfc'],
-
 				'reparacionesgpon_realizado' => ['TrabajadoReparacionesGpon'],
 				'reparacionesgpon_objetado' => ['TrabajadoObjetadaGpon'],
 				'reparacionesgpon_transferido' => ['TrabajadoTransfGpon'],
-
 				'reparacionesdth_realizado' => ['TrabajadoDth'],
 				'reparacionesdth_objetado' => ['TrabajadoObjetadaDth'],
 				'reparacionesdth_transferido' => ['TrabajadoTransferidoDth'],
-
 				'reparacionescobre_realizado' => ['TrabajadoReparacionCobre'],
 				'reparacionescobre_objetado' => ['TrabajadoObjetadaCobre'],
 				'reparacionescobre_transferido' => ['TrabajadoCobreTransferido'],
+				'reparacionesadsl_realizado' => ['TrabajadoReparacionAdsl'],
+				'reparacionesadsl_objetado' => ['TrabajadoObjetadaAdsl'],
+				'reparacionesadsl_transferido' => ['TrabajadoTransferidoAdsl'],
 
+				// POSTVENTA
+				'postventacambiocobre_realizada' => ['TrabajadoCambioCobre'],
+				'postventacambiocobre_objetada' => ['TrabajadoObjCambioCobre'],
+				'postventacambiocobre_anulada' => ['TrabajadoAnuladaCambioCobre'],
+
+
+				'postventaretirodth_anulada' =>['TrabajadoRetiroAnulada_Dth'],
+				'postventaretirodth_realizada' =>['TrabajadoRetiroDth'],
+				
 
 			];
 
@@ -178,18 +178,27 @@ class BusquedaController extends Controller
 				'reparacioneshfc_realizado' => ['TipoActividadReparacionHfc'],
 				'reparacioneshfc_objetado' => ['TipoActividadReparacionHfc'],
 				'reparacioneshfc_transferido' => ['TipoActividadReparacionHfc'],
-
 				'reparacionesgpon_realizado' => ['TipoActividadReparacionGpon'],
 				'reparacionesgpon_objetado' => ['TipoActividadReparacionGpon'],
 				'reparacionesgpon_transferido' => ['TipoActividadReparacionGpon'],
-
 				'reparacionesdth_realizado' => ['TipoActividadReparacionDth'],
 				'reparacionesdth_objetado' => ['TipoActividadReparacionDth'],
 				'reparacionesdth_transferido' => ['TipoActividadReparacionDth'],
-
 				'reparacionescobre_realizado' => ['TipoActividadReparacionCobre'],
 				'reparacionescobre_objetado' => ['TipoActividadReparacionCobre'],
 				'reparacionescobre_transferido' => ['TipoActividadReparacionCobre'],
+				'reparacionesadsl_realizado' => ['TipoActividadReparacionAdsl'],
+				'reparacionesadsl_objetado' => ['TipoActividadReparacionAdsl'],
+				'reparacionesadsl_transferido' => ['TipoActividadReparacionAdsl'],
+
+				// POSTVENTA
+				'postventacambiocobre_realizada' => ['TipoActividadCambioNumeroCobre'],
+				'postventacambiocobre_objetada' => ['TipoActividadCambioNumeroCobre'],
+				'postventacambiocobre_anulada' => ['TipoActividadCambioNumeroCobre'],
+
+				'postventaretirodth_anulada' =>['TipoActividadReconexionDth'],
+				'postventaretirodth_realizada' =>['TipoActividadReconexionDth'],
+
 
 			];
 			

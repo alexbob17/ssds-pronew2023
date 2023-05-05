@@ -1075,30 +1075,6 @@
                                 </div>
 
 
-
-                                <!-- <div class="TipoActividad_Hidden">
-                                    <div class="form-group col-md-4">
-                                        <label for="CodigoTipoDañoAdsl">Tipo Daño</label>
-                                        <select class="form-control " style="width: 100%;" name="CodigoTipoDañoAdsl"
-                                            tabindex="-1" id="CodigoTipoDañoAdsl" aria-hidden="true">
-                                            <option select value="">SELECCIONE UNA OPCION</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-
-
-                                <div class="TipoActividad_Hidden">
-                                    <div class="form-group col-md-3">
-                                        <label for="CodigoUbicacionDañoAdsl">Ubicación Daño</label>
-                                        <select class="form-control " style="width: 100%;"
-                                            name="CodigoUbicacionDañoAdsl" tabindex="-1" id="CodigoUbicacionDañoAdsl"
-                                            aria-hidden="true">
-                                            <option value="">SELECCIONE UNA OPCION</option>
-                                        </select>
-                                    </div>
-                                </div> -->
                             </div>
 
                             <div class="form-group-container">
@@ -1188,9 +1164,9 @@
                                     <div class="from-group-container">
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="TrabajadoAdsl"
-                                                    name="TrabajadoAdsl" />
-                                                <label class="form-check-label" for="TrabajadoAdsl">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="TrabajadoReparacionAdsl" name="TrabajadoReparacionAdsl" />
+                                                <label class="form-check-label" for="TrabajadoReparacionAdsl">
                                                     Trabajado
                                                 </label>
                                             </div>

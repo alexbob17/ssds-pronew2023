@@ -25,7 +25,7 @@ class repacionesAdsl_Realizado extends Model
         'syrengAdsl',
         'ObservacionesAdsl',
         'RecibeAdsl',
-        'TrabajadoAdsl',
+        'TrabajadoReparacionAdsl',
         'username_creacion',
 		'username_atencion',
     ];

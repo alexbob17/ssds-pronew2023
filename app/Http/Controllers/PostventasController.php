@@ -2922,7 +2922,6 @@ class PostventasController extends Controller
 							'MotivoAnuladaCambioCobre',
 							'OrdenAnuladaCambioCobre',
 							'TrabajadoAnuladaCambioCobre',
-							'ObvsObjCambioCobre',
 							'ComentarioAnuladaCambioCobre'
 						];
 

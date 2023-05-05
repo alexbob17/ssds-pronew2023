@@ -753,7 +753,9 @@ form.addEventListener("submit", function (event) {
       const ObservacionesAdsl =
         document.getElementById("ObservacionesAdsl").value;
       const RecibeAdsl = document.getElementById("RecibeAdsl").value;
-      const TrabajadoAdsl = document.getElementById("TrabajadoAdsl").value;
+      const TrabajadoReparacionAdsl = document.getElementById(
+        "TrabajadoReparacionAdsl"
+      ).value;
 
       if (TipoActividadReparacionAdsl === "REALIZADA") {
         if (
@@ -770,7 +772,7 @@ form.addEventListener("submit", function (event) {
           OrdenAdslRealizado === "" ||
           syrengAdsl === "" ||
           ObservacionesAdsl === "" ||
-          TrabajadoAdsl === "" ||
+          TrabajadoReparacionAdsl === "" ||
           RecibeAdsl === ""
         ) {
           Swal.fire({

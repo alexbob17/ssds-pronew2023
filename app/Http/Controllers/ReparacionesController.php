@@ -409,7 +409,7 @@ class ReparacionesController extends Controller
                     'syrengAdsl',
                     'ObservacionesAdsl',
                     'RecibeAdsl',
-                    'TrabajadoAdsl',
+                    'TrabajadoReparacionAdsl',
                     'username_creacion',
                     'username_atencion',
 				];
@@ -419,9 +419,9 @@ class ReparacionesController extends Controller
                 // Iteramos por los campos seleccionados del formulario
 				foreach ($selectedFields as $fieldName) {
 					$value = $request->input($fieldName);
-					if ($fieldName === 'TrabajadoAdsl' && $request->has('TrabajadoAdsl')) {
+					if ($fieldName === 'TrabajadoReparacionAdsl' && $request->has('TrabajadoReparacionAdsl')) {
 						$data[$fieldName] = 'TRABAJADO';
-					} elseif ($fieldName === 'TrabajadoAdsl') {
+					} elseif ($fieldName === 'TrabajadoReparacionAdsl') {
 						$data[$fieldName] = 'PENDIENTE';
 					} else {
 						$data[$fieldName] = $value;

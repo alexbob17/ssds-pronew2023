@@ -93,12 +93,18 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::post('/llamadashome/editar/reparaciones', 'ActualizarDatos@editar')->name('mostrarEditarReparaciones');
 
+	Route::post('/llamadashome/editar/postventa', 'ActualizarDatos@editar')->name('mostrarEditarPostventa');
+
+
 
 	// ACTUALIZAR
 
 	Route::put('/llamadashome/editar/instalaciones/{id}', 'ActualizarDatos@actualizar')->name('actualizarDatos');
 
 	Route::put('/llamadashome/editar/reparaciones/{id}', 'ActualizarDatos@actualizarReparaciones')->name('actualizarDatosReparaciones');
+	
+	Route::put('/llamadashome/editar/postventa/{id}', 'ActualizarDatos@actualizarPostventas')->name('actualizarDatosPostventa');
+
 
 
 	

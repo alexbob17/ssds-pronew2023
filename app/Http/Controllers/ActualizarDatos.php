@@ -8,55 +8,112 @@ use SSD\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
 
+// INSTALACIONES
 use SSD\Models\Instalaciones\InstalacionHfcRealizada;
 use SSD\Models\Instalaciones\InstalacionHfcObjetada;
 use SSD\Models\Instalaciones\InstalacionHfcTransferida;
 use SSD\Models\Instalaciones\InstalacionHfcAnulada;
-
-
 use SSD\Models\Instalaciones\InstalacionGponAnulada;
 use SSD\Models\Instalaciones\InstalacionGponTransferida;
 use SSD\Models\Instalaciones\InstalacionGponObjetada;
 use SSD\Models\Instalaciones\InstalacionGponRealizada;
-
-
 use SSD\Models\Instalaciones\InstalacionDthRealizada;
 use SSD\Models\Instalaciones\InstalacionDthObjetada;
 use SSD\Models\Instalaciones\InstalacionDthAnulada;
-
-
-
 use SSD\Models\Instalaciones\InstalacionCobreRealizada;
 use SSD\Models\Instalaciones\InstalacionCobreObjetada;
 use SSD\Models\Instalaciones\InstalacionCobreAnulada;
-
 use SSD\Models\Instalaciones\InstalacionAdslRealizada;
 use SSD\Models\Instalaciones\InstalacionAdslObjetada;
 use SSD\Models\Instalaciones\InstalacionAdslAnulada;
 
-
+// REPARACIONES
 use SSD\Models\Reparaciones\repacionesDth_Realizado;
 use SSD\Models\Reparaciones\repacionesDth_Objetado;
 use SSD\Models\Reparaciones\repacionesDth_Transferido;
-
-
 use SSD\Models\Reparaciones\repacionesCobre_Realizado;
 use SSD\Models\Reparaciones\repacionesCobre_Objetado;
 use SSD\Models\Reparaciones\repacionesCobre_Transferido;
-
 use SSD\Models\Reparaciones\repacionesAdsl_Realizado;
 use SSD\Models\Reparaciones\repacionesAdsl_Objetado;
 use SSD\Models\Reparaciones\repacionesAdsl_Transferido;
-
-
 use SSD\Models\Reparaciones\repacionesGpon_Realizado;
 use SSD\Models\Reparaciones\reparacionesGpon_Objetado;
 use SSD\Models\Reparaciones\reparacionesGpon_Transferido;
-
-
 use SSD\Models\Reparaciones\reparacionesHfc_Realizado;
 use SSD\Models\Reparaciones\reparacionesHfc_Objetado;
 use SSD\Models\Reparaciones\reparacionesHfc_Transferido;
+
+// POSTVENTAS
+
+use SSD\Models\Postventas\PostventaCambioNumeroCobreRealizada;
+use SSD\Models\Postventas\PostventaCambioNumeroCobreObjetada;
+use SSD\Models\Postventas\PostventaCambioNumeroCobreAnulada;
+
+use SSD\Models\Postventas\PostventaRetiroHfcRealizada;
+use SSD\Models\Postventas\PostventaRetiroHfcObjetada;
+use SSD\Models\Postventas\PostventaRetiroHfcAnulada;
+
+
+use SSD\Models\Postventas\PostventaRetiroDthRealizada;
+use SSD\Models\Postventas\PostventaRetiroDthAnulada;
+
+use SSD\Models\Postventas\PostventaMigracionTransferida;
+use SSD\Models\Postventas\PostventaMigracionAnulada;
+use SSD\Models\Postventas\PostventaMigracionObjetada;
+use SSD\Models\Postventas\PostventaMigracionRealizada;
+
+use SSD\Models\Postventas\PostventaCambioEquipoDthAnulada;
+use SSD\Models\Postventas\PostventaCambioEquipoDthObjetado;
+use SSD\Models\Postventas\PostventaCambioEquipoDthRealizada;
+
+use SSD\Models\Postventas\PostventaCambioEquipoAdslAnulada;
+use SSD\Models\Postventas\PostventaCambioEquipoAdslObjetado;
+use SSD\Models\Postventas\PostventaCambioEquipoAdslRealizado;
+
+use SSD\Models\Postventas\PostventaCambioEquipoGpon_Anulado;
+use SSD\Models\Postventas\PostventaCambioEquipoGpon_Objetado;
+use SSD\Models\Postventas\PostventaCambioEquipoGpon_Realizado;
+
+use SSD\Models\Postventas\PostventaCambioEquipoHfc_Anulado;
+use SSD\Models\Postventas\PostventaCambioEquipoHfc_Objetado;
+use SSD\Models\Postventas\PostventaCambioEquipoHfc_Realizado;
+
+use SSD\Models\Postventas\PostventaAdicionDth_Anulado;
+use SSD\Models\Postventas\PostventaAdicionDth_Objetado;
+use SSD\Models\Postventas\PostventaAdicionDth_Realizado
+;
+use SSD\Models\Postventas\PostventaAdicionGpon_Anulada;
+use SSD\Models\Postventas\PostventaAdicionGpon_Objetado;
+use SSD\Models\Postventas\PostventaAdicionGpon_Realizado;
+
+use SSD\Models\Postventas\PostventaAdicionHfc_Anulada;
+use SSD\Models\Postventas\PostventaAdicionHfc_Objetado;
+use SSD\Models\Postventas\PostventaAdicionHfc_Realizado;
+
+use SSD\Models\Postventas\PostventaTrasladoDthAnulada;
+use SSD\Models\Postventas\PostventaTrasladoDth_Objetado;
+use SSD\Models\Postventas\PostventaTrasladoDth_Realizado;
+
+
+use SSD\Models\Postventas\PostventaTrasladoCobre_Anulada;
+use SSD\Models\Postventas\PostventaTrasladoCobre_Objetado;
+use SSD\Models\Postventas\PostventaTrasladoCobre_Realizado;
+
+
+use SSD\Models\Postventas\PostventaTrasladoAdsl_Anulada;
+use SSD\Models\Postventas\PostventaTrasladoAdsl_Realizado;
+use SSD\Models\Postventas\PostventaTrasladoAdsl_Objetado;
+
+use SSD\Models\Postventas\PostventaTrasladoGpon_Anulado;
+use SSD\Models\Postventas\PostventaTrasladoGpon_Transferido;
+use SSD\Models\Postventas\PostventaTrasladoGpon_Objetado;
+use SSD\Models\Postventas\PostventaTrasladoGpon_Realizado;
+
+use SSD\Models\Postventas\PostventaTrasladoHfc_Transferido;
+use SSD\Models\Postventas\PostventaTrasladoHfc_Anulado;
+use SSD\Models\Postventas\PostventaTrasladoHfc_Objetado;
+use SSD\Models\Postventas\PostventaTrasladoHfc_Realizado;
 
 class ActualizarDatos extends Controller
 {
@@ -332,6 +389,70 @@ class ActualizarDatos extends Controller
                                             ->where('TipoActividadReparacionCobre', $actividad_tipo)
                                             ->where('motivo_llamada', $motivo_llamada)
                                             ->first();
+        $registro_tabla_30 = repacionesAdsl_Realizado::where(function($query) use ($NumeroOrden) {
+                                            $query->where('OrdenAdslRealizado', $NumeroOrden);
+                                        })
+                                            ->where('id', $id)
+                                            ->where('tecnologia', $tecnologia)
+                                            ->where('TipoActividadReparacionAdsl', $actividad_tipo)
+                                            ->where('motivo_llamada', $motivo_llamada)
+                                            ->first();
+        $registro_tabla_31 = repacionesAdsl_Objetado::where(function($query) use ($NumeroOrden) {
+                                            $query->where('OrdenObjAdsl', $NumeroOrden);
+                                        })
+                                            ->where('id', $id)
+                                            ->where('tecnologia', $tecnologia)
+                                            ->where('TipoActividadReparacionAdsl', $actividad_tipo)
+                                            ->where('motivo_llamada', $motivo_llamada)
+                                            ->first();
+        $registro_tabla_32 = repacionesAdsl_Transferido::where(function($query) use ($NumeroOrden) {
+                                            $query->where('OrdenTransferidoAdsl', $NumeroOrden);
+                                        })
+                                            ->where('id', $id)
+                                            ->where('tecnologia', $tecnologia)
+                                            ->where('TipoActividadReparacionAdsl', $actividad_tipo)
+                                            ->where('motivo_llamada', $motivo_llamada)
+                                            ->first();
+        $registro_tabla_33 = PostventaCambioNumeroCobreRealizada::where(function($query) use ($NumeroOrden) {
+                                            $query->where('OrdenCambioCobre', $NumeroOrden);
+                                        })
+                                            ->where('id', $id)
+                                            ->where('tecnologia', $tecnologia)
+                                            ->where('TipoActividadCambioNumeroCobre', $actividad_tipo)
+                                            ->where('motivo_llamada', $motivo_llamada)
+                                            ->first();
+        $registro_tabla_34 = PostventaCambioNumeroCobreObjetada::where(function($query) use ($NumeroOrden) {
+                                            $query->where('OrdenObjCambioCobre', $NumeroOrden);
+                                        })
+                                            ->where('id', $id)
+                                            ->where('tecnologia', $tecnologia)
+                                            ->where('TipoActividadCambioNumeroCobre', $actividad_tipo)
+                                            ->where('motivo_llamada', $motivo_llamada)
+                                            ->first();
+        $registro_tabla_35 = PostventaCambioNumeroCobreAnulada::where(function($query) use ($NumeroOrden) {
+                                            $query->where('OrdenAnuladaCambioCobre', $NumeroOrden);
+                                        })
+                                            ->where('id', $id)
+                                            ->where('tecnologia', $tecnologia)
+                                            ->where('TipoActividadCambioNumeroCobre', $actividad_tipo)
+                                            ->where('motivo_llamada', $motivo_llamada)
+                                            ->first();
+        $registro_tabla_36 = PostventaRetiroDthRealizada::where(function($query) use ($NumeroOrden) {
+                                            $query->where('OrdenRetiroDth', $NumeroOrden);
+                                        })
+                                            ->where('id', $id)
+                                            ->where('tecnologia', $tecnologia)
+                                            ->where('TipoActividadReconexionDth', $actividad_tipo)
+                                            ->where('motivo_llamada', $motivo_llamada)
+                                            ->first();
+        $registro_tabla_37 = PostventaRetiroDthAnulada::where(function($query) use ($NumeroOrden) {
+                                            $query->where('OrdenRetiroAnulacionDth', $NumeroOrden);
+                                        })
+                                            ->where('id', $id)
+                                            ->where('tecnologia', $tecnologia)
+                                            ->where('TipoActividadReconexionDth', $actividad_tipo)
+                                            ->where('motivo_llamada', $motivo_llamada)
+                                            ->first();
             // Validar en qué tabla se encontró el registro
             if ($registro_tabla_1) {
                 // Si el registro está en la tabla_1, redirigir a la vista de edición de tabla_1
@@ -509,6 +630,54 @@ class ActualizarDatos extends Controller
                 ->with('page_title', 'Actualizar - Instalaciones')
                 ->with('navigation', 'Actualizar')
                 ->with('registro', $registro_tabla_29);
+            }elseif ($registro_tabla_30) {
+                // Si el registro está en la tabla_3, redirigir a la vista de edición de tabla_3
+                return view('llamadashome/editar/reparaciones')
+                ->with('page_title', 'Actualizar - Instalaciones')
+                ->with('navigation', 'Actualizar')
+                ->with('registro', $registro_tabla_30);
+            }elseif ($registro_tabla_31) {
+                // Si el registro está en la tabla_3, redirigir a la vista de edición de tabla_3
+                return view('llamadashome/editar/reparaciones')
+                ->with('page_title', 'Actualizar - Instalaciones')
+                ->with('navigation', 'Actualizar')
+                ->with('registro', $registro_tabla_31);
+            }elseif ($registro_tabla_32) {
+                // Si el registro está en la tabla_3, redirigir a la vista de edición de tabla_3
+                return view('llamadashome/editar/reparaciones')
+                ->with('page_title', 'Actualizar - Instalaciones')
+                ->with('navigation', 'Actualizar')
+                ->with('registro', $registro_tabla_32);
+            }elseif ($registro_tabla_33) {
+                // Si el registro está en la tabla_3, redirigir a la vista de edición de tabla_3
+                return view('llamadashome/editar/postventa')
+                ->with('page_title', 'Actualizar - Postventa')
+                ->with('navigation', 'Actualizar')
+                ->with('registro', $registro_tabla_33);
+            }elseif ($registro_tabla_34) {
+                // Si el registro está en la tabla_3, redirigir a la vista de edición de tabla_3
+                return view('llamadashome/editar/postventa')
+                ->with('page_title', 'Actualizar - Postventa')
+                ->with('navigation', 'Actualizar')
+                ->with('registro', $registro_tabla_34);
+            }elseif ($registro_tabla_35) {
+                // Si el registro está en la tabla_3, redirigir a la vista de edición de tabla_3
+                return view('llamadashome/editar/postventa')
+                ->with('page_title', 'Actualizar - Postventa')
+                ->with('navigation', 'Actualizar')
+                ->with('registro', $registro_tabla_35);
+            }elseif ($registro_tabla_36) {
+                // Si el registro está en la tabla_3, redirigir a la vista de edición de tabla_3
+                return view('llamadashome/editar/postventa')
+                ->with('page_title', 'Actualizar - Postventa')
+                ->with('navigation', 'Actualizar')
+                ->with('registro', $registro_tabla_36);
+            }elseif ($registro_tabla_37) {
+                // Si el registro está en la tabla_3, redirigir a la vista de edición de tabla_3
+                return view('llamadashome/editar/postventa')
+                ->with('page_title', 'Actualizar - Postventa')
+                ->with('navigation', 'Actualizar')
+                ->with('registro', $registro_tabla_37);
             }
                else {
                 // Si no se encontró el registro en ninguna de las tablas, redirigir a la vista de resultados
@@ -520,7 +689,7 @@ class ActualizarDatos extends Controller
     }
     
     
-        public function actualizar(Request $request, $id)
+    public function actualizar(Request $request, $id)
     {
         $tecnologia = $request->input("tecnologia");
         $tipo_actividad = $request->input("tipo_actividad");
@@ -1504,9 +1673,7 @@ class ActualizarDatos extends Controller
         $TipoActividadReparacionGpon = $request->input("TipoActividadReparacionGpon");
         $TipoActividadReparacionDth = $request->input("TipoActividadReparacionDth");
         $TipoActividadReparacionCobre = $request->input("TipoActividadReparacionCobre");
-
-
-
+        $TipoActividadReparacionAdsl = $request->input("TipoActividadReparacionAdsl");
 
         switch($tecnologia){
             case"HFC":
@@ -2075,30 +2242,30 @@ class ActualizarDatos extends Controller
                             
                 }if($TipoActividadReparacionCobre === "OBJETADA"){
         
-                        $selectedFields = [
-                            'codigo_tecnico',
-                            'telefono',
-                            'tecnico',
-                            'motivo_llamada',
-                            'tecnologia',
-                            'select_orden',
-                            'dpto_colonia',
-                            'TipoActividadReparacionDth',
-                            'MotivoObjetada_Dth',
-                            'OrdenObjDth',
-                            'TrabajadoObjetadaDth',
-                            'ComentariosObjetadosDth',
-                            'username_creacion',
-                            'username_atencion',
-                        ];
-                            $registro = repacionesDth_Objetado::findOrFail($id);
+                    $selectedFields = [
+						'codigo_tecnico',
+                        'telefono',
+                        'tecnico',
+                        'motivo_llamada',
+                        'tecnologia',
+                        'select_orden',
+                        'dpto_colonia',
+                        'TipoActividadReparacionCobre',
+                        'MotivoObjetada_Cobre',
+                        'OrdenObjReparacionCobre',
+                        'TrabajadoObjetadaCobre',
+                        'ComentariosObjetados_Cobre',
+                        'username_creacion',
+                        'username_atencion',
+					];
+                            $registro = repacionesCobre_Objetado::findOrFail($id);
         
                             // Iteramos por los campos seleccionados del formulario
                             foreach ($selectedFields as $fieldName) {
                                 $value = $request->input($fieldName);
-                                if ($fieldName === 'TrabajadoObjetadaDth' && $request->has('TrabajadoObjetadaDth')) {
+                                if ($fieldName === 'TrabajadoObjetadaCobre' && $request->has('TrabajadoObjetadaCobre')) {
                                     $registro->$fieldName = 'TRABAJADO';
-                                } elseif ($fieldName === 'TrabajadoObjetadaDth') {
+                                } elseif ($fieldName === 'TrabajadoObjetadaCobre') {
                                     $registro->$fieldName = 'PENDIENTE';
                                 } else {
                                     $registro->$fieldName = $value;
@@ -2111,7 +2278,7 @@ class ActualizarDatos extends Controller
                             $registro->save();
         
                             $message = "¡EXITO!";
-                            $messages = "REGISTRO DTH OBJETADO ACTUALIZADO";
+                            $messages = "REGISTRO COBRE OBJETADO ACTUALIZADO";
                             $resultados = [];
                             $NumeroOrden = null;
         
@@ -2127,31 +2294,32 @@ class ActualizarDatos extends Controller
                             
                 }if($TipoActividadReparacionCobre === "TRANSFERIDA"){
         
-                        $selectedFields = [
-                            'codigo_tecnico',
-                            'telefono',
-                            'tecnico',
-                            'motivo_llamada',
-                            'tecnologia',
-                            'select_orden',
-                            'dpto_colonia',
-                            'TipoActividadReparacionDth',
-                            'OrdenTransferidoDth',
-                            'ObvsTransferidoDth',
-                            'ComentarioTransferidoDth',
-                            'TrabajadoTransferidoDth',
-                            'username_creacion',
-                            'username_atencion',
-                        ];
+                    $selectedFields = [
+						'codigo_tecnico',
+                        'telefono',
+                        'tecnico',
+                        'motivo_llamada',
+                        'tecnologia',
+                        'select_orden',
+                        'dpto_colonia',
+                        'TipoActividadReparacionCobre',
+                        'OrdenTransfCobre',
+                        'ObvsCobreTransferido',
+                        'ComentarioCobreTransferido',
+                        'TrabajadoCobreTransferido',
+                        'username_creacion',
+                        'username_atencion',
+					];
+
     
-                            $registro = repacionesDth_Transferido::findOrFail($id);
+                            $registro = repacionesCobre_Transferido::findOrFail($id);
         
                             // Iteramos por los campos seleccionados del formulario
                             foreach ($selectedFields as $fieldName) {
                                 $value = $request->input($fieldName);
-                                if ($fieldName === 'TrabajadoTransferidoDth' && $request->has('TrabajadoTransferidoDth')) {
+                                if ($fieldName === 'TrabajadoCobreTransferido' && $request->has('TrabajadoCobreTransferido')) {
                                     $registro->$fieldName = 'TRABAJADO';
-                                } elseif ($fieldName === 'TrabajadoTransferidoDth') {
+                                } elseif ($fieldName === 'TrabajadoCobreTransferido') {
                                     $registro->$fieldName = 'PENDIENTE';
                                 } else {
                                     $registro->$fieldName = $value;
@@ -2164,7 +2332,7 @@ class ActualizarDatos extends Controller
                             $registro->save();
         
                             $message = "¡EXITO!";
-                            $messages = "REGISTRO DTH TRANSFERIDO ACTUALIZADO";
+                            $messages = "REGISTRO COBRE TRANSFERIDO ACTUALIZADO";
                             $resultados = [];
                             $NumeroOrden = null;
         
@@ -2179,7 +2347,358 @@ class ActualizarDatos extends Controller
                     
                             
                         }
-                    break;
+                break;
+                
+            case"ADSL":
+
+                if($TipoActividadReparacionAdsl === "REALIZADA"){
+        
+                    $selectedFields = [
+                        'codigo_tecnico',
+                        'telefono',
+                        'tecnico',
+                        'motivo_llamada',
+                        'tecnologia',
+                        'select_orden',
+                        'dpto_colonia',
+                        'TipoActividadReparacionAdsl',
+                        'CodigoCausaAdsl',
+                        'DescripcionCausaAdsl',
+                        'DescripcionTipoDañoAdsl',
+                        'DescripcionUbicacionDañoAdsl',
+                        'OrdenAdslRealizado',
+                        'syrengAdsl',
+                        'ObservacionesAdsl',
+                        'RecibeAdsl',
+                        'TrabajadoReparacionAdsl',
+                        'username_creacion',
+                        'username_atencion',
+                    ];
+            
+        
+                            $registro = repacionesAdsl_Realizado::findOrFail($id);
+        
+                            // Iteramos por los campos seleccionados del formulario
+                            foreach ($selectedFields as $fieldName) {
+                                $value = $request->input($fieldName);
+                                if ($fieldName === 'TrabajadoReparacionAdsl' && $request->has('TrabajadoReparacionAdsl')) {
+                                    $registro->$fieldName = 'TRABAJADO';
+                                } elseif ($fieldName === 'TrabajadoReparacionAdsl') {
+                                    $registro->$fieldName = 'PENDIENTE';
+                                } else {
+                                    $registro->$fieldName = $value;
+                                }
+                            }
+                            
+                            // Agregamos el usuario actual como creador y atendedor del registro
+                            $registro->username_creacion = Auth::user()->username;
+                            $registro->username_atencion = Auth::user()->username;
+                            $registro->save();
+        
+                            $message = "¡EXITO!";
+                            $messages = "REGISTRO ADSL ACTUALIZADO";
+                            $resultados = [];
+                            $NumeroOrden = null;
+        
+                            return redirect()->route('busqueda.generar', [
+                            'resultados' => $resultados,
+                            'NumeroOrden' => $NumeroOrden,
+                                    ])
+                            ->with('success', true)
+                            ->with('message', $message)
+                            ->with('messages', $messages)
+                            ->withDelay(2);
+                    
+                            
+                }if($TipoActividadReparacionAdsl === "OBJETADA"){
+        
+                    $selectedFields = [
+						'codigo_tecnico',
+                        'telefono',
+                        'tecnico',
+                        'motivo_llamada',
+                        'tecnologia',
+                        'select_orden',
+                        'dpto_colonia',
+                        'TipoActividadReparacionAdsl',
+                        'MotivoObjetada_Adsl',
+                        'OrdenObjAdsl',
+                        'TrabajadoObjetadaAdsl',
+                        'ComentsObjAdsl',
+                        'username_creacion',
+                        'username_atencion'
+					];
+
+                            $registro = repacionesAdsl_Objetado::findOrFail($id);
+        
+                            // Iteramos por los campos seleccionados del formulario
+                            foreach ($selectedFields as $fieldName) {
+                                $value = $request->input($fieldName);
+                                if ($fieldName === 'TrabajadoObjetadaAdsl' && $request->has('TrabajadoObjetadaAdsl')) {
+                                    $registro->$fieldName = 'TRABAJADO';
+                                } elseif ($fieldName === 'TrabajadoObjetadaAdsl') {
+                                    $registro->$fieldName = 'PENDIENTE';
+                                } else {
+                                    $registro->$fieldName = $value;
+                                }
+                            }
+                            
+                            // Agregamos el usuario actual como creador y atendedor del registro
+                            $registro->username_creacion = Auth::user()->username;
+                            $registro->username_atencion = Auth::user()->username;
+                            $registro->save();
+        
+                            $message = "¡EXITO!";
+                            $messages = "REGISTRO ADSL OBJETADO ACTUALIZADO";
+                            $resultados = [];
+                            $NumeroOrden = null;
+        
+                            return redirect()->route('busqueda.generar', [
+                            'resultados' => $resultados,
+                            'NumeroOrden' => $NumeroOrden,
+                                    ])
+                            ->with('success', true)
+                            ->with('message', $message)
+                            ->with('messages', $messages)
+                            ->withDelay(2);
+                    
+                            
+                }if($TipoActividadReparacionAdsl === "TRANSFERIDA"){
+        
+                    $selectedFields = [
+						'codigo_tecnico',
+                        'telefono',
+                        'tecnico',
+                        'motivo_llamada',
+                        'tecnologia',
+                        'select_orden',
+                        'dpto_colonia',
+                        'TipoActividadReparacionAdsl',
+                        'OrdenTransferidoAdsl',
+                        'ObvsAdslTransferido',
+                        'TrabajadoTransferidoAdsl',
+                        'ComentsTransferidoAdsl',
+                        'username_creacion',
+                        'username_atencion',
+					];
+
+    
+                            $registro = repacionesAdsl_Transferido::findOrFail($id);
+        
+                            // Iteramos por los campos seleccionados del formulario
+                            foreach ($selectedFields as $fieldName) {
+                                $value = $request->input($fieldName);
+                                if ($fieldName === 'TrabajadoTransferidoAdsl' && $request->has('TrabajadoTransferidoAdsl')) {
+                                    $registro->$fieldName = 'TRABAJADO';
+                                } elseif ($fieldName === 'TrabajadoTransferidoAdsl') {
+                                    $registro->$fieldName = 'PENDIENTE';
+                                } else {
+                                    $registro->$fieldName = $value;
+                                }
+                            }
+                            
+                            // Agregamos el usuario actual como creador y atendedor del registro
+                            $registro->username_creacion = Auth::user()->username;
+                            $registro->username_atencion = Auth::user()->username;
+                            $registro->save();
+        
+                            $message = "¡EXITO!";
+                            $messages = "REGISTRO ADSL TRANSFERIDO ACTUALIZADO";
+                            $resultados = [];
+                            $NumeroOrden = null;
+        
+                            return redirect()->route('busqueda.generar', [
+                            'resultados' => $resultados,
+                            'NumeroOrden' => $NumeroOrden,
+                                    ])
+                            ->with('success', true)
+                            ->with('message', $message)
+                            ->with('messages', $messages)
+                            ->withDelay(2);
+                    
+                            
+                        }
+                break;
+        }
+    }
+
+
+    public function actualizarPostventas(Request $request, $id){
+        $tecnologia = $request->input('tecnologia');
+		$Select_Postventa = $request->input("Select_Postventa");
+        $TipoActividadCambioNumeroCobre = $request->input("TipoActividadCambioNumeroCobre");
+
+		$key = $Select_Postventa . '|' . $tecnologia;
+       
+        switch($key){
+            case'CAMBIO NUMERO COBRE|COBRE':
+                if($TipoActividadCambioNumeroCobre === "REALIZADA"){
+        
+                    $selectedFields = [
+                        'codigo_tecnico',
+                        'telefono',
+                        'tecnico',
+                        'motivo_llamada',
+                        'Select_Postventa',
+                        'select_orden',
+                        'dpto_colonia',
+                        'tecnologia',
+                        'TipoActividadCambioNumeroCobre',
+                        'NumeroCobreCambio',
+                        'OrdenCambioCobre',
+                        'TrabajadoCambioCobre',
+                        'ObvsCambioCobre',
+                        'RecibeCambioCobre',
+                    ];
+        
+                            $registro = PostventaCambioNumeroCobreRealizada::findOrFail($id);
+                            
+                            // Iteramos por los campos seleccionados del formulario
+                            foreach ($selectedFields as $fieldName) {
+                                $value = $request->input($fieldName);
+                                if ($fieldName === 'TrabajadoCambioCobre' && $request->has('TrabajadoCambioCobre')) {
+                                    $registro->$fieldName = 'TRABAJADO';
+                                } elseif ($fieldName === 'TrabajadoCambioCobre') {
+                                    $registro->$fieldName = 'PENDIENTE';
+                                } else {
+                                    $registro->$fieldName = $value;
+                                }
+                            }
+                            
+                            // Agregamos el usuario actual como creador y atendedor del registro
+                            $registro->username_creacion = Auth::user()->username;
+                            $registro->username_atencion = Auth::user()->username;
+                            $registro->save();
+
+        
+                            $message = "¡EXITO!";
+                            $messages = "REGISTRO COBRE ACTUALIZADO";
+                            $resultados = [];
+                            $NumeroOrden = null;
+        
+                            return redirect()->route('busqueda.generar', [
+                            'resultados' => $resultados,
+                            'NumeroOrden' => $NumeroOrden,
+                                    ])
+                            ->with('success', true)
+                            ->with('message', $message)
+                            ->with('messages', $messages)
+                            ->withDelay(2);
+                    
+                            
+                }
+                if($TipoActividadCambioNumeroCobre === "OBJETADA"){
+        
+                    $selectedFields = [
+						'codigo_tecnico',
+						'telefono',
+						'tecnico',
+						'motivo_llamada',
+						'Select_Postventa',
+						'select_orden',
+						'dpto_colonia',
+						'tecnologia',
+						'TipoActividadCambioNumeroCobre',
+						'MotivoObjCambioCobre',
+						'OrdenObjCambioCobre',
+						'TrabajadoObjCambioCobre',
+						'ObvsObjCambioCobre',
+						'ComentariosCambioCobre',
+					];
+
+        
+                            $registro = PostventaCambioNumeroCobreObjetada::findOrFail($id);
+                            
+                            // Iteramos por los campos seleccionados del formulario
+                            foreach ($selectedFields as $fieldName) {
+                                $value = $request->input($fieldName);
+                                if ($fieldName === 'TrabajadoObjCambioCobre' && $request->has('TrabajadoObjCambioCobre')) {
+                                    $registro->$fieldName = 'TRABAJADO';
+                                } elseif ($fieldName === 'TrabajadoObjCambioCobre') {
+                                    $registro->$fieldName = 'PENDIENTE';
+                                } else {
+                                    $registro->$fieldName = $value;
+                                }
+                            }
+                            
+                            // Agregamos el usuario actual como creador y atendedor del registro
+                            $registro->username_creacion = Auth::user()->username;
+                            $registro->username_atencion = Auth::user()->username;
+                            $registro->save();
+
+        
+                            $message = "¡EXITO!";
+                            $messages = "REGISTRO COBRE ACTUALIZADO";
+                            $resultados = [];
+                            $NumeroOrden = null;
+        
+                            return redirect()->route('busqueda.generar', [
+                            'resultados' => $resultados,
+                            'NumeroOrden' => $NumeroOrden,
+                                    ])
+                            ->with('success', true)
+                            ->with('message', $message)
+                            ->with('messages', $messages)
+                            ->withDelay(2);
+                    
+                            
+                }
+                if($TipoActividadCambioNumeroCobre === "ANULACION"){
+        
+                    $selectedFields = [
+                        'codigo_tecnico',
+                        'telefono',
+                        'tecnico',
+                        'motivo_llamada',
+                        'Select_Postventa',
+                        'select_orden',
+                        'dpto_colonia',
+                        'tecnologia',
+                        'TipoActividadCambioNumeroCobre',
+                        'MotivoAnuladaCambioCobre',
+                        'OrdenAnuladaCambioCobre',
+                        'TrabajadoAnuladaCambioCobre',
+                        'ComentarioAnuladaCambioCobre'
+                    ];
+
+        
+                            $registro = PostventaCambioNumeroCobreAnulada::findOrFail($id);
+                            
+                            // Iteramos por los campos seleccionados del formulario
+                            foreach ($selectedFields as $fieldName) {
+                                $value = $request->input($fieldName);
+                                if ($fieldName === 'TrabajadoAnuladaCambioCobre' && $request->has('TrabajadoAnuladaCambioCobre')) {
+                                    $registro->$fieldName = 'TRABAJADO';
+                                } elseif ($fieldName === 'TrabajadoAnuladaCambioCobre') {
+                                    $registro->$fieldName = 'PENDIENTE';
+                                } else {
+                                    $registro->$fieldName = $value;
+                                }
+                            }
+                            
+                            // Agregamos el usuario actual como creador y atendedor del registro
+                            $registro->username_creacion = Auth::user()->username;
+                            $registro->username_atencion = Auth::user()->username;
+                            $registro->save();
+
+        
+                            $message = "¡EXITO!";
+                            $messages = "REGISTRO COBRE ACTUALIZADO";
+                            $resultados = [];
+                            $NumeroOrden = null;
+        
+                            return redirect()->route('busqueda.generar', [
+                            'resultados' => $resultados,
+                            'NumeroOrden' => $NumeroOrden,
+                                    ])
+                            ->with('success', true)
+                            ->with('message', $message)
+                            ->with('messages', $messages)
+                            ->withDelay(2);
+                    
+                            
+                }
+             break;
         }
     }
 

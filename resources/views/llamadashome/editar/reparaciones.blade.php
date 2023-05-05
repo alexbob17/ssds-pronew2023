@@ -90,10 +90,34 @@
                         <label for="select_orden">Tipo Orden</label>
                         <select class="form-control" id="select_orden" style="width: 100%;" name="select_orden"
                             tabindex="-1" aria-hidden="true" required>
+
+
+                            @if ($registro->tecnologia === 'HFC')
                             <option value="{{ $registro->select_orden}}">{{ $registro->select_orden}}</option>
                             <option value="TV">TV</option>
                             <option value="LINEA">LINEA</option>
                             <option value="INTERNET">INTERNET</option>
+                            @endif
+
+                            @if ($registro->tecnologia === 'GPON')
+                            <option value="{{ $registro->select_orden}}">{{ $registro->select_orden}}</option>
+                            <option value="TV">TV</option>
+                            <option value="LINEA">LINEA</option>
+                            <option value="INTERNET">INTERNET</option>
+                            @endif
+
+                            @if ($registro->tecnologia === 'DTH')
+                            <option value="{{ $registro->select_orden}}">{{ $registro->select_orden}}</option>
+                            @endif
+
+                            @if ($registro->tecnologia === 'ADSL')
+                            <option value="{{ $registro->select_orden}}">{{ $registro->select_orden}}</option>
+                            @endif
+
+                            @if ($registro->tecnologia === 'COBRE')
+                            <option value="{{ $registro->select_orden}}">{{ $registro->select_orden}}</option>
+                            @endif
+
                         </select>
                     </div>
                     <div class="form-group col-md-4">
@@ -1057,17 +1081,16 @@
                                     <select class="form-control tipo_actividad" style="width: 100%;"
                                         name="TipoActividadReparacionAdsl" tabindex="-1"
                                         id="TipoActividadReparacionAdsl" aria-hidden="true">
-                                        <option selected=" selected">SELECCIONE UNA OPCION</option>
-                                        <option value="REALIZADA">REALIZADA</option>
-                                        <option value="OBJETADA">OBJETADA</option>
-                                        <!-- <option value="ANULACION">ANULACION</option> -->
-                                        <option value="TRANSFERIDA" class="ocultar">TRANSFERIDA</option>
+                                        <option selected="selected" value="{{ $registro->TipoActividadReparacionAdsl}}">
+                                            {{ $registro->TipoActividadReparacionAdsl}}</option>
+
                                     </select>
                                 </div>
                             </div>
                         </div>
 
                         <!-- INPUTS ADSL REALIZADA -->
+                        @if ($registro->TipoActividadReparacionAdsl === 'REALIZADA')
 
                         <div class="form-group-container box-warning ReparacionHiddenAdsl" id="RealizadaReparacionAdsl">
                             <h4
@@ -1083,7 +1106,8 @@
                                             <i class="fa fa-square"></i>
                                         </div>
                                         <input type="number" class="form-control" id="CodigoCausaAdsl"
-                                            placeholder="Codigo Causa" name="CodigoCausaAdsl" autocomplete="off" />
+                                            placeholder="Codigo Causa" name="CodigoCausaAdsl" autocomplete="off"
+                                            value="{{ $registro->CodigoCausaAdsl}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-2" style="margin-top: 2.5rem; width: auto;">
@@ -1092,32 +1116,6 @@
                                     <button type="button" id="btnDeleteCausaAdsl" class="btn btn-danger"><i
                                             class="fa fa-trash" aria-hidden="true"></i></button>
                                 </div>
-
-
-
-                                <!-- <div class="TipoActividad_Hidden">
-                                    <div class="form-group col-md-4">
-                                        <label for="CodigoTipoDañoAdsl">Tipo Daño</label>
-                                        <select class="form-control " style="width: 100%;" name="CodigoTipoDañoAdsl"
-                                            tabindex="-1" id="CodigoTipoDañoAdsl" aria-hidden="true">
-                                            <option select value="">SELECCIONE UNA OPCION</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-
-
-                                <div class="TipoActividad_Hidden">
-                                    <div class="form-group col-md-3">
-                                        <label for="CodigoUbicacionDañoAdsl">Ubicación Daño</label>
-                                        <select class="form-control " style="width: 100%;"
-                                            name="CodigoUbicacionDañoAdsl" tabindex="-1" id="CodigoUbicacionDañoAdsl"
-                                            aria-hidden="true">
-                                            <option value="">SELECCIONE UNA OPCION</option>
-                                        </select>
-                                    </div>
-                                </div> -->
                             </div>
 
                             <div class="form-group-container">
@@ -1126,7 +1124,8 @@
                                         <label for="DescripcionCausaAdsl">Tipo Causa</label>
                                         <select class="form-control " style="width: 100%;" name="DescripcionCausaAdsl"
                                             tabindex="-1" id="DescripcionCausaAdsl" aria-hidden="true">
-                                            <option value="">SELECCIONE UNA OPCION</option>
+                                            <option value="{{ $registro->DescripcionCausaAdsl}}">
+                                                {{ $registro->DescripcionCausaAdsl}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -1137,7 +1136,8 @@
                                         <select class="form-control " style="width: 100%;"
                                             name="DescripcionTipoDañoAdsl" tabindex="-1" id="DescripcionTipoDañoAdsl"
                                             aria-hidden="true">
-                                            <option value="">SELECCIONE UNA OPCION</option>
+                                            <option value="{{ $registro->DescripcionTipoDañoAdsl}}">
+                                                {{ $registro->DescripcionTipoDañoAdsl}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -1148,7 +1148,8 @@
                                         <select class="form-control " style="width: 100%;"
                                             name="DescripcionUbicacionDañoAdsl" tabindex="-1"
                                             id="DescripcionUbicacionDañoAdsl" aria-hidden="true">
-                                            <option value="">SELECCIONE UNA OPCION</option>
+                                            <option value="{{ $registro->DescripcionUbicacionDañoAdsl}}">
+                                                {{ $registro->DescripcionUbicacionDañoAdsl}}</option>
                                         </select>
                                     </div>
                                 </div>
@@ -1162,7 +1163,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenAdslRealizado"
-                                            placeholder="N° Orden" name="OrdenAdslRealizado" autocomplete="off" />
+                                            placeholder="N° Orden" value="{{ $registro->OrdenAdslRealizado}}"
+                                            name="OrdenAdslRealizado" autocomplete="off" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" style="margin-top: 1.5rem;">
@@ -1172,7 +1174,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="syrengAdsl"
-                                            placeholder="Ingresa SYRENG" name="syrengAdsl" autocomplete="off" />
+                                            placeholder="Ingresa SYRENG" value="{{ $registro->syrengAdsl}}"
+                                            name="syrengAdsl" autocomplete="off" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -1185,7 +1188,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObservacionesAdsl"
                                             name="ObservacionesAdsl" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObservacionesAdsl}}" />
                                     </div>
                                 </div>
 
@@ -1199,7 +1203,8 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeAdsl" name="RecibeAdsl"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()"
+                                            value="{{ $registro->RecibeAdsl}}" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -1207,9 +1212,10 @@
                                     <div class="from-group-container">
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="TrabajadoAdsl"
-                                                    name="TrabajadoAdsl" />
-                                                <label class="form-check-label" for="TrabajadoAdsl">
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="TrabajadoReparacionAdsl" name="TrabajadoReparacionAdsl"
+                                                    {{ $registro->TrabajadoReparacionAdsl === 'TRABAJADO' ? 'checked' : '' }} />
+                                                <label class="form-check-label" for="TrabajadoReparacionAdsl">
                                                     Trabajado
                                                 </label>
                                             </div>
@@ -1219,7 +1225,9 @@
                             </div>
                         </div>
                         <!-- INPUTS ADSL OBJETADA -->
+                        @endif
 
+                        @if ($registro->TipoActividadReparacionAdsl === 'OBJETADA')
                         <div class="form-group-container ReparacionHiddenAdsl" id="ObjetadaReparacionAdsl">
                             <h4
                                 style="color: #3e69d6;margin-bottom: 1.3rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
@@ -1231,7 +1239,8 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjetada_Adsl" tabindex="-1"
                                             id="MotivoObjetada_Adsl" aria-hidden="true">
-                                            <option value="">SELECCIONE UNA OPCION</option>
+                                            <option value="{{ $registro->MotivoObjetada_Adsl}}">
+                                                {{ $registro->MotivoObjetada_Adsl}}</option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO
                                                 EN
@@ -1266,7 +1275,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenObjAdsl"
-                                            placeholder="N° Orden" name="OrdenObjAdsl" autocomplete="off" />
+                                            placeholder="N° Orden" name="OrdenObjAdsl"
+                                            value="{{ $registro->OrdenObjAdsl}}" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -1274,7 +1284,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaAdsl"
-                                                name="TrabajadoObjetadaAdsl" />
+                                                name="TrabajadoObjetadaAdsl"
+                                                {{ $registro->TrabajadoObjetadaAdsl === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -1292,14 +1303,16 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentsObjAdsl"
                                             name="ComentsObjAdsl" placeholder="Comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()"
+                                            value="{{ $registro->ComentsObjAdsl}}" autocomplete="off" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
                         <!-- INPUTS ADSL TRANSFERIDA -->
-
+                        @if ($registro->TipoActividadReparacionAdsl === 'TRANSFERIDA')
                         <div class="form-group-container ReparacionHiddenAdsl" id="TransferidoReparacionAdsl">
                             <h4
                                 style="color: #3e69d6;margin-bottom: 1.5rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
@@ -1315,7 +1328,8 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="number" class="form-control" id="OrdenTransferidoAdsl"
-                                                placeholder="N° Orden" name="OrdenTransferidoAdsl" autocomplete="off" />
+                                                placeholder="N° Orden" name="OrdenTransferidoAdsl" autocomplete="off"
+                                                value="{{ $registro->OrdenTransferidoAdsl}}" />
                                         </div>
                                     </div>
 
@@ -1329,7 +1343,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsAdslTransferido"
                                                 name="ObvsAdslTransferido" placeholder="Ingresa comentarios del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsAdslTransferido}}" />
                                         </div>
                                     </div>
 
@@ -1343,7 +1358,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentsTransferidoAdsl"
                                                 name="ComentsTransferidoAdsl" placeholder="Ingresa comentarios del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentsTransferidoAdsl}}" />
                                         </div>
                                     </div>
 
@@ -1352,7 +1368,8 @@
                                             <div class="form-group col-md-3">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox"
-                                                        id="TrabajadoTransferidoAdsl" name="TrabajadoTransferidoAdsl" />
+                                                        id="TrabajadoTransferidoAdsl" name="TrabajadoTransferidoAdsl"
+                                                        {{ $registro->TrabajadoTransferidoAdsl === 'TRABAJADO' ? 'checked' : '' }} />
                                                     <label class="form-check-label" for="TrabajadoTransferidoAdsl">
                                                         Trabajado
                                                     </label>
@@ -1363,6 +1380,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
 
                     @endif
@@ -1539,7 +1557,8 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjetada_Cobre" tabindex="-1"
                                             id="MotivoObjetada_Cobre" aria-hidden="true">
-                                            <option value="">SELECCIONE UNA OPCION</option>
+                                            <option value="{{ $registro->MotivoObjetada_Cobre}}">
+                                                {{ $registro->MotivoObjetada_Cobre}}</option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO
                                                 EN
@@ -1574,7 +1593,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenObjReparacionCobre"
-                                            placeholder="N° Orden" name="OrdenObjReparacionCobre" autocomplete="off" />
+                                            placeholder="N° Orden" value="{{ $registro->OrdenObjReparacionCobre}}"
+                                            name="OrdenObjReparacionCobre" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -1582,7 +1602,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoObjetadaCobre"
-                                                name="TrabajadoObjetadaCobre" />
+                                                name="TrabajadoObjetadaCobre"
+                                                {{ $registro->TrabajadoObjetadaCobre === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -1600,6 +1621,7 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentariosObjetados_Cobre"
                                             name="ComentariosObjetados_Cobre" placeholder="Comentarios del caso"
+                                            value="{{ $registro->ComentariosObjetados_Cobre}}"
                                             oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
                                     </div>
                                 </div>
@@ -1607,7 +1629,7 @@
                         </div>
                         @endif
                         <!-- INPUTS COBRE TRANSFERIDA -->
-                        @if ($registro->TipoActividadReparacionCobre === 'ANULACION')
+                        @if ($registro->TipoActividadReparacionCobre === 'TRANSFERIDA')
                         <div class="form-group-container ReparacionHiddenCobre" id="TransferidoReparacionCobre">
                             <h4
                                 style="color: #3e69d6;margin-bottom: 1.5rem;text-transform: uppercase;display: flex;font-weight: bold; justify-content: center;">
@@ -1623,7 +1645,8 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="number" class="form-control" id="OrdenTransfCobre"
-                                                placeholder="N° Orden" name="OrdenTransfCobre" autocomplete="off" />
+                                                placeholder="N° Orden" value="{{ $registro->OrdenTransfCobre}}"
+                                                name="OrdenTransfCobre" autocomplete="off" />
                                         </div>
                                     </div>
 
@@ -1637,7 +1660,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsCobreTransferido"
                                                 name="ObvsCobreTransferido" placeholder="Ingresa comentarios del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsCobreTransferido}}" />
                                         </div>
                                     </div>
 
@@ -1652,7 +1676,8 @@
                                             <input type="text" class="form-control" id="ComentarioCobreTransferido"
                                                 name="ComentarioCobreTransferido"
                                                 placeholder="Ingresa comentarios del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentarioCobreTransferido}}" />
                                         </div>
                                     </div>
 
@@ -1661,8 +1686,8 @@
                                             <div class="form-group col-md-3">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox"
-                                                        id="TrabajadoCobreTransferido"
-                                                        name="TrabajadoCobreTransferido" />
+                                                        id="TrabajadoCobreTransferido" name="TrabajadoCobreTransferido"
+                                                        {{ $registro->TrabajadoCobreTransferido === 'TRABAJADO' ? 'checked' : '' }} />
                                                     <label class="form-check-label" for="TrabajadoCobreTransferido">
                                                         Trabajado
                                                     </label>
@@ -1857,5 +1882,33 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 @endif
 
+
+@if($registro->tecnologia === 'COBRE' && $registro->TipoActividadReparacionCobre === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/reparaciones/COBRE/ReparacionesCobreObj.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if($registro->tecnologia === 'COBRE' && $registro->TipoActividadReparacionCobre === 'TRANSFERIDA')
+<script src="{{asset('/js/actualizarDatos/reparaciones/COBRE/ReparacionesCobreTrans.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if($registro->tecnologia === 'ADSL' && $registro->TipoActividadReparacionAdsl === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/reparaciones/ADSL/ReparacionesAdsl.js')}}" type="text/javascript">
+</script>
+<script src="{{asset('/js/actualizarDatos/reparaciones/ADSL/FetchAdsl.js')}}" type="text/javascript">
+</script>
+@endif
+
+
+@if($registro->tecnologia === 'ADSL' && $registro->TipoActividadReparacionAdsl === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/reparaciones/ADSL/ReparacionesAdslObj.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if($registro->tecnologia === 'ADSL' && $registro->TipoActividadReparacionAdsl === 'TRANSFERIDA')
+<script src="{{asset('/js/actualizarDatos/reparaciones/ADSL/ReparacionesAdslTrans.js')}}" type="text/javascript">
+</script>
+@endif
 
 @endsection
