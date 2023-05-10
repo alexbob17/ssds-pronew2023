@@ -923,7 +923,7 @@
                                         </div>
                                         <input type="text" class="form-control" id="MotivoTransTrasladoGpon"
                                             name="MotivoTransTrasladoGpon" placeholder="Ingresa Motivo Trasnferido"
-                                            autocomplete="off" />
+                                            autocomplete="off" oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -1330,8 +1330,9 @@
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Adsl"
-                                                name="TrabajadoAnulada_Adsl" />
+                                            <input class="form-check-input" type="checkbox"
+                                                id="TrabajadoTrasladoTrAnulada_Adsl"
+                                                name="TrabajadoTrasladoTrAnulada_Adsl" />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -1631,8 +1632,9 @@
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Cobre"
-                                                name="TrabajadoAnulada_Cobre" />
+                                            <input class="form-check-input" type="checkbox"
+                                                id="TrabajadoTrasladoAnulada_Cobre"
+                                                name="TrabajadoTrasladoAnulada_Cobre" />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -2076,7 +2078,7 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjAdicionHfc" tabindex="-1"
                                             id="MotivoObjAdicionHfc" aria-hidden="true">
-                                            <option selected="selected">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                             </option>
@@ -5385,8 +5387,9 @@ function resetSelects() {
 @endif @endsection @section('styles')
 
 <!-- SweetAlert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
+<link href="{{ asset('/plugins/CdnMigraciones/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+
+<script src="{{ asset('/plugins/CdnMigraciones/sweetalert2.all.min.js') }}"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {

@@ -8,34 +8,53 @@
     <!-- Bootstrap 3.3.2 -->
     <link href="{{ asset('/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- FontAwesome 4.3.0 -->
-    <link href="{{ asset('/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- <link href="{{ asset('/plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css" /> -->
     <!-- Ionicons 2.0.1 -->
-    <link href="{{ asset('/plugins/ionicons/css/ionicons.min.css') }}" rel="stylesheet" type="text/css" />
+    <!-- <link href="{{ asset('/plugins/ionicons/css/ionicons.min.css') }}" rel="stylesheet" type="text/css" /> -->
 
     <link rel="icon" type="image/x-icon" href="{{ asset('../public/img/img/logo.ico') }}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="{{ asset('/plugins/CdnMigraciones/FontAll.min.css') }}" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+
+    <link href="{{ asset('/plugins/CdnMigraciones/bootstrap-table.min.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ asset('/plugins/CdnMigraciones/jquery3.5.1.min.js') }}"></script>
+
+
+    <link href="{{ asset('/plugins/iCheck/flat/red.css') }}" rel="stylesheet" type="text/css" />
+
 
 
     <!-- Popper.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <script src="{{ asset('/plugins/CdnMigraciones/popper.min.js') }}">
+    </script>
+
 
     <!-- Bootstrap JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="{{ asset('/plugins/CdnMigraciones/bootstrap.min.js') }}"></script>
+
 
 
     <!-- Bootstrap Table JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.18.3/bootstrap-table.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.18.3/locale/bootstrap-table-es-MX.min.js">
-    </script>
+    <script src="{{ asset('/plugins/CdnMigraciones/bootstrap-table.min.js') }}"></script>
+
+    <script src="{{ asset('/plugins/CdnMigraciones/bootstrap-table-es-MX.min.js') }}"></script>
+
+
 
     <!-- Bootstrap Table CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.18.3/bootstrap-table.min.css">
+
+    <link href="{{ asset('/plugins/CdnMigraciones/bootstrap-table.min.css') }}" rel="stylesheet" type="text/css" />
+
 
 
     <!-- ... -->
@@ -45,7 +64,6 @@
 
     <link rel="shortcut icon" href="{{ asset('../public/img/logo.ico') }}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="icon" type="image/png" href="{{ asset('../public/img/logo.ico') }}">
 
     <!-- iCheck -->
@@ -132,6 +150,8 @@
     <script src="{{ asset('/plugins/fastclick/fastclick.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('/dist/js/app.js') }}" type="text/javascript"></script>
+
+
     <script type="text/javascript">
     var APP_URL = "{!! url('/') !!}";
     </script>

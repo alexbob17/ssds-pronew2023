@@ -98,11 +98,55 @@ class BusquedaController extends Controller
 				'postventacambiocobre_realizada' => ['OrdenCambioCobre'],
 				'postventacambiocobre_objetada' => ['OrdenObjCambioCobre'],
 				'postventacambiocobre_anulada' => ['OrdenAnuladaCambioCobre'],
-				
 				'postventaretirodth_anulada' =>['OrdenRetiroAnulacionDth'],
 				'postventaretirodth_realizada' =>['OrdenRetiroDth'],
+				'postventaretirohfc_realizada' =>['OrdenRetiroHfc'],
+				'postventaretirohfc_anulada' =>['OrdenRetiroAnulacionHfc'],
+				'postventamigracion_realizada' =>['NOrdenMigracionHfc'],
+				'postventamigracion_objetada' =>['OrdenMigracionHfcObj'],
+				'postventamigracion_anulada' =>['NOrdenMigracionAnuladaHfc'],
+				'postventamigracion_transferida' =>['OrdenMigracionTranfHfc'],
+				'postventacambioequipodth_realizado' =>['OrdenEquipoDth'],
+				'postventacambioequipodth_objetado' =>['OrdenEquipoObjDth'],
+				'postventacambioequipodth_anulada' =>['OrdenEquipoAnulada_Dth'],
+				'postventacambioequipoadsl_realizado' =>['OrdenEquipoAdsl'],
+				'postventacambioequipoadsl_objetado' =>['OrdenEquipoObjAdsl'],
+				'postventacambioequipoadsl_anulada' =>['OrdenAnuladaEquipoAdsl'],
+				'postventacambioequipogpon_realizado' =>['NOrdenEquipoGpon'],
+				'postventacambioequipogpon_objetado' =>['NOrdenObjEquipoGpon'],
+				'postventacambioequipogpon_anulado' =>['OrdenEquipoAnuladaGpon'],
+				'postventacambioequipohfc_realizado' =>['NOrdenEquipoHfc'],
+				'postventacambioequipohfc_objetado' =>['NordenObjEquipoHfc'],
+				'postventacambioequipohfc_anulada' =>['OrdenAnuladaEquipoHfc'],
+				'postventaadicionhfc_realizado' =>['NOrdenAdicionHfc'],
+				'postventaadicionhfc_objetado' =>['OrdenAdicionObjHfc'],
+				'postventaadicionhfc_anulada' =>['NOrdenAdicionAnuladaHfc'],
+				'postventaadiciongpon_realizada' =>['NOrdenAdicionGpon'],
+				'postventaadiciongpon_objetada' =>['NOrdenAdicionObjGpon'],
+				'postventaadiciongpon_anulada' =>['NOrdenAdicionAnuladaGpon'],
+				'postventaadiciondth_realizado' =>['NOrdenAdicionDth'],
+				'postventaadiciondth_objetado' =>['NOrdenAdicionObjDth'],
+				'postventaadiciondth_anulado' =>['OrdenAdicionAnulada_Dth'],
+				'postventatrasladohfc_realizado' =>['OrdenTvTrasladoHfc','OrdenInternetTrasladoHfc','OrdenLineaTrasladoHfc'],
+				'postventatrasladohfc_objetado' =>['OrdenTvObjetadoTrasladoHfc','OrdenIntObjTrasladoHfc','OrdenLineaObjetadoTrasladoHfc'],
+				'postventatrasladohfc_anulada' =>['OrdenTvAnulTraslHfc','OrdenInterAnulTraslHfc','OrdenLineaAnulTraslHfc'],
+				'postventatrasladohfc_transferido' =>['OrdenTvTransferidoHfc','OrdenInternetTransferidoHfc','OrdenLineaTransferidoHfc'],
+				'postventatrasladogpon_realizado' =>['OrdenTvTrasladoGpon','OrdenInternetTrasladoGpon','OrdenLineaTrasladoGpon'],
+				'postventatrasladogpon_objetado' =>['OrdenTvTrasladoObjGpon','OrdenInterObjTraslGpon','OrdenLineaTraslObjGpon'],
+				'postventatrasladogpon_anulado' =>['OrdenTvTraslAnuladoGpon','OrdenIntTrasladoAnulGpon','OrdenLineaTraslAnulGpon'],
+				'postventatrasladogpon_transferido' =>['OrdenTvTrasladoTransGpon','OrdenIntTransladoGpon','OrdenLineaTrasladoTransGpon'],
+				'postventatrasladoadsl_realizada' =>['NOrdenTrasladosAdsl'],
+				'postventatrasladoadsl_objetada' =>['OrdenObjTrasladoAdsl'],
+				'postventatrasladoadsl_anulada' =>['NOrdenTrasladosAnulAdsl'],
+				'postventatrasladocobre_realizado' =>['OrdenTrasladoCobre'],
+				'postventatrasladocobre_objetado' =>['OrdenTrasladoObjCobres'],
+				'postventatrasladocobre_anulada' =>['OrdenTrasladosCobre'],
 
-				
+
+				'postventatrasladodth_realizada' =>['OrdenTrasladoDth'],
+				'postventatrasladodth_objetado' =>['OrdenTrasladoObjDth'],
+				'postventatrasladodth_anulada' =>['OrdenTrasladosDth'],
+
 
 			];
 			$status = [
@@ -145,10 +189,53 @@ class BusquedaController extends Controller
 				'postventacambiocobre_realizada' => ['TrabajadoCambioCobre'],
 				'postventacambiocobre_objetada' => ['TrabajadoObjCambioCobre'],
 				'postventacambiocobre_anulada' => ['TrabajadoAnuladaCambioCobre'],
-
-
 				'postventaretirodth_anulada' =>['TrabajadoRetiroAnulada_Dth'],
 				'postventaretirodth_realizada' =>['TrabajadoRetiroDth'],
+				'postventaretirohfc_realizada' =>['TrabajadoRetiroHfc'],
+				'postventaretirohfc_anulada' =>['TrabajadoRetiroAnulada_Hfc'],
+				'postventamigracion_realizada' =>['TrabajadoMigracionHfc'],
+				'postventamigracion_objetada' =>['TrabajadoMigracionObjHfc'],
+				'postventamigracion_anulada' =>['TrabajadoMigracionAnulada_Hfc'],
+				'postventamigracion_transferida' =>['TrabajadoMigracionTransHfc'],
+				'postventacambioequipodth_realizado' =>['TrabajadoEquipoDth'],
+				'postventacambioequipodth_objetado' =>['TrabajadoEquipoObjDth'],
+				'postventacambioequipodth_anulada' =>['TrabajadoEquipoAnulada_Dth'],
+				'postventacambioequipoadsl_realizado' =>['TrabajadoEquipoAdsl'],
+				'postventacambioequipoadsl_objetado' =>['TrabajadoEquipoObjAdsl'],
+				'postventacambioequipoadsl_anulada' =>['TrabajadoEquipoAnulada_Adsl'],
+				'postventacambioequipogpon_realizado' =>['TrabajadoEquipoGpon'],
+				'postventacambioequipogpon_objetado' =>['TrabajadoObjEquipoGpon'],
+				'postventacambioequipogpon_anulado' =>['TrabajadoEquipoAnulada_Gpon'],
+				'postventacambioequipohfc_realizado' =>['TrabajadoEquipoHfc'],
+				'postventacambioequipohfc_objetado' =>['TrabajadoObjEquipoHfc'],
+				'postventacambioequipohfc_anulada' =>['TrabajadoEquipoAnulada_Hfc'],
+				'postventaadicionhfc_realizado' =>['TrabajadoAdicionHfc'],
+				'postventaadicionhfc_objetado' =>['TrabajadoObjAdicionHfc'],
+				'postventaadicionhfc_anulada' =>['TrabajadoAdicionAnulada_Hfc'],
+				'postventaadiciongpon_realizada' =>['TrabajadoAdicionGpon'],
+				'postventaadiciongpon_objetada' =>['TrabajadoAdicionObjGpon'],
+				'postventaadiciongpon_anulada' =>['TrabajadoAdicionAnulada_Gpon'],
+				'postventaadiciondth_realizado' =>['TrabajadoAdicionDth'],
+				'postventaadiciondth_objetado' =>['TrabajadoAdicionObjDth'],
+				'postventaadiciondth_anulado' =>['TrabajadoAdicionAnulada_Dth'],
+				'postventatrasladohfc_realizado' =>['TrabajadoTrasladoHfc'],
+				'postventatrasladohfc_objetado' =>['TrabajadoObjTrasladoHfc'],
+				'postventatrasladohfc_anulada' =>['TrabajadoAnuladaTraslado_Hfc'],
+				'postventatrasladohfc_transferido' =>['TrabajadoTransTrasladoHfc'],
+				'postventatrasladogpon_realizado' =>['TrabajadoTrasladoGpon'],
+				'postventatrasladogpon_objetado' =>['TrabajadoTrasladoObjGpon'],
+				'postventatrasladogpon_anulado' =>['TrabajadoAnuladaTraslado_gpon'],
+				'postventatrasladogpon_transferido' =>['TrabajadoTraslTransGpon'],
+				'postventatrasladoadsl_realizada' =>['TrabajadoTrasladoAdsl'],
+				'postventatrasladoadsl_objetada' =>['TrabajadoTrasladoObjAdsl'],
+				'postventatrasladoadsl_anulada' =>['TrabajadoTrasladoTrAnulada_Adsl'],
+				'postventatrasladocobre_realizado' =>['TrabajadoTrasladoCobre'],
+				'postventatrasladocobre_objetado' =>['TrabajadoTrasladoObjCobre'],
+				'postventatrasladocobre_anulada' =>['TrabajadoTrasladoAnulada_Cobre'],
+
+				'postventatrasladodth_realizada' =>['TrabajadoTrasladoDth'],
+				'postventatrasladodth_objetado' =>['TrabajadoTrasladoObj_Dth'],
+				'postventatrasladodth_anulada' =>['TrabajadoTrasladoAnulada_Dth'],
 				
 
 			];
@@ -195,11 +282,53 @@ class BusquedaController extends Controller
 				'postventacambiocobre_realizada' => ['TipoActividadCambioNumeroCobre'],
 				'postventacambiocobre_objetada' => ['TipoActividadCambioNumeroCobre'],
 				'postventacambiocobre_anulada' => ['TipoActividadCambioNumeroCobre'],
-
 				'postventaretirodth_anulada' =>['TipoActividadReconexionDth'],
 				'postventaretirodth_realizada' =>['TipoActividadReconexionDth'],
+				'postventaretirohfc_realizada' =>['TipoActividadReconexionHfc'],
+				'postventaretirohfc_anulada' =>['TipoActividadReconexionHfc'],
+				'postventamigracion_realizada' =>['TipoActividadMigracionHfc'],
+				'postventamigracion_objetada' =>['TipoActividadMigracionHfc'],
+				'postventamigracion_anulada' =>['TipoActividadMigracionHfc'],
+				'postventamigracion_transferida' =>['TipoActividadMigracionHfc'],
+				'postventacambioequipodth_realizado' =>['TipoActividadCambioDth'],
+				'postventacambioequipodth_objetado' =>['TipoActividadCambioDth'],
+				'postventacambioequipodth_anulada' =>['TipoActividadCambioDth'],
+				'postventacambioequipoadsl_realizado' =>['TipoActividadCambioAdsl'],
+				'postventacambioequipoadsl_objetado' =>['TipoActividadCambioAdsl'],
+				'postventacambioequipoadsl_anulada' =>['TipoActividadCambioAdsl'],
+				'postventacambioequipogpon_realizado' =>['TipoActividadCambioGpon'],
+				'postventacambioequipogpon_objetado' =>['TipoActividadCambioGpon'],
+				'postventacambioequipogpon_anulado' =>['TipoActividadCambioGpon'],
+				'postventacambioequipohfc_realizado' =>['TipoActividadCambioHfc'],
+				'postventacambioequipohfc_objetado' =>['TipoActividadCambioHfc'],
+				'postventacambioequipohfc_anulada' =>['TipoActividadCambioHfc'],
+				'postventaadicionhfc_realizado' =>['TipoActividadAdicionHfc'],
+				'postventaadicionhfc_objetado' =>['TipoActividadAdicionHfc'],
+				'postventaadicionhfc_anulada' =>['TipoActividadAdicionHfc'],
+				'postventaadiciongpon_realizada' =>['TipoActividadAdicionGpon'],
+				'postventaadiciongpon_objetada' =>['TipoActividadAdicionGpon'],
+				'postventaadiciongpon_anulada' =>['TipoActividadAdicionGpon'],
+				'postventaadiciondth_realizado' =>['TipoActividadAdicionDth'],
+				'postventaadiciondth_objetado' =>['TipoActividadAdicionDth'],
+				'postventaadiciondth_anulado' =>['TipoActividadAdicionDth'],
+				'postventatrasladohfc_realizado' =>['TipoActividadTrasladoHfc'],
+				'postventatrasladohfc_objetado' =>['TipoActividadTrasladoHfc'],
+				'postventatrasladohfc_anulada' =>['TipoActividadTrasladoHfc'],
+				'postventatrasladohfc_transferido' =>['TipoActividadTrasladoHfc'],
+				'postventatrasladogpon_realizado' =>['TipoActividadTrasladoGpon'],
+				'postventatrasladogpon_objetado' =>['TipoActividadTrasladoGpon'],
+				'postventatrasladogpon_anulado' =>['TipoActividadTrasladoGpon'],
+				'postventatrasladogpon_transferido' =>['TipoActividadTrasladoGpon'],
+				'postventatrasladoadsl_realizada' =>['TipoActividadTrasladoAdsl'],
+				'postventatrasladoadsl_objetada' =>['TipoActividadTrasladoAdsl'],
+				'postventatrasladoadsl_anulada' =>['TipoActividadTrasladoAdsl'],
+				'postventatrasladocobre_realizado' =>['TipoActividadTrasladoCobre'],
+				'postventatrasladocobre_objetado' =>['TipoActividadTrasladoCobre'],
+				'postventatrasladocobre_anulada' =>['TipoActividadTrasladoCobre'],
 
-
+				'postventatrasladodth_realizada' =>['TipoActividadTrasladoDth'],
+				'postventatrasladodth_objetado' =>['TipoActividadTrasladoDth'],
+				'postventatrasladodth_anulada' =>['TipoActividadTrasladoDth'],
 			];
 			
 			$resultados = [];
@@ -242,22 +371,28 @@ class BusquedaController extends Controller
 				$resultado->NumeroOrden = $NumeroOrden; 
 			}
 
-			
+			$message = "¡EXITO!";
+			$messages = "REGISTRO ENCONTRADO";
 			
 		} else {
+
 			$resultados = [];
+			$message = "¡ERROR!";
+			$messages = "NO SE ENCONTRARON RESULTADOS";
 		}
 		
-
-		// dd($resultados);
-	
+		
 		return view('llamadashome/busqueda', [
 			'resultados' => $resultados,
 			'NumeroOrden' => $NumeroOrden,
-
 		])
+		->with('success', true)
+		->with('message', $message)
+		->with('messages', $messages)
 		->with('page_title', 'Busqueda - Registros')
-		->with('navigation', 'Busqueda - Registros');			
+		->with('navigation', 'Busqueda - Registros');
+		
+		
 	}
 	
 }

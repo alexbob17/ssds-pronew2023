@@ -66,6 +66,7 @@
                     <th data-sortable="true">TECNICO</th>
                     <th data-sortable="true">MOTIVO LLAMADA</th>
                     <th data-sortable="true">TECNOLOGIA</th>
+                    <th data-sortable="true">TIPO ORDEN</th>
                     <th data-sortable="true">TIPO ACTIVIDAD</th>
                     <th data-sortable="true">N° ORDEN</th>
                     <th data-sortable="true">STATUS</th>
@@ -82,6 +83,7 @@
                         <td>{{ $resultado->tecnico }}</td>
                         <td>{{ $resultado->motivo_llamada }}</td>
                         <td>{{$resultado->tecnologia}}</td>
+                        <td>{{$resultado->select_orden}}</td>
                         <td>{{ $resultado->actividad_tipo}}</td>
                         <td>{{ $resultado->NumeroOrden }}</td>
                         <td
@@ -90,6 +92,8 @@
                         <td>{{ $resultado->username_creacion }}</td>
                         <td>{{ $resultado->created_at }}</td>
                         <td>
+
+                            @if ($resultado->motivo_llamada === 'INSTALACION')
                             <form action="{{ route('mostrarEditar') }}" method="POST">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
@@ -98,9 +102,38 @@
                                 <input type="hidden" name="NumeroOrden" value="{{ $resultado->NumeroOrden }}">
                                 <input type="hidden" name="actividad_tipo" value="{{ $resultado->actividad_tipo }}">
                                 <input type="hidden" name="tecnologia" value="{{ $resultado->tecnologia }}">
-                                <button type="submit" class="btn btn-warning"><i class="fa fa-pencil-square-o"
-                                        aria-hidden="true"></i></button>
+                                <button type="submit" class="btn btn-warning"><i class="fas fa-edit"></i></button>
                             </form>
+
+                            @endif
+
+                            @if ($resultado->motivo_llamada === 'POSTVENTA')
+                            <form action="{{ route('mostrarEditarPosventa') }}" method="POST">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
+                                <input type="hidden" name="id" value="{{ $resultado->id }}">
+                                <input type="hidden" name="motivo_llamada" value="{{ $resultado->motivo_llamada }}">
+                                <input type="hidden" name="NumeroOrden" value="{{ $resultado->NumeroOrden }}">
+                                <input type="hidden" name="actividad_tipo" value="{{ $resultado->actividad_tipo }}">
+                                <input type="hidden" name="tecnologia" value="{{ $resultado->tecnologia }}">
+                                <button type="submit" class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                            </form>
+
+                            @endif
+
+                            @if ($resultado->motivo_llamada === 'DAÑO')
+                            <form action="{{ route('mostrarEditarDaño') }}" method="POST">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
+                                <input type="hidden" name="id" value="{{ $resultado->id }}">
+                                <input type="hidden" name="motivo_llamada" value="{{ $resultado->motivo_llamada }}">
+                                <input type="hidden" name="NumeroOrden" value="{{ $resultado->NumeroOrden }}">
+                                <input type="hidden" name="actividad_tipo" value="{{ $resultado->actividad_tipo }}">
+                                <input type="hidden" name="tecnologia" value="{{ $resultado->tecnologia }}">
+                                <button type="submit" class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                            </form>
+
+                            @endif
                         </td>
 
 
@@ -163,8 +196,9 @@ setTimeout(function() {
 @endsection @section('styles')
 
 <!-- SweetAlert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
+<link href="{{ asset('/plugins/CdnMigraciones/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+
+<script src="{{ asset('/plugins/CdnMigraciones/sweetalert2.all.min.js') }}"></script>
 
 
 

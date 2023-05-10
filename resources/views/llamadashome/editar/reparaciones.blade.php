@@ -8,13 +8,16 @@
         </div>
         @endif
         <!-- general form elements -->
-        <div class="box box-warning">
-            <div class="box-header with-border">
-                <h3 class="box-title">Datos del Caso</h3>
+        <div class="box box-warning" style="border-top:none !important">
+            <div class="box-header with-border" style=" background: rgba(255, 255, 255, 0.15) !important;
+            border-bottom: 0.1px solid #337ab7;
+            color: #337ab7 !important;
+            border-top: 1px solid white;">
+                <h3 class="box-title">Editar Caso</h3>
             </div>
             <!-- FORMULARIO #1 INICIAL CAMPOS NECESARIOS -->
             <form action="{{ route('actualizarDatosReparaciones', $registro->id) }}" method="POST" id="form1"
-                class="formulario box-body" style="border-bottom: 3px solid #3e69d6; padding-top: 15px;">
+                class="formulario box-body">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                 <input type="hidden" name="selected_fields" id="selected-fields" />
@@ -1707,7 +1710,7 @@
                 <div class="box-footer" id="btn-submitForm"
                     style="text-align: center; display: flex; justify-content: center;">
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"
-                            style="padding-right: 8px;"></i>GUARDAR REGISTRO</button>
+                            style="padding-right: 8px;"></i>ACTUALIZAR REGISTRO</button>
                 </div>
             </form>
         </div>
@@ -1729,9 +1732,9 @@ window.location = window.location;
 @endsection @section('styles')
 
 <!-- SweetAlert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js">
-</script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
+<link href="{{ asset('/plugins/CdnMigraciones/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+
+<script src="{{ asset('/plugins/CdnMigraciones/sweetalert2.all.min.js') }}"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {

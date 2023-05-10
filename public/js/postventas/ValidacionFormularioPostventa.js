@@ -908,8 +908,8 @@ form.addEventListener("submit", function (event) {
         const NOrdenTrasladosAnulAdsl = document.getElementById(
           "NOrdenTrasladosAnulAdsl"
         ).value;
-        const TrabajadoAnulada_Adsl = document.getElementById(
-          "TrabajadoAnulada_Adsl"
+        const TrabajadoTrasladoTrAnulada_Adsl = document.getElementById(
+          "TrabajadoTrasladoTrAnulada_Adsl"
         ).value;
         const ComentarioTrasladoAnulada_Adsl = document.getElementById(
           "ComentarioTrasladoAnulada_Adsl"
@@ -927,7 +927,7 @@ form.addEventListener("submit", function (event) {
           TipoActividadTrasladoAdsl === "" ||
           MotivoTrasladoAnulada_Adsl === "" ||
           NOrdenTrasladosAnulAdsl === "" ||
-          TrabajadoAnulada_Adsl === "" ||
+          TrabajadoTrasladoTrAnulada_Adsl === "" ||
           ComentarioTrasladoAnulada_Adsl === ""
         ) {
           Swal.fire({
@@ -1086,8 +1086,8 @@ form.addEventListener("submit", function (event) {
         const OrdenTrasladosCobre = document.getElementById(
           "OrdenTrasladosCobre"
         ).value;
-        const TrabajadoAnulada_Cobre = document.getElementById(
-          "TrabajadoAnulada_Cobre"
+        const TrabajadoTrasladoAnulada_Cobre = document.getElementById(
+          "TrabajadoTrasladoAnulada_Cobre"
         ).value;
         const ComentarioTrasladoAnulada_Cobre = document.getElementById(
           "ComentarioTrasladoAnulada_Cobre"
@@ -1105,7 +1105,7 @@ form.addEventListener("submit", function (event) {
           TipoActividadTrasladoCobre === "" ||
           MotivoTrasladoAnulada_Cobre === "" ||
           OrdenTrasladosCobre === "" ||
-          TrabajadoAnulada_Cobre === "" ||
+          TrabajadoTrasladoAnulada_Cobre === "" ||
           ComentarioTrasladoAnulada_Cobre === ""
         ) {
           Swal.fire({
@@ -3076,7 +3076,7 @@ form.addEventListener("submit", function (event) {
         let errorMensaje = "";
 
         switch (select_orden) {
-          case "RETIRO EQUIPOS":
+          case "RETIRO ACOMETIDO":
             if (EquipoModemRetiroHfc === "") {
               errorMensaje = "Debes ingresar el N° Equipo";
             }

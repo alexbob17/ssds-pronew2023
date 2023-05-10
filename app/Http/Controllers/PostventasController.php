@@ -696,7 +696,7 @@ class PostventasController extends Controller
 						'TipoActividadTrasladoAdsl',
 						'MotivoTrasladoAnulada_Adsl',
 						'NOrdenTrasladosAnulAdsl',
-						'TrabajadoAnulada_Adsl',
+						'TrabajadoTrasladoTrAnulada_Adsl',
 						'ComentarioTrasladoAnulada_Adsl',
 						'username_creacion',
 						'username_atencion',
@@ -707,9 +707,9 @@ class PostventasController extends Controller
 					// Iteramos por los campos seleccionados del formulario
 					foreach ($selectedFields as $fieldName) {
 						$value = $request->input($fieldName);
-						if ($fieldName === 'TrabajadoAnulada_Adsl' && $request->has('TrabajadoAnulada_Adsl')) {
+						if ($fieldName === 'TrabajadoTrasladoTrAnulada_Adsl' && $request->has('TrabajadoTrasladoTrAnulada_Adsl')) {
 							$data[$fieldName] = 'TRABAJADO';
-						} elseif ($fieldName === 'TrabajadoAnulada_Adsl') {
+						} elseif ($fieldName === 'TrabajadoTrasladoTrAnulada_Adsl') {
 							$data[$fieldName] = 'PENDIENTE';
 						} else {
 							$data[$fieldName] = $value;
@@ -865,7 +865,7 @@ class PostventasController extends Controller
 						'TipoActividadTrasladoCobre',
 						'MotivoTrasladoAnulada_Cobre',
 						'OrdenTrasladosCobre',
-						'TrabajadoAnulada_Cobre',
+						'TrabajadoTrasladoAnulada_Cobre',
 						'ComentarioTrasladoAnulada_Cobre',
 						'username_creacion',
 						'username_atencion',
@@ -876,9 +876,9 @@ class PostventasController extends Controller
 					// Iteramos por los campos seleccionados del formulario
 					foreach ($selectedFields as $fieldName) {
 						$value = $request->input($fieldName);
-						if ($fieldName === 'TrabajadoAnulada_Cobre' && $request->has('TrabajadoAnulada_Cobre')) {
+						if ($fieldName === 'TrabajadoTrasladoAnulada_Cobre' && $request->has('TrabajadoTrasladoAnulada_Cobre')) {
 							$data[$fieldName] = 'TRABAJADO';
-						} elseif ($fieldName === 'TrabajadoAnulada_Cobre') {
+						} elseif ($fieldName === 'TrabajadoTrasladoAnulada_Cobre') {
 							$data[$fieldName] = 'PENDIENTE';
 						} else {
 							$data[$fieldName] = $value;

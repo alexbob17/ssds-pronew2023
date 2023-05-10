@@ -20,7 +20,7 @@ class PostventaTrasladoCobre_Anulada extends Model
         'TipoActividadTrasladoCobre',
         'MotivoTrasladoAnulada_Cobre',
         'OrdenTrasladosCobre',
-        'TrabajadoAnulada_Cobre',
+        'TrabajadoTrasladoAnulada_Cobre',
         'ComentarioTrasladoAnulada_Cobre',
         'username_creacion',
 		'username_atencion',

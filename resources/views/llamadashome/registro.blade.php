@@ -121,8 +121,9 @@
             @endsection @section('scripts')
 
             <!-- SweetAlert -->
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css">
+            <link href="{{ asset('/plugins/CdnMigraciones/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+
+            <script src="{{ asset('/plugins/CdnMigraciones/sweetalert2.all.min.js') }}"></script>
 
             <!-- datepicker -->
             <script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}" type="text/javascript">

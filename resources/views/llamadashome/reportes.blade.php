@@ -25,7 +25,7 @@
                             <label for="fecha_inicio">FECHA INICIO</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
-                                    <i class="fa fa-calendar-check-o"></i>
+                                    <i class="fa fa-calendar"></i>
                                 </div>
                                 <input class="form-control" name="fecha_inicio" id="fecha_inicio"
                                     placeholder="Ingresa Fecha" type="text" data-provide="datepicker"
@@ -37,7 +37,7 @@
                             <label for="fecha_fin">FECHA FIN</label>
                             <div class="input-group">
                                 <div class="input-group-addon">
-                                    <i class="fa fa-calendar-check-o"></i>
+                                    <i class="fa fa-calendar"></i>
                                 </div>
                                 <input class="form-control" name="fecha_fin" id="fecha_fin" placeholder="Ingresa Fecha"
                                     type="text" data-provide="datepicker" data-date-format="yyyy-mm-dd"
@@ -6307,12 +6307,16 @@ Swal.fire({
 </script>
 @endif @endsection @section('styles')
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap-table/dist/bootstrap-table.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tableexport.jquery.plugin/tableExport.min.js"></script>
+
+
+<script src="{{ asset('/plugins/CdnMigraciones/tableExport.min.js') }}"></script>
 
 <!-- SweetAlert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
+<link href="{{ asset('/plugins/CdnMigraciones/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+
+<script src="{{ asset('/plugins/CdnMigraciones/sweetalert2.all.min.js') }}"></script>
+
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {

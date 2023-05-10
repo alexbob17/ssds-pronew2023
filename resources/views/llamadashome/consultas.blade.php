@@ -319,8 +319,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 <!-- Select2 -->
-<link rel=" stylesheet" href="{{ asset('/plugins/select2/select2.min.css') }}" type="text/css" />
-<link rel="stylesheet" href="{{ asset('/plugins/datepicker/datepicker3.css') }}" />
+<link href="{{ asset('/plugins/CdnMigraciones/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+
+<script src="{{ asset('/plugins/CdnMigraciones/sweetalert2.all.min.js') }}"></script>
 <!-- User definided -->
 <link rel="stylesheet" href="{{ asset('/css/center-modal.css') }}" />
 

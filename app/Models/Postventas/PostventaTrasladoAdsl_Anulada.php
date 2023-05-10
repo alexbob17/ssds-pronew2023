@@ -21,7 +21,7 @@ class PostventaTrasladoAdsl_Anulada extends Model
         'TipoActividadTrasladoAdsl',
         'MotivoTrasladoAnulada_Adsl',
         'NOrdenTrasladosAnulAdsl',
-        'TrabajadoAnulada_Adsl',
+        'TrabajadoTrasladoTrAnulada_Adsl',
         'ComentarioTrasladoAnulada_Adsl',
         'username_creacion',
 		'username_atencion',

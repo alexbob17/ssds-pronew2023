@@ -57,6 +57,9 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::get('/tecnicos/guardar', 'RegistroTecnicoController@showGuardar')->name('Tecnico_guardar')->middleware('auth');
 
+	Route::get('/', 'DashboardController@countTables')->name('CountTables')->middleware('auth');
+
+
 	
 
 
@@ -89,21 +92,21 @@ Route::group(['middleware' => ['web']], function () {
 
 	Route::post('/llamadashome/busqueda',  'BusquedaController@generarBusqueda')->name('busqueda.generar')->middleware('auth');
 
-	Route::post('/llamadashome/editar/instalaciones', 'ActualizarDatos@editar')->name('mostrarEditar');
+	Route::post('/llamadashome/editar/instalaciones', 'ActualizarDatos@editar')->name('mostrarEditar')->middleware('auth');
 
-	Route::post('/llamadashome/editar/reparaciones', 'ActualizarDatos@editar')->name('mostrarEditarReparaciones');
+	Route::post('/llamadashome/editar/reparaciones', 'ActualizarDatos@editar')->name('mostrarEditarDaño')->middleware('auth');
 
-	Route::post('/llamadashome/editar/postventa', 'ActualizarDatos@editar')->name('mostrarEditarPostventa');
+	Route::post('/llamadashome/editar/postventa', 'ActualizarDatos@editar')->name('mostrarEditarPosventa')->middleware('auth');
 
 
 
 	// ACTUALIZAR
 
-	Route::put('/llamadashome/editar/instalaciones/{id}', 'ActualizarDatos@actualizar')->name('actualizarDatos');
+	Route::put('/llamadashome/editar/instalaciones/{id}', 'ActualizarDatos@actualizar')->name('actualizarDatos')->middleware('auth');
 
-	Route::put('/llamadashome/editar/reparaciones/{id}', 'ActualizarDatos@actualizarReparaciones')->name('actualizarDatosReparaciones');
+	Route::put('/llamadashome/editar/reparaciones/{id}', 'ActualizarDatos@actualizarReparaciones')->name('actualizarDatosReparaciones')->middleware('auth');
 	
-	Route::put('/llamadashome/editar/postventa/{id}', 'ActualizarDatos@actualizarPostventas')->name('actualizarDatosPostventa');
+	Route::put('/llamadashome/editar/postventa/{id}', 'ActualizarDatos@actualizarPostventas')->name('actualizarDatosPostventa')->middleware('auth');
 
 
 
@@ -123,7 +126,7 @@ Route::group(['middleware' => ['web']], function () {
 
 	// DELETE DATOS
 
-	Route::delete('/tecnicos/registro/{CODIGO}','RegistroTecnicoController@deleteRegistro')->name('tecnicos_delete');
+	Route::delete('/tecnicos/registro/{CODIGO}','RegistroTecnicoController@deleteRegistro')->name('tecnicos_delete')->middleware('auth');;
 
 
 

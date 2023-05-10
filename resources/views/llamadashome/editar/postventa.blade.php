@@ -9,14 +9,16 @@
         </div>
         @endif
         <!-- general form elements -->
-        <div class="box box-warning">
-            <div class="box-header with-border">
-                <h3 class="box-title">Datos del Caso</h3>
+        <div class="box box-warning" style="border-top:none !important">
+            <div class="box-header with-border" style=" background: rgba(255, 255, 255, 0.15) !important;
+            border-bottom: 0.1px solid #337ab7;
+            color: #337ab7 !important;
+            border-top: 1px solid white;">
+                <h3 class="box-title">Editar Caso</h3>
             </div>
             <!-- FORMULARIO #1 POSTVENTAS -->
 
-            <form action="{{ route('actualizarDatosPostventa', $registro->id) }}" method="POST" id="form1"
-                style="border-bottom: 3px solid rgb(62, 105, 214); padding-top: 15px;">
+            <form action="{{ route('actualizarDatosPostventa', $registro->id) }}" method="POST" id="form1">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
                 <input type="hidden" name="selected_fields" id="selected-fields" />
@@ -103,6 +105,54 @@
                             <option selected="selected" value="{{ $registro->select_orden}}">
                                 {{ $registro->select_orden}}
                             </option>
+                            @if ($registro->Select_Postventa === 'RECONEXION / RETIRO' && $registro->tecnologia
+                            === 'HFC')
+                            <option value="RECONEXION">RECONEXION</option>
+                            <option value="RETIRO ACOMETIDO">RETIRO ACOMETIDO</option>
+                            <option value="RETIRO EQUIPOS STB">RETIRO EQUIPOS STB</option>
+                            <option value="RETIRO CM">RETIRO CM</option>
+                            @endif
+
+                            @if ($registro->Select_Postventa === 'MIGRACION' && $registro->tecnologia
+                            === 'HFC')
+                            <option value="MIGRACION DTA">MIGRACION DTA</option>
+                            <option value="MIGRACION DIG">MIGRACION DIG</option>
+                            <option value="MIGRACION X PROYECTO">MIGRACION X PROYECTO</option>
+                            @endif
+
+                            @if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia
+                            === 'GPON')
+                            <option value="CAMBIO EQUIPO TV">CAMBIO EQUIPO TV</option>
+                            <option value="CAMBIO EQUIPO INTERNET">CAMBIO EQUIPO INTERNET</option>
+                            @endif
+
+                            @if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia
+                            === 'HFC')
+                            <option value="CAMBIO EQUIPO TV">CAMBIO EQUIPO TV</option>
+                            <option value="CAMBIO EQUIPO INTERNET">CAMBIO EQUIPO INTERNET</option>
+                            @endif
+
+                            @if ($registro->Select_Postventa === 'ADICION' && $registro->tecnologia
+                            === 'HFC')
+                            <option value="ADICION ANALOGAS">ADICION ANALOGAS</option>
+                            <option value="ADICION DTA">ADICION DTA</option>
+                            <option value="ADICION DIGITAL">ADICION DIGITAL</option>
+                            @endif
+
+                            @if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia
+                            === 'HFC')
+                            <option value="TRASLADO INDIVIDUAL">TRASLADO INDIVIDUAL</option>
+                            <option value="TRASLADO INDIVIDUAL">TRASLADO INDIVIDUAL</option>
+                            <option value="TRASLADO TRIPLE">TRASLADO TRIPLE</option>
+                            @endif
+
+                            @if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia
+                            === 'GPON')
+                            <option value="TRASLADO INDIVIDUAL">TRASLADO INDIVIDUAL</option>
+                            <option value="TRASLADO INDIVIDUAL">TRASLADO INDIVIDUAL</option>
+                            <option value="TRASLADO TRIPLE">TRASLADO TRIPLE</option>
+                            @endif
+
 
                         </select>
                     </div>
@@ -120,8 +170,10 @@
 
                 <!-- POSTVENTAS TRASLADOS -->
 
-                @if ($registro->Select_Postventa === 'TRASLADOS')
+                @if ($registro->Select_Postventa === 'TRASLADO')
                 <div class="form-group-container">
+
+                    @if ($registro->tecnologia === 'HFC')
                     <!-- POSTVENTAS TRASLADOS HFC -->
                     <div class="form-group-container HiddenTrasladoHfc postventa-traslados" id="PostventaTrasladosHfc">
                         <div class="form-group col-md-3" style="padding-top: 1.5rem;">
@@ -129,13 +181,12 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadTrasladoHfc" id="TipoActividadTrasladoHfc" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadTrasladoHfc}}">
+                                    {{ $registro->TipoActividadTrasladoHfc}}</option>
+
                             </select>
                         </div>
+                        @if ($registro->TipoActividadTrasladoHfc === 'REALIZADA')
                         <div class="TrasladoHfcHidden" id="RealizadaTrasladoHfc">
                             <div class="form-group-container">
                                 <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
@@ -148,7 +199,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control OrdenGpon" id="OrdenTvTrasladoHfc"
-                                            name="OrdenTvTrasladoHfc" placeholder="N° Orden Tv" autocomplete="off" />
+                                            name="OrdenTvTrasladoHfc" placeholder="N° Orden Tv" autocomplete="off"
+                                            value="{{ $registro->OrdenTvTrasladoHfc}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
@@ -159,7 +211,8 @@
                                         </div>
                                         <input type="number" class="form-control OrdenGpon"
                                             id="OrdenInternetTrasladoHfc" placeholder="N° Orden Internet"
-                                            name="OrdenInternetTrasladoHfc" autocomplete="off" />
+                                            name="OrdenInternetTrasladoHfc" autocomplete="off"
+                                            value="{{ $registro->OrdenInternetTrasladoHfc}}" />
                                     </div>
                                 </div>
 
@@ -170,8 +223,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control OrdenGpon" id="OrdenLineaTrasladoHfc"
-                                            name="OrdenLineaTrasladoHfc" placeholder="N° Orden Linea"
-                                            autocomplete="off" />
+                                            name="OrdenLineaTrasladoHfc" placeholder="N° Orden Linea" autocomplete="off"
+                                            value="{{ $registro->OrdenLineaTrasladoHfc}}" />
                                     </div>
                                 </div>
                             </div>
@@ -187,7 +240,8 @@
                                         <input type="text" class="form-control" id="ObservacionesTrasladoHfc"
                                             name="ObservacionesTrasladoHfc"
                                             placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObservacionesTrasladoHfc}}" />
                                     </div>
                                 </div>
 
@@ -195,7 +249,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value=""
-                                                id="TrabajadoTrasladoHfc" name="TrabajadoTrasladoHfc" />
+                                                id="TrabajadoTrasladoHfc" name="TrabajadoTrasladoHfc"
+                                                {{ $registro->TrabajadoTrasladoHfc === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="">
                                                 Trabajado
                                             </label>
@@ -213,7 +268,8 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeHfcRealizado" name="RecibeHfcRealizado"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->RecibeHfcRealizado}}" />
                                     </div>
                                 </div>
                             </div>
@@ -237,7 +293,7 @@
                                                     <input type="text" class="form-control" id="NodoTrasladoHfc"
                                                         name="NodoTrasladoHfc" placeholder="Ingresa Nodo"
                                                         oninput="this.value = this.value.toUpperCase()"
-                                                        autocomplete="off" />
+                                                        autocomplete="off" value="{{ $registro->NodoTrasladoHfc}}" />
                                                 </div>
                                             </div>
 
@@ -251,7 +307,7 @@
                                                     </div>
                                                     <input type="number" class="form-control" id="TapTrasladoHfc"
                                                         name="TapTrasladoHfc" placeholder="Ingresa TAP"
-                                                        autocomplete="off" />
+                                                        autocomplete="off" value="{{ $registro->TapTrasladoHfc}}" />
                                                 </div>
                                             </div>
 
@@ -265,7 +321,8 @@
                                                     </div>
                                                     <input type="number" class="form-control" id="PosicionTrasladoHfc"
                                                         name="PosicionTrasladoHfc" placeholder="Ingresa Posicion"
-                                                        autocomplete="off" />
+                                                        autocomplete="off"
+                                                        value="{{ $registro->PosicionTrasladoHfc}}" />
                                                 </div>
                                             </div>
 
@@ -280,7 +337,8 @@
                                                     <input type="text" class="form-control" id="MaterialesTrasladoHfc"
                                                         name="MaterialesTrasladoHfc" placeholder="Comentarios..."
                                                         oninput="this.value = this.value.toUpperCase()"
-                                                        autocomplete="off" />
+                                                        autocomplete="off"
+                                                        value="{{ $registro->MaterialesTrasladoHfc}}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -288,7 +346,9 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadTrasladoHfc === 'OBJETADA')
                         <div class="TrasladoHfcHidden" id="ObjetadaTrasladoHfc">
                             <div class="form-group-container">
                                 <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
@@ -302,7 +362,8 @@
                                         </div>
                                         <input type="number" class="form-control OrdenGpon"
                                             id="OrdenTvObjetadoTrasladoHfc" placeholder="N° Orden Tv"
-                                            name="OrdenTvObjetadoTrasladoHfc" autocomplete="off" />
+                                            name="OrdenTvObjetadoTrasladoHfc" autocomplete="off"
+                                            value="{{ $registro->OrdenTvObjetadoTrasladoHfc}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
@@ -313,7 +374,7 @@
                                         </div>
                                         <input type="number" class="form-control OrdenGpon" id="OrdenIntObjTrasladoHfc"
                                             name="OrdenIntObjTrasladoHfc" placeholder="N° Orden Internet"
-                                            autocomplete="off" />
+                                            autocomplete="off" value="{{ $registro->OrdenIntObjTrasladoHfc}}" />
                                     </div>
                                 </div>
 
@@ -325,7 +386,8 @@
                                         </div>
                                         <input type="number" class="form-control OrdenGpon"
                                             id="OrdenLineaObjetadoTrasladoHfc" placeholder="N° Orden Linea"
-                                            name="OrdenLineaObjetadoTrasladoHfc" autocomplete="off" />
+                                            name="OrdenLineaObjetadoTrasladoHfc" autocomplete="off"
+                                            value="{{ $registro->OrdenLineaObjetadoTrasladoHfc}}" />
                                     </div>
                                 </div>
 
@@ -335,7 +397,8 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjTrasladoHfc" tabindex="-1"
                                             id="MotivoObjTrasladoHfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="{{ $registro->MotivoObjTrasladoHfc}}">
+                                                {{ $registro->MotivoObjTrasladoHfc}}</option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                             </option>
@@ -358,7 +421,8 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoObjTrasladoHfc" name="TrabajadoObjTrasladoHfc" />
+                                                    id="TrabajadoObjTrasladoHfc" name="TrabajadoObjTrasladoHfc"
+                                                    {{ $registro->TrabajadoObjTrasladoHfc === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -375,7 +439,8 @@
                                             <input type="text" class="form-control" id="ObvsObjTrasladoHfc"
                                                 name="ObvsObjTrasladoHfc"
                                                 placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsObjTrasladoHfc}}" />
                                         </div>
                                     </div>
 
@@ -387,13 +452,16 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosObjTrasladoHfc"
                                                 name="ComentariosObjTrasladoHfc" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentariosObjTrasladoHfc}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadTrasladoHfc === 'TRANSFERIDA')
                         <div class="TrasladoHfcHidden" id="TransferidoTrasladoHfc">
                             <div class="" id="RealizadaTrasladoHfc">
                                 <div class="form-group-container">
@@ -408,7 +476,8 @@
                                             </div>
                                             <input type="number" class="form-control OrdenGpon"
                                                 id="OrdenTvTransferidoHfc" name="OrdenTvTransferidoHfc"
-                                                placeholder="N° Orden Tv" autocomplete="off" />
+                                                placeholder="N° Orden Tv" autocomplete="off"
+                                                value="{{ $registro->OrdenTvTransferidoHfc}}" />
                                         </div>
                                     </div>
                                     <div class="form-group col-md-3">
@@ -419,7 +488,8 @@
                                             </div>
                                             <input type="number" class="form-control OrdenGpon"
                                                 id="OrdenInternetTransferidoHfc" name="OrdenInternetTransferidoHfc"
-                                                placeholder="N° Orden Internet" autocomplete="off" />
+                                                placeholder="N° Orden Internet" autocomplete="off"
+                                                value="{{ $registro->OrdenInternetTransferidoHfc}}" />
                                         </div>
                                     </div>
 
@@ -431,7 +501,8 @@
                                             </div>
                                             <input type="number" class="form-control OrdenGpon"
                                                 id="OrdenLineaTransferidoHfc" placeholder="N° Orden Linea"
-                                                name="OrdenLineaTransferidoHfc" autocomplete="off" />
+                                                name="OrdenLineaTransferidoHfc" autocomplete="off"
+                                                value="{{ $registro->OrdenLineaTransferidoHfc}}" />
                                         </div>
                                     </div>
                                 </div>
@@ -446,7 +517,8 @@
                                             <input type="text" class="form-control" id="MotivoTransTrasladoHfc"
                                                 name="MotivoTransTrasladoHfc"
                                                 oninput="this.value = this.value.toUpperCase()"
-                                                placeholder="Ingresa Motivo Transferido" autocomplete="off" />
+                                                placeholder="Ingresa Motivo Transferido" autocomplete="off"
+                                                value="{{ $registro->MotivoTransTrasladoHfc}}" />
                                         </div>
                                     </div>
 
@@ -455,7 +527,8 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox"
                                                     id="TrabajadoTransTrasladoHfc" name="TrabajadoTransTrasladoHfc"
-                                                    oninput="this.value = this.value.toUpperCase()" />
+                                                    oninput="this.value = this.value.toUpperCase()"
+                                                    {{ $registro->TrabajadoTransTrasladoHfc === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="flexCheckDefault">
                                                     Trabajado
                                                 </label>
@@ -472,13 +545,16 @@
                                             <input type="text" class="form-control" id="ComentarioTrasladoTransHfc"
                                                 name="ComentarioTrasladoTransHfc"
                                                 oninput="this.value = this.value.toUpperCase()"
-                                                placeholder="Comentarios..." autocomplete="off" />
+                                                placeholder="Comentarios..." autocomplete="off"
+                                                value="{{ $registro->ComentarioTrasladoTransHfc}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadTrasladoHfc === 'ANULACION')
                         <div class="form-group-container TrasladoHfcHidden" id="AnuladaTrasladoHfc">
                             <div class="form-group-container">
                                 <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
@@ -491,7 +567,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control OrdenGpon" id="OrdenTvAnulTraslHfc"
-                                            name="OrdenTvAnulTraslHfc" placeholder="N° Orden Tv" autocomplete="off" />
+                                            name="OrdenTvAnulTraslHfc" placeholder="N° Orden Tv" autocomplete="off"
+                                            value="{{ $registro->OrdenTvAnulTraslHfc}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
@@ -502,7 +579,7 @@
                                         </div>
                                         <input type="number" class="form-control OrdenGpon" id="OrdenInterAnulTraslHfc"
                                             name="OrdenInterAnulTraslHfc" placeholder="N° Orden Internet"
-                                            autocomplete="off" />
+                                            autocomplete="off" value="{{ $registro->OrdenInterAnulTraslHfc}}" />
                                     </div>
                                 </div>
 
@@ -514,7 +591,7 @@
                                         </div>
                                         <input type="number" class="form-control OrdenGpon" id="OrdenLineaAnulTraslHfc"
                                             name="OrdenLineaAnulTraslHfc" placeholder="N° Orden Linea"
-                                            autocomplete="off" />
+                                            autocomplete="off" value="{{ $registro->OrdenLineaAnulTraslHfc}}" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
@@ -523,7 +600,9 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoAnuladaTraslado_Hfc" tabindex="-1"
                                             id="MotivoAnuladaTraslado_Hfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected"
+                                                value="{{ $registro->MotivoAnuladaTraslado_Hfc}}">
+                                                {{ $registro->MotivoAnuladaTraslado_Hfc}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
                                             <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
                                                 CONDICIONES DE INSTALACION </option>
@@ -565,7 +644,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoAnuladaTraslado_Hfc" name="TrabajadoAnuladaTraslado_Hfc" />
+                                                id="TrabajadoAnuladaTraslado_Hfc" name="TrabajadoAnuladaTraslado_Hfc"
+                                                {{ $registro->TrabajadoAnuladaTraslado_Hfc === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label"
                                                 oninput="this.value = this.value.toUpperCase()">
                                                 Trabajado
@@ -584,13 +664,18 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComenAnuladaTraslado_Hfc"
                                             name="ComenAnuladaTraslado_Hfc" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComenAnuladaTraslado_Hfc}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        @endif
 
+                    </div>
+                    @endif
+
+                    @if ($registro->tecnologia === 'GPON')
                     <!-- POSTVENTAS TRASLADOS GPON -->
                     <div class="form-group-container HiddenTrasladoGpon postventa-traslados"
                         id="PostventaTrasladosGpon">
@@ -599,13 +684,13 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadTrasladoGpon" id="TipoActividadTrasladoGpon" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadTrasladoGpon}}">
+                                    {{ $registro->TipoActividadTrasladoGpon}}</option>
+
                             </select>
                         </div>
+
+                        @if ($registro->TipoActividadTrasladoGpon === 'REALIZADA')
                         <!-- REALIZADA -->
                         <div class="TrasladoGponHidden" id="RealizadaTrasladoGpon">
                             <div class="form-group-container col-md-12">
@@ -619,7 +704,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control OrdenGpon" id="OrdenTvTrasladoGpon"
-                                            name="OrdenTvTrasladoGpon" placeholder="N° Orden Tv" autocomplete="off" />
+                                            name="OrdenTvTrasladoGpon" placeholder="N° Orden Tv" autocomplete="off"
+                                            value="{{ $registro->OrdenTvTrasladoGpon}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
@@ -630,7 +716,8 @@
                                         </div>
                                         <input type="number" class="form-control OrdenGpon"
                                             id="OrdenInternetTrasladoGpon" name="OrdenInternetTrasladoGpon"
-                                            placeholder="N° Orden Internet" autocomplete="off" />
+                                            placeholder="N° Orden Internet" autocomplete="off"
+                                            value="{{ $registro->OrdenInternetTrasladoGpon}}" />
                                     </div>
                                 </div>
 
@@ -643,7 +730,7 @@
                                         <input type="number" class="form-control OrdenGpon" id="OrdenLineaTrasladoGpon"
                                             name="OrdenLineaTrasladoGpon"
                                             oninput="this.value = this.value.toUpperCase()" placeholder="N° Orden Linea"
-                                            autocomplete="off" />
+                                            autocomplete="off" value="{{ $registro->OrdenLineaTrasladoGpon}}" />
                                     </div>
                                 </div>
                             </div>
@@ -658,14 +745,16 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObvsTrasladoGpon"
                                             name="ObvsTrasladoGpon" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObvsTrasladoGpon}}" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" value=""
-                                                id="TrabajadoTrasladoGpon" name="TrabajadoTrasladoGpon" />
+                                                id="TrabajadoTrasladoGpon" name="TrabajadoTrasladoGpon"
+                                                {{ $registro->TrabajadoTrasladoGpon === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="">
                                                 Trabajado
                                             </label>
@@ -683,7 +772,8 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeTrasladoGpon" name="RecibeTrasladoGpon"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->RecibeTrasladoGpon}}" />
                                     </div>
                                 </div>
                             </div>
@@ -707,7 +797,7 @@
                                                     <input type="text" class="form-control" id="NodoTrasladoGpon"
                                                         name="NodoTrasladoGpon" placeholder="Ingresa Nodo"
                                                         oninput="this.value = this.value.toUpperCase()"
-                                                        autocomplete="off" />
+                                                        autocomplete="off" value="{{ $registro->NodoTrasladoGpon}}" />
                                                 </div>
                                             </div>
 
@@ -721,7 +811,7 @@
                                                     </div>
                                                     <input type="number" class="form-control" id="TapTrasladoGpon"
                                                         name="TapTrasladoGpon" placeholder="Ingresa TAP"
-                                                        autocomplete="off" />
+                                                        autocomplete="off" value="{{ $registro->TapTrasladoGpon}}" />
                                                 </div>
                                             </div>
 
@@ -735,7 +825,8 @@
                                                     </div>
                                                     <input type="number" class="form-control" id="PosicionTrasladoGpon"
                                                         name="PosicionTrasladoGpon" placeholder="Ingresa Posicion"
-                                                        autocomplete="off" />
+                                                        autocomplete="off"
+                                                        value="{{ $registro->PosicionTrasladoGpon}}" />
                                                 </div>
                                             </div>
 
@@ -750,7 +841,8 @@
                                                     <input type="text" class="form-control" id="MaterialesTrasladoGpon"
                                                         name="MaterialesTrasladoGpon" placeholder="Comentarios..."
                                                         oninput="this.value = this.value.toUpperCase()"
-                                                        autocomplete="off" />
+                                                        autocomplete="off"
+                                                        value="{{ $registro->MaterialesTrasladoGpon}}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -758,7 +850,9 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadTrasladoGpon === 'OBJETADA')
                         <!-- OBJETADA -->
                         <div class="TrasladoGponHidden" id="ObjetadaTrasladoGpon">
                             <div class="form-group-container">
@@ -772,8 +866,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control OrdenGpon" id="OrdenTvTrasladoObjGpon"
-                                            name="OrdenTvTrasladoObjGpon" placeholder="N° Orden Tv"
-                                            autocomplete="off" />
+                                            name="OrdenTvTrasladoObjGpon" placeholder="N° Orden Tv" autocomplete="off"
+                                            value="{{ $registro->OrdenTvTrasladoObjGpon}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
@@ -784,7 +878,7 @@
                                         </div>
                                         <input type="number" class="form-control OrdenGpon" id="OrdenInterObjTraslGpon"
                                             name="OrdenInterObjTraslGpon" placeholder="N° Orden Internet"
-                                            autocomplete="off" />
+                                            autocomplete="off" value="{{ $registro->OrdenInterObjTraslGpon}}" />
                                     </div>
                                 </div>
 
@@ -796,7 +890,7 @@
                                         </div>
                                         <input type="number" class="form-control OrdenGpon" id="OrdenLineaTraslObjGpon"
                                             name="OrdenLineaTraslObjGpon" placeholder="N° Orden Linea"
-                                            autocomplete="off" />
+                                            autocomplete="off" value="{{ $registro->OrdenLineaTraslObjGpon}}" />
                                     </div>
                                 </div>
 
@@ -806,7 +900,8 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjTrasladoGpon" tabindex="-1"
                                             id="MotivoObjTrasladoGpon" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="{{ $registro->MotivoObjTrasladoGpon}}">
+                                                {{ $registro->MotivoObjTrasladoGpon}}</option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
                                             <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
                                             </option>
@@ -829,7 +924,8 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoTrasladoObjGpon" name="TrabajadoTrasladoObjGpon" />
+                                                    id="TrabajadoTrasladoObjGpon" name="TrabajadoTrasladoObjGpon"
+                                                    {{ $registro->TrabajadoTrasladoObjGpon === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -846,7 +942,8 @@
                                             <input type="text" class="form-control" id="ObvsTrasladoObjGpon"
                                                 name="ObvsTrasladoObjGpon"
                                                 placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsTrasladoObjGpon}}" />
                                         </div>
                                     </div>
 
@@ -858,13 +955,16 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentTrasladoObjGpon"
                                                 name="ComentTrasladoObjGpon" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentTrasladoObjGpon}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadTrasladoGpon === 'TRANSFERIDA')
                         <!-- TRANSFERIDA -->
                         <div class="TrasladoGponHidden" id="TransferidoTrasladoGpon">
                             <div class="form-group-container">
@@ -880,7 +980,8 @@
                                             </div>
                                             <input type="number" class="form-control OrdenGpon"
                                                 id="OrdenTvTrasladoTransGpon" placeholder="N° Orden Tv"
-                                                name="OrdenTvTrasladoTransGpon" autocomplete="off" />
+                                                name="OrdenTvTrasladoTransGpon" autocomplete="off"
+                                                value="{{ $registro->OrdenTvTrasladoTransGpon}}" />
                                         </div>
                                     </div>
                                     <div class="form-group col-md-3">
@@ -891,7 +992,8 @@
                                             </div>
                                             <input type="number" class="form-control OrdenGpon"
                                                 id="OrdenIntTransladoGpon" placeholder="N° Orden Internet"
-                                                name="OrdenIntTransladoGpon" autocomplete="off" />
+                                                name="OrdenIntTransladoGpon" autocomplete="off"
+                                                value="{{ $registro->OrdenIntTransladoGpon}}" />
                                         </div>
                                     </div>
 
@@ -903,12 +1005,13 @@
                                             </div>
                                             <input type="number" class="form-control OrdenGpon"
                                                 id="OrdenLineaTrasladoTransGpon" placeholder="N° Orden Linea"
-                                                name="OrdenLineaTrasladoTransGpon" autocomplete="off" />
+                                                name="OrdenLineaTrasladoTransGpon" autocomplete="off"
+                                                value="{{ $registro->OrdenLineaTrasladoTransGpon}}" />
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="form-group col-md-9">
+                                <div class=" form-group col-md-9">
                                     <label for="MotivoTransTrasladoGpon">Motivo Transferido</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -916,7 +1019,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="MotivoTransTrasladoGpon"
                                             name="MotivoTransTrasladoGpon" placeholder="Ingresa Motivo Trasnferido"
-                                            autocomplete="off" />
+                                            autocomplete="off" value="{{ $registro->MotivoTransTrasladoGpon}}"
+                                            oninput="this.value = this.value.toUpperCase()" />
                                     </div>
                                 </div>
 
@@ -924,7 +1028,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoTraslTransGpon"
-                                                name="TrabajadoTraslTransGpon" />
+                                                name="TrabajadoTraslTransGpon"
+                                                {{ $registro->TrabajadoTraslTransGpon === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -941,18 +1046,22 @@
                                         <input type="text" class="form-control" id="ComentTrasladoTransGpon"
                                             name="ComentTrasladoTransGpon"
                                             oninput="this.value = this.value.toUpperCase()"
-                                            placeholder="Comentarios del caso" autocomplete="off" />
+                                            placeholder="Comentarios del caso" autocomplete="off"
+                                            value="{{ $registro->ComentTrasladoTransGpon}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadTrasladoGpon === 'ANULACION')
                         <!-- ANULADA -->
                         <div class="form-group-container TrasladoGponHidden" id="AnuladaTrasladoGpon">
                             <div class="form-group-container">
                                 <div class="col-md-12">
                                     <div class="form-group col-md-3" style="margin-top: 3rem; text-align: center;">
-                                        <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES GPON</label>
+                                        <label for="" style="color: #3e69d6; font-size: 18px;">SOLICITUDES
+                                            GPON</label>
                                     </div>
                                     <div class="form-group col-md-3">
                                         <label for="OrdenTvTraslAnuladoGpon">Orden Tv</label>
@@ -962,7 +1071,8 @@
                                             </div>
                                             <input type="number" class="form-control OrdenGpon"
                                                 id="OrdenTvTraslAnuladoGpon" name="OrdenTvTraslAnuladoGpon"
-                                                placeholder="N° Orden Tv" autocomplete="off" />
+                                                placeholder="N° Orden Tv" autocomplete="off"
+                                                value="{{ $registro->OrdenTvTraslAnuladoGpon}}" />
                                         </div>
                                     </div>
                                     <div class="form-group col-md-3">
@@ -973,7 +1083,8 @@
                                             </div>
                                             <input type="number" class="form-control OrdenGpon"
                                                 id="OrdenIntTrasladoAnulGpon" name="OrdenIntTrasladoAnulGpon"
-                                                placeholder="N° Orden Internet" autocomplete="off" />
+                                                placeholder="N° Orden Internet" autocomplete="off"
+                                                value="{{ $registro->OrdenIntTrasladoAnulGpon}}" />
                                         </div>
                                     </div>
 
@@ -985,7 +1096,8 @@
                                             </div>
                                             <input type="number" class="form-control OrdenGpon"
                                                 id="OrdenLineaTraslAnulGpon" placeholder="N° Orden Linea"
-                                                name="OrdenLineaTraslAnulGpon" autocomplete="off" />
+                                                name="OrdenLineaTraslAnulGpon" autocomplete="off"
+                                                value="{{ $registro->OrdenLineaTraslAnulGpon}}" />
                                         </div>
                                     </div>
                                 </div>
@@ -995,23 +1107,33 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoTrasladoAnulada_Gpon" tabindex="-1"
                                             id="MotivoTrasladoAnulada_Gpon" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected"
+                                                value="{{ $registro->MotivoTrasladoAnulada_Gpon}}">
+                                                {{ $registro->MotivoTrasladoAnulada_Gpon}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO
+                                                PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL
+                                                SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
                                             </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL
+                                                SERVICIO
+                                            </option>
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">
+                                                CONDICIONES
                                                 TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">
+                                                DIRECCION
                                                 REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN
+                                                DSLAM
                                             </option>
                                             <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO
+                                                HAY DSLAM
                                                 EN CENTRAL CONCENTRADOR O SHELTER </option>
                                             <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
                                             <option value="NO HAY RED"> NO HAY RED </option>
@@ -1025,8 +1147,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoAnuladaTraslado_gpon"
-                                                name="TrabajadoAnuladaTraslado_gpon" />
+                                                id="TrabajadoAnuladaTraslado_gpon" name="TrabajadoAnuladaTraslado_gpon"
+                                                {{ $registro->TrabajadoAnuladaTraslado_gpon === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -1045,13 +1167,17 @@
                                         <input type="text" class="form-control" id="ComentarioTrasladoAnulada_Gpon"
                                             name="ComentarioTrasladoAnulada_Gpon"
                                             placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentarioTrasladoAnulada_Gpon}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
+                    @endif
 
+                    @if ($registro->tecnologia === 'ADSL')
                     <!-- POSTVENTAS TRASLADOS ADSL -->
                     <div class="form-group-container HiddenTrasladoAdsl postventa-traslados"
                         id="PostventaTrasladosAdsl">
@@ -1060,13 +1186,13 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadTrasladoAdsl" id="TipoActividadTrasladoAdsl" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadTrasladoAdsl}}">
+                                    {{ $registro->TipoActividadTrasladoAdsl}}</option>
+
                             </select>
                         </div>
+
+                        @if ($registro->TipoActividadTrasladoAdsl === 'REALIZADA')
                         <!-- REALIZADA -->
                         <div class="TrasladoAdslHidden" id="RealizadaTrasladoAdsl">
                             <div class="form-group-container">
@@ -1077,7 +1203,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="NOrdenTrasladosAdsl"
-                                            placeholder="N° Orden" name="NOrdenTrasladosAdsl" autocomplete="off" />
+                                            placeholder="N° Orden" name="NOrdenTrasladosAdsl" autocomplete="off"
+                                            value="{{ $registro->NOrdenTrasladosAdsl}}" />
                                     </div>
                                 </div>
 
@@ -1089,7 +1216,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="GeorefTrasladoAdsl"
                                             name="GeorefTrasladoAdsl" placeholder="Latitud,Longitud"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->GeorefTrasladoAdsl}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -1102,14 +1230,16 @@
                                         </div>
                                         <input type="text" class="form-control" id="MaterialesTrasladoAdsl"
                                             name="MaterialesTrasladoAdsl" placeholder="Comentarios..."
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->MaterialesTrasladoAdsl}}" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoTrasladoAdsl"
-                                                name="TrabajadoTrasladoAdsl" />
+                                                name="TrabajadoTrasladoAdsl"
+                                                {{ $registro->TrabajadoTrasladoAdsl === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -1127,7 +1257,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObvsTrasladoAdsl"
                                             name="ObvsTrasladoAdsl" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObvsTrasladoAdsl}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -1140,12 +1271,15 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeTrasladoAdsl" name="RecibeTrasladoAdsl"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->RecibeTrasladoAdsl}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadTrasladoAdsl === 'OBJETADA')
                         <!-- OBJETADA -->
                         <div class="TrasladoAdslHidden" id="ObjetadaTrasladoAdsl">
                             <div class="">
@@ -1155,19 +1289,25 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjTrasladoAdsl" tabindex="-1"
                                             id="MotivoObjTrasladoAdsl" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="{{ $registro->MotivoObjTrasladoAdsl}}">
+                                                {{ $registro->MotivoObjTrasladoAdsl}}</option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO
+                                                EN SAP
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS
+                                                EN SAP
                                             </option>
                                             <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON
+                                                DATOS
                                                 INCOMPLETOS / ERRADOS </option>
                                             <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA /
+                                                PROGRAMA ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -1181,15 +1321,17 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="number" class="form-control" id="OrdenObjTrasladoAdsl"
-                                                placeholder="N° Orden" name="OrdenObjTrasladoAdsl" autocomplete="off" />
+                                                placeholder="N° Orden" name="OrdenObjTrasladoAdsl" autocomplete="off"
+                                                value="{{ $registro->OrdenObjTrasladoAdsl}}" />
                                         </div>
                                     </div>
 
                                     <div class="from-group-container">
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoTrasladoObjAdsl" name="TrabajadoTrasladoObjAdsl" />
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="TrabajadoTrasladoObjAdsl" name="TrabajadoTrasladoObjAdsl"
+                                                    {{ $registro->TrabajadoTrasladoObjAdsl === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -1206,7 +1348,8 @@
                                             <input type="text" class="form-control" id="ObvsTrasladoObjAdsl"
                                                 name="ObvsTrasladoObjAdsl"
                                                 placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsTrasladoObjAdsl}}" />
                                         </div>
                                     </div>
 
@@ -1218,63 +1361,16 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosTrasladosObjAdsl"
                                                 name="ComentariosTrasladosObjAdsl" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentariosTrasladosObjAdsl}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
-                        <!-- TRANSFERIDA -->
-                        <!-- <div class="TrasladoAdslHidden" id="AnuladaTrasladoAdsl">
-                            <div class="form-group-container">
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <label for="OrdenTransferidoAdsl">
-                                            Orden </label>
-                                        <div class="input-group">
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-ticket"></i>
-                                            </div>
-                                            <input type="text" class="form-control" id="OrdenTransferidoAdsl"
-                                                placeholder="N° Orden" name="OrdenTransferidoAdsl" />
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTransferidoAdsl" name="TrabajadoTransferidoAdsl" />
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Trabajado
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="MotivoTransferidoTrasladoAdsl">Motivo Transferido</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="MotivoTransferidoTrasladoAdsl"
-                                            name="MotivoTransferidoTrasladoAdsl" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ComentariosTrasladoTransAdsl">Comentarios</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ComentariosTrasladoTransAdsl"
-                                            name="ComentariosTrasladoTransAdsl" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
+                        @if ($registro->TipoActividadTrasladoAdsl === 'ANULACION')
                         <!-- ANULADA -->
                         <div class="form-group-container TrasladoAdslHidden" id="AnuladaTrasladoAdsl">
                             <div class="form-group-container">
@@ -1284,23 +1380,33 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoTrasladoAnulada_Adsl" tabindex="-1"
                                             id="MotivoTrasladoAnulada_Adsl" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected"
+                                                value="{{ $registro->MotivoTrasladoAnulada_Adsl}}">
+                                                {{ $registro->MotivoTrasladoAnulada_Adsl}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO
+                                                PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL
+                                                SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
                                             </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL
+                                                SERVICIO
+                                            </option>
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">
+                                                CONDICIONES
                                                 TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">
+                                                DIRECCION
                                                 REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN
+                                                DSLAM
                                             </option>
                                             <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO
+                                                HAY DSLAM
                                                 EN CENTRAL CONCENTRADOR O SHELTER </option>
                                             <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
                                             <option value="NO HAY RED"> NO HAY RED </option>
@@ -1316,15 +1422,18 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="NOrdenTrasladosAnulAdsl"
-                                            placeholder="N° Orden" name="NOrdenTrasladosAnulAdsl" autocomplete="off" />
+                                            placeholder="N° Orden" name="NOrdenTrasladosAnulAdsl" autocomplete="off"
+                                            value="{{ $registro->NOrdenTrasladosAnulAdsl}}" />
                                     </div>
                                 </div>
 
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Adsl"
-                                                name="TrabajadoAnulada_Adsl" />
+                                            <input class="form-check-input" type="checkbox"
+                                                id="TrabajadoTrasladoTrAnulada_Adsl"
+                                                name="TrabajadoTrasladoTrAnulada_Adsl"
+                                                {{ $registro->TrabajadoTrasladoTrAnulada_Adsl === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -1343,13 +1452,17 @@
                                         <input type="text" class="form-control" id="ComentarioTrasladoAnulada_Adsl"
                                             name="ComentarioTrasladoAnulada_Adsl"
                                             placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentarioTrasladoAnulada_Adsl}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
+                    @endif
 
+                    @if ($registro->tecnologia === 'COBRE')
                     <!-- POSTVENTAS TRASLADOS COBRE -->
                     <div class="form-group-container HiddenTrasladoCobre postventa-traslados"
                         id="PostventaTrasladosCobre">
@@ -1358,13 +1471,12 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadTrasladoCobre" id="TipoActividadTrasladoCobre" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadTrasladoCobre}}">
+                                    {{ $registro->TipoActividadTrasladoCobre}}</option>
                             </select>
                         </div>
+
+                        @if ($registro->TipoActividadTrasladoCobre === 'REALIZADA')
                         <!-- REALIZADA -->
                         <div class="TrasladoCobreHidden" id="RealizadaTrasladoCobre">
                             <div class="form-group-container">
@@ -1375,7 +1487,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenTrasladoCobre"
-                                            placeholder="N° Orden" name="OrdenTrasladoCobre" autocomplete="off" />
+                                            placeholder="N° Orden" name="OrdenTrasladoCobre" autocomplete="off"
+                                            value="{{ $registro->OrdenTrasladoCobre}}" />
                                     </div>
                                 </div>
 
@@ -1387,7 +1500,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="GeorefTrasladoCobre"
                                             name="GeorefTrasladoCobre" placeholder="Latitud,Longitud"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->GeorefTrasladoCobre}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -1400,14 +1514,16 @@
                                         </div>
                                         <input type="text" class="form-control" id="MaterialesTrasladoCobre"
                                             name="MaterialesTrasladoCobre" placeholder="Comentarios..."
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->MaterialesTrasladoCobre}}" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoTrasladoCobre"
-                                                name="TrabajadoTrasladoCobre" />
+                                                name="TrabajadoTrasladoCobre"
+                                                {{ $registro->TrabajadoTrasladoCobre === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -1425,7 +1541,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObvsTrasladoCobre"
                                             name="ObvsTrasladoCobre" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObvsTrasladoCobre}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -1438,12 +1555,15 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeTrasladoCobre" name="RecibeTrasladoCobre"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->RecibeTrasladoCobre}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadTrasladoCobre === 'OBJETADA')
                         <!-- OBJETADA -->
                         <div class="TrasladoCobreHidden" id="ObjetadaTrasladoCobre">
                             <div class="">
@@ -1453,19 +1573,25 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjTrasladoCobre" tabindex="-1"
                                             id="MotivoObjTrasladoCobre" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="{{ $registro->MotivoObjTrasladoCobre}}">
+                                                {{ $registro->MotivoObjTrasladoCobre}}</option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO
+                                                EN SAP
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS
+                                                EN SAP
                                             </option>
                                             <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON
+                                                DATOS
                                                 INCOMPLETOS / ERRADOS </option>
                                             <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA /
+                                                PROGRAMA ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -1479,8 +1605,8 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="number" class="form-control" id="OrdenTrasladoObjCobres"
-                                                placeholder="N° Orden" name="OrdenTrasladoObjCobres"
-                                                autocomplete="off" />
+                                                placeholder="N° Orden" name="OrdenTrasladoObjCobres" autocomplete="off"
+                                                value="{{ $registro->OrdenTrasladoObjCobres}}" />
                                         </div>
                                     </div>
 
@@ -1488,7 +1614,8 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoTrasladoObjCobre" name="TrabajadoTrasladoObjCobre" />
+                                                    id="TrabajadoTrasladoObjCobre" name="TrabajadoTrasladoObjCobre"
+                                                    {{ $registro->TrabajadoTrasladoObjCobre === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -1505,7 +1632,8 @@
                                             <input type="text" class="form-control" id="ObsObjTrasladoCobre"
                                                 name="ObsObjTrasladoCobre"
                                                 placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObsObjTrasladoCobre}}" />
                                         </div>
                                     </div>
 
@@ -1517,65 +1645,16 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosObjTrasladoCobre"
                                                 name="ComentariosObjTrasladoCobre" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentariosObjTrasladoCobre}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
-                        <!-- TRANSFERIDA -->
-                        <!-- <div class="TrasladoCobreHidden" id="AnuladaTrasladoCobre">
-                            <div class="form-group-container">
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTransTrasladoCobre" name="TrabajadoTransTrasladoCobre" />
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Trabajado
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="form-group col-md-3">
-                                    <label for="OrdenTrasladoTranfCobre">
-                                        Orden </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="OrdenTrasladoTranfCobre"
-                                            placeholder="N° Orden" name="OrdenTrasladoTranfCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="MotivoTransTrasladoCobre">Motivo Transferido</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="MotivoTransTrasladoCobre"
-                                            name="MotivoTransTrasladoCobre" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ComentarioTransTrasladoCobre">Comentarios</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ComentarioTransTrasladoCobre"
-                                            name="ComentarioTransTrasladoCobre" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
+                        @if ($registro->TipoActividadTrasladoCobre === 'ANULACION')
                         <!-- ANULADA -->
                         <div class="form-group-container TrasladoCobreHidden" id="AnuladaTrasladoCobre">
                             <div class="form-group-container">
@@ -1585,27 +1664,38 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoTrasladoAnulada_Cobre" tabindex="-1"
                                             id="MotivoTrasladoAnulada_Cobre" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected"
+                                                value="{{ $registro->MotivoTrasladoAnulada_Cobre}}">
+                                                {{ $registro->MotivoTrasladoAnulada_Cobre}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO
+                                                PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL
+                                                SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
                                             </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL
+                                                SERVICIO
+                                            </option>
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">
+                                                CONDICIONES
                                                 TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">
+                                                DIRECCION
                                                 REGISTRADA CON EXCEDENTE DE CARACTERES </option>
                                             <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO
+                                                HAY DSLAM
                                                 EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="NO HAY NUMERACION EN CONCENTRADOR">NO HAY NUMERACION EN
+                                            <option value="NO HAY NUMERACION EN CONCENTRADOR">NO HAY NUMERACION
+                                                EN
                                                 CONCENTRADOR </option>
                                             <option value="NO HAY RED"> NO HAY RED </option>
                                             <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD MAL REGISTRADA">SOLICITUD MAL REGISTRADA </option>
+                                            <option value="SOLICITUD MAL REGISTRADA">SOLICITUD MAL REGISTRADA
+                                            </option>
                                             <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
                                         </select>
                                     </div>
@@ -1617,15 +1707,18 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="OrdenTrasladosCobre"
-                                            placeholder="N° Orden" name="OrdenTrasladosCobre" autocomplete="off" />
+                                            placeholder="N° Orden" name="OrdenTrasladosCobre" autocomplete="off"
+                                            value="{{ $registro->OrdenTrasladosCobre}}" />
                                     </div>
                                 </div>
 
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="TrabajadoAnulada_Cobre"
-                                                name="TrabajadoAnulada_Cobre" />
+                                            <input class="form-check-input" type="checkbox"
+                                                id="TrabajadoTrasladoAnulada_Cobre"
+                                                name="TrabajadoTrasladoAnulada_Cobre"
+                                                {{ $registro->TrabajadoTrasladoAnulada_Cobre === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -1644,13 +1737,17 @@
                                         <input type="text" class="form-control" id="ComentarioTrasladoAnulada_Cobre"
                                             name="ComentarioTrasladoAnulada_Cobre"
                                             placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentarioTrasladoAnulada_Cobre}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
+                    @endif
 
+                    @if ($registro->tecnologia === 'DTH')
                     <!-- POSTVENTA TRASLADOS DTH -->
                     <div class="form-group-container HiddenTrasladoDth postventa-traslados" id="PostventaTrasladosDth">
                         <div class="form-group col-md-3">
@@ -1658,13 +1755,12 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadTrasladoDth" id="TipoActividadTrasladoDth" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadTrasladoDth}}">
+                                    {{ $registro->TipoActividadTrasladoDth}}</option>
                             </select>
                         </div>
+
+                        @if ($registro->TipoActividadTrasladoDth === 'REALIZADA')
                         <!-- REALIZADA -->
                         <div class="TrasladoDthHidden" id="RealizadaTrasladoDth">
                             <div class="form-group-container">
@@ -1675,7 +1771,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenTrasladoDth"
-                                            placeholder="N° Orden" name="OrdenTrasladoDth" autocomplete="off" />
+                                            placeholder="N° Orden" name="OrdenTrasladoDth" autocomplete="off"
+                                            value="{{ $registro->OrdenTrasladoDth}}" />
                                     </div>
                                 </div>
 
@@ -1687,7 +1784,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="GeorefTrasladoDth"
                                             name="GeorefTrasladoDth" placeholder="Latitud,Longitud"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->GeorefTrasladoDth}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -1700,14 +1798,16 @@
                                         </div>
                                         <input type="text" class="form-control" id="MaterialesTrasladoDth"
                                             name="MaterialesTrasladoDth" placeholder="Comentarios..."
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->MaterialesTrasladoDth}}" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoTrasladoDth"
-                                                name="TrabajadoTrasladoDth" />
+                                                name="TrabajadoTrasladoDth"
+                                                {{ $registro->TrabajadoTrasladoDth === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -1725,7 +1825,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObvsTrasladoDth"
                                             name="ObvsTrasladoDth" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObvsTrasladoDth}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -1738,12 +1839,15 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeTrasladoDth" name="RecibeTrasladoDth"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->RecibeTrasladoDth}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadTrasladoDth === 'OBJETADA')
                         <!-- OBJETADA -->
                         <div class="TrasladoDthHidden" id="ObjetadaTrasladoDth">
                             <div class="">
@@ -1753,19 +1857,25 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjTrasladoDth" tabindex="-1"
                                             id="MotivoObjTrasladoDth" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="{{ $registro->MotivoObjTrasladoDth}}">
+                                                {{ $registro->MotivoObjTrasladoDth}}</option>
                                             <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO
+                                                EN SAP
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS
+                                                EN SAP
                                             </option>
                                             <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON
+                                                DATOS
                                                 INCOMPLETOS / ERRADOS </option>
                                             <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA /
+                                                PROGRAMA ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -1779,7 +1889,8 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="number" class="form-control" id="OrdenTrasladoObjDth"
-                                                placeholder="N° Orden" name="OrdenTrasladoObjDth" autocomplete="off" />
+                                                placeholder="N° Orden" name="OrdenTrasladoObjDth" autocomplete="off"
+                                                value="{{ $registro->OrdenTrasladoObjDth}}" />
                                         </div>
                                     </div>
 
@@ -1787,7 +1898,8 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoTrasladoObj_Dth" name="TrabajadoTrasladoObj_Dth" />
+                                                    id="TrabajadoTrasladoObj_Dth" name="TrabajadoTrasladoObj_Dth"
+                                                    {{ $registro->TrabajadoTrasladoObj_Dth === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -1804,7 +1916,8 @@
                                             <input type="text" class="form-control" id="ObvsTrasladoObjDth"
                                                 name="ObvsTrasladoObjDth"
                                                 placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsTrasladoObjDth}}" />
                                         </div>
                                     </div>
 
@@ -1816,13 +1929,14 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosTrasladoObjDth"
                                                 name="ComentariosTrasladoObjDth" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentariosTrasladoObjDth}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        @endif
                         <!-- TRANSFERIDA -->
                         <!-- <div class="TrasladoDthHidden" id="AnuladaTrasladoDth">
                             <div class="form-group-container">
@@ -1874,6 +1988,7 @@
                             </div>
                         </div> -->
 
+                        @if ($registro->TipoActividadTrasladoDth === 'ANULACION')
                         <!-- ANULADA -->
                         <div class="form-group-container TrasladoDthHidden" id="AnuladaTrasladoDth">
                             <div class="form-group-container">
@@ -1883,19 +1998,27 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoTrasladoAnulada_Dth" tabindex="-1"
                                             id="MotivoTrasladoAnulada_Dth" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected"
+                                                value="{{ $registro->MotivoTrasladoAnulada_Dth}}">
+                                                {{ $registro->MotivoTrasladoAnulada_Dth}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO
+                                                PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL
+                                                SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA
                                             </option>
-                                            <option value="SOLICITUD MAL REGISTRADA"> SOLICITUD MAL REGISTRADA </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL
+                                                SERVICIO
+                                            </option>
+                                            <option value="SOLICITUD MAL REGISTRADA"> SOLICITUD MAL REGISTRADA
+                                            </option>
                                             <option
                                                 value="SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA)">
-                                                SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA) </option>
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA)
+                                            </option>
                                             <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
                                         </select>
                                     </div>
@@ -1908,7 +2031,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="OrdenTrasladosDth"
-                                            placeholder="N° Orden" name="OrdenTrasladosDth" autocomplete="off" />
+                                            placeholder="N° Orden" name="OrdenTrasladosDth" autocomplete="off"
+                                            value="{{ $registro->OrdenTrasladosDth}}" />
                                     </div>
                                 </div>
 
@@ -1916,7 +2040,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTrasladoAnulada_Dth" name="TrabajadoTrasladoAnulada_Dth" />
+                                                id="TrabajadoTrasladoAnulada_Dth" name="TrabajadoTrasladoAnulada_Dth"
+                                                {{ $registro->TrabajadoTrasladoAnulada_Dth === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -1935,18 +2060,23 @@
                                         <input type="text" class="form-control" id="ComentarioTrasladoAnulada_Dth"
                                             name="ComentarioTrasladoAnulada_Dth"
                                             placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentarioTrasladoAnulada_Dth}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
+                    @endif
                 </div>
                 @endif
 
                 @if ($registro->Select_Postventa === 'ADICION')
                 <!-- POSTVENTAS ADICION -->
                 <div class="form-group-container">
+
+                    @if ($registro->tecnologia === 'HFC')
                     <!-- POSTVENTA ADICION HFC -->
                     <div class="form-group-container postventa-adicion" id="PostventaAdicionHfc">
                         <div class="form-group col-md-3">
@@ -1954,13 +2084,12 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadAdicionHfc" id="TipoActividadAdicionHfc" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadAdicionHfc}}">
+                                    {{ $registro->TipoActividadAdicionHfc}}</option>
                             </select>
                         </div>
+
+                        @if ($registro->TipoActividadAdicionHfc === 'REALIZADA')
                         <!-- REALIZADA -->
                         <div class="PostventaAdicionHfcHidden" id="RealizadaAdicionHfc">
                             <div class="form-group-container">
@@ -1972,7 +2101,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc1"
                                             name="equipostvAdicionHfc1" placeholder="Equipo Tv 1"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionHfc1}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -1981,7 +2111,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc2"
                                             name="equipostvAdicionHfc2" placeholder="Equipo Tv 2"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionHfc2}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -1990,7 +2121,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc3"
                                             name="equipostvAdicionHfc3" placeholder="Equipo Tv 3"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionHfc3}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -1999,7 +2131,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc4"
                                             name="equipostvAdicionHfc4" placeholder="Equipo Tv 4"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionHfc4}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -2008,7 +2141,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionHfc5"
                                             name="equipostvAdicionHfc5" placeholder="Equipo Tv 5"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionHfc5}}" />
                                     </div>
                                 </div>
 
@@ -2019,13 +2153,15 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="NOrdenAdicionHfc"
-                                            placeholder="N° Orden" name="NOrdenAdicionHfc" autocomplete="off" />
+                                            placeholder="N° Orden" name="NOrdenAdicionHfc" autocomplete="off"
+                                            value="{{ $registro->NOrdenAdicionHfc}}" />
                                     </div>
                                 </div>
                                 <div class="col-md-3" style="padding-left: 20px;">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="TrabajadoAdicionHfc"
-                                            name="TrabajadoAdicionHfc" />
+                                            name="TrabajadoAdicionHfc"
+                                            {{ $registro->TrabajadoAdicionHfc === 'TRABAJADO' ? 'checked' : '' }} />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Trabajado
                                         </label>
@@ -2042,7 +2178,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="obvsAdicionHfc"
                                             name="obvsAdicionHfc" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->obvsAdicionHfc}}" />
                                     </div>
                                 </div>
 
@@ -2056,12 +2193,15 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeAdicionHfc" name="RecibeAdicionHfc"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->RecibeAdicionHfc}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadAdicionHfc === 'OBJETADA')
                         <!-- OBJETADA -->
                         <div class="PostventaAdicionHfcHidden" id="ObjetadaAdicionHfc">
                             <div class="">
@@ -2071,19 +2211,28 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjAdicionHfc" tabindex="-1"
                                             id="MotivoObjAdicionHfc" aria-hidden="true">
-                                            <option selected="selected">SELECCIONE UNA OPCION</option>
-                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option selected="selected" value="{{ $registro->MotivoObjAdicionHfc}}">
+                                                {{ $registro->MotivoObjAdicionHfc}}</option>
+                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO
+                                                INVENTARIADO EN SAP
                                             </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON
+                                                PROBLEMAS EN SAP
+                                            </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE
+                                            </option>
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM
+                                                CON DATOS
                                                 INCOMPLETOS / ERRADOS </option>
-                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA
+                                            </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA
+                                                / PROGRAMA ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -2097,15 +2246,17 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="text" class="form-control" id="OrdenAdicionObjHfc"
-                                                placeholder="N° Orden" name="OrdenAdicionObjHfc" autocomplete="off" />
+                                                placeholder="N° Orden" name="OrdenAdicionObjHfc" autocomplete="off"
+                                                value="{{ $registro->OrdenAdicionObjHfc}}" />
                                         </div>
                                     </div>
 
                                     <div class="from-group-container">
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoObjAdicionHfc" name="TrabajadoObjAdicionHfc" />
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="TrabajadoObjAdicionHfc" name="TrabajadoObjAdicionHfc"
+                                                    {{ $registro->TrabajadoObjAdicionHfc === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -2122,7 +2273,8 @@
                                             <input type="text" class="form-control" id="ObvsAdicionObjHfc"
                                                 name="ObvsAdicionObjHfc"
                                                 placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsAdicionObjHfc}}" />
                                         </div>
                                     </div>
 
@@ -2134,13 +2286,14 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosObjAdicionHfc"
                                                 name="ComentariosObjAdicionHfc" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentariosObjAdicionHfc}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        @endif
                         <!-- TRANSFERIDA -->
                         <!-- <div class="PostventaAdicionHfcHidden" id="AnuladaAdicionHfc">
                             <div class="form-group-container">
@@ -2193,6 +2346,7 @@
                             </div>
                         </div> -->
 
+                        @if ($registro->TipoActividadAdicionHfc === 'ANULACION')
                         <!-- ANULADA -->
                         <div class="form-group-container PostventaAdicionHfcHidden" id="AnuladaAdicionHfc">
                             <div class="form-group-container">
@@ -2202,40 +2356,58 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoAdicionAnulada_Hfc" tabindex="-1"
                                             id="MotivoAdicionAnulada_Hfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected"
+                                                value="{{ $registro->MotivoAdicionAnulada_Hfc}}">
+                                                {{ $registro->MotivoAdicionAnulada_Hfc}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">
+                                                CASA NO PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO
+                                                DESEA EL SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE
+                                                LOCALIZA </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA
+                                                TIENE EL SERVICIO
                                             </option>
-                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
+                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">
+                                                CLIENTE
                                                 SOLICITA INSTALACION CON FECHA POSTERIOR </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">
+                                                CONDICIONES
                                                 TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">
+                                                DIRECCION
                                                 REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO
+                                                LIBRE EN DSLAM
                                             </option>
                                             <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">
+                                                NO HAY DSLAM
                                                 EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
-                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
-                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
                                             </option>
-                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS </option>
-                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
+                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
+                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE
+                                                INSTALACION
+                                            </option>
+                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL
+                                                ASIGNADOS </option>
+                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED
+                                                FISICA INSTALADA
                                                 PERO NO ACTIVA </option>
-                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL </option>
+                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL
+                                            </option>
                                             <option value="NO HAY RED"> NO HAY RED </option>
                                             <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA
+                                            </option>
                                             <option
                                                 value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
-                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA
+                                                TECNOLOGIA) </option>
                                         </select>
                                     </div>
                                 </div>
@@ -2246,7 +2418,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="NOrdenAdicionAnuladaHfc"
-                                            placeholder="N° Orden" name="NOrdenAdicionAnuladaHfc" autocomplete="off" />
+                                            placeholder="N° Orden" name="NOrdenAdicionAnuladaHfc" autocomplete="off"
+                                            value="{{ $registro->NOrdenAdicionAnuladaHfc}}" />
                                     </div>
                                 </div>
 
@@ -2254,7 +2427,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoAdicionAnulada_Hfc" name="TrabajadoAdicionAnulada_Hfc" />
+                                                id="TrabajadoAdicionAnulada_Hfc" name="TrabajadoAdicionAnulada_Hfc"
+                                                {{ $registro->TrabajadoAdicionAnulada_Hfc === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -2273,13 +2447,17 @@
                                         <input type="text" class="form-control" id="ComentarioAdicionAnulada_Hfc"
                                             name="ComentarioAdicionAnulada_Hfc"
                                             placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentarioAdicionAnulada_Hfc}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
+                    @endif
 
+                    @if ($registro->tecnologia === 'GPON')
                     <!-- POSTVENTA ADICION GPON -->
                     <div class="form-group-container postventa-adicion" id="PostventaAdicionGpon">
                         <div class="form-group col-md-3">
@@ -2287,13 +2465,12 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadAdicionGpon" id="TipoActividadAdicionGpon" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadAdicionGpon}}">
+                                    {{ $registro->TipoActividadAdicionGpon}}</option>
+
                             </select>
                         </div>
+                        @if ($registro->TipoActividadAdicionGpon === 'REALIZADA')
                         <!-- REALIZADA -->
                         <div class="PostventaAdicionGponHidden" id="RealizadaAdicionGpon">
                             <div class="form-group-container">
@@ -2305,7 +2482,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon1"
                                             name="equipostvAdicionGpon1" placeholder="Equipo Tv 1"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionGpon1}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -2314,7 +2492,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon2"
                                             name="equipostvAdicionGpon2" placeholder="Equipo Tv 2"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionGpon2}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -2323,7 +2502,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon3"
                                             name="equipostvAdicionGpon3" placeholder="Equipo Tv 3"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionGpon3}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -2332,7 +2512,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon4"
                                             name="equipostvAdicionGpon4" placeholder="Equipo Tv 4"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionGpon4}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -2341,7 +2522,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionGpon5"
                                             name="equipostvAdicionGpon5" placeholder="Equipo Tv 5"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionGpon5}}" />
                                     </div>
                                 </div>
 
@@ -2352,13 +2534,15 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="NOrdenAdicionGpon"
-                                            placeholder="N° Orden" name="NOrdenAdicionGpon" autocomplete="off" />
+                                            placeholder="N° Orden" name="NOrdenAdicionGpon" autocomplete="off"
+                                            value="{{ $registro->NOrdenAdicionGpon}}" />
                                     </div>
                                 </div>
                                 <div class="col-md-3" style="padding-left: 18px;">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="TrabajadoAdicionGpon"
-                                            name="TrabajadoAdicionGpon" />
+                                            name="TrabajadoAdicionGpon"
+                                            {{ $registro->TrabajadoAdicionGpon === 'TRABAJADO' ? 'checked' : '' }} />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Trabajado
                                         </label>
@@ -2375,7 +2559,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObvsAdicionGpon"
                                             name="ObvsAdicionGpon" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObvsAdicionGpon}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9" style="padding-top: 10px;">
@@ -2388,12 +2573,15 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeAdicionGpon" name="RecibeAdicionGpon"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->RecibeAdicionGpon}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadAdicionGpon === 'OBJETADA')
                         <!-- OBJETADA -->
                         <div class="PostventaAdicionGponHidden" id="ObjetadaAdicionGpon">
                             <div class="">
@@ -2403,19 +2591,28 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoAdicionObjGpon" tabindex="-1"
                                             id="MotivoAdicionObjGpon" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option selected="selected" value="{{ $registro->MotivoAdicionObjGpon}}">
+                                                {{ $registro->MotivoAdicionObjGpon}}</option>
+                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO
+                                                INVENTARIADO EN SAP
                                             </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON
+                                                PROBLEMAS EN SAP
+                                            </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE
+                                            </option>
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM
+                                                CON DATOS
                                                 INCOMPLETOS / ERRADOS </option>
-                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA
+                                            </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA
+                                                / PROGRAMA ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -2429,7 +2626,8 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="number" class="form-control" id="NOrdenAdicionObjGpon"
-                                                placeholder="N° Orden" name="NOrdenAdicionObjGpon" autocomplete="off" />
+                                                placeholder="N° Orden" name="NOrdenAdicionObjGpon" autocomplete="off"
+                                                value="{{ $registro->NOrdenAdicionObjGpon}}" />
                                         </div>
                                     </div>
 
@@ -2437,7 +2635,8 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoAdicionObjGpon" name="TrabajadoAdicionObjGpon" />
+                                                    id="TrabajadoAdicionObjGpon" name="TrabajadoAdicionObjGpon"
+                                                    {{ $registro->TrabajadoAdicionObjGpon === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -2454,7 +2653,8 @@
                                             <input type="text" class="form-control" id="ObvsAdicionObjGpon"
                                                 name="ObvsAdicionObjGpon"
                                                 placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsAdicionObjGpon}}" />
                                         </div>
                                     </div>
 
@@ -2466,13 +2666,14 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosAdicionObjGpon"
                                                 name="ComentariosAdicionObjGpon" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentariosAdicionObjGpon}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        @endif
                         <!-- TRANSFERIDA -->
                         <!-- <div class="PostventaAdicionGponHidden" id="AnuladaAdicionGpon">
                             <div class="form-group-container">
@@ -2525,6 +2726,7 @@
                             </div>
                         </div> -->
 
+                        @if ($registro->TipoActividadAdicionGpon === 'ANULACION')
                         <!-- ANULADA -->
                         <div class="form-group-container PostventaAdicionGponHidden" id="AnuladaAdicionGpon">
                             <div class="form-group-container">
@@ -2534,28 +2736,40 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoAdicionAnulada_Gpon" tabindex="-1"
                                             id="MotivoAdicionAnulada_Gpon" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected"
+                                                value="{{ $registro->MotivoAdicionAnulada_Gpon}}">
+                                                {{ $registro->MotivoAdicionAnulada_Gpon}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">
+                                                CASA NO PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO
+                                                DESEA EL SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE
+                                                LOCALIZA </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA
+                                                TIENE EL SERVICIO
                                             </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">
+                                                CONDICIONES
                                                 TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">
+                                                DIRECCION
                                                 REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO
+                                                LIBRE EN DSLAM
                                             </option>
                                             <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">
+                                                NO HAY DSLAM
                                                 EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
+                                            </option>
                                             <option value="NO HAY RED"> NO HAY RED </option>
                                             <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -2567,7 +2781,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="NOrdenAdicionAnuladaGpon"
-                                            placeholder="N° Orden" name="NOrdenAdicionAnuladaGpon" autocomplete="off" />
+                                            placeholder="N° Orden" name="NOrdenAdicionAnuladaGpon" autocomplete="off"
+                                            value="{{ $registro->NOrdenAdicionAnuladaGpon}}" />
                                     </div>
                                 </div>
 
@@ -2575,7 +2790,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoAdicionAnulada_Gpon" name="TrabajadoAdicionAnulada_Gpon" />
+                                                id="TrabajadoAdicionAnulada_Gpon" name="TrabajadoAdicionAnulada_Gpon"
+                                                {{ $registro->TrabajadoAdicionAnulada_Gpon === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -2594,13 +2810,17 @@
                                         <input type="text" class="form-control" id="ComentarioAdicionAnulada_Gpon"
                                             name="ComentarioAdicionAnulada_Gpon"
                                             placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentarioAdicionAnulada_Gpon}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
+                    @endif
 
+                    @if ($registro->tecnologia === 'DTH')
                     <!-- POSTVENTA ADICION DTH -->
                     <div class="form-group-container postventa-adicion" id="PostventaAdicionDth">
                         <div class="form-group col-md-3">
@@ -2608,13 +2828,12 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadAdicionDth" id="TipoActividadAdicionDth" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadAdicionDth}}">
+                                    {{ $registro->TipoActividadAdicionDth}}</option>
                             </select>
                         </div>
+
+                        @if ($registro->TipoActividadAdicionDth === 'REALIZADA')
                         <!-- REALIZADA -->
                         <div class="PostventaAdicionDthHidden" id="RealizadaAdicionDth">
                             <div class="form-group-container">
@@ -2626,7 +2845,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth1"
                                             name="equipostvAdicionDth1" placeholder="Equipo Tv 1"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionDth1}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -2635,7 +2855,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth2"
                                             name="equipostvAdicionDth2" placeholder="Equipo Tv 2"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionDth2}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -2644,7 +2865,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth3"
                                             name="equipostvAdicionDth3" placeholder="Equipo Tv 3"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionDth3}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -2653,7 +2875,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth4"
                                             name="equipostvAdicionDth4" placeholder="Equipo Tv 4"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionDth4}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -2662,7 +2885,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipostvAdicionDth5"
                                             name="equipostvAdicionDth5" placeholder="Equipo Tv 5"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipostvAdicionDth5}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
@@ -2672,14 +2896,16 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="NOrdenAdicionDth"
-                                            placeholder="N° Orden" name="NOrdenAdicionDth" autocomplete="off" />
+                                            placeholder="N° Orden" name="NOrdenAdicionDth" autocomplete="off"
+                                            value="{{ $registro->NOrdenAdicionDth}}" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoAdicionDth"
-                                                name="TrabajadoAdicionDth" />
+                                                name="TrabajadoAdicionDth"
+                                                {{ $registro->TrabajadoAdicionDth === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -2697,7 +2923,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObvsAdicionDth"
                                             name="ObvsAdicionDth" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObvsAdicionDth}}" />
                                     </div>
                                 </div>
                                 <div class="col-md-9" style="padding-top: 8px;">
@@ -2710,12 +2937,15 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeAdicionDth" name="RecibeAdicionDth"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->RecibeAdicionDth}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadAdicionDth === 'OBJETADA')
                         <!-- OBJETADA -->
                         <div class="PostventaAdicionDthHidden" id="ObjetadaAdicionDth">
                             <div class="">
@@ -2725,19 +2955,28 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjAdicionDth" tabindex="-1"
                                             id="MotivoObjAdicionDth" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option selected="selected" value=" {{ $registro->MotivoObjAdicionDth}}">
+                                                {{ $registro->MotivoObjAdicionDth}}</option>
+                                            <option value=" COORDENADAS ERRONEAS">COORDENADAS ERRONEAS
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO
+                                                INVENTARIADO EN SAP
                                             </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON
+                                                PROBLEMAS EN SAP
+                                            </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE
+                                            </option>
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM
+                                                CON DATOS
                                                 INCOMPLETOS / ERRADOS </option>
-                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA
+                                            </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA
+                                                / PROGRAMA ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -2751,15 +2990,17 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="number" class="form-control" id="NOrdenAdicionObjDth"
-                                                placeholder="N° Orden" name="NOrdenAdicionObjDth" autocomplete="off" />
+                                                placeholder="N° Orden" name="NOrdenAdicionObjDth" autocomplete="off"
+                                                value="{{ $registro->NOrdenAdicionObjDth}}" />
                                         </div>
                                     </div>
 
                                     <div class="from-group-container">
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoAdicionObjDth" name="TrabajadoAdicionObjDth" />
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="TrabajadoAdicionObjDth" name="TrabajadoAdicionObjDth"
+                                                    {{ $registro->TrabajadoAdicionObjDth === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -2776,7 +3017,8 @@
                                             <input type="text" class="form-control" id="ObvsAdicionObjDth"
                                                 name="ObvsAdicionObjDth"
                                                 placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsAdicionObjDth}}" />
                                         </div>
                                     </div>
 
@@ -2788,13 +3030,14 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosAdicionObjDth"
                                                 name="ComentariosAdicionObjDth" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentariosAdicionObjDth}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        @endif
                         <!-- TRANSFERIDA -->
                         <!-- <div class="PostventaAdicionDthHidden" id="AnuladaAdicionDth">
                             <div class="form-group-container">
@@ -2844,7 +3087,7 @@
                                 </div>
                             </div>
                         </div> -->
-
+                        @if ($registro->TipoActividadAdicionDth === 'ANULACION')
                         <!-- ANULADA DTH -->
                         <div class="PostventaAdicionDthHidden" id="AnuladaAdicionDth">
                             <div class="form-group-container">
@@ -2854,20 +3097,29 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoAdicionAnulada_Dth" tabindex="-1"
                                             id="MotivoAdicionAnulada_Dth" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected"
+                                                value="{{ $registro->MotivoAdicionAnulada_Dth}}">
+                                                {{ $registro->MotivoAdicionAnulada_Dth}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">
+                                                CASA NO PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO
+                                                DESEA EL SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE
+                                                LOCALIZA </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA
+                                                TIENE EL SERVICIO
                                             </option>
-                                            <option value="SOLICITUD MAL REGISTRADA"> SOLICITUD MAL REGISTRADA </option>
+                                            <option value="SOLICITUD MAL REGISTRADA"> SOLICITUD MAL
+                                                REGISTRADA </option>
                                             <option
                                                 value="SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA)">
-                                                SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA) </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA
+                                                TECNOLOGIA) </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -2881,7 +3133,7 @@
                                         </div>
                                         <input type="number" class="form-control" id="OrdenAdicionAnulada_Dth"
                                             name="OrdenAdicionAnulada_Dth" placeholder="Ingresa N° Orden"
-                                            autocomplete="off" />
+                                            autocomplete="off" value="{{ $registro->OrdenAdicionAnulada_Dth}}" />
                                     </div>
                                 </div>
 
@@ -2889,7 +3141,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoAdicionAnulada_Dth" name="TrabajadoAdicionAnulada_Dth" />
+                                                id="TrabajadoAdicionAnulada_Dth" name="TrabajadoAdicionAnulada_Dth"
+                                                {{ $registro->TrabajadoAdicionAnulada_Dth === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -2908,18 +3161,23 @@
                                         <input type="text" class="form-control" id="ComentarioAdicionAnulada_Dth"
                                             name="ComentarioAdicionAnulada_Dth"
                                             placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentarioAdicionAnulada_Dth}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
+                    @endif
                 </div>
                 @endif
 
                 <!-- POSTVENTAS CAMBIOS DE EQUIPOS -->
                 @if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO')
                 <div class="form-group-container">
+
+                    @if ($registro->tecnologia === 'HFC')
                     <!-- POSTVENTA CAMBIO DE EQUIPO HFC -->
                     <div class="form-group-container" id="PostventaCambioHfc">
                         <div class="form-group col-md-3">
@@ -2927,13 +3185,12 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadCambioHfc" id="TipoActividadCambioHfc" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadCambioHfc}}">
+                                    {{ $registro->TipoActividadCambioHfc}}</option>
                             </select>
                         </div>
+
+                        @if ($registro->TipoActividadCambioHfc === 'REALIZADA')
                         <!-- REALIZADA -->
                         <div class="PostventaCambioHfcHidden" id="RealizadaCambioHfc">
                             <div class="form-group-container">
@@ -2945,7 +3202,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="InstalacionEquipoHfc"
                                             name="InstalacionEquipoHfc" placeholder="N° Equipo Instalar"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->InstalacionEquipoHfc}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" id="hideEquipoTv">
@@ -2956,7 +3214,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="DesinstalarEquipoHfc"
                                             name="DesinstalarEquipoHfc" placeholder="N° Equipo Desinstalar"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->DesinstalarEquipoHfc}}" />
                                     </div>
                                 </div>
 
@@ -2967,7 +3226,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="NOrdenEquipoHfc"
-                                            placeholder="N° Orden" name="NOrdenEquipoHfc" autocomplete="off" />
+                                            placeholder="N° Orden" name="NOrdenEquipoHfc" autocomplete="off"
+                                            value="{{ $registro->NOrdenEquipoHfc}}" />
                                     </div>
                                 </div>
 
@@ -2981,7 +3241,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObvsEquipoHfc" name="ObvsEquipoHfc"
                                             placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObvsEquipoHfc}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -2994,14 +3255,16 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeEquipoHfc" name="RecibeEquipoHfc"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->RecibeEquipoHfc}}" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoEquipoHfc"
-                                                name="TrabajadoEquipoHfc" />
+                                                name="TrabajadoEquipoHfc"
+                                                {{ $registro->TrabajadoEquipoHfc === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -3010,7 +3273,9 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadCambioHfc === 'OBJETADA')
                         <!-- OBJETADA -->
                         <div class="PostventaCambioHfcHidden" id="ObjetadaCambioHfc">
                             <div class="">
@@ -3020,19 +3285,28 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoEquipoObjHfc" tabindex="-1"
                                             id="MotivoEquipoObjHfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option selected="selected" value="{{ $registro->MotivoEquipoObjHfc}}">
+                                                {{ $registro->MotivoEquipoObjHfc}}</option>
+                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO
+                                                INVENTARIADO EN SAP
                                             </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON
+                                                PROBLEMAS EN SAP
+                                            </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE
+                                            </option>
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM
+                                                CON DATOS
                                                 INCOMPLETOS / ERRADOS </option>
-                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA
+                                            </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA
+                                                / PROGRAMA ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -3046,15 +3320,17 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="text" class="form-control" id="NordenObjEquipoHfc"
-                                                placeholder="N° Orden" name="NordenObjEquipoHfc" autocomplete="off" />
+                                                placeholder="N° Orden" name="NordenObjEquipoHfc" autocomplete="off"
+                                                value="{{ $registro->NordenObjEquipoHfc}}" />
                                         </div>
                                     </div>
 
                                     <div class="from-group-container">
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoObjEquipoHfc" name="TrabajadoObjEquipoHfc" />
+                                                <input class="form-check-input" type="checkbox"
+                                                    id="TrabajadoObjEquipoHfc" name="TrabajadoObjEquipoHfc"
+                                                    {{ $registro->TrabajadoObjEquipoHfc === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -3070,7 +3346,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsObjEquipoHfc"
                                                 name="ObvsObjEquipoHfc" placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsObjEquipoHfc}}" />
                                         </div>
                                     </div>
 
@@ -3082,13 +3359,16 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentsEquipoObjHfc"
                                                 name="ComentsEquipoObjHfc" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentsEquipoObjHfc}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadCambioHfc === 'ANULACION')
                         <!-- ANULACION -->
                         <div class="PostventaCambioHfcHidden" id="AnuladaCambioHfc">
                             <div class="form-group-container">
@@ -3098,20 +3378,28 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoEquipoAnulada_Hfc" tabindex="-1"
                                             id="MotivoEquipoAnulada_Hfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="{{ $registro->MotivoEquipoAnulada_Hfc}}">
+                                                {{ $registro->MotivoEquipoAnulada_Hfc}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">
+                                                CASA NO PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO
+                                                DESEA EL SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE
+                                                LOCALIZA </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA
+                                                TIENE EL SERVICIO
                                             </option>
-                                            <option value="SOLICITUD MAL REGISTRADA"> SOLICITUD MAL REGISTRADA </option>
+                                            <option value="SOLICITUD MAL REGISTRADA"> SOLICITUD MAL
+                                                REGISTRADA </option>
                                             <option
                                                 value="SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA)">
-                                                SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA) </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA
+                                                TECNOLOGIA) </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -3125,7 +3413,7 @@
                                         </div>
                                         <input type="number" class="form-control" id="OrdenAnuladaEquipoHfc"
                                             name="OrdenAnuladaEquipoHfc" placeholder="Ingresa N° Orden"
-                                            autocomplete="off" />
+                                            autocomplete="off" value="{{ $registro->OrdenAnuladaEquipoHfc}}" />
                                     </div>
                                 </div>
 
@@ -3133,7 +3421,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoEquipoAnulada_Hfc" name="TrabajadoEquipoAnulada_Hfc" />
+                                                id="TrabajadoEquipoAnulada_Hfc" name="TrabajadoEquipoAnulada_Hfc"
+                                                {{ $registro->TrabajadoEquipoAnulada_Hfc === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -3151,13 +3440,17 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentarioAnuladaEquipoHfc"
                                             name="ComentarioAnuladaEquipoHfc" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentarioAnuladaEquipoHfc}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
+                    @endif
 
+                    @if ($registro->tecnologia === 'GPON')
                     <!-- POSTVENTA CAMBIO DE EQUIPO GPON -->
                     <div class="form-group-container" id="PostventaCambioGpon">
                         <div class="form-group col-md-3">
@@ -3165,13 +3458,13 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadCambioGpon" id="TipoActividadCambioGpon" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadCambioGpon}}">
+                                    {{ $registro->TipoActividadCambioGpon}}
+                                </option>
                             </select>
                         </div>
+
+                        @if ($registro->TipoActividadCambioGpon === 'REALIZADA')
                         <!-- REALIZADA -->
                         <div class="PostventaCambioGponHidden" id="RealizadaCambioGpon">
                             <div class="form-group-container">
@@ -3183,7 +3476,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="InstalacionEquipoGpon"
                                             name="InstalacionEquipoGpon" placeholder="N° Equipo Instalar"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->InstalacionEquipoGpon}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" id="hideEquipoTv">
@@ -3194,7 +3488,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="DesinstalarEquipoGpon"
                                             name="DesinstalarEquipoGpon" placeholder="N° Equipo Desinstalar"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->DesinstalarEquipoGpon}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3">
@@ -3204,7 +3499,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="NOrdenEquipoGpon"
-                                            placeholder="N° Orden" name="NOrdenEquipoGpon" autocomplete="off" />
+                                            placeholder="N° Orden" name="NOrdenEquipoGpon" autocomplete="off"
+                                            value="{{ $registro->NOrdenEquipoGpon}}" />
                                     </div>
                                 </div>
 
@@ -3218,7 +3514,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObvsEquipoGpon"
                                             name="ObvsEquipoGpon" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObvsEquipoGpon}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -3231,14 +3528,16 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeEquipoGpon" name="RecibeEquipoGpon"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->RecibeEquipoGpon}}" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoEquipoGpon"
-                                                name="TrabajadoEquipoGpon" />
+                                                name="TrabajadoEquipoGpon"
+                                                {{ $registro->TrabajadoEquipoGpon === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -3247,7 +3546,9 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadCambioGpon === 'OBJETADA')
                         <!-- OBJETADA -->
                         <div class="PostventaCambioGponHidden" id="ObjetadaCambioGpon">
                             <div class="">
@@ -3257,19 +3558,28 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjEquipoGpon" tabindex="-1"
                                             id="MotivoObjEquipoGpon" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option selected="selected" value="{{ $registro->MotivoObjEquipoGpon}}">
+                                                {{ $registro->MotivoObjEquipoGpon}}</option>
+                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO
+                                                INVENTARIADO EN SAP
                                             </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON
+                                                PROBLEMAS EN SAP
+                                            </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE
+                                            </option>
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM
+                                                CON DATOS
                                                 INCOMPLETOS / ERRADOS </option>
-                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA
+                                            </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA
+                                                / PROGRAMA ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -3283,7 +3593,8 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="number" class="form-control" id="NOrdenObjEquipoGpon"
-                                                placeholder="N° Orden" name="NOrdenObjEquipoGpon" autocomplete="off" />
+                                                placeholder="N° Orden" name="NOrdenObjEquipoGpon" autocomplete="off"
+                                                value="{{ $registro->NOrdenObjEquipoGpon}}" />
                                         </div>
                                     </div>
 
@@ -3292,7 +3603,8 @@
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
                                                     id="TrabajadoObjEquipoGpon" name="TrabajadoObjEquipoGpon"
-                                                    oninput="this.value = this.value.toUpperCase()" />
+                                                    oninput="this.value = this.value.toUpperCase()"
+                                                    {{ $registro->TrabajadoObjEquipoGpon === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -3309,7 +3621,8 @@
                                             <input type="text" class="form-control" id="ObvsEquipoObjGpon"
                                                 name="ObvsEquipoObjGpon"
                                                 placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsEquipoObjGpon}}" />
                                         </div>
                                     </div>
 
@@ -3321,13 +3634,16 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentsEquipoObjGpon"
                                                 name="ComentsEquipoObjGpon" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentsEquipoObjGpon}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadCambioGpon === 'ANULACION')
                         <!-- ANULACION -->
                         <div class="PostventaCambioGponHidden" id="AnuladaCambioGpon">
                             <div class="form-group-container">
@@ -3337,28 +3653,39 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoAnuladaObj_Gpon" tabindex="-1"
                                             id="MotivoAnuladaObj_Gpon" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="{{ $registro->MotivoAnuladaObj_Gpon}}">
+                                                {{ $registro->MotivoAnuladaObj_Gpon}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">
+                                                CASA NO PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO
+                                                DESEA EL SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE
+                                                LOCALIZA </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA
+                                                TIENE EL SERVICIO
                                             </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">
+                                                CONDICIONES
                                                 TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">
+                                                DIRECCION
                                                 REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO
+                                                LIBRE EN DSLAM
                                             </option>
                                             <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">
+                                                NO HAY DSLAM
                                                 EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
+                                            </option>
                                             <option value="NO HAY RED"> NO HAY RED </option>
                                             <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -3369,7 +3696,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="OrdenEquipoAnuladaGpon"
-                                            placeholder="N° Orden" name="OrdenEquipoAnuladaGpon" autocomplete="off" />
+                                            placeholder="N° Orden" name="OrdenEquipoAnuladaGpon" autocomplete="off"
+                                            value="{{ $registro->OrdenEquipoAnuladaGpon}}" />
                                     </div>
                                 </div>
 
@@ -3377,7 +3705,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoEquipoAnulada_Gpon" name="TrabajadoEquipoAnulada_Gpon" />
+                                                id="TrabajadoEquipoAnulada_Gpon" name="TrabajadoEquipoAnulada_Gpon"
+                                                {{ $registro->TrabajadoEquipoAnulada_Gpon === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -3396,13 +3725,18 @@
                                         <input type="text" class="form-control" id="ComentarioEquipoAnulada_Gpon"
                                             name="ComentarioEquipoAnulada_Gpon"
                                             placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentarioEquipoAnulada_Gpon}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
+                    @endif
 
+
+                    @if ($registro->tecnologia === 'ADSL')
                     <!-- POSTVENTA CAMBIO DE EQUIPO ADSL -->
                     <div class="form-group-container" id="PostventaCambioAdsl">
                         <div class="form-group col-md-3">
@@ -3410,13 +3744,13 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadCambioAdsl" id="TipoActividadCambioAdsl" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadCambioAdsl}}">
+                                    {{ $registro->TipoActividadCambioAdsl}}</option>
+
                             </select>
                         </div>
+
+                        @if ($registro->TipoActividadCambioAdsl === 'REALIZADA')
                         <!-- REALIZADA -->
                         <div class="PostventaCambioAdslHidden" id="RealizadaCambioAdsl">
                             <div class="form-group-container">
@@ -3428,10 +3762,11 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="InstalacionEquipoAdsl"
                                             name="InstalacionEquipoAdsl" placeholder="N° Equipo Instalar"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->InstalacionEquipoAdsl}}" />
                                     </div>
                                 </div>
-                                <div class="form-group col-md-3" id="hideEquipoTv">
+                                <div class=" form-group col-md-3" id="hideEquipoTv">
                                     <label for="DesinstalarEquipoAdsl">Equipo Desinstalar</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -3439,7 +3774,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="DesinstalarEquipoAdsl"
                                             name="DesinstalarEquipoAdsl" placeholder="N° Equipo Desinstalar"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->DesinstalarEquipoAdsl}}" />
                                     </div>
                                 </div>
 
@@ -3450,7 +3786,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="OrdenEquipoAdsl"
-                                            placeholder="N° Orden" name="OrdenEquipoAdsl" autocomplete="off" />
+                                            placeholder="N° Orden" name="OrdenEquipoAdsl" autocomplete="off"
+                                            value="{{ $registro->OrdenEquipoAdsl}}" />
                                     </div>
                                 </div>
 
@@ -3464,7 +3801,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObvsEquipoAdsl"
                                             name="ObvsEquipoAdsl" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObvsEquipoAdsl}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -3477,14 +3815,16 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeEquipoAdsl" name="RecibeEquipoAdsl"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->RecibeEquipoAdsl}}" />
                                     </div>
                                 </div>
-                                <div class="from-group-container">
+                                <div class=" from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoEquipoAdsl"
-                                                name="TrabajadoEquipoAdsl" />
+                                                name="TrabajadoEquipoAdsl"
+                                                {{ $registro->TrabajadoEquipoAdsl === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -3493,7 +3833,9 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadCambioAdsl === 'OBJETADA')
                         <!-- OBJETADA -->
                         <div class="PostventaCambioAdslHidden" id="ObjetadaCambioAdsl">
                             <div class="">
@@ -3503,19 +3845,31 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoEquipoObjAdsl" tabindex="-1"
                                             id="MotivoEquipoObjAdsl" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option selected="selected" value="{{ $registro->MotivoEquipoObjAdsl}}">
+                                                {{ $registro->MotivoEquipoObjAdsl}}</option>
+                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO
+                                                INVENTARIADO EN
+                                                SAP
                                             </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON
+                                                PROBLEMAS EN
+                                                SAP
+                                            </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE
+                                            </option>
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM
+                                                CON DATOS
                                                 INCOMPLETOS / ERRADOS </option>
-                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA
+                                            </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA
+                                                / PROGRAMA
+                                                ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -3529,7 +3883,8 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="text" class="form-control" id="OrdenEquipoObjAdsl"
-                                                placeholder="N° Orden" name="OrdenEquipoObjAdsl" autocomplete="off" />
+                                                placeholder="N° Orden" name="OrdenEquipoObjAdsl" autocomplete="off"
+                                                value="{{ $registro->OrdenEquipoObjAdsl}}" />
                                         </div>
                                     </div>
 
@@ -3537,7 +3892,8 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoEquipoObjAdsl" name="TrabajadoEquipoObjAdsl" />
+                                                    id="TrabajadoEquipoObjAdsl" name="TrabajadoEquipoObjAdsl"
+                                                    {{ $registro->TrabajadoEquipoObjAdsl === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -3554,7 +3910,8 @@
                                             <input type="text" class="form-control" id="ObvsEquipoObjAdsl"
                                                 name="ObvsEquipoObjAdsl"
                                                 placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsEquipoObjAdsl}}" />
                                         </div>
                                     </div>
 
@@ -3566,13 +3923,16 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentsEquipoObjAdsl"
                                                 name="ComentsEquipoObjAdsl" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentsEquipoObjAdsl}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadCambioAdsl === 'ANULACION')
                         <!-- ANULACIONES -->
                         <div class="PostventaCambioAdslHidden" id="AnuladaCambioAdsl">
                             <div class="form-group-container">
@@ -3582,28 +3942,44 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoEquipoAnulada_Adsl" tabindex="-1"
                                             id="MotivoEquipoAnulada_Adsl" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected"
+                                                value="{{ $registro->MotivoEquipoAnulada_Adsl}}">
+                                                {{ $registro->MotivoEquipoAnulada_Adsl}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">
+                                                CASA NO PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO
+                                                DESEA EL
+                                                SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE
+                                                LOCALIZA </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA
+                                                TIENE EL
+                                                SERVICIO
                                             </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">
+                                                CONDICIONES
                                                 TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">
+                                                DIRECCION
                                                 REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO
+                                                LIBRE EN
+                                                DSLAM
                                             </option>
                                             <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">
+                                                NO HAY
+                                                DSLAM
                                                 EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
+                                            </option>
                                             <option value="NO HAY RED"> NO HAY RED </option>
                                             <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -3617,7 +3993,7 @@
                                         </div>
                                         <input type="number" class="form-control" id="OrdenAnuladaEquipoAdsl"
                                             name="OrdenAnuladaEquipoAdsl" placeholder="Ingresa N° Orden"
-                                            autocomplete="off" />
+                                            value="{{ $registro->OrdenAnuladaEquipoAdsl}}" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -3625,7 +4001,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoEquipoAnulada_Adsl" name="TrabajadoEquipoAnulada_Adsl" />
+                                                id="TrabajadoEquipoAnulada_Adsl" name="TrabajadoEquipoAnulada_Adsl"
+                                                {{ $registro->TrabajadoEquipoAnulada_Adsl === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -3643,13 +4020,17 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentsEquipoAnulada_Adsl"
                                             name="ComentsEquipoAnulada_Adsl" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentsEquipoAnulada_Adsl}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
+                    @endif
 
+                    @if ($registro->tecnologia === 'DTH')
                     <!-- POSTVENTA CAMBIO DE EQUIPO DTH -->
                     <div class="form-group-container" id="PostventaCambioDth">
                         <div class="form-group col-md-3">
@@ -3657,13 +4038,13 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadCambioDth" id="TipoActividadCambioDth" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadCambioDth}}">
+                                    {{ $registro->TipoActividadCambioDth}}</option>
+
                             </select>
                         </div>
+
+                        @if ($registro->TipoActividadCambioDth === 'REALIZADA')
                         <!-- REALIZADA -->
                         <div class="PostventaCambioDthHidden" id="RealizadaCambioDth">
                             <div class="form-group-container">
@@ -3675,7 +4056,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="InstalacionEquipoDth"
                                             name="InstalacionEquipoDth" placeholder="N° Equipo Instalar"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->InstalacionEquipoDth}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" id="hideEquipoTv">
@@ -3686,7 +4068,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="DesinstalarEquipoDth"
                                             name="DesinstalarEquipoDth" placeholder="N° Equipo Desinstalar"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->DesinstalarEquipoDth}}" />
                                     </div>
                                 </div>
 
@@ -3697,7 +4080,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="OrdenEquipoDth"
-                                            placeholder="N° Orden" name="OrdenEquipoDth" autocomplete="off" />
+                                            placeholder="N° Orden" name="OrdenEquipoDth" autocomplete="off"
+                                            value="{{ $registro->OrdenEquipoDth}}" />
                                     </div>
                                 </div>
 
@@ -3711,7 +4095,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObvsEquipoDth" name="ObvsEquipoDth"
                                             placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObvsEquipoDth}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-9">
@@ -3724,14 +4109,16 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeEquipoDth" name="RecibeEquipoDth"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObvsEquipoDth}}" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoEquipoDth"
-                                                name="TrabajadoEquipoDth" />
+                                                name="TrabajadoEquipoDth"
+                                                {{ $registro->TrabajadoEquipoDth === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -3740,7 +4127,9 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadCambioDth === 'OBJETADA')
                         <!-- OBJETADA -->
                         <div class="PostventaCambioDthHidden" id="ObjetadaCambioDth">
                             <div class="">
@@ -3750,19 +4139,31 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjEquipoDth" tabindex="-1"
                                             id="MotivoObjEquipoDth" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option selected="selected" value="{{ $registro->MotivoObjEquipoDth}}">
+                                                {{ $registro->MotivoObjEquipoDth}}</option>
+                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO
+                                                INVENTARIADO EN
+                                                SAP
                                             </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON
+                                                PROBLEMAS EN
+                                                SAP
+                                            </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE
+                                            </option>
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM
+                                                CON DATOS
                                                 INCOMPLETOS / ERRADOS </option>
-                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA
+                                            </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA
+                                                / PROGRAMA
+                                                ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -3776,7 +4177,8 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="text" class="form-control" id="OrdenEquipoObjDth"
-                                                placeholder="N° Orden" name="OrdenEquipoObjDth" autocomplete="off" />
+                                                placeholder="N° Orden" name="OrdenEquipoObjDth" autocomplete="off"
+                                                value="{{ $registro->OrdenEquipoObjDth}}" />
                                         </div>
                                     </div>
 
@@ -3784,7 +4186,8 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoEquipoObjDth" name="TrabajadoEquipoObjDth" />
+                                                    id="TrabajadoEquipoObjDth" name="TrabajadoEquipoObjDth"
+                                                    {{ $registro->TrabajadoEquipoObjDth === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -3800,7 +4203,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsEquipoObjDth"
                                                 name="ObvsEquipoObjDth" placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsEquipoObjDth}}" />
                                         </div>
                                     </div>
 
@@ -3812,13 +4216,16 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentsEquipoObjDth"
                                                 name="ComentsEquipoObjDth" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentsEquipoObjDth}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadCambioDth === 'ANULACION')
                         <!-- ANULACION -->
                         <div class="PostventaCambioDthHidden" id="AnuladaCambioDth">
                             <div class="form-group-container">
@@ -3828,20 +4235,32 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoEquipoAnulada_Dth" tabindex="-1"
                                             id="MotivoEquipoAnulada_Dth" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="{{ $registro->MotivoEquipoAnulada_Dth}}">
+                                                {{ $registro->MotivoEquipoAnulada_Dth}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">
+                                                CASA NO PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO
+                                                DESEA EL
+                                                SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE
+                                                LOCALIZA </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA
+                                                TIENE EL
+                                                SERVICIO
                                             </option>
-                                            <option value="SOLICITUD MAL REGISTRADA"> SOLICITUD MAL REGISTRADA </option>
+                                            <option value="SOLICITUD MAL REGISTRADA"> SOLICITUD MAL
+                                                REGISTRADA
+                                            </option>
                                             <option
                                                 value="SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA)">
-                                                SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA TECNOLOGIA) </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORRECTOS(OTRA
+                                                TECNOLOGIA)
+                                            </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -3855,7 +4274,7 @@
                                         </div>
                                         <input type="number" class="form-control" id="OrdenEquipoAnulada_Dth"
                                             name="OrdenEquipoAnulada_Dth" placeholder="Ingresa N° Orden"
-                                            autocomplete="off" />
+                                            autocomplete="off" value="{{ $registro->OrdenEquipoAnulada_Dth}}" />
                                     </div>
                                 </div>
 
@@ -3863,7 +4282,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoEquipoAnulada_Dth" name="TrabajadoEquipoAnulada_Dth" />
+                                                id="TrabajadoEquipoAnulada_Dth" name="TrabajadoEquipoAnulada_Dth"
+                                                {{ $registro->TrabajadoEquipoAnulada_Dth === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -3882,13 +4302,17 @@
                                         <input type="text" class="form-control" id="ComentarioEquipoAnulada_Dth"
                                             name="ComentarioEquipoAnulada_Dth"
                                             placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentarioEquipoAnulada_Dth}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
+                    @endif
 
+                    @if ($registro->tecnologia === 'COBRE')
                     <!-- POSTVENTA CAMBIO DE EQUIPO COBRE -->
                     <div class="form-group-container" id="PostventaCambioCobre">
                         <div class="form-group col-md-3">
@@ -3917,7 +4341,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group col-md-3" id="hideEquipoTv">
-                                    <label for="EquipoTvC_EquipoDesinstalarCobre">Equipo Desinstalar</label>
+                                    <label for="EquipoTvC_EquipoDesinstalarCobre">Equipo
+                                        Desinstalar</label>
                                     <div class="input-group">
                                         <div class="input-group-addon">
                                             <i class="fa fa-square"></i>
@@ -3989,18 +4414,29 @@
                                             style="width: 100%;" name="MotivoObjC_EquipoCobre" tabindex="-1"
                                             id="MotivoObjC_EquipoCobre" aria-hidden="true">
                                             <option selected="selected">SELECCIONE UNA OPCION</option>
-                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO
+                                                INVENTARIADO EN
+                                                SAP
                                             </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON
+                                                PROBLEMAS EN
+                                                SAP
+                                            </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE
+                                            </option>
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM
+                                                CON DATOS
                                                 INCOMPLETOS / ERRADOS </option>
-                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA
+                                            </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA
+                                                / PROGRAMA
+                                                ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -4110,6 +4546,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                 </div>
                 @endif
 
@@ -4122,13 +4559,13 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadMigracionHfc" id="TipoActividadMigracionHfc" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadMigracionHfc}}">
+                                    {{ $registro->TipoActividadMigracionHfc}}</option>
+
                             </select>
                         </div>
+
+                        @if ($registro->TipoActividadMigracionHfc === 'REALIZADA')
                         <!-- REALIZADA -->
                         <div class="PostventaMigracionHfcHidden" id="RealizadaMigracionHfc">
                             <div class="form-group-container">
@@ -4140,7 +4577,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipotvmigracion1"
                                             name="equipotvmigracion1" placeholder="Equipo Tv 1"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipotvmigracion1}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -4149,7 +4587,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipotvmigracion2"
                                             name="equipotvmigracion2" placeholder="Equipo Tv 2"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipotvmigracion2}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -4158,7 +4597,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipotvmigracion3"
                                             name="equipotvmigracion3" placeholder="Equipo Tv 3"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipotvmigracion3}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -4167,7 +4607,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipotvmigracion4"
                                             name="equipotvmigracion4" placeholder="Equipo Tv 4"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipotvmigracion4}}" />
                                     </div>
 
                                     <div class="input-group">
@@ -4176,7 +4617,8 @@
                                         </div>
                                         <input type="text" class="form-control equipotvHfc" id="equipotvmigracion5"
                                             name="equipotvmigracion5" placeholder="Equipo Tv 5"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->equipotvmigracion5}}" />
                                     </div>
                                 </div>
 
@@ -4187,7 +4629,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="NOrdenMigracionHfc"
-                                            placeholder="N° Orden" name="NOrdenMigracionHfc" autocomplete="off" />
+                                            placeholder="N° Orden" name="NOrdenMigracionHfc" autocomplete="off"
+                                            value="{{ $registro->NOrdenMigracionHfc}}" />
                                     </div>
                                 </div>
 
@@ -4198,8 +4641,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="SyrengMigracionHfc"
-                                            name="SyrengMigracionHfc" placeholder="Ingresa N° SYRENG"
-                                            autocomplete="off" />
+                                            name="SyrengMigracionHfc" placeholder="Ingresa N° SYRENG" autocomplete="off"
+                                            value="{{ $registro->SyrengMigracionHfc}}" />
                                     </div>
                                 </div>
 
@@ -4211,7 +4654,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="SapMigracionHfc"
                                             name="SapMigracionHfc" oninput="this.value = this.value.toUpperCase()"
-                                            placeholder="Ingresa SAP" autocomplete="off" />
+                                            placeholder="Ingresa SAP" autocomplete="off"
+                                            value="{{ $registro->SapMigracionHfc}}" />
                                     </div>
                                 </div>
 
@@ -4225,14 +4669,16 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObvsMigracionHfc"
                                             name="ObvsMigracionHfc" placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObvsMigracionHfc}}" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoMigracionHfc"
-                                                name="TrabajadoMigracionHfc" />
+                                                name="TrabajadoMigracionHfc"
+                                                {{ $registro->TrabajadoMigracionHfc === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -4250,7 +4696,8 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeMigracionHfc" name="RecibeMigracionHfc"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->RecibeMigracionHfc}}" />
                                     </div>
                                 </div>
 
@@ -4273,7 +4720,8 @@
                                                         <input type="text" class="form-control" id="NodoMigracionHfc"
                                                             name="NodoMigracionHfc" placeholder="Ingresa Nodo"
                                                             oninput="this.value = this.value.toUpperCase()"
-                                                            autocomplete="off" />
+                                                            autocomplete="off"
+                                                            value="{{ $registro->NodoMigracionHfc}}" />
                                                     </div>
                                                 </div>
 
@@ -4288,7 +4736,8 @@
                                                         <input type="number" class="form-control"
                                                             id="TapMigracionRealizadaHfc"
                                                             name="TapMigracionRealizadaHfc" placeholder="Ingresa TAP"
-                                                            autocomplete="off" />
+                                                            autocomplete="off"
+                                                            value="{{ $registro->TapMigracionRealizadaHfc}}" />
                                                     </div>
                                                 </div>
 
@@ -4302,7 +4751,8 @@
                                                         </div>
                                                         <input type="number" class="form-control"
                                                             id="PosicionMigracionHfc" name="PosicionMigracionHfc"
-                                                            placeholder="Ingresa Posicion" autocomplete="off" />
+                                                            placeholder="Ingresa Posicion" autocomplete="off"
+                                                            value="{{ $registro->PosicionMigracionHfc}}" />
                                                     </div>
                                                 </div>
                                                 <div class="form-group col-md-3">
@@ -4316,7 +4766,8 @@
                                                         <input type="text" class="form-control" id="GeorefMigracionHfc"
                                                             name="GeorefMigracionHfc"
                                                             oninput="this.value = this.value.toUpperCase()"
-                                                            placeholder="Latitud, Longitud" autocomplete="off" />
+                                                            placeholder="Latitud, Longitud" autocomplete="off"
+                                                            value="{{ $registro->GeorefMigracionHfc}}" />
                                                     </div>
                                                 </div>
 
@@ -4332,7 +4783,8 @@
                                                             id="MaterialesMigracionHfc" name="MaterialesMigracionHfc"
                                                             placeholder="Comentarios..."
                                                             oninput="this.value = this.value.toUpperCase()"
-                                                            autocomplete="off" />
+                                                            autocomplete="off"
+                                                            value="{{ $registro->MaterialesMigracionHfc}}" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -4341,7 +4793,9 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadMigracionHfc === 'OBJETADA')
                         <!-- OBJETADA -->
                         <div class="PostventaMigracionHfcHidden" id="ObjetadaMigracionHfc">
                             <div class="">
@@ -4351,19 +4805,31 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoMigracionObjHfc" tabindex="-1"
                                             id="MotivoMigracionObjHfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option selected="selected" value="{{ $registro->MotivoMigracionObjHfc}}">
+                                                {{ $registro->MotivoMigracionObjHfc}}</option>
+                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO
+                                                INVENTARIADO EN
+                                                SAP
                                             </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON
+                                                PROBLEMAS EN
+                                                SAP
+                                            </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE
+                                            </option>
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM
+                                                CON DATOS
                                                 INCOMPLETOS / ERRADOS </option>
-                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA
+                                            </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA
+                                                / PROGRAMA
+                                                ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -4377,7 +4843,8 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="number" class="form-control" id="OrdenMigracionHfcObj"
-                                                placeholder="N° Orden" name="OrdenMigracionHfcObj" autocomplete="off" />
+                                                placeholder="N° Orden" name="OrdenMigracionHfcObj"
+                                                value="{{ $registro->OrdenMigracionHfcObj}}" autocomplete="off" />
                                         </div>
                                     </div>
 
@@ -4385,8 +4852,9 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoMigracionObjHfc" name="TrabajadoMigracionObjHfc" />
-                                                <label class="form-check-label" for="">
+                                                    id="TrabajadoMigracionObjHfc" name="TrabajadoMigracionObjHfc"
+                                                    {{ $registro->TrabajadoMigracionObjHfc === 'TRABAJADO' ? 'checked' : '' }} />
+                                                <label class=" form-check-label" for="">
                                                     Trabajado
                                                 </label>
                                             </div>
@@ -4402,7 +4870,8 @@
                                             <input type="text" class="form-control" id="ObvsMigracionObjHfc"
                                                 name="ObvsMigracionObjHfc"
                                                 placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsMigracionObjHfc}}" />
                                         </div>
                                     </div>
 
@@ -4414,13 +4883,16 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentsMigracionObjHfc"
                                                 name="ComentsMigracionObjHfc" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentsMigracionObjHfc}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadMigracionHfc === 'TRANSFERIDA')
                         <!-- TRANSFERIDA -->
                         <div class="PostventaMigracionHfcHidden" id="TranferidaMigracionHfc">
                             <div class="form-group-container">
@@ -4431,14 +4903,16 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="number" class="form-control" id="OrdenMigracionTranfHfc"
-                                            placeholder="N° Orden" name="OrdenMigracionTranfHfc" autocomplete="off" />
+                                            placeholder="N° Orden" name="OrdenMigracionTranfHfc" autocomplete="off"
+                                            value="{{ $registro->OrdenMigracionTranfHfc}}" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoMigracionTransHfc" name="TrabajadoMigracionTransHfc" />
+                                                id="TrabajadoMigracionTransHfc" name="TrabajadoMigracionTransHfc"
+                                                {{ $registro->TrabajadoMigracionTransHfc === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -4454,7 +4928,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="MotivoTransMigracionHfc"
                                             name="MotivoTransMigracionHfc" placeholder="Ingresa motivo transferido"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->MotivoTransMigracionHfc}}" />
                                     </div>
                                 </div>
 
@@ -4466,12 +4941,15 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentsMigracionTransHfc"
                                             name="ComentsMigracionTransHfc" placeholder="Comentarios..."
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentsMigracionTransHfc}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadMigracionHfc === 'ANULACION')
                         <!-- ANULACION -->
                         <div class="PostventaMigracionHfcHidden" id="AnuladaMigracionHfc">
                             <div class="form-group-container">
@@ -4481,40 +4959,65 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoMigracionAnulada_Hfc" tabindex="-1"
                                             id="MotivoMigracionAnulada_Hfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected"
+                                                value="{{ $registro->MotivoMigracionAnulada_Hfc}}">
+                                                {{ $registro->MotivoMigracionAnulada_Hfc}}
+                                            </option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">
+                                                CASA NO PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO
+                                                DESEA EL
+                                                SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE
+                                                LOCALIZA </option>
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA
+                                                TIENE EL
+                                                SERVICIO
                                             </option>
-                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
+                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">
+                                                CLIENTE
                                                 SOLICITA INSTALACION CON FECHA POSTERIOR </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">
+                                                CONDICIONES
                                                 TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">
+                                                DIRECCION
                                                 REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO
+                                                LIBRE EN
+                                                DSLAM
                                             </option>
                                             <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">
+                                                NO HAY
+                                                DSLAM
                                                 EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
-                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
-                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
                                             </option>
-                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS </option>
-                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
+                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
+                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE
+                                                INSTALACION
+                                            </option>
+                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL
+                                                ASIGNADOS
+                                            </option>
+                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED
+                                                FISICA INSTALADA
                                                 PERO NO ACTIVA </option>
-                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL </option>
+                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL
+                                            </option>
                                             <option value="NO HAY RED"> NO HAY RED </option>
                                             <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA
+                                            </option>
                                             <option
                                                 value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
-                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA
+                                                TECNOLOGIA)
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -4525,8 +5028,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="NOrdenMigracionAnuladaHfc"
-                                            placeholder="N° Orden" name="NOrdenMigracionAnuladaHfc"
-                                            autocomplete="off" />
+                                            placeholder="N° Orden" name="NOrdenMigracionAnuladaHfc" autocomplete="off"
+                                            value="{{ $registro->NOrdenMigracionAnuladaHfc}}" />
                                     </div>
                                 </div>
 
@@ -4534,8 +5037,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoMigracionAnulada_Hfc"
-                                                name="TrabajadoMigracionAnulada_Hfc" />
+                                                id="TrabajadoMigracionAnulada_Hfc" name="TrabajadoMigracionAnulada_Hfc"
+                                                {{ $registro->TrabajadoMigracionAnulada_Hfc === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -4554,18 +5057,21 @@
                                         <input type="text" class="form-control" id="ComentarioMigracionAnulada_Hfc"
                                             name="ComentarioMigracionAnulada_Hfc"
                                             placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentarioMigracionAnulada_Hfc}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
                 @endif
 
 
-                @if ($registro->Select_Postventa === 'RECONEXION / RETIRO' && $registro->tecnologia === 'HFC' )
+                @if ($registro->Select_Postventa === 'RECONEXION / RETIRO')
                 <!-- POSTVENTA RECONEXION RETIRO HFC-->
+                @if ($registro->tecnologia === 'HFC')
                 <div class="form-group-container">
                     <div class="form-group-container" id="PostventaReconexionHfc">
                         <div class="form-group col-md-3">
@@ -4573,16 +5079,17 @@
                             <select class="form-control tipo_actividad" style="width: 100%;"
                                 name="TipoActividadReconexionHfc" id="TipoActividadReconexionHfc" tabindex="-1"
                                 aria-hidden="true">
-                                <option selected="selected">SELECCIONE UNA OPCION</option>
-                                <option value="REALIZADA">REALIZADA</option>
-                                <option value="OBJETADA">OBJETADA</option>
-                                <option value="ANULACION">ANULACION</option>
-                                <option value="TRANSFERIDA">TRANSFERIDA</option>
+                                <option selected="selected" value="{{ $registro->TipoActividadReconexionHfc}}">
+                                    {{ $registro->TipoActividadReconexionHfc}}
+                                </option>
                             </select>
                         </div>
+
+                        @if ($registro->TipoActividadReconexionHfc === 'REALIZADA' )
                         <!-- REALIZADA -->
                         <div class="PostventaReconexionHfcHidden" id="RealizaReconexionHfc">
                             <div class="form-group-container">
+
                                 <div class="form-group col-md-3" id="hiddenEquipoRetirar">
                                     <label for="EquipoModemRetiroHfc">
                                         Equipo a retirar
@@ -4593,9 +5100,11 @@
                                         </div>
                                         <input type="text" class="form-control" id="EquipoModemRetiroHfc"
                                             placeholder="N° Equipo" name="EquipoModemRetiroHfc"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->EquipoModemRetiroHfc}}" />
                                     </div>
                                 </div>
+
                                 <div class="form-group col-md-3">
                                     <label for="OrdenRetiroHfc"> Orden </label>
                                     <div class="input-group">
@@ -4603,14 +5112,16 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="OrdenRetiroHfc"
-                                            placeholder="N° Orden" name="OrdenRetiroHfc" autocomplete="off" />
+                                            placeholder="N° Orden" name="OrdenRetiroHfc" autocomplete="off"
+                                            value="{{ $registro->OrdenRetiroHfc}}" />
                                     </div>
                                 </div>
                                 <div class="from-group-container">
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox" id="TrabajadoRetiroHfc"
-                                                name="TrabajadoRetiroHfc" />
+                                                name="TrabajadoRetiroHfc"
+                                                {{ $registro->TrabajadoRetiroHfc === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label" for="flexCheckDefault">
                                                 Trabajado
                                             </label>
@@ -4628,7 +5139,8 @@
                                         </div>
                                         <input type="text" class="form-control" id="ObvsRetiroHfc" name="ObvsRetiroHfc"
                                             placeholder="Ingresa las observaciones del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ObvsRetiroHfc}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -4641,7 +5153,8 @@
                                         </div>
                                         <input type="text" placeholder="Ingresa quien recibe el caso"
                                             class="form-control" id="RecibeRetiroHfc" name="RecibeRetiroHfc"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->RecibeRetiroHfc}}" />
                                     </div>
                                 </div>
                                 <div class="form-group col-md-12">
@@ -4654,12 +5167,15 @@
                                         </div>
                                         <input type="text" class="form-control" id="MaterialesRetiroHfc"
                                             name="MaterialesRetiroHfc" placeholder="Comentarios..."
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->MaterialesRetiroHfc}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
+                        @if ($registro->TipoActividadReconexionHfc === 'OBJETADA' )
                         <!-- OBJETADA -->
                         <div class="PostventaReconexionHfcHidden" id="ObjetadaReconexionHfc">
                             <div class="">
@@ -4669,19 +5185,31 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoObjRetiroHfc" tabindex="-1"
                                             id="MotivoObjRetiroHfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
-                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option selected="selected" value="{{ $registro->MotivoObjRetiroHfc}}">
+                                                {{ $registro->MotivoObjRetiroHfc}}
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS
                                             </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO
+                                                INVENTARIADO EN SAP
+                                            </option>
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON
+                                                PROBLEMAS EN SAP
+                                            </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE
+                                            </option>
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM
+                                                CON
+                                                DATOS
                                                 INCOMPLETOS / ERRADOS </option>
-                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA
+                                            </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA
+                                                /
+                                                PROGRAMA ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -4694,7 +5222,8 @@
                                                 <i class="fa fa-ticket"></i>
                                             </div>
                                             <input type="text" class="form-control" id="OrdenRetiroObjHfc"
-                                                placeholder="N° Orden" name="OrdenRetiroObjHfc" autocomplete="off" />
+                                                placeholder="N° Orden" name="OrdenRetiroObjHfc" autocomplete="off"
+                                                value="{{ $registro->OrdenRetiroObjHfc}}" />
                                         </div>
                                     </div>
 
@@ -4702,7 +5231,8 @@
                                         <div class="form-group col-md-3">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" value=""
-                                                    id="TrabajadoObjRetiroHfc" name="TrabajadoObjRetiroHfc" />
+                                                    id="TrabajadoObjRetiroHfc" name="TrabajadoObjRetiroHfc"
+                                                    {{ $registro->TrabajadoObjRetiroHfc === 'TRABAJADO' ? 'checked' : '' }} />
                                                 <label class="form-check-label" for="">
                                                     Trabajado
                                                 </label>
@@ -4718,7 +5248,8 @@
                                             </div>
                                             <input type="text" class="form-control" id="ObvsObjRetiroHfc"
                                                 name="ObvsObjRetiroHfc" placeholder="Ingresa las observaciones del caso"
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ObvsObjRetiroHfc}}" />
                                         </div>
                                     </div>
 
@@ -4730,64 +5261,16 @@
                                             </div>
                                             <input type="text" class="form-control" id="ComentariosRetiroObjHfc"
                                                 name="ComentariosRetiroObjHfc" placeholder="Comentarios..."
-                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                                oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                                value="{{ $registro->ComentariosRetiroObjHfc}}" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
 
-                        <!-- TRANSFERIDA -->
-                        <!-- <div class="PostventaReconexionHfcHidden" id="AnuladaReconexionHfc">
-                            <div class="form-group-container">
-                                <div class="from-group-container">
-                                    <div class="form-group col-md-3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoTransferidoRetiroHfc"
-                                                name="TrabajadoTransferidoRetiroHfc" />
-                                            <label class="form-check-label" for="flexCheckDefault">
-                                                Trabajado
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="OrdenRetiroTranfHfc">
-                                        Orden </label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-ticket"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="OrdenRetiroTranfHfc"
-                                            placeholder="N° Orden" name="OrdenRetiroTranfHfc" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="MotivoTransferidoRetiroHfc">Motivo Transferido</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="MotivoTransferidoRetiroHfc"
-                                            name="MotivoTransferidoRetiroHfc" />
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-md-12">
-                                    <label for="ComentariosTranfRetiroHfc">Comentarios</label>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <i class="fa fa-edit"></i>
-                                        </div>
-                                        <input type="text" class="form-control" id="ComentariosTranfRetiroHfc"
-                                            name="ComentariosTranfRetiroHfc" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-
+                        @if ($registro->TipoActividadReconexionHfc === 'ANULACION' )
                         <!-- ANULACION -->
                         <div class="PostventaReconexionHfcHidden" id="AnuladaReconexionHfc">
                             <div class="form-group-container">
@@ -4797,40 +5280,64 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoRetiroAnulada_Hfc" tabindex="-1"
                                             id="MotivoRetiroAnulada_Hfc" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="{{ $registro->MotivoRetiroAnulada_Hfc}}">
+                                                {{ $registro->MotivoRetiroAnulada_Hfc}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">
+                                                CASA
+                                                NO PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO
+                                                DESEA EL
+                                                SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE
+                                                LOCALIZA
                                             </option>
-                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA
+                                                TIENE EL
+                                                SERVICIO
+                                            </option>
+                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">
+                                                CLIENTE
                                                 SOLICITA INSTALACION CON FECHA POSTERIOR </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">
+                                                CONDICIONES
                                                 TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">
+                                                DIRECCION
                                                 REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO
+                                                LIBRE
+                                                EN DSLAM
                                             </option>
                                             <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">
+                                                NO HAY DSLAM
                                                 EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
-                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
-                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
                                             </option>
-                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS </option>
-                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
+                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
+                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE
+                                                INSTALACION
+                                            </option>
+                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL
+                                                ASIGNADOS
+                                            </option>
+                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED
+                                                FISICA
+                                                INSTALADA
                                                 PERO NO ACTIVA </option>
-                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL </option>
+                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL
+                                            </option>
                                             <option value="NO HAY RED"> NO HAY RED </option>
                                             <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA
+                                            </option>
                                             <option
                                                 value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
-                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA
+                                                TECNOLOGIA) </option>
                                         </select>
                                     </div>
                                 </div>
@@ -4842,7 +5349,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="OrdenRetiroAnulacionHfc"
-                                            placeholder="N° Orden" name="OrdenRetiroAnulacionHfc" autocomplete="off" />
+                                            placeholder="N° Orden" name="OrdenRetiroAnulacionHfc" autocomplete="off"
+                                            value="{{ $registro->OrdenRetiroAnulacionHfc}}" />
                                     </div>
                                 </div>
 
@@ -4850,7 +5358,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoRetiroAnulada_Hfc" name="TrabajadoRetiroAnulada_Hfc" />
+                                                id="TrabajadoRetiroAnulada_Hfc" name="TrabajadoRetiroAnulada_Hfc"
+                                                {{ $registro->TrabajadoRetiroAnulada_Hfc === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -4868,18 +5377,17 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentsRetiroAnulada_Hfc"
                                             name="ComentsRetiroAnulada_Hfc" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentsRetiroAnulada_Hfc}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
                 @endif
-
-
-                @if ($registro->Select_Postventa === 'RECONEXION / RETIRO' && $registro->tecnologia === 'DTH' )
-                <!-- POSTVENTA RECONEXION RETIRO DTH-->
+                @if ($registro->tecnologia === 'DTH')
                 <div class="form-group-container">
                     <div class="form-group-container" id="PostventaReconexionDth">
                         <div class="form-group col-md-3">
@@ -4892,6 +5400,8 @@
                                 </option>
                             </select>
                         </div>
+
+                        @if ($registro->TipoActividadReconexionDth === 'REALIZADA' )
                         <!-- REALIZADA -->
                         <div class="PostventaReconexionDthHidden" id="RealizaReconexionDth">
                             <div class="form-group-container">
@@ -4977,9 +5487,12 @@
                                 </div>
                             </div>
                         </div>
-
+                        @endif
+                        @if ($registro->TipoActividadReconexionDth === 'OBJETADA' )
                         <div id="ObjetadaReconexionDth"></div>
+                        @endif
 
+                        @if ($registro->TipoActividadReconexionDth === 'ANULACION' )
                         <!-- ANULACION -->
                         <div class="PostventaReconexionDthHidden" id="AnuladaReconexionDth">
                             <div class="form-group-container">
@@ -4989,40 +5502,64 @@
                                         <select class="form-control select2 select2-hidden-accessible"
                                             style="width: 100%;" name="MotivoRetiroAnulada_Dth" tabindex="-1"
                                             id="MotivoRetiroAnulada_Dth" aria-hidden="true">
-                                            <option selected="selected" value="">SELECCIONE UNA OPCION</option>
+                                            <option selected="selected" value="{{ $registro->MotivoRetiroAnulada_Dth}}">
+                                                {{ $registro->MotivoRetiroAnulada_Dth}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">
+                                                CASA
+                                                NO PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO
+                                                DESEA EL
+                                                SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE
+                                                LOCALIZA
                                             </option>
-                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">CLIENTE
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA
+                                                TIENE EL
+                                                SERVICIO
+                                            </option>
+                                            <option value="CLIENTE SOLICITA INSTALACION CON FECHA POSTERIOR">
+                                                CLIENTE
                                                 SOLICITA INSTALACION CON FECHA POSTERIOR </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">
+                                                CONDICIONES
                                                 TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">
+                                                DIRECCION
                                                 REGISTRADA CON EXCEDENTE DE CARACTERES </option>
-                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO LIBRE EN DSLAM
+                                            <option value="NO HAY PUERTO LIBRE EN DSLAM">NO HAY PUERTO
+                                                LIBRE
+                                                EN DSLAM
                                             </option>
                                             <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">
+                                                NO HAY DSLAM
                                                 EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA </option>
-                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
-                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION
+                                            <option value="DIRECCION ERRONEA">DIRECCION ERRONEA
                                             </option>
-                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL ASIGNADOS </option>
-                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED FISICA INSTALADA
+                                            <option value="EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE INSTALACION">
+                                                EXISTE RED DIGITAL PERO NO HAY CONDICIONES DE
+                                                INSTALACION
+                                            </option>
+                                            <option value="ELEMENTOS MAL ASIGNADOS">ELEMENTOS MAL
+                                                ASIGNADOS
+                                            </option>
+                                            <option value="RED FISICA INSTALADA PERO NO ACTIVA">RED
+                                                FISICA
+                                                INSTALADA
                                                 PERO NO ACTIVA </option>
-                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL </option>
+                                            <option value="NO HAY RED DIGITAL">NO HAY RED DIGITAL
+                                            </option>
                                             <option value="NO HAY RED"> NO HAY RED </option>
                                             <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA
+                                            </option>
                                             <option
                                                 value="SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA)">
-                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA TECNOLOGIA) </option>
+                                                SOLICITUD REGISTRADA CON EQUIPOS INCORECTOS (OTRA
+                                                TECNOLOGIA) </option>
                                         </select>
                                     </div>
                                 </div>
@@ -5034,7 +5571,8 @@
                                             <i class="fa fa-ticket"></i>
                                         </div>
                                         <input type="text" class="form-control" id="OrdenRetiroAnulacionDth"
-                                            placeholder="N° Orden" name="OrdenRetiroAnulacionDth" autocomplete="off" />
+                                            placeholder="N° Orden" name="OrdenRetiroAnulacionDth"
+                                            value="{{ $registro->OrdenRetiroAnulacionDth}}" autocomplete="off" />
                                     </div>
                                 </div>
 
@@ -5042,7 +5580,8 @@
                                     <div class="form-group col-md-3">
                                         <div class="form-check">
                                             <input class="form-check-input" type="checkbox"
-                                                id="TrabajadoRetiroAnulada_Dth" name="TrabajadoRetiroAnulada_Dth" />
+                                                id="TrabajadoRetiroAnulada_Dth" name="TrabajadoRetiroAnulada_Dth"
+                                                {{ $registro->TrabajadoRetiroAnulada_Dth === 'TRABAJADO' ? 'checked' : '' }} />
                                             <label class="form-check-label">
                                                 Trabajado
                                             </label>
@@ -5060,14 +5599,18 @@
                                         </div>
                                         <input type="text" class="form-control" id="ComentsRetiroAnulada_Dth"
                                             name="ComentsRetiroAnulada_Dth" placeholder="Ingresa comentarios del caso"
-                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off" />
+                                            oninput="this.value = this.value.toUpperCase()" autocomplete="off"
+                                            value="{{ $registro->ComentsRetiroAnulada_Dth}}" />
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
                 @endif
+                @endif
+
 
 
                 @if ($registro->Select_Postventa === 'CAMBIO NUMERO COBRE')
@@ -5168,18 +5711,28 @@
                                             id="MotivoObjCambioCobre" aria-hidden="true">
                                             <option selected="selected" value="{{ $registro->MotivoObjCambioCobre}}">
                                                 {{ $registro->MotivoObjCambioCobre}}</option>
-                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS </option>
-                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO INVENTARIADO EN SAP
+                                            <option value="COORDENADAS ERRONEAS">COORDENADAS ERRONEAS
                                             </option>
-                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON PROBLEMAS EN SAP
+                                            <option value="EQUIPO NO INVENTARIADO EN SAP">EQUIPO NO
+                                                INVENTARIADO EN SAP
                                             </option>
-                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE </option>
-                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE INVENTARIADO
+                                            <option value="EQUIPOS CON PROBLEMAS EN SAP">EQUIPOS CON
+                                                PROBLEMAS EN SAP
+                                            </option>
+                                            <option value="SYREM INEXISTENTE"> SYREM INEXISTENTE
+                                            </option>
+                                            <option value="PROBLEMAS DE INVENTARIADO OPEN"> PROBLEMAS DE
+                                                INVENTARIADO
                                                 OPEN </option>
-                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM CON DATOS
+                                            <option value="SYREM CON DATOS INCOMPLETOS / ERRADOS">SYREM
+                                                CON
+                                                DATOS
                                                 INCOMPLETOS / ERRADOS </option>
-                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA </option>
-                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA / PROGRAMA ETA
+                                            <option value="ROUTER NO SINCRONIZA">ROUTER NO SINCRONIZA
+                                            </option>
+                                            <option value="TEC NO INICIA / PROGRAMA ETA"> TEC NO INICIA
+                                                /
+                                                PROGRAMA ETA
                                             </option>
                                             <option value="NODO INCORRECTO"> NODO INCORRECTO </option>
                                             <option value="OTROS"> OTROS </option>
@@ -5255,26 +5808,40 @@
                                                 value="{{ $registro->MotivoAnuladaCambioCobre}}">
                                                 {{ $registro->MotivoAnuladaCambioCobre}}</option>
                                             <option value="CASA CERRADA">CASA CERRADA </option>
-                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">CASA NO PRESTA
+                                            <option value="CASA NO PRESTA CONDICIONES DE INSTALACION">
+                                                CASA
+                                                NO PRESTA
                                                 CONDICIONES DE INSTALACION </option>
-                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO DESEA EL SERVICIO
+                                            <option value="CLIENTE NO DESEA EL SERVICIO">CLIENTE NO
+                                                DESEA EL
+                                                SERVICIO
                                             </option>
-                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE LOCALIZA </option>
-                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA TIENE EL SERVICIO
+                                            <option value="CLIENTE NO SE LOCALIZA">CLIENTE NO SE
+                                                LOCALIZA
                                             </option>
-                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">CONDICIONES
+                                            <option value="CLIENTE YA TIENE EL SERVICIO">CLIENTE YA
+                                                TIENE EL
+                                                SERVICIO
+                                            </option>
+                                            <option value="CONDICIONES TECNICAS (DISTANCIA NO PERMITIDA)">
+                                                CONDICIONES
                                                 TECNICAS (DISTANCIA NO PERMITIDA) </option>
-                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">DIRECCION
+                                            <option value="DIRECCION REGISTRADA CON EXCEDENTE DE CARACTERES">
+                                                DIRECCION
                                                 REGISTRADA CON EXCEDENTE DE CARACTERES </option>
                                             <option value="FALTA POSTERIA">FALTA POSTERIA </option>
-                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">NO HAY DSLAM
+                                            <option value="NO HAY DSLAM EN CENTRAL CONCENTRADOR O SHELTER">
+                                                NO HAY DSLAM
                                                 EN CENTRAL CONCENTRADOR O SHELTER </option>
-                                            <option value="NO HAY NUMERACION EN CONCENTRADOR">NO HAY NUMERACION EN
+                                            <option value="NO HAY NUMERACION EN CONCENTRADOR">NO HAY
+                                                NUMERACION EN
                                                 CONCENTRADOR </option>
                                             <option value="NO HAY RED"> NO HAY RED </option>
                                             <option value="RED SATURADA"> RED SATURADA </option>
-                                            <option value="SOLICITUD MAL REGISTRADA">SOLICITUD MAL REGISTRADA </option>
-                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA </option>
+                                            <option value="SOLICITUD MAL REGISTRADA">SOLICITUD MAL
+                                                REGISTRADA </option>
+                                            <option value="SOLICITUD REPETIDA">SOLICITUD REPETIDA
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -5331,7 +5898,7 @@
                 <div class="box-footer" id="btn-submit"
                     style="text-align: center; display: flex; justify-content: center;">
                     <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"
-                            style="padding-right: 8px;"></i>GUARDAR REGISTRO</button>
+                            style="padding-right: 8px;"></i>ACTUALIZAR REGISTRO</button>
                 </div>
             </form>
         </div>
@@ -5360,8 +5927,9 @@ Swal.fire({
 @endif @endsection @section('styles')
 
 <!-- SweetAlert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
+<link href="{{ asset('/plugins/CdnMigraciones/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+
+<script src="{{ asset('/plugins/CdnMigraciones/sweetalert2.all.min.js') }}"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -5436,7 +6004,6 @@ document.addEventListener("DOMContentLoaded", function() {
 $registro->TipoActividadCambioNumeroCobre === 'REALIZADA' )
 <script src="{{asset('/js/actualizarDatos/postventas/CambioCobre/cambiocobreRealizado.js')}}" type="text/javascript">
 </script>
-
 @endif
 
 @if ($registro->Select_Postventa === 'CAMBIO NUMERO COBRE' && $registro->tecnologia === 'COBRE' &&
@@ -5448,6 +6015,300 @@ $registro->TipoActividadCambioNumeroCobre === 'OBJETADA' )
 @if ($registro->Select_Postventa === 'CAMBIO NUMERO COBRE' && $registro->tecnologia === 'COBRE' &&
 $registro->TipoActividadCambioNumeroCobre === 'ANULACION' )
 <script src="{{asset('/js/actualizarDatos/postventas/CambioCobre/cambiocobreAnul.js')}}" type="text/javascript">
+</script>
+@endif
+
+
+@if ($registro->Select_Postventa === 'RECONEXION / RETIRO' && $registro->tecnologia === 'DTH' &&
+$registro->TipoActividadReconexionDth === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/reconexion/reconexiondth.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'RECONEXION / RETIRO' && $registro->tecnologia === 'DTH' &&
+$registro->TipoActividadReconexionDth === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/reconexion/reconexionDthAnul.js')}}" type="text/javascript">
+</script>
+@endif
+
+
+@if ($registro->Select_Postventa === 'RECONEXION / RETIRO' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadReconexionHfc === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/reconexion/reconexionHfc.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'RECONEXION / RETIRO' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadReconexionHfc === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/reconexion/reconexionHfcAnul.js')}}" type="text/javascript">
+</script>
+@endif
+
+
+@if ($registro->Select_Postventa === 'MIGRACION' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadMigracionHfc === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/migracion/migracionHfc.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'MIGRACION' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadMigracionHfc === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/postventas/migracion/migracionHfcObj.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'MIGRACION' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadMigracionHfc === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/migracion/migracionHfcAnul.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'MIGRACION' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadMigracionHfc === 'TRANSFERIDA')
+<script src="{{asset('/js/actualizarDatos/postventas/migracion/migracionHfcTrans.js')}}" type="text/javascript">
+</script>
+@endif
+
+
+@if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia === 'DTH' &&
+$registro->TipoActividadCambioDth === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/CambioEquipo/DTH/cambioEquipoDth.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia === 'DTH' &&
+$registro->TipoActividadCambioDth === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/postventas/CambioEquipo/DTH/cambioEquipoDthObj.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia === 'DTH' &&
+$registro->TipoActividadCambioDth === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/CambioEquipo/DTH/cambioEquipoDthAnul.js')}}"
+    type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia === 'ADSL' &&
+$registro->TipoActividadCambioAdsl === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/CambioEquipo/ADSL/cambioEquipoAdsl.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia === 'ADSL' &&
+$registro->TipoActividadCambioAdsl === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/postventas/CambioEquipo/ADSL/cambioEquipoAdslObj.js')}}"
+    type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia === 'ADSL' &&
+$registro->TipoActividadCambioAdsl === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/CambioEquipo/ADSL/cambioEquipoAdslAnul.js')}}"
+    type="text/javascript">
+</script>
+@endif
+
+
+@if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia === 'GPON' &&
+$registro->TipoActividadCambioGpon === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/CambioEquipo/GPON/cambioEquipoGpon.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia === 'GPON' &&
+$registro->TipoActividadCambioGpon === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/postventas/CambioEquipo/GPON/cambioEquipoGponObj.js')}}"
+    type="text/javascript">
+</script>
+@endif
+
+
+@if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia === 'GPON' &&
+$registro->TipoActividadCambioGpon === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/CambioEquipo/GPON/cambioEquipoGponAnul.js')}}"
+    type="text/javascript">
+</script>
+@endif
+
+
+@if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadCambioHfc === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/CambioEquipo/HFC/cambioEquipoHfc.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadCambioHfc === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/postventas/CambioEquipo/HFC/cambioEquipoHfcObj.js')}}" type="text/javascript">
+</script>
+@endif
+
+
+@if ($registro->Select_Postventa === 'CAMBIO DE EQUIPO' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadCambioHfc === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/CambioEquipo/HFC/cambioEquipoHfcAnul.js')}}"
+    type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'ADICION' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadAdicionHfc === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Adicion/HFC/adicionHfc.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'ADICION' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadAdicionHfc === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Adicion/HFC/adicionHfcObj.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'ADICION' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadAdicionHfc === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/Adicion/HFC/adicionHfcAnul.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'ADICION' && $registro->tecnologia === 'GPON' &&
+$registro->TipoActividadAdicionGpon === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Adicion/GPON/adicionGpon.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'ADICION' && $registro->tecnologia === 'GPON' &&
+$registro->TipoActividadAdicionGpon === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Adicion/GPON/adicionGponObj.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'ADICION' && $registro->tecnologia === 'GPON' &&
+$registro->TipoActividadAdicionGpon === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/Adicion/GPON/adicionGponAnul.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'ADICION' && $registro->tecnologia === 'DTH' &&
+$registro->TipoActividadAdicionDth === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Adicion/DTH/adicionDth.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'ADICION' && $registro->tecnologia === 'DTH' &&
+$registro->TipoActividadAdicionDth === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Adicion/DTH/adicionDthObj.js')}}" type="text/javascript">
+</script>
+@endif
+
+
+@if ($registro->Select_Postventa === 'ADICION' && $registro->tecnologia === 'DTH' &&
+$registro->TipoActividadAdicionDth === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/Adicion/DTH/adicionDthAnul.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadTrasladoHfc === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/HFC/trasladosHfc.js')}}" type="text/javascript">
+</script>
+@endif
+
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadTrasladoHfc === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/HFC/trasladosHfcObj.js')}}" type="text/javascript">
+</script>
+@endif
+
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadTrasladoHfc === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/HFC/trasladosHfcAnul.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'HFC' &&
+$registro->TipoActividadTrasladoHfc === 'TRANSFERIDA')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/HFC/trasladosHfcTrans.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'GPON' &&
+$registro->TipoActividadTrasladoGpon === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/GPON/trasladoGpon.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'GPON' &&
+$registro->TipoActividadTrasladoGpon === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/GPON/trasladosGponObj.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'GPON' &&
+$registro->TipoActividadTrasladoGpon === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/GPON/trasladoGponAnul.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'GPON' &&
+$registro->TipoActividadTrasladoGpon === 'TRANSFERIDA')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/GPON/trasladoGponTrans.js')}}" type="text/javascript">
+</script>
+@endif
+
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'ADSL' &&
+$registro->TipoActividadTrasladoAdsl === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/ADSL/trasladoAdsl.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'ADSL' &&
+$registro->TipoActividadTrasladoAdsl === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/ADSL/trasladoAdslObj.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'ADSL' &&
+$registro->TipoActividadTrasladoAdsl === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/ADSL/trasladoAdslAnul.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'COBRE' &&
+$registro->TipoActividadTrasladoCobre === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/COBRE/trasladoCobre.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'COBRE' &&
+$registro->TipoActividadTrasladoCobre === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/COBRE/trasladoCobreObj.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'COBRE' &&
+$registro->TipoActividadTrasladoCobre === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/COBRE/trasladoCobreAnul.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'DTH' &&
+$registro->TipoActividadTrasladoDth === 'REALIZADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/DTH/trasladoDth.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'DTH' &&
+$registro->TipoActividadTrasladoDth === 'OBJETADA')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/DTH/trasladoDthObj.js')}}" type="text/javascript">
+</script>
+@endif
+
+@if ($registro->Select_Postventa === 'TRASLADO' && $registro->tecnologia === 'DTH' &&
+$registro->TipoActividadTrasladoDth === 'ANULACION')
+<script src="{{asset('/js/actualizarDatos/postventas/Traslados/DTH/trasladoDthAnul.js')}}" type="text/javascript">
 </script>
 @endif
 

@@ -1328,7 +1328,7 @@
 
                             <div class="form-group col-md-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="TrabajadoCobre"
+                                    <input class="form-check-input" type="checkbox" id="TrabajadoCobre"
                                         name="TrabajadoCobre" />
                                     <label class="form-check-label" for="flexCheckDefault">
                                         Trabajado
@@ -1415,8 +1415,8 @@
                             <div class="from-group-container">
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="TrabajadoCobre_Objetado" name="TrabajadoCobre_Objetado" />
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoCobre_Objetado"
+                                            name="TrabajadoCobre_Objetado" />
                                         <label class="form-check-label">
                                             Trabajado
                                         </label>
@@ -2030,8 +2030,10 @@ window.onload = function() {
 @endsection @section('styles')
 
 <!-- SweetAlert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.all.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.2/dist/sweetalert2.min.css" />
+<!-- SweetAlert -->
+<link href="{{ asset('/plugins/CdnMigraciones/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+
+<script src="{{ asset('/plugins/CdnMigraciones/sweetalert2.all.min.js') }}"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
