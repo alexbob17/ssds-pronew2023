@@ -22,20 +22,26 @@ document.addEventListener("DOMContentLoaded", function () {
     if (MotivoConsulta.value === "COMPLETAR GESTION") {
       TipoMotivoConsulta.innerHTML = `
     <option value="">SELECCIONE UNA OPCION</option>
-    <option value="TERMINAR PROCESO DE ATENCION">TERMINAR PROCESO DE ATENCION</option>
+    <option value="TERMINAR PROCESO DE ATENCION VENTA">TERMINAR PROCESO DE ATENCION VENTA</option>
+    <option value="TERMINAR PROCESO DE ATENCION DAÑO">TERMINAR PROCESO DE ATENCION DAÑO</option>
+    <option value="TERMINAR PROCESO DE ATENCION POSTVENTA">TERMINAR PROCESO DE ATENCION POSTVENTA</option>
+    <option value="TERMINAR PROCESO DE ATENCION ANULACION">TERMINAR PROCESO DE ATENCION ANULACION</option>
+
     <option value="GENERA ORDEN DE CLARO VIDEO">GENERA ORDEN DE CLARO VIDEO</option>
     <option value="INCONSISTENCIA OPEN">INCONSISTENCIA OPEN</option>
     <option value="CONFRIMAR SEÑAL">CONFRIMAR SEÑAL</option>
     <option value="MAL PROCESO ETA">MAL PROCESO ETA</option>
     <option value="PAGO DE MA">PAGO DE MA</option>
     <option value="CANCELAR ETA">CANCELAR ETA</option>
-    <option value="SUSPENDER ETA">SUSPENDER ETA</option>
+    <option value="SUSPENDER MOVER ETA">SUSPENDER MOVER ETA</option>
     `;
       TipoMotivoConsulta.disabled = false;
     } else if (MotivoConsulta.value === "GESTIÓN DENEGADA") {
       TipoMotivoConsulta.innerHTML = `
     <option value="">SELECCIONE UNA OPCION</option>
     <option value="SOLICITUDES ATENDIDAS EN SISTEMA">SOLICITUDES ATENDIDAS EN SISTEMA</option>
+    <option value="CLIENTE NO TIENE DINERO PARA INSTALACION">CLIENTE NO TIENE DINERO PARA INSTALACION</option>
+    <option value="CAMBIO DE EQUIPOS">CAMBIO DE EQUIPOS</option>
     <option value="AGENDAR SOLICITUD CON TRANFERENCIA">AGENDAR SOLICITUD CON TRANFERENCIA</option>
     <option value="INFUNDAR SOLICITUD CON TRANFERENCIA">INFUNDAR SOLICITUD CON TRANFERENCIA</option>
     <option value="REAGENDAR CON CITA INCUMPLIDA">REAGENDAR CON CITA INCUMPLIDA</option>
@@ -65,7 +71,9 @@ document.addEventListener("DOMContentLoaded", function () {
       TipoMotivoConsulta.innerHTML = `
     <option value="">SELECCIONE UNA OPCION</option>
     <option value="CAMBIO DE EQUIPOS - ROBO">CAMBIO DE EQUIPOS - ROBO</option>
+    <option value="CAMBIO DE EQUIPOS - ROBO/POR CORREO">CAMBIO DE EQUIPOS - ROBO/POR CORREO</option>
     <option value="CAMBIO DE EQUIPOS - EXTRAVIO">CAMBIO DE EQUIPOS - EXTRAVIO</option>
+    <option value="CAMBIO DE EQUIPOS - EXTRAVIO/POR ETA">CAMBIO DE EQUIPOS - EXTRAVIO/POR ETA</option>
     <option value="NODO">NODO</option>
     <option value="DESCARGUE EN LINEA">DESCARGUE EN LINEA</option>
     <option value="SIN SYREM">SIN SYREM</option>
@@ -152,7 +160,19 @@ document.addEventListener("DOMContentLoaded", function () {
       TipoMotivoConsulta.innerHTML = `
       <option value="">SELECCIONE UNA OPCION</option>`;
       TipoMotivoConsulta.disabled = true;
-    } else if (MotivoConsulta.value === "OTROS") {
+    } else if (MotivoConsulta.value === "CORTE DE ENERGIA COMERCIAL") {
+      TipoMotivoConsulta.innerHTML = `
+      <option value="">SELECCIONE UNA OPCION</option>`;
+      TipoMotivoConsulta.disabled = true;
+    } else if (MotivoConsulta.value === "CORRECION DE ELEMENTOS DE RED") {
+      TipoMotivoConsulta.innerHTML = `
+      <option value="">SELECCIONE UNA OPCION</option>`;
+      TipoMotivoConsulta.disabled = true;
+    } else if (MotivoConsulta.value === "PENDIENTE POR CICLO DE FACTURACION") {
+      TipoMotivoConsulta.innerHTML = `
+      <option value="">SELECCIONE UNA OPCION</option>`;
+      TipoMotivoConsulta.disabled = true;
+    } else if (MotivoConsulta.value === "CLIENTE DESEA INTERNO-CONTRATA") {
       TipoMotivoConsulta.innerHTML = `
       <option value="">SELECCIONE UNA OPCION</option>`;
       TipoMotivoConsulta.disabled = true;

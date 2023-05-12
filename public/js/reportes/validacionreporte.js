@@ -274,8 +274,8 @@ document.addEventListener("DOMContentLoaded", function () {
       optionGpon.style.display = "none";
       optionAdsl.style.display = "none";
       optionCobre.style.display = "none";
-      optionDth.style.display = "none";
-      optionTodos.style.display = "none";
+      optionDth.style.display = "block";
+      optionTodos.style.display = "block";
     } else if (tipo_postventa.value === "MIGRACION") {
       tecnologia.disabled = false;
       tecnologia.value = "";
@@ -350,7 +350,29 @@ document.addEventListener("DOMContentLoaded", function () {
       tipo_actividad.value = "";
 
       optionRealizada.style.display = "block";
-      optionObjetada.style.display = "block";
+      optionObjetada.style.display = "none";
+      optionTransferida.style.display = "none";
+      optionAnulada.style.display = "block";
+    } else if (
+      tipo_postventa.value === "RECONEXION / RETIRO" &&
+      tecnologia.value === "DTH"
+    ) {
+      tipo_actividad.disabled = false;
+      tipo_actividad.value = "";
+
+      optionRealizada.style.display = "block";
+      optionObjetada.style.display = "none";
+      optionTransferida.style.display = "none";
+      optionAnulada.style.display = "block";
+    } else if (
+      tipo_postventa.value === "RECONEXION / RETIRO" &&
+      tecnologia.value === "TODOS"
+    ) {
+      tipo_actividad.disabled = false;
+      tipo_actividad.value = "";
+
+      optionRealizada.style.display = "block";
+      optionObjetada.style.display = "none";
       optionTransferida.style.display = "none";
       optionAnulada.style.display = "block";
     } else if (
@@ -488,7 +510,7 @@ document.addEventListener("DOMContentLoaded", function () {
       tipo_actividad.value = "";
       optionRealizada.style.display = "block";
       optionObjetada.style.display = "block";
-      optionTransferida.style.display = "block";
+      optionTransferida.style.display = "none";
       optionAnulada.style.display = "block";
     } else if (
       tipo_postventa.value === "TRASLADO" &&
@@ -498,7 +520,7 @@ document.addEventListener("DOMContentLoaded", function () {
       tipo_actividad.value = "";
       optionRealizada.style.display = "block";
       optionObjetada.style.display = "block";
-      optionTransferida.style.display = "block";
+      optionTransferida.style.display = "none";
       optionAnulada.style.display = "block";
     } else if (
       tipo_postventa.value === "TRASLADO" &&
@@ -508,7 +530,7 @@ document.addEventListener("DOMContentLoaded", function () {
       tipo_actividad.value = "";
       optionRealizada.style.display = "block";
       optionObjetada.style.display = "block";
-      optionTransferida.style.display = "block";
+      optionTransferida.style.display = "none";
       optionAnulada.style.display = "block";
     } else if (
       tipo_postventa.value === "TRASLADO" &&
@@ -518,7 +540,7 @@ document.addEventListener("DOMContentLoaded", function () {
       tipo_actividad.value = "";
       optionRealizada.style.display = "block";
       optionObjetada.style.display = "block";
-      optionTransferida.style.display = "block";
+      optionTransferida.style.display = "none";
       optionAnulada.style.display = "block";
     }
   });

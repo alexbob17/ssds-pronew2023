@@ -31,6 +31,7 @@
     <link href="{{ asset('/plugins/iCheck/flat/red.css') }}" rel="stylesheet" type="text/css" />
 
 
+    <link href="{{ asset('/plugins/CdnMigraciones/Poppinscss2.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- Popper.js -->
 

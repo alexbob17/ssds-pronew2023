@@ -94,6 +94,12 @@
                             <option value="CORRECCION DE NODO">CORRECCION DE NODO</option>
                             <option value="SE GENERA INCIDENTE">SE GENERA INCIDENTE</option>
                             <option value="PENDIENTE POR INCIDENTES">PENDIENTE POR INCIDENTES</option>
+                            <option value="CORTE DE ENERGIA COMERCIAL">CORTE DE ENERGIA COMERCIAL</option>
+                            <option value="CORRECION DE ELEMENTOS DE RED">CORRECION DE ELEMENTOS DE RED</option>
+                            <option value="PENDIENTE POR CICLO DE FACTURACION">PENDIENTE POR CICLO DE FACTURACION
+                            </option>
+                            <option value="CLIENTE DESEA INTERNO-CONTRATA">CLIENTE DESEA INTERNO-CONTRATA</option>
+
                             <option value="OTROS">OTROS</option>
                         </select>
                     </div>

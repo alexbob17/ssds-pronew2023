@@ -3,76 +3,64 @@
 @section('content')
 
 <div class="row">
-    <!-- left column -->
     <div class="col-md-12">
-        <div class="">
+        <div class="box box-warning">
             @if (session()->has('success_message'))
             <div class="alert alert-success alert-dismissable">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <p>{{ session('success_message') }}</p>
             </div>
             @endif
-            <!-- general form elements -->
+
             <div class="box" style="">
                 <div class="box-header with-border"
                     style="background:white!important;color:black!important;border-radius:5px">
-                    <h3 class="box-title" style="    display: inline-block;
-				font-size: 19px;
-				margin: 0;
-				line-height: 1;
-				font-weight: 500;
-				font-family: 'Poppins';">Bienvenido, {{{ Auth::user()->first_name }}} {{{ Auth::user()->last_name }}}.</h3>
-                    <!-- <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                </div> -->
+                    <h3 class="box-title"
+                        style="display: inline-block;font-size: 19px;margin: 0;line-height: 1;font-weight: 500;font-family: 'Poppins';">
+                        Bienvenido, {{{ Auth::user()->first_name }}} {{{ Auth::user()->last_name }}}.</h3>
                 </div>
-
             </div>
 
+            <div class="single_element">
+                <div class="quick_activity">
+                    <div class="col-12">
+                        <div class="quick_activity_wrap">
+                            <div class="single_quick_activity">
+                                <h4>Registros Consultas</h4>
+                                <h3><span class="counter">23</span> </h3>
+                                <p>{{ \Carbon\Carbon::now()->formatLocalized('%B') }}</p>
+                            </div>
+                            <div class="single_quick_activity">
+                                <h4>Registro Instalaciones</h4>
+                                <h3><span class="counter">{{ $total }}</span></h3>
+                                <p>{{ \Carbon\Carbon::now()->formatLocalized('%B') }}</p>
+                            </div>
 
-            <div class="col-lg-12">
-                <div class="single_element">
-                    <div class="quick_activity">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="quick_activity_wrap">
-                                    <div class="single_quick_activity">
-                                        <h4>Registros Consultas</h4>
-                                        <h3><span class="counter">23</span> </h3>
-                                        <p>{{ \Carbon\Carbon::now()->formatLocalized('%B') }}</p>
-                                    </div>
-                                    <div class="single_quick_activity">
-                                        <h4>Registro Instalaciones</h4>
-                                        <h3><span class="counter">{{ $total }}</span></h3>
-                                        <p>{{ \Carbon\Carbon::now()->formatLocalized('%B') }}</p>
-                                    </div>
+                            <div class="single_quick_activity">
+                                <h4>Registro Daños </h4>
+                                <h3><span class="counter">23</span> </h3>
+                                <p>{{ \Carbon\Carbon::now()->formatLocalized('%B') }}</p>
+                            </div>
+                            <div class="single_quick_activity">
+                                <h4>Registro Postventas </h4>
+                                <h3><span class="counter">23</span> </h3>
+                                <p>{{ \Carbon\Carbon::now()->formatLocalized('%B') }}</p>
+                            </div>
 
-                                    <div class="single_quick_activity">
-                                        <h4>Registro Daños </h4>
-                                        <h3><span class="counter">23</span> </h3>
-                                        <p>{{ \Carbon\Carbon::now()->formatLocalized('%B') }}</p>
-                                    </div>
-                                    <div class="single_quick_activity">
-                                        <h4>Registro Postventas </h4>
-                                        <h3><span class="counter">23</span> </h3>
-                                        <p>{{ \Carbon\Carbon::now()->formatLocalized('%B') }}</p>
-                                    </div>
-
-                                </div>
+                        </div>
+                    </div>
+                    <div class="box box-warning" style="border-top-color:#ddd">
+                        <div class="col-6" style="display:flex;justify-content:space-between;padding:1rem">
+                            <div class="chart-container" style="height: 650px;width: 900px;">
+                                <canvas id="myChart"></canvas>
 
                             </div>
-                            <div class="col-6" style="display:flex;justify-content:space-between">
-                                <div class="chart-container" style="height: 650px;width: 900px;">
-                                    <canvas id="myChart"></canvas>
-
-                                </div>
-                                <div class="chart-container" style="height: 400px;width: 400px;">
-                                    <canvas id="pastel-chart" width="200" height="400"></canvas>
-                                </div>
-
+                            <div class="chart-container" style="height: 400px;width: 400px;">
+                                <canvas id="pastel-chart" width="200" height="400"></canvas>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

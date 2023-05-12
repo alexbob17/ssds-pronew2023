@@ -151,7 +151,7 @@ class DashboardController extends Controller {
 		// dd($total);
 
 		return view('home',compact('total'))
-		->with('page_title', 'Dashboard')
+		->with('page_title', 'Dashboard - Inicio')
 		->with('navigation', 'Dashboard');
 
 	}
