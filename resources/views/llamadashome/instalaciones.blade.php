@@ -2012,13 +2012,12 @@
 Swal.fire({
     icon: "success",
     title: "{{$message}}",
-    text: "{{$messages}}",
-    showConfirmButton: false,
-    timer: 1800,
+    html: "<h5>{{$messages}}</h5> <br> <h5>Código: <b>{{$codigoUnico}}</b></h5>",
+    showConfirmButton: true,
 });
-// window.location = window.location;
 </script>
 @endif
+
 
 <script>
 window.onload = function() {

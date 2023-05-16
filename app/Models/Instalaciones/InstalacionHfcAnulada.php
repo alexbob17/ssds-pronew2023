@@ -25,5 +25,7 @@ class InstalacionHfcAnulada extends Model
 	    'ComentarioAnulada_Hfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

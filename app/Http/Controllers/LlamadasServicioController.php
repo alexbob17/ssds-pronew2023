@@ -45,7 +45,7 @@ use SSD\Models\Instalaciones\InstalacionesRefresh;
 
 use SSD\Models\Instalaciones\InstalacionesDthRefresh;
 
-
+use Illuminate\Support\Str;
 
 use SSD\Http\Requests;
 
@@ -280,7 +280,7 @@ class LlamadasServicioController extends Controller
                     $dataHfcTransferida->save();
 
 					$message = "¡EXITO!";
-					$messages = "REGISTRO GPON TRANSFERIDO COMPLETADO";
+					$messages = "REGISTRO HFC TRANSFERIDO COMPLETADO";
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
@@ -306,6 +306,7 @@ class LlamadasServicioController extends Controller
 						'ComentarioAnulada_Hfc',
 						'username_creacion',
 						'username_atencion',
+						'codigoUnico',
 
 					];
 	
@@ -322,21 +323,26 @@ class LlamadasServicioController extends Controller
 							$data[$fieldName] = $value;
 						}
 					}
+
+					 // Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 					// dd($data);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
 
-					$dataHfcAnulada= new InstalacionHfcAnulada($data);
+					$dataHfcAnulada = new InstalacionHfcAnulada($data);
 
-                    // Guardamos la instancia en la base de datos
-                    $dataHfcAnulada->save();
+					// Guardamos la instancia en la base de datos
+					$dataHfcAnulada->save();
 
 					$message = "¡EXITO!";
-					$messages = "REGISTRO GPON TRANSFERIDO COMPLETADO";
+					$messages = "REGISTRO HFC ANULACION COMPLETADO";
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
