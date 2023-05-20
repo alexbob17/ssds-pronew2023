@@ -23,6 +23,7 @@ class InstalacionCobreObjetada extends Model
         'ComentariosCobre_Objetados',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
 
     ];
 }

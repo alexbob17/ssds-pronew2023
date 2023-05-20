@@ -23,5 +23,6 @@ class InstalacionAdslAnulada extends Model
 	    'ComentarioAnulada_Adsl',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

@@ -25,6 +25,7 @@ class InstalacionGponAnulada extends Model
 	    'ComentarioAnulada_Gpon',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
     ];
 
 }

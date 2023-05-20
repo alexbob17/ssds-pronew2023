@@ -51,6 +51,11 @@ use SSD\Http\Requests;
 
 use Illuminate\Support\Facades\Storage;
 
+use Illuminate\Support\Facades\DB;
+
+
+use SSD\Tableconfig;
+
 
 class LlamadasServicioController extends Controller
 {
@@ -161,6 +166,60 @@ class LlamadasServicioController extends Controller
 				}
 				// dd($data);
 
+				$numeroOrden = $data['orden_tv_hfc'];
+				$numeroOrden1 = $data['orden_internet_hfc'];
+				$numeroOrden2 = $data['orden_linea_hfc'];
+
+				$trabajadoFields = Tableconfig::getTrabajadoFields();
+				$tables = Tableconfig::getTablesAll();
+				$allFields = Tableconfig::getAllFields();
+				$numerosOrden = [$numeroOrden, $numeroOrden1, $numeroOrden2];
+				$existentes = [];
+
+				foreach ($tables as $table => $ordenFields) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							foreach ($ordenFields as $ordenField) {
+								if (in_array($ordenField, $allFields)) {
+									$trabajadoField = $trabajadoFields[$table];
+									$existente = false;
+									
+									foreach ($numerosOrden as $numero) {
+										if (!is_null($numero)) {
+											$existente = DB::table($table)
+												->where($ordenField, $numero)
+												->where($trabajadoField, 'PENDIENTE')
+												->exists();
+
+											if ($existente) {
+												break;
+											}
+										}
+									}
+									
+									$existentes[$table][] = $existente;
+								}
+							}
+						}
+				}
+
+				$existePendiente = false;
+				foreach ($existentes as $table => $records) {
+						if (in_array(true, $records)) {
+							$existePendiente = true;
+							break;
+						}
+				}
+
+				if ($existePendiente) {
+						$message = '¡ERROR!';
+						$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+						return view('llamadashome/instalaciones', compact('message', 'messages'))
+							->with('page_title', 'Instalaciones - Registro')
+							->with('navigation', 'Instalaciones');
+				}
+
+				$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 				// Agregamos el usuario actual como creador y atendedor del registro
 				$data['username_creacion'] = Auth::user()->username;
 				$data['username_atencion'] = Auth::user()->username;
@@ -179,6 +238,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
                 }elseif ($data['tipo_actividad'] == 'OBJETADA') {
@@ -200,6 +260,7 @@ class LlamadasServicioController extends Controller
 						'ComentariosObjetados_Hfc',
 						'username_creacion',
 						'username_atencion',
+						'codigoUnico',
 					];
 	
 					$data = [];
@@ -217,9 +278,65 @@ class LlamadasServicioController extends Controller
 					}
 					// dd($data);
 
+					$numeroOrden = $data['orden_tv_hfc'];
+					$numeroOrden1 = $data['orden_internet_hfc'];
+					$numeroOrden2 = $data['orden_linea_hfc'];
+
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+					$allFields = Tableconfig::getAllFields();
+					$numerosOrden = [$numeroOrden, $numeroOrden1, $numeroOrden2];
+					$existentes = [];
+
+					foreach ($tables as $table => $ordenFields) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								foreach ($ordenFields as $ordenField) {
+									if (in_array($ordenField, $allFields)) {
+										$trabajadoField = $trabajadoFields[$table];
+										$existente = false;
+										
+										foreach ($numerosOrden as $numero) {
+											if (!is_null($numero)) {
+												$existente = DB::table($table)
+													->where($ordenField, $numero)
+													->where($trabajadoField, 'PENDIENTE')
+													->exists();
+
+												if ($existente) {
+													break;
+												}
+											}
+										}
+										
+										$existentes[$table][] = $existente;
+									}
+								}
+							}
+					}
+
+					$existePendiente = false;
+					foreach ($existentes as $table => $records) {
+							if (in_array(true, $records)) {
+								$existePendiente = true;
+								break;
+							}
+					}
+
+					if ($existePendiente) {
+							$message = '¡ERROR!';
+							$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+							return view('llamadashome/instalaciones', compact('message', 'messages'))
+								->with('page_title', 'Instalaciones - Registro')
+								->with('navigation', 'Instalaciones');
+					}
+
+
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+					
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
+					
 
 					$dataHfcObjetada = new InstalacionHfcObjetada($data);
 
@@ -231,6 +348,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
@@ -253,7 +371,7 @@ class LlamadasServicioController extends Controller
 						'ComentariosTransferida_Hfc',
 						'username_creacion',
 						'username_atencion',
-
+						'codigoUnico',
 					];
 	
 					$data = [];
@@ -270,6 +388,61 @@ class LlamadasServicioController extends Controller
 						}
 					}
 					// dd($data);
+
+					$numeroOrden = $data['orden_tv_hfc'];
+					$numeroOrden1 = $data['orden_internet_hfc'];
+					$numeroOrden2 = $data['orden_linea_hfc'];
+
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+					$allFields = Tableconfig::getAllFields();
+					$numerosOrden = [$numeroOrden, $numeroOrden1, $numeroOrden2];
+					$existentes = [];
+
+					foreach ($tables as $table => $ordenFields) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								foreach ($ordenFields as $ordenField) {
+									if (in_array($ordenField, $allFields)) {
+										$trabajadoField = $trabajadoFields[$table];
+										$existente = false;
+										
+										foreach ($numerosOrden as $numero) {
+											if (!is_null($numero)) {
+												$existente = DB::table($table)
+													->where($ordenField, $numero)
+													->where($trabajadoField, 'PENDIENTE')
+													->exists();
+
+												if ($existente) {
+													break;
+												}
+											}
+										}
+										
+										$existentes[$table][] = $existente;
+									}
+								}
+							}
+					}
+
+					$existePendiente = false;
+					foreach ($existentes as $table => $records) {
+							if (in_array(true, $records)) {
+								$existePendiente = true;
+								break;
+							}
+					}
+
+					if ($existePendiente) {
+							$message = '¡ERROR!';
+							$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+							return view('llamadashome/instalaciones', compact('message', 'messages'))
+								->with('page_title', 'Instalaciones - Registro')
+								->with('navigation', 'Instalaciones');
+					}
+
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -284,6 +457,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
@@ -311,7 +485,7 @@ class LlamadasServicioController extends Controller
 					];
 	
 					$data = [];
-	
+
 					// Iteramos por los campos seleccionados del formulario
 					foreach ($selectedFields as $fieldName) {
 						$value = $request->input($fieldName);
@@ -324,9 +498,60 @@ class LlamadasServicioController extends Controller
 						}
 					}
 
+
 					 // Generamos un código único de 8 caracteres
-					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 					// dd($data);
+					$numeroOrden = $data['orden_tv_hfc'];
+					$numeroOrden1 = $data['orden_internet_hfc'];
+					$numeroOrden2 = $data['orden_linea_hfc'];
+
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+					$allFields = Tableconfig::getAllFields();
+					$numerosOrden = [$numeroOrden, $numeroOrden1, $numeroOrden2];
+					$existentes = [];
+
+					foreach ($tables as $table => $ordenFields) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								foreach ($ordenFields as $ordenField) {
+									if (in_array($ordenField, $allFields)) {
+										$trabajadoField = $trabajadoFields[$table];
+										$existente = false;
+										
+										foreach ($numerosOrden as $numero) {
+											if (!is_null($numero)) {
+												$existente = DB::table($table)
+													->where($ordenField, $numero)
+													->where($trabajadoField, 'PENDIENTE')
+													->exists();
+
+												if ($existente) {
+													break;
+												}
+											}
+										}
+										
+										$existentes[$table][] = $existente;
+									}
+								}
+							}
+					}
+
+					$existePendiente = false;
+					foreach ($existentes as $table => $records) {
+							if (in_array(true, $records)) {
+								$existePendiente = true;
+								break;
+							}
+					}
+
+					if ($existePendiente) {
+							$message = '¡ERROR!';
+							$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+							return view('llamadashome/instalaciones', compact('message', 'messages'))
+								->with('page_title', 'Instalaciones - Registro')
+								->with('navigation', 'Instalaciones');
+					}
 
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -371,7 +596,7 @@ class LlamadasServicioController extends Controller
 
 					$data = $request->only($selectedFields);
 
-	
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 					// dd($data);
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -387,6 +612,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
@@ -423,6 +649,7 @@ class LlamadasServicioController extends Controller
 					'MaterialesRedGpon',
 					'username_creacion',
 					'username_atencion',
+					'codigoUnico',
                 ];
 
                 $data = [];
@@ -440,11 +667,65 @@ class LlamadasServicioController extends Controller
 				}
 				// dd($data);
 
+				$numeroOrden = $data['OrdenInternet_Gpon'];
+				$numeroOrden1 = $data['OrdenTv_Gpon'];
+				$numeroOrden2 = $data['OrdenLinea_Gpon'];
+
+				$trabajadoFields = Tableconfig::getTrabajadoFields();
+				$tables = Tableconfig::getTablesAll();
+				$allFields = Tableconfig::getAllFields();
+				$numerosOrden = [$numeroOrden, $numeroOrden1, $numeroOrden2];
+				$existentes = [];
+
+				foreach ($tables as $table => $ordenFields) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							foreach ($ordenFields as $ordenField) {
+								if (in_array($ordenField, $allFields)) {
+									$trabajadoField = $trabajadoFields[$table];
+									$existente = false;
+									
+									foreach ($numerosOrden as $numero) {
+										if (!is_null($numero)) {
+											$existente = DB::table($table)
+												->where($ordenField, $numero)
+												->where($trabajadoField, 'PENDIENTE')
+												->exists();
+
+											if ($existente) {
+												break;
+											}
+										}
+									}
+									
+									$existentes[$table][] = $existente;
+								}
+							}
+						}
+				}
+
+				$existePendiente = false;
+				foreach ($existentes as $table => $records) {
+						if (in_array(true, $records)) {
+							$existePendiente = true;
+							break;
+						}
+				}
+
+				if ($existePendiente) {
+						$message = '¡ERROR!';
+						$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+						return view('llamadashome/instalaciones', compact('message', 'messages'))
+							->with('page_title', 'Instalaciones - Registro')
+							->with('navigation', 'Instalaciones');
+				}
+
 				// Agregamos el usuario actual como creador y atendedor del registro
 				$data['username_creacion'] = Auth::user()->username;
 				$data['username_atencion'] = Auth::user()->username;
 
-				
+
+				$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['tipo_actividadGpon'] == 'REALIZADA') {
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
@@ -459,6 +740,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
                 }elseif ($data['tipo_actividadGpon'] == 'OBJETADA') {
@@ -496,6 +778,60 @@ class LlamadasServicioController extends Controller
 						}
 					}
 					// dd($data);
+					$numeroOrden = $data['OrdenInternet_Gpon'];
+					$numeroOrden1 = $data['OrdenTv_Gpon'];
+					$numeroOrden2 = $data['OrdenLinea_Gpon'];
+
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+					$allFields = Tableconfig::getAllFields();
+					$numerosOrden = [$numeroOrden, $numeroOrden1, $numeroOrden2];
+					$existentes = [];
+
+					foreach ($tables as $table => $ordenFields) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							foreach ($ordenFields as $ordenField) {
+								if (in_array($ordenField, $allFields)) {
+									$trabajadoField = $trabajadoFields[$table];
+									$existente = false;
+									
+									foreach ($numerosOrden as $numero) {
+										if (!is_null($numero)) {
+											$existente = DB::table($table)
+												->where($ordenField, $numero)
+												->where($trabajadoField, 'PENDIENTE')
+												->exists();
+
+											if ($existente) {
+												break;
+											}
+										}
+									}
+									
+									$existentes[$table][] = $existente;
+								}
+							}
+						}
+					}
+
+					$existePendiente = false;
+					foreach ($existentes as $table => $records) {
+						if (in_array(true, $records)) {
+							$existePendiente = true;
+							break;
+						}
+					}
+
+					if ($existePendiente) {
+						$message = '¡ERROR!';
+						$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+						return view('llamadashome/instalaciones', compact('message', 'messages'))
+							->with('page_title', 'Instalaciones - Registro')
+							->with('navigation', 'Instalaciones');
+					}
+
+
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -511,6 +847,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
@@ -550,6 +887,61 @@ class LlamadasServicioController extends Controller
 						}
 					}
 					// dd($data);
+					$numeroOrden = $data['OrdenInternet_Gpon'];
+					$numeroOrden1 = $data['OrdenTv_Gpon'];
+					$numeroOrden2 = $data['OrdenLinea_Gpon'];
+
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+					$allFields = Tableconfig::getAllFields();
+					$numerosOrden = [$numeroOrden, $numeroOrden1, $numeroOrden2];
+					$existentes = [];
+
+					foreach ($tables as $table => $ordenFields) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							foreach ($ordenFields as $ordenField) {
+								if (in_array($ordenField, $allFields)) {
+									$trabajadoField = $trabajadoFields[$table];
+									$existente = false;
+									
+									foreach ($numerosOrden as $numero) {
+										if (!is_null($numero)) {
+											$existente = DB::table($table)
+												->where($ordenField, $numero)
+												->where($trabajadoField, 'PENDIENTE')
+												->exists();
+
+											if ($existente) {
+												break;
+											}
+										}
+									}
+									
+									$existentes[$table][] = $existente;
+								}
+							}
+						}
+					}
+
+					$existePendiente = false;
+					foreach ($existentes as $table => $records) {
+						if (in_array(true, $records)) {
+							$existePendiente = true;
+							break;
+						}
+					}
+
+					if ($existePendiente) {
+						$message = '¡ERROR!';
+						$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+						return view('llamadashome/instalaciones', compact('message', 'messages'))
+							->with('page_title', 'Instalaciones - Registro')
+							->with('navigation', 'Instalaciones');
+					}
+
+					
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -565,6 +957,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
@@ -587,7 +980,7 @@ class LlamadasServicioController extends Controller
 						'ComentarioAnulada_Gpon',
 						'username_creacion',
 						'username_atencion',
-
+						'codigoUnico',
 					];
 	
 					$data = [];
@@ -605,23 +998,77 @@ class LlamadasServicioController extends Controller
 					}
 					// dd($data);
 
+					$numeroOrden = $data['OrdenInternet_Gpon'];
+					$numeroOrden1 = $data['OrdenTv_Gpon'];
+					$numeroOrden2 = $data['OrdenLinea_Gpon'];
+
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+					$allFields = Tableconfig::getAllFields();
+					$numerosOrden = [$numeroOrden, $numeroOrden1, $numeroOrden2];
+					$existentes = [];
+
+					foreach ($tables as $table => $ordenFields) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							foreach ($ordenFields as $ordenField) {
+								if (in_array($ordenField, $allFields)) {
+									$trabajadoField = $trabajadoFields[$table];
+									$existente = false;
+									
+									foreach ($numerosOrden as $numero) {
+										if (!is_null($numero)) {
+											$existente = DB::table($table)
+												->where($ordenField, $numero)
+												->where($trabajadoField, 'PENDIENTE')
+												->exists();
+
+											if ($existente) {
+												break;
+											}
+										}
+									}
+									
+									$existentes[$table][] = $existente;
+								}
+							}
+						}
+					}
+
+					$existePendiente = false;
+					foreach ($existentes as $table => $records) {
+						if (in_array(true, $records)) {
+							$existePendiente = true;
+							break;
+						}
+					}
+
+					if ($existePendiente) {
+						$message = '¡ERROR!';
+						$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+						return view('llamadashome/instalaciones', compact('message', 'messages'))
+							->with('page_title', 'Instalaciones - Registro')
+							->with('navigation', 'Instalaciones');
+					}
+					
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
 
-					$dataGponAnulada= new InstalacionGponAnulada($data);
+					$dataGponAnulacion= new InstalacionGponAnulada($data);
 
-                    // Guardamos la instancia en la base de datos
-                    $dataGponAnulada->save();
+					// Guardamos la instancia en la base de datos
+					$dataGponAnulacion->save();
 
 					$message = "¡EXITO!";
-					$messages = "REGISTRO GPON ANULADO COMPLETADO";
-                    return view('llamadashome/instalaciones')
+					$messages = "REGISTRO GPON ANULACION COMPLETADO";
+					return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
-                        ->with('page_title', 'Instalaciones - Registro')
-                        ->with('navigation', 'Instalaciones');
-					
+						->with('codigoUnico', $data['codigoUnico'])
+						->with('page_title', 'Instalaciones - Registro')
+						->with('navigation', 'Instalaciones');
                 }		
                 break;
             case 'COBRE':
@@ -644,6 +1091,7 @@ class LlamadasServicioController extends Controller
 					'MaterialesCobre',
 					'username_creacion',
 					'username_atencion',
+					'codigoUnico',
                 ];
 
                 $data = [];
@@ -660,6 +1108,32 @@ class LlamadasServicioController extends Controller
 					}
 				}
 				// dd($data);
+
+				$numeroOrden = $data['OrdenLineaCobre']; 
+					
+				$trabajadoFields = Tableconfig::getTrabajadoFields();
+				$tables = Tableconfig::getTables();
+
+				foreach ($tables as $table => $ordenField) {
+					if (array_key_exists($table, $trabajadoFields)) {
+						$trabajadoField = $trabajadoFields[$table];
+						$trabajadoRecord = DB::table($table)
+							->where($ordenField, $numeroOrden)
+							->where($trabajadoField, 'PENDIENTE')
+							->exists();
+
+						if ($trabajadoRecord) {
+							$message = '¡ERROR!';
+							$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+							return view('llamadashome/instalaciones', compact('message', 'messages'))
+								->with('page_title', 'Instalaciones - Registro')
+								->with('navigation', 'Instalaciones');
+						}
+					}
+				}
+			 
+				// Generamos un código único de 8 caracteres
+				$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 				// Agregamos el usuario actual como creador y atendedor del registro
 				$data['username_creacion'] = Auth::user()->username;
@@ -680,6 +1154,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
                 }
@@ -700,6 +1175,7 @@ class LlamadasServicioController extends Controller
 						'ComentariosCobre_Objetados',
 						'username_creacion',
 						'username_atencion',
+						'codigoUnico',
 					];
 	
 					$data = [];
@@ -717,6 +1193,32 @@ class LlamadasServicioController extends Controller
 					}
 					// dd($data);
 
+					$numeroOrden = $data['OrdenCobre_Objetada']; 
+					
+   					$trabajadoFields = Tableconfig::getTrabajadoFields();
+    				$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/instalaciones', compact('message', 'messages'))
+									->with('page_title', 'Instalaciones - Registro')
+									->with('navigation', 'Instalaciones');
+							}
+						}
+					}
+					
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -731,6 +1233,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
@@ -751,6 +1254,7 @@ class LlamadasServicioController extends Controller
 						'ComentarioAnulada_Cobre',
 						'username_creacion',
 						'username_atencion',
+						'codigoUnico',
 					];
 	
 					$data = [];
@@ -768,6 +1272,33 @@ class LlamadasServicioController extends Controller
 					}
 					// dd($data);
 
+					$numeroOrden = $data['OrdenAnuladaCobre']; 
+					
+   					$trabajadoFields = Tableconfig::getTrabajadoFields();
+    				$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/instalaciones', compact('message', 'messages'))
+									->with('page_title', 'Instalaciones - Registro')
+									->with('navigation', 'Instalaciones');
+							}
+						}
+					}
+					
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -779,11 +1310,11 @@ class LlamadasServicioController extends Controller
 
 					$message = "¡EXITO!";
 					$messages = "REGISTRO COBRE ANULACION COMPLETADO";
-
 					
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 						
@@ -804,7 +1335,7 @@ class LlamadasServicioController extends Controller
 					'SyrengDth',
 					'GeoreferenciaDth',
 					'sap_dth',
-					'TrabajadoDth',
+					'TrabajadoDthRealizado',
 					'SmarcardDth1',
 					'SmarcardDth2',
 					'SmarcardDth3',
@@ -827,9 +1358,9 @@ class LlamadasServicioController extends Controller
                 // Iteramos por los campos seleccionados del formulario
 				foreach ($selectedFields as $fieldName) {
 					$value = $request->input($fieldName);
-					if ($fieldName === 'TrabajadoDth' && $request->has('TrabajadoDth')) {
+					if ($fieldName === 'TrabajadoDthRealizado' && $request->has('TrabajadoDthRealizado')) {
 						$data[$fieldName] = 'TRABAJADO';
-					} elseif ($fieldName === 'TrabajadoDth') {
+					} elseif ($fieldName === 'TrabajadoDthRealizado') {
 						$data[$fieldName] = 'PENDIENTE';
 					} else {
 						$data[$fieldName] = $value;
@@ -840,7 +1371,33 @@ class LlamadasServicioController extends Controller
 				// Agregamos el usuario actual como creador y atendedor del registro
 				$data['username_creacion'] = Auth::user()->username;
 				$data['username_atencion'] = Auth::user()->username;
-				
+
+				$numeroOrden = $data['ordenTv_Dth']; 
+					
+   				$trabajadoFields = Tableconfig::getTrabajadoFields();
+    			$tables = Tableconfig::getTables();
+
+				foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/instalaciones', compact('message', 'messages'))
+									->with('page_title', 'Instalaciones - Registro')
+									->with('navigation', 'Instalaciones');
+							}
+						}
+					}
+					
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['tipo_actividadDth'] == 'REALIZADA') {
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
@@ -855,6 +1412,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
                 }elseif ($data['tipo_actividadDth'] == 'OBJETADA') {
@@ -874,6 +1432,7 @@ class LlamadasServicioController extends Controller
 						'ComentarioObjetado_Dth',
 						'username_creacion',
 						'username_atencion',
+						'codigoUnico',
 					];
 	
 					$data = [];
@@ -891,6 +1450,32 @@ class LlamadasServicioController extends Controller
 					}
 					// dd($data);
 
+					$numeroOrden = $data['OrdenObj_Dth']; 
+					
+   					$trabajadoFields = Tableconfig::getTrabajadoFields();
+    				$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/instalaciones', compact('message', 'messages'))
+									->with('page_title', 'Instalaciones - Registro')
+									->with('navigation', 'Instalaciones');
+							}
+						}
+					}
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -905,6 +1490,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
@@ -925,9 +1511,11 @@ class LlamadasServicioController extends Controller
 						'ComentarioAnulada_Dth',
 						'username_creacion',
 						'username_atencion',
+						'codigoUnico',
 					];
 	
 					$data = [];
+
 	
 					// Iteramos por los campos seleccionados del formulario
 					foreach ($selectedFields as $fieldName) {
@@ -941,6 +1529,33 @@ class LlamadasServicioController extends Controller
 						}
 					}
 					// dd($data);
+
+					$numeroOrden = $data['OrdenAnulada_Dth'];
+					
+   					$trabajadoFields = Tableconfig::getTrabajadoFields();
+    				$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/instalaciones', compact('message', 'messages'))
+									->with('page_title', 'Instalaciones - Registro')
+									->with('navigation', 'Instalaciones');
+							}
+						}
+					}
+
+					
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -958,6 +1573,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 						
@@ -978,7 +1594,7 @@ class LlamadasServicioController extends Controller
 						'ComentarioRefresh_Dth',
 						'username_creacion',
 						'username_atencion',
-
+						'codigoUnico',
 					];
 	
 					$data = [];
@@ -986,6 +1602,10 @@ class LlamadasServicioController extends Controller
 					$data = $request->only($selectedFields);
 					
 					// dd($data);
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+					
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -1000,6 +1620,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
@@ -1023,6 +1644,7 @@ class LlamadasServicioController extends Controller
                     'Materiales_Adsl',
 					'username_creacion',
 					'username_atencion',
+					'codigoUnico',
                 ];
 
                 $data = [];
@@ -1039,6 +1661,32 @@ class LlamadasServicioController extends Controller
 					}
 				}
 				// dd($data);
+
+				$numeroOrden = $data['orden_internet_adsl']; 
+					
+   				$trabajadoFields = Tableconfig::getTrabajadoFields();
+    			$tables = Tableconfig::getTables();
+
+				foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/instalaciones', compact('message', 'messages'))
+									->with('page_title', 'Instalaciones - Registro')
+									->with('navigation', 'Instalaciones');
+							}
+						}
+				}
+					
+					// Generamos un código único de 8 caracteres
+				$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 				// Agregamos el usuario actual como creador y atendedor del registro
 				$data['username_creacion'] = Auth::user()->username;
@@ -1059,6 +1707,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
                 } elseif ($data['tipo_actividadAdsl'] == 'OBJETADA') {
@@ -1078,6 +1727,7 @@ class LlamadasServicioController extends Controller
 						'ComentariosObjetada_Adsl',
 						'username_creacion',
 						'username_atencion',
+						'codigoUnico',
 					];
 	
 					$data = [];
@@ -1094,7 +1744,33 @@ class LlamadasServicioController extends Controller
 						}
 					}
 					// dd($data);
+
+					$numeroOrden = $data['OrdenAdsl_Objetada']; 
 					
+   					$trabajadoFields = Tableconfig::getTrabajadoFields();
+    				$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/instalaciones', compact('message', 'messages'))
+									->with('page_title', 'Instalaciones - Registro')
+									->with('navigation', 'Instalaciones');
+							}
+						}
+					}
+					
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -1109,6 +1785,7 @@ class LlamadasServicioController extends Controller
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
                         ->with('page_title', 'Instalaciones - Registro')
                         ->with('navigation', 'Instalaciones');
 					
@@ -1129,6 +1806,7 @@ class LlamadasServicioController extends Controller
 						'ComentarioAnulada_Adsl',
 						'username_creacion',
 						'username_atencion',
+						'codigoUnico',
 					];
 
 	
@@ -1147,6 +1825,31 @@ class LlamadasServicioController extends Controller
 					}
 					// dd($data);
 
+					$numeroOrden = $data['OrdenAnuladaAdsl']; 
+					
+   					$trabajadoFields = Tableconfig::getTrabajadoFields();
+    				$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/instalaciones', compact('message', 'messages'))
+									->with('page_title', 'Instalaciones - Registro')
+									->with('navigation', 'Instalaciones');
+							}
+						}
+					}
+					
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -1155,35 +1858,17 @@ class LlamadasServicioController extends Controller
 					$dataAdslAnulada = new InstalacionAdslAnulada($data);
 
                     // Guardamos la instancia en la base de datos
-					try {
-						// Guardamos la instancia en la base de datos
-						$dataAdslAnulada->save();
-					
-						$message = "¡Éxito!";
-						$messages = "Registro ADSL Anulado Completado";
-						$success = true;
-					
-						return view('llamadashome/instalaciones')
-							->with('message', $message)
-							->with('messages', $messages)
-							->with('success', $success)
-							->with('page_title', 'Instalaciones - Registro')
-							->with('navigation', 'Instalaciones');
-					} catch (\Exception $e) {
-						// En caso de error, mostrar mensaje de error
-						$message = "Error";
-						$messages = "No se pudo guardar el registro de ADSL anulado";
-						$success = false;
-					
-						return view('llamadashome/instalaciones')
-							->with('message', $message)
-							->with('messages', $messages)
-							->with('success', $success)
-							->with('page_title', 'Instalaciones - Registro')
-							->with('navigation', 'Instalaciones');
-					}
-					
-					
+                    $dataAdslAnulada->save();
+
+					$message = "¡EXITO!";
+					$messages = "REGISTRO ADSL ANULACION COMPLETADO";
+                    return view('llamadashome/instalaciones')
+						->with('message', $message)
+						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
+                        ->with('page_title', 'Instalaciones - Registro')
+                        ->with('navigation', 'Instalaciones');
+
                 }
 
                 break;

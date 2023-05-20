@@ -22,5 +22,6 @@ class InstalacionesDthRefresh extends Model
         'ComentarioRefresh_Dth',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico'
     ];
 }

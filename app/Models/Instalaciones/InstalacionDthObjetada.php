@@ -23,5 +23,6 @@ class InstalacionDthObjetada extends Model
         'ComentarioObjetado_Dth',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

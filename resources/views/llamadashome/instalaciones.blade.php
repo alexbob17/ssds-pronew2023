@@ -954,8 +954,8 @@
 
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="TrabajadoDth"
-                                            name="TrabajadoDth" />
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoDthRealizado"
+                                            name="TrabajadoDthRealizado" />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Trabajado
                                         </label>
@@ -2009,15 +2009,24 @@
 
 @if(isset($message))
 <script>
+@if($message == '¡EXITO!')
 Swal.fire({
     icon: "success",
     title: "{{$message}}",
-    html: "<h5>{{$messages}}</h5> <br> <h5>Código: <b>{{$codigoUnico}}</b></h5>",
+    html: "<h5>{{$messages}}</h5> <br> <h4>Código: <b>{{$codigoUnico}}</b></h4>",
     showConfirmButton: true,
 });
+@else
+Swal.fire({
+    icon: "error",
+    title: "{{$message}}",
+    html: "<h5>{{$messages}}</h5>",
+    showConfirmButton: true,
+    confirmButtonColor: '#363a39'
+});
+@endif
 </script>
 @endif
-
 
 <script>
 window.onload = function() {
@@ -2060,131 +2069,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    var checkbox = document.getElementById("TrabajadoAdsl");
-    actualizarTextoCheckbox(checkbox);
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
 
-    checkbox.addEventListener("change", function() {
+    checkboxes.forEach(function(checkbox) {
         actualizarTextoCheckbox(checkbox);
-    });
 
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxAdslObjetado = document.getElementById("TrabajadoAdslObjetado");
-    actualizarTextoCheckbox(checkboxAdslObjetado);
-
-    checkboxAdslObjetado.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxAdslObjetado);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxCobre = document.getElementById("TrabajadoCobre");
-    actualizarTextoCheckbox(checkboxCobre);
-
-    checkboxCobre.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxCobre);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxCobreObjetado = document.getElementById("TrabajadoCobre_Objetado");
-    actualizarTextoCheckbox(checkboxCobreObjetado);
-
-    checkboxCobreObjetado.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxCobreObjetado);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxDth = document.getElementById("TrabajadoDth");
-    actualizarTextoCheckbox(checkboxDth);
-
-    checkboxDth.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxDth);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxGpon = document.getElementById("TrabajadoGpon");
-    actualizarTextoCheckbox(checkboxGpon);
-
-    checkboxGpon.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxGpon);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxGponObjetado = document.getElementById("TrabajadoGpon_Objetado");
-    actualizarTextoCheckbox(checkboxGponObjetado);
-
-    checkboxGponObjetado.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxGponObjetado);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxGponTransferido = document.getElementById("TrabajadoTransferido_Gpon");
-    actualizarTextoCheckbox(checkboxGponTransferido);
-
-    checkboxGponTransferido.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxGponTransferido);
-    });
-
-    function actualizarTextoCheckbox(checkbox) {
-        if (checkbox.checked) {
-            checkbox.value = "TRABAJADO";
-        } else {
-            checkbox.value = "PENDIENTE";
-        }
-    }
-
-    var checkboxGponTrabajadoHfc = document.getElementById("TrabajadoHfc");
-    actualizarTextoCheckbox(checkboxGponTrabajadoHfc);
-
-    checkboxGponTrabajadoHfc.addEventListener("change", function() {
-        actualizarTextoCheckbox(checkboxGponTrabajadoHfc);
+        checkbox.addEventListener("change", function() {
+            actualizarTextoCheckbox(checkbox);
+        });
     });
 
     function actualizarTextoCheckbox(checkbox) {

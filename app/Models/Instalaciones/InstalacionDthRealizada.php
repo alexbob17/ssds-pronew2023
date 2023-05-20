@@ -21,7 +21,7 @@ class InstalacionDthRealizada extends Model
         'SyrengDth',
         'GeoreferenciaDth',
         'sap_dth',
-        'TrabajadoDth',
+        'TrabajadoDthRealizado',
         'SmarcardDth1',
         'SmarcardDth2',
         'SmarcardDth3',
@@ -37,5 +37,6 @@ class InstalacionDthRealizada extends Model
         'MaterialesDth',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

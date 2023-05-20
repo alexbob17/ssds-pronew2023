@@ -161,6 +161,8 @@ class BusquedaController extends Controller
 				'instalaciongpon_realizada' => ['TrabajadoGpon'],
 				'instalaciongpon_transferida' => ['TrabajadoTransferido_Gpon'],
 				'instalaciondth_anulada' => ['TrabajadoAnulada_Dth'],
+				'instalaciondth_objetada' => ['TrabajadoObj_Dth'],
+				'instalaciondth_realizada' => ['TrabajadoDthRealizado'],
 				'instalacioncobre_realizada' => ['TrabajadoCobre'],
 				'instalacioncobre_objetado' => ['TrabajadoCobre_Objetado'],
 				'instalacioncobre_anulada' => ['TrabajadoAnulada_Cobre'],

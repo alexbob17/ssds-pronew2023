@@ -24,6 +24,8 @@ class InstalacionAdslObjetada extends Model
 	    'ComentariosObjetada_Adsl',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
+
     ];
     
 }

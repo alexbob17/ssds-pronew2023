@@ -23,5 +23,6 @@ class InstalacionDthAnulada extends Model
         'ComentarioAnulada_Dth',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

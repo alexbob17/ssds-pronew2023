@@ -25,5 +25,6 @@ class InstalacionHfcTransferida extends Model
         'ComentariosTransferida_Hfc',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

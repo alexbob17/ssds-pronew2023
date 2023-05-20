@@ -25,5 +25,6 @@ class InstalacionGponTransferida extends Model
         'ComentarioTransferido_Gpon',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

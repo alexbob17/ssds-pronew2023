@@ -39,6 +39,6 @@ class InstalacionGponRealizada extends Model
         'MaterialesRedGpon',
         'username_creacion',
 		'username_atencion',
-    
+        'codigoUnico',
     ];
 }

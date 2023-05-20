@@ -23,5 +23,6 @@ class InstalacionCobreAnulada extends Model
         'ComentarioAnulada_Cobre',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

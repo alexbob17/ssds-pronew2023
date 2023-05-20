@@ -24,5 +24,6 @@ class InstalacionesRefresh extends Model
         'ComentarioRefresh_Hfc',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

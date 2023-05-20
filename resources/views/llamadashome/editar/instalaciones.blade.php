@@ -1036,9 +1036,9 @@
 
                                 <div class="form-group col-md-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="TrabajadoDth"
-                                            name="TrabajadoDth"
-                                            {{ $registro->TrabajadoDth === 'TRABAJADO' ? 'checked' : '' }} />
+                                        <input class="form-check-input" type="checkbox" id="TrabajadoDthRealizado"
+                                            name="TrabajadoDthRealizado"
+                                            {{ $registro->TrabajadoDthRealizado === 'TRABAJADO' ? 'checked' : '' }} />
                                         <label class="form-check-label" for="flexCheckDefault">
                                             Trabajado
                                         </label>

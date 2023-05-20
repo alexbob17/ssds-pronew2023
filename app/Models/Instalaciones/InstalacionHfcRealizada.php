@@ -40,5 +40,7 @@ class InstalacionHfcRealizada extends Model
         'MaterialesHfc',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
+
     ];
 }

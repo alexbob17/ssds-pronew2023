@@ -26,5 +26,7 @@ class InstalacionAdslRealizada extends Model
         'Materiales_Adsl',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
+
     ];
 }

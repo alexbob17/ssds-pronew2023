@@ -25,5 +25,6 @@ class InstalacionGponObjetada extends Model
         'ComentariosGpon_Objetada',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

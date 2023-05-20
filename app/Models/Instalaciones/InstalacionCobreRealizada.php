@@ -28,5 +28,6 @@ class InstalacionCobreRealizada extends Model
         'MaterialesCobre',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }
