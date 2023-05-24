@@ -78,7 +78,11 @@ use SSD\Models\Postventas\PostventaTrasladoHfc_Anulado;
 use SSD\Models\Postventas\PostventaTrasladoHfc_Objetado;
 use SSD\Models\Postventas\PostventaTrasladoHfc_Realizado;
 
+use Illuminate\Support\Facades\DB;
 
+use SSD\Tableconfig;
+
+use Illuminate\Support\Arr;
 
 
 
@@ -102,7 +106,6 @@ class PostventasController extends Controller
 		$Select_Postventa = $request->input("Select_Postventa");
 
 		$key = $Select_Postventa . '|' . $tecnologia;
-
 
         // Evaluamos la tecnología seleccionada
         switch ($key) {
@@ -145,16 +148,58 @@ class PostventasController extends Controller
 					}
 				}
 
-				
-				// dd($data);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
-
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadTrasladoHfc'] == 'REALIZADA') {
+
+					$numeroOrden1 = $data['OrdenTvObjetadoTrasladoHfc'];
+					$numeroOrden2 = $data['OrdenIntObjTrasladoHfc'];
+					$numeroOrden3 = $data['OrdenLineaObjetadoTrasladoHfc'];
+
+					
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+
+					foreach ($tables as $table => $ordenFields) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $numeroOrden3, $trabajadoField) {
+									$query->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $trabajadoField) {
+										if (count($ordenFields) >= 2) {
+											$query->where($ordenFields[0], $numeroOrden1)
+												->orWhere($ordenFields[1], $numeroOrden2);
+										} else {
+											$query->where($ordenFields[0], $numeroOrden1);
+										}
+									})
+									->orWhere(function ($query) use ($ordenFields, $numeroOrden3, $trabajadoField) {
+										if (count($ordenFields) >= 3) {
+											$query->where($ordenFields[2], $numeroOrden3);
+										}
+									})
+									->where($trabajadoField, 'PENDIENTE');
+								})
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/instalaciones', compact('message', 'messages'))
+									->with('page_title', 'Instalaciones - Registro')
+									->with('navigation', 'Instalaciones');
+							}
+						}
+					}
+
+					// dd($data);
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					// dd($data);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataTrasladoHfcRealizada = new PostventaTrasladoHfc_Realizado($data);
 
@@ -167,6 +212,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -207,6 +253,50 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden1 = $data['OrdenTvObjetadoTrasladoHfc'];
+					$numeroOrden2 = $data['OrdenIntObjTrasladoHfc'];
+					$numeroOrden3 = $data['OrdenLineaObjetadoTrasladoHfc'];
+
+					
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+
+					foreach ($tables as $table => $ordenFields) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $numeroOrden3, $trabajadoField) {
+									$query->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $trabajadoField) {
+										if (count($ordenFields) >= 2) {
+											$query->where($ordenFields[0], $numeroOrden1)
+												->orWhere($ordenFields[1], $numeroOrden2);
+										} else {
+											$query->where($ordenFields[0], $numeroOrden1);
+										}
+									})
+									->orWhere(function ($query) use ($ordenFields, $numeroOrden3, $trabajadoField) {
+										if (count($ordenFields) >= 3) {
+											$query->where($ordenFields[2], $numeroOrden3);
+										}
+									})
+									->where($trabajadoField, 'PENDIENTE');
+								})
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/instalaciones', compact('message', 'messages'))
+									->with('page_title', 'Instalaciones - Registro')
+									->with('navigation', 'Instalaciones');
+							}
+						}
+					}
+
+					// dd($data);
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -222,6 +312,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -261,6 +352,50 @@ class PostventasController extends Controller
 						}
 					}
 
+					
+					$numeroOrden1 = $data['OrdenTvAnulTraslHfc'];
+					$numeroOrden2 = $data['OrdenInterAnulTraslHfc'];
+					$numeroOrden3 = $data['OrdenLineaAnulTraslHfc'];
+
+					
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+
+					foreach ($tables as $table => $ordenFields) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $numeroOrden3, $trabajadoField) {
+									$query->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $trabajadoField) {
+										if (count($ordenFields) >= 2) {
+											$query->where($ordenFields[0], $numeroOrden1)
+												->orWhere($ordenFields[1], $numeroOrden2);
+										} else {
+											$query->where($ordenFields[0], $numeroOrden1);
+										}
+									})
+									->orWhere(function ($query) use ($ordenFields, $numeroOrden3, $trabajadoField) {
+										if (count($ordenFields) >= 3) {
+											$query->where($ordenFields[2], $numeroOrden3);
+										}
+									})
+									->where($trabajadoField, 'PENDIENTE');
+								})
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/instalaciones', compact('message', 'messages'))
+									->with('page_title', 'Instalaciones - Registro')
+									->with('navigation', 'Instalaciones');
+							}
+						}
+					}
+
+					// dd($data);
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 
 					// Agregamos el usuario actual como creador y atendedor del registro
@@ -278,6 +413,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -316,6 +452,48 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden1 = $data['OrdenTvTransferidoHfc'];
+					$numeroOrden2 = $data['OrdenInternetTransferidoHfc'];
+					$numeroOrden3 = $data['OrdenLineaTransferidoHfc'];
+
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+
+					foreach ($tables as $table => $ordenFields) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $numeroOrden3, $trabajadoField) {
+									$query->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $trabajadoField) {
+										if (count($ordenFields) >= 2) {
+											$query->where($ordenFields[0], $numeroOrden1)
+												->orWhere($ordenFields[1], $numeroOrden2);
+										} else {
+											$query->where($ordenFields[0], $numeroOrden1);
+										}
+									})
+									->orWhere(function ($query) use ($ordenFields, $numeroOrden3, $trabajadoField) {
+										if (count($ordenFields) >= 3) {
+											$query->where($ordenFields[2], $numeroOrden3);
+										}
+									})
+									->where($trabajadoField, 'PENDIENTE');
+								})
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/postventa', compact('message', 'messages'))
+									->with('page_title', 'Postventa - Registro')
+									->with('navigation', 'Postventa');
+							}
+						}
+					}
+
+					// dd($data);
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 
 					// Agregamos el usuario actual como creador y atendedor del registro
@@ -333,6 +511,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -377,15 +556,55 @@ class PostventasController extends Controller
 				}
 
 				
-				// dd($data);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
-
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadTrasladoGpon'] == 'REALIZADA') {
+
+					$numeroOrden1 = $data['OrdenInternetTrasladoGpon'];
+					$numeroOrden2 = $data['OrdenTvTrasladoGpon'];
+					$numeroOrden3 = $data['OrdenLineaTrasladoGpon'];
+
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+
+					foreach ($tables as $table => $ordenFields) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $numeroOrden3, $trabajadoField) {
+									$query->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $trabajadoField) {
+										if (count($ordenFields) >= 2) {
+											$query->where($ordenFields[0], $numeroOrden1)
+												->orWhere($ordenFields[1], $numeroOrden2);
+										} else {
+											$query->where($ordenFields[0], $numeroOrden1);
+										}
+									})
+									->orWhere(function ($query) use ($ordenFields, $numeroOrden3, $trabajadoField) {
+										if (count($ordenFields) >= 3) {
+											$query->where($ordenFields[2], $numeroOrden3);
+										}
+									})
+									->where($trabajadoField, 'PENDIENTE');
+								})
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/postventa', compact('message', 'messages'))
+									->with('page_title', 'Postventa - Registro')
+									->with('navigation', 'Postventa');
+							}
+						}
+					}
+
+					// dd($data);
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataTrasladoGponRealizada = new PostventaTrasladoGpon_Realizado($data);
 
@@ -398,6 +617,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -438,6 +658,47 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden1 = $data['OrdenTvTrasladoObjGpon'];
+					$numeroOrden2 = $data['OrdenInterObjTraslGpon'];
+					$numeroOrden3 = $data['OrdenLineaTraslObjGpon'];
+
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+
+					foreach ($tables as $table => $ordenFields) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $numeroOrden3, $trabajadoField) {
+									$query->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $trabajadoField) {
+										if (count($ordenFields) >= 2) {
+											$query->where($ordenFields[0], $numeroOrden1)
+												->orWhere($ordenFields[1], $numeroOrden2);
+										} else {
+											$query->where($ordenFields[0], $numeroOrden1);
+										}
+									})
+									->orWhere(function ($query) use ($ordenFields, $numeroOrden3, $trabajadoField) {
+										if (count($ordenFields) >= 3) {
+											$query->where($ordenFields[2], $numeroOrden3);
+										}
+									})
+									->where($trabajadoField, 'PENDIENTE');
+								})
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/postventa', compact('message', 'messages'))
+									->with('page_title', 'Postventa - Registro')
+									->with('navigation', 'Postventa');
+							}
+						}
+					}
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -453,6 +714,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -491,9 +753,47 @@ class PostventasController extends Controller
 							$data[$fieldName] = $value;
 						}
 					}
+					
+					$numeroOrden1 = $data['OrdenTvTraslAnuladoGpon'];
+					$numeroOrden2 = $data['OrdenIntTrasladoAnulGpon'];
+					$numeroOrden3 = $data['OrdenLineaTraslAnulGpon'];
 
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
 
+					foreach ($tables as $table => $ordenFields) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $numeroOrden3, $trabajadoField) {
+									$query->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $trabajadoField) {
+										if (count($ordenFields) >= 2) {
+											$query->where($ordenFields[0], $numeroOrden1)
+												->orWhere($ordenFields[1], $numeroOrden2);
+										} else {
+											$query->where($ordenFields[0], $numeroOrden1);
+										}
+									})
+									->orWhere(function ($query) use ($ordenFields, $numeroOrden3, $trabajadoField) {
+										if (count($ordenFields) >= 3) {
+											$query->where($ordenFields[2], $numeroOrden3);
+										}
+									})
+									->where($trabajadoField, 'PENDIENTE');
+								})
+								->exists();
 
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/postventa', compact('message', 'messages'))
+									->with('page_title', 'Postventa - Registro')
+									->with('navigation', 'Postventa');
+							}
+						}
+					}
+
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -509,6 +809,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -549,6 +850,48 @@ class PostventasController extends Controller
 
 
 
+					$numeroOrden1 = $data['OrdenTvTrasladoTransGpon'];
+					$numeroOrden2 = $data['OrdenIntTransladoGpon'];
+					$numeroOrden3 = $data['OrdenLineaTrasladoTransGpon'];
+
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+
+					foreach ($tables as $table => $ordenFields) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $numeroOrden3, $trabajadoField) {
+									$query->where(function ($query) use ($ordenFields, $numeroOrden1, $numeroOrden2, $trabajadoField) {
+										if (count($ordenFields) >= 2) {
+											$query->where($ordenFields[0], $numeroOrden1)
+												->orWhere($ordenFields[1], $numeroOrden2);
+										} else {
+											$query->where($ordenFields[0], $numeroOrden1);
+										}
+									})
+									->orWhere(function ($query) use ($ordenFields, $numeroOrden3, $trabajadoField) {
+										if (count($ordenFields) >= 3) {
+											$query->where($ordenFields[2], $numeroOrden3);
+										}
+									})
+									->where($trabajadoField, 'PENDIENTE');
+								})
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/postventa', compact('message', 'messages'))
+									->with('page_title', 'Postventa - Registro')
+									->with('navigation', 'Postventa');
+							}
+						}
+					}
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -564,9 +907,9 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
-
 				}
                 break;
 			case 'TRASLADO|ADSL':
@@ -614,6 +957,31 @@ class PostventasController extends Controller
 
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadTrasladoAdsl'] == 'REALIZADA') {
+
+					$numeroOrden = $data['NOrdenTrasladosAdsl']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataTrasladoAdslRealizada = new PostventaTrasladoAdsl_Realizado($data);
 
@@ -626,6 +994,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -664,6 +1033,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenObjTrasladoAdsl']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -679,6 +1073,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -716,6 +1111,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['NOrdenTrasladosAnulAdsl']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 
 
 					// Agregamos el usuario actual como creador y atendedor del registro
@@ -733,6 +1153,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -772,17 +1193,40 @@ class PostventasController extends Controller
 						$data[$fieldName] = $value;
 					}
 				}
-
 				
 				// dd($data);
 
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
-
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadTrasladoCobre'] == 'REALIZADA') {
+
+					$numeroOrden = $data['OrdenTrasladoCobre']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataTrasladoCobreRealizada = new PostventaTrasladoCobre_Realizado($data);
 
@@ -795,6 +1239,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -833,6 +1278,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenTrasladoObjCobres']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -842,12 +1312,12 @@ class PostventasController extends Controller
 					// Guardamos la instancia en la base de datos
 					$dataTrasladoCobreObj->save();
 
-
 					$message = "¡EXITO!";
 					$messages = "REGISTRO OBJETADO COMPLETO";
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -885,7 +1355,30 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenTrasladosCobre']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
 
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -902,6 +1395,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -941,17 +1435,39 @@ class PostventasController extends Controller
 						$data[$fieldName] = $value;
 					}
 				}
-
-				
 				// dd($data);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
 
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadTrasladoDth'] == 'REALIZADA') {
+
+					$numeroOrden = $data['OrdenTrasladoDth']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataTrasladoDthRealizada = new PostventaTrasladoDth_Realizado($data);
 
@@ -964,6 +1480,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -1002,6 +1519,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenTrasladoObjDth']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -1017,6 +1559,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -1054,6 +1597,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenTrasladosDth']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 
 
 					// Agregamos el usuario actual como creador y atendedor del registro
@@ -1071,6 +1639,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -1114,16 +1683,40 @@ class PostventasController extends Controller
 					}
 				}
 
-				
-				// dd($data);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
 
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadAdicionHfc'] == 'REALIZADA') {
+					$numeroOrden = $data['NOrdenAdicionHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					
+					// dd($data);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataAdicionHfcRealizada = new PostventaAdicionHfc_Realizado($data);
 
@@ -1136,6 +1729,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -1174,6 +1768,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenAdicionObjHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+	
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+	
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -1189,6 +1808,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -1226,6 +1846,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['NOrdenAdicionAnuladaHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 
 
 					// Agregamos el usuario actual como creador y atendedor del registro
@@ -1243,6 +1888,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -1287,16 +1933,40 @@ class PostventasController extends Controller
 					}
 				}
 
-				
-				// dd($data);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
 
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadAdicionGpon'] == 'REALIZADA') {
+
+					$numeroOrden = $data['NOrdenAdicionGpon']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+	
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+	
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+	
+					// dd($data);
+	
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataAdicionGponRealizada = new PostventaAdicionGpon_Realizado($data);
 
@@ -1309,6 +1979,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -1347,6 +2018,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['NOrdenAdicionObjGpon']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+	
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+	
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -1362,6 +2058,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -1399,7 +2096,30 @@ class PostventasController extends Controller
 						}
 					}
 
-
+					$numeroOrden = $data['NOrdenAdicionAnuladaGpon']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+	
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+	
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -1416,6 +2136,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -1460,17 +2181,40 @@ class PostventasController extends Controller
 					}
 				}
 
-				
-				// dd($data);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
-
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadAdicionDth'] == 'REALIZADA') {
-                    // Incluimos los datos adicionales para la tecnología ADSL realizada
+
+					$numeroOrden = $data['NOrdenAdicionDth']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					// dd($data);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+						// Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataAdicionDthRealizada = new PostventaAdicionDth_Realizado($data);
 
                     // // Guardamos la instancia en la base de datos
@@ -1482,6 +2226,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -1520,6 +2265,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['NOrdenAdicionObjDth']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -1535,6 +2305,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -1572,6 +2343,30 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenAdicionAnulada_Dth']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 
 					// Agregamos el usuario actual como creador y atendedor del registro
@@ -1589,6 +2384,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -1629,17 +2425,41 @@ class PostventasController extends Controller
 						$data[$fieldName] = $value;
 					}
 				}
-
 				
 				// dd($data);
 
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
-
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadCambioHfc'] == 'REALIZADA') {
+
+					$numeroOrden = $data['NOrdenEquipoHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataCambioEquipoHfcRealizada = new PostventaCambioEquipoHfc_Realizado($data);
 
@@ -1652,6 +2472,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -1690,6 +2511,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['NordenObjEquipoHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -1705,6 +2551,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -1742,6 +2589,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenAnuladaEquipoHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 
 
 					// Agregamos el usuario actual como creador y atendedor del registro
@@ -1759,6 +2631,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -1800,16 +2673,40 @@ class PostventasController extends Controller
 					}
 				}
 
-				
 				// dd($data);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
 
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadCambioGpon'] == 'REALIZADA') {
+
+					$numeroOrden = $data['NOrdenEquipoGpon']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataCambioEquipoGponRealizada = new PostventaCambioEquipoGpon_Realizado($data);
 
@@ -1822,6 +2719,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -1860,6 +2758,32 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['NOrdenObjEquipoGpon']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -1875,6 +2799,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -1913,6 +2838,30 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenEquipoAnuladaGpon']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 
 					// Agregamos el usuario actual como creador y atendedor del registro
@@ -1930,6 +2879,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -1973,13 +2923,37 @@ class PostventasController extends Controller
 				
 				// dd($data);
 
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
-
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadCambioAdsl'] == 'REALIZADA') {
+
+					$numeroOrden = $data['OrdenEquipoAdsl']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataCambioEquipoAdslRealizada = new PostventaCambioEquipoAdslRealizado($data);
 
@@ -1992,6 +2966,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -2030,6 +3005,32 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenEquipoObjAdsl']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -2045,6 +3046,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -2082,6 +3084,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenAnuladaEquipoAdsl']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 
 
 					// Agregamos el usuario actual como creador y atendedor del registro
@@ -2099,6 +3126,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -2140,28 +3168,51 @@ class PostventasController extends Controller
 					}
 				}
 
-				
-				// dd($data);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
-
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadCambioDth'] == 'REALIZADA') {
+
+					$numeroOrden = $data['OrdenEquipoDth']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					// dd($data);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataCambioEquipoRealizada = new PostventaCambioEquipoDthRealizada($data);
 
                     // Guardamos la instancia en la base de datos
                     $dataCambioEquipoRealizada->save();
-
 					
 					$message = "¡EXITO!";
 					$messages = "REGISTRO REALIZADO COMPLETO";
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -2200,6 +3251,32 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenEquipoObjDth']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -2215,6 +3292,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -2252,7 +3330,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenEquipoAnulada_Dth']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
 
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -2269,6 +3371,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -2318,17 +3421,39 @@ class PostventasController extends Controller
 						$data[$fieldName] = $value;
 					}
 				}
-
-				
 				// dd($data);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
-
+				
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadMigracionHfc'] == 'REALIZADA') {
+
+					$numeroOrden = $data['NOrdenMigracionHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataMigracionRealizada = new PostventaMigracionRealizada($data);
 
@@ -2341,6 +3466,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -2379,6 +3505,32 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenMigracionHfcObj']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -2394,6 +3546,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -2431,7 +3584,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['NOrdenMigracionAnuladaHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
 
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+
+					 // Generamos un código único de 8 caracteres
+					 $data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -2448,6 +3625,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -2484,6 +3662,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenMigracionTranfHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+
+					 // Generamos un código único de 8 caracteres
+					 $data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 
 					// Agregamos el usuario actual como creador y atendedor del registro
@@ -2501,6 +3704,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -2545,13 +3749,39 @@ class PostventasController extends Controller
 				
 				// dd($data);
 
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
-
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadReconexionHfc'] == 'REALIZADA') {
+
+					$numeroOrden = $data['OrdenRetiroHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+					
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+					
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataRetiroRealizada = new PostventaRetiroHfcRealizada($data);
 
@@ -2564,6 +3794,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -2601,6 +3832,32 @@ class PostventasController extends Controller
 							$data[$fieldName] = $value;
 						}
 					}
+
+					$numeroOrden = $data['OrdenRetiroHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -2654,6 +3911,31 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenRetiroAnulacionHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 
 					// Agregamos el usuario actual como creador y atendedor del registro
@@ -2671,6 +3953,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
@@ -2715,16 +3998,41 @@ class PostventasController extends Controller
 						}
 					}
 	
-					
-					// dd($data);
-	
-					// Agregamos el usuario actual como creador y atendedor del registro
-					$data['username_creacion'] = Auth::user()->username;
-					$data['username_atencion'] = Auth::user()->username;
-	
 	
 					// Evaluamos si la tecnología ADSL fue realizada u objetada
 					if ($data['TipoActividadReconexionDth'] == 'REALIZADA') {
+
+						// dd($data);
+						$numeroOrden = $data['OrdenRetiroDth']; 
+							
+						$trabajadoFields = Tableconfig::getTrabajadoFields();
+						$tables = Tableconfig::getTables();
+
+						foreach ($tables as $table => $ordenField) {
+								if (array_key_exists($table, $trabajadoFields)) {
+									$trabajadoField = $trabajadoFields[$table];
+									$trabajadoRecord = DB::table($table)
+										->where($ordenField, $numeroOrden)
+										->where($trabajadoField, 'PENDIENTE')
+										->exists();
+
+									if ($trabajadoRecord) {
+										$message = '¡ERROR!';
+										$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+										return view('llamadashome/postventa', compact('message', 'messages'))
+											->with('page_title', 'Postventa - Registro')
+											->with('navigation', 'Postventa');
+									}
+								}
+						}
+							
+							// Generamos un código único de 8 caracteres
+						$data['codigoUnico'] = mt_rand(10000000, 99999999);
+		
+						// Agregamos el usuario actual como creador y atendedor del registro
+						$data['username_creacion'] = Auth::user()->username;
+						$data['username_atencion'] = Auth::user()->username;
+	
 						// Incluimos los datos adicionales para la tecnología ADSL realizada
 						$dataRetiroDthRealizada = new PostventaRetiroDthRealizada($data);
 	
@@ -2737,6 +4045,7 @@ class PostventasController extends Controller
 						return view('llamadashome/postventa')
 							->with('message', $message)
 							->with('messages', $messages)
+							->with('codigoUnico', $data['codigoUnico'])
 							->with('page_title', 'Postventas - Registro')
 							->with('navigation', 'postventa');
 	
@@ -2773,7 +4082,32 @@ class PostventasController extends Controller
 								$data[$fieldName] = $value;
 							}
 						}
-	
+
+						$numeroOrden = $data['OrdenRetiroAnulacionDth']; 
+							
+						$trabajadoFields = Tableconfig::getTrabajadoFields();
+						$tables = Tableconfig::getTables();
+
+						foreach ($tables as $table => $ordenField) {
+								if (array_key_exists($table, $trabajadoFields)) {
+									$trabajadoField = $trabajadoFields[$table];
+									$trabajadoRecord = DB::table($table)
+										->where($ordenField, $numeroOrden)
+										->where($trabajadoField, 'PENDIENTE')
+										->exists();
+
+									if ($trabajadoRecord) {
+										$message = '¡ERROR!';
+										$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+										return view('llamadashome/postventa', compact('message', 'messages'))
+											->with('page_title', 'Postventa - Registro')
+											->with('navigation', 'Postventa');
+									}
+								}
+						}
+							
+							// Generamos un código único de 8 caracteres
+						$data['codigoUnico'] = mt_rand(10000000, 99999999);
 	
 	
 						// Agregamos el usuario actual como creador y atendedor del registro
@@ -2791,6 +4125,7 @@ class PostventasController extends Controller
 						return view('llamadashome/postventa')
 							->with('message', $message)
 							->with('messages', $messages)
+							->with('codigoUnico', $data['codigoUnico'])
 							->with('page_title', 'Postventas - Registro')
 							->with('navigation', 'postventa');
 	
@@ -2814,6 +4149,7 @@ class PostventasController extends Controller
 					'TrabajadoCambioCobre',
 					'ObvsCambioCobre',
 					'RecibeCambioCobre',
+					'codigoUnico',
                 ];
 
 		
@@ -2834,13 +4170,39 @@ class PostventasController extends Controller
 				
 				// dd($data);
 
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
 
 
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadCambioNumeroCobre'] == 'REALIZADA') {
+					$numeroOrden = $data['OrdenCambioCobre']; 
+						
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+						
+						// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataCambioCobreRealizada = new PostventaCambioNumeroCobreRealizada($data);
 
@@ -2853,10 +4215,10 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'postventa');
 
-						
                 }elseif($data['TipoActividadCambioNumeroCobre'] == 'OBJETADA'){
 					$selectedFields = [
 						'codigo_tecnico',
@@ -2889,6 +4251,32 @@ class PostventasController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenObjCambioCobre']; 
+						
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								$trabajadoField = $trabajadoFields[$table];
+								$trabajadoRecord = DB::table($table)
+									->where($ordenField, $numeroOrden)
+									->where($trabajadoField, 'PENDIENTE')
+									->exists();
+
+								if ($trabajadoRecord) {
+									$message = '¡ERROR!';
+									$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+									return view('llamadashome/postventa', compact('message', 'messages'))
+										->with('page_title', 'Postventa - Registro')
+										->with('navigation', 'Postventa');
+								}
+							}
+					}
+						
+						// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -2904,6 +4292,7 @@ class PostventasController extends Controller
 					return view('llamadashome/postventa')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Postventas - Registro')
 						->with('navigation', 'Postventas');
 
@@ -2925,7 +4314,7 @@ class PostventasController extends Controller
 							'ComentarioAnuladaCambioCobre'
 						];
 
-					$data = [];
+						$data = [];
 
 						// Iteramos por los campos seleccionados del formulario
 						foreach ($selectedFields as $fieldName) {
@@ -2940,6 +4329,32 @@ class PostventasController extends Controller
 						}
 
 						// dd($data);
+
+						$numeroOrden = $data['OrdenAnuladaCambioCobre']; 
+						
+						$trabajadoFields = Tableconfig::getTrabajadoFields();
+						$tables = Tableconfig::getTables();
+
+						foreach ($tables as $table => $ordenField) {
+								if (array_key_exists($table, $trabajadoFields)) {
+									$trabajadoField = $trabajadoFields[$table];
+									$trabajadoRecord = DB::table($table)
+										->where($ordenField, $numeroOrden)
+										->where($trabajadoField, 'PENDIENTE')
+										->exists();
+
+									if ($trabajadoRecord) {
+										$message = '¡ERROR!';
+										$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+										return view('llamadashome/postventa', compact('message', 'messages'))
+											->with('page_title', 'Postventa - Registro')
+											->with('navigation', 'Postventa');
+									}
+								}
+						}
+							
+							// Generamos un código único de 8 caracteres
+						$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 
 						// Agregamos el usuario actual como creador y atendedor del registro
@@ -2957,6 +4372,7 @@ class PostventasController extends Controller
 						return view('llamadashome/postventa')
 							->with('message', $message)
 							->with('messages', $messages)
+							->with('codigoUnico', $data['codigoUnico'])
 							->with('page_title', 'Postventas - Registro')
 							->with('navigation', 'postventa');
 

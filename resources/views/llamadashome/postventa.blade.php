@@ -5359,16 +5359,24 @@
 
 @if(isset($message))
 <script>
+@if($message == '¡EXITO!')
 Swal.fire({
     icon: "success",
     title: "{{$message}}",
-    text: "{{$messages}}",
-    showConfirmButton: false,
-    timer: 1800,
+    html: "<h5>{{$messages}}</h5> <br> <h4>Código: <b>{{$codigoUnico}}</b></h4>",
+    showConfirmButton: true,
 });
-
-// window.location = window.location;
+@else
+Swal.fire({
+    icon: "error",
+    title: "{{$message}}",
+    html: "<h5>{{$messages}}</h5>",
+    showConfirmButton: true,
+    confirmButtonColor: '#363a39'
+});
+@endif
 </script>
+@endif
 
 
 <script>
@@ -5384,7 +5392,7 @@ function resetSelects() {
 
 
 
-@endif @endsection @section('styles')
+@endsection @section('styles')
 
 <!-- SweetAlert -->
 <link href="{{ asset('/plugins/CdnMigraciones/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />

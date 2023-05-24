@@ -23,5 +23,7 @@ class reparacionesGpon_Transferido extends Model
         'TrabajadoTransfGpon',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
+
     ];
 }

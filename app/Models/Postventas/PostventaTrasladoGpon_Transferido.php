@@ -26,5 +26,7 @@ class PostventaTrasladoGpon_Transferido extends Model
         'ComentTrasladoTransGpon',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

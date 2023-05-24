@@ -26,5 +26,7 @@ class PostventaCambioEquipoAdslRealizado extends Model
         'TrabajadoEquipoAdsl',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

@@ -28,5 +28,7 @@ class repacionesCobre_Realizado extends Model
         'TrabajadoReparacionCobre',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
+
     ];
 }

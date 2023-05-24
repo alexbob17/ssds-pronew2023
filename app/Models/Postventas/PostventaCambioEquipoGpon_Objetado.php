@@ -25,5 +25,7 @@ class PostventaCambioEquipoGpon_Objetado extends Model
         'ComentsEquipoObjGpon',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

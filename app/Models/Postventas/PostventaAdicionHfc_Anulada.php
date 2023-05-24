@@ -24,5 +24,7 @@ class PostventaAdicionHfc_Anulada extends Model
         'ComentarioAdicionAnulada_Hfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

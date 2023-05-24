@@ -24,6 +24,8 @@ class PostventaMigracionTransferida extends Model
 		'ComentsMigracionTransHfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 
 }

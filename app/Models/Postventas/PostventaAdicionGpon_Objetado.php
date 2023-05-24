@@ -25,5 +25,7 @@ class PostventaAdicionGpon_Objetado extends Model
         'ComentariosAdicionObjGpon',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

@@ -99,7 +99,6 @@
                             <option value="PENDIENTE POR CICLO DE FACTURACION">PENDIENTE POR CICLO DE FACTURACION
                             </option>
                             <option value="CLIENTE DESEA INTERNO-CONTRATA">CLIENTE DESEA INTERNO-CONTRATA</option>
-
                             <option value="OTROS">OTROS</option>
                         </select>
                     </div>
@@ -239,6 +238,27 @@ btn_clean.addEventListener("click", function() {
 </script>
 
 
+@if(isset($messageCodigo))
+<script>
+@if($messageCodigo == '¡EXITO!')
+Swal.fire({
+    icon: "success",
+    title: "{{$messageCodigo}}",
+    html: "<h5>{{$messagesCodigo}}</h5> <br> <h4>Código: <b>{{$codigoUnico}}</b></h4>",
+    showConfirmButton: true,
+});
+@else
+Swal.fire({
+    icon: "error",
+    title: "{{$messageCodigo}}",
+    html: "<h5>{{$messagesCodigo}}</h5>",
+    timer: 1700,
+}).then(function() {
+    window.location.href = "{{ route('consultas_buscar') }}";
+});
+@endif
+</script>
+@endif
 
 
 @if(isset($message))
@@ -264,6 +284,9 @@ Swal.fire({
 @endif
 </script>
 @endif
+
+
+
 
 @endsection @section('styles')
 

@@ -24,5 +24,7 @@ class PostventaTrasladoCobre_Anulada extends Model
         'ComentarioTrasladoAnulada_Cobre',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

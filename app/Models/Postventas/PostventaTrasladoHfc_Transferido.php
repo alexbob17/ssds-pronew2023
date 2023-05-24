@@ -26,5 +26,7 @@ class PostventaTrasladoHfc_Transferido extends Model
         'ComentarioTrasladoTransHfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

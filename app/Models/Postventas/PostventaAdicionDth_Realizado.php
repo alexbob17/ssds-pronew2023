@@ -29,5 +29,7 @@ class PostventaAdicionDth_Realizado extends Model
         'RecibeAdicionDth',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

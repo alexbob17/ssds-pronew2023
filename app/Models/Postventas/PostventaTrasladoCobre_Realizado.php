@@ -26,5 +26,7 @@ class PostventaTrasladoCobre_Realizado extends Model
         'RecibeTrasladoCobre',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

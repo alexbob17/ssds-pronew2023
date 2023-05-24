@@ -25,5 +25,7 @@ class PostventaRetiroHfcObjetada extends Model
 	    'ComentariosRetiroObjHfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

@@ -29,5 +29,7 @@ class PostventaAdicionGpon_Realizado extends Model
         'RecibeAdicionGpon',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

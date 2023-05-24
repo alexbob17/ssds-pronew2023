@@ -25,5 +25,7 @@ class PostventaCambioNumeroCobreRealizada extends Model
         'RecibeCambioCobre',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

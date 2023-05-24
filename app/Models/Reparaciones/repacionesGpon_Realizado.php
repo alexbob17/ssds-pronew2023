@@ -28,5 +28,7 @@ class repacionesGpon_Realizado extends Model
         'TrabajadoGpon',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
+
     ];
 }

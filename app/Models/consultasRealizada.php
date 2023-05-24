@@ -20,5 +20,6 @@ class consultasRealizada extends Model
         'ObvsConsulta',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

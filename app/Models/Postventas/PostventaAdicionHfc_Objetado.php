@@ -25,5 +25,7 @@ class PostventaAdicionHfc_Objetado extends Model
         'ComentariosObjAdicionHfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

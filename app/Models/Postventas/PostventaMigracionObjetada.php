@@ -25,5 +25,7 @@ class PostventaMigracionObjetada extends Model
 		'ObvsMigracionObjHfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

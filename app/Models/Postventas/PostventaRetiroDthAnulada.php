@@ -24,5 +24,7 @@ class PostventaRetiroDthAnulada extends Model
 	    'ComentsRetiroAnulada_Dth',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

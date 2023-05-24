@@ -36,5 +36,7 @@ class PostventaMigracionRealizada extends Model
         'MaterialesMigracionHfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

@@ -26,5 +26,7 @@ class PostventaTrasladoHfc_Anulado extends Model
         'ComenAnuladaTraslado_Hfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

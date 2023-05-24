@@ -30,5 +30,7 @@ class PostventaTrasladoGpon_Realizado extends Model
         'MaterialesTrasladoGpon',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

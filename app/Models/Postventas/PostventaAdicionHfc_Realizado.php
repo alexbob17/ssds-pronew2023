@@ -29,5 +29,7 @@ class PostventaAdicionHfc_Realizado extends Model
         'RecibeAdicionHfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

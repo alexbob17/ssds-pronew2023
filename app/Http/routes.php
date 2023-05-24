@@ -47,7 +47,11 @@ Route::group(['middleware' => ['web']], function () {
 		
 	Route::get('/tecnicos/registro', 'RegistroTecnicoController@LeerTecnicos')->name('mostrar_tecnicos')->middleware('auth');
 
-	Route::get('/llamadashome/consultas', 'ConsultasController@showConsultas')->name('mostrar_consultas')->middleware('auth');
+	// Route::get('/tecnicos/registro/{CODIGO}', 'RegistroTecnicoController@searchByCodigo')->name('search_tecnico')->middleware('auth');
+	Route::post('/tecnicos/registro', 'RegistroTecnicoController@BuscarTecnico')->name('tecnico_buscar')->middleware('auth');
+
+
+	// Route::get('/llamadashome/consultas', 'ConsultasController@showConsultas')->name('mostrar_consultas')->middleware('auth');
 	
 	Route::get('/llamadashome/consultas', 'ConsultasController@LeerDatos')->name('Leer_Consultas')->middleware('auth');
 
@@ -56,6 +60,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/llamadashome/agendamientos', 'LlamadasServicioController@showAgendamientos')->name('mostrar_motivos')->middleware('auth');
 
 	Route::get('/tecnicos/guardar', 'RegistroTecnicoController@showGuardar')->name('Tecnico_guardar')->middleware('auth');
+	
 
 	Route::get('/', 'DashboardController@countTables')->name('CountTables')->middleware('auth');
 

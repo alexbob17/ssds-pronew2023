@@ -22,5 +22,6 @@ class agendamientosRealizados extends Model
         'Recibe',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
     ];
 }

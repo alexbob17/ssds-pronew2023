@@ -23,5 +23,7 @@ class reparacionesGpon_Objetado extends Model
         'ComentariosObjGpon',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
+
     ];
 }

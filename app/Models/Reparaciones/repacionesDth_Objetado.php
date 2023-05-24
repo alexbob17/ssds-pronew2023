@@ -23,5 +23,6 @@ class repacionesDth_Objetado extends Model
         'ComentariosObjetadosDth',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

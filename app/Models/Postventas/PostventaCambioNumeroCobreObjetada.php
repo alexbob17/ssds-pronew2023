@@ -25,5 +25,7 @@ class PostventaCambioNumeroCobreObjetada extends Model
         'ComentariosCambioCobre',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

@@ -27,5 +27,7 @@ class PostventaTrasladoDth_Realizado extends Model
         'RecibeTrasladoDth',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

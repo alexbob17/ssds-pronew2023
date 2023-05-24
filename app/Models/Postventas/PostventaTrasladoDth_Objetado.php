@@ -25,5 +25,7 @@ class PostventaTrasladoDth_Objetado extends Model
         'ComentariosTrasladoObjDth',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

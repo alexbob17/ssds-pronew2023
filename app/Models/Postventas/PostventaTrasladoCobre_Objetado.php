@@ -25,5 +25,7 @@ class PostventaTrasladoCobre_Objetado extends Model
         'ComentariosObjTrasladoCobre',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

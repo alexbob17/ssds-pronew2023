@@ -24,5 +24,7 @@ class PostventaRetiroHfcAnulada extends Model
 		'ComentsRetiroAnulada_Hfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

@@ -24,5 +24,7 @@ class PostventaMigracionAnulada extends Model
         'ComentarioMigracionAnulada_Hfc',
         'username_creacion',
         'username_atencion',
+		'codigoUnico',
+
     ];
 }

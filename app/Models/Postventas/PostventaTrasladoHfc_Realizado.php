@@ -30,5 +30,7 @@ class PostventaTrasladoHfc_Realizado extends Model
         'MaterialesTrasladoHfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

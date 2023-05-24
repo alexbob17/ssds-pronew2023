@@ -23,5 +23,6 @@ class reparacionesHfc_Transferido extends Model
         'TrabajadoTransfHfc',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

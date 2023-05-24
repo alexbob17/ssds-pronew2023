@@ -27,5 +27,7 @@ class PostventaTrasladoHfc_Objetado extends Model
         'ComentariosObjTrasladoHfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

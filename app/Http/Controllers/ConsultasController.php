@@ -47,10 +47,15 @@ class ConsultasController extends Controller
 					'TipoMotivoConsulta',
 					'OrdenConsulta',
 					'ObvsConsulta',
+					'codigoUnico',
 				];
 	
 				$data = $request->only($selectedFields);
+
 	
+				// Generamos un código único de 8 caracteres
+				$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 				// Agregamos el usuario actual como creador y atendedor del registro
 				$data['username_creacion'] = Auth::user()->username;
 				$data['username_atencion'] = Auth::user()->username;
@@ -74,11 +79,12 @@ class ConsultasController extends Controller
 				$consultasRealizadas = consultasRealizada::where('codigo_tecnico', $codigo_tecnico)->where('created_at', 'like', $fecha_actual.'%')->get();
 
 				// Pasar los registros a la vista
-				$message = "¡EXITO!";
-				$messages = "REGISTRO CONSULTA COMPLETADO";
+				$messageCodigo = "¡EXITO!";
+				$messagesCodigo = "REGISTRO CONSULTA COMPLETADO";
 				return view('llamadashome/consultas', ['consultasRealizadas' => $consultasRealizadas])
-					->with('message', $message)
-					->with('messages', $messages)
+					->with('messageCodigo', $messageCodigo)
+					->with('messagesCodigo', $messagesCodigo)
+					->with('codigoUnico', $data['codigoUnico'])
 					->with('page_title', 'Consultas - Registro')
 					->with('navigation', 'Consultas');
 				break;
@@ -145,9 +151,12 @@ class ConsultasController extends Controller
 			$messages = "CONSULTA ENCONTRADA";
 			
 		}
+
+		// $data['codigoUnico'] = null;
 		return view('llamadashome/consultas', compact('consultasRealizadas'))
 			->with('message', $message)
 			->with('messages', $messages)
+			->with('codigoUnico', 'codigoUnico')
 			->with('page_title', 'Consultas - Registro')
 			->with('navigation', 'Consultas');
 	}

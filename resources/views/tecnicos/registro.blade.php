@@ -19,17 +19,35 @@
                             <!-- /.box-header -->
                             <!-- form start -->
 
+                            <form method="POST" action="{{ route('tecnico_buscar') }}">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                <input type="hidden" name="btn_reiniciar" id="btn_reiniciar" />
+
+
+                                <div class="form-group col-md-3" style>
+                                    <label for="codigo_tecnico"></label>
+                                    <div class="input-group" style="padding-top: 5px;">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-square"></i>
+                                        </div>
+                                        <input type="text" class="form-control effect-8" placeholder="N° Codigo Tecnico"
+                                            id="codigo_tecnico" name="codigo_tecnico"
+                                            oninput="this.value = this.value.toUpperCase()" required
+                                            autocomplete="off" />
+                                    </div>
+                                </div>
+                            </form>
 
                             <div class="box-body">
                                 <div class="form-group-container" style="position: relative;">
                                     <a href="{{ route('Tecnico_guardar') }}" class="btn btn-primary"
-                                        style="right:0px;position: absolute;">
+                                        style="right:0px;position: absolute;margin-top:-1rem!important">
                                         <i class="fa fa-user-plus"></i>
                                     </a>
 
-                                    <table id="TableTecnico" data-search="true" data-search-align="left"
-                                        data-toolbar="#toolbar" data-refresh="true" data-sortable="true"
-                                        class="table table-striped table-bordered">
+                                    <table id="TableTecnico" data-search-align="left" data-toolbar="#toolbar"
+                                        data-refresh="true" data-sortable="true"
+                                        class="table table-striped table-bordered" style="padding-bottom:2rem">
                                         <thead class="" style="color: #337ab7;height: 45px;">
                                             <tr>
                                                 <th data-sortable="true">Código Técnico</th>

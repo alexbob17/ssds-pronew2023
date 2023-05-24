@@ -26,5 +26,7 @@ class PostventaCambioEquipoDthRealizada extends Model
         'TrabajadoEquipoDth',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

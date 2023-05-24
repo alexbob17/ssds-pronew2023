@@ -26,5 +26,7 @@ class PostventaRetiroDthRealizada extends Model
 		'MaterialesRetiroDth',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

@@ -24,5 +24,7 @@ class PostventaCambioEquipoDthAnulada extends Model
         'ComentarioEquipoAnulada_Dth',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

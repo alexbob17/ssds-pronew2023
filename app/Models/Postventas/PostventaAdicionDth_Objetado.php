@@ -25,5 +25,7 @@ class PostventaAdicionDth_Objetado extends Model
         'ComentariosAdicionObjDth',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

@@ -127,6 +127,7 @@ class BusquedaController extends Controller
 				'postventaadiciondth_realizado' =>['NOrdenAdicionDth'],
 				'postventaadiciondth_objetado' =>['NOrdenAdicionObjDth'],
 				'postventaadiciondth_anulado' =>['OrdenAdicionAnulada_Dth'],
+				
 				'postventatrasladohfc_realizado' =>['OrdenTvTrasladoHfc','OrdenInternetTrasladoHfc','OrdenLineaTrasladoHfc'],
 				'postventatrasladohfc_objetado' =>['OrdenTvObjetadoTrasladoHfc','OrdenIntObjTrasladoHfc','OrdenLineaObjetadoTrasladoHfc'],
 				'postventatrasladohfc_anulada' =>['OrdenTvAnulTraslHfc','OrdenInterAnulTraslHfc','OrdenLineaAnulTraslHfc'],
@@ -141,8 +142,6 @@ class BusquedaController extends Controller
 				'postventatrasladocobre_realizado' =>['OrdenTrasladoCobre'],
 				'postventatrasladocobre_objetado' =>['OrdenTrasladoObjCobres'],
 				'postventatrasladocobre_anulada' =>['OrdenTrasladosCobre'],
-
-
 				'postventatrasladodth_realizada' =>['OrdenTrasladoDth'],
 				'postventatrasladodth_objetado' =>['OrdenTrasladoObjDth'],
 				'postventatrasladodth_anulada' =>['OrdenTrasladosDth'],
@@ -220,6 +219,7 @@ class BusquedaController extends Controller
 				'postventaadiciondth_realizado' =>['TrabajadoAdicionDth'],
 				'postventaadiciondth_objetado' =>['TrabajadoAdicionObjDth'],
 				'postventaadiciondth_anulado' =>['TrabajadoAdicionAnulada_Dth'],
+				
 				'postventatrasladohfc_realizado' =>['TrabajadoTrasladoHfc'],
 				'postventatrasladohfc_objetado' =>['TrabajadoObjTrasladoHfc'],
 				'postventatrasladohfc_anulada' =>['TrabajadoAnuladaTraslado_Hfc'],
@@ -234,7 +234,6 @@ class BusquedaController extends Controller
 				'postventatrasladocobre_realizado' =>['TrabajadoTrasladoCobre'],
 				'postventatrasladocobre_objetado' =>['TrabajadoTrasladoObjCobre'],
 				'postventatrasladocobre_anulada' =>['TrabajadoTrasladoAnulada_Cobre'],
-
 				'postventatrasladodth_realizada' =>['TrabajadoTrasladoDth'],
 				'postventatrasladodth_objetado' =>['TrabajadoTrasladoObj_Dth'],
 				'postventatrasladodth_anulada' =>['TrabajadoTrasladoAnulada_Dth'],

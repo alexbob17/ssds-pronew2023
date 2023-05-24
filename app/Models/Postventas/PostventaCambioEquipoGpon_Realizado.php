@@ -26,6 +26,8 @@ class PostventaCambioEquipoGpon_Realizado extends Model
         'TrabajadoEquipoGpon',
         'username_creacion',
         'username_atencion',
+		'codigoUnico',
+
     ];
 
 }

@@ -24,5 +24,7 @@ class PostventaCambioNumeroCobreAnulada extends Model
         'ComentarioAnuladaCambioCobre',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

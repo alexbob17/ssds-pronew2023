@@ -26,5 +26,7 @@ class PostventaCambioEquipoHfc_Realizado extends Model
         'TrabajadoEquipoHfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

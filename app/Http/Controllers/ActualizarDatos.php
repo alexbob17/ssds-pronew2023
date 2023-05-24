@@ -1342,8 +1342,6 @@ class ActualizarDatos extends Controller
         $tipo_actividadCobre = $request->input("tipo_actividadCobre");
         $tipo_actividadAdsl = $request->input("tipo_actividadAdsl");
 
-
-
         switch($tecnologia){
             case"HFC":
 
@@ -1977,7 +1975,7 @@ class ActualizarDatos extends Controller
                     ->withDelay(2);
                 }
              break;
-             case"COBRE":
+            case"COBRE":
 
                 if($tipo_actividadCobre === "REALIZADA"){
                     // Campos seleccionados del formulario
@@ -2140,7 +2138,7 @@ class ActualizarDatos extends Controller
                 }
              break;
 
-             case"ADSL":
+            case"ADSL":
 
                 if($tipo_actividadAdsl === "REALIZADA"){
                     // Campos seleccionados del formulario

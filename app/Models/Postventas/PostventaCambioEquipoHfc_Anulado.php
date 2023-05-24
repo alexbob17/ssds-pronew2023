@@ -25,5 +25,7 @@ class PostventaCambioEquipoHfc_Anulado extends Model
         'ComentarioAnuladaEquipoHfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

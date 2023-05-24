@@ -27,5 +27,7 @@ class PostventaTrasladoGpon_Objetado extends Model
         'ComentTrasladoObjGpon',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

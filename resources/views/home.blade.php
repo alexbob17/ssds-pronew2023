@@ -27,7 +27,7 @@
                         <div class="quick_activity_wrap">
                             <div class="single_quick_activity">
                                 <h4>Registros Consultas</h4>
-                                <h3><span class="counter">23</span> </h3>
+                                <h3><span class="counter">{{$consultasrealizada}}</span> </h3>
                                 <p>{{ \Carbon\Carbon::now()->formatLocalized('%B') }}</p>
                             </div>
                             <div class="single_quick_activity">
@@ -38,12 +38,12 @@
 
                             <div class="single_quick_activity">
                                 <h4>Registro Daños </h4>
-                                <h3><span class="counter">23</span> </h3>
+                                <h3><span class="counter">{{ $totalReparaciones }}</span> </h3>
                                 <p>{{ \Carbon\Carbon::now()->formatLocalized('%B') }}</p>
                             </div>
                             <div class="single_quick_activity">
                                 <h4>Registro Postventas </h4>
-                                <h3><span class="counter">23</span> </h3>
+                                <h3><span class="counter">{{ $totalPostventa }}</span> </h3>
                                 <p>{{ \Carbon\Carbon::now()->formatLocalized('%B') }}</p>
                             </div>
 

@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <option value="OPEN">OPEN</option>
       <option value="SYREM">SYREM</option>
       <option value="ETA">ETA</option>
-      <option value="OTRO">OTRO</option>
+      <option value="OTROS">OTROS</option>
       `;
       TipoMotivoConsulta.disabled = false;
     } else if (MotivoConsulta.value === "CONTACTAR A CLIENTE") {
@@ -176,12 +176,13 @@ document.addEventListener("DOMContentLoaded", function () {
       TipoMotivoConsulta.innerHTML = `
       <option value="">SELECCIONE UNA OPCION</option>`;
       TipoMotivoConsulta.disabled = true;
+    } else if (MotivoConsulta.value === "OTROS") {
+      TipoMotivoConsulta.innerHTML = `
+      <option value="">SELECCIONE UNA OPCION</option>`;
+      TipoMotivoConsulta.disabled = true;
     } else {
       TipoMotivoConsulta.innerHTML = `
     <option value="">SELECCIONE UNA OPCION</option>`;
-      MotivoConsulta.innerHTML = `
-    <option value="">SELECCIONE UNA OPCION</option>`;
-      TipoMotivoConsulta.disabled = false;
     }
   });
 });

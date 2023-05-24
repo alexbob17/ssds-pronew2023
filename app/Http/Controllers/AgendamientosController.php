@@ -32,9 +32,13 @@ class AgendamientosController extends Controller
                     'Recibe',
                     'username_creacion',
                     'username_atencion',
+                    'codigoUnico',
 				];
 	
 				$data = $request->only($selectedFields);
+
+                 // Generamos un código único de 8 caracteres
+			 	$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
                 // Agregamos el usuario actual como creador y atendedor del registro
                 $data['username_creacion'] = Auth::user()->username;
@@ -55,6 +59,7 @@ class AgendamientosController extends Controller
 				return view('llamadashome/agendamientos')
 					->with('message', $message)
 					->with('messages', $messages)
+                    ->with('codigoUnico', $data['codigoUnico'])
 					->with('page_title', 'Agendamientos - Registro')
 					->with('navigation', 'Agendamientos');
 	

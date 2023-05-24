@@ -23,5 +23,7 @@ class repacionesDth_Transferido extends Model
         'TrabajadoTransferidoDth',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
+
     ];
 }

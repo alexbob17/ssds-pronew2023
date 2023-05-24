@@ -39,8 +39,9 @@ use SSD\Models\Reparaciones\reparacionesHfc_Objetado;
 
 use SSD\Models\Reparaciones\reparacionesHfc_Transferido;
 
+use SSD\Tableconfig;
 
-
+use Illuminate\Support\Facades\DB;
 
 
 class ReparacionesController extends Controller
@@ -91,17 +92,39 @@ class ReparacionesController extends Controller
 						$data[$fieldName] = $value;
 					}
 				}
-
-				
-				// dd($data);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
-
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadReparacionHfc'] == 'REALIZADA') {
+
+					// dd($data);
+					$numeroOrden = $data['OrdenHfc']; 
+								
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataReparacionHfcRealizada = new reparacionesHfc_Realizado($data);
 
@@ -114,6 +137,7 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'reparaciones');
 
@@ -150,6 +174,32 @@ class ReparacionesController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenObjHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+
+					 // Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -165,6 +215,7 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'Reparaciones');
 
@@ -201,7 +252,31 @@ class ReparacionesController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenTransfHfc']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
 
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+
+					 // Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -218,6 +293,7 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'reparaciones');
 
@@ -259,17 +335,41 @@ class ReparacionesController extends Controller
 						$data[$fieldName] = $value;
 					}
 				}
-
 				
 				// dd($data);
 
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
-
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadReparacionGpon'] == 'REALIZADA') {
+					
+					$numeroOrden = $data['OrdenRealizadoGpon']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+					
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataReparacionGponRealizada = new repacionesGpon_Realizado($data);
 
@@ -282,9 +382,9 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'reparaciones');
-
 						
                 }elseif($data['TipoActividadReparacionGpon'] == 'OBJETADA'){
 					$selectedFields = [
@@ -318,6 +418,32 @@ class ReparacionesController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenObjGpon']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+
+					 // Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -333,6 +459,7 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'Reparaciones');
 
@@ -369,6 +496,31 @@ class ReparacionesController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenTransGpon']; 
+							
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+
+					 // Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 
 					// Agregamos el usuario actual como creador y atendedor del registro
@@ -386,9 +538,9 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'reparaciones');
-
 				}
                 break;
             case 'ADSL':
@@ -428,16 +580,37 @@ class ReparacionesController extends Controller
 					}
 				}
 
-				
-				// dd($data);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
-
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadReparacionAdsl'] == 'REALIZADA') {
+
+							// dd($data);
+					$numeroOrden = $data['OrdenAdslRealizado'];
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataReparacionAdslRealizada = new repacionesAdsl_Realizado($data);
 
@@ -450,6 +623,7 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'reparaciones');
 
@@ -486,6 +660,30 @@ class ReparacionesController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenObjAdsl'];
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+    				$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+					
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -501,6 +699,7 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'Reparaciones');
 
@@ -537,8 +736,29 @@ class ReparacionesController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenTransferidoAdsl'];
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+    				$tables = Tableconfig::getTables();
 
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
 
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+					
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -554,6 +774,7 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'reparaciones');
 
@@ -595,18 +816,44 @@ class ReparacionesController extends Controller
 					}
 				}
 
-				
 				// dd($data);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
 
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadReparacionCobre'] == 'REALIZADA') {
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
+					$numeroOrden = $data['OrdenReparacionCobre']; 
+						
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+					
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataReparacionCobreRealizada = new repacionesCobre_Realizado($data);
+					
 
                     // // Guardamos la instancia en la base de datos
                     $dataReparacionCobreRealizada->save();
@@ -617,6 +864,7 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'reparaciones');
 
@@ -653,6 +901,32 @@ class ReparacionesController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenObjReparacionCobre']; 
+						
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+					
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -668,6 +942,7 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'Reparaciones');
 
@@ -704,6 +979,32 @@ class ReparacionesController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenTransfCobre']; 
+						
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+					
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
 
 
 					// Agregamos el usuario actual como creador y atendedor del registro
@@ -721,6 +1022,7 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'reparaciones');
 
@@ -762,17 +1064,40 @@ class ReparacionesController extends Controller
 						$data[$fieldName] = $value;
 					}
 				}
-
 				
 				// dd($data);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-
-
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['TipoActividadReparacionDth'] == 'REALIZADA') {
+
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
+
+					$numeroOrden = $data['OrdenDthRealizada']; 
+						
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTables();
+
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+					
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataReparacionDthRealizada = new repacionesDth_Realizado($data);
 
@@ -785,10 +1110,9 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
-						->with('navigation', 'reparaciones');
-
-						
+						->with('navigation', 'Reparaciones');
                 }elseif($data['TipoActividadReparacionDth'] == 'OBJETADA'){
 					$selectedFields = [
 						'codigo_tecnico',
@@ -821,6 +1145,35 @@ class ReparacionesController extends Controller
 						}
 					}
 
+					
+
+					$numeroOrden = $data['OrdenObjDth']; 
+					
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+    				$tables = Tableconfig::getTables();
+
+				    foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+
+
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
 					$data['username_atencion'] = Auth::user()->username;
@@ -836,6 +1189,7 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'Reparaciones');
 
@@ -872,7 +1226,32 @@ class ReparacionesController extends Controller
 						}
 					}
 
+					$numeroOrden = $data['OrdenTransferidoDth']; 
+					
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+    				$tables = Tableconfig::getTables();
 
+					foreach ($tables as $table => $ordenField) {
+						if (array_key_exists($table, $trabajadoFields)) {
+							$trabajadoField = $trabajadoFields[$table];
+							$trabajadoRecord = DB::table($table)
+								->where($ordenField, $numeroOrden)
+								->where($trabajadoField, 'PENDIENTE')
+								->exists();
+
+							if ($trabajadoRecord) {
+								$message = '¡ERROR!';
+								$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+								return view('llamadashome/reparaciones', compact('message', 'messages'))
+									->with('page_title', 'Reparaciones - Registro')
+									->with('navigation', 'Reparaciones');
+							}
+						}
+					}
+
+
+					// Generamos un código único de 8 caracteres
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -889,6 +1268,7 @@ class ReparacionesController extends Controller
 					return view('llamadashome/reparaciones')
 						->with('message', $message)
 						->with('messages', $messages)
+						->with('codigoUnico', $data['codigoUnico'])
 						->with('page_title', 'Reparaciones - Registro')
 						->with('navigation', 'reparaciones');
 

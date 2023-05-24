@@ -23,5 +23,7 @@ class repacionesCobre_Transferido extends Model
         'TrabajadoCobreTransferido',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
+
     ];
 }

@@ -28,5 +28,6 @@ class repacionesAdsl_Realizado extends Model
         'TrabajadoReparacionAdsl',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

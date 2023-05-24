@@ -25,5 +25,7 @@ class PostventaTrasladoAdsl_Anulada extends Model
         'ComentarioTrasladoAnulada_Adsl',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

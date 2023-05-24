@@ -124,6 +124,8 @@ class DashboardController extends Controller {
 		$mes = ucfirst(strftime('%B'));
 
 		
+		$consultasrealizada = DB::table('consultasrealizada')->where('created_at', 'like', $mes_actual.'%')->count();
+
 		$instalacionesRealizadasHfc = DB::table('instalacionhfc_realizada')->where('created_at', 'like', $mes_actual.'%')->count();
 		$instalacionesObjHfc = DB::table('instalacionhfc_objetada')->where('created_at', 'like', $mes_actual.'%')->count();
 		$instalacionesAnulHfc = DB::table('instalacionhfc_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
@@ -142,15 +144,98 @@ class DashboardController extends Controller {
 		$instalacionadsl_anulada = DB::table('instalacionadsl_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
 
 
+		$reparacionesadsl_objetado = DB::table('reparacionesadsl_objetado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$reparacionesadsl_realizado = DB::table('reparacionesadsl_realizado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$reparacionesadsl_transferido = DB::table('reparacionesadsl_transferido')->where('created_at', 'like', $mes_actual.'%')->count();
+		$reparacionescobre_objetado = DB::table('reparacionescobre_objetado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$reparacionescobre_realizado = DB::table('reparacionescobre_realizado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$reparacionescobre_transferido = DB::table('reparacionescobre_transferido')->where('created_at', 'like', $mes_actual.'%')->count();
+		$reparacionesgpon_realizado = DB::table('reparacionesgpon_realizado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$reparacionesgpon_transferido = DB::table('reparacionesgpon_transferido')->where('created_at', 'like', $mes_actual.'%')->count();
+		$reparacionesgpon_objetado = DB::table('reparacionesgpon_objetado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$reparacionesdth_realizado = DB::table('reparacionesdth_realizado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$reparacionesdth_objetado = DB::table('reparacionesdth_objetado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$reparacionesdth_transferido = DB::table('reparacionesdth_transferido')->where('created_at', 'like', $mes_actual.'%')->count();
+
+
+		$postventacambiocobre_realizada = DB::table('postventacambiocobre_realizada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventacambiocobre_objetada = DB::table('postventacambiocobre_objetada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventacambiocobre_anulada = DB::table('postventacambiocobre_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventaretirodth_anulada = DB::table('postventaretirodth_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventaretirodth_realizada = DB::table('postventaretirodth_realizada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventaretirohfc_anulada = DB::table('postventaretirohfc_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventamigracion_realizada = DB::table('postventamigracion_realizada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventamigracion_objetada = DB::table('postventamigracion_objetada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventamigracion_anulada = DB::table('postventamigracion_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventamigracion_transferida = DB::table('postventamigracion_transferida')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventacambioequipodth_realizado = DB::table('postventacambioequipodth_realizado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventacambioequipodth_objetado = DB::table('postventacambioequipodth_objetado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventacambioequipodth_anulada = DB::table('postventacambioequipodth_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventacambioequipoadsl_realizado = DB::table('postventacambioequipoadsl_realizado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventacambioequipoadsl_objetado = DB::table('postventacambioequipoadsl_objetado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventacambioequipoadsl_anulada = DB::table('postventacambioequipoadsl_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventacambioequipogpon_realizado = DB::table('postventacambioequipogpon_realizado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventacambioequipogpon_anulado = DB::table('postventacambioequipogpon_anulado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventacambioequipohfc_realizado = DB::table('postventacambioequipohfc_realizado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventacambioequipohfc_objetado = DB::table('postventacambioequipohfc_objetado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventacambioequipohfc_anulada = DB::table('postventacambioequipohfc_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventaadicionhfc_objetado = DB::table('postventaadicionhfc_objetado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventaadicionhfc_anulada = DB::table('postventaadicionhfc_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventaadiciongpon_realizada = DB::table('postventaadiciongpon_realizada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventaadiciongpon_objetada = DB::table('postventaadiciongpon_objetada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventaadiciongpon_anulada = DB::table('postventaadiciongpon_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventaadiciondth_realizado = DB::table('postventaadiciondth_realizado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventaadiciondth_objetado = DB::table('postventaadiciondth_objetado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventaadiciondth_anulado = DB::table('postventaadiciondth_anulado')->where('created_at', 'like', $mes_actual.'%')->count();
+
+		$postventatrasladohfc_realizado = DB::table('postventatrasladohfc_realizado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladohfc_objetado = DB::table('postventatrasladohfc_objetado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladohfc_anulada = DB::table('postventatrasladohfc_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladohfc_transferido = DB::table('postventatrasladohfc_transferido')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladogpon_realizado = DB::table('postventatrasladogpon_realizado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladogpon_objetado = DB::table('postventatrasladogpon_objetado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladogpon_anulado = DB::table('postventatrasladogpon_anulado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladogpon_transferido = DB::table('postventatrasladogpon_transferido')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladoadsl_realizada = DB::table('postventatrasladoadsl_realizada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladoadsl_objetada = DB::table('postventatrasladoadsl_objetada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladoadsl_anulada = DB::table('postventatrasladoadsl_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladocobre_realizado = DB::table('postventatrasladocobre_realizado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladocobre_objetado = DB::table('postventatrasladocobre_objetado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladocobre_anulada = DB::table('postventatrasladocobre_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladodth_realizada = DB::table('postventatrasladodth_realizada')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladodth_objetado = DB::table('postventatrasladodth_objetado')->where('created_at', 'like', $mes_actual.'%')->count();
+		$postventatrasladodth_anulada = DB::table('postventatrasladodth_anulada')->where('created_at', 'like', $mes_actual.'%')->count();
+
+
+
+		$totalReparaciones = $reparacionesadsl_objetado + $reparacionesadsl_realizado + $reparacionesadsl_transferido + $reparacionescobre_objetado
+		+$reparacionescobre_realizado + $reparacionescobre_transferido + $reparacionesgpon_realizado + $reparacionesgpon_transferido +  $reparacionesgpon_objetado
+		+$reparacionesdth_realizado + $reparacionesdth_objetado + $reparacionesdth_transferido;
+
 		$total = $instalacionesRealizadasHfc + $instalacionesObjHfc 
 		+ $instalacionesAnulHfc + $instalacionhfc_transferida + $instalaciongpon_objetada + $instalaciongpon_realizada 
-		+ $instalaciongpon_transferida + $instalaciongpon_transferida +$instalaciondth_realizada +$instalaciondth_objetada 
-		+$instalaciondth_anulada + $instalacioncobre_realizada + $instalacioncobre_objetado + $instalacioncobre_anulada 
-		+ $instalacionadsl_realizada + $instalacionadsl_objetada +$instalacionadsl_anulada;
+		+ $instalaciongpon_transferida +$instalaciondth_realizada +$instalaciondth_objetada + $instalaciondth_anulada + $instalacioncobre_realizada + $instalacioncobre_objetado + $instalacioncobre_anulada 
+		+ $instalacioncobre_anulada +$instalacionadsl_realizada + $instalacionadsl_objetada +$instalacionadsl_anulada;
 
+		$totalPostventa = $postventacambiocobre_realizada + $postventacambiocobre_objetada + $postventacambiocobre_anulada + $postventaretirodth_anulada  + $postventaretirodth_realizada
+		+$postventaretirohfc_anulada + $postventamigracion_realizada + $postventamigracion_objetada + $postventamigracion_anulada + $postventamigracion_transferida + $postventacambioequipodth_realizado
+		+$postventacambioequipodth_objetado + $postventacambioequipodth_anulada + $postventacambioequipoadsl_realizado + $postventacambioequipoadsl_objetado + $postventacambioequipoadsl_anulada
+		+$postventacambioequipogpon_realizado + $postventacambioequipogpon_anulado + $postventacambioequipohfc_realizado + $postventacambioequipohfc_objetado + $postventacambioequipohfc_anulada 
+		+$postventaadicionhfc_objetado + $postventaadicionhfc_anulada + $postventaadiciongpon_realizada + $postventaadiciongpon_objetada + $postventaadiciongpon_anulada + $postventaadiciondth_realizado + $postventaadiciondth_objetado
+		+$postventaadiciondth_anulado + $postventatrasladohfc_realizado + $postventatrasladohfc_objetado + $postventatrasladohfc_anulada + $postventatrasladohfc_transferido + $postventatrasladogpon_realizado
+		+$postventatrasladogpon_objetado + $postventatrasladogpon_anulado + $postventatrasladogpon_transferido + $postventatrasladoadsl_realizada + $postventatrasladoadsl_objetada + $postventatrasladoadsl_anulada
+		+$postventatrasladocobre_realizado + $postventatrasladocobre_objetado + $postventatrasladocobre_anulada + $postventatrasladodth_realizada + $postventatrasladodth_objetado 
+		+$postventatrasladodth_anulada;
+
+		$consultasrealizada;
 		// dd($total);
 
-		return view('home',compact('total'))
+		return view('home', [
+			'total' => $total,
+			'totalReparaciones' => $totalReparaciones,
+			'totalPostventa' => $totalPostventa,
+			'consultasrealizada' => $consultasrealizada,
+		])
 		->with('page_title', 'Dashboard - Inicio')
 		->with('navigation', 'Dashboard');
 

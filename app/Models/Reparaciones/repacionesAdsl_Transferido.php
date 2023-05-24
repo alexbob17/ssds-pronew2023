@@ -23,5 +23,6 @@ class repacionesAdsl_Transferido extends Model
         'ComentsTransferidoAdsl',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

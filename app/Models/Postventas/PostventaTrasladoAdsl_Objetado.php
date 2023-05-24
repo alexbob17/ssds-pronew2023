@@ -25,5 +25,7 @@ class PostventaTrasladoAdsl_Objetado extends Model
         'ComentariosTrasladosObjAdsl',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

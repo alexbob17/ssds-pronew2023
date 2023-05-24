@@ -28,5 +28,7 @@ class reparacionesHfc_Realizado extends Model
         'TrabajadoHfcRealizado',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
+
     ];
 }

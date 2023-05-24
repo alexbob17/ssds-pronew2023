@@ -26,13 +26,8 @@ use Carbon\Carbon;
 use PDO;
 
 
-
-
-
 class RegistroTecnicoController extends Controller
 {
-
-
 
     public function showGuardar()
 	{		
@@ -111,13 +106,9 @@ public function store(Request  $request)
 
 public function deleteRegistro(Request $request, $codigo)
 {
-
-    // dd($codigo);
     // Leer el contenido del archivo JSON
-
-    $jsonString = public_path('Json/CodigoTecnico.json');
-    $data = json_decode(file_get_contents($jsonPath), true);
-
+    $jsonString = file_get_contents(public_path('Json/CodigoTecnico.json'));
+    $data = json_decode($jsonString, true);
 
     // Buscar el registro que deseas eliminar en la matriz de datos resultante
     foreach ($data as $key => $registro) {
@@ -132,10 +123,9 @@ public function deleteRegistro(Request $request, $codigo)
     $jsonUpdated = json_encode($data);
 
     // Escribir el contenido actualizado en el archivo JSON
-    file_put_contents(storage_path('app/public/Json/RegistroTecnico.json'), $jsonUpdated);
+    file_put_contents(public_path('Json/CodigoTecnico.json'), $jsonUpdated);
 
     // Redireccionar a la página de visualización de registros
-
     if ($request->ajax()) {
         return response()->json([
             'success' => true,
@@ -149,6 +139,42 @@ public function deleteRegistro(Request $request, $codigo)
 }
 
 
+public function BuscarTecnico(Request $request) {
+    $codigo_tecnico = $request->input('codigo_tecnico');
+
+    // Obtener el valor de codigo_tecnico enviado por el formulario
+    $jsonPath = public_path('Json/CodigoTecnico.json');
+
+    // Leer el contenido del archivo JSON
+    $jsonString = file_get_contents($jsonPath);
+    $dataCodigo = json_decode($jsonString, true);
+
+    // Realizar la búsqueda por el campo "CODIGO"
+    $results = [];
+    foreach ($dataCodigo as $registro) {
+        if ($registro['CODIGO'] == $codigo_tecnico) {
+            $results[] = $registro;
+        }
+    }
+
+    // Asignar los resultados a la variable $data
+    $data = new LengthAwarePaginator(
+        $results,
+        count($results),
+        10,
+        1,
+        ['path' => $request->url(), 'query' => $request->query()]
+    );
+
+    // Retornar los resultados en JSON o en la vista según corresponda
+    if ($request->ajax()) {
+        return response()->json($results);
+    } else {
+        return view('tecnicos.registro', compact('results', 'data'))
+            ->with('page_title', 'Tecnicos')
+            ->with('navigation', 'Tecnicos');
+    }
+}
 
 
 
@@ -182,13 +208,6 @@ public function LeerTecnicos()
         ->with('queryParams', ['page' => $data->currentPage()]);
     
 }
-
-
-
-
-
-
-
 
     
  

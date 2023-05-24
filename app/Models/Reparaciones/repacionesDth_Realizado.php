@@ -28,5 +28,7 @@ class repacionesDth_Realizado extends Model
         'TrabajadoDth',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
+
     ];
 }

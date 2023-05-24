@@ -26,5 +26,7 @@ class PostventaTrasladoGpon_Anulado extends Model
         'ComentarioTrasladoAnulada_Gpon',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

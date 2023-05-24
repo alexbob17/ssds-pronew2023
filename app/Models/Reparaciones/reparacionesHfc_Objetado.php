@@ -23,5 +23,7 @@ class reparacionesHfc_Objetado extends Model
         'ComentariosObjetados_Hfc',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
+
     ];                                       
 }

@@ -53,7 +53,6 @@ use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Support\Facades\DB;
 
-
 use SSD\Tableconfig;
 
 
@@ -117,7 +116,7 @@ class LlamadasServicioController extends Controller
 
         // Evaluamos la tecnología seleccionada
         switch ($tecnologia) {
-            case 'HFC':
+            case 'HFC':		
 				$selectedFields = [
 					'codigo_tecnico',
 					'telefono',
@@ -149,11 +148,11 @@ class LlamadasServicioController extends Controller
 					'MaterialesHfc',
 					'username_creacion',
 					'username_atencion',
-                ];
+				];
 
-                $data = [];
+				$data = [];
 
-                // Iteramos por los campos seleccionados del formulario
+				// Iteramos por los campos seleccionados del formulario
 				foreach ($selectedFields as $fieldName) {
 					$value = $request->input($fieldName);
 					if ($fieldName === 'TrabajadoHfc' && $request->has('TrabajadoHfc')) {
@@ -164,68 +163,68 @@ class LlamadasServicioController extends Controller
 						$data[$fieldName] = $value;
 					}
 				}
-				// dd($data);
-
-				$numeroOrden = $data['orden_tv_hfc'];
-				$numeroOrden1 = $data['orden_internet_hfc'];
-				$numeroOrden2 = $data['orden_linea_hfc'];
-
-				$trabajadoFields = Tableconfig::getTrabajadoFields();
-				$tables = Tableconfig::getTablesAll();
-				$allFields = Tableconfig::getAllFields();
-				$numerosOrden = [$numeroOrden, $numeroOrden1, $numeroOrden2];
-				$existentes = [];
-
-				foreach ($tables as $table => $ordenFields) {
-						if (array_key_exists($table, $trabajadoFields)) {
-							foreach ($ordenFields as $ordenField) {
-								if (in_array($ordenField, $allFields)) {
-									$trabajadoField = $trabajadoFields[$table];
-									$existente = false;
-									
-									foreach ($numerosOrden as $numero) {
-										if (!is_null($numero)) {
-											$existente = DB::table($table)
-												->where($ordenField, $numero)
-												->where($trabajadoField, 'PENDIENTE')
-												->exists();
-
-											if ($existente) {
-												break;
-											}
-										}
-									}
-									
-									$existentes[$table][] = $existente;
-								}
-							}
-						}
-				}
-
-				$existePendiente = false;
-				foreach ($existentes as $table => $records) {
-						if (in_array(true, $records)) {
-							$existePendiente = true;
-							break;
-						}
-				}
-
-				if ($existePendiente) {
-						$message = '¡ERROR!';
-						$messages = 'BOLETA YA REGISTRADA PENDIENTE';
-						return view('llamadashome/instalaciones', compact('message', 'messages'))
-							->with('page_title', 'Instalaciones - Registro')
-							->with('navigation', 'Instalaciones');
-				}
-
-				$data['codigoUnico'] = mt_rand(10000000, 99999999);
-
-				// Agregamos el usuario actual como creador y atendedor del registro
-				$data['username_creacion'] = Auth::user()->username;
-				$data['username_atencion'] = Auth::user()->username;
-				
+				// dd($data);		
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['tipo_actividad'] == 'REALIZADA') {
+					
+	
+					$numeroOrden = $data['orden_tv_hfc'];
+					$numeroOrden1 = $data['orden_internet_hfc'];
+					$numeroOrden2 = $data['orden_linea_hfc'];
+	
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$tables = Tableconfig::getTablesAll();
+					$allFields = Tableconfig::getAllFields();
+					$numerosOrden = [$numeroOrden, $numeroOrden1, $numeroOrden2];
+					$existentes = [];
+	
+					foreach ($tables as $table => $ordenFields) {
+							if (array_key_exists($table, $trabajadoFields)) {
+								foreach ($ordenFields as $ordenField) {
+									if (in_array($ordenField, $allFields)) {
+										$trabajadoField = $trabajadoFields[$table];
+										$existente = false;
+										
+										foreach ($numerosOrden as $numero) {
+											if (!is_null($numero)) {
+												$existente = DB::table($table)
+													->where($ordenField, $numero)
+													->where($trabajadoField, 'PENDIENTE')
+													->exists();
+	
+												if ($existente) {
+													break;
+												}
+											}
+										}
+										
+										$existentes[$table][] = $existente;
+									}
+								}
+							}
+					}
+	
+					$existePendiente = false;
+					foreach ($existentes as $table => $records) {
+							if (in_array(true, $records)) {
+								$existePendiente = true;
+								break;
+							}
+					}
+	
+					if ($existePendiente) {
+							$message = '¡ERROR!';
+							$messages = 'BOLETA YA REGISTRADA PENDIENTE';
+							return view('llamadashome/instalaciones', compact('message', 'messages'))
+								->with('page_title', 'Instalaciones - Registro')
+								->with('navigation', 'Instalaciones');
+					}
+	
+					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+	
+					// Agregamos el usuario actual como creador y atendedor del registro
+					$data['username_creacion'] = Auth::user()->username;
+					$data['username_atencion'] = Auth::user()->username;
                     // Incluimos los datos adicionales para la tecnología ADSL realizada
                     $dataHfcRealizada = new InstalacionHfcRealizada($data);
 
@@ -552,6 +551,9 @@ class LlamadasServicioController extends Controller
 								->with('page_title', 'Instalaciones - Registro')
 								->with('navigation', 'Instalaciones');
 					}
+
+					 // Generamos un código único de 8 caracteres
+					 $data['codigoUnico'] = mt_rand(10000000, 99999999);
 
 					// Agregamos el usuario actual como creador y atendedor del registro
 					$data['username_creacion'] = Auth::user()->username;
@@ -1393,10 +1395,10 @@ class LlamadasServicioController extends Controller
 									->with('navigation', 'Instalaciones');
 							}
 						}
-					}
+				}
 					
 					// Generamos un código único de 8 caracteres
-					$data['codigoUnico'] = mt_rand(10000000, 99999999);
+				$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
                 // Evaluamos si la tecnología ADSL fue realizada u objetada
                 if ($data['tipo_actividadDth'] == 'REALIZADA') {
@@ -1531,8 +1533,7 @@ class LlamadasServicioController extends Controller
 					// dd($data);
 
 					$numeroOrden = $data['OrdenAnulada_Dth'];
-					
-   					$trabajadoFields = Tableconfig::getTrabajadoFields();
+					$trabajadoFields = Tableconfig::getTrabajadoFields();
     				$tables = Tableconfig::getTables();
 
 					foreach ($tables as $table => $ordenField) {
@@ -1553,7 +1554,7 @@ class LlamadasServicioController extends Controller
 						}
 					}
 
-					
+
 					// Generamos un código único de 8 caracteres
 					$data['codigoUnico'] = mt_rand(10000000, 99999999);
 
@@ -1568,8 +1569,6 @@ class LlamadasServicioController extends Controller
 
 					$message = "¡EXITO!";
 					$messages = "REGISTRO DTH ANULACION COMPLETADO";
-
-					
                     return view('llamadashome/instalaciones')
 						->with('message', $message)
 						->with('messages', $messages)

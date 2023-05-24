@@ -23,5 +23,7 @@ class repacionesCobre_Objetado extends Model
         'ComentariosObjetados_Cobre',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
+
     ];
 }

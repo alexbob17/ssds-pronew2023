@@ -25,6 +25,8 @@ class PostventaCambioEquipoDthObjetado extends Model
         'ComentsEquipoObjDth',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 
 }

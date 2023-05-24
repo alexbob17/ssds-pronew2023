@@ -26,5 +26,7 @@ class PostventaTrasladoAdsl_Realizado extends Model
         'RecibeTrasladoAdsl',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

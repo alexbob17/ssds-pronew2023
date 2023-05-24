@@ -163,6 +163,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable=" true">CodigoUnico </th>
                             <th data-sortable=" true">Cod</th>
                             <th data-sortable=" true">Teléfono</th>
                             <th data-sortable=" true">Técnico</th>
@@ -173,12 +174,14 @@
                             <th data-sortable=" true">Observaciones</th>
                             <th data-sortable=" true">Usuario</th>
                             <th data-sortable=" true">Fecha </th>
+
                         </thead>
                         <tbody>
                             <!-- <div id="resultados"></div> -->
 
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -217,6 +220,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Codigo Unico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -233,6 +237,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -272,6 +277,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -290,6 +296,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -331,6 +338,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">Codigo Unico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -349,6 +357,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -390,6 +399,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -409,6 +419,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -451,6 +462,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -468,6 +480,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -509,6 +522,7 @@
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
                             <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
                             <th data-sortable="true">Motivo Llamada</th>
@@ -526,6 +540,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -567,6 +582,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -585,6 +601,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -626,6 +643,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -646,6 +664,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -690,6 +709,7 @@
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
                             <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
                             <th data-sortable="true">Motivo Llamada</th>
@@ -706,6 +726,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -746,6 +767,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -764,6 +786,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnicos }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -806,6 +829,7 @@
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
                             <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
                             <th data-sortable="true">Motivo Llamada</th>
@@ -823,6 +847,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -864,6 +889,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -882,6 +908,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -921,6 +948,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -938,6 +966,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -978,6 +1007,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -996,6 +1026,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1037,6 +1068,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1057,6 +1089,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1100,6 +1133,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1120,6 +1154,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1163,6 +1198,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1184,6 +1220,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1227,6 +1264,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1246,6 +1284,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1288,6 +1327,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1308,6 +1348,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1351,6 +1392,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1371,6 +1413,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1414,6 +1457,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1434,6 +1478,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1477,6 +1522,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1498,6 +1544,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1542,6 +1589,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1560,6 +1608,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1601,6 +1650,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1620,6 +1670,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1662,6 +1713,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1681,6 +1733,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1723,6 +1776,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1743,6 +1797,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1784,6 +1839,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1804,6 +1860,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1846,6 +1903,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1866,6 +1924,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1907,6 +1966,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1926,6 +1986,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -1966,6 +2027,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -1983,6 +2045,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2022,6 +2085,7 @@
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
                             <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
                             <th data-sortable="true">Motivo Llamada</th>
@@ -2039,6 +2103,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2078,6 +2143,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2100,6 +2166,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2143,6 +2210,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2160,6 +2228,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2201,7 +2270,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
-                            <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
                             <th data-sortable="true">Motivo Llamada</th>
@@ -2218,7 +2287,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
-                                <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
                                 <td>{{ $resultado->motivo_llamada }}</td>
@@ -2258,6 +2327,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2275,6 +2345,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2313,6 +2384,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2331,6 +2403,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2370,6 +2443,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2392,6 +2466,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2436,6 +2511,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2453,6 +2529,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2492,6 +2569,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2509,6 +2587,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2548,6 +2627,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2566,6 +2646,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2605,6 +2686,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2627,6 +2709,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2671,6 +2754,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2688,6 +2772,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2727,6 +2812,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2744,6 +2830,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2782,6 +2869,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2800,6 +2888,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2839,6 +2928,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2861,6 +2951,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2905,6 +2996,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2922,6 +3014,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -2961,6 +3054,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -2978,6 +3072,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3016,6 +3111,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3034,6 +3130,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3073,6 +3170,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3095,6 +3193,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3139,6 +3238,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3156,6 +3256,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3195,6 +3296,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3217,6 +3319,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3262,6 +3365,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3280,6 +3384,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3320,6 +3425,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3337,6 +3443,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3376,6 +3483,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3393,6 +3501,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3434,6 +3543,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3452,6 +3562,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3494,6 +3605,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3512,6 +3624,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3554,6 +3667,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3573,6 +3687,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3617,6 +3732,7 @@
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
                             <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
                             <th data-sortable="true">Motivo Llamada</th>
@@ -3633,6 +3749,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3674,6 +3791,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3692,6 +3810,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3734,6 +3853,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3752,6 +3872,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3795,6 +3916,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3812,6 +3934,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3853,6 +3976,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3870,6 +3994,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -3912,6 +4037,7 @@
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
                             <th data-sortable="true">Cod</th>
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
                             <th data-sortable="true">Motivo Llamada</th>
@@ -3929,6 +4055,7 @@
                             @foreach($resultados as $resultado)
                             <tr>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
                                 <td>{{ $resultado->motivo_llamada }}</td>
@@ -3971,6 +4098,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -3988,6 +4116,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4030,6 +4159,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4047,6 +4177,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4089,6 +4220,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4106,6 +4238,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4148,6 +4281,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4165,6 +4299,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4207,6 +4342,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4226,6 +4362,7 @@
                             @foreach($resultados as $resultado)
                             <tr>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
                                 <td>{{ $resultado->motivo_llamada }}</td>
@@ -4267,6 +4404,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4285,6 +4423,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4327,6 +4466,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4345,6 +4485,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4387,6 +4528,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4406,6 +4548,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4449,6 +4592,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4467,6 +4611,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4509,6 +4654,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4527,6 +4673,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4569,6 +4716,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4587,6 +4735,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4629,6 +4778,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4649,6 +4799,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4693,6 +4844,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4710,6 +4862,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4751,6 +4904,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4769,6 +4923,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4811,6 +4966,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4829,6 +4985,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4871,6 +5028,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4891,6 +5049,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4935,6 +5094,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -4952,6 +5112,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -4991,6 +5152,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5009,6 +5171,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5051,6 +5214,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5069,6 +5233,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5111,6 +5276,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5131,6 +5297,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5175,6 +5342,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5192,6 +5360,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5231,6 +5400,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5249,6 +5419,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5291,6 +5462,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5309,6 +5481,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5351,6 +5524,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5371,6 +5545,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5415,6 +5590,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5432,6 +5608,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5473,6 +5650,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnicos</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5490,6 +5668,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5531,6 +5710,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5549,6 +5729,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5591,6 +5772,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5609,6 +5791,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5651,6 +5834,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5668,6 +5852,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5707,6 +5892,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5725,6 +5911,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5765,6 +5952,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5783,6 +5971,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5823,6 +6012,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5841,6 +6031,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5881,6 +6072,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5898,6 +6090,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5937,6 +6130,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -5955,6 +6149,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -5995,6 +6190,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6013,6 +6209,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6053,6 +6250,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6071,6 +6269,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6111,6 +6310,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6128,6 +6328,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6167,6 +6368,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6185,6 +6387,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6225,6 +6428,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6243,6 +6447,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6283,6 +6488,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6301,6 +6507,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6342,6 +6549,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6359,6 +6567,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6398,6 +6607,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6416,6 +6626,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6456,6 +6667,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6473,6 +6685,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6512,6 +6725,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6529,6 +6743,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6568,6 +6783,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6585,6 +6801,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6624,6 +6841,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6642,6 +6860,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6682,6 +6901,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6699,6 +6919,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6738,6 +6959,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6755,6 +6977,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6794,6 +7017,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6811,6 +7035,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6850,6 +7075,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6868,6 +7094,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6908,6 +7135,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6925,6 +7153,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -6964,6 +7193,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -6981,6 +7211,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7020,6 +7251,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7037,6 +7269,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7076,6 +7309,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7094,6 +7328,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7134,6 +7369,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7151,6 +7387,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7190,6 +7427,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7207,6 +7445,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7246,6 +7485,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7263,6 +7503,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7302,6 +7543,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7322,6 +7564,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7364,6 +7607,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7383,6 +7627,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7424,6 +7669,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7443,6 +7689,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7484,6 +7731,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7503,6 +7751,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7544,6 +7793,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7563,6 +7813,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnicos }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7604,6 +7855,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7624,6 +7876,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7666,6 +7919,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7685,6 +7939,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7726,6 +7981,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7745,6 +8001,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7786,6 +8043,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7805,6 +8063,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7846,6 +8105,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7865,6 +8125,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7906,6 +8167,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7925,6 +8187,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico }}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -7966,6 +8229,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -7985,6 +8249,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -8027,6 +8292,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -8046,6 +8312,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -8087,6 +8354,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -8106,6 +8374,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>
@@ -8148,6 +8417,7 @@
                             </caption>
                         </div>
                         <thead class="" style="color: #337ab7; height: 45px;">
+                            <th data-sortable="true">CodigoUnico</th>
                             <th data-sortable="true">Cod</th>
                             <th data-sortable="true">Teléfono</th>
                             <th data-sortable="true">Técnico</th>
@@ -8167,6 +8437,7 @@
                         <tbody>
                             @foreach($resultados as $resultado)
                             <tr>
+                                <td>{{ $resultado->codigoUnico}}</td>
                                 <td>{{ $resultado->codigo_tecnico }}</td>
                                 <td>{{ $resultado->telefono }}</td>
                                 <td>{{ $resultado->tecnico }}</td>

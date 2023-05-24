@@ -25,5 +25,7 @@ class PostventaCambioEquipoHfc_Objetado extends Model
         'ComentsEquipoObjHfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

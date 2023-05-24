@@ -26,5 +26,7 @@ class PostventaRetiroHfcRealizada extends Model
 		'MaterialesRetiroHfc',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

@@ -23,5 +23,6 @@ class repacionesAdsl_Objetado extends Model
         'ComentsObjAdsl',
         'username_creacion',
 		'username_atencion',
+        'codigoUnico',
     ];
 }

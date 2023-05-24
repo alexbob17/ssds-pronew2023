@@ -24,5 +24,7 @@ class PostventaCambioEquipoAdslAnulada extends Model
         'ComentsEquipoAnulada_Adsl',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }

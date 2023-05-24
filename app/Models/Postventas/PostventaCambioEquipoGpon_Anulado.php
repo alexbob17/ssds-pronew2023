@@ -24,5 +24,7 @@ class PostventaCambioEquipoGpon_Anulado extends Model
         'ComentarioEquipoAnulada_Gpon',
         'username_creacion',
 		'username_atencion',
+		'codigoUnico',
+
     ];
 }
